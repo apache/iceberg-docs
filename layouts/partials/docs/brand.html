@@ -1,0 +1,11 @@
+<h2 class="book-brand">
+  <a class="flex align-center" href="{{ cond (not .Site.Home.File) .Sites.First.Home.RelPermalink .Site.Home.RelPermalink }}">
+    {{- with .Site.Params.BookLogo -}}
+    <img src="{{ . | relURL }}" alt="Logo" />
+    {{- end -}}
+    <span>{{ .Site.Title }}</span>
+  </a>
+  <a href="../releases">
+    <img id="version-shield" src="https://img.shields.io/badge/version-{{ if eq $.Site.Params.versions.iceberg `latest` }}{{ $.Site.Params.latestVersions.iceberg }}{{ else if eq $.Site.Params.versions.iceberg `main` }}{{ $.Site.Params.latestVersions.iceberg }}{{ else if eq $.Site.Params.versions.iceberg `` }}{{ $.Site.Params.latestVersions.iceberg }}{{ else }}{{ $.Site.Params.versions.iceberg }}{{ end }}-blue" alt="" />
+  </a>
+</h2>

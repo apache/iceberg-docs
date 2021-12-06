@@ -1,0 +1,24 @@
+baseURL = ""  # This is populated by the github deploy workflow and is equal to "<domainName>/<version|latest>"
+languageCode = "en-us"
+title = "Apache Iceberg"
+theme= "hugo-book"
+
+[params]
+  BookLogo = "img/iceberg-logo-icon.png"
+  description = "The open table format for analytic datasets."
+  versions.iceberg = "" # This is populated by the github deploy workflow and is equal to the branch name
+  versions.nessie = "0.15.1"
+  latestVersions.iceberg = "0.12.1"  # This is used for the version badge on the "latest" site version
+
+[[params.social]]
+	title = "devlist"
+	icon = "envelope-o"
+	url = "mailto:dev-subscribe@iceberg.apache.org"
+[[params.social]]
+	title = "github"
+	icon = "github"
+	url = "https://github.com/apache/iceberg"
+[[params.social]]
+	title = "slack"
+	icon = "slack"
+	url = "https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg"

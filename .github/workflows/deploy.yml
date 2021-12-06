@@ -1,0 +1,52 @@
+name: github pages
+
+on: [push, pull_request]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Set output
+        id: vars
+        run: echo ::set-output name=branch_name::${GITHUB_REF#refs/*/}
+
+      - name: Set baseURL in config.toml
+        uses: ciiiii/toml-editor@1.0.0
+        with:
+          file: "config.toml"
+          key: "baseURL"
+          value: "https://samredai.github.io/iceberg-docs-prototype/${{ steps.vars.outputs.branch_name }}"
+
+      - name: Set params.version in config.toml
+        uses: ciiiii/toml-editor@1.0.0
+        with:
+          file: "config.toml"
+          key: "params.versions.iceberg"
+          value: "${{ steps.vars.outputs.branch_name }}"
+      
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: asf-site
+          destination_dir: ${{ steps.vars.outputs.branch_name }}
+
+      - name: Deploy redirect 🚀
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./redirect
+          publish_branch: asf-site
+          keep_files: true
