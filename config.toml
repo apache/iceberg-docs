@@ -12,7 +12,7 @@ theme= "hugo-book"
 
 [[params.social]]
   title = "Mailing Lists"
-  icon = "bullhorn"
+  icon = "envelope-o"
   url = "https://iceberg.apache.org/#community/#mailing-lists"
 [[params.social]]
   title = "github"
