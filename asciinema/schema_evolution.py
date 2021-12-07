@@ -23,8 +23,8 @@ sequence = [
         "Time taken: 0.671 seconds",
     ),
     (
-      "DESCRIBE TABLE nyc.taxis;",
-      """VendorID    string
+        "DESCRIBE TABLE nyc.taxis;",
+        """VendorID    string
 tpep_pickup_datetime    string
 tpep_dropoff_datetime    string
 passenger_count    string

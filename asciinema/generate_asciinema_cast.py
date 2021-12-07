@@ -61,7 +61,7 @@ class Cast:
             )
             for line in output.split("\n"):
                 cast += self.generate_cast_line(clock, line + VIDEO_NEW_LINE)
-        cast += self.generate_cast_line(clock+5, PS1)
+        cast += self.generate_cast_line(clock + 5, PS1)
         self.content = cast
         return self
 
