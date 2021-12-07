@@ -17,7 +17,7 @@ jobs:
         with:
           file: "config.toml"
           key: "baseURL"
-          value: "https://samredai.github.io/iceberg-docs-prototype/${{ steps.vars.outputs.branch_name }}"
+          value: "https://iceberg.apache.org/${{ steps.vars.outputs.branch_name }}"
 
       - name: Set params.version in config.toml
         uses: ciiiii/toml-editor@1.0.0
