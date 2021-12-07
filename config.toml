@@ -11,14 +11,14 @@ theme= "hugo-book"
   latestVersions.iceberg = "0.12.1"  # This is used for the version badge on the "latest" site version
 
 [[params.social]]
-	title = "devlist"
-	icon = "envelope-o"
-	url = "mailto:dev-subscribe@iceberg.apache.org"
+  title = "Mailing Lists"
+  icon = "bullhorn"
+  url = "https://iceberg.apache.org/#community/#mailing-lists"
 [[params.social]]
-	title = "github"
-	icon = "github"
-	url = "https://github.com/apache/iceberg"
+  title = "github"
+  icon = "github"
+  url = "https://github.com/apache/iceberg"
 [[params.social]]
-	title = "slack"
-	icon = "slack"
-	url = "https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg"
+  title = "slack"
+  icon = "slack"
+  url = "https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg"  
