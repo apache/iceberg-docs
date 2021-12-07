@@ -1,7 +1,7 @@
 # Apache Iceberg Documentation Site
 
 This repository contains the documentation for [Apache Iceberg](https://github.com/apache/iceberg).
-It's built with [Hugo](https://gohugo.io/) and hosted on GitHub pages.
+It's built with [Hugo](https://gohugo.io/) and hosted at https://iceberg.apache.org.
 
 To start the site locally, clone this repository and run the following.
 ```
