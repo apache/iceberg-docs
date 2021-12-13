@@ -1,0 +1,19 @@
+baseURL = "" # This is populated by the github deploy workflow and is equal to "<domainName>"
+languageCode = "en-us"
+title = "Apache Iceberg"
+
+[params]
+  description = "The open table format for analytic datasets."
+
+[[params.social]]
+  title = "Mailing Lists"
+  icon = "envelope-o"
+  rel_url = "mailing-lists"
+[[params.social]]
+  title = "github"
+  icon = "github"
+  url = "https://github.com/apache/iceberg"
+[[params.social]]
+  title = "slack"
+  icon = "slack"
+  url = "https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg"  
