@@ -74,7 +74,7 @@ To automatically clean metadata files, set `write.metadata.delete-after-commit.e
 | `write.metadata.delete-after-commit.enabled` | Whether to delete old metadata files after each table commit |
 | `write.metadata.previous-versions-max`       | The number of old metadata files to keep                     |
 
-See [table write properties](/configuration/#write-properties) for more details.
+See [table write properties](../configuration/#write-properties) for more details.
 
 ### Remove orphan files
 
