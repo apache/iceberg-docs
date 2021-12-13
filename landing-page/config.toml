@@ -6,9 +6,9 @@ title = "Apache Iceberg"
   description = "The open table format for analytic datasets."
 
 [[params.social]]
-  title = "Mailing Lists"
-  icon = "envelope-o"
-  rel_url = "mailing-lists"
+  title = "Community"
+  icon = "comments"
+  rel_url = "community"
 [[params.social]]
   title = "github"
   icon = "github"
