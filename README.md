@@ -44,8 +44,8 @@ named after the branch where the commit occured. This is performed by the `deplo
 yet exist in the `asf-site` branch, it will be created.
 
 #### Latest Docs
-In [./docs/redirect/index.html](./docs/redirect/index.html), a redirect meta tag exists to forward the `/docs` to
-`/docs/latest`.
+In [./docs/redirect/index.html](./docs/redirect/index.html), a redirect meta tag exists to forward the `/docs` 
+and `/latest` to `/docs/0.12.1`.
 
 # `asf-site` Branch Structure
 
@@ -53,13 +53,11 @@ The `asf-site` branch structure is the following:
 ```
 .
 ├── docs
-│   ├── latest
-│   │   └── <Full Docs Site @latest>
 │   ├── 0.12.1
-│   │   └── <Full Docs Site @0.12.1>
+│   │   └── <Full Docs Site @0.12.1 (also, `/latest` redirects here)>
 │   ├── 0.12.0
 │   │   └── <Full Docs Site @0.12.0>
-│   └── index.html  <-- Includes a redirect to latest
+│   └── index.html  <-- Includes a redirect to 0.12.1
 └── <Full Landing Page Site>
 ```
 
