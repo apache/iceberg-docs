@@ -12,8 +12,12 @@
     {{ range (where .Section.Pages "Params.bookhidden" "ne" true) }}
     {{ if .Params.bookExternalUrl }}
     <li
-      {{- if and (not .Page.Params.bookIconImage) (not .Page.Params.bookIconFa) .Params.BookFlatSection }} class="book-section-flat navigation-icon-pad"
+    {{- if and (not .Params.BookFlatSection) (not .Params.BookCollapseSection) }}
+    class="navigation-icon-pad"
+  {{- else if  .Params.BookFlatSection }}
       {{- else if .Params.BookFlatSection }} class="book-section-flat"
+      {{- else if .Params.BookCollapseSection }} class="book-section-collapsed"
+      {{- else if  (.Page.Params.BookExternalUrl) }} class=""
       {{- else }} class="navigation-icon-pad"
       {{ end -}}
     >
@@ -24,9 +28,12 @@
       </li>
       {{ else if .Params.bookUrlFromBaseURL }}
       <li
-        {{- if and (not .Page.Params.bookIconImage) (not .Page.Params.bookIconFa) .Params.BookFlatSection }} class="book-section-flat navigation-icon-pad"
-        {{- else if .Params.BookFlatSection }} class="book-section-flat"
-        {{- else }} class="navigation-icon-pad"
+        {{- if and (not .Params.BookFlatSection) (not .Params.BookCollapseSection) }}
+          class="navigation-icon-pad"
+        {{- else if  .Params.BookFlatSection }}
+          class="book-section-flat navigation-icon-pad"
+        {{- else if  .Params.BookCollapseSection }}
+          class="book-section-collapsed navigation-icon-pad"
         {{ end -}}
       >
           <a href="{{ .Page.Site.BaseURL }}/..{{ .Params.bookUrlFromBaseURL }}" target="_blank">
@@ -36,8 +43,9 @@
         </li>
       {{ else if .IsSection }}
         <li
-          {{- if and (not .Page.Params.bookIconImage) (not .Page.Params.bookIconFa) .Params.BookFlatSection }} class="book-section-flat navigation-icon-pad"
-          {{- else if .Params.BookFlatSection }} class="book-section-flat"
+          {{- if and (not .Page.Params.bookIconImage) (not .Page.Params.bookIconFa) }} class="book-section-flat navigation-icon-pad"
+          {{- else if .Params.BookFlatSection }} class="book-section-flats"
+          {{- else if .Params.BookCollapseSection }} class="book-section-collapsed"
           {{- else }} class="navigation-icon-pad"
           {{ end -}}
         >

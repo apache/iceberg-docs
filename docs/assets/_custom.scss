@@ -54,3 +54,25 @@ ul#book-search-results {
 ul#book-search-results li small {
   color: rgb(112, 128, 144);
 }
+
+.book-section-flat {
+  margin: $padding-16 * 1.2 0;
+  > a {
+    font-weight: normal;
+  }
+  > label {
+    font-weight: normal;
+  }
+}
+
+
+aside nav ul {
+  li {
+    margin: 0.5em 0;
+  }
+}
+
+
+.book-menu {
+  font-size: 0.8rem;
+}
