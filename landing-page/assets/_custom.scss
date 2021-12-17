@@ -36,3 +36,35 @@ li.navigation-icon-pad {
   height: 1.5em;
   width: unset;
 }
+
+#book-search-results {
+  position: absolute;
+}
+
+ul#book-search-results {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  float: left;
+  width: 100%;
+  background-color: white;
+  z-index: 10;
+}
+
+ul#book-search-results li small {
+  color: rgb(112, 128, 144);
+}
+
+.book-section-flat {
+  margin: $padding-16 * 1.2 0;
+}
+
+aside nav ul {
+  li {
+    margin: 0.5em 0;
+  }
+}
+
+.book-menu {
+  font-size: 0.8rem;
+}

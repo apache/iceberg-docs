@@ -2,34 +2,7 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
-                <ul class="list-inline">
-                    <li>
-                        <a class="page-scroll" href="#intro">Home</a>
-                    </li>
-                    <li class="footer-menu-divider">&sdot;</li>
-                    <li>
-                        <a class="page-scroll" href="{{ .Site.BaseURL }}/latest">Docs</a>
-                    </li>
-                    <li class="footer-menu-divider">&sdot;</li>
-                    <li>
-                        <a class="page-scroll" href="#services">Features</a>
-                    </li>
-                    {{ range where .Data.Pages "Section" "pricing" | first 1 }}
-                    <li class="footer-menu-divider">&sdot;</li>
-                    <li>
-                        <a class="page-scroll" href="#pricing">Pricing</a>
-                    </li>
-                    {{ end }}
-                    {{ if isset .Site.Params "social" }}
-                    <li class="footer-menu-divider">&sdot;</li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Community</a>
-                    </li>
-                    {{ end }}
-                </ul>
-                <p class="copyright text-muted small">Copyright &copy; {{ .Title }} All Rights Reserved</p>
-            </div>
+            <div class="col-md-8"></div>
             <div class="col-md-4 footer-creds">
 		Built with <a href="http://gohugo.io" target="_blank">Hugo</a> and the
 		<a href="https://github.com/crakjie/landing-page-hugo" target="_blank">landing-page-hugo</a>

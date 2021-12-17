@@ -16,10 +16,22 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="page-scroll" href="{{ .Site.BaseURL }}/latest">Docs</a>
+                    <a class="page-scroll" href="{{ .Site.BaseURL }}docs/latest/getting-started/">Spark</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#services">Features</a>
+                    <a class="page-scroll" href="{{ .Site.BaseURL }}docs/latest/flink/">Flink</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="{{ .Site.BaseURL }}docs/latest/releases/">Releases</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="{{ .Site.BaseURL }}docs/latest/roadmap/">Roadmap</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="{{ .Site.BaseURL }}docs/latest/community/">Community</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="{{ .Site.BaseURL }}docs/latest/blogs/">Blogs</a>
                 </li>
                 {{ range where .Data.Pages "Section" "pricing" | first 1 }}
                     <li>
@@ -27,9 +39,6 @@
                     </li>
                 {{ end }}
                 {{ if isset .Site.Params "social" }}
-                <li>
-                    <a class="page-scroll" href="#contact">Community</a>
-                </li>
                 {{ end }}
             </ul>
         </div>
