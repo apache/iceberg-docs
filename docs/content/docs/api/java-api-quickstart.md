@@ -32,7 +32,7 @@ Tables are created using either a [`Catalog`](../javadoc/master/index.html?org/a
 
 The Hive catalog connects to a Hive metastore to keep track of Iceberg tables.
 You can initialize a Hive catalog with a name and some properties.
-(see: [Catalog properties](https://iceberg.apache.org/configuration/#catalog-properties))
+(see: [Catalog properties](../configuration/#catalog-properties))
 
 **Note:** Currently, `setConf` is always required for hive catalogs, but this will change in the future.
 

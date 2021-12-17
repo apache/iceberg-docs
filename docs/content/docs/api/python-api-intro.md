@@ -24,7 +24,7 @@ aliases:
 
 # Iceberg Python API
 
-Much of the python api conforms to the java api. You can get more info about the java api [here](https://iceberg.apache.org/api/).
+Much of the python api conforms to the java api. You can get more info about the java api [here](../api).
 
 ## Catalog
 

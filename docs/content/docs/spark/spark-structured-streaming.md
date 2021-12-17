@@ -66,7 +66,7 @@ on Spark page to see how to create the Iceberg table.
 
 Iceberg requires the data to be sorted according to the partition spec per task (Spark partition) in prior to write
 against partitioned table. For batch queries you're encouraged to do explicit sort to fulfill the requirement
-(see [here](/spark-writes/#writing-to-partitioned-tables)), but the approach would bring additional latency as
+(see [here](../spark-writes/#writing-to-partitioned-tables)), but the approach would bring additional latency as
 repartition and sort are considered as heavy operations for streaming workload. To avoid additional latency, you can
 enable fanout writer to eliminate the requirement.
 
