@@ -2,7 +2,7 @@
 title: "License"
 weight: 100
 bookExternalUrl: https://www.apache.org/licenses/
-bookHidden: true
+bookIconFa: fa-external-link
 ---
 <!--
  - Licensed to the Apache Software Foundation (ASF) under one or more

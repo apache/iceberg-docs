@@ -1,6 +1,6 @@
 ---
 weight: 200
-title: "API"
+title: "Java API"
 url: api
 aliases:
     - "java/api"

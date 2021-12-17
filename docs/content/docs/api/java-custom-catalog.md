@@ -1,6 +1,6 @@
 ---
 weight: 300
-title: "Custom Catalog"
+title: "Java Custom Catalog"
 url: custom-catalog
 aliases:
     - "java/custom-catalog"

@@ -2,7 +2,7 @@
 title: "Security"
 weight: 200
 bookExternalUrl: https://www.apache.org/security/
-bookHidden: true
+bookIconFa: fa-external-link
 ---
 <!--
  - Licensed to the Apache Software Foundation (ASF) under one or more

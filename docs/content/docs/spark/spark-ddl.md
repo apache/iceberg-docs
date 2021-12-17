@@ -23,7 +23,7 @@ aliases:
 
 # Spark DDL
 
-To use Iceberg in Spark, first configure [Spark catalogs](/spark-configuration).
+To use Iceberg in Spark, first configure [Spark catalogs](../spark-configuration).
 
 Iceberg uses Apache Spark's DataSourceV2 API for data source and catalog implementations. Spark DSv2 is an evolving API with different levels of support in Spark versions. Spark 2.4 does not support SQL DDL.
 

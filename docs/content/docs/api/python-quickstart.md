@@ -1,6 +1,6 @@
 ---
 weight: 100
-title: "Quickstart"
+title: "Python Quickstart"
 url: python-quickstart
 aliases:
     - "python/quickstart"

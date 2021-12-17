@@ -1,6 +1,8 @@
 ---
-bookCollapseSection: true
-weight: 200
+title: "Latest"
+weight: 98
+bookUrlFromBaseURL: /latest
+bookIconFa: fa-external-link
 ---
 <!--
  - Licensed to the Apache Software Foundation (ASF) under one or more

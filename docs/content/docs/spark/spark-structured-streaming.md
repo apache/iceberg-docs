@@ -59,7 +59,7 @@ Iceberg supports `append` and `complete` output modes:
 * `append`: appends the rows of every micro-batch to the table
 * `complete`: replaces the table contents every micro-batch
 
-The table should be created in prior to start the streaming query. Refer [SQL create table](/spark-ddl/#create-table)
+The table should be created in prior to start the streaming query. Refer [SQL create table](../spark-ddl/#create-table)
 on Spark page to see how to create the Iceberg table.
 
 ### Writing against partitioned table

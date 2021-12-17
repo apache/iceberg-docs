@@ -2,6 +2,7 @@
 title: "0.12.0"
 weight: 100
 bookUrlFromBaseURL: /0.12.0
+bookIconFa: fa-external-link
 ---
 <!--
  - Licensed to the Apache Software Foundation (ASF) under one or more

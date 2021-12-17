@@ -23,7 +23,7 @@ aliases:
 # Maintenance
 
 {{< hint info >}}
-Maintenance operations require the `Table` instance. Please refer [Java API quickstart](/java-api-quickstart/#create-a-table) page to refer how to load an existing table.
+Maintenance operations require the `Table` instance. Please refer [Java API quickstart](../java-api-quickstart/#create-a-table) page to refer how to load an existing table.
 {{< /hint >}}
 ## Recommended Maintenance
 

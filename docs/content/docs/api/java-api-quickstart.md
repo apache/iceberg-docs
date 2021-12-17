@@ -1,6 +1,6 @@
 ---
 weight: 100
-title: "Quickstart"
+title: "Java Quickstart"
 url: java-api-quickstart
 aliases:
     - "java/quickstart"

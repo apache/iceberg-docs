@@ -2,7 +2,7 @@
 title: "Sponsors"
 weight: 300
 bookExternalUrl: https://www.apache.org/foundation/thanks.html
-bookHidden: true
+bookIconFa: fa-external-link
 ---
 <!--
  - Licensed to the Apache Software Foundation (ASF) under one or more

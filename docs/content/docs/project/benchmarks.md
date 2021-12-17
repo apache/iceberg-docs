@@ -1,5 +1,6 @@
 ---
 title: "Benchmarks"
+bookHidden: true
 url: benchmarks
 ---
 <!--
