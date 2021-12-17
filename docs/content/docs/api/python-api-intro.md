@@ -1,5 +1,5 @@
 ---
-weight: 200
+weight: 500
 title: "Python API"
 url: python-api-intro
 aliases:

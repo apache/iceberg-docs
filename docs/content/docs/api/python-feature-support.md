@@ -1,5 +1,5 @@
 ---
-weight: 300
+weight: 600
 title: "Python Feature Support"
 url: python-feature-support
 aliases:
