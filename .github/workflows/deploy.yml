@@ -82,6 +82,9 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
+      - name: Copy common files
+        run: ./docs/common/copy_to_docs.sh
+
       - name: Build
         run: cd docs && hugo --minify
 
