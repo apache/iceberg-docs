@@ -163,6 +163,7 @@ p.copyright {
 
 .top-navbar-logo {
     height: 20px;
+    vertical-align: top;
 }
 
 .footer-creds {
