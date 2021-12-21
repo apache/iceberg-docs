@@ -1,5 +1,5 @@
 ---
-title: "PrestoDB"
+title: "Presto"
 bookIconImage: ../img/prestodb-logo.png
 bookFlatSection: true
 weight: 420
