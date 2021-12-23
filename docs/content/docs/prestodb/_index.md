@@ -3,7 +3,7 @@ title: "Presto"
 bookIconImage: ../img/prestodb-logo.png
 bookFlatSection: true
 weight: 420
-bookExternalUrl: https://prestodb.io/docs/current/connector/iceberg.html
+bookExternalUrlNewWindow: https://prestodb.io/docs/current/connector/iceberg.html
 ---
 <!--
  - Licensed to the Apache Software Foundation (ASF) under one or more

@@ -1,7 +1,7 @@
 ---
 title: "License"
 weight: 100
-bookExternalUrl: https://www.apache.org/licenses/
+bookExternalUrlNewWindow: https://www.apache.org/licenses/
 bookIconFa: fa-external-link
 ---
 <!--

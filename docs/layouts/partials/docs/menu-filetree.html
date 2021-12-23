@@ -21,11 +21,27 @@
       {{- else }} class="navigation-icon-pad"
       {{ end -}}
     >
-        <a href="{{ .Params.bookExternalUrl }}" target="_blank">
+        <a href="{{ .Params.bookExternalUrl }}">
           {{ template "book-nav-item-logo-image" (dict "Page" .) }}
           {{.Title}}
         </a>
       </li>
+      {{ else if .Params.bookExternalUrlNewWindow }}
+      <li
+      {{- if and (not .Params.BookFlatSection) (not .Params.BookCollapseSection) }}
+      class="navigation-icon-pad"
+    {{- else if  .Params.BookFlatSection }}
+        {{- else if .Params.BookFlatSection }} class="book-section-flat"
+        {{- else if .Params.BookCollapseSection }} class="book-section-collapsed"
+        {{- else if  (.Page.Params.BookExternalUrl) }} class=""
+        {{- else }} class="navigation-icon-pad"
+        {{ end -}}
+      >
+          <a href="{{ .Params.bookExternalUrlNewWindow }}" target="_blank">
+            {{ template "book-nav-item-logo-image" (dict "Page" .) }}
+            {{.Title}}
+          </a>
+        </li>
       {{ else if .Params.bookUrlFromBaseURL }}
       <li
         {{- if and (not .Params.BookFlatSection) (not .Params.BookCollapseSection) }}
@@ -36,7 +52,7 @@
           class="book-section-collapsed navigation-icon-pad"
         {{ end -}}
       >
-          <a href="{{ .Page.Site.BaseURL }}/..{{ .Params.bookUrlFromBaseURL }}" target="_blank">
+          <a href="{{ .Page.Site.BaseURL }}/..{{ .Params.bookUrlFromBaseURL }}">
             {{ template "book-nav-item-logo-image" (dict "Page" .) }}
             {{.Title}}
           </a>

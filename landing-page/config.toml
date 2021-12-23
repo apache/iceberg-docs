@@ -4,6 +4,7 @@ title = "Apache Iceberg"
 
 [params]
   description = "The open table format for analytic datasets."
+  latestVersions.iceberg = "0.12.1"
 
 [[params.social]]
   title = "Community"

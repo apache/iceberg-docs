@@ -1,0 +1,13 @@
+{{ partial "head.html" . }}
+<head>
+    <link href="{{ .Site.BaseURL }}/css/markdown.css" rel="stylesheet">
+    <link href="{{ .Site.BaseURL }}/css/katex.min.css" rel="stylesheet">
+</head>
+{{ partial "header.html" . }}
+<body dir="{{ .Site.Language.LanguageDirection | default " ltr" }}">
+    <div class="markdown-body">
+        {{- .Content -}}
+    </div>
+</body>
+
+</html>
