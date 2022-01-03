@@ -1,7 +1,7 @@
 ---
 title: "Security"
 weight: 200
-bookExternalUrl: https://www.apache.org/security/
+bookExternalUrlNewWindow: https://www.apache.org/security/
 bookIconFa: fa-external-link
 ---
 <!--

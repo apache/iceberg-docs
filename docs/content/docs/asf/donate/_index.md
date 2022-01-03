@@ -1,7 +1,7 @@
 ---
 title: "Donate"
 weight: 400
-bookExternalUrl: https://www.apache.org/foundation/sponsorship.html
+bookExternalUrlNewWindow: https://www.apache.org/foundation/sponsorship.html
 bookIconFa: fa-external-link
 ---
 <!--

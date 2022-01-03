@@ -5,7 +5,7 @@
     {{- end -}}
     <span>{{ .Site.Title }}</span>
   </a>
-  <a href="{{ .Site.BaseURL }}/releases">
+  <a href="{{ .Site.BaseURL }}/../../releases">
     <img id="version-shield" src="https://img.shields.io/badge/version-{{ if eq $.Site.Params.versions.iceberg `latest` }}{{ $.Site.Params.latestVersions.iceberg }}{{ else if eq $.Site.Params.versions.iceberg `main` }}{{ $.Site.Params.latestVersions.iceberg }}{{ else if eq $.Site.Params.versions.iceberg `` }}{{ $.Site.Params.latestVersions.iceberg }}{{ else }}{{ $.Site.Params.versions.iceberg }}{{ end }}-blue" alt="" />
   </a>
 </h2>

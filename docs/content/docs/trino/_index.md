@@ -3,7 +3,7 @@ title: "Trino"
 bookIconImage: ../img/trino-logo.png
 bookFlatSection: true
 weight: 410
-bookExternalUrl: https://trino.io/docs/current/connector/iceberg.html
+bookExternalUrlNewWindow: https://trino.io/docs/current/connector/iceberg.html
 ---
 <!--
  - Licensed to the Apache Software Foundation (ASF) under one or more

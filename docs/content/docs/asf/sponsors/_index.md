@@ -1,7 +1,7 @@
 ---
 title: "Sponsors"
 weight: 300
-bookExternalUrl: https://www.apache.org/foundation/thanks.html
+bookExternalUrlNewWindow: https://www.apache.org/foundation/thanks.html
 bookIconFa: fa-external-link
 ---
 <!--
