@@ -21,11 +21,12 @@
 # https://cwiki.apache.org/confluence/display/INFRA/Git+-+.asf.yaml+features
 
 github:
-  description: "Apache Icebergi Documentation Site"
+  description: "Apache Iceberg Documentation Site"
   homepage: https://iceberg.apache.org/
   labels:
     - iceberg
     - apache
+    - docs
 
 notifications:
     commits:      commits@iceberg.apache.org
