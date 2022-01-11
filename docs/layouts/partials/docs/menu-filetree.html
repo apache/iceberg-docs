@@ -57,6 +57,36 @@
             {{.Title}}
           </a>
         </li>
+      {{ else if .Params.bookUrlFromBaseURL }}
+      <li
+        {{- if and (not .Params.BookFlatSection) (not .Params.BookCollapseSection) }}
+          class="navigation-icon-pad"
+        {{- else if  .Params.BookFlatSection }}
+          class="book-section-flat navigation-icon-pad"
+        {{- else if  .Params.BookCollapseSection }}
+          class="book-section-collapsed navigation-icon-pad"
+        {{ end -}}
+      >
+          <a href="{{ .Page.Site.BaseURL }}/..{{ .Params.bookUrlFromBaseURL }}">
+            {{ template "book-nav-item-logo-image" (dict "Page" .) }}
+            {{.Title}}
+          </a>
+        </li>
+        {{ else if .Params.javadocLink }}
+        <li
+          {{- if and (not .Params.BookFlatSection) (not .Params.BookCollapseSection) }}
+            class="navigation-icon-pad"
+          {{- else if  .Params.BookFlatSection }}
+            class="book-section-flat navigation-icon-pad"
+          {{- else if  .Params.BookCollapseSection }}
+            class="book-section-collapsed navigation-icon-pad"
+          {{ end -}}
+        >
+            <a href="{{ .Page.Site.BaseURL }}/../../javadocs/{{ .Page.Site.Params.versions.iceberg }}">
+              {{ template "book-nav-item-logo-image" (dict "Page" .) }}
+              {{.Title}}
+            </a>
+          </li>
       {{ else if .IsSection }}
         <li
           {{- if and (not .Page.Params.bookIconImage) (not .Page.Params.bookIconFa) }} class="book-section-flat navigation-icon-pad"
