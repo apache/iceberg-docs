@@ -26,7 +26,7 @@ aliases:
 
 ## Create a table
 
-Tables are created using either a [`Catalog`](../javadoc/master/index.html?org/apache/iceberg/catalog/Catalog.html) or an implementation of the [`Tables`](../javadoc/master/index.html?org/apache/iceberg/Tables.html) interface.
+Tables are created using either a [`Catalog`](../../../javadocs/{{% icebergVersion %}}/index.html?org/apache/iceberg/catalog/Catalog.html) or an implementation of the [`Tables`](../../../javadocs/{{% icebergVersion %}}/index.html?org/apache/iceberg/Tables.html) interface.
 
 ### Using a Hive catalog
 
@@ -194,4 +194,4 @@ PartitionSpec spec = PartitionSpec.builderFor(schema)
       .build();
 ```
 
-For more information on the different partition transforms that Iceberg offers, visit [this page](../spec#partitioning).
+For more information on the different partition transforms that Iceberg offers, visit [this page](../../../spec#partitioning).
