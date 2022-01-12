@@ -141,8 +141,8 @@ SET iceberg.catalog.glue.lock.table=myGlueLockTable;
 ### CREATE EXTERNAL TABLE
 
 The `CREATE EXTERNAL TABLE` command is used to overlay a Hive table "on top of" an existing Iceberg table. 
-Iceberg tables are created using either a [`Catalog`](../../../javadocs/{{% icebergVersion %}}/index.html?org/apache/iceberg/catalog/Catalog.html),
-or an implementation of the [`Tables`](../../../javadocs/{{% icebergVersion %}}/index.html?org/apache/iceberg/Tables.html) interface,
+Iceberg tables are created using either a [`Catalog`](../../../javadoc/{{% icebergVersion %}}/index.html?org/apache/iceberg/catalog/Catalog.html),
+or an implementation of the [`Tables`](../../../javadoc/{{% icebergVersion %}}/index.html?org/apache/iceberg/Tables.html) interface,
 and Hive needs to be configured accordingly to operate on these different types of table.
 
 #### Hive catalog tables

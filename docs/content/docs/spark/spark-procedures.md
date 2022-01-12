@@ -252,7 +252,7 @@ Rewrite manifests for a table to optimize scan planning.
 
 Data files in manifests are sorted by fields in the partition spec. This procedure runs in parallel using a Spark job.
 
-See the [`RewriteManifestsAction` Javadoc](../../../javadocs/{{% icebergVersion %}}/org/apache/iceberg/actions/RewriteManifestsAction.html)
+See the [`RewriteManifestsAction` Javadoc](../../../javadoc/{{% icebergVersion %}}/org/apache/iceberg/actions/RewriteManifestsAction.html)
 to see more configuration options.
 
 **Note** this procedure invalidates all cached Spark plans that reference the affected table.

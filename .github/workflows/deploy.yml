@@ -92,7 +92,7 @@ jobs:
           publish_dir: ./docs/public
           publish_branch: asf-site
           destination_dir: ./docs/${{ steps.vars.outputs.branch_name }}
-  deploy-javadocs:
+  deploy-javadoc:
     needs: deploy-docs
     if: github.ref != 'refs/heads/main'
     runs-on: ubuntu-20.04
@@ -107,7 +107,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./javadocs
+          publish_dir: ./javadoc
           publish_branch: asf-site
-          destination_dir: ./javadocs/${{ steps.vars.outputs.branch_name }}
+          destination_dir: ./javadoc/${{ steps.vars.outputs.branch_name }}
 

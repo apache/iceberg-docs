@@ -1,7 +1,7 @@
 # Hugo generated directories
 /public
 resources
-!javadocs/resources
+!javadoc/resources
 
 # Script Generated Asciinema Recordings
 asciinema/output

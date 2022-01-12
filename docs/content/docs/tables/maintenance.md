@@ -31,7 +31,7 @@ Maintenance operations require the `Table` instance. Please refer [Java API quic
 
 Each write to an Iceberg table creates a new _snapshot_, or version, of a table. Snapshots can be used for time-travel queries, or the table can be rolled back to any valid snapshot.
 
-Snapshots accumulate until they are expired by the [`expireSnapshots`](../../../javadocs/{{% icebergVersion %}}/org/apache/iceberg/Table.html#expireSnapshots--) operation. Regularly expiring snapshots is recommended to delete data files that are no longer needed, and to keep the size of table metadata small.
+Snapshots accumulate until they are expired by the [`expireSnapshots`](../../../javadoc/{{% icebergVersion %}}/org/apache/iceberg/Table.html#expireSnapshots--) operation. Regularly expiring snapshots is recommended to delete data files that are no longer needed, and to keep the size of table metadata small.
 
 This example expires snapshots that are older than 1 day:
 
@@ -43,7 +43,7 @@ table.expireSnapshots()
      .commit();
 ```
 
-See the [`ExpireSnapshots` Javadoc](../../../javadocs/{{% icebergVersion %}}/org/apache/iceberg/ExpireSnapshots.html) to see more configuration options.
+See the [`ExpireSnapshots` Javadoc](../../../javadoc/{{% icebergVersion %}}/org/apache/iceberg/ExpireSnapshots.html) to see more configuration options.
 
 There is also a Spark action that can run table expiration in parallel for large tables:
 
@@ -89,7 +89,7 @@ Actions.forTable(table)
     .execute();
 ```
 
-See the [RemoveOrphanFilesAction Javadoc](../../../javadocs/{{% icebergVersion %}}/org/apache/iceberg/actions/RemoveOrphanFilesAction.html) to see more configuration options.
+See the [RemoveOrphanFilesAction Javadoc](../../../javadoc/{{% icebergVersion %}}/org/apache/iceberg/actions/RemoveOrphanFilesAction.html) to see more configuration options.
 
 This action may take a long time to finish if you have lots of files in data and metadata directories. It is recommended to execute this periodically, but you may not need to execute this often.
 
@@ -126,7 +126,7 @@ Actions.forTable(table).rewriteDataFiles()
 
 The `files` metadata table is useful for inspecting data file sizes and determining when to compact partitons.
 
-See the [`RewriteDataFilesAction` Javadoc](../../../javadocs/{{% icebergVersion %}}/org/apache/iceberg/actions/RewriteDataFilesAction.html) to see more configuration options.
+See the [`RewriteDataFilesAction` Javadoc](../../../javadoc/{{% icebergVersion %}}/org/apache/iceberg/actions/RewriteDataFilesAction.html) to see more configuration options.
 
 ### Rewrite manifests
 
@@ -146,4 +146,4 @@ table.rewriteManifests()
     .commit();
 ```
 
-See the [`RewriteManifestsAction` Javadoc](../../../javadocs/{{% icebergVersion %}}/org/apache/iceberg/actions/RewriteManifestsAction.html) to see more configuration options.
+See the [`RewriteManifestsAction` Javadoc](../../../javadoc/{{% icebergVersion %}}/org/apache/iceberg/actions/RewriteManifestsAction.html) to see more configuration options.
