@@ -74,9 +74,9 @@
       const resultLocation = page.content.toLowerCase().indexOf(query.toLowerCase());
       return `<a href="${page.href}">...` +
       page.content.substring(resultLocation-extraLength, resultLocation) +
-      "<b>" +
+      "<b><mark>" +
       page.content.substring(resultLocation, resultLocation + query.length) +
-      "</b>" +
+      "</mark></b>" +
       page.content.substring(resultLocation + query.length, resultLocation + extraLength) +
       "..." +
       "</a>"
