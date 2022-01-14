@@ -24,10 +24,9 @@ It's built with [Hugo](https://gohugo.io/) and hosted at https://iceberg.apache.
 
 # Structure
 
-The Iceberg documentation site is actually constructed from two hugo sites. The first, is the landing page which is
-an entire site on it's own. The second, is the documentation site which contains the full Iceberg documentation.
-The landing page and documentation sites are completely self-contained in the `./landing-page` and `./docs` directories,
-respectively.
+The Iceberg documentation site is actually constructed from two hugo sites. The first, is the landing page. The second site, 
+is the documentation site which contains the full Iceberg documentation, including the javadocs. The landing page and
+documentation sites are completely self-contained in the `./landing-page` and `./docs` directories, respectively.
 
 # Landing Page Deployment
 
@@ -43,9 +42,12 @@ named after the branch where the commit occured. This is performed by the `deplo
 **except** `main`. A branch is maintained for each Iceberg version. If the job runs and the directory does not
 yet exist in the `asf-site` branch, it will be created.
 
+Additionally, the contents of the `javadocs` directory is deployed to a `javadocs/<branch_name>` directory in
+the `asf-site` branch.
+
 #### Latest Docs
-In [./docs/redirect/index.html](./docs/redirect/index.html), a redirect meta tag exists to forward the `/docs` 
-and `/latest` to `/docs/0.12.1`.
+In [./docs/redirect/index.html](./docs/redirect/index.html), a redirect meta tag exists to forward `/docs` 
+and `/latest` to `/docs/latest`.
 
 # `asf-site` Branch Structure
 
@@ -54,16 +56,24 @@ The `asf-site` branch structure is the following:
 .
 ├── docs
 │   ├── 0.12.1
-│   │   └── <Full Docs Site @0.12.1 (also, `/latest` redirects here)>
-│   ├── 0.12.0
-│   │   └── <Full Docs Site @0.12.0>
-│   └── index.html  <-- Includes a redirect to 0.12.1
+│   │   └── <Full Docs Site @0.12.1>
+│   ├── latest
+│   │   └── <Full Docs Site @latest>
+│   └── index.html  <-- Includes a redirect to 0.12.1 which is the latest version
+├── javadocs
+│   ├── 0.12.1
+│   │   └── <Full javadocs site @0.12.1>
+│   └── latest
+│       └── <Full javadocs Site @latest>
 └── <Full Landing Page Site>
 ```
 
-A non-`main` branch commit deploys the docs site **only** and creates a new directory in the
-`docs` directory.  A `main` branch commit deploys the landing page site **only** and overwrites
-the landing page site at the root of the `asf-site` branch.
+A non-`main` branch commit deploys the docs site into a new sub-directory in the
+`asf-site` branch's `docs` directory, as well as copies the javadocs directory into a new sub-directory
+in the `asf-site` branch's `javadocs` directory.
+
+A `main` branch commit deploys the landing page site **only** and overwrites the landing page site at
+the root of the `asf-site` branch.
 
 # Redirects
 
