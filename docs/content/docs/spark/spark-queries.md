@@ -244,7 +244,7 @@ SELECT * FROM prod.db.table.manifests
 ```
 
 Note: 
-1. Fields within `partition_summaries` column of the manifests table correspond to `field_summary` structs within [manifest list](../spec#manifest-lists), with the following order: 
+1. Fields within `partition_summaries` column of the manifests table correspond to `field_summary` structs within [manifest list](../../../spec#manifest-lists), with the following order: 
    - `contains_null`
    - `contains_nan`
    - `lower_bound`

@@ -24,7 +24,7 @@ aliases:
 
 # Getting Started
 
-The latest version of Iceberg is [{{% icebergVersion %}}](../releases).
+The latest version of Iceberg is [{{% icebergVersion %}}](../../../releases).
 
 Spark is currently the most feature-rich compute engine for Iceberg operations. 
 We recommend you to get started with Spark to understand Iceberg concepts and features with examples.

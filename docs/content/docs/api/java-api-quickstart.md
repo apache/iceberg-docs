@@ -194,4 +194,4 @@ PartitionSpec spec = PartitionSpec.builderFor(schema)
       .build();
 ```
 
-For more information on the different partition transforms that Iceberg offers, visit [this page](../spec#partitioning).
+For more information on the different partition transforms that Iceberg offers, visit [this page](../../../spec#partitioning).
