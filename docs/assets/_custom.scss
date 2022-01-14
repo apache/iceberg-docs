@@ -1,3 +1,9 @@
+body {
+  font-family: sans-serif, -apple-system, BlinkMacSystemFont, segoe ui, Helvetica, Arial, apple color emoji, segoe ui emoji;
+  font-size: 16px;
+  word-wrap: break-word;
+}
+
 .navigation-icon {
   width: 1.28571429em;
   max-height: 14px;
@@ -49,6 +55,9 @@ ul#book-search-results {
   width: 100%;
   background-color: white;
   z-index: 10;
+  a b mark {
+    background-color: #B8E1F3;
+  }
 }
 
 ul#book-search-results li small {
@@ -75,4 +84,9 @@ aside nav ul {
 
 .book-menu {
   font-size: 0.8rem;
+}
+
+.container {
+  max-width: $container-max-width + 20;
+  margin: 0 auto;
 }
