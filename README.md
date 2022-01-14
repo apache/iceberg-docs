@@ -25,7 +25,7 @@ It's built with [Hugo](https://gohugo.io/) and hosted at https://iceberg.apache.
 # Structure
 
 The Iceberg documentation site is actually constructed from two hugo sites. The first, is the landing page. The second site, 
-is the documentation site which contains the full Iceberg documentation, including the javadocs. The landing page and
+is the documentation site which contains the full Iceberg documentation, including the javadoc. The landing page and
 documentation sites are completely self-contained in the `./landing-page` and `./docs` directories, respectively.
 
 # Landing Page Deployment
@@ -42,7 +42,7 @@ named after the branch where the commit occured. This is performed by the `deplo
 **except** `main`. A branch is maintained for each Iceberg version. If the job runs and the directory does not
 yet exist in the `asf-site` branch, it will be created.
 
-Additionally, the contents of the `javadocs` directory is deployed to a `javadocs/<branch_name>` directory in
+Additionally, the contents of the `javadoc` directory is deployed to a `javadoc/<branch_name>` directory in
 the `asf-site` branch.
 
 #### Latest Docs
@@ -60,17 +60,17 @@ The `asf-site` branch structure is the following:
 │   ├── latest
 │   │   └── <Full Docs Site @latest>
 │   └── index.html  <-- Includes a redirect to 0.12.1 which is the latest version
-├── javadocs
+├── javadoc
 │   ├── 0.12.1
-│   │   └── <Full javadocs site @0.12.1>
+│   │   └── <Full javadoc site @0.12.1>
 │   └── latest
-│       └── <Full javadocs Site @latest>
+│       └── <Full javadoc Site @latest>
 └── <Full Landing Page Site>
 ```
 
 A non-`main` branch commit deploys the docs site into a new sub-directory in the
-`asf-site` branch's `docs` directory, as well as copies the javadocs directory into a new sub-directory
-in the `asf-site` branch's `javadocs` directory.
+`asf-site` branch's `docs` directory, as well as copies the javadoc directory into a new sub-directory
+in the `asf-site` branch's `javadoc` directory.
 
 A `main` branch commit deploys the landing page site **only** and overwrites the landing page site at
 the root of the `asf-site` branch.
