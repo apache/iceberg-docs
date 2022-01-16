@@ -1,0 +1,193 @@
+<!doctype html><html>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content>
+<meta name=author content>
+<base href=https://iceberg.apache.org/>
+<title>How To Release</title>
+<link href=https://iceberg.apache.org//css/bootstrap.css rel=stylesheet>
+<link href=https://iceberg.apache.org//css/landing-page.css rel=stylesheet>
+<link href=https://iceberg.apache.org//css/markdown.css rel=stylesheet>
+<link href=https://iceberg.apache.org//css/katex.min.css rel=stylesheet>
+<link rel=stylesheet href=https://iceberg.apache.org//css/pricing.css>
+<link href=https://iceberg.apache.org//font-awesome-4.7.0/css/font-awesome.min.css rel=stylesheet type=text/css>
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel=stylesheet type=text/css>
+<link rel=stylesheet type=text/css href=https://iceberg.apache.org//asciinema/asciinema-player.css>
+<script src=https://iceberg.apache.org//asciinema/asciinema-player.min.js></script>
+</head>
+<body>
+<head>
+<link href=https://iceberg.apache.org//css/markdown.css rel=stylesheet>
+<link href=https://iceberg.apache.org//css/katex.min.css rel=stylesheet>
+</head>
+<nav class="navbar navbar-default navbar-fixed-top" role=navigation>
+<div class=container>
+<div class="navbar-header page-scroll">
+<button type=button class=navbar-toggle data-toggle=collapse data-target=#bs-example-navbar-collapse-1>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class="page-scroll navbar-brand" href=#intro><img class=top-navbar-logo src=https://iceberg.apache.org//img/iceberg-logo-icon.png> Apache Iceberg</a>
+</div>
+<div class="collapse navbar-collapse" id=bs-example-navbar-collapse-1>
+<ul class="nav navbar-nav navbar-right">
+<li>
+<a class=page-scroll href=https://iceberg.apache.org/docs/latest>Docs</a>
+</li>
+<li>
+<a class=page-scroll href=https://iceberg.apache.org/docs/latest/getting-started/>Spark</a>
+</li>
+<li>
+<a class=page-scroll href=https://iceberg.apache.org/docs/latest/flink/>Flink</a>
+</li>
+<li>
+<a class=page-scroll href=https://trino.io/docs/current/connector/iceberg.html target=_blank>Trino</a>
+</li>
+<li>
+<a class=page-scroll href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>Presto</a>
+</li>
+<li>
+<a class=page-scroll href=https://iceberg.apache.org/releases>Releases</a>
+</li>
+<li>
+<a class=page-scroll href=https://iceberg.apache.org/roadmap>Roadmap</a>
+</li>
+<li>
+<a class=page-scroll href=https://iceberg.apache.org/community>Community</a>
+</li>
+<li>
+<a class=page-scroll href=https://iceberg.apache.org/blogs>Blogs</a>
+</li>
+<li>
+<a class=page-scroll href=https://iceberg.apache.org/talks>Talks</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<div class=pad-for-navbar></div>
+<body dir=" ltr">
+<div class=markdown-body>
+<h2 id=setup>Setup</h2>
+<p>To create a release candidate, you will need:</p>
+<ul>
+<li>Apache LDAP credentals for Nexus and SVN</li>
+<li>A <a href=https://www.apache.org/dev/release-signing#generate>GPG key for signing</a>, published in <a href=https://dist.apache.org/repos/dist/dev/iceberg/KEYS>KEYS</a></li>
+</ul>
+<h3 id=nexus-access>Nexus access</h3>
+<p>Nexus credentials are configured in your personal <code>~/.gradle/gradle.properties</code> file using <code>mavenUser</code> and <code>mavenPassword</code>:</p>
+<pre tabindex=0><code>mavenUser=yourApacheID
+mavenPassword=SomePassword
+</code></pre><h3 id=pgp-signing>PGP signing</h3>
+<p>The release scripts use the command-line <code>gpg</code> utility so that signing can use the gpg-agent and does not require writing your private key&rsquo;s passphrase to a configuration file.</p>
+<p>To configure gradle to sign convenience binary artifacts, add the following settings to <code>~/.gradle/gradle.properties</code>:</p>
+<pre tabindex=0><code>signing.gnupg.keyName=Your Name (CODE SIGNING KEY)
+</code></pre><p>To use <code>gpg</code> instead of <code>gpg2</code>, also set <code>signing.gnupg.executable=gpg</code></p>
+<p>For more information, see the Gradle <a href=https://docs.gradle.org/current/userguide/signing_plugin.html#sec:signatory_credentials>signing documentation</a>.</p>
+<h2 id=creating-a-release-candidate>Creating a release candidate</h2>
+<h3 id=build-the-source-release>Build the source release</h3>
+<p>To create the source release artifacts, run the <code>source-release.sh</code> script with the release version and release candidate number:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>dev/source-release.sh 0.8.1 <span style=color:#ae81ff>0</span>
+</code></pre></div><pre tabindex=0><code>Preparing source for apache-iceberg-0.8.1-rc0
+...
+Success! The release candidate is available here:
+  https://dist.apache.org/repos/dist/dev/iceberg/apache-iceberg-0.8.1-rc0/
+
+Commit SHA1: 4b4716c76559b3cdf3487e6b60ab52950241989b
+</code></pre><p>The source release script will create a candidate tag based on the HEAD revision in git and will prepare the release tarball, signature, and checksum files. It will also upload the source artifacts to SVN.</p>
+<p>Note the commit SHA1 and candidate location because those will be added to the vote thread.</p>
+<p>Once the source release is ready, use it to stage convenience binary artifacts in Nexus.</p>
+<h3 id=build-and-stage-convenience-binaries>Build and stage convenience binaries</h3>
+<p>Convenience binaries are created using the source release tarball from in the last step.</p>
+<p>Untar the source release and go into the release directory:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>tar xzf apache-iceberg-0.8.1.tar.gz
+cd apache-iceberg-0.8.1
+</code></pre></div><p>To build and publish the convenience binaries, run the <code>dev/stage-binaries.sh</code> script. This will push to a release staging repository.</p>
+<pre tabindex=0><code>dev/stage-binaries.sh
+</code></pre><p>Next, you need to close the staging repository:</p>
+<ol>
+<li>Go to <a href=https://repository.apache.org/>Nexus</a> and log in</li>
+<li>In the menu on the left, choose &ldquo;Staging Repositories&rdquo;</li>
+<li>Select the Iceberg repository</li>
+<li>At the top, select &ldquo;Close&rdquo; and follow the instructions
+<ul>
+<li>In the comment field use &ldquo;Apache Iceberg &lt;version> RC&lt;num>&rdquo;</li>
+</ul>
+</li>
+</ol>
+<h3 id=start-a-vote-thread>Start a VOTE thread</h3>
+<p>The last step for a candidate is to create a VOTE thread on the dev mailing list.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Subject: [VOTE] Release Apache Iceberg &lt;VERSION&gt; RC&lt;NUM&gt;
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Hi everyone,
+
+I propose the following RC to be released as official Apache Iceberg &lt;VERSION&gt; release.
+
+The commit id is &lt;SHA1&gt;
+* This corresponds to the tag: apache-iceberg-&lt;VERSION&gt;-rc&lt;NUM&gt;
+* https://github.com/apache/iceberg/commits/apache-iceberg-&lt;VERSION&gt;-rc&lt;NUM&gt;
+* https://github.com/apache/iceberg/tree/&lt;SHA1&gt;
+
+The release tarball, signature, and checksums are here:
+* https://dist.apache.org/repos/dist/dev/iceberg/apache-iceberg-&lt;VERSION&gt;-rc&lt;NUM&gt;/
+
+You can find the KEYS file here:
+* https://dist.apache.org/repos/dist/dev/iceberg/KEYS
+
+Convenience binary artifacts are staged in Nexus. The Maven repository URL is:
+* https://repository.apache.org/content/repositories/orgapacheiceberg-&lt;ID&gt;/
+
+This release includes important changes that I should have summarized here, but I&#39;m lazy.
+
+Please download, verify, and test.
+
+Please vote in the next 72 hours.
+
+[ ] +1 Release this as Apache Iceberg &lt;VERSION&gt;
+[ ] +0
+[ ] -1 Do not release this because...
+</code></pre></div><p>When a candidate is passed or rejected, reply with the voting result:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Subject: [RESULT][VOTE] Release Apache Iceberg &lt;VERSION&gt; RC&lt;NUM&gt;
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Thanks everyone who participated in the vote for Release Apache Iceberg &lt;VERSION&gt; RC&lt;NUM&gt;.
+
+The vote result is:
+
++1: 3 (binding), 5 (non-binding)
++0: 0 (binding), 0 (non-binding)
+-1: 0 (binding), 0 (non-binding)
+
+Therefore, the release candidate is passed/rejected.
+</code></pre></div><h3 id=finishing-the-release>Finishing the release</h3>
+<p>After the release vote has passed, you need to release the last candidate&rsquo;s artifacts.</p>
+<p>First, copy the source release directory to releases:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>mkdir iceberg
+cd iceberg
+svn co https://dist.apache.org/repos/dist/dev/iceberg candidates
+svn co https://dist.apache.org/repos/dist/release/iceberg releases
+cp -r candidates/apache-iceberg-&lt;VERSION&gt;-rcN/ releases/apache-iceberg-&lt;VERSION&gt;
+cd releases
+svn add apache-iceberg-&lt;VERSION&gt;
+svn ci -m <span style=color:#e6db74>&#39;Iceberg: Add release &lt;VERSION&gt;&#39;</span>
+</code></pre></div><p>Next, add a release tag to the git repository based on the passing candidate tag:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>git tag -am <span style=color:#e6db74>&#39;Release Apache Iceberg &lt;VERSION&gt;&#39;</span> apache-iceberg-&lt;VERSION&gt; apache-iceberg-&lt;VERSION&gt;-rcN
+</code></pre></div><p>Then release the candidate repository in <a href=https://repository.apache.org/#stagingRepositories>Nexus</a>.</p>
+<p>To announce the release, wait until Maven central has mirrored the Apache binaries, then update the Iceberg site and send an announcement email:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>[ANNOUNCE] Apache Iceberg release &lt;VERSION&gt;
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>I&#39;m please to announce the release of Apache Iceberg &lt;VERSION&gt;!
+
+Apache Iceberg is an open table format for huge analytic datasets. Iceberg
+delivers high query performance for tables with tens of petabytes of data,
+along with atomic commits, concurrent writes, and SQL-compatible table
+evolution.
+
+This release can be downloaded from: https://www.apache.org/dyn/closer.cgi/iceberg/&lt;TARBALL NAME WITHOUT .tar.gz&gt;/&lt;TARBALL NAME&gt;
+
+Java artifacts are available from Maven Central.
+
+Thanks to everyone for contributing!
+</code></pre></div></div>
+</body>
+</html>
