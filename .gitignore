@@ -3,9 +3,6 @@
 resources
 !javadoc/resources
 
-# Script Generated Asciinema Recordings
-asciinema/output
-
 # Other
 __pycache__
 .DS_Store
