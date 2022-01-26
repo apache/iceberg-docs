@@ -1,9 +1,11 @@
 ---
-Title: Schema Evolution
-AsciinemaCast: schema_evolution.cast
+Title: Row-level Deletes
+Description: Iceberg supports the copy-on-write and merge-on-read approaches to handle row-level delete operations.
+LottieFile: row-level-deletes-animation.json
+<!-- LearnMore: /docs/latest/row-level-deletes -->
 Category: Services
 Draft: false
-weight: 100
+weight: 300
 ---
 <!--
  - Licensed to the Apache Software Foundation (ASF) under one or more
@@ -21,5 +23,3 @@ weight: 100
  - See the License for the specific language governing permissions and
  - limitations under the License.
  -->
- 
-Iceberg avoids unpleasant surprises. Schema evolution works and won’t inadvertently un-delete data. Users don’t need to know about partitioning to get fast queries.

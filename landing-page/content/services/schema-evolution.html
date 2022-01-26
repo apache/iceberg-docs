@@ -1,0 +1,38 @@
+---
+Title: Full Schema Evolution
+Description: Iceberg avoids unpleasant surprises. Schema evolution just works with no "zombie" columns and no un-deleted data when adding columns with previously existing names.
+LearnMore: /docs/latest/evolution/
+Category: Services
+Draft: false
+weight: 100
+---
+<!--
+ - Licensed to the Apache Software Foundation (ASF) under one or more
+ - contributor license agreements.  See the NOTICE file distributed with
+ - this work for additional information regarding copyright ownership.
+ - The ASF licenses this file to You under the Apache License, Version 2.0
+ - (the "License"); you may not use this file except in compliance with
+ - the License.  You may obtain a copy of the License at
+ -
+ -   http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -->
+<div id="termynal" data-termynal data-ty-startDelay="600" data-ty-typeDelay="20" data-ty-lineDelay="500">
+    <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="spark-sql>">ALTER TABLE taxis</span>
+    <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="">ALTER COLUMN trip_distance</span>
+    <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="" data-ty-delay="2500">TYPE double;</span>
+    <span data-ty>Time taken: 2.594 seconds</span>
+    <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="spark-sql>">ALTER TABLE taxis</span>
+    <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="">ALTER COLUMN trip_distance</span>
+    <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="">COMMENT ‘The elapsed trip distance in miles reported by the taximeter.’;</span>
+    <span data-ty>Time taken: 0.464 seconds</span>
+    <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="spark-sql>">ALTER TABLE taxis</span>
+    <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="">RENAME COLUMN trip_distance</span>
+    <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="">TO distance;</span>
+    <span data-ty>Time taken: 0.108 seconds</span>
+</div>
