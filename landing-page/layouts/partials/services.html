@@ -12,11 +12,25 @@
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">{{ .Title }}</h2>
+                    {{ .Description }}
+                    {{ if .Params.LearnMore }}
+                    <ul class="list-inline intro-social-buttons">
+                        <li>
+                            <a href="{{ .Params.LearnMore }}" class="btn btn-default btn-lg">
+                                <span class="network-name">Learn More</span>
+                            </a>
+                        </li>
+                    </ul>
+                    {{ end }}
+                </div>
+                {{ if .Content }}
+                <div class="col-lg-5 col-lg col-sm-6">
                     {{ .Content }}
                 </div>
-                {{ with .Params.img }}
+                {{ end }}
+                {{ if .Params.Img }}
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="{{ $.Site.BaseURL }}/img/{{ . }}" alt="">
+                    <img src="{{ $.Site.BaseURL }}img/{{ .Params.Img }}" height="400px" width="400px">
                 </div>
                 {{ end }}
                 {{ if .Params.asciinemacast }}
@@ -49,11 +63,25 @@
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">{{ .Title }}</h2>
-                    {{ .Content }}
+                    {{ .Description }}
+                    {{ if .Params.LearnMore }}
+                    <ul class="list-inline intro-social-buttons">
+                        <li>
+                            <a href="{{ .Params.LearnMore }}" class="btn btn-default btn-lg">
+                                <span class="network-name">Learn More</span>
+                            </a>
+                        </li>
+                    </ul>
+                    {{ end }}
                 </div>
-                {{ with .Params.img }}
+                {{ if .Content }}
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                  <img class="img-responsive" src="{{ $.Site.BaseURL }}/img/{{ . }}" alt="">
+                  {{ .Content }}
+                </div>
+                {{ end }}
+                {{ if .Params.Img }}
+                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                    <img src="{{ $.Site.BaseURL }}img/{{ .Params.Img }}" height="600px" width="600px">
                 </div>
                 {{ end }}
                 {{ if .Params.asciinemacast }}
