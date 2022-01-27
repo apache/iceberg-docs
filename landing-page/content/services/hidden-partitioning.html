@@ -1,6 +1,8 @@
 ---
 Title: Hidden Partitioning
-Img: partition-spec-evolution.png
+Description: Iceberg handles the tedious and error-prone task of producing partition values for rows in a table and skips unnecessary partitions and files automatically. No extra filters are needed for fast queries, and table layout can be updated as data or queries change.
+LottieFile: hidden-partitioning-animation.json
+LearnMore: /docs/latest/partitioning/#icebergs-hidden-partitioning
 Category: Services
 Draft: false
 weight: 200
@@ -21,6 +23,3 @@ weight: 200
  - See the License for the specific language governing permissions and
  - limitations under the License.
  -->
- 
-Iceberg handles the tedious and error-prone task of producing partition values for rows in a table and avoids reading unnecessary partitions automatically.
-Consumers don’t need to know how the table is partitioned and add extra filters to their queries and the partition layouts can evolve as needed.

@@ -1,9 +1,9 @@
 ---
-Title: Schema Evolution
-AsciinemaCast: schema_evolution.cast
+Title: Data Compaction
+Description: Data compaction is supported out-of-the-box and you can choose from different rewrite strategies such as bin-packing or sorting to optimize file layout and size.
 Category: Services
 Draft: false
-weight: 100
+weight: 300
 ---
 <!--
  - Licensed to the Apache Software Foundation (ASF) under one or more
@@ -21,5 +21,6 @@ weight: 100
  - See the License for the specific language governing permissions and
  - limitations under the License.
  -->
- 
-Iceberg avoids unpleasant surprises. Schema evolution works and won’t inadvertently un-delete data. Users don’t need to know about partitioning to get fast queries.
+ <div id="termynal-data-compaction" data-termynal data-ty-startDelay="600" data-ty-typeDelay="20" data-ty-lineDelay="500">
+    <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="spark-sql>">CALL system.rewrite_data_files("nyc.taxis");</span>
+</div>

@@ -33,16 +33,10 @@
                     <img src="{{ $.Site.BaseURL }}img/{{ .Params.Img }}" height="400px" width="400px">
                 </div>
                 {{ end }}
-                {{ if .Params.asciinemacast }}
+                {{ if .Params.LottieFile }}
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <div id="{{ .Params.title }}"></div>
-                    <script>
-                        AsciinemaPlayer.create('{{ .Site.BaseURL }}/asciinema/{{ .Params.AsciinemaCast }}', document.getElementById('{{ .Params.title }}'), {
-                            loop: true,
-                            autoPlay: true,
-                            theme: "monokai",
-                        });
-                    </script>
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                    <lottie-player src="{{ $.Site.BaseURL }}lottie/{{ .Params.LottieFile }}" background="transparent"  speed="0.5"  style="width: 600px; height: 400px;"  loop autoplay></lottie-player>
                 </div>
                 {{ end }}
             </div>
@@ -84,16 +78,10 @@
                     <img src="{{ $.Site.BaseURL }}img/{{ .Params.Img }}" height="600px" width="600px">
                 </div>
                 {{ end }}
-                {{ if .Params.asciinemacast }}
+                {{ if .Params.LottieFile }}
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                    <div id="{{ .Params.title }}"></div>
-                    <script>
-                        AsciinemaPlayer.create('{{ .Site.BaseURL }}/asciinema/{{ .Params.AsciinemaCast }}', document.getElementById('{{ .Params.title }}'), {
-                            loop: true,
-                            autoPlay: true,
-                            theme: "monokai",
-                        });
-                    </script>
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                    <lottie-player src="{{ $.Site.BaseURL }}lottie/{{ .Params.LottieFile }}"  {{ if .Params.LottieOptions }}{{ .Params.LottieOptions }}{{ else }}background="transparent"  speed="0.5"  style="width: 600px; height: 400px;"  loop autoplay{{ end }}></lottie-player>
                 </div>
                 {{ end }}
             </div>
