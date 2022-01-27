@@ -107,8 +107,16 @@
 <br>
 <h2>What is Iceberg?</h2>
 <br>
-<p>Iceberg adds tables to compute engines including Spark, Trino, PrestoDB, Flink, and Hive using a high-performance table format that works just like a SQL table.</p>
-<p><a href=/getting-started>Learn More</a></p>
+Iceberg adds tables to compute engines including Spark, Trino, PrestoDB, Flink, and Hive using a high-performance table format that works just like a SQL table.
+<div class=button-box>
+<ul class="list-inline intro-social-buttons">
+<li>
+<a href=/getting-started class="btn btn-default btn-lg">
+<span class=network-name>Learn More</span>
+</a>
+</li>
+<ul>
+</div>
 <br>
 </div>
 </div>
@@ -121,6 +129,8 @@
 <hr class=section-heading-spacer>
 <div class=clearfix></div>
 <h2 class=section-heading>Schema Evolution</h2>
+</div>
+<div class="col-lg-5 col-lg col-sm-6">
 <p>Iceberg avoids unpleasant surprises. Schema evolution works and won’t inadvertently un-delete data. Users don’t need to know about partitioning to get fast queries.</p>
 </div>
 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
@@ -137,11 +147,13 @@
 <hr class=section-heading-spacer>
 <div class=clearfix></div>
 <h2 class=section-heading>Hidden Partitioning</h2>
+</div>
+<div class="col-lg-5 col-sm-pull-6 col-sm-6">
 <p>Iceberg handles the tedious and error-prone task of producing partition values for rows in a table and avoids reading unnecessary partitions automatically.
 Consumers don’t need to know how the table is partitioned and add extra filters to their queries and the partition layouts can evolve as needed.</p>
 </div>
 <div class="col-lg-5 col-sm-pull-6 col-sm-6">
-<img class=img-responsive src=https://iceberg.apache.org//img/partition-spec-evolution.png alt>
+<img src=https://iceberg.apache.org/img/partition-spec-evolution.png height=600px width=600px>
 </div>
 </div>
 </div>
@@ -153,6 +165,8 @@ Consumers don’t need to know how the table is partitioned and add extra filter
 <hr class=section-heading-spacer>
 <div class=clearfix></div>
 <h2 class=section-heading>Time Travel</h2>
+</div>
+<div class="col-lg-5 col-lg col-sm-6">
 <p>Time-travel enables reproducible queries that use exactly the same table snapshot, or lets users easily examine changes.
 Version rollback allows users to quickly correct problems by resetting tables to a good state.</p>
 </div>
