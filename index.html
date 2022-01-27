@@ -1,6 +1,6 @@
 <!doctype html><html>
 <head>
-<meta name=generator content="Hugo 0.92.0">
+<meta name=generator content="Hugo 0.92.1">
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1">
@@ -128,14 +128,31 @@ Iceberg adds tables to compute engines including Spark, Trino, PrestoDB, Flink, 
 <div class="col-lg-5 col-sm-6">
 <hr class=section-heading-spacer>
 <div class=clearfix></div>
-<h2 class=section-heading>Schema Evolution</h2>
+<h2 class=section-heading>Full Schema Evolution</h2>
+Iceberg avoids unpleasant surprises. Schema evolution just works with no "zombie" columns and no un-deleted data when adding columns with previously existing names.
+<ul class="list-inline intro-social-buttons">
+<li>
+<a href=/docs/latest/evolution/ class="btn btn-default btn-lg">
+<span class=network-name>Learn More</span>
+</a>
+</li>
+</ul>
 </div>
 <div class="col-lg-5 col-lg col-sm-6">
-<p>Iceberg avoids unpleasant surprises. Schema evolution works and won’t inadvertently un-delete data. Users don’t need to know about partitioning to get fast queries.</p>
+<div id=termynal data-termynal data-ty-startdelay=600 data-ty-typedelay=20 data-ty-linedelay=500>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt="spark-sql>">ALTER TABLE taxis</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt>ALTER COLUMN trip_distance</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt data-ty-delay=2500>TYPE double;</span>
+<span data-ty>Done!</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt="spark-sql>">ALTER TABLE taxis</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt>ALTER COLUMN trip_distance</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt>AFTER fare;</span>
+<span data-ty>Done!</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt="spark-sql>">ALTER TABLE taxis</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt>RENAME COLUMN trip_distance</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt>TO distance;</span>
+<span data-ty>Done!</span>
 </div>
-<div class="col-lg-5 col-lg-offset-2 col-sm-6">
-<div id="Schema Evolution"></div>
-<script>AsciinemaPlayer.create('https://iceberg.apache.org//asciinema/schema_evolution.cast',document.getElementById('Schema Evolution'),{loop:!0,autoPlay:!0,theme:"monokai"})</script>
 </div>
 </div>
 </div>
@@ -147,13 +164,20 @@ Iceberg adds tables to compute engines including Spark, Trino, PrestoDB, Flink, 
 <hr class=section-heading-spacer>
 <div class=clearfix></div>
 <h2 class=section-heading>Hidden Partitioning</h2>
+Iceberg handles the tedious and error-prone task of producing partition values for rows in a table and skips unnecessary partitions and files automatically. No extra filters are needed for fast queries, and table layout can be updated as data or queries change.
+<ul class="list-inline intro-social-buttons">
+<li>
+<a href=/docs/latest/partitioning/#icebergs-hidden-partitioning class="btn btn-default btn-lg">
+<span class=network-name>Learn More</span>
+</a>
+</li>
+</ul>
 </div>
 <div class="col-lg-5 col-sm-pull-6 col-sm-6">
-<p>Iceberg handles the tedious and error-prone task of producing partition values for rows in a table and avoids reading unnecessary partitions automatically.
-Consumers don’t need to know how the table is partitioned and add extra filters to their queries and the partition layouts can evolve as needed.</p>
 </div>
 <div class="col-lg-5 col-sm-pull-6 col-sm-6">
-<img src=https://iceberg.apache.org/img/partition-spec-evolution.png height=600px width=600px>
+<script src=https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js></script>
+<lottie-player src=https://iceberg.apache.org/lottie/hidden-partitioning-animation.json background=transparent speed=0.5 style="width: 600px; height: 400px;" loop autoplay></lottie-player>
 </div>
 </div>
 </div>
@@ -164,15 +188,35 @@ Consumers don’t need to know how the table is partitioned and add extra filter
 <div class="col-lg-5 col-sm-6">
 <hr class=section-heading-spacer>
 <div class=clearfix></div>
-<h2 class=section-heading>Time Travel</h2>
+<h2 class=section-heading>Data Compaction</h2>
+Data compaction is supported out-of-the-box and you can choose from different rewrite strategies such as bin-packing or sorting to optimize file layout and size.
 </div>
 <div class="col-lg-5 col-lg col-sm-6">
-<p>Time-travel enables reproducible queries that use exactly the same table snapshot, or lets users easily examine changes.
-Version rollback allows users to quickly correct problems by resetting tables to a good state.</p>
+<div id=termynal-data-compaction data-termynal data-ty-startdelay=600 data-ty-typedelay=20 data-ty-linedelay=500>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt="spark-sql>">CALL system.rewrite_data_files("nyc.taxis");</span>
 </div>
-<div class="col-lg-5 col-lg-offset-2 col-sm-6">
-<div id="Time Travel"></div>
-<script>AsciinemaPlayer.create('https://iceberg.apache.org//asciinema/time_travel.cast',document.getElementById('Time Travel'),{loop:!0,autoPlay:!0,theme:"monokai"})</script>
+</div>
+</div>
+</div>
+</div>
+<div class=content-section-b>
+<div class=container>
+<div class=row>
+<div class="col-lg-5 col-lg-offset-1 col-sm-push-6 col-sm-6">
+<hr class=section-heading-spacer>
+<div class=clearfix></div>
+<h2 class=section-heading>Expressive SQL</h2>
+Iceberg supports flexible SQL commands to merge new data, update existing rows, and perform targeted deletes. Iceberg can eagerly rewrite data files for read performance, or it can use delete deltas for faster updates.
+</div>
+<div class="col-lg-5 col-sm-pull-6 col-sm-6">
+<div id=termynal-expressive-sql data-termynal data-ty-startdelay=600 data-ty-typedelay=20 data-ty-linedelay=500>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt="spark-sql>">MERGE INTO prod.nyc.taxis pt</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt>USING (SELECT * FROM staging.nyc.taxis) st</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt>ON pt.id = st.id</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt>WHEN NOT MATCHED THEN INSERT *;</span>
+<span data-ty>Done!</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt="spark-sql>"></span>
+</div>
 </div>
 </div>
 </div>

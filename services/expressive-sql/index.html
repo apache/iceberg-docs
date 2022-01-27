@@ -6,7 +6,7 @@
 <meta name=description content>
 <meta name=author content>
 <base href=https://iceberg.apache.org/>
-<title>Full Schema Evolution</title>
+<title>Expressive SQL</title>
 <link href=https://iceberg.apache.org//css/bootstrap.css rel=stylesheet>
 <link href=https://iceberg.apache.org//css/landing-page.css rel=stylesheet>
 <link href=https://iceberg.apache.org//css/markdown.css rel=stylesheet>
@@ -71,19 +71,13 @@
 <div class=pad-for-navbar></div>
 <body dir=" ltr">
 <div class=markdown-body>
-<div id=termynal data-termynal data-ty-startdelay=600 data-ty-typedelay=20 data-ty-linedelay=500>
-<span data-ty=input data-ty-cursor=▋ data-ty-prompt="spark-sql>">ALTER TABLE taxis</span>
-<span data-ty=input data-ty-cursor=▋ data-ty-prompt>ALTER COLUMN trip_distance</span>
-<span data-ty=input data-ty-cursor=▋ data-ty-prompt data-ty-delay=2500>TYPE double;</span>
+<div id=termynal-expressive-sql data-termynal data-ty-startdelay=600 data-ty-typedelay=20 data-ty-linedelay=500>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt="spark-sql>">MERGE INTO prod.nyc.taxis pt</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt>USING (SELECT * FROM staging.nyc.taxis) st</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt>ON pt.id = st.id</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt>WHEN NOT MATCHED THEN INSERT *;</span>
 <span data-ty>Done!</span>
-<span data-ty=input data-ty-cursor=▋ data-ty-prompt="spark-sql>">ALTER TABLE taxis</span>
-<span data-ty=input data-ty-cursor=▋ data-ty-prompt>ALTER COLUMN trip_distance</span>
-<span data-ty=input data-ty-cursor=▋ data-ty-prompt>AFTER fare;</span>
-<span data-ty>Done!</span>
-<span data-ty=input data-ty-cursor=▋ data-ty-prompt="spark-sql>">ALTER TABLE taxis</span>
-<span data-ty=input data-ty-cursor=▋ data-ty-prompt>RENAME COLUMN trip_distance</span>
-<span data-ty=input data-ty-cursor=▋ data-ty-prompt>TO distance;</span>
-<span data-ty>Done!</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt="spark-sql>"></span>
 </div></div>
 </body>
 </html>
