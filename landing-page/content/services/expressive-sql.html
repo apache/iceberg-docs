@@ -1,0 +1,32 @@
+---
+Title: Expressive SQL
+Description: Iceberg supports flexible SQL commands to merge new data, update existing rows, and perform targeted deletes. Iceberg can eagerly rewrite data files for read performance, or it can use delete deltas for faster updates.
+<!-- LearnMore: /docs/latest/row-level-deletes -->
+Category: Services
+Draft: false
+weight: 300
+---
+<!--
+ - Licensed to the Apache Software Foundation (ASF) under one or more
+ - contributor license agreements.  See the NOTICE file distributed with
+ - this work for additional information regarding copyright ownership.
+ - The ASF licenses this file to You under the Apache License, Version 2.0
+ - (the "License"); you may not use this file except in compliance with
+ - the License.  You may obtain a copy of the License at
+ -
+ -   http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -->
+ <div id="termynal-expressive-sql" data-termynal data-ty-startDelay="600" data-ty-typeDelay="20" data-ty-lineDelay="500">
+    <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="spark-sql>">MERGE INTO prod.nyc.taxis pt</span>
+    <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="">USING (SELECT * FROM staging.nyc.taxis) st</span>
+    <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="">ON pt.id = st.id</span>
+    <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="">WHEN NOT MATCHED THEN INSERT *;</span>
+    <span data-ty>Done!</span>
+    <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="spark-sql>"></span>
+</div>
