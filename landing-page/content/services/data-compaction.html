@@ -1,7 +1,6 @@
 ---
 Title: Data Compaction
-Description: Data compaction is supported out-of-the-box and you can choose from different rewrite strategies such as bin-packing, sorting, or z-ordering to optimize file layout and size.
-LottieFile: data-compaction-animation.json
+Description: Data compaction is supported out-of-the-box and you can choose from different rewrite strategies such as bin-packing or sorting to optimize file layout and size.
 Category: Services
 Draft: false
 weight: 300
@@ -22,3 +21,6 @@ weight: 300
  - See the License for the specific language governing permissions and
  - limitations under the License.
  -->
+ <div id="termynal-data-compaction" data-termynal data-ty-startDelay="600" data-ty-typeDelay="20" data-ty-lineDelay="500">
+    <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="spark-sql>">CALL system.rewrite_data_files("nyc.taxis");</span>
+</div>
