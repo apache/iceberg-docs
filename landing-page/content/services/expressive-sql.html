@@ -4,7 +4,7 @@ Description: Iceberg supports flexible SQL commands to merge new data, update ex
 <!-- LearnMore: /docs/latest/row-level-deletes -->
 Category: Services
 Draft: false
-weight: 300
+weight: 100
 ---
 <!--
  - Licensed to the Apache Software Foundation (ASF) under one or more
@@ -22,7 +22,7 @@ weight: 300
  - See the License for the specific language governing permissions and
  - limitations under the License.
  -->
- <div id="termynal-expressive-sql" data-termynal data-ty-startDelay="600" data-ty-typeDelay="20" data-ty-lineDelay="500">
+ <div id="termynal-expressive-sql" data-termynal data-ty-startDelay="2000" data-ty-typeDelay="20" data-ty-lineDelay="500">
     <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="spark-sql>">MERGE INTO prod.nyc.taxis pt</span>
     <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="">USING (SELECT * FROM staging.nyc.taxis) st</span>
     <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="">ON pt.id = st.id</span>
