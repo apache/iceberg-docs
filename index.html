@@ -128,6 +128,28 @@ Iceberg adds tables to compute engines including Spark, Trino, PrestoDB, Flink, 
 <div class="col-lg-5 col-sm-6">
 <hr class=section-heading-spacer>
 <div class=clearfix></div>
+<h2 class=section-heading>Expressive SQL</h2>
+Iceberg supports flexible SQL commands to merge new data, update existing rows, and perform targeted deletes. Iceberg can eagerly rewrite data files for read performance, or it can use delete deltas for faster updates.
+</div>
+<div class="col-lg-5 col-lg col-sm-6">
+<div id=termynal-expressive-sql data-termynal data-ty-startdelay=2000 data-ty-typedelay=20 data-ty-linedelay=500>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt="spark-sql>">MERGE INTO prod.nyc.taxis pt</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt>USING (SELECT * FROM staging.nyc.taxis) st</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt>ON pt.id = st.id</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt>WHEN NOT MATCHED THEN INSERT *;</span>
+<span data-ty>Done!</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt="spark-sql>"></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class=content-section-b>
+<div class=container>
+<div class=row>
+<div class="col-lg-5 col-lg-offset-1 col-sm-push-6 col-sm-6">
+<hr class=section-heading-spacer>
+<div class=clearfix></div>
 <h2 class=section-heading>Full Schema Evolution</h2>
 Iceberg avoids unpleasant surprises. Schema evolution just works with no "zombie" columns and no un-deleted data when adding columns with previously existing names.
 <ul class="list-inline intro-social-buttons">
@@ -138,8 +160,8 @@ Iceberg avoids unpleasant surprises. Schema evolution just works with no "zombie
 </li>
 </ul>
 </div>
-<div class="col-lg-5 col-lg col-sm-6">
-<div id=termynal data-termynal data-ty-startdelay=600 data-ty-typedelay=20 data-ty-linedelay=500>
+<div class="col-lg-5 col-sm-pull-6 col-sm-6">
+<div id=termynal data-termynal data-ty-startdelay=4000 data-ty-typedelay=20 data-ty-linedelay=500>
 <span data-ty=input data-ty-cursor=▋ data-ty-prompt="spark-sql>">ALTER TABLE taxis</span>
 <span data-ty=input data-ty-cursor=▋ data-ty-prompt>ALTER COLUMN trip_distance</span>
 <span data-ty=input data-ty-cursor=▋ data-ty-prompt data-ty-delay=2500>TYPE double;</span>
@@ -157,10 +179,10 @@ Iceberg avoids unpleasant surprises. Schema evolution just works with no "zombie
 </div>
 </div>
 </div>
-<div class=content-section-b>
+<div class=content-section-a>
 <div class=container>
 <div class=row>
-<div class="col-lg-5 col-lg-offset-1 col-sm-push-6 col-sm-6">
+<div class="col-lg-5 col-sm-6">
 <hr class=section-heading-spacer>
 <div class=clearfix></div>
 <h2 class=section-heading>Hidden Partitioning</h2>
@@ -173,11 +195,47 @@ Iceberg handles the tedious and error-prone task of producing partition values f
 </li>
 </ul>
 </div>
-<div class="col-lg-5 col-sm-pull-6 col-sm-6">
+<div class="col-lg-5 col-lg col-sm-6">
 </div>
-<div class="col-lg-5 col-sm-pull-6 col-sm-6">
+<div class="col-lg-5 col-lg-offset-2 col-sm-6">
 <script src=https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js></script>
 <lottie-player src=https://iceberg.apache.org/lottie/hidden-partitioning-animation.json background=transparent speed=0.5 style="width: 600px; height: 400px;" loop autoplay></lottie-player>
+</div>
+</div>
+</div>
+</div>
+<div class=content-section-b>
+<div class=container>
+<div class=row>
+<div class="col-lg-5 col-lg-offset-1 col-sm-push-6 col-sm-6">
+<hr class=section-heading-spacer>
+<div class=clearfix></div>
+<h2 class=section-heading>Time Travel and Rollback</h2>
+Time-travel enables reproducible queries that use exactly the same table snapshot, or lets users easily examine changes. Version rollback allows users to quickly correct problems by resetting tables to a good state.
+<ul class="list-inline intro-social-buttons">
+<li>
+<a href=/docs/latest/spark-queries/#time-travel class="btn btn-default btn-lg">
+<span class=network-name>Learn More</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="col-lg-5 col-sm-pull-6 col-sm-6">
+<div class=termynal-container>
+<div id=termynal-time-travel data-termynal data-ty-startdelay=6000 data-ty-typedelay=20 data-ty-linedelay=500>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt="scala>">spark.read.table("taxis").count()</span>
+<span data-ty>2,853,020</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt="scala>">val ONE_DAY_MS=86400000</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt="scala>">val NOW=System.currentTimeMillis()</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt="scala>">val YESTERDAY=NOW - ONE_DAY_MS</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt="scala>">(spark</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt>.read</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt>.option("as-of-timestamp", YESTERDAY)</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt>.table("taxis")</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt>.count())</span>
+<span data-ty>2,798,371</span>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -192,66 +250,8 @@ Iceberg handles the tedious and error-prone task of producing partition values f
 Data compaction is supported out-of-the-box and you can choose from different rewrite strategies such as bin-packing or sorting to optimize file layout and size.
 </div>
 <div class="col-lg-5 col-lg col-sm-6">
-<div id=termynal-data-compaction data-termynal data-ty-startdelay=600 data-ty-typedelay=20 data-ty-linedelay=500>
+<div id=termynal-data-compaction data-termynal data-ty-startdelay=8000 data-ty-typedelay=20 data-ty-linedelay=500>
 <span data-ty=input data-ty-cursor=▋ data-ty-prompt="spark-sql>">CALL system.rewrite_data_files("nyc.taxis");</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class=content-section-b>
-<div class=container>
-<div class=row>
-<div class="col-lg-5 col-lg-offset-1 col-sm-push-6 col-sm-6">
-<hr class=section-heading-spacer>
-<div class=clearfix></div>
-<h2 class=section-heading>Expressive SQL</h2>
-Iceberg supports flexible SQL commands to merge new data, update existing rows, and perform targeted deletes. Iceberg can eagerly rewrite data files for read performance, or it can use delete deltas for faster updates.
-</div>
-<div class="col-lg-5 col-sm-pull-6 col-sm-6">
-<div id=termynal-expressive-sql data-termynal data-ty-startdelay=600 data-ty-typedelay=20 data-ty-linedelay=500>
-<span data-ty=input data-ty-cursor=▋ data-ty-prompt="spark-sql>">MERGE INTO prod.nyc.taxis pt</span>
-<span data-ty=input data-ty-cursor=▋ data-ty-prompt>USING (SELECT * FROM staging.nyc.taxis) st</span>
-<span data-ty=input data-ty-cursor=▋ data-ty-prompt>ON pt.id = st.id</span>
-<span data-ty=input data-ty-cursor=▋ data-ty-prompt>WHEN NOT MATCHED THEN INSERT *;</span>
-<span data-ty>Done!</span>
-<span data-ty=input data-ty-cursor=▋ data-ty-prompt="spark-sql>"></span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class=content-section-a>
-<div class=container>
-<div class=row>
-<div class="col-lg-5 col-sm-6">
-<hr class=section-heading-spacer>
-<div class=clearfix></div>
-<h2 class=section-heading>Time Travel and Rollback</h2>
-Time-travel enables reproducible queries that use exactly the same table snapshot, or lets users easily examine changes. Version rollback allows users to quickly correct problems by resetting tables to a good state.
-<ul class="list-inline intro-social-buttons">
-<li>
-<a href=/docs/latest/spark-queries/#time-travel class="btn btn-default btn-lg">
-<span class=network-name>Learn More</span>
-</a>
-</li>
-</ul>
-</div>
-<div class="col-lg-5 col-lg col-sm-6">
-<div class=termynal-container>
-<div id=termynal-time-travel data-termynal data-ty-startdelay=600 data-ty-typedelay=20 data-ty-linedelay=500>
-<span data-ty=input data-ty-cursor=▋ data-ty-prompt="scala>">spark.read.table("taxis").count()</span>
-<span data-ty>2,853,020</span>
-<span data-ty=input data-ty-cursor=▋ data-ty-prompt="scala>">val ONE_DAY_MS=86400000</span>
-<span data-ty=input data-ty-cursor=▋ data-ty-prompt="scala>">val NOW=System.currentTimeMillis()</span>
-<span data-ty=input data-ty-cursor=▋ data-ty-prompt="scala>">val YESTERDAY=NOW - ONE_DAY_MS</span>
-<span data-ty=input data-ty-cursor=▋ data-ty-prompt="scala>">(spark</span>
-<span data-ty=input data-ty-cursor=▋ data-ty-prompt>.read</span>
-<span data-ty=input data-ty-cursor=▋ data-ty-prompt>.option("as-of-timestamp", YESTERDAY)</span>
-<span data-ty=input data-ty-cursor=▋ data-ty-prompt>.table("taxis")</span>
-<span data-ty=input data-ty-cursor=▋ data-ty-prompt>.count())</span>
-<span data-ty>2,798,371</span>
-</div>
 </div>
 </div>
 </div>
@@ -306,6 +306,6 @@ theme.
 <script src=https://iceberg.apache.org//js/jquery.easing.min.js></script>
 <script src=https://iceberg.apache.org//js/bootstrap.min.js></script>
 <script src=https://iceberg.apache.org//js/landing-page.js></script>
-<script src=https://iceberg.apache.org//js/termynal.js data-termynal-container=#termynal></script>
+<script src=https://iceberg.apache.org//js/termynal.js data-termynal-container=#termynal|#termynal-data-compaction|#termynal-expressive-sql|#termynal-time-travel></script>
 </body>
 </html>
