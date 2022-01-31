@@ -22,15 +22,16 @@ weight: 400
  - See the License for the specific language governing permissions and
  - limitations under the License.
  -->
-<div class="termynal-container">
+ <div class="termynal-container">
     <div id="termynal-time-travel" data-termynal data-ty-startDelay="600" data-ty-typeDelay="20" data-ty-lineDelay="500">
         <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="scala>">spark.read.table("taxis").count()</span>
         <span data-ty>2,853,020</span>
-        <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="scala>">val ONE_DAY_MS=86400000;</span>
+        <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="scala>">val ONE_DAY_MS=86400000</span>
         <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="scala>">val NOW=System.currentTimeMillis()</span>
+        <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="scala>">val YESTERDAY=NOW - ONE_DAY_MS</span>
         <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="scala>">(spark</span>
         <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="">.read</span>
-        <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="">.option("as-of-timestamp", NOW_MS - ONE_DAY_MS)</span>
+        <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="">.option("as-of-timestamp", YESTERDAY)</span>
         <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="">.table("taxis")</span>
         <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="">.count())</span>
         <span data-ty>2,798,371</span>
