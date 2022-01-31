@@ -221,3 +221,7 @@ a.page-scroll {
   		display:block !important;
 	}
 }
+
+.termynal-container {
+    padding-top: 3rem;
+}
