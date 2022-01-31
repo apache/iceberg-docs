@@ -72,12 +72,12 @@
 <body dir=" ltr">
 <div class=markdown-body>
 <div id=termynal-expressive-sql data-termynal data-ty-startdelay=2000 data-ty-typedelay=20 data-ty-linedelay=500>
-<span data-ty=input data-ty-cursor=▋ data-ty-prompt="spark-sql>">MERGE INTO prod.nyc.taxis pt</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt="sql>">MERGE INTO prod.nyc.taxis pt</span>
 <span data-ty=input data-ty-cursor=▋ data-ty-prompt>USING (SELECT * FROM staging.nyc.taxis) st</span>
 <span data-ty=input data-ty-cursor=▋ data-ty-prompt>ON pt.id = st.id</span>
 <span data-ty=input data-ty-cursor=▋ data-ty-prompt>WHEN NOT MATCHED THEN INSERT *;</span>
 <span data-ty>Done!</span>
-<span data-ty=input data-ty-cursor=▋ data-ty-prompt="spark-sql>"></span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt="sql>"></span>
 </div></div>
 </body>
 </html>
