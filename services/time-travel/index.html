@@ -6,7 +6,7 @@
 <meta name=description content>
 <meta name=author content>
 <base href=https://iceberg.apache.org/>
-<title>Time Travel</title>
+<title>Time Travel and Rollback</title>
 <link href=https://iceberg.apache.org//css/bootstrap.css rel=stylesheet>
 <link href=https://iceberg.apache.org//css/landing-page.css rel=stylesheet>
 <link href=https://iceberg.apache.org//css/markdown.css rel=stylesheet>
@@ -71,8 +71,21 @@
 <div class=pad-for-navbar></div>
 <body dir=" ltr">
 <div class=markdown-body>
-<p>Time-travel enables reproducible queries that use exactly the same table snapshot, or lets users easily examine changes.
-Version rollback allows users to quickly correct problems by resetting tables to a good state.</p>
+<div class=termynal-container>
+<div id=termynal-time-travel data-termynal data-ty-startdelay=600 data-ty-typedelay=20 data-ty-linedelay=500>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt="scala>">spark.read.table("taxis").count()</span>
+<span data-ty>2,853,020</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt="scala>">val ONE_DAY_MS=86400000</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt="scala>">val NOW=System.currentTimeMillis()</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt="scala>">val YESTERDAY=NOW - ONE_DAY_MS</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt="scala>">(spark</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt>.read</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt>.option("as-of-timestamp", YESTERDAY)</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt>.table("taxis")</span>
+<span data-ty=input data-ty-cursor=▋ data-ty-prompt>.count())</span>
+<span data-ty>2,798,371</span>
+</div>
+</div>
 </div>
 </body>
 </html>
