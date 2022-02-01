@@ -107,7 +107,7 @@
 <br>
 <h2>What is Iceberg?</h2>
 <br>
-Iceberg adds tables to compute engines including Spark, Trino, PrestoDB, Flink, and Hive using a high-performance table format that works just like a SQL table.
+Iceberg is a high-performance format for huge analytic tables. Iceberg brings the reliability and simplicity of SQL tables to big data, while making it possible for engines like Spark, Trino, Flink, Presto, and Hive to safely work with the same tables, at the same time.
 <div class=button-box>
 <ul class="list-inline intro-social-buttons">
 <li>
@@ -158,7 +158,7 @@ Iceberg supports flexible SQL commands to merge new data, update existing rows, 
 <hr class=section-heading-spacer>
 <div class=clearfix></div>
 <h2 class=section-heading>Full Schema Evolution</h2>
-Iceberg avoids unpleasant surprises. Schema evolution just works with no "zombie" columns and no un-deleted data when adding columns with previously existing names.
+Schema evolution just works. Adding a column won't bring back "zombie" data. Columns can be renamed and reordered. Best of all, schema changes never require rewriting your table.
 <ul class="list-inline intro-social-buttons">
 <li>
 <a href=/docs/latest/evolution/ class="btn btn-default btn-lg">
