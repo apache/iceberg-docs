@@ -4,6 +4,7 @@ title = "Apache Iceberg"
 theme= "hugo-book"
 
 [params]
+  BookTheme = 'auto'
   BookLogo = "img/iceberg-logo-icon.png"
   versions.iceberg = "" # This is populated by the github deploy workflow and is equal to the branch name
   versions.nessie = "0.15.1"
