@@ -478,7 +478,7 @@ DataStream<RowData> stream = FlinkSource.forRowData()
 stream.print();
 
 // Submit and execute this streaming read job.
-env.execute("Test Iceberg Batch Read");
+env.execute("Test Iceberg Streaming Read");
 ```
 
 There are other options that we could set by Java API, please see the [FlinkSource#Builder](../../../javadoc/{{% icebergVersion %}}/org/apache/iceberg/flink/source/FlinkSource.html).
