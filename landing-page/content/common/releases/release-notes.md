@@ -163,6 +163,13 @@ Apache Iceberg 0.13.0 was released on February 4th, 2022.
 
 Apache Iceberg 0.12.1 was released on November 8th, 2021.
 
+* Git tag: [0.12.1](https://github.com/apache/iceberg/releases/tag/apache-iceberg-0.12.1)
+* [0.12.1 source tar.gz](https://www.apache.org/dyn/closer.cgi/iceberg/apache-iceberg-0.12.1/apache-iceberg-0.12.1.tar.gz) -- [signature](https://downloads.apache.org/iceberg/apache-iceberg-0.12.1/apache-iceberg-0.12.1.tar.gz.asc) -- [sha512](https://downloads.apache.org/iceberg/apache-iceberg-0.12.1/apache-iceberg-0.12.1.tar.gz.sha512)
+* [0.12.1 Spark 3.x runtime Jar](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark3-runtime/0.12.1/iceberg-spark3-runtime-0.12.1.jar)
+* [0.12.1 Spark 2.4 runtime Jar](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime/0.12.1/iceberg-spark-runtime-0.12.1.jar)
+* [0.12.1 Flink runtime Jar](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime/0.12.1/iceberg-flink-runtime-0.12.1.jar)
+* [0.12.1 Hive runtime Jar](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-hive-runtime/0.12.1/iceberg-hive-runtime-0.12.1.jar)
+
 Important bug fixes and changes:
 
 * [\#3264](https://github.com/apache/iceberg/pull/3258) fixes validation failures that occurred after snapshot expiration when writing Flink CDC streams to Iceberg tables.
