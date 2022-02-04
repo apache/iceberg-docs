@@ -1,0 +1,452 @@
+<!doctype html><html lang=en dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Reliability #  Iceberg was designed to solve correctness problems that affect Hive tables running in S3.
+Hive tables track data files using both a central metastore for partitions and a file system for individual files. This makes atomic changes to a table&rsquo;s contents impossible, and eventually consistent stores like S3 may return incorrect results due to the use of listing files to reconstruct the state of a table. It also requires job planning to make many slow listing calls: O(n) with the number of partitions.">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content>
+<meta property="og:description" content="Reliability #  Iceberg was designed to solve correctness problems that affect Hive tables running in S3.
+Hive tables track data files using both a central metastore for partitions and a file system for individual files. This makes atomic changes to a table&rsquo;s contents impossible, and eventually consistent stores like S3 may return incorrect results due to the use of listing files to reconstruct the state of a table. It also requires job planning to make many slow listing calls: O(n) with the number of partitions.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://iceberg.apache.org/docs/0.12.1/reliability/"><meta property="article:section" content="docs">
+<title>Reliability | Apache Iceberg</title>
+<link rel=manifest href=/docs/0.12.1/manifest.json>
+<link rel=icon href=/docs/0.12.1/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/docs/0.12.1/book.min.179e158d24f3ef709534173fd8b1c1e541a4fa3e23c1b5d8e887464c58949cc9.css integrity="sha256-F54VjSTz73CVNBc/2LHB5UGk+j4jwbXY6IdGTFiUnMk=" crossorigin=anonymous>
+<script defer src=/docs/0.12.1/flexsearch.min.js></script>
+<script defer src=/docs/0.12.1/en.search.min.9b389ad9641a13fb39ba48da7e84d44163cd779ab7cf64f59cc58924b05ea921.js integrity="sha256-mzia2WQaE/s5ukjafoTUQWPNd5q3z2T1nMWJJLBeqSE=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/docs/0.12.1/../../><img src=/docs/0.12.1/img/iceberg-logo-icon.png alt=Logo><span>Apache Iceberg</span>
+</a>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../releases>
+<img id=version-shield src=https://img.shields.io/badge/version-0.12.1-blue alt>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+<a href=https://github.com/apache/iceberg target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/GitHub-Mark.png target=_blank class=top-external-icon>
+</a>
+<a href=https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/Slack_Mark_Web.png target=_blank class=top-external-icon>
+</a>
+</div>
+<ul>
+<li class=book-section-flats>
+<span>
+<i class="fa fa-table fa-fw"></i>
+Tables</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/configuration/>
+Configuration</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/evolution/>
+Evolution</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/maintenance/>
+Maintenance</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/partitioning/>
+Partitioning</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/performance/>
+Performance</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/reliability/ class=active>
+Reliability</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/schemas/>
+Schemas</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<span>
+<i class="fa fa-star-o fa-fw"></i>
+Spark</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/getting-started/>
+Getting Started</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-configuration/>
+Configuration</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-ddl/>
+DDL</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-procedures/>
+Procedures</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-queries/>
+Queries</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-structured-streaming/>
+Structured Streaming</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-writes/>
+Writes</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<span>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/flink-logo.png class="navigation-icon fa-fw">Flink</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/flink/>
+Getting Started</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/flink-connector/>
+Flink Connector</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<a href=https://iceberg.apache.org/docs/0.12.1/hive/>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/hive-logo.png class="navigation-icon fa-fw">Hive</a>
+<ul>
+</ul>
+</li>
+<li>
+<a href=https://trino.io/docs/current/connector/iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/trino-logo.png class="navigation-icon fa-fw">
+Trino
+</a>
+</li>
+<li>
+<a href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/prestodb-logo.png class="navigation-icon fa-fw">
+Presto
+</a>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-56605d8e971a871885e28ee5142728bf class=toggle>
+<label for=section-56605d8e971a871885e28ee5142728bf class="flex justify-between">
+<a role=button>
+<i class="fa fa-handshake-o fa-fw"></i>
+Integrations</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/aws/>
+AWS</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/jdbc/>
+JDBC</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/nessie/>
+Nessie</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-bf7b3283e3790c00c8caaa140299052b class=toggle>
+<label for=section-bf7b3283e3790c00c8caaa140299052b class="flex justify-between">
+<a role=button>
+<i class="fa fa-connectdevelop fa-fw"></i>
+API</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/java-api-quickstart/>
+Java Quickstart</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/api/>
+Java API</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/custom-catalog/>
+Java Custom Catalog</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../javadoc/0.12.1>
+Javadocs
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/python-quickstart/>
+Python Quickstart</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/python-api-intro/>
+Python API</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/python-feature-support/>
+Python Feature Support</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-7e66f1754ca5d93e20ecdc89df5b8b28 class=toggle>
+<label for=section-7e66f1754ca5d93e20ecdc89df5b8b28 class="flex justify-between">
+<a role=button>
+<i class="fa fa-users fa-fw"></i>
+Community</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../blogs>
+Blogs
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../community>
+Join
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../talks>
+Talks
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-87dda23e9104fe3231cee3bc88a2d754 class=toggle>
+<label for=section-87dda23e9104fe3231cee3bc88a2d754 class="flex justify-between">
+<a role=button>
+<i class="fa fa-object-ungroup fa-fw"></i>
+Format</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../spec>
+Spec
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../terms>
+Terms
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-2e5d3f5f142758d8dd368e9c281dd08e class=toggle>
+<label for=section-2e5d3f5f142758d8dd368e9c281dd08e class="flex justify-between">
+<a role=button>
+<i class="fa fa-wrench fa-fw"></i>
+Project</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../how-to-release>
+How to Release
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../roadmap>
+Roadmap
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../security>
+Security
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../trademarks>
+Trademarks
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-4ddb27a8612bc8118c0b36386905d332 class=toggle>
+<label for=section-4ddb27a8612bc8118c0b36386905d332 class="flex justify-between">
+<a role=button>
+<i class="fa fa-code-fork fa-fw"></i>
+Releases</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../latest>
+Latest
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../0.12.1>
+0.12.1
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../releases>
+Release Notes
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-296746d27808aa768e500824aaf2adea class=toggle>
+<label for=section-296746d27808aa768e500824aaf2adea class="flex justify-between">
+<a role=button>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/asf.png class="navigation-icon fa-fw">ASF</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/licenses/ target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+License
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/security/ target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Security
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/foundation/thanks.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Sponsors
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/foundation/sponsorship.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Donate
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/events/current-event.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Events
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<link rel=stylesheet href=/docs/0.12.1/fontawesome/css/font-awesome.min.css>
+<label for=menu-control>
+<img src=/docs/0.12.1/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Reliability</strong>
+<label for=toc-control>
+<img src=/docs/0.12.1/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#concurrent-write-operations>Concurrent write operations</a>
+<ul>
+<li><a href=#cost-of-retries>Cost of retries</a></li>
+<li><a href=#retry-validation>Retry validation</a></li>
+</ul>
+</li>
+<li><a href=#compatibility>Compatibility</a></li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown>
+<h1 id=reliability>
+Reliability
+<a class=anchor href=#reliability>#</a>
+</h1>
+<p>Iceberg was designed to solve correctness problems that affect Hive tables running in S3.</p>
+<p>Hive tables track data files using both a central metastore for partitions and a file system for individual files. This makes atomic changes to a table&rsquo;s contents impossible, and eventually consistent stores like S3 may return incorrect results due to the use of listing files to reconstruct the state of a table. It also requires job planning to make many slow listing calls: O(n) with the number of partitions.</p>
+<p>Iceberg tracks the complete list of data files in each <a href=../../../terms#snapshot>snapshot</a> using a persistent tree structure. Every write or delete produces a new snapshot that reuses as much of the previous snapshot&rsquo;s metadata tree as possible to avoid high write volumes.</p>
+<p>Valid snapshots in an Iceberg table are stored in the table metadata file, along with a reference to the current snapshot. Commits replace the path of the current table metadata file using an atomic operation. This ensures that all updates to table data and metadata are atomic, and is the basis for <a href=https://en.wikipedia.org/wiki/Isolation_%28database_systems%29#Serializable>serializable isolation</a>.</p>
+<p>This results in improved reliability guarantees:</p>
+<ul>
+<li><strong>Serializable isolation</strong>: All table changes occur in a linear history of atomic table updates</li>
+<li><strong>Reliable reads</strong>: Readers always use a consistent snapshot of the table without holding a lock</li>
+<li><strong>Version history and rollback</strong>: Table snapshots are kept as history and tables can roll back if a job produces bad data</li>
+<li><strong>Safe file-level operations</strong>. By supporting atomic changes, Iceberg enables new use cases, like safely compacting small files and safely appending late data to tables</li>
+</ul>
+<p>This design also has performance benefits:</p>
+<ul>
+<li><strong>O(1) RPCs to plan</strong>: Instead of listing O(n) directories in a table to plan a job, reading a snapshot requires O(1) RPC calls</li>
+<li><strong>Distributed planning</strong>: File pruning and predicate push-down is distributed to jobs, removing the metastore as a bottleneck</li>
+<li><strong>Finer granularity partitioning</strong>: Distributed planning and O(1) RPC calls remove the current barriers to finer-grained partitioning</li>
+</ul>
+<h2 id=concurrent-write-operations>
+Concurrent write operations
+<a class=anchor href=#concurrent-write-operations>#</a>
+</h2>
+<p>Iceberg supports multiple concurrent writes using optimistic concurrency.</p>
+<p>Each writer assumes that no other writers are operating and writes out new table metadata for an operation. Then, the writer attempts to commit by atomically swapping the new table metadata file for the existing metadata file.</p>
+<p>If the atomic swap fails because another writer has committed, the failed writer retries by writing a new metadata tree based on the the new current table state.</p>
+<h3 id=cost-of-retries>
+Cost of retries
+<a class=anchor href=#cost-of-retries>#</a>
+</h3>
+<p>Writers avoid expensive retry operations by structuring changes so that work can be reused across retries.</p>
+<p>For example, appends usually create a new manifest file for the appended data files, which can be added to the table without rewriting the manifest on every attempt.</p>
+<h3 id=retry-validation>
+Retry validation
+<a class=anchor href=#retry-validation>#</a>
+</h3>
+<p>Commits are structured as assumptions and actions. After a conflict, a writer checks that the assumptions are met by the current table state. If the assumptions are met, then it is safe to re-apply the actions and commit.</p>
+<p>For example, a compaction might rewrite <code>file_a.avro</code> and <code>file_b.avro</code> as <code>merged.parquet</code>. This is safe to commit as long as the table still contains both <code>file_a.avro</code> and <code>file_b.avro</code>. If either file was deleted by a conflicting commit, then the operation must fail. Otherwise, it is safe to remove the source files and add the merged file.</p>
+<h2 id=compatibility>
+Compatibility
+<a class=anchor href=#compatibility>#</a>
+</h2>
+<p>By avoiding file listing and rename operations, Iceberg tables are compatible with any object store. No consistent listing is required.</p>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#concurrent-write-operations>Concurrent write operations</a>
+<ul>
+<li><a href=#cost-of-retries>Cost of retries</a></li>
+<li><a href=#retry-validation>Retry validation</a></li>
+</ul>
+</li>
+<li><a href=#compatibility>Compatibility</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>

@@ -1,0 +1,671 @@
+<!doctype html><html lang=en dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Spark Queries #  To use Iceberg in Spark, first configure Spark catalogs.
+Iceberg uses Apache Spark&rsquo;s DataSourceV2 API for data source and catalog implementations. Spark DSv2 is an evolving API with different levels of support in Spark versions:
+   Feature support Spark 3.0 Spark 2.4 Notes     SELECT ✔️     DataFrame reads ✔️ ✔️    Metadata table SELECT ✔️     History metadata table ✔️ ✔️    Snapshots metadata table ✔️ ✔️    Files metadata table ✔️ ✔️    Manifests metadata table ✔️ ✔️     Querying with SQL #  In Spark 3, tables use identifiers that include a catalog name.">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content="Queries">
+<meta property="og:description" content="Spark Queries #  To use Iceberg in Spark, first configure Spark catalogs.
+Iceberg uses Apache Spark&rsquo;s DataSourceV2 API for data source and catalog implementations. Spark DSv2 is an evolving API with different levels of support in Spark versions:
+   Feature support Spark 3.0 Spark 2.4 Notes     SELECT ✔️     DataFrame reads ✔️ ✔️    Metadata table SELECT ✔️     History metadata table ✔️ ✔️    Snapshots metadata table ✔️ ✔️    Files metadata table ✔️ ✔️    Manifests metadata table ✔️ ✔️     Querying with SQL #  In Spark 3, tables use identifiers that include a catalog name.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://iceberg.apache.org/docs/0.12.1/spark-queries/"><meta property="article:section" content="docs">
+<title>Queries | Apache Iceberg</title>
+<link rel=manifest href=/docs/0.12.1/manifest.json>
+<link rel=icon href=/docs/0.12.1/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/docs/0.12.1/book.min.179e158d24f3ef709534173fd8b1c1e541a4fa3e23c1b5d8e887464c58949cc9.css integrity="sha256-F54VjSTz73CVNBc/2LHB5UGk+j4jwbXY6IdGTFiUnMk=" crossorigin=anonymous>
+<script defer src=/docs/0.12.1/flexsearch.min.js></script>
+<script defer src=/docs/0.12.1/en.search.min.9b389ad9641a13fb39ba48da7e84d44163cd779ab7cf64f59cc58924b05ea921.js integrity="sha256-mzia2WQaE/s5ukjafoTUQWPNd5q3z2T1nMWJJLBeqSE=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/docs/0.12.1/../../><img src=/docs/0.12.1/img/iceberg-logo-icon.png alt=Logo><span>Apache Iceberg</span>
+</a>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../releases>
+<img id=version-shield src=https://img.shields.io/badge/version-0.12.1-blue alt>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+<a href=https://github.com/apache/iceberg target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/GitHub-Mark.png target=_blank class=top-external-icon>
+</a>
+<a href=https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/Slack_Mark_Web.png target=_blank class=top-external-icon>
+</a>
+</div>
+<ul>
+<li class=book-section-flats>
+<span>
+<i class="fa fa-table fa-fw"></i>
+Tables</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/configuration/>
+Configuration</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/evolution/>
+Evolution</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/maintenance/>
+Maintenance</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/partitioning/>
+Partitioning</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/performance/>
+Performance</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/reliability/>
+Reliability</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/schemas/>
+Schemas</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<span>
+<i class="fa fa-star-o fa-fw"></i>
+Spark</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/getting-started/>
+Getting Started</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-configuration/>
+Configuration</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-ddl/>
+DDL</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-procedures/>
+Procedures</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-queries/ class=active>
+Queries</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-structured-streaming/>
+Structured Streaming</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-writes/>
+Writes</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<span>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/flink-logo.png class="navigation-icon fa-fw">Flink</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/flink/>
+Getting Started</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/flink-connector/>
+Flink Connector</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<a href=https://iceberg.apache.org/docs/0.12.1/hive/>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/hive-logo.png class="navigation-icon fa-fw">Hive</a>
+<ul>
+</ul>
+</li>
+<li>
+<a href=https://trino.io/docs/current/connector/iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/trino-logo.png class="navigation-icon fa-fw">
+Trino
+</a>
+</li>
+<li>
+<a href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/prestodb-logo.png class="navigation-icon fa-fw">
+Presto
+</a>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-56605d8e971a871885e28ee5142728bf class=toggle>
+<label for=section-56605d8e971a871885e28ee5142728bf class="flex justify-between">
+<a role=button>
+<i class="fa fa-handshake-o fa-fw"></i>
+Integrations</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/aws/>
+AWS</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/jdbc/>
+JDBC</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/nessie/>
+Nessie</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-bf7b3283e3790c00c8caaa140299052b class=toggle>
+<label for=section-bf7b3283e3790c00c8caaa140299052b class="flex justify-between">
+<a role=button>
+<i class="fa fa-connectdevelop fa-fw"></i>
+API</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/java-api-quickstart/>
+Java Quickstart</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/api/>
+Java API</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/custom-catalog/>
+Java Custom Catalog</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../javadoc/0.12.1>
+Javadocs
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/python-quickstart/>
+Python Quickstart</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/python-api-intro/>
+Python API</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/python-feature-support/>
+Python Feature Support</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-7e66f1754ca5d93e20ecdc89df5b8b28 class=toggle>
+<label for=section-7e66f1754ca5d93e20ecdc89df5b8b28 class="flex justify-between">
+<a role=button>
+<i class="fa fa-users fa-fw"></i>
+Community</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../blogs>
+Blogs
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../community>
+Join
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../talks>
+Talks
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-87dda23e9104fe3231cee3bc88a2d754 class=toggle>
+<label for=section-87dda23e9104fe3231cee3bc88a2d754 class="flex justify-between">
+<a role=button>
+<i class="fa fa-object-ungroup fa-fw"></i>
+Format</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../spec>
+Spec
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../terms>
+Terms
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-2e5d3f5f142758d8dd368e9c281dd08e class=toggle>
+<label for=section-2e5d3f5f142758d8dd368e9c281dd08e class="flex justify-between">
+<a role=button>
+<i class="fa fa-wrench fa-fw"></i>
+Project</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../how-to-release>
+How to Release
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../roadmap>
+Roadmap
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../security>
+Security
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../trademarks>
+Trademarks
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-4ddb27a8612bc8118c0b36386905d332 class=toggle>
+<label for=section-4ddb27a8612bc8118c0b36386905d332 class="flex justify-between">
+<a role=button>
+<i class="fa fa-code-fork fa-fw"></i>
+Releases</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../latest>
+Latest
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../0.12.1>
+0.12.1
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../releases>
+Release Notes
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-296746d27808aa768e500824aaf2adea class=toggle>
+<label for=section-296746d27808aa768e500824aaf2adea class="flex justify-between">
+<a role=button>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/asf.png class="navigation-icon fa-fw">ASF</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/licenses/ target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+License
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/security/ target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Security
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/foundation/thanks.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Sponsors
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/foundation/sponsorship.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Donate
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/events/current-event.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Events
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<link rel=stylesheet href=/docs/0.12.1/fontawesome/css/font-awesome.min.css>
+<label for=menu-control>
+<img src=/docs/0.12.1/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Queries</strong>
+<label for=toc-control>
+<img src=/docs/0.12.1/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#querying-with-sql>Querying with SQL</a></li>
+<li><a href=#querying-with-dataframes>Querying with DataFrames</a>
+<ul>
+<li><a href=#catalogs-with-dataframereader>Catalogs with DataFrameReader</a></li>
+<li><a href=#time-travel>Time travel</a></li>
+<li><a href=#spark-24>Spark 2.4</a></li>
+</ul>
+</li>
+<li><a href=#inspecting-tables>Inspecting tables</a>
+<ul>
+<li><a href=#history>History</a></li>
+<li><a href=#snapshots>Snapshots</a></li>
+<li><a href=#files>Files</a></li>
+<li><a href=#manifests>Manifests</a></li>
+</ul>
+</li>
+<li><a href=#inspecting-with-dataframes>Inspecting with DataFrames</a></li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown>
+<h1 id=spark-queries>
+Spark Queries
+<a class=anchor href=#spark-queries>#</a>
+</h1>
+<p>To use Iceberg in Spark, first configure <a href=../spark-configuration>Spark catalogs</a>.</p>
+<p>Iceberg uses Apache Spark&rsquo;s DataSourceV2 API for data source and catalog implementations. Spark DSv2 is an evolving API with different levels of support in Spark versions:</p>
+<table>
+<thead>
+<tr>
+<th>Feature support</th>
+<th>Spark 3.0</th>
+<th>Spark 2.4</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href=#querying-with-sql><code>SELECT</code></a></td>
+<td>✔️</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href=#querying-with-dataframes>DataFrame reads</a></td>
+<td>✔️</td>
+<td>✔️</td>
+<td></td>
+</tr>
+<tr>
+<td><a href=#inspecting-tables>Metadata table <code>SELECT</code></a></td>
+<td>✔️</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href=#history>History metadata table</a></td>
+<td>✔️</td>
+<td>✔️</td>
+<td></td>
+</tr>
+<tr>
+<td><a href=#snapshots>Snapshots metadata table</a></td>
+<td>✔️</td>
+<td>✔️</td>
+<td></td>
+</tr>
+<tr>
+<td><a href=#files>Files metadata table</a></td>
+<td>✔️</td>
+<td>✔️</td>
+<td></td>
+</tr>
+<tr>
+<td><a href=#manifests>Manifests metadata table</a></td>
+<td>✔️</td>
+<td>✔️</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id=querying-with-sql>
+Querying with SQL
+<a class=anchor href=#querying-with-sql>#</a>
+</h2>
+<p>In Spark 3, tables use identifiers that include a <a href=../spark-configuration#using-catalogs>catalog name</a>.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> prod.db.<span style=color:#66d9ef>table</span> <span style=color:#75715e>-- catalog: prod, namespace: db, table: table
+</span></code></pre></div><p>Metadata tables, like <code>history</code> and <code>snapshots</code>, can use the Iceberg table name as a namespace.</p>
+<p>For example, to read from the <code>files</code> metadata table for <code>prod.db.table</code>, run:</p>
+<pre tabindex=0><code>SELECT * FROM prod.db.table.files
+</code></pre><h2 id=querying-with-dataframes>
+Querying with DataFrames
+<a class=anchor href=#querying-with-dataframes>#</a>
+</h2>
+<p>To load a table as a DataFrame, use <code>table</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scala data-lang=scala><span style=color:#66d9ef>val</span> df <span style=color:#66d9ef>=</span> spark<span style=color:#f92672>.</span>table<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;prod.db.table&#34;</span><span style=color:#f92672>)</span>
+</code></pre></div><h3 id=catalogs-with-dataframereader>
+Catalogs with DataFrameReader
+<a class=anchor href=#catalogs-with-dataframereader>#</a>
+</h3>
+<p>Iceberg 0.11.0 adds multi-catalog support to <code>DataFrameReader</code> in both Spark 3.x and 2.4.</p>
+<p>Paths and table names can be loaded with Spark&rsquo;s <code>DataFrameReader</code> interface. How tables are loaded depends on how
+the identifier is specified. When using <code>spark.read.format("iceberg").path(table)</code> or <code>spark.table(table)</code> the <code>table</code>
+variable can take a number of forms as listed below:</p>
+<ul>
+<li><code>file:/path/to/table</code>: loads a HadoopTable at given path</li>
+<li><code>tablename</code>: loads <code>currentCatalog.currentNamespace.tablename</code></li>
+<li><code>catalog.tablename</code>: loads <code>tablename</code> from the specified catalog.</li>
+<li><code>namespace.tablename</code>: loads <code>namespace.tablename</code> from current catalog</li>
+<li><code>catalog.namespace.tablename</code>: loads <code>namespace.tablename</code> from the specified catalog.</li>
+<li><code>namespace1.namespace2.tablename</code>: loads <code>namespace1.namespace2.tablename</code> from current catalog</li>
+</ul>
+<p>The above list is in order of priority. For example: a matching catalog will take priority over any namespace resolution.</p>
+<h3 id=time-travel>
+Time travel
+<a class=anchor href=#time-travel>#</a>
+</h3>
+<p>To select a specific table snapshot or the snapshot at some time, Iceberg supports two Spark read options:</p>
+<ul>
+<li><code>snapshot-id</code> selects a specific table snapshot</li>
+<li><code>as-of-timestamp</code> selects the current snapshot at a timestamp, in milliseconds</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scala data-lang=scala><span style=color:#75715e>// time travel to October 26, 1986 at 01:21:00
+</span><span style=color:#75715e></span>spark<span style=color:#f92672>.</span>read
+    <span style=color:#f92672>.</span>option<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;as-of-timestamp&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;499162860000&#34;</span><span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span>format<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;iceberg&#34;</span><span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span>load<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;path/to/table&#34;</span><span style=color:#f92672>)</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scala data-lang=scala><span style=color:#75715e>// time travel to snapshot with ID 10963874102873L
+</span><span style=color:#75715e></span>spark<span style=color:#f92672>.</span>read
+    <span style=color:#f92672>.</span>option<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;snapshot-id&#34;</span><span style=color:#f92672>,</span> <span style=color:#ae81ff>10963874102873L</span><span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span>format<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;iceberg&#34;</span><span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span>load<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;path/to/table&#34;</span><span style=color:#f92672>)</span>
+</code></pre></div><blockquote class="book-hint info">
+Spark does not currently support using <code>option</code> with <code>table</code> in DataFrameReader commands. All options will be silently
+ignored. Do not use <code>table</code> when attempting to time-travel or use other options. Options will be supported with <code>table</code>
+in <a href=https://issues.apache.org/jira/browse/SPARK-32592>Spark 3.1 - SPARK-32592</a>.
+</blockquote>
+<p>Time travel is not yet supported by Spark&rsquo;s SQL syntax.</p>
+<h3 id=spark-24>
+Spark 2.4
+<a class=anchor href=#spark-24>#</a>
+</h3>
+<p>Spark 2.4 requires using the DataFrame reader with <code>iceberg</code> as a format, because 2.4 does not support direct SQL queries:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scala data-lang=scala><span style=color:#75715e>// named metastore table
+</span><span style=color:#75715e></span>spark<span style=color:#f92672>.</span>read<span style=color:#f92672>.</span>format<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;iceberg&#34;</span><span style=color:#f92672>).</span>load<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;catalog.db.table&#34;</span><span style=color:#f92672>)</span>
+<span style=color:#75715e>// Hadoop path table
+</span><span style=color:#75715e></span>spark<span style=color:#f92672>.</span>read<span style=color:#f92672>.</span>format<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;iceberg&#34;</span><span style=color:#f92672>).</span>load<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;hdfs://nn:8020/path/to/table&#34;</span><span style=color:#f92672>)</span>
+</code></pre></div><h4 id=spark-24-with-sql>
+Spark 2.4 with SQL
+<a class=anchor href=#spark-24-with-sql>#</a>
+</h4>
+<p>To run SQL <code>SELECT</code> statements on Iceberg tables in 2.4, register the DataFrame as a temporary table:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scala data-lang=scala><span style=color:#66d9ef>val</span> df <span style=color:#66d9ef>=</span> spark<span style=color:#f92672>.</span>read<span style=color:#f92672>.</span>format<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;iceberg&#34;</span><span style=color:#f92672>).</span>load<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;db.table&#34;</span><span style=color:#f92672>)</span>
+df<span style=color:#f92672>.</span>createOrReplaceTempView<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;table&#34;</span><span style=color:#f92672>)</span>
+
+spark<span style=color:#f92672>.</span>sql<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;&#34;&#34;select count(1) from table&#34;&#34;&#34;</span><span style=color:#f92672>).</span>show<span style=color:#f92672>()</span>
+</code></pre></div><h2 id=inspecting-tables>
+Inspecting tables
+<a class=anchor href=#inspecting-tables>#</a>
+</h2>
+<p>To inspect a table&rsquo;s history, snapshots, and other metadata, Iceberg supports metadata tables.</p>
+<p>Metadata tables are identified by adding the metadata table name after the original table name. For example, history for <code>db.table</code> is read using <code>db.table.history</code>.</p>
+<blockquote class="book-hint info">
+As of Spark 3.0, the format of the table name for inspection (<code>catalog.database.table.metadata</code>) doesn&rsquo;t work with Spark&rsquo;s default catalog (<code>spark_catalog</code>). If you&rsquo;ve replaced the default catalog, you may want to use <code>DataFrameReader</code> API to inspect the table.
+</blockquote>
+<h3 id=history>
+History
+<a class=anchor href=#history>#</a>
+</h3>
+<p>To show table history, run:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> prod.db.<span style=color:#66d9ef>table</span>.history
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>+-------------------------+---------------------+---------------------+---------------------+
+| made_current_at         | snapshot_id         | parent_id           | is_current_ancestor |
++-------------------------+---------------------+---------------------+---------------------+
+| 2019-02-08 03:29:51.215 | 5781947118336215154 | NULL                | true                |
+| 2019-02-08 03:47:55.948 | 5179299526185056830 | 5781947118336215154 | true                |
+| 2019-02-09 16:24:30.13  | 296410040247533544  | 5179299526185056830 | false               |
+| 2019-02-09 16:32:47.336 | 2999875608062437330 | 5179299526185056830 | true                |
+| 2019-02-09 19:42:03.919 | 8924558786060583479 | 2999875608062437330 | true                |
+| 2019-02-09 19:49:16.343 | 6536733823181975045 | 8924558786060583479 | true                |
++-------------------------+---------------------+---------------------+---------------------+
+</code></pre></div><blockquote class="book-hint info">
+<strong>This shows a commit that was rolled back.</strong> The example has two snapshots with the same parent, and one is <em>not</em> an ancestor of the current table state.
+</blockquote>
+<h3 id=snapshots>
+Snapshots
+<a class=anchor href=#snapshots>#</a>
+</h3>
+<p>To show the valid snapshots for a table, run:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> prod.db.<span style=color:#66d9ef>table</span>.snapshots
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>+-------------------------+----------------+-----------+-----------+----------------------------------------------------+-------------------------------------------------------+
+| committed_at            | snapshot_id    | parent_id | operation | manifest_list                                      | summary                                               |
++-------------------------+----------------+-----------+-----------+----------------------------------------------------+-------------------------------------------------------+
+| 2019-02-08 03:29:51.215 | 57897183625154 | null      | append    | s3://.../table/metadata/snap-57897183625154-1.avro | { added-records -&gt; 2478404, total-records -&gt; 2478404, |
+|                         |                |           |           |                                                    |   added-data-files -&gt; 438, total-data-files -&gt; 438,   |
+|                         |                |           |           |                                                    |   spark.app.id -&gt; application_1520379288616_155055 }  |
+| ...                     | ...            | ...       | ...       | ...                                                | ...                                                   |
++-------------------------+----------------+-----------+-----------+----------------------------------------------------+-------------------------------------------------------+
+</code></pre></div><p>You can also join snapshots to table history. For example, this query will show table history, with the application ID that wrote each snapshot:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>select</span>
+    h.made_current_at,
+    s.<span style=color:#66d9ef>operation</span>,
+    h.snapshot_id,
+    h.is_current_ancestor,
+    s.summary[<span style=color:#e6db74>&#39;spark.app.id&#39;</span>]
+<span style=color:#66d9ef>from</span> prod.db.<span style=color:#66d9ef>table</span>.history h
+<span style=color:#66d9ef>join</span> prod.db.<span style=color:#66d9ef>table</span>.snapshots s
+  <span style=color:#66d9ef>on</span> h.snapshot_id <span style=color:#f92672>=</span> s.snapshot_id
+<span style=color:#66d9ef>order</span> <span style=color:#66d9ef>by</span> made_current_at
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>+-------------------------+-----------+----------------+---------------------+----------------------------------+
+| made_current_at         | operation | snapshot_id    | is_current_ancestor | summary[spark.app.id]            |
++-------------------------+-----------+----------------+---------------------+----------------------------------+
+| 2019-02-08 03:29:51.215 | append    | 57897183625154 | true                | application_1520379288616_155055 |
+| 2019-02-09 16:24:30.13  | delete    | 29641004024753 | false               | application_1520379288616_151109 |
+| 2019-02-09 16:32:47.336 | append    | 57897183625154 | true                | application_1520379288616_155055 |
+| 2019-02-08 03:47:55.948 | overwrite | 51792995261850 | true                | application_1520379288616_152431 |
++-------------------------+-----------+----------------+---------------------+----------------------------------+
+</code></pre></div><h3 id=files>
+Files
+<a class=anchor href=#files>#</a>
+</h3>
+<p>To show a table&rsquo;s data files and each file&rsquo;s metadata, run:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> prod.db.<span style=color:#66d9ef>table</span>.files
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>+-------------------------------------------------------------------------+-------------+--------------+--------------------+--------------------+------------------+-------------------+------------------+-----------------+-----------------+--------------+---------------+
+| file_path                                                               | file_format | record_count | file_size_in_bytes | column_sizes       | value_counts     | null_value_counts | nan_value_counts | lower_bounds    | upper_bounds    | key_metadata | split_offsets |
++-------------------------------------------------------------------------+-------------+--------------+--------------------+--------------------+------------------+-------------------+------------------+-----------------+-----------------+--------------+---------------+
+| s3:/.../table/data/00000-3-8d6d60e8-d427-4809-bcf0-f5d45a4aad96.parquet | PARQUET     | 1            | 597                | [1 -&gt; 90, 2 -&gt; 62] | [1 -&gt; 1, 2 -&gt; 1] | [1 -&gt; 0, 2 -&gt; 0]  | []               | [1 -&gt; , 2 -&gt; c] | [1 -&gt; , 2 -&gt; c] | null         | [4]           |
+| s3:/.../table/data/00001-4-8d6d60e8-d427-4809-bcf0-f5d45a4aad96.parquet | PARQUET     | 1            | 597                | [1 -&gt; 90, 2 -&gt; 62] | [1 -&gt; 1, 2 -&gt; 1] | [1 -&gt; 0, 2 -&gt; 0]  | []               | [1 -&gt; , 2 -&gt; b] | [1 -&gt; , 2 -&gt; b] | null         | [4]           |
+| s3:/.../table/data/00002-5-8d6d60e8-d427-4809-bcf0-f5d45a4aad96.parquet | PARQUET     | 1            | 597                | [1 -&gt; 90, 2 -&gt; 62] | [1 -&gt; 1, 2 -&gt; 1] | [1 -&gt; 0, 2 -&gt; 0]  | []               | [1 -&gt; , 2 -&gt; a] | [1 -&gt; , 2 -&gt; a] | null         | [4]           |
++-------------------------------------------------------------------------+-------------+--------------+--------------------+--------------------+------------------+-------------------+------------------+-----------------+-----------------+--------------+---------------+
+</code></pre></div><h3 id=manifests>
+Manifests
+<a class=anchor href=#manifests>#</a>
+</h3>
+<p>To show a table&rsquo;s file manifests and each file&rsquo;s metadata, run:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> prod.db.<span style=color:#66d9ef>table</span>.manifests
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>+----------------------------------------------------------------------+--------+-------------------+---------------------+------------------------+---------------------------+--------------------------+--------------------------------------+
+| path                                                                 | length | partition_spec_id | added_snapshot_id   | added_data_files_count | existing_data_files_count | deleted_data_files_count | partition_summaries                  |
++----------------------------------------------------------------------+--------+-------------------+---------------------+------------------------+---------------------------+--------------------------+--------------------------------------+
+| s3://.../table/metadata/45b5290b-ee61-4788-b324-b1e2735c0e10-m0.avro | 4479   | 0                 | 6668963634911763636 | 8                      | 0                         | 0                        | [[false,null,2019-05-13,2019-05-15]] |
++----------------------------------------------------------------------+--------+-------------------+---------------------+------------------------+---------------------------+--------------------------+--------------------------------------+
+</code></pre></div><p>Note:</p>
+<ol>
+<li>Fields within <code>partition_summaries</code> column of the manifests table correspond to <code>field_summary</code> structs within <a href=../../../spec#manifest-lists>manifest list</a>, with the following order:
+<ul>
+<li><code>contains_null</code></li>
+<li><code>contains_nan</code></li>
+<li><code>lower_bound</code></li>
+<li><code>upper_bound</code></li>
+</ul>
+</li>
+<li><code>contains_nan</code> could return null, which indicates that this information is not available from files' metadata.
+This usually occurs when reading from V1 table, where <code>contains_nan</code> is not populated.</li>
+</ol>
+<h2 id=inspecting-with-dataframes>
+Inspecting with DataFrames
+<a class=anchor href=#inspecting-with-dataframes>#</a>
+</h2>
+<p>Metadata tables can be loaded in Spark 2.4 or Spark 3 using the DataFrameReader API:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scala data-lang=scala><span style=color:#75715e>// named metastore table
+</span><span style=color:#75715e></span>spark<span style=color:#f92672>.</span>read<span style=color:#f92672>.</span>format<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;iceberg&#34;</span><span style=color:#f92672>).</span>load<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;db.table.files&#34;</span><span style=color:#f92672>).</span>show<span style=color:#f92672>(</span>truncate <span style=color:#66d9ef>=</span> <span style=color:#66d9ef>false</span><span style=color:#f92672>)</span>
+<span style=color:#75715e>// Hadoop path table
+</span><span style=color:#75715e></span>spark<span style=color:#f92672>.</span>read<span style=color:#f92672>.</span>format<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;iceberg&#34;</span><span style=color:#f92672>).</span>load<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;hdfs://nn:8020/path/to/table#files&#34;</span><span style=color:#f92672>).</span>show<span style=color:#f92672>(</span>truncate <span style=color:#66d9ef>=</span> <span style=color:#66d9ef>false</span><span style=color:#f92672>)</span>
+</code></pre></div></article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#querying-with-sql>Querying with SQL</a></li>
+<li><a href=#querying-with-dataframes>Querying with DataFrames</a>
+<ul>
+<li><a href=#catalogs-with-dataframereader>Catalogs with DataFrameReader</a></li>
+<li><a href=#time-travel>Time travel</a></li>
+<li><a href=#spark-24>Spark 2.4</a></li>
+</ul>
+</li>
+<li><a href=#inspecting-tables>Inspecting tables</a>
+<ul>
+<li><a href=#history>History</a></li>
+<li><a href=#snapshots>Snapshots</a></li>
+<li><a href=#files>Files</a></li>
+<li><a href=#manifests>Manifests</a></li>
+</ul>
+</li>
+<li><a href=#inspecting-with-dataframes>Inspecting with DataFrames</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>

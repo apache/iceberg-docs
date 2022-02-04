@@ -1,0 +1,581 @@
+<!doctype html><html lang=en dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Java API Quickstart #  Create a table #  Tables are created using either a Catalog or an implementation of the Tables interface.
+Using a Hive catalog #  The Hive catalog connects to a Hive metastore to keep track of Iceberg tables. You can initialize a Hive catalog with a name and some properties. (see: Catalog properties)
+Note: Currently, setConf is always required for hive catalogs, but this will change in the future.">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content="Java Quickstart">
+<meta property="og:description" content="Java API Quickstart #  Create a table #  Tables are created using either a Catalog or an implementation of the Tables interface.
+Using a Hive catalog #  The Hive catalog connects to a Hive metastore to keep track of Iceberg tables. You can initialize a Hive catalog with a name and some properties. (see: Catalog properties)
+Note: Currently, setConf is always required for hive catalogs, but this will change in the future.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://iceberg.apache.org/docs/0.12.1/java-api-quickstart/"><meta property="article:section" content="docs">
+<title>Java Quickstart | Apache Iceberg</title>
+<link rel=manifest href=/docs/0.12.1/manifest.json>
+<link rel=icon href=/docs/0.12.1/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/docs/0.12.1/book.min.179e158d24f3ef709534173fd8b1c1e541a4fa3e23c1b5d8e887464c58949cc9.css integrity="sha256-F54VjSTz73CVNBc/2LHB5UGk+j4jwbXY6IdGTFiUnMk=" crossorigin=anonymous>
+<script defer src=/docs/0.12.1/flexsearch.min.js></script>
+<script defer src=/docs/0.12.1/en.search.min.9b389ad9641a13fb39ba48da7e84d44163cd779ab7cf64f59cc58924b05ea921.js integrity="sha256-mzia2WQaE/s5ukjafoTUQWPNd5q3z2T1nMWJJLBeqSE=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/docs/0.12.1/../../><img src=/docs/0.12.1/img/iceberg-logo-icon.png alt=Logo><span>Apache Iceberg</span>
+</a>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../releases>
+<img id=version-shield src=https://img.shields.io/badge/version-0.12.1-blue alt>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+<a href=https://github.com/apache/iceberg target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/GitHub-Mark.png target=_blank class=top-external-icon>
+</a>
+<a href=https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/Slack_Mark_Web.png target=_blank class=top-external-icon>
+</a>
+</div>
+<ul>
+<li class=book-section-flats>
+<span>
+<i class="fa fa-table fa-fw"></i>
+Tables</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/configuration/>
+Configuration</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/evolution/>
+Evolution</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/maintenance/>
+Maintenance</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/partitioning/>
+Partitioning</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/performance/>
+Performance</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/reliability/>
+Reliability</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/schemas/>
+Schemas</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<span>
+<i class="fa fa-star-o fa-fw"></i>
+Spark</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/getting-started/>
+Getting Started</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-configuration/>
+Configuration</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-ddl/>
+DDL</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-procedures/>
+Procedures</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-queries/>
+Queries</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-structured-streaming/>
+Structured Streaming</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-writes/>
+Writes</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<span>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/flink-logo.png class="navigation-icon fa-fw">Flink</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/flink/>
+Getting Started</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/flink-connector/>
+Flink Connector</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<a href=https://iceberg.apache.org/docs/0.12.1/hive/>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/hive-logo.png class="navigation-icon fa-fw">Hive</a>
+<ul>
+</ul>
+</li>
+<li>
+<a href=https://trino.io/docs/current/connector/iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/trino-logo.png class="navigation-icon fa-fw">
+Trino
+</a>
+</li>
+<li>
+<a href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/prestodb-logo.png class="navigation-icon fa-fw">
+Presto
+</a>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-56605d8e971a871885e28ee5142728bf class=toggle>
+<label for=section-56605d8e971a871885e28ee5142728bf class="flex justify-between">
+<a role=button>
+<i class="fa fa-handshake-o fa-fw"></i>
+Integrations</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/aws/>
+AWS</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/jdbc/>
+JDBC</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/nessie/>
+Nessie</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-bf7b3283e3790c00c8caaa140299052b class=toggle checked>
+<label for=section-bf7b3283e3790c00c8caaa140299052b class="flex justify-between">
+<a role=button>
+<i class="fa fa-connectdevelop fa-fw"></i>
+API</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/java-api-quickstart/ class=active>
+Java Quickstart</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/api/>
+Java API</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/custom-catalog/>
+Java Custom Catalog</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../javadoc/0.12.1>
+Javadocs
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/python-quickstart/>
+Python Quickstart</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/python-api-intro/>
+Python API</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/python-feature-support/>
+Python Feature Support</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-7e66f1754ca5d93e20ecdc89df5b8b28 class=toggle>
+<label for=section-7e66f1754ca5d93e20ecdc89df5b8b28 class="flex justify-between">
+<a role=button>
+<i class="fa fa-users fa-fw"></i>
+Community</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../blogs>
+Blogs
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../community>
+Join
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../talks>
+Talks
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-87dda23e9104fe3231cee3bc88a2d754 class=toggle>
+<label for=section-87dda23e9104fe3231cee3bc88a2d754 class="flex justify-between">
+<a role=button>
+<i class="fa fa-object-ungroup fa-fw"></i>
+Format</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../spec>
+Spec
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../terms>
+Terms
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-2e5d3f5f142758d8dd368e9c281dd08e class=toggle>
+<label for=section-2e5d3f5f142758d8dd368e9c281dd08e class="flex justify-between">
+<a role=button>
+<i class="fa fa-wrench fa-fw"></i>
+Project</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../how-to-release>
+How to Release
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../roadmap>
+Roadmap
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../security>
+Security
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../trademarks>
+Trademarks
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-4ddb27a8612bc8118c0b36386905d332 class=toggle>
+<label for=section-4ddb27a8612bc8118c0b36386905d332 class="flex justify-between">
+<a role=button>
+<i class="fa fa-code-fork fa-fw"></i>
+Releases</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../latest>
+Latest
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../0.12.1>
+0.12.1
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../releases>
+Release Notes
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-296746d27808aa768e500824aaf2adea class=toggle>
+<label for=section-296746d27808aa768e500824aaf2adea class="flex justify-between">
+<a role=button>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/asf.png class="navigation-icon fa-fw">ASF</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/licenses/ target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+License
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/security/ target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Security
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/foundation/thanks.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Sponsors
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/foundation/sponsorship.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Donate
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/events/current-event.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Events
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<link rel=stylesheet href=/docs/0.12.1/fontawesome/css/font-awesome.min.css>
+<label for=menu-control>
+<img src=/docs/0.12.1/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Java Quickstart</strong>
+<label for=toc-control>
+<img src=/docs/0.12.1/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#create-a-table>Create a table</a>
+<ul>
+<li><a href=#using-a-hive-catalog>Using a Hive catalog</a></li>
+<li><a href=#using-a-hadoop-catalog>Using a Hadoop catalog</a></li>
+<li><a href=#using-hadoop-tables>Using Hadoop tables</a></li>
+<li><a href=#tables-in-spark>Tables in Spark</a></li>
+</ul>
+</li>
+<li><a href=#schemas>Schemas</a>
+<ul>
+<li><a href=#create-a-schema>Create a schema</a></li>
+<li><a href=#convert-a-schema-from-avro>Convert a schema from Avro</a></li>
+<li><a href=#convert-a-schema-from-spark>Convert a schema from Spark</a></li>
+</ul>
+</li>
+<li><a href=#partitioning>Partitioning</a>
+<ul>
+<li><a href=#create-a-partition-spec>Create a partition spec</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown>
+<h1 id=java-api-quickstart>
+Java API Quickstart
+<a class=anchor href=#java-api-quickstart>#</a>
+</h1>
+<h2 id=create-a-table>
+Create a table
+<a class=anchor href=#create-a-table>#</a>
+</h2>
+<p>Tables are created using either a <a href=../../../javadoc/0.12.1/index.html?org/apache/iceberg/catalog/Catalog.html><code>Catalog</code></a> or an implementation of the <a href=../../../javadoc/0.12.1/index.html?org/apache/iceberg/Tables.html><code>Tables</code></a> interface.</p>
+<h3 id=using-a-hive-catalog>
+Using a Hive catalog
+<a class=anchor href=#using-a-hive-catalog>#</a>
+</h3>
+<p>The Hive catalog connects to a Hive metastore to keep track of Iceberg tables.
+You can initialize a Hive catalog with a name and some properties.
+(see: <a href=../configuration/#catalog-properties>Catalog properties</a>)</p>
+<p><strong>Note:</strong> Currently, <code>setConf</code> is always required for hive catalogs, but this will change in the future.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#f92672>import</span> org.apache.iceberg.hive.HiveCatalog<span style=color:#f92672>;</span>
+
+Catalog catalog <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HiveCatalog<span style=color:#f92672>();</span>
+catalog<span style=color:#f92672>.</span><span style=color:#a6e22e>setConf</span><span style=color:#f92672>(</span>spark<span style=color:#f92672>.</span><span style=color:#a6e22e>sparkContext</span><span style=color:#f92672>().</span><span style=color:#a6e22e>hadoopConfiguration</span><span style=color:#f92672>());</span>  <span style=color:#75715e>// Configure using Spark&#39;s Hadoop configuration
+</span><span style=color:#75715e></span>
+Map <span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span> String<span style=color:#f92672>&gt;</span> properties <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HashMap<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span> String<span style=color:#f92672>&gt;();</span>
+properties<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;warehouse&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;...&#34;</span><span style=color:#f92672>);</span>
+properties<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;uri&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;...&#34;</span><span style=color:#f92672>);</span>
+
+catalog<span style=color:#f92672>.</span><span style=color:#a6e22e>initialize</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;hive&#34;</span><span style=color:#f92672>,</span> properties<span style=color:#f92672>);</span>
+</code></pre></div><p>The <code>Catalog</code> interface defines methods for working with tables, like <code>createTable</code>, <code>loadTable</code>, <code>renameTable</code>, and <code>dropTable</code>.</p>
+<p>To create a table, pass an <code>Identifier</code> and a <code>Schema</code> along with other initial metadata:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#f92672>import</span> org.apache.iceberg.Table<span style=color:#f92672>;</span>
+<span style=color:#f92672>import</span> org.apache.iceberg.catalog.TableIdentifier<span style=color:#f92672>;</span>
+
+TableIdentifier name <span style=color:#f92672>=</span> TableIdentifier<span style=color:#f92672>.</span><span style=color:#a6e22e>of</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;logging&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;logs&#34;</span><span style=color:#f92672>);</span>
+Table table <span style=color:#f92672>=</span> catalog<span style=color:#f92672>.</span><span style=color:#a6e22e>createTable</span><span style=color:#f92672>(</span>name<span style=color:#f92672>,</span> schema<span style=color:#f92672>,</span> spec<span style=color:#f92672>);</span>
+
+<span style=color:#75715e>// or to load an existing table, use the following line
+</span><span style=color:#75715e>// Table table = catalog.loadTable(name);
+</span></code></pre></div><p>The logs <a href=#create-a-schema>schema</a> and <a href=#create-a-partition-spec>partition spec</a> are created below.</p>
+<h3 id=using-a-hadoop-catalog>
+Using a Hadoop catalog
+<a class=anchor href=#using-a-hadoop-catalog>#</a>
+</h3>
+<p>A Hadoop catalog doesn&rsquo;t need to connect to a Hive MetaStore, but can only be used with HDFS or similar file systems that support atomic rename. Concurrent writes with a Hadoop catalog are not safe with a local FS or S3. To create a Hadoop catalog:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#f92672>import</span> org.apache.hadoop.conf.Configuration<span style=color:#f92672>;</span>
+<span style=color:#f92672>import</span> org.apache.iceberg.hadoop.HadoopCatalog<span style=color:#f92672>;</span>
+
+Configuration conf <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Configuration<span style=color:#f92672>();</span>
+String warehousePath <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;hdfs://host:8020/warehouse_path&#34;</span><span style=color:#f92672>;</span>
+HadoopCatalog catalog <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HadoopCatalog<span style=color:#f92672>(</span>conf<span style=color:#f92672>,</span> warehousePath<span style=color:#f92672>);</span>
+</code></pre></div><p>Like the Hive catalog, <code>HadoopCatalog</code> implements <code>Catalog</code>, so it also has methods for working with tables, like <code>createTable</code>, <code>loadTable</code>, and <code>dropTable</code>.</p>
+<p>This example creates a table with Hadoop catalog:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#f92672>import</span> org.apache.iceberg.Table<span style=color:#f92672>;</span>
+<span style=color:#f92672>import</span> org.apache.iceberg.catalog.TableIdentifier<span style=color:#f92672>;</span>
+
+TableIdentifier name <span style=color:#f92672>=</span> TableIdentifier<span style=color:#f92672>.</span><span style=color:#a6e22e>of</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;logging&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;logs&#34;</span><span style=color:#f92672>);</span>
+Table table <span style=color:#f92672>=</span> catalog<span style=color:#f92672>.</span><span style=color:#a6e22e>createTable</span><span style=color:#f92672>(</span>name<span style=color:#f92672>,</span> schema<span style=color:#f92672>,</span> spec<span style=color:#f92672>);</span>
+
+<span style=color:#75715e>// or to load an existing table, use the following line
+</span><span style=color:#75715e>// Table table = catalog.loadTable(name);
+</span></code></pre></div><p>The logs <a href=#create-a-schema>schema</a> and <a href=#create-a-partition-spec>partition spec</a> are created below.</p>
+<h3 id=using-hadoop-tables>
+Using Hadoop tables
+<a class=anchor href=#using-hadoop-tables>#</a>
+</h3>
+<p>Iceberg also supports tables that are stored in a directory in HDFS. Concurrent writes with a Hadoop tables are not safe when stored in the local FS or S3. Directory tables don&rsquo;t support all catalog operations, like rename, so they use the <code>Tables</code> interface instead of <code>Catalog</code>.</p>
+<p>To create a table in HDFS, use <code>HadoopTables</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#f92672>import</span> org.apache.hadoop.conf.Configuration<span style=color:#f92672>;</span>
+<span style=color:#f92672>import</span> org.apache.iceberg.hadoop.HadoopTables<span style=color:#f92672>;</span>
+<span style=color:#f92672>import</span> org.apache.iceberg.Table<span style=color:#f92672>;</span>
+
+Configuration conf <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Configuration<span style=color:#f92672>();</span>
+HadoopTables tables <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HadoopTables<span style=color:#f92672>(</span>conf<span style=color:#f92672>);</span>
+Table table <span style=color:#f92672>=</span> tables<span style=color:#f92672>.</span><span style=color:#a6e22e>create</span><span style=color:#f92672>(</span>schema<span style=color:#f92672>,</span> spec<span style=color:#f92672>,</span> table_location<span style=color:#f92672>);</span>
+
+<span style=color:#75715e>// or to load an existing table, use the following line
+</span><span style=color:#75715e>// Table table = tables.load(table_location);
+</span></code></pre></div><blockquote class="book-hint danger">
+Hadoop tables shouldn&rsquo;t be used with file systems that do not support atomic rename. Iceberg relies on rename to synchronize concurrent commits for directory tables.
+</blockquote>
+<h3 id=tables-in-spark>
+Tables in Spark
+<a class=anchor href=#tables-in-spark>#</a>
+</h3>
+<p>Spark uses both <code>HiveCatalog</code> and <code>HadoopTables</code> to load tables. Hive is used when the identifier passed to <code>load</code> or <code>save</code> is not a path, otherwise Spark assumes it is a path-based table.</p>
+<p>To read and write to tables from Spark see:</p>
+<ul>
+<li><a href=../spark-queries#querying-with-sql>SQL queries in Spark</a></li>
+<li><a href=../spark-writes#insert-into><code>INSERT INTO</code> in Spark</a></li>
+<li><a href=../spark-writes#merge-into><code>MERGE INTO</code> in Spark</a></li>
+</ul>
+<h2 id=schemas>
+Schemas
+<a class=anchor href=#schemas>#</a>
+</h2>
+<h3 id=create-a-schema>
+Create a schema
+<a class=anchor href=#create-a-schema>#</a>
+</h3>
+<p>This example creates a schema for a <code>logs</code> table:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#f92672>import</span> org.apache.iceberg.Schema<span style=color:#f92672>;</span>
+<span style=color:#f92672>import</span> org.apache.iceberg.types.Types<span style=color:#f92672>;</span>
+
+Schema schema <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Schema<span style=color:#f92672>(</span>
+      Types<span style=color:#f92672>.</span><span style=color:#a6e22e>NestedField</span><span style=color:#f92672>.</span><span style=color:#a6e22e>required</span><span style=color:#f92672>(</span>1<span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;level&#34;</span><span style=color:#f92672>,</span> Types<span style=color:#f92672>.</span><span style=color:#a6e22e>StringType</span><span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>()),</span>
+      Types<span style=color:#f92672>.</span><span style=color:#a6e22e>NestedField</span><span style=color:#f92672>.</span><span style=color:#a6e22e>required</span><span style=color:#f92672>(</span>2<span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;event_time&#34;</span><span style=color:#f92672>,</span> Types<span style=color:#f92672>.</span><span style=color:#a6e22e>TimestampType</span><span style=color:#f92672>.</span><span style=color:#a6e22e>withZone</span><span style=color:#f92672>()),</span>
+      Types<span style=color:#f92672>.</span><span style=color:#a6e22e>NestedField</span><span style=color:#f92672>.</span><span style=color:#a6e22e>required</span><span style=color:#f92672>(</span>3<span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;message&#34;</span><span style=color:#f92672>,</span> Types<span style=color:#f92672>.</span><span style=color:#a6e22e>StringType</span><span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>()),</span>
+      Types<span style=color:#f92672>.</span><span style=color:#a6e22e>NestedField</span><span style=color:#f92672>.</span><span style=color:#a6e22e>optional</span><span style=color:#f92672>(</span>4<span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;call_stack&#34;</span><span style=color:#f92672>,</span> Types<span style=color:#f92672>.</span><span style=color:#a6e22e>ListType</span><span style=color:#f92672>.</span><span style=color:#a6e22e>ofRequired</span><span style=color:#f92672>(</span>5<span style=color:#f92672>,</span> Types<span style=color:#f92672>.</span><span style=color:#a6e22e>StringType</span><span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>()))</span>
+    <span style=color:#f92672>);</span>
+</code></pre></div><p>When using the Iceberg API directly, type IDs are required. Conversions from other schema formats, like Spark, Avro, and Parquet will automatically assign new IDs.</p>
+<p>When a table is created, all IDs in the schema are re-assigned to ensure uniqueness.</p>
+<h3 id=convert-a-schema-from-avro>
+Convert a schema from Avro
+<a class=anchor href=#convert-a-schema-from-avro>#</a>
+</h3>
+<p>To create an Iceberg schema from an existing Avro schema, use converters in <code>AvroSchemaUtil</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#f92672>import</span> org.apache.avro.Schema<span style=color:#f92672>;</span>
+<span style=color:#f92672>import</span> org.apache.avro.Schema.Parser<span style=color:#f92672>;</span>
+<span style=color:#f92672>import</span> org.apache.iceberg.avro.AvroSchemaUtil<span style=color:#f92672>;</span>
+
+Schema avroSchema <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Parser<span style=color:#f92672>().</span><span style=color:#a6e22e>parse</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;{\&#34;type\&#34;: \&#34;record\&#34; , ... }&#34;</span><span style=color:#f92672>);</span>
+Schema icebergSchema <span style=color:#f92672>=</span> AvroSchemaUtil<span style=color:#f92672>.</span><span style=color:#a6e22e>toIceberg</span><span style=color:#f92672>(</span>avroSchema<span style=color:#f92672>);</span>
+</code></pre></div><h3 id=convert-a-schema-from-spark>
+Convert a schema from Spark
+<a class=anchor href=#convert-a-schema-from-spark>#</a>
+</h3>
+<p>To create an Iceberg schema from an existing table, use converters in <code>SparkSchemaUtil</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#f92672>import</span> org.apache.iceberg.spark.SparkSchemaUtil<span style=color:#f92672>;</span>
+
+Schema schema <span style=color:#f92672>=</span> SparkSchemaUtil<span style=color:#f92672>.</span><span style=color:#a6e22e>schemaForTable</span><span style=color:#f92672>(</span>sparkSession<span style=color:#f92672>,</span> table_name<span style=color:#f92672>);</span>
+</code></pre></div><h2 id=partitioning>
+Partitioning
+<a class=anchor href=#partitioning>#</a>
+</h2>
+<h3 id=create-a-partition-spec>
+Create a partition spec
+<a class=anchor href=#create-a-partition-spec>#</a>
+</h3>
+<p>Partition specs describe how Iceberg should group records into data files. Partition specs are created for a table&rsquo;s schema using a builder.</p>
+<p>This example creates a partition spec for the <code>logs</code> table that partitions records by the hour of the log event&rsquo;s timestamp and by log level:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#f92672>import</span> org.apache.iceberg.PartitionSpec<span style=color:#f92672>;</span>
+
+PartitionSpec spec <span style=color:#f92672>=</span> PartitionSpec<span style=color:#f92672>.</span><span style=color:#a6e22e>builderFor</span><span style=color:#f92672>(</span>schema<span style=color:#f92672>)</span>
+      <span style=color:#f92672>.</span><span style=color:#a6e22e>hour</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;event_time&#34;</span><span style=color:#f92672>)</span>
+      <span style=color:#f92672>.</span><span style=color:#a6e22e>identity</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;level&#34;</span><span style=color:#f92672>)</span>
+      <span style=color:#f92672>.</span><span style=color:#a6e22e>build</span><span style=color:#f92672>();</span>
+</code></pre></div><p>For more information on the different partition transforms that Iceberg offers, visit <a href=../../../spec#partitioning>this page</a>.</p>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#create-a-table>Create a table</a>
+<ul>
+<li><a href=#using-a-hive-catalog>Using a Hive catalog</a></li>
+<li><a href=#using-a-hadoop-catalog>Using a Hadoop catalog</a></li>
+<li><a href=#using-hadoop-tables>Using Hadoop tables</a></li>
+<li><a href=#tables-in-spark>Tables in Spark</a></li>
+</ul>
+</li>
+<li><a href=#schemas>Schemas</a>
+<ul>
+<li><a href=#create-a-schema>Create a schema</a></li>
+<li><a href=#convert-a-schema-from-avro>Convert a schema from Avro</a></li>
+<li><a href=#convert-a-schema-from-spark>Convert a schema from Spark</a></li>
+</ul>
+</li>
+<li><a href=#partitioning>Partitioning</a>
+<ul>
+<li><a href=#create-a-partition-spec>Create a partition spec</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>

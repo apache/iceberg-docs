@@ -1,0 +1,673 @@
+<!doctype html><html lang=en dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Spark Configuration #  Catalogs #  Spark 3.0 adds an API to plug in table catalogs that are used to load, create, and manage Iceberg tables. Spark catalogs are configured by setting Spark properties under spark.sql.catalog.
+This creates an Iceberg catalog named hive_prod that loads tables from a Hive metastore:
+spark.sql.catalog.hive_prod = org.apache.iceberg.spark.SparkCatalog spark.sql.catalog.hive_prod.type = hive spark.sql.catalog.hive_prod.uri = thrift://metastore-host:port # omit uri to use the same URI as Spark: hive.">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content="Configuration">
+<meta property="og:description" content="Spark Configuration #  Catalogs #  Spark 3.0 adds an API to plug in table catalogs that are used to load, create, and manage Iceberg tables. Spark catalogs are configured by setting Spark properties under spark.sql.catalog.
+This creates an Iceberg catalog named hive_prod that loads tables from a Hive metastore:
+spark.sql.catalog.hive_prod = org.apache.iceberg.spark.SparkCatalog spark.sql.catalog.hive_prod.type = hive spark.sql.catalog.hive_prod.uri = thrift://metastore-host:port # omit uri to use the same URI as Spark: hive.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://iceberg.apache.org/docs/0.12.1/spark-configuration/"><meta property="article:section" content="docs">
+<title>Configuration | Apache Iceberg</title>
+<link rel=manifest href=/docs/0.12.1/manifest.json>
+<link rel=icon href=/docs/0.12.1/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/docs/0.12.1/book.min.179e158d24f3ef709534173fd8b1c1e541a4fa3e23c1b5d8e887464c58949cc9.css integrity="sha256-F54VjSTz73CVNBc/2LHB5UGk+j4jwbXY6IdGTFiUnMk=" crossorigin=anonymous>
+<script defer src=/docs/0.12.1/flexsearch.min.js></script>
+<script defer src=/docs/0.12.1/en.search.min.9b389ad9641a13fb39ba48da7e84d44163cd779ab7cf64f59cc58924b05ea921.js integrity="sha256-mzia2WQaE/s5ukjafoTUQWPNd5q3z2T1nMWJJLBeqSE=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/docs/0.12.1/../../><img src=/docs/0.12.1/img/iceberg-logo-icon.png alt=Logo><span>Apache Iceberg</span>
+</a>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../releases>
+<img id=version-shield src=https://img.shields.io/badge/version-0.12.1-blue alt>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+<a href=https://github.com/apache/iceberg target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/GitHub-Mark.png target=_blank class=top-external-icon>
+</a>
+<a href=https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/Slack_Mark_Web.png target=_blank class=top-external-icon>
+</a>
+</div>
+<ul>
+<li class=book-section-flats>
+<span>
+<i class="fa fa-table fa-fw"></i>
+Tables</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/configuration/>
+Configuration</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/evolution/>
+Evolution</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/maintenance/>
+Maintenance</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/partitioning/>
+Partitioning</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/performance/>
+Performance</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/reliability/>
+Reliability</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/schemas/>
+Schemas</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<span>
+<i class="fa fa-star-o fa-fw"></i>
+Spark</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/getting-started/>
+Getting Started</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-configuration/ class=active>
+Configuration</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-ddl/>
+DDL</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-procedures/>
+Procedures</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-queries/>
+Queries</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-structured-streaming/>
+Structured Streaming</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-writes/>
+Writes</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<span>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/flink-logo.png class="navigation-icon fa-fw">Flink</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/flink/>
+Getting Started</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/flink-connector/>
+Flink Connector</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<a href=https://iceberg.apache.org/docs/0.12.1/hive/>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/hive-logo.png class="navigation-icon fa-fw">Hive</a>
+<ul>
+</ul>
+</li>
+<li>
+<a href=https://trino.io/docs/current/connector/iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/trino-logo.png class="navigation-icon fa-fw">
+Trino
+</a>
+</li>
+<li>
+<a href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/prestodb-logo.png class="navigation-icon fa-fw">
+Presto
+</a>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-56605d8e971a871885e28ee5142728bf class=toggle>
+<label for=section-56605d8e971a871885e28ee5142728bf class="flex justify-between">
+<a role=button>
+<i class="fa fa-handshake-o fa-fw"></i>
+Integrations</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/aws/>
+AWS</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/jdbc/>
+JDBC</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/nessie/>
+Nessie</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-bf7b3283e3790c00c8caaa140299052b class=toggle>
+<label for=section-bf7b3283e3790c00c8caaa140299052b class="flex justify-between">
+<a role=button>
+<i class="fa fa-connectdevelop fa-fw"></i>
+API</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/java-api-quickstart/>
+Java Quickstart</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/api/>
+Java API</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/custom-catalog/>
+Java Custom Catalog</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../javadoc/0.12.1>
+Javadocs
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/python-quickstart/>
+Python Quickstart</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/python-api-intro/>
+Python API</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/python-feature-support/>
+Python Feature Support</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-7e66f1754ca5d93e20ecdc89df5b8b28 class=toggle>
+<label for=section-7e66f1754ca5d93e20ecdc89df5b8b28 class="flex justify-between">
+<a role=button>
+<i class="fa fa-users fa-fw"></i>
+Community</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../blogs>
+Blogs
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../community>
+Join
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../talks>
+Talks
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-87dda23e9104fe3231cee3bc88a2d754 class=toggle>
+<label for=section-87dda23e9104fe3231cee3bc88a2d754 class="flex justify-between">
+<a role=button>
+<i class="fa fa-object-ungroup fa-fw"></i>
+Format</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../spec>
+Spec
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../terms>
+Terms
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-2e5d3f5f142758d8dd368e9c281dd08e class=toggle>
+<label for=section-2e5d3f5f142758d8dd368e9c281dd08e class="flex justify-between">
+<a role=button>
+<i class="fa fa-wrench fa-fw"></i>
+Project</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../how-to-release>
+How to Release
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../roadmap>
+Roadmap
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../security>
+Security
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../trademarks>
+Trademarks
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-4ddb27a8612bc8118c0b36386905d332 class=toggle>
+<label for=section-4ddb27a8612bc8118c0b36386905d332 class="flex justify-between">
+<a role=button>
+<i class="fa fa-code-fork fa-fw"></i>
+Releases</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../latest>
+Latest
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../0.12.1>
+0.12.1
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../releases>
+Release Notes
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-296746d27808aa768e500824aaf2adea class=toggle>
+<label for=section-296746d27808aa768e500824aaf2adea class="flex justify-between">
+<a role=button>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/asf.png class="navigation-icon fa-fw">ASF</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/licenses/ target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+License
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/security/ target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Security
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/foundation/thanks.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Sponsors
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/foundation/sponsorship.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Donate
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/events/current-event.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Events
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<link rel=stylesheet href=/docs/0.12.1/fontawesome/css/font-awesome.min.css>
+<label for=menu-control>
+<img src=/docs/0.12.1/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Configuration</strong>
+<label for=toc-control>
+<img src=/docs/0.12.1/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#catalogs>Catalogs</a>
+<ul>
+<li><a href=#catalog-configuration>Catalog configuration</a></li>
+<li><a href=#using-catalogs>Using catalogs</a></li>
+<li><a href=#replacing-the-session-catalog>Replacing the session catalog</a></li>
+<li><a href=#using-catalog-specific-hadoop-configuration-values>Using catalog specific Hadoop configuration values</a></li>
+<li><a href=#loading-a-custom-catalog>Loading a custom catalog</a></li>
+<li><a href=#catalogs-in-spark-24>Catalogs in Spark 2.4</a></li>
+</ul>
+</li>
+<li><a href=#sql-extensions>SQL Extensions</a></li>
+<li><a href=#runtime-configuration>Runtime configuration</a>
+<ul>
+<li><a href=#read-options>Read options</a></li>
+<li><a href=#write-options>Write options</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown>
+<h1 id=spark-configuration>
+Spark Configuration
+<a class=anchor href=#spark-configuration>#</a>
+</h1>
+<h2 id=catalogs>
+Catalogs
+<a class=anchor href=#catalogs>#</a>
+</h2>
+<p>Spark 3.0 adds an API to plug in table catalogs that are used to load, create, and manage Iceberg tables. Spark catalogs are configured by setting Spark properties under <code>spark.sql.catalog</code>.</p>
+<p>This creates an Iceberg catalog named <code>hive_prod</code> that loads tables from a Hive metastore:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-plain data-lang=plain>spark.sql.catalog.hive_prod = org.apache.iceberg.spark.SparkCatalog
+spark.sql.catalog.hive_prod.type = hive
+spark.sql.catalog.hive_prod.uri = thrift://metastore-host:port
+# omit uri to use the same URI as Spark: hive.metastore.uris in hive-site.xml
+</code></pre></div><p>Iceberg also supports a directory-based catalog in HDFS that can be configured using <code>type=hadoop</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-plain data-lang=plain>spark.sql.catalog.hadoop_prod = org.apache.iceberg.spark.SparkCatalog
+spark.sql.catalog.hadoop_prod.type = hadoop
+spark.sql.catalog.hadoop_prod.warehouse = hdfs://nn:8020/warehouse/path
+</code></pre></div><blockquote class="book-hint info">
+The Hive-based catalog only loads Iceberg tables. To load non-Iceberg tables in the same Hive metastore, use a <a href=#replacing-the-session-catalog>session catalog</a>.
+</blockquote>
+<h3 id=catalog-configuration>
+Catalog configuration
+<a class=anchor href=#catalog-configuration>#</a>
+</h3>
+<p>A catalog is created and named by adding a property <code>spark.sql.catalog.(catalog-name)</code> with an implementation class for its value.</p>
+<p>Iceberg supplies two implementations:</p>
+<ul>
+<li><code>org.apache.iceberg.spark.SparkCatalog</code> supports a Hive Metastore or a Hadoop warehouse as a catalog</li>
+<li><code>org.apache.iceberg.spark.SparkSessionCatalog</code> adds support for Iceberg tables to Spark&rsquo;s built-in catalog, and delegates to the built-in catalog for non-Iceberg tables</li>
+</ul>
+<p>Both catalogs are configured using properties nested under the catalog name. Common configuration properties for Hive and Hadoop are:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Values</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>spark.sql.catalog.<em>catalog-name</em>.type</td>
+<td><code>hive</code> or <code>hadoop</code></td>
+<td>The underlying Iceberg catalog implementation, <code>HiveCatalog</code>, <code>HadoopCatalog</code> or left unset if using a custom catalog</td>
+</tr>
+<tr>
+<td>spark.sql.catalog.<em>catalog-name</em>.catalog-impl</td>
+<td></td>
+<td>The underlying Iceberg catalog implementation.</td>
+</tr>
+<tr>
+<td>spark.sql.catalog.<em>catalog-name</em>.default-namespace</td>
+<td>default</td>
+<td>The default current namespace for the catalog</td>
+</tr>
+<tr>
+<td>spark.sql.catalog.<em>catalog-name</em>.uri</td>
+<td>thrift://host:port</td>
+<td>Metastore connect URI; default from <code>hive-site.xml</code></td>
+</tr>
+<tr>
+<td>spark.sql.catalog.<em>catalog-name</em>.warehouse</td>
+<td>hdfs://nn:8020/warehouse/path</td>
+<td>Base path for the warehouse directory</td>
+</tr>
+<tr>
+<td>spark.sql.catalog.<em>catalog-name</em>.cache-enabled</td>
+<td><code>true</code> or <code>false</code></td>
+<td>Whether to enable catalog cache, default value is <code>true</code></td>
+</tr>
+</tbody>
+</table>
+<p>Additional properties can be found in common <a href=../configuration#catalog-properties>catalog configuration</a>.</p>
+<h3 id=using-catalogs>
+Using catalogs
+<a class=anchor href=#using-catalogs>#</a>
+</h3>
+<p>Catalog names are used in SQL queries to identify a table. In the examples above, <code>hive_prod</code> and <code>hadoop_prod</code> can be used to prefix database and table names that will be loaded from those catalogs.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> hive_prod.db.<span style=color:#66d9ef>table</span> <span style=color:#75715e>-- load db.table from catalog hive_prod
+</span></code></pre></div><p>Spark 3 keeps track of the current catalog and namespace, which can be omitted from table names.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql>USE hive_prod.db;
+<span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> <span style=color:#66d9ef>table</span> <span style=color:#75715e>-- load db.table from catalog hive_prod
+</span></code></pre></div><p>To see the current catalog and namespace, run <code>SHOW CURRENT NAMESPACE</code>.</p>
+<h3 id=replacing-the-session-catalog>
+Replacing the session catalog
+<a class=anchor href=#replacing-the-session-catalog>#</a>
+</h3>
+<p>To add Iceberg table support to Spark&rsquo;s built-in catalog, configure <code>spark_catalog</code> to use Iceberg&rsquo;s <code>SparkSessionCatalog</code>.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-plain data-lang=plain>spark.sql.catalog.spark_catalog = org.apache.iceberg.spark.SparkSessionCatalog
+spark.sql.catalog.spark_catalog.type = hive
+</code></pre></div><p>Spark&rsquo;s built-in catalog supports existing v1 and v2 tables tracked in a Hive Metastore. This configures Spark to use Iceberg&rsquo;s <code>SparkSessionCatalog</code> as a wrapper around that session catalog. When a table is not an Iceberg table, the built-in catalog will be used to load it instead.</p>
+<p>This configuration can use same Hive Metastore for both Iceberg and non-Iceberg tables.</p>
+<h3 id=using-catalog-specific-hadoop-configuration-values>
+Using catalog specific Hadoop configuration values
+<a class=anchor href=#using-catalog-specific-hadoop-configuration-values>#</a>
+</h3>
+<p>Similar to configuring Hadoop properties by using <code>spark.hadoop.*</code>, it&rsquo;s possible to set per-catalog Hadoop configuration values when using Spark by adding the property for the catalog with the prefix <code>spark.sql.catalog.(catalog-name).hadoop.*</code>. These properties will take precedence over values configured globally using <code>spark.hadoop.*</code> and will only affect Iceberg tables.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-plain data-lang=plain>spark.sql.catalog.hadoop_prod.hadoop.fs.s3a.endpoint = http://aws-local:9000
+</code></pre></div><h3 id=loading-a-custom-catalog>
+Loading a custom catalog
+<a class=anchor href=#loading-a-custom-catalog>#</a>
+</h3>
+<p>Spark supports loading a custom Iceberg <code>Catalog</code> implementation by specifying the <code>catalog-impl</code> property. Here is an example:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-plain data-lang=plain>spark.sql.catalog.custom_prod = org.apache.iceberg.spark.SparkCatalog
+spark.sql.catalog.custom_prod.catalog-impl = com.my.custom.CatalogImpl
+spark.sql.catalog.custom_prod.my-additional-catalog-config = my-value
+</code></pre></div><h3 id=catalogs-in-spark-24>
+Catalogs in Spark 2.4
+<a class=anchor href=#catalogs-in-spark-24>#</a>
+</h3>
+<p>When using Iceberg 0.11.0 and later, Spark 2.4 can load tables from multiple Iceberg catalogs or from table locations.</p>
+<p>Catalogs in 2.4 are configured just like catalogs in 3.0, but only Iceberg catalogs are supported.</p>
+<h2 id=sql-extensions>
+SQL Extensions
+<a class=anchor href=#sql-extensions>#</a>
+</h2>
+<p>Iceberg 0.11.0 and later add an extension module to Spark to add new SQL commands, like <code>CALL</code> for stored procedures or <code>ALTER TABLE ... WRITE ORDERED BY</code>.</p>
+<p>Using those SQL commands requires adding Iceberg extensions to your Spark environment using the following Spark property:</p>
+<table>
+<thead>
+<tr>
+<th>Spark extensions property</th>
+<th>Iceberg extensions implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>spark.sql.extensions</code></td>
+<td><code>org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions</code></td>
+</tr>
+</tbody>
+</table>
+<p>SQL extensions are not available for Spark 2.4.</p>
+<h2 id=runtime-configuration>
+Runtime configuration
+<a class=anchor href=#runtime-configuration>#</a>
+</h2>
+<h3 id=read-options>
+Read options
+<a class=anchor href=#read-options>#</a>
+</h3>
+<p>Spark read options are passed when configuring the DataFrameReader, like this:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scala data-lang=scala><span style=color:#75715e>// time travel
+</span><span style=color:#75715e></span>spark<span style=color:#f92672>.</span>read
+    <span style=color:#f92672>.</span>option<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;snapshot-id&#34;</span><span style=color:#f92672>,</span> <span style=color:#ae81ff>10963874102873L</span><span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span>table<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;catalog.db.table&#34;</span><span style=color:#f92672>)</span>
+</code></pre></div><table>
+<thead>
+<tr>
+<th>Spark option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>snapshot-id</td>
+<td>(latest)</td>
+<td>Snapshot ID of the table snapshot to read</td>
+</tr>
+<tr>
+<td>as-of-timestamp</td>
+<td>(latest)</td>
+<td>A timestamp in milliseconds; the snapshot used will be the snapshot current at this time.</td>
+</tr>
+<tr>
+<td>split-size</td>
+<td>As per table property</td>
+<td>Overrides this table&rsquo;s read.split.target-size and read.split.metadata-target-size</td>
+</tr>
+<tr>
+<td>lookback</td>
+<td>As per table property</td>
+<td>Overrides this table&rsquo;s read.split.planning-lookback</td>
+</tr>
+<tr>
+<td>file-open-cost</td>
+<td>As per table property</td>
+<td>Overrides this table&rsquo;s read.split.open-file-cost</td>
+</tr>
+<tr>
+<td>vectorization-enabled</td>
+<td>As per table property</td>
+<td>Overrides this table&rsquo;s read.parquet.vectorization.enabled</td>
+</tr>
+<tr>
+<td>batch-size</td>
+<td>As per table property</td>
+<td>Overrides this table&rsquo;s read.parquet.vectorization.batch-size</td>
+</tr>
+</tbody>
+</table>
+<h3 id=write-options>
+Write options
+<a class=anchor href=#write-options>#</a>
+</h3>
+<p>Spark write options are passed when configuring the DataFrameWriter, like this:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scala data-lang=scala><span style=color:#75715e>// write with Avro instead of Parquet
+</span><span style=color:#75715e></span>df<span style=color:#f92672>.</span>write
+    <span style=color:#f92672>.</span>option<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;write-format&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;avro&#34;</span><span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span>option<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;snapshot-property.key&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;value&#34;</span><span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span>insertInto<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;catalog.db.table&#34;</span><span style=color:#f92672>)</span>
+</code></pre></div><table>
+<thead>
+<tr>
+<th>Spark option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>write-format</td>
+<td>Table write.format.default</td>
+<td>File format to use for this write operation; parquet, avro, or orc</td>
+</tr>
+<tr>
+<td>target-file-size-bytes</td>
+<td>As per table property</td>
+<td>Overrides this table&rsquo;s write.target-file-size-bytes</td>
+</tr>
+<tr>
+<td>check-nullability</td>
+<td>true</td>
+<td>Sets the nullable check on fields</td>
+</tr>
+<tr>
+<td>snapshot-property.<em>custom-key</em></td>
+<td>null</td>
+<td>Adds an entry with custom-key and corresponding value in the snapshot summary</td>
+</tr>
+<tr>
+<td>fanout-enabled</td>
+<td>false</td>
+<td>Overrides this table&rsquo;s write.spark.fanout.enabled</td>
+</tr>
+<tr>
+<td>check-ordering</td>
+<td>true</td>
+<td>Checks if input schema and table schema are same</td>
+</tr>
+</tbody>
+</table>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#catalogs>Catalogs</a>
+<ul>
+<li><a href=#catalog-configuration>Catalog configuration</a></li>
+<li><a href=#using-catalogs>Using catalogs</a></li>
+<li><a href=#replacing-the-session-catalog>Replacing the session catalog</a></li>
+<li><a href=#using-catalog-specific-hadoop-configuration-values>Using catalog specific Hadoop configuration values</a></li>
+<li><a href=#loading-a-custom-catalog>Loading a custom catalog</a></li>
+<li><a href=#catalogs-in-spark-24>Catalogs in Spark 2.4</a></li>
+</ul>
+</li>
+<li><a href=#sql-extensions>SQL Extensions</a></li>
+<li><a href=#runtime-configuration>Runtime configuration</a>
+<ul>
+<li><a href=#read-options>Read options</a></li>
+<li><a href=#write-options>Write options</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>

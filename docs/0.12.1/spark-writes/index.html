@@ -1,0 +1,980 @@
+<!doctype html><html lang=en dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Spark Writes #  To use Iceberg in Spark, first configure Spark catalogs.
+Some plans are only available when using Iceberg SQL extensions in Spark 3.x.
+Iceberg uses Apache Spark&rsquo;s DataSourceV2 API for data source and catalog implementations. Spark DSv2 is an evolving API with different levels of support in Spark versions:
+   Feature support Spark 3.0 Spark 2.4 Notes     SQL insert into ✔️     SQL merge into ✔️  ⚠ Requires Iceberg Spark extensions   SQL insert overwrite ✔️     SQL delete from ✔️  ⚠ Row-level delete requires Spark extensions   SQL update ✔️  ⚠ Requires Iceberg Spark extensions   DataFrame append ✔️ ✔️    DataFrame overwrite ✔️ ✔️ ⚠ Behavior changed in Spark 3.">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content="Writes">
+<meta property="og:description" content="Spark Writes #  To use Iceberg in Spark, first configure Spark catalogs.
+Some plans are only available when using Iceberg SQL extensions in Spark 3.x.
+Iceberg uses Apache Spark&rsquo;s DataSourceV2 API for data source and catalog implementations. Spark DSv2 is an evolving API with different levels of support in Spark versions:
+   Feature support Spark 3.0 Spark 2.4 Notes     SQL insert into ✔️     SQL merge into ✔️  ⚠ Requires Iceberg Spark extensions   SQL insert overwrite ✔️     SQL delete from ✔️  ⚠ Row-level delete requires Spark extensions   SQL update ✔️  ⚠ Requires Iceberg Spark extensions   DataFrame append ✔️ ✔️    DataFrame overwrite ✔️ ✔️ ⚠ Behavior changed in Spark 3.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://iceberg.apache.org/docs/0.12.1/spark-writes/"><meta property="article:section" content="docs">
+<title>Writes | Apache Iceberg</title>
+<link rel=manifest href=/docs/0.12.1/manifest.json>
+<link rel=icon href=/docs/0.12.1/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/docs/0.12.1/book.min.179e158d24f3ef709534173fd8b1c1e541a4fa3e23c1b5d8e887464c58949cc9.css integrity="sha256-F54VjSTz73CVNBc/2LHB5UGk+j4jwbXY6IdGTFiUnMk=" crossorigin=anonymous>
+<script defer src=/docs/0.12.1/flexsearch.min.js></script>
+<script defer src=/docs/0.12.1/en.search.min.9b389ad9641a13fb39ba48da7e84d44163cd779ab7cf64f59cc58924b05ea921.js integrity="sha256-mzia2WQaE/s5ukjafoTUQWPNd5q3z2T1nMWJJLBeqSE=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/docs/0.12.1/../../><img src=/docs/0.12.1/img/iceberg-logo-icon.png alt=Logo><span>Apache Iceberg</span>
+</a>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../releases>
+<img id=version-shield src=https://img.shields.io/badge/version-0.12.1-blue alt>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+<a href=https://github.com/apache/iceberg target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/GitHub-Mark.png target=_blank class=top-external-icon>
+</a>
+<a href=https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/Slack_Mark_Web.png target=_blank class=top-external-icon>
+</a>
+</div>
+<ul>
+<li class=book-section-flats>
+<span>
+<i class="fa fa-table fa-fw"></i>
+Tables</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/configuration/>
+Configuration</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/evolution/>
+Evolution</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/maintenance/>
+Maintenance</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/partitioning/>
+Partitioning</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/performance/>
+Performance</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/reliability/>
+Reliability</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/schemas/>
+Schemas</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<span>
+<i class="fa fa-star-o fa-fw"></i>
+Spark</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/getting-started/>
+Getting Started</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-configuration/>
+Configuration</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-ddl/>
+DDL</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-procedures/>
+Procedures</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-queries/>
+Queries</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-structured-streaming/>
+Structured Streaming</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-writes/ class=active>
+Writes</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<span>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/flink-logo.png class="navigation-icon fa-fw">Flink</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/flink/>
+Getting Started</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/flink-connector/>
+Flink Connector</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<a href=https://iceberg.apache.org/docs/0.12.1/hive/>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/hive-logo.png class="navigation-icon fa-fw">Hive</a>
+<ul>
+</ul>
+</li>
+<li>
+<a href=https://trino.io/docs/current/connector/iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/trino-logo.png class="navigation-icon fa-fw">
+Trino
+</a>
+</li>
+<li>
+<a href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/prestodb-logo.png class="navigation-icon fa-fw">
+Presto
+</a>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-56605d8e971a871885e28ee5142728bf class=toggle>
+<label for=section-56605d8e971a871885e28ee5142728bf class="flex justify-between">
+<a role=button>
+<i class="fa fa-handshake-o fa-fw"></i>
+Integrations</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/aws/>
+AWS</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/jdbc/>
+JDBC</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/nessie/>
+Nessie</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-bf7b3283e3790c00c8caaa140299052b class=toggle>
+<label for=section-bf7b3283e3790c00c8caaa140299052b class="flex justify-between">
+<a role=button>
+<i class="fa fa-connectdevelop fa-fw"></i>
+API</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/java-api-quickstart/>
+Java Quickstart</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/api/>
+Java API</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/custom-catalog/>
+Java Custom Catalog</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../javadoc/0.12.1>
+Javadocs
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/python-quickstart/>
+Python Quickstart</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/python-api-intro/>
+Python API</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/python-feature-support/>
+Python Feature Support</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-7e66f1754ca5d93e20ecdc89df5b8b28 class=toggle>
+<label for=section-7e66f1754ca5d93e20ecdc89df5b8b28 class="flex justify-between">
+<a role=button>
+<i class="fa fa-users fa-fw"></i>
+Community</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../blogs>
+Blogs
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../community>
+Join
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../talks>
+Talks
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-87dda23e9104fe3231cee3bc88a2d754 class=toggle>
+<label for=section-87dda23e9104fe3231cee3bc88a2d754 class="flex justify-between">
+<a role=button>
+<i class="fa fa-object-ungroup fa-fw"></i>
+Format</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../spec>
+Spec
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../terms>
+Terms
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-2e5d3f5f142758d8dd368e9c281dd08e class=toggle>
+<label for=section-2e5d3f5f142758d8dd368e9c281dd08e class="flex justify-between">
+<a role=button>
+<i class="fa fa-wrench fa-fw"></i>
+Project</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../how-to-release>
+How to Release
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../roadmap>
+Roadmap
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../security>
+Security
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../trademarks>
+Trademarks
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-4ddb27a8612bc8118c0b36386905d332 class=toggle>
+<label for=section-4ddb27a8612bc8118c0b36386905d332 class="flex justify-between">
+<a role=button>
+<i class="fa fa-code-fork fa-fw"></i>
+Releases</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../latest>
+Latest
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../0.12.1>
+0.12.1
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../releases>
+Release Notes
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-296746d27808aa768e500824aaf2adea class=toggle>
+<label for=section-296746d27808aa768e500824aaf2adea class="flex justify-between">
+<a role=button>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/asf.png class="navigation-icon fa-fw">ASF</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/licenses/ target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+License
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/security/ target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Security
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/foundation/thanks.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Sponsors
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/foundation/sponsorship.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Donate
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/events/current-event.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Events
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<link rel=stylesheet href=/docs/0.12.1/fontawesome/css/font-awesome.min.css>
+<label for=menu-control>
+<img src=/docs/0.12.1/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Writes</strong>
+<label for=toc-control>
+<img src=/docs/0.12.1/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#writing-with-sql>Writing with SQL</a>
+<ul>
+<li><a href=#insert-into><code>INSERT INTO</code></a></li>
+<li><a href=#merge-into><code>MERGE INTO</code></a></li>
+<li><a href=#insert-overwrite><code>INSERT OVERWRITE</code></a></li>
+<li><a href=#delete-from><code>DELETE FROM</code></a></li>
+<li><a href=#update><code>UPDATE</code></a></li>
+</ul>
+</li>
+<li><a href=#writing-with-dataframes>Writing with DataFrames</a>
+<ul>
+<li><a href=#appending-data>Appending data</a></li>
+<li><a href=#overwriting-data>Overwriting data</a></li>
+<li><a href=#creating-tables>Creating tables</a></li>
+</ul>
+</li>
+<li><a href=#writing-to-partitioned-tables>Writing to partitioned tables</a></li>
+<li><a href=#type-compatibility>Type compatibility</a>
+<ul>
+<li><a href=#spark-type-to-iceberg-type>Spark type to Iceberg type</a></li>
+<li><a href=#iceberg-type-to-spark-type>Iceberg type to Spark type</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown>
+<h1 id=spark-writes>
+Spark Writes
+<a class=anchor href=#spark-writes>#</a>
+</h1>
+<p>To use Iceberg in Spark, first configure <a href=../spark-configuration>Spark catalogs</a>.</p>
+<p>Some plans are only available when using <a href=../spark-configuration#sql-extensions>Iceberg SQL extensions</a> in Spark 3.x.</p>
+<p>Iceberg uses Apache Spark&rsquo;s DataSourceV2 API for data source and catalog implementations. Spark DSv2 is an evolving API with different levels of support in Spark versions:</p>
+<table>
+<thead>
+<tr>
+<th>Feature support</th>
+<th>Spark 3.0</th>
+<th>Spark 2.4</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href=#insert-into>SQL insert into</a></td>
+<td>✔️</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href=#merge-into>SQL merge into</a></td>
+<td>✔️</td>
+<td></td>
+<td>⚠ Requires Iceberg Spark extensions</td>
+</tr>
+<tr>
+<td><a href=#insert-overwrite>SQL insert overwrite</a></td>
+<td>✔️</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href=#delete-from>SQL delete from</a></td>
+<td>✔️</td>
+<td></td>
+<td>⚠ Row-level delete requires Spark extensions</td>
+</tr>
+<tr>
+<td><a href=#update>SQL update</a></td>
+<td>✔️</td>
+<td></td>
+<td>⚠ Requires Iceberg Spark extensions</td>
+</tr>
+<tr>
+<td><a href=#appending-data>DataFrame append</a></td>
+<td>✔️</td>
+<td>✔️</td>
+<td></td>
+</tr>
+<tr>
+<td><a href=#overwriting-data>DataFrame overwrite</a></td>
+<td>✔️</td>
+<td>✔️</td>
+<td>⚠ Behavior changed in Spark 3.0</td>
+</tr>
+<tr>
+<td><a href=#creating-tables>DataFrame CTAS and RTAS</a></td>
+<td>✔️</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id=writing-with-sql>
+Writing with SQL
+<a class=anchor href=#writing-with-sql>#</a>
+</h2>
+<p>Spark 3 supports SQL <code>INSERT INTO</code>, <code>MERGE INTO</code>, and <code>INSERT OVERWRITE</code>, as well as the new <code>DataFrameWriterV2</code> API.</p>
+<h3 id=insert-into>
+<code>INSERT INTO</code>
+<a class=anchor href=#insert-into>#</a>
+</h3>
+<p>To append new data to a table, use <code>INSERT INTO</code>.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> prod.db.<span style=color:#66d9ef>table</span> <span style=color:#66d9ef>VALUES</span> (<span style=color:#ae81ff>1</span>, <span style=color:#e6db74>&#39;a&#39;</span>), (<span style=color:#ae81ff>2</span>, <span style=color:#e6db74>&#39;b&#39;</span>)
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> prod.db.<span style=color:#66d9ef>table</span> <span style=color:#66d9ef>SELECT</span> ...
+</code></pre></div><h3 id=merge-into>
+<code>MERGE INTO</code>
+<a class=anchor href=#merge-into>#</a>
+</h3>
+<p>Spark 3 added support for <code>MERGE INTO</code> queries that can express row-level updates.</p>
+<p>Iceberg supports <code>MERGE INTO</code> by rewriting data files that contain rows that need to be updated in an <code>overwrite</code> commit.</p>
+<p><strong><code>MERGE INTO</code> is recommended instead of <code>INSERT OVERWRITE</code></strong> because Iceberg can replace only the affected data files, and because the data overwritten by a dynamic overwrite may change if the table&rsquo;s partitioning changes.</p>
+<h4 id=merge-into-syntax>
+<code>MERGE INTO</code> syntax
+<a class=anchor href=#merge-into-syntax>#</a>
+</h4>
+<p><code>MERGE INTO</code> updates a table, called the <em>target</em> table, using a set of updates from another query, called the <em>source</em>. The update for a row in the target table is found using the <code>ON</code> clause that is like a join condition.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql>MERGE <span style=color:#66d9ef>INTO</span> prod.db.target t   <span style=color:#75715e>-- a target table
+</span><span style=color:#75715e></span><span style=color:#66d9ef>USING</span> (<span style=color:#66d9ef>SELECT</span> ...) s          <span style=color:#75715e>-- the source updates
+</span><span style=color:#75715e></span><span style=color:#66d9ef>ON</span> t.id <span style=color:#f92672>=</span> s.id                <span style=color:#75715e>-- condition to find updates for target rows
+</span><span style=color:#75715e></span><span style=color:#66d9ef>WHEN</span> ...                      <span style=color:#75715e>-- updates
+</span></code></pre></div><p>Updates to rows in the target table are listed using <code>WHEN MATCHED ... THEN ...</code>. Multiple <code>MATCHED</code> clauses can be added with conditions that determine when each match should be applied. The first matching expression is used.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>WHEN</span> MATCHED <span style=color:#66d9ef>AND</span> s.op <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;delete&#39;</span> <span style=color:#66d9ef>THEN</span> <span style=color:#66d9ef>DELETE</span>
+<span style=color:#66d9ef>WHEN</span> MATCHED <span style=color:#66d9ef>AND</span> t.<span style=color:#66d9ef>count</span> <span style=color:#66d9ef>IS</span> <span style=color:#66d9ef>NULL</span> <span style=color:#66d9ef>AND</span> s.op <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;increment&#39;</span> <span style=color:#66d9ef>THEN</span> <span style=color:#66d9ef>UPDATE</span> <span style=color:#66d9ef>SET</span> t.<span style=color:#66d9ef>count</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+<span style=color:#66d9ef>WHEN</span> MATCHED <span style=color:#66d9ef>AND</span> s.op <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;increment&#39;</span> <span style=color:#66d9ef>THEN</span> <span style=color:#66d9ef>UPDATE</span> <span style=color:#66d9ef>SET</span> t.<span style=color:#66d9ef>count</span> <span style=color:#f92672>=</span> t.<span style=color:#66d9ef>count</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>
+</code></pre></div><p>Source rows (updates) that do not match can be inserted:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>WHEN</span> <span style=color:#66d9ef>NOT</span> MATCHED <span style=color:#66d9ef>THEN</span> <span style=color:#66d9ef>INSERT</span> <span style=color:#f92672>*</span>
+</code></pre></div><p>Inserts also support additional conditions:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>WHEN</span> <span style=color:#66d9ef>NOT</span> MATCHED <span style=color:#66d9ef>AND</span> s.event_time <span style=color:#f92672>&gt;</span> still_valid_threshold <span style=color:#66d9ef>THEN</span> <span style=color:#66d9ef>INSERT</span> (id, <span style=color:#66d9ef>count</span>) <span style=color:#66d9ef>VALUES</span> (s.id, <span style=color:#ae81ff>1</span>)
+</code></pre></div><p>Only one record in the source data can update any given row of the target table, or else an error will be thrown.</p>
+<h3 id=insert-overwrite>
+<code>INSERT OVERWRITE</code>
+<a class=anchor href=#insert-overwrite>#</a>
+</h3>
+<p><code>INSERT OVERWRITE</code> can replace data in the table with the result of a query. Overwrites are atomic operations for Iceberg tables.</p>
+<p>The partitions that will be replaced by <code>INSERT OVERWRITE</code> depends on Spark&rsquo;s partition overwrite mode and the partitioning of a table. <code>MERGE INTO</code> can rewrite only affected data files and has more easily understood behavior, so it is recommended instead of <code>INSERT OVERWRITE</code>.</p>
+<blockquote class="book-hint danger">
+Spark 3.0.0 has a correctness bug that affects dynamic <code>INSERT OVERWRITE</code> with hidden partitioning, [SPARK-32168][spark-32168].
+For tables with <a href=../partitioning>hidden partitions</a>, make sure you use Spark 3.0.1.
+</blockquote>
+<h4 id=overwrite-behavior>
+Overwrite behavior
+<a class=anchor href=#overwrite-behavior>#</a>
+</h4>
+<p>Spark&rsquo;s default overwrite mode is <strong>static</strong>, but <strong>dynamic overwrite mode is recommended when writing to Iceberg tables.</strong> Static overwrite mode determines which partitions to overwrite in a table by converting the <code>PARTITION</code> clause to a filter, but the <code>PARTITION</code> clause can only reference table columns.</p>
+<p>Dynamic overwrite mode is configured by setting <code>spark.sql.sources.partitionOverwriteMode=dynamic</code>.</p>
+<p>To demonstrate the behavior of dynamic and static overwrites, consider a <code>logs</code> table defined by the following DDL:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> prod.my_app.logs (
+    uuid string <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>,
+    <span style=color:#66d9ef>level</span> string <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>,
+    ts <span style=color:#66d9ef>timestamp</span> <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>,
+    message string)
+<span style=color:#66d9ef>USING</span> iceberg
+PARTITIONED <span style=color:#66d9ef>BY</span> (<span style=color:#66d9ef>level</span>, hours(ts))
+</code></pre></div><h4 id=dynamic-overwrite>
+Dynamic overwrite
+<a class=anchor href=#dynamic-overwrite>#</a>
+</h4>
+<p>When Spark&rsquo;s overwrite mode is dynamic, partitions that have rows produced by the <code>SELECT</code> query will be replaced.</p>
+<p>For example, this query removes duplicate log events from the example <code>logs</code> table.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>INSERT</span> OVERWRITE prod.my_app.logs
+<span style=color:#66d9ef>SELECT</span> uuid, <span style=color:#66d9ef>first</span>(<span style=color:#66d9ef>level</span>), <span style=color:#66d9ef>first</span>(ts), <span style=color:#66d9ef>first</span>(message)
+<span style=color:#66d9ef>FROM</span> prod.my_app.logs
+<span style=color:#66d9ef>WHERE</span> <span style=color:#66d9ef>cast</span>(ts <span style=color:#66d9ef>as</span> date) <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;2020-07-01&#39;</span>
+<span style=color:#66d9ef>GROUP</span> <span style=color:#66d9ef>BY</span> uuid
+</code></pre></div><p>In dynamic mode, this will replace any partition with rows in the <code>SELECT</code> result. Because the date of all rows is restricted to 1 July, only hours of that day will be replaced.</p>
+<h4 id=static-overwrite>
+Static overwrite
+<a class=anchor href=#static-overwrite>#</a>
+</h4>
+<p>When Spark&rsquo;s overwrite mode is static, the <code>PARTITION</code> clause is converted to a filter that is used to delete from the table. If the <code>PARTITION</code> clause is omitted, all partitions will be replaced.</p>
+<p>Because there is no <code>PARTITION</code> clause in the query above, it will drop all existing rows in the table when run in static mode, but will only write the logs from 1 July.</p>
+<p>To overwrite just the partitions that were loaded, add a <code>PARTITION</code> clause that aligns with the <code>SELECT</code> query filter:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>INSERT</span> OVERWRITE prod.my_app.logs
+PARTITION (<span style=color:#66d9ef>level</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;INFO&#39;</span>)
+<span style=color:#66d9ef>SELECT</span> uuid, <span style=color:#66d9ef>first</span>(<span style=color:#66d9ef>level</span>), <span style=color:#66d9ef>first</span>(ts), <span style=color:#66d9ef>first</span>(message)
+<span style=color:#66d9ef>FROM</span> prod.my_app.logs
+<span style=color:#66d9ef>WHERE</span> <span style=color:#66d9ef>level</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;INFO&#39;</span>
+<span style=color:#66d9ef>GROUP</span> <span style=color:#66d9ef>BY</span> uuid
+</code></pre></div><p>Note that this mode cannot replace hourly partitions like the dynamic example query because the <code>PARTITION</code> clause can only reference table columns, not hidden partitions.</p>
+<h3 id=delete-from>
+<code>DELETE FROM</code>
+<a class=anchor href=#delete-from>#</a>
+</h3>
+<p>Spark 3 added support for <code>DELETE FROM</code> queries to remove data from tables.</p>
+<p>Delete queries accept a filter to match rows to delete.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>DELETE</span> <span style=color:#66d9ef>FROM</span> prod.db.<span style=color:#66d9ef>table</span>
+<span style=color:#66d9ef>WHERE</span> ts <span style=color:#f92672>&gt;=</span> <span style=color:#e6db74>&#39;2020-05-01 00:00:00&#39;</span> <span style=color:#66d9ef>and</span> ts <span style=color:#f92672>&lt;</span> <span style=color:#e6db74>&#39;2020-06-01 00:00:00&#39;</span>
+
+<span style=color:#66d9ef>DELETE</span> <span style=color:#66d9ef>FROM</span> prod.db.all_events
+<span style=color:#66d9ef>WHERE</span> session_time <span style=color:#f92672>&lt;</span> (<span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>min</span>(session_time) <span style=color:#66d9ef>FROM</span> prod.db.good_events)
+
+<span style=color:#66d9ef>DELETE</span> <span style=color:#66d9ef>FROM</span> prod.db.orders <span style=color:#66d9ef>AS</span> t1
+<span style=color:#66d9ef>WHERE</span> <span style=color:#66d9ef>EXISTS</span> (<span style=color:#66d9ef>SELECT</span> oid <span style=color:#66d9ef>FROM</span> prod.db.returned_orders <span style=color:#66d9ef>WHERE</span> t1.oid <span style=color:#f92672>=</span> oid)
+</code></pre></div><p>If the delete filter matches entire partitions of the table, Iceberg will perform a metadata-only delete. If the filter matches individual rows of a table, then Iceberg will rewrite only the affected data files.</p>
+<h3 id=update>
+<code>UPDATE</code>
+<a class=anchor href=#update>#</a>
+</h3>
+<p>Spark 3.1 added support for <code>UPDATE</code> queries that update matching rows in tables.</p>
+<p>Update queries accept a filter to match rows to update.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>UPDATE</span> prod.db.<span style=color:#66d9ef>table</span>
+<span style=color:#66d9ef>SET</span> c1 <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;update_c1&#39;</span>, c2 <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;update_c2&#39;</span>
+<span style=color:#66d9ef>WHERE</span> ts <span style=color:#f92672>&gt;=</span> <span style=color:#e6db74>&#39;2020-05-01 00:00:00&#39;</span> <span style=color:#66d9ef>and</span> ts <span style=color:#f92672>&lt;</span> <span style=color:#e6db74>&#39;2020-06-01 00:00:00&#39;</span>
+
+<span style=color:#66d9ef>UPDATE</span> prod.db.all_events
+<span style=color:#66d9ef>SET</span> session_time <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>, ignored <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>
+<span style=color:#66d9ef>WHERE</span> session_time <span style=color:#f92672>&lt;</span> (<span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>min</span>(session_time) <span style=color:#66d9ef>FROM</span> prod.db.good_events)
+
+<span style=color:#66d9ef>UPDATE</span> prod.db.orders <span style=color:#66d9ef>AS</span> t1
+<span style=color:#66d9ef>SET</span> order_status <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;returned&#39;</span>
+<span style=color:#66d9ef>WHERE</span> <span style=color:#66d9ef>EXISTS</span> (<span style=color:#66d9ef>SELECT</span> oid <span style=color:#66d9ef>FROM</span> prod.db.returned_orders <span style=color:#66d9ef>WHERE</span> t1.oid <span style=color:#f92672>=</span> oid)
+</code></pre></div><p>For more complex row-level updates based on incoming data, see the section on <code>MERGE INTO</code>.</p>
+<h2 id=writing-with-dataframes>
+Writing with DataFrames
+<a class=anchor href=#writing-with-dataframes>#</a>
+</h2>
+<p>Spark 3 introduced the new <code>DataFrameWriterV2</code> API for writing to tables using data frames. The v2 API is recommended for several reasons:</p>
+<ul>
+<li>CTAS, RTAS, and overwrite by filter are supported</li>
+<li>All operations consistently write columns to a table by name</li>
+<li>Hidden partition expressions are supported in <code>partitionedBy</code></li>
+<li>Overwrite behavior is explicit, either dynamic or by a user-supplied filter</li>
+<li>The behavior of each operation corresponds to SQL statements
+<ul>
+<li><code>df.writeTo(t).create()</code> is equivalent to <code>CREATE TABLE AS SELECT</code></li>
+<li><code>df.writeTo(t).replace()</code> is equivalent to <code>REPLACE TABLE AS SELECT</code></li>
+<li><code>df.writeTo(t).append()</code> is equivalent to <code>INSERT INTO</code></li>
+<li><code>df.writeTo(t).overwritePartitions()</code> is equivalent to dynamic <code>INSERT OVERWRITE</code></li>
+</ul>
+</li>
+</ul>
+<p>The v1 DataFrame <code>write</code> API is still supported, but is not recommended.</p>
+<blockquote class="book-hint danger">
+When writing with the v1 DataFrame API in Spark 3, use <code>saveAsTable</code> or <code>insertInto</code> to load tables with a catalog.
+Using <code>format("iceberg")</code> loads an isolated table reference that will not automatically refresh tables used by queries.
+</blockquote>
+<h3 id=appending-data>
+Appending data
+<a class=anchor href=#appending-data>#</a>
+</h3>
+<p>To append a dataframe to an Iceberg table, use <code>append</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scala data-lang=scala><span style=color:#66d9ef>val</span> data<span style=color:#66d9ef>:</span> <span style=color:#66d9ef>DataFrame</span> <span style=color:#f92672>=</span> <span style=color:#f92672>...</span>
+data<span style=color:#f92672>.</span>writeTo<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;prod.db.table&#34;</span><span style=color:#f92672>).</span>append<span style=color:#f92672>()</span>
+</code></pre></div><h4 id=spark-24>
+Spark 2.4
+<a class=anchor href=#spark-24>#</a>
+</h4>
+<p>In Spark 2.4, use the v1 API with <code>append</code> mode and <code>iceberg</code> format:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scala data-lang=scala>data<span style=color:#f92672>.</span>write
+    <span style=color:#f92672>.</span>format<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;iceberg&#34;</span><span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span>mode<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;append&#34;</span><span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span>save<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;db.table&#34;</span><span style=color:#f92672>)</span>
+</code></pre></div><h3 id=overwriting-data>
+Overwriting data
+<a class=anchor href=#overwriting-data>#</a>
+</h3>
+<p>To overwrite partitions dynamically, use <code>overwritePartitions()</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scala data-lang=scala><span style=color:#66d9ef>val</span> data<span style=color:#66d9ef>:</span> <span style=color:#66d9ef>DataFrame</span> <span style=color:#f92672>=</span> <span style=color:#f92672>...</span>
+data<span style=color:#f92672>.</span>writeTo<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;prod.db.table&#34;</span><span style=color:#f92672>).</span>overwritePartitions<span style=color:#f92672>()</span>
+</code></pre></div><p>To explicitly overwrite partitions, use <code>overwrite</code> to supply a filter:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scala data-lang=scala>data<span style=color:#f92672>.</span>writeTo<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;prod.db.table&#34;</span><span style=color:#f92672>).</span>overwrite<span style=color:#f92672>(</span>$<span style=color:#e6db74>&#34;level&#34;</span> <span style=color:#f92672>===</span> <span style=color:#e6db74>&#34;INFO&#34;</span><span style=color:#f92672>)</span>
+</code></pre></div><h4 id=spark-24-1>
+Spark 2.4
+<a class=anchor href=#spark-24-1>#</a>
+</h4>
+<p>In Spark 2.4, overwrite values in an Iceberg table with <code>overwrite</code> mode and <code>iceberg</code> format:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scala data-lang=scala>data<span style=color:#f92672>.</span>write
+    <span style=color:#f92672>.</span>format<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;iceberg&#34;</span><span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span>mode<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;overwrite&#34;</span><span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span>save<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;db.table&#34;</span><span style=color:#f92672>)</span>
+</code></pre></div><blockquote class="book-hint danger">
+<strong>The behavior of overwrite mode changed between Spark 2.4 and Spark 3</strong>.
+</blockquote>
+<p>The behavior of DataFrameWriter overwrite mode was undefined in Spark 2.4, but is required to overwrite the entire table in Spark 3. Because of this new requirement, the Iceberg source&rsquo;s behavior changed in Spark 3. In Spark 2.4, the behavior was to dynamically overwrite partitions. To use the Spark 2.4 behavior, add option <code>overwrite-mode=dynamic</code>.</p>
+<h3 id=creating-tables>
+Creating tables
+<a class=anchor href=#creating-tables>#</a>
+</h3>
+<p>To run a CTAS or RTAS, use <code>create</code>, <code>replace</code>, or <code>createOrReplace</code> operations:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scala data-lang=scala><span style=color:#66d9ef>val</span> data<span style=color:#66d9ef>:</span> <span style=color:#66d9ef>DataFrame</span> <span style=color:#f92672>=</span> <span style=color:#f92672>...</span>
+data<span style=color:#f92672>.</span>writeTo<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;prod.db.table&#34;</span><span style=color:#f92672>).</span>create<span style=color:#f92672>()</span>
+</code></pre></div><p>Create and replace operations support table configuration methods, like <code>partitionedBy</code> and <code>tableProperty</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scala data-lang=scala>data<span style=color:#f92672>.</span>writeTo<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;prod.db.table&#34;</span><span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span>tableProperty<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;write.format.default&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;orc&#34;</span><span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span>partitionBy<span style=color:#f92672>(</span>$<span style=color:#e6db74>&#34;level&#34;</span><span style=color:#f92672>,</span> days<span style=color:#f92672>(</span>$<span style=color:#e6db74>&#34;ts&#34;</span><span style=color:#f92672>))</span>
+    <span style=color:#f92672>.</span>createOrReplace<span style=color:#f92672>()</span>
+</code></pre></div><h2 id=writing-to-partitioned-tables>
+Writing to partitioned tables
+<a class=anchor href=#writing-to-partitioned-tables>#</a>
+</h2>
+<p>Iceberg requires the data to be sorted according to the partition spec per task (Spark partition) in prior to write
+against partitioned table. This applies both Writing with SQL and Writing with DataFrames.</p>
+<blockquote class="book-hint info">
+Explicit sort is necessary because Spark doesn&rsquo;t allow Iceberg to request a sort before writing as of Spark 3.0.
+<a href=https://issues.apache.org/jira/browse/SPARK-23889>SPARK-23889</a> is filed to enable Iceberg to require specific
+distribution & sort order to Spark.
+</blockquote>
+<blockquote class="book-hint info">
+Both global sort (<code>orderBy</code>/<code>sort</code>) and local sort (<code>sortWithinPartitions</code>) work for the requirement.
+</blockquote>
+<p>Let&rsquo;s go through writing the data against below sample table:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> prod.db.sample (
+    id bigint,
+    <span style=color:#66d9ef>data</span> string,
+    category string,
+    ts <span style=color:#66d9ef>timestamp</span>)
+<span style=color:#66d9ef>USING</span> iceberg
+PARTITIONED <span style=color:#66d9ef>BY</span> (days(ts), category)
+</code></pre></div><p>To write data to the sample table, your data needs to be sorted by <code>days(ts), category</code>.</p>
+<p>If you&rsquo;re inserting data with SQL statement, you can use <code>ORDER BY</code> to achieve it, like below:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> prod.db.sample
+<span style=color:#66d9ef>SELECT</span> id, <span style=color:#66d9ef>data</span>, category, ts <span style=color:#66d9ef>FROM</span> another_table
+<span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> ts, category
+</code></pre></div><p>If you&rsquo;re inserting data with DataFrame, you can use either <code>orderBy</code>/<code>sort</code> to trigger global sort, or <code>sortWithinPartitions</code>
+to trigger local sort. Local sort for example:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scala data-lang=scala>data<span style=color:#f92672>.</span>sortWithinPartitions<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;ts&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;category&#34;</span><span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span>writeTo<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;prod.db.sample&#34;</span><span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span>append<span style=color:#f92672>()</span>
+</code></pre></div><p>You can simply add the original column to the sort condition for the most partition transformations, except <code>bucket</code>.</p>
+<p>For <code>bucket</code> partition transformation, you need to register the Iceberg transform function in Spark to specify it during sort.</p>
+<p>Let&rsquo;s go through another sample table having bucket partition:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> prod.db.sample (
+    id bigint,
+    <span style=color:#66d9ef>data</span> string,
+    category string,
+    ts <span style=color:#66d9ef>timestamp</span>)
+<span style=color:#66d9ef>USING</span> iceberg
+PARTITIONED <span style=color:#66d9ef>BY</span> (bucket(<span style=color:#ae81ff>16</span>, id))
+</code></pre></div><p>You need to register the function to deal with bucket, like below:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scala data-lang=scala><span style=color:#66d9ef>import</span> org.apache.iceberg.spark.IcebergSpark
+<span style=color:#66d9ef>import</span> org.apache.spark.sql.types.DataTypes
+
+<span style=color:#a6e22e>IcebergSpark</span><span style=color:#f92672>.</span>registerBucketUDF<span style=color:#f92672>(</span>spark<span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;iceberg_bucket16&#34;</span><span style=color:#f92672>,</span> <span style=color:#a6e22e>DataTypes</span><span style=color:#f92672>.</span><span style=color:#a6e22e>LongType</span><span style=color:#f92672>,</span> <span style=color:#ae81ff>16</span><span style=color:#f92672>)</span>
+</code></pre></div><blockquote class="book-hint info">
+Explicit registration of the function is necessary because Spark doesn&rsquo;t allow Iceberg to provide functions.
+<a href=https://issues.apache.org/jira/browse/SPARK-27658>SPARK-27658</a> is filed to enable Iceberg to provide functions
+which can be used in query.
+</blockquote>
+<p>Here we just registered the bucket function as <code>iceberg_bucket16</code>, which can be used in sort clause.</p>
+<p>If you&rsquo;re inserting data with SQL statement, you can use the function like below:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> prod.db.sample
+<span style=color:#66d9ef>SELECT</span> id, <span style=color:#66d9ef>data</span>, category, ts <span style=color:#66d9ef>FROM</span> another_table
+<span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> iceberg_bucket16(id)
+</code></pre></div><p>If you&rsquo;re inserting data with DataFrame, you can use the function like below:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scala data-lang=scala>data<span style=color:#f92672>.</span>sortWithinPartitions<span style=color:#f92672>(</span>expr<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;iceberg_bucket16(id)&#34;</span><span style=color:#f92672>))</span>
+    <span style=color:#f92672>.</span>writeTo<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;prod.db.sample&#34;</span><span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span>append<span style=color:#f92672>()</span>
+</code></pre></div><h2 id=type-compatibility>
+Type compatibility
+<a class=anchor href=#type-compatibility>#</a>
+</h2>
+<p>Spark and Iceberg support different set of types. Iceberg does the type conversion automatically, but not for all combinations,
+so you may want to understand the type conversion in Iceberg in prior to design the types of columns in your tables.</p>
+<h3 id=spark-type-to-iceberg-type>
+Spark type to Iceberg type
+<a class=anchor href=#spark-type-to-iceberg-type>#</a>
+</h3>
+<p>This type conversion table describes how Spark types are converted to the Iceberg types. The conversion applies on both creating Iceberg table and writing to Iceberg table via Spark.</p>
+<table>
+<thead>
+<tr>
+<th>Spark</th>
+<th>Iceberg</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>boolean</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>short</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>byte</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>integer</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>long</td>
+<td>long</td>
+<td></td>
+</tr>
+<tr>
+<td>float</td>
+<td>float</td>
+<td></td>
+</tr>
+<tr>
+<td>double</td>
+<td>double</td>
+<td></td>
+</tr>
+<tr>
+<td>date</td>
+<td>date</td>
+<td></td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>timestamp with timezone</td>
+<td></td>
+</tr>
+<tr>
+<td>char</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>varchar</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>string</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>binary</td>
+<td>binary</td>
+<td></td>
+</tr>
+<tr>
+<td>decimal</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>struct</td>
+<td>struct</td>
+<td></td>
+</tr>
+<tr>
+<td>array</td>
+<td>list</td>
+<td></td>
+</tr>
+<tr>
+<td>map</td>
+<td>map</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote class="book-hint info">
+<p>The table is based on representing conversion during creating table. In fact, broader supports are applied on write. Here&rsquo;re some points on write:</p>
+<ul>
+<li>Iceberg numeric types (<code>integer</code>, <code>long</code>, <code>float</code>, <code>double</code>, <code>decimal</code>) support promotion during writes. e.g. You can write Spark types <code>short</code>, <code>byte</code>, <code>integer</code>, <code>long</code> to Iceberg type <code>long</code>.</li>
+<li>You can write to Iceberg <code>fixed</code> type using Spark <code>binary</code> type. Note that assertion on the length will be performed.</li>
+</ul>
+</blockquote>
+<h3 id=iceberg-type-to-spark-type>
+Iceberg type to Spark type
+<a class=anchor href=#iceberg-type-to-spark-type>#</a>
+</h3>
+<p>This type conversion table describes how Iceberg types are converted to the Spark types. The conversion applies on reading from Iceberg table via Spark.</p>
+<table>
+<thead>
+<tr>
+<th>Iceberg</th>
+<th>Spark</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>boolean</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>integer</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>long</td>
+<td>long</td>
+<td></td>
+</tr>
+<tr>
+<td>float</td>
+<td>float</td>
+<td></td>
+</tr>
+<tr>
+<td>double</td>
+<td>double</td>
+<td></td>
+</tr>
+<tr>
+<td>date</td>
+<td>date</td>
+<td></td>
+</tr>
+<tr>
+<td>time</td>
+<td></td>
+<td>Not supported</td>
+</tr>
+<tr>
+<td>timestamp with timezone</td>
+<td>timestamp</td>
+<td></td>
+</tr>
+<tr>
+<td>timestamp without timezone</td>
+<td></td>
+<td>Not supported</td>
+</tr>
+<tr>
+<td>string</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>fixed</td>
+<td>binary</td>
+<td></td>
+</tr>
+<tr>
+<td>binary</td>
+<td>binary</td>
+<td></td>
+</tr>
+<tr>
+<td>decimal</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>struct</td>
+<td>struct</td>
+<td></td>
+</tr>
+<tr>
+<td>list</td>
+<td>array</td>
+<td></td>
+</tr>
+<tr>
+<td>map</td>
+<td>map</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#writing-with-sql>Writing with SQL</a>
+<ul>
+<li><a href=#insert-into><code>INSERT INTO</code></a></li>
+<li><a href=#merge-into><code>MERGE INTO</code></a></li>
+<li><a href=#insert-overwrite><code>INSERT OVERWRITE</code></a></li>
+<li><a href=#delete-from><code>DELETE FROM</code></a></li>
+<li><a href=#update><code>UPDATE</code></a></li>
+</ul>
+</li>
+<li><a href=#writing-with-dataframes>Writing with DataFrames</a>
+<ul>
+<li><a href=#appending-data>Appending data</a></li>
+<li><a href=#overwriting-data>Overwriting data</a></li>
+<li><a href=#creating-tables>Creating tables</a></li>
+</ul>
+</li>
+<li><a href=#writing-to-partitioned-tables>Writing to partitioned tables</a></li>
+<li><a href=#type-compatibility>Type compatibility</a>
+<ul>
+<li><a href=#spark-type-to-iceberg-type>Spark type to Iceberg type</a></li>
+<li><a href=#iceberg-type-to-spark-type>Iceberg type to Spark type</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>

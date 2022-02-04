@@ -1,0 +1,504 @@
+<!doctype html><html lang=en dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Getting Started #  The latest version of Iceberg is 0.12.1.
+Spark is currently the most feature-rich compute engine for Iceberg operations. We recommend you to get started with Spark to understand Iceberg concepts and features with examples. You can also view documentations of using Iceberg with other compute engine under the Engines tab.
+Using Iceberg in Spark 3 #  To use Iceberg in a Spark shell, use the --packages option:">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content="Getting Started">
+<meta property="og:description" content="Getting Started #  The latest version of Iceberg is 0.12.1.
+Spark is currently the most feature-rich compute engine for Iceberg operations. We recommend you to get started with Spark to understand Iceberg concepts and features with examples. You can also view documentations of using Iceberg with other compute engine under the Engines tab.
+Using Iceberg in Spark 3 #  To use Iceberg in a Spark shell, use the --packages option:">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://iceberg.apache.org/docs/0.12.1/getting-started/"><meta property="article:section" content="docs">
+<title>Getting Started | Apache Iceberg</title>
+<link rel=manifest href=/docs/0.12.1/manifest.json>
+<link rel=icon href=/docs/0.12.1/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/docs/0.12.1/book.min.179e158d24f3ef709534173fd8b1c1e541a4fa3e23c1b5d8e887464c58949cc9.css integrity="sha256-F54VjSTz73CVNBc/2LHB5UGk+j4jwbXY6IdGTFiUnMk=" crossorigin=anonymous>
+<script defer src=/docs/0.12.1/flexsearch.min.js></script>
+<script defer src=/docs/0.12.1/en.search.min.9b389ad9641a13fb39ba48da7e84d44163cd779ab7cf64f59cc58924b05ea921.js integrity="sha256-mzia2WQaE/s5ukjafoTUQWPNd5q3z2T1nMWJJLBeqSE=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/docs/0.12.1/../../><img src=/docs/0.12.1/img/iceberg-logo-icon.png alt=Logo><span>Apache Iceberg</span>
+</a>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../releases>
+<img id=version-shield src=https://img.shields.io/badge/version-0.12.1-blue alt>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+<a href=https://github.com/apache/iceberg target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/GitHub-Mark.png target=_blank class=top-external-icon>
+</a>
+<a href=https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/Slack_Mark_Web.png target=_blank class=top-external-icon>
+</a>
+</div>
+<ul>
+<li class=book-section-flats>
+<span>
+<i class="fa fa-table fa-fw"></i>
+Tables</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/configuration/>
+Configuration</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/evolution/>
+Evolution</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/maintenance/>
+Maintenance</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/partitioning/>
+Partitioning</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/performance/>
+Performance</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/reliability/>
+Reliability</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/schemas/>
+Schemas</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<span>
+<i class="fa fa-star-o fa-fw"></i>
+Spark</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/getting-started/ class=active>
+Getting Started</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-configuration/>
+Configuration</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-ddl/>
+DDL</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-procedures/>
+Procedures</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-queries/>
+Queries</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-structured-streaming/>
+Structured Streaming</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-writes/>
+Writes</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<span>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/flink-logo.png class="navigation-icon fa-fw">Flink</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/flink/>
+Getting Started</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/flink-connector/>
+Flink Connector</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<a href=https://iceberg.apache.org/docs/0.12.1/hive/>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/hive-logo.png class="navigation-icon fa-fw">Hive</a>
+<ul>
+</ul>
+</li>
+<li>
+<a href=https://trino.io/docs/current/connector/iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/trino-logo.png class="navigation-icon fa-fw">
+Trino
+</a>
+</li>
+<li>
+<a href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/prestodb-logo.png class="navigation-icon fa-fw">
+Presto
+</a>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-56605d8e971a871885e28ee5142728bf class=toggle>
+<label for=section-56605d8e971a871885e28ee5142728bf class="flex justify-between">
+<a role=button>
+<i class="fa fa-handshake-o fa-fw"></i>
+Integrations</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/aws/>
+AWS</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/jdbc/>
+JDBC</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/nessie/>
+Nessie</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-bf7b3283e3790c00c8caaa140299052b class=toggle>
+<label for=section-bf7b3283e3790c00c8caaa140299052b class="flex justify-between">
+<a role=button>
+<i class="fa fa-connectdevelop fa-fw"></i>
+API</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/java-api-quickstart/>
+Java Quickstart</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/api/>
+Java API</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/custom-catalog/>
+Java Custom Catalog</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../javadoc/0.12.1>
+Javadocs
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/python-quickstart/>
+Python Quickstart</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/python-api-intro/>
+Python API</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/python-feature-support/>
+Python Feature Support</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-7e66f1754ca5d93e20ecdc89df5b8b28 class=toggle>
+<label for=section-7e66f1754ca5d93e20ecdc89df5b8b28 class="flex justify-between">
+<a role=button>
+<i class="fa fa-users fa-fw"></i>
+Community</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../blogs>
+Blogs
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../community>
+Join
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../talks>
+Talks
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-87dda23e9104fe3231cee3bc88a2d754 class=toggle>
+<label for=section-87dda23e9104fe3231cee3bc88a2d754 class="flex justify-between">
+<a role=button>
+<i class="fa fa-object-ungroup fa-fw"></i>
+Format</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../spec>
+Spec
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../terms>
+Terms
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-2e5d3f5f142758d8dd368e9c281dd08e class=toggle>
+<label for=section-2e5d3f5f142758d8dd368e9c281dd08e class="flex justify-between">
+<a role=button>
+<i class="fa fa-wrench fa-fw"></i>
+Project</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../how-to-release>
+How to Release
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../roadmap>
+Roadmap
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../security>
+Security
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../trademarks>
+Trademarks
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-4ddb27a8612bc8118c0b36386905d332 class=toggle>
+<label for=section-4ddb27a8612bc8118c0b36386905d332 class="flex justify-between">
+<a role=button>
+<i class="fa fa-code-fork fa-fw"></i>
+Releases</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../latest>
+Latest
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../0.12.1>
+0.12.1
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../releases>
+Release Notes
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-296746d27808aa768e500824aaf2adea class=toggle>
+<label for=section-296746d27808aa768e500824aaf2adea class="flex justify-between">
+<a role=button>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/asf.png class="navigation-icon fa-fw">ASF</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/licenses/ target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+License
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/security/ target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Security
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/foundation/thanks.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Sponsors
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/foundation/sponsorship.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Donate
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/events/current-event.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Events
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<link rel=stylesheet href=/docs/0.12.1/fontawesome/css/font-awesome.min.css>
+<label for=menu-control>
+<img src=/docs/0.12.1/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Getting Started</strong>
+<label for=toc-control>
+<img src=/docs/0.12.1/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#using-iceberg-in-spark-3>Using Iceberg in Spark 3</a>
+<ul>
+<li><a href=#adding-catalogs>Adding catalogs</a></li>
+<li><a href=#creating-a-table>Creating a table</a></li>
+<li><a href=#writing>Writing</a></li>
+<li><a href=#reading>Reading</a></li>
+<li><a href=#next-steps>Next steps</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown>
+<h1 id=getting-started>
+Getting Started
+<a class=anchor href=#getting-started>#</a>
+</h1>
+<p>The latest version of Iceberg is <a href=../../../releases>0.12.1</a>.</p>
+<p>Spark is currently the most feature-rich compute engine for Iceberg operations.
+We recommend you to get started with Spark to understand Iceberg concepts and features with examples.
+You can also view documentations of using Iceberg with other compute engine under the <strong>Engines</strong> tab.</p>
+<h2 id=using-iceberg-in-spark-3>
+Using Iceberg in Spark 3
+<a class=anchor href=#using-iceberg-in-spark-3>#</a>
+</h2>
+<p>To use Iceberg in a Spark shell, use the <code>--packages</code> option:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>spark-shell --packages org.apache.iceberg:iceberg-spark3-runtime:0.12.1
+</code></pre></div><blockquote class="book-hint info">
+If you want to include Iceberg in your Spark installation, add the [<code>iceberg-spark3-runtime</code> Jar][spark-runtime-jar] to Spark&rsquo;s <code>jars</code> folder.
+</blockquote>
+<h3 id=adding-catalogs>
+Adding catalogs
+<a class=anchor href=#adding-catalogs>#</a>
+</h3>
+<p>Iceberg comes with <a href=../spark-configuration#catalogs>catalogs</a> that enable SQL commands to manage tables and load them by name. Catalogs are configured using properties under <code>spark.sql.catalog.(catalog_name)</code>.</p>
+<p>This command creates a path-based catalog named <code>local</code> for tables under <code>$PWD/warehouse</code> and adds support for Iceberg tables to Spark&rsquo;s built-in catalog:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>spark-sql --packages org.apache.iceberg:iceberg-spark3-runtime:0.12.1<span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --conf spark.sql.extensions<span style=color:#f92672>=</span>org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --conf spark.sql.catalog.spark_catalog<span style=color:#f92672>=</span>org.apache.iceberg.spark.SparkSessionCatalog <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --conf spark.sql.catalog.spark_catalog.type<span style=color:#f92672>=</span>hive <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --conf spark.sql.catalog.local<span style=color:#f92672>=</span>org.apache.iceberg.spark.SparkCatalog <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --conf spark.sql.catalog.local.type<span style=color:#f92672>=</span>hadoop <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --conf spark.sql.catalog.local.warehouse<span style=color:#f92672>=</span>$PWD/warehouse
+</code></pre></div><h3 id=creating-a-table>
+Creating a table
+<a class=anchor href=#creating-a-table>#</a>
+</h3>
+<p>To create your first Iceberg table in Spark, use the <code>spark-sql</code> shell or <code>spark.sql(...)</code> to run a <a href=../spark-ddl#create-table><code>CREATE TABLE</code></a> command:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#75715e>-- local is the path-based catalog defined above
+</span><span style=color:#75715e></span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> <span style=color:#66d9ef>local</span>.db.<span style=color:#66d9ef>table</span> (id bigint, <span style=color:#66d9ef>data</span> string) <span style=color:#66d9ef>USING</span> iceberg
+</code></pre></div><p>Iceberg catalogs support the full range of SQL DDL commands, including:</p>
+<ul>
+<li><a href=../spark-ddl#create-table><code>CREATE TABLE ... PARTITIONED BY</code></a></li>
+<li><a href=../spark-ddl#create-table--as-select><code>CREATE TABLE ... AS SELECT</code></a></li>
+<li><a href=../spark-ddl#alter-table><code>ALTER TABLE</code></a></li>
+<li><a href=../spark-ddl#drop-table><code>DROP TABLE</code></a></li>
+</ul>
+<h3 id=writing>
+Writing
+<a class=anchor href=#writing>#</a>
+</h3>
+<p>Once your table is created, insert data using <a href=../spark-writes#insert-into><code>INSERT INTO</code></a>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> <span style=color:#66d9ef>local</span>.db.<span style=color:#66d9ef>table</span> <span style=color:#66d9ef>VALUES</span> (<span style=color:#ae81ff>1</span>, <span style=color:#e6db74>&#39;a&#39;</span>), (<span style=color:#ae81ff>2</span>, <span style=color:#e6db74>&#39;b&#39;</span>), (<span style=color:#ae81ff>3</span>, <span style=color:#e6db74>&#39;c&#39;</span>);
+<span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> <span style=color:#66d9ef>local</span>.db.<span style=color:#66d9ef>table</span> <span style=color:#66d9ef>SELECT</span> id, <span style=color:#66d9ef>data</span> <span style=color:#66d9ef>FROM</span> <span style=color:#66d9ef>source</span> <span style=color:#66d9ef>WHERE</span> <span style=color:#66d9ef>length</span>(<span style=color:#66d9ef>data</span>) <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
+</code></pre></div><p>Iceberg also adds row-level SQL updates to Spark, <a href=../spark-writes#merge-into><code>MERGE INTO</code></a> and <a href=../spark-writes#delete-from><code>DELETE FROM</code></a>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql>MERGE <span style=color:#66d9ef>INTO</span> <span style=color:#66d9ef>local</span>.db.target t <span style=color:#66d9ef>USING</span> (<span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> updates) u <span style=color:#66d9ef>ON</span> t.id <span style=color:#f92672>=</span> u.id
+<span style=color:#66d9ef>WHEN</span> MATCHED <span style=color:#66d9ef>THEN</span> <span style=color:#66d9ef>UPDATE</span> <span style=color:#66d9ef>SET</span> t.<span style=color:#66d9ef>count</span> <span style=color:#f92672>=</span> t.<span style=color:#66d9ef>count</span> <span style=color:#f92672>+</span> u.<span style=color:#66d9ef>count</span>
+<span style=color:#66d9ef>WHEN</span> <span style=color:#66d9ef>NOT</span> MATCHED <span style=color:#66d9ef>THEN</span> <span style=color:#66d9ef>INSERT</span> <span style=color:#f92672>*</span>
+</code></pre></div><p>Iceberg supports writing DataFrames using the new <a href=../spark-writes#writing-with-dataframes>v2 DataFrame write API</a>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scala data-lang=scala>spark<span style=color:#f92672>.</span>table<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;source&#34;</span><span style=color:#f92672>).</span>select<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;id&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;data&#34;</span><span style=color:#f92672>)</span>
+     <span style=color:#f92672>.</span>writeTo<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;local.db.table&#34;</span><span style=color:#f92672>).</span>append<span style=color:#f92672>()</span>
+</code></pre></div><p>The old <code>write</code> API is supported, but <em>not</em> recommended.</p>
+<h3 id=reading>
+Reading
+<a class=anchor href=#reading>#</a>
+</h3>
+<p>To read with SQL, use the an Iceberg table name in a <code>SELECT</code> query:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>count</span>(<span style=color:#ae81ff>1</span>) <span style=color:#66d9ef>as</span> <span style=color:#66d9ef>count</span>, <span style=color:#66d9ef>data</span>
+<span style=color:#66d9ef>FROM</span> <span style=color:#66d9ef>local</span>.db.<span style=color:#66d9ef>table</span>
+<span style=color:#66d9ef>GROUP</span> <span style=color:#66d9ef>BY</span> <span style=color:#66d9ef>data</span>
+</code></pre></div><p>SQL is also the recommended way to <a href=../spark-queries#inspecting-tables>inspect tables</a>. To view all of the snapshots in a table, use the <code>snapshots</code> metadata table:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> <span style=color:#66d9ef>local</span>.db.<span style=color:#66d9ef>table</span>.snapshots
+</code></pre></div><pre tabindex=0><code>+-------------------------+----------------+-----------+-----------+----------------------------------------------------+-----+
+| committed_at            | snapshot_id    | parent_id | operation | manifest_list                                      | ... |
++-------------------------+----------------+-----------+-----------+----------------------------------------------------+-----+
+| 2019-02-08 03:29:51.215 | 57897183625154 | null      | append    | s3://.../table/metadata/snap-57897183625154-1.avro | ... |
+|                         |                |           |           |                                                    | ... |
+|                         |                |           |           |                                                    | ... |
+| ...                     | ...            | ...       | ...       | ...                                                | ... |
++-------------------------+----------------+-----------+-----------+----------------------------------------------------+-----+
+</code></pre><p><a href=../spark-queries#querying-with-dataframes>DataFrame reads</a> are supported and can now reference tables by name using <code>spark.table</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scala data-lang=scala><span style=color:#66d9ef>val</span> df <span style=color:#66d9ef>=</span> spark<span style=color:#f92672>.</span>table<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;local.db.table&#34;</span><span style=color:#f92672>)</span>
+df<span style=color:#f92672>.</span>count<span style=color:#f92672>()</span>
+</code></pre></div><h3 id=next-steps>
+Next steps
+<a class=anchor href=#next-steps>#</a>
+</h3>
+<p>Next, you can learn more about Iceberg tables in Spark:</p>
+<ul>
+<li><a href=../spark-ddl>DDL commands</a>: <code>CREATE</code>, <code>ALTER</code>, and <code>DROP</code></li>
+<li><a href=../spark-queries>Querying data</a>: <code>SELECT</code> queries and metadata tables</li>
+<li><a href=../spark-writes>Writing data</a>: <code>INSERT INTO</code> and <code>MERGE INTO</code></li>
+<li><a href=../spark-procedures>Maintaining tables</a> with stored procedures</li>
+</ul>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#using-iceberg-in-spark-3>Using Iceberg in Spark 3</a>
+<ul>
+<li><a href=#adding-catalogs>Adding catalogs</a></li>
+<li><a href=#creating-a-table>Creating a table</a></li>
+<li><a href=#writing>Writing</a></li>
+<li><a href=#reading>Reading</a></li>
+<li><a href=#next-steps>Next steps</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>

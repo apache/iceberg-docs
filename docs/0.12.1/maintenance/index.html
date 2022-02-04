@@ -1,0 +1,534 @@
+<!doctype html><html lang=en dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Maintenance #  Maintenance operations require the Table instance. Please refer Java API quickstart page to refer how to load an existing table.  Recommended Maintenance #  Expire Snapshots #  Each write to an Iceberg table creates a new snapshot, or version, of a table. Snapshots can be used for time-travel queries, or the table can be rolled back to any valid snapshot.
+Snapshots accumulate until they are expired by the expireSnapshots operation.">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content>
+<meta property="og:description" content="Maintenance #  Maintenance operations require the Table instance. Please refer Java API quickstart page to refer how to load an existing table.  Recommended Maintenance #  Expire Snapshots #  Each write to an Iceberg table creates a new snapshot, or version, of a table. Snapshots can be used for time-travel queries, or the table can be rolled back to any valid snapshot.
+Snapshots accumulate until they are expired by the expireSnapshots operation.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://iceberg.apache.org/docs/0.12.1/maintenance/"><meta property="article:section" content="docs">
+<title>Maintenance | Apache Iceberg</title>
+<link rel=manifest href=/docs/0.12.1/manifest.json>
+<link rel=icon href=/docs/0.12.1/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/docs/0.12.1/book.min.179e158d24f3ef709534173fd8b1c1e541a4fa3e23c1b5d8e887464c58949cc9.css integrity="sha256-F54VjSTz73CVNBc/2LHB5UGk+j4jwbXY6IdGTFiUnMk=" crossorigin=anonymous>
+<script defer src=/docs/0.12.1/flexsearch.min.js></script>
+<script defer src=/docs/0.12.1/en.search.min.9b389ad9641a13fb39ba48da7e84d44163cd779ab7cf64f59cc58924b05ea921.js integrity="sha256-mzia2WQaE/s5ukjafoTUQWPNd5q3z2T1nMWJJLBeqSE=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/docs/0.12.1/../../><img src=/docs/0.12.1/img/iceberg-logo-icon.png alt=Logo><span>Apache Iceberg</span>
+</a>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../releases>
+<img id=version-shield src=https://img.shields.io/badge/version-0.12.1-blue alt>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+<a href=https://github.com/apache/iceberg target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/GitHub-Mark.png target=_blank class=top-external-icon>
+</a>
+<a href=https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/Slack_Mark_Web.png target=_blank class=top-external-icon>
+</a>
+</div>
+<ul>
+<li class=book-section-flats>
+<span>
+<i class="fa fa-table fa-fw"></i>
+Tables</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/configuration/>
+Configuration</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/evolution/>
+Evolution</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/maintenance/ class=active>
+Maintenance</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/partitioning/>
+Partitioning</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/performance/>
+Performance</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/reliability/>
+Reliability</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/schemas/>
+Schemas</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<span>
+<i class="fa fa-star-o fa-fw"></i>
+Spark</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/getting-started/>
+Getting Started</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-configuration/>
+Configuration</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-ddl/>
+DDL</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-procedures/>
+Procedures</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-queries/>
+Queries</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-structured-streaming/>
+Structured Streaming</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-writes/>
+Writes</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<span>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/flink-logo.png class="navigation-icon fa-fw">Flink</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/flink/>
+Getting Started</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/flink-connector/>
+Flink Connector</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<a href=https://iceberg.apache.org/docs/0.12.1/hive/>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/hive-logo.png class="navigation-icon fa-fw">Hive</a>
+<ul>
+</ul>
+</li>
+<li>
+<a href=https://trino.io/docs/current/connector/iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/trino-logo.png class="navigation-icon fa-fw">
+Trino
+</a>
+</li>
+<li>
+<a href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/prestodb-logo.png class="navigation-icon fa-fw">
+Presto
+</a>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-56605d8e971a871885e28ee5142728bf class=toggle>
+<label for=section-56605d8e971a871885e28ee5142728bf class="flex justify-between">
+<a role=button>
+<i class="fa fa-handshake-o fa-fw"></i>
+Integrations</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/aws/>
+AWS</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/jdbc/>
+JDBC</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/nessie/>
+Nessie</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-bf7b3283e3790c00c8caaa140299052b class=toggle>
+<label for=section-bf7b3283e3790c00c8caaa140299052b class="flex justify-between">
+<a role=button>
+<i class="fa fa-connectdevelop fa-fw"></i>
+API</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/java-api-quickstart/>
+Java Quickstart</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/api/>
+Java API</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/custom-catalog/>
+Java Custom Catalog</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../javadoc/0.12.1>
+Javadocs
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/python-quickstart/>
+Python Quickstart</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/python-api-intro/>
+Python API</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/python-feature-support/>
+Python Feature Support</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-7e66f1754ca5d93e20ecdc89df5b8b28 class=toggle>
+<label for=section-7e66f1754ca5d93e20ecdc89df5b8b28 class="flex justify-between">
+<a role=button>
+<i class="fa fa-users fa-fw"></i>
+Community</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../blogs>
+Blogs
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../community>
+Join
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../talks>
+Talks
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-87dda23e9104fe3231cee3bc88a2d754 class=toggle>
+<label for=section-87dda23e9104fe3231cee3bc88a2d754 class="flex justify-between">
+<a role=button>
+<i class="fa fa-object-ungroup fa-fw"></i>
+Format</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../spec>
+Spec
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../terms>
+Terms
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-2e5d3f5f142758d8dd368e9c281dd08e class=toggle>
+<label for=section-2e5d3f5f142758d8dd368e9c281dd08e class="flex justify-between">
+<a role=button>
+<i class="fa fa-wrench fa-fw"></i>
+Project</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../how-to-release>
+How to Release
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../roadmap>
+Roadmap
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../security>
+Security
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../trademarks>
+Trademarks
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-4ddb27a8612bc8118c0b36386905d332 class=toggle>
+<label for=section-4ddb27a8612bc8118c0b36386905d332 class="flex justify-between">
+<a role=button>
+<i class="fa fa-code-fork fa-fw"></i>
+Releases</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../latest>
+Latest
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../0.12.1>
+0.12.1
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../releases>
+Release Notes
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-296746d27808aa768e500824aaf2adea class=toggle>
+<label for=section-296746d27808aa768e500824aaf2adea class="flex justify-between">
+<a role=button>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/asf.png class="navigation-icon fa-fw">ASF</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/licenses/ target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+License
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/security/ target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Security
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/foundation/thanks.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Sponsors
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/foundation/sponsorship.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Donate
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/events/current-event.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Events
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<link rel=stylesheet href=/docs/0.12.1/fontawesome/css/font-awesome.min.css>
+<label for=menu-control>
+<img src=/docs/0.12.1/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Maintenance</strong>
+<label for=toc-control>
+<img src=/docs/0.12.1/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#recommended-maintenance>Recommended Maintenance</a>
+<ul>
+<li><a href=#expire-snapshots>Expire Snapshots</a></li>
+<li><a href=#remove-old-metadata-files>Remove old metadata files</a></li>
+<li><a href=#remove-orphan-files>Remove orphan files</a></li>
+</ul>
+</li>
+<li><a href=#optional-maintenance>Optional Maintenance</a>
+<ul>
+<li><a href=#compact-data-files>Compact data files</a></li>
+<li><a href=#rewrite-manifests>Rewrite manifests</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown>
+<h1 id=maintenance>
+Maintenance
+<a class=anchor href=#maintenance>#</a>
+</h1>
+<blockquote class="book-hint info">
+Maintenance operations require the <code>Table</code> instance. Please refer <a href=../java-api-quickstart/#create-a-table>Java API quickstart</a> page to refer how to load an existing table.
+</blockquote>
+<h2 id=recommended-maintenance>
+Recommended Maintenance
+<a class=anchor href=#recommended-maintenance>#</a>
+</h2>
+<h3 id=expire-snapshots>
+Expire Snapshots
+<a class=anchor href=#expire-snapshots>#</a>
+</h3>
+<p>Each write to an Iceberg table creates a new <em>snapshot</em>, or version, of a table. Snapshots can be used for time-travel queries, or the table can be rolled back to any valid snapshot.</p>
+<p>Snapshots accumulate until they are expired by the <a href=../../../javadoc/0.12.1/org/apache/iceberg/Table.html#expireSnapshots--><code>expireSnapshots</code></a> operation. Regularly expiring snapshots is recommended to delete data files that are no longer needed, and to keep the size of table metadata small.</p>
+<p>This example expires snapshots that are older than 1 day:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Table table <span style=color:#f92672>=</span> <span style=color:#f92672>...</span>
+<span style=color:#66d9ef>long</span> tsToExpire <span style=color:#f92672>=</span> System<span style=color:#f92672>.</span><span style=color:#a6e22e>currentTimeMillis</span><span style=color:#f92672>()</span> <span style=color:#f92672>-</span> <span style=color:#f92672>(</span>1000 <span style=color:#f92672>*</span> 60 <span style=color:#f92672>*</span> 60 <span style=color:#f92672>*</span> 24<span style=color:#f92672>);</span> <span style=color:#75715e>// 1 day
+</span><span style=color:#75715e></span>table<span style=color:#f92672>.</span><span style=color:#a6e22e>expireSnapshots</span><span style=color:#f92672>()</span>
+     <span style=color:#f92672>.</span><span style=color:#a6e22e>expireOlderThan</span><span style=color:#f92672>(</span>tsToExpire<span style=color:#f92672>)</span>
+     <span style=color:#f92672>.</span><span style=color:#a6e22e>commit</span><span style=color:#f92672>();</span>
+</code></pre></div><p>See the <a href=../../../javadoc/0.12.1/org/apache/iceberg/ExpireSnapshots.html><code>ExpireSnapshots</code> Javadoc</a> to see more configuration options.</p>
+<p>There is also a Spark action that can run table expiration in parallel for large tables:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Actions<span style=color:#f92672>.</span><span style=color:#a6e22e>forTable</span><span style=color:#f92672>(</span>table<span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>expireSnapshots</span><span style=color:#f92672>()</span>
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>expireOlderThan</span><span style=color:#f92672>(</span>tsToExpire<span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>execute</span><span style=color:#f92672>();</span>
+</code></pre></div><p>Expiring old snapshots removes them from metadata, so they are no longer available for time travel queries.</p>
+<blockquote class="book-hint info">
+Data files are not deleted until they are no longer referenced by a snapshot that may be used for time travel or rollback.
+Regularly expiring snapshots deletes unused data files.
+</blockquote>
+<h3 id=remove-old-metadata-files>
+Remove old metadata files
+<a class=anchor href=#remove-old-metadata-files>#</a>
+</h3>
+<p>Iceberg keeps track of table metadata using JSON files. Each change to a table produces a new metadata file to provide atomicity.</p>
+<p>Old metadata files are kept for history by default. Tables with frequent commits, like those written by streaming jobs, may need to regularly clean metadata files.</p>
+<p>To automatically clean metadata files, set <code>write.metadata.delete-after-commit.enabled=true</code> in table properties. This will keep some metadata files (up to <code>write.metadata.previous-versions-max</code>) and will delete the oldest metadata file after each new one is created.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>write.metadata.delete-after-commit.enabled</code></td>
+<td>Whether to delete old metadata files after each table commit</td>
+</tr>
+<tr>
+<td><code>write.metadata.previous-versions-max</code></td>
+<td>The number of old metadata files to keep</td>
+</tr>
+</tbody>
+</table>
+<p>See <a href=../configuration/#write-properties>table write properties</a> for more details.</p>
+<h3 id=remove-orphan-files>
+Remove orphan files
+<a class=anchor href=#remove-orphan-files>#</a>
+</h3>
+<p>In Spark and other distributed processing engines, task or job failures can leave files that are not referenced by table metadata, and in some cases normal snapshot expiration may not be able to determine a file is no longer needed and delete it.</p>
+<p>To clean up these &ldquo;orphan&rdquo; files under a table location, use the <code>removeOrphanFiles</code> action.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Table table <span style=color:#f92672>=</span> <span style=color:#f92672>...</span>
+Actions<span style=color:#f92672>.</span><span style=color:#a6e22e>forTable</span><span style=color:#f92672>(</span>table<span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>removeOrphanFiles</span><span style=color:#f92672>()</span>
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>execute</span><span style=color:#f92672>();</span>
+</code></pre></div><p>See the <a href=../../../javadoc/0.12.1/org/apache/iceberg/actions/RemoveOrphanFilesAction.html>RemoveOrphanFilesAction Javadoc</a> to see more configuration options.</p>
+<p>This action may take a long time to finish if you have lots of files in data and metadata directories. It is recommended to execute this periodically, but you may not need to execute this often.</p>
+<blockquote class="book-hint info">
+It is dangerous to remove orphan files with a retention interval shorter than the time expected for any write to complete because it
+might corrupt the table if in-progress files are considered orphaned and are deleted. The default interval is 3 days.
+</blockquote>
+<blockquote class="book-hint info">
+Iceberg uses the string representations of paths when determining which files need to be removed. On some file systems,
+the path can change over time, but it still represents the same file. For example, if you change authorities for an HDFS cluster,
+none of the old path urls used during creation will match those that appear in a current listing. <em>This will lead to data loss when
+RemoveOrphanFiles is run</em>. Please be sure the entries in your MetadataTables match those listed by the Hadoop
+FileSystem API to avoid unintentional deletion.
+</blockquote>
+<h2 id=optional-maintenance>
+Optional Maintenance
+<a class=anchor href=#optional-maintenance>#</a>
+</h2>
+<p>Some tables require additional maintenance. For example, streaming queries may produce small data files that should be <a href=#compact-data-files>compacted into larger files</a>. And some tables can benefit from <a href=#rewrite-manifests>rewriting manifest files</a> to make locating data for queries much faster.</p>
+<h3 id=compact-data-files>
+Compact data files
+<a class=anchor href=#compact-data-files>#</a>
+</h3>
+<p>Iceberg tracks each data file in a table. More data files leads to more metadata stored in manifest files, and small data files causes an unnecessary amount of metadata and less efficient queries from file open costs.</p>
+<p>Iceberg can compact data files in parallel using Spark with the <code>rewriteDataFiles</code> action. This will combine small files into larger files to reduce metadata overhead and runtime file open cost.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Table table <span style=color:#f92672>=</span> <span style=color:#f92672>...</span>
+Actions<span style=color:#f92672>.</span><span style=color:#a6e22e>forTable</span><span style=color:#f92672>(</span>table<span style=color:#f92672>).</span><span style=color:#a6e22e>rewriteDataFiles</span><span style=color:#f92672>()</span>
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>filter</span><span style=color:#f92672>(</span>Expressions<span style=color:#f92672>.</span><span style=color:#a6e22e>equal</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;date&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;2020-08-18&#34;</span><span style=color:#f92672>))</span>
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>targetSizeInBytes</span><span style=color:#f92672>(</span>500 <span style=color:#f92672>*</span> 1024 <span style=color:#f92672>*</span> 1024<span style=color:#f92672>)</span> <span style=color:#75715e>// 500 MB
+</span><span style=color:#75715e></span>    <span style=color:#f92672>.</span><span style=color:#a6e22e>execute</span><span style=color:#f92672>();</span>
+</code></pre></div><p>The <code>files</code> metadata table is useful for inspecting data file sizes and determining when to compact partitons.</p>
+<p>See the <a href=../../../javadoc/0.12.1/org/apache/iceberg/actions/RewriteDataFilesAction.html><code>RewriteDataFilesAction</code> Javadoc</a> to see more configuration options.</p>
+<h3 id=rewrite-manifests>
+Rewrite manifests
+<a class=anchor href=#rewrite-manifests>#</a>
+</h3>
+<p>Iceberg uses metadata in its manifest list and manifest files speed up query planning and to prune unnecessary data files. The metadata tree functions as an index over a table&rsquo;s data.</p>
+<p>Manifests in the metadata tree are automatically compacted in the order they are added, which makes queries faster when the write pattern aligns with read filters. For example, writing hourly-partitioned data as it arrives is aligned with time range query filters.</p>
+<p>When a table&rsquo;s write pattern doesn&rsquo;t align with the query pattern, metadata can be rewritten to re-group data files into manifests using <code>rewriteManifests</code> or the <code>rewriteManifests</code> action (for parallel rewrites using Spark).</p>
+<p>This example rewrites small manifests and groups data files by the first partition field.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Table table <span style=color:#f92672>=</span> <span style=color:#f92672>...</span>
+table<span style=color:#f92672>.</span><span style=color:#a6e22e>rewriteManifests</span><span style=color:#f92672>()</span>
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>rewriteIf</span><span style=color:#f92672>(</span>file <span style=color:#f92672>-&gt;</span> file<span style=color:#f92672>.</span><span style=color:#a6e22e>length</span><span style=color:#f92672>()</span> <span style=color:#f92672>&lt;</span> 10 <span style=color:#f92672>*</span> 1024 <span style=color:#f92672>*</span> 1024<span style=color:#f92672>)</span> <span style=color:#75715e>// 10 MB
+</span><span style=color:#75715e></span>    <span style=color:#f92672>.</span><span style=color:#a6e22e>clusterBy</span><span style=color:#f92672>(</span>file <span style=color:#f92672>-&gt;</span> file<span style=color:#f92672>.</span><span style=color:#a6e22e>partition</span><span style=color:#f92672>().</span><span style=color:#a6e22e>get</span><span style=color:#f92672>(</span>0<span style=color:#f92672>,</span> Integer<span style=color:#f92672>.</span><span style=color:#a6e22e>class</span><span style=color:#f92672>))</span>
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>commit</span><span style=color:#f92672>();</span>
+</code></pre></div><p>See the <a href=../../../javadoc/0.12.1/org/apache/iceberg/actions/RewriteManifestsAction.html><code>RewriteManifestsAction</code> Javadoc</a> to see more configuration options.</p>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#recommended-maintenance>Recommended Maintenance</a>
+<ul>
+<li><a href=#expire-snapshots>Expire Snapshots</a></li>
+<li><a href=#remove-old-metadata-files>Remove old metadata files</a></li>
+<li><a href=#remove-orphan-files>Remove orphan files</a></li>
+</ul>
+</li>
+<li><a href=#optional-maintenance>Optional Maintenance</a>
+<ul>
+<li><a href=#compact-data-files>Compact data files</a></li>
+<li><a href=#rewrite-manifests>Rewrite manifests</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>

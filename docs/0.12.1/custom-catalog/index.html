@@ -1,0 +1,647 @@
+<!doctype html><html lang=en dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Custom Catalog Implementation #  It&rsquo;s possible to read an iceberg table either from an hdfs path or from a hive table. It&rsquo;s also possible to use a custom metastore in place of hive. The steps to do that are as follows.
+ Custom TableOperations Custom Catalog Custom FileIO Custom LocationProvider Custom IcebergSource  Custom table operations implementation #  Extend BaseMetastoreTableOperations to provide implementation on how to read and write metadata">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content="Java Custom Catalog">
+<meta property="og:description" content="Custom Catalog Implementation #  It&rsquo;s possible to read an iceberg table either from an hdfs path or from a hive table. It&rsquo;s also possible to use a custom metastore in place of hive. The steps to do that are as follows.
+ Custom TableOperations Custom Catalog Custom FileIO Custom LocationProvider Custom IcebergSource  Custom table operations implementation #  Extend BaseMetastoreTableOperations to provide implementation on how to read and write metadata">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://iceberg.apache.org/docs/0.12.1/custom-catalog/"><meta property="article:section" content="docs">
+<title>Java Custom Catalog | Apache Iceberg</title>
+<link rel=manifest href=/docs/0.12.1/manifest.json>
+<link rel=icon href=/docs/0.12.1/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/docs/0.12.1/book.min.179e158d24f3ef709534173fd8b1c1e541a4fa3e23c1b5d8e887464c58949cc9.css integrity="sha256-F54VjSTz73CVNBc/2LHB5UGk+j4jwbXY6IdGTFiUnMk=" crossorigin=anonymous>
+<script defer src=/docs/0.12.1/flexsearch.min.js></script>
+<script defer src=/docs/0.12.1/en.search.min.9b389ad9641a13fb39ba48da7e84d44163cd779ab7cf64f59cc58924b05ea921.js integrity="sha256-mzia2WQaE/s5ukjafoTUQWPNd5q3z2T1nMWJJLBeqSE=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/docs/0.12.1/../../><img src=/docs/0.12.1/img/iceberg-logo-icon.png alt=Logo><span>Apache Iceberg</span>
+</a>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../releases>
+<img id=version-shield src=https://img.shields.io/badge/version-0.12.1-blue alt>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+<a href=https://github.com/apache/iceberg target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/GitHub-Mark.png target=_blank class=top-external-icon>
+</a>
+<a href=https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/Slack_Mark_Web.png target=_blank class=top-external-icon>
+</a>
+</div>
+<ul>
+<li class=book-section-flats>
+<span>
+<i class="fa fa-table fa-fw"></i>
+Tables</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/configuration/>
+Configuration</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/evolution/>
+Evolution</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/maintenance/>
+Maintenance</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/partitioning/>
+Partitioning</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/performance/>
+Performance</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/reliability/>
+Reliability</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/schemas/>
+Schemas</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<span>
+<i class="fa fa-star-o fa-fw"></i>
+Spark</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/getting-started/>
+Getting Started</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-configuration/>
+Configuration</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-ddl/>
+DDL</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-procedures/>
+Procedures</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-queries/>
+Queries</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-structured-streaming/>
+Structured Streaming</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/spark-writes/>
+Writes</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<span>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/flink-logo.png class="navigation-icon fa-fw">Flink</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/flink/>
+Getting Started</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/flink-connector/>
+Flink Connector</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<a href=https://iceberg.apache.org/docs/0.12.1/hive/>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/hive-logo.png class="navigation-icon fa-fw">Hive</a>
+<ul>
+</ul>
+</li>
+<li>
+<a href=https://trino.io/docs/current/connector/iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/trino-logo.png class="navigation-icon fa-fw">
+Trino
+</a>
+</li>
+<li>
+<a href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/prestodb-logo.png class="navigation-icon fa-fw">
+Presto
+</a>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-56605d8e971a871885e28ee5142728bf class=toggle>
+<label for=section-56605d8e971a871885e28ee5142728bf class="flex justify-between">
+<a role=button>
+<i class="fa fa-handshake-o fa-fw"></i>
+Integrations</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/aws/>
+AWS</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/jdbc/>
+JDBC</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/nessie/>
+Nessie</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-bf7b3283e3790c00c8caaa140299052b class=toggle checked>
+<label for=section-bf7b3283e3790c00c8caaa140299052b class="flex justify-between">
+<a role=button>
+<i class="fa fa-connectdevelop fa-fw"></i>
+API</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/java-api-quickstart/>
+Java Quickstart</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/api/>
+Java API</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/custom-catalog/ class=active>
+Java Custom Catalog</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../javadoc/0.12.1>
+Javadocs
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/python-quickstart/>
+Python Quickstart</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/python-api-intro/>
+Python API</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/python-feature-support/>
+Python Feature Support</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-7e66f1754ca5d93e20ecdc89df5b8b28 class=toggle>
+<label for=section-7e66f1754ca5d93e20ecdc89df5b8b28 class="flex justify-between">
+<a role=button>
+<i class="fa fa-users fa-fw"></i>
+Community</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../blogs>
+Blogs
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../community>
+Join
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../talks>
+Talks
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-87dda23e9104fe3231cee3bc88a2d754 class=toggle>
+<label for=section-87dda23e9104fe3231cee3bc88a2d754 class="flex justify-between">
+<a role=button>
+<i class="fa fa-object-ungroup fa-fw"></i>
+Format</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../spec>
+Spec
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../terms>
+Terms
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-2e5d3f5f142758d8dd368e9c281dd08e class=toggle>
+<label for=section-2e5d3f5f142758d8dd368e9c281dd08e class="flex justify-between">
+<a role=button>
+<i class="fa fa-wrench fa-fw"></i>
+Project</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../how-to-release>
+How to Release
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../roadmap>
+Roadmap
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../security>
+Security
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../trademarks>
+Trademarks
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-4ddb27a8612bc8118c0b36386905d332 class=toggle>
+<label for=section-4ddb27a8612bc8118c0b36386905d332 class="flex justify-between">
+<a role=button>
+<i class="fa fa-code-fork fa-fw"></i>
+Releases</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../latest>
+Latest
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../0.12.1>
+0.12.1
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.12.1/../../../releases>
+Release Notes
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-296746d27808aa768e500824aaf2adea class=toggle>
+<label for=section-296746d27808aa768e500824aaf2adea class="flex justify-between">
+<a role=button>
+<img src=https://iceberg.apache.org/docs/0.12.1/img/../img/asf.png class="navigation-icon fa-fw">ASF</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/licenses/ target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+License
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/security/ target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Security
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/foundation/thanks.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Sponsors
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/foundation/sponsorship.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Donate
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/events/current-event.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Events
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<link rel=stylesheet href=/docs/0.12.1/fontawesome/css/font-awesome.min.css>
+<label for=menu-control>
+<img src=/docs/0.12.1/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Java Custom Catalog</strong>
+<label for=toc-control>
+<img src=/docs/0.12.1/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#custom-table-operations-implementation>Custom table operations implementation</a></li>
+<li><a href=#custom-catalog-implementation-1>Custom catalog implementation</a></li>
+<li><a href=#custom-file-io-implementation>Custom file IO implementation</a></li>
+<li><a href=#custom-location-provider-implementation>Custom location provider implementation</a></li>
+<li><a href=#custom-icebergsource>Custom IcebergSource</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown>
+<h1 id=custom-catalog-implementation>
+Custom Catalog Implementation
+<a class=anchor href=#custom-catalog-implementation>#</a>
+</h1>
+<p>It&rsquo;s possible to read an iceberg table either from an hdfs path or from a hive table. It&rsquo;s also possible to use a custom metastore in place of hive. The steps to do that are as follows.</p>
+<ul>
+<li><a href=#custom-table-operations-implementation>Custom TableOperations</a></li>
+<li><a href=#custom-catalog-implementation>Custom Catalog</a></li>
+<li><a href=#custom-file-io-implementation>Custom FileIO</a></li>
+<li><a href=#custom-location-provider-implementation>Custom LocationProvider</a></li>
+<li><a href=#custom-icebergsource>Custom IcebergSource</a></li>
+</ul>
+<h3 id=custom-table-operations-implementation>
+Custom table operations implementation
+<a class=anchor href=#custom-table-operations-implementation>#</a>
+</h3>
+<p>Extend <code>BaseMetastoreTableOperations</code> to provide implementation on how to read and write metadata</p>
+<p>Example:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CustomTableOperations</span> <span style=color:#66d9ef>extends</span> BaseMetastoreTableOperations <span style=color:#f92672>{</span>
+  <span style=color:#66d9ef>private</span> String dbName<span style=color:#f92672>;</span>
+  <span style=color:#66d9ef>private</span> String tableName<span style=color:#f92672>;</span>
+  <span style=color:#66d9ef>private</span> Configuration conf<span style=color:#f92672>;</span>
+  <span style=color:#66d9ef>private</span> FileIO fileIO<span style=color:#f92672>;</span>
+
+  <span style=color:#66d9ef>protected</span> <span style=color:#a6e22e>CustomTableOperations</span><span style=color:#f92672>(</span>Configuration conf<span style=color:#f92672>,</span> String dbName<span style=color:#f92672>,</span> String tableName<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+    <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>conf</span> <span style=color:#f92672>=</span> conf<span style=color:#f92672>;</span>
+    <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>dbName</span> <span style=color:#f92672>=</span> dbName<span style=color:#f92672>;</span>
+    <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>tableName</span> <span style=color:#f92672>=</span> tableName<span style=color:#f92672>;</span>
+  <span style=color:#f92672>}</span>
+
+  <span style=color:#75715e>// The doRefresh method should provide implementation on how to get the metadata location
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>@Override</span>
+  <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>doRefresh</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+
+    <span style=color:#75715e>// Example custom service which returns the metadata location given a dbName and tableName
+</span><span style=color:#75715e></span>    String metadataLocation <span style=color:#f92672>=</span> CustomService<span style=color:#f92672>.</span><span style=color:#a6e22e>getMetadataForTable</span><span style=color:#f92672>(</span>conf<span style=color:#f92672>,</span> dbName<span style=color:#f92672>,</span> tableName<span style=color:#f92672>);</span>
+
+    <span style=color:#75715e>// When updating from a metadata file location, call the helper method
+</span><span style=color:#75715e></span>    refreshFromMetadataLocation<span style=color:#f92672>(</span>metadataLocation<span style=color:#f92672>);</span>
+
+  <span style=color:#f92672>}</span>
+
+  <span style=color:#75715e>// The doCommit method should provide implementation on how to update with metadata location atomically
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>@Override</span>
+  <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>doCommit</span><span style=color:#f92672>(</span>TableMetadata base<span style=color:#f92672>,</span> TableMetadata metadata<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+    String oldMetadataLocation <span style=color:#f92672>=</span> base<span style=color:#f92672>.</span><span style=color:#a6e22e>location</span><span style=color:#f92672>();</span>
+
+    <span style=color:#75715e>// Write new metadata using helper method
+</span><span style=color:#75715e></span>    String newMetadataLocation <span style=color:#f92672>=</span> writeNewMetadata<span style=color:#f92672>(</span>metadata<span style=color:#f92672>,</span> currentVersion<span style=color:#f92672>()</span> <span style=color:#f92672>+</span> 1<span style=color:#f92672>);</span>
+
+    <span style=color:#75715e>// Example custom service which updates the metadata location for the given db and table atomically
+</span><span style=color:#75715e></span>    CustomService<span style=color:#f92672>.</span><span style=color:#a6e22e>updateMetadataLocation</span><span style=color:#f92672>(</span>dbName<span style=color:#f92672>,</span> tableName<span style=color:#f92672>,</span> oldMetadataLocation<span style=color:#f92672>,</span> newMetadataLocation<span style=color:#f92672>);</span>
+
+  <span style=color:#f92672>}</span>
+
+  <span style=color:#75715e>// The io method provides a FileIO which is used to read and write the table metadata files
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>@Override</span>
+  <span style=color:#66d9ef>public</span> FileIO <span style=color:#a6e22e>io</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+    <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>fileIO <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span><span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+      fileIO <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HadoopFileIO<span style=color:#f92672>(</span>conf<span style=color:#f92672>);</span>
+    <span style=color:#f92672>}</span>
+    <span style=color:#66d9ef>return</span> fileIO<span style=color:#f92672>;</span>
+  <span style=color:#f92672>}</span>
+<span style=color:#f92672>}</span>
+</code></pre></div><p>A <code>TableOperations</code> instance is usually obtained by calling <code>Catalog.newTableOps(TableIdentifier)</code>.
+See the next section about implementing and loading a custom catalog.</p>
+<h3 id=custom-catalog-implementation-1>
+Custom catalog implementation
+<a class=anchor href=#custom-catalog-implementation-1>#</a>
+</h3>
+<p>Extend <code>BaseMetastoreCatalog</code> to provide default warehouse locations and instantiate <code>CustomTableOperations</code></p>
+<p>Example:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CustomCatalog</span> <span style=color:#66d9ef>extends</span> BaseMetastoreCatalog <span style=color:#f92672>{</span>
+
+  <span style=color:#66d9ef>private</span> Configuration configuration<span style=color:#f92672>;</span>
+
+  <span style=color:#75715e>// must have a no-arg constructor to be dynamically loaded
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// initialize(String name, Map&lt;String, String&gt; properties) will be called to complete initialization
+</span><span style=color:#75715e></span>  <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>CustomCatalog</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+  <span style=color:#f92672>}</span>
+
+  <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>CustomCatalog</span><span style=color:#f92672>(</span>Configuration configuration<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+    <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>configuration</span> <span style=color:#f92672>=</span> configuration<span style=color:#f92672>;</span>
+  <span style=color:#f92672>}</span>
+
+  <span style=color:#a6e22e>@Override</span>
+  <span style=color:#66d9ef>protected</span> TableOperations <span style=color:#a6e22e>newTableOps</span><span style=color:#f92672>(</span>TableIdentifier tableIdentifier<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+    String dbName <span style=color:#f92672>=</span> tableIdentifier<span style=color:#f92672>.</span><span style=color:#a6e22e>namespace</span><span style=color:#f92672>().</span><span style=color:#a6e22e>level</span><span style=color:#f92672>(</span>0<span style=color:#f92672>);</span>
+    String tableName <span style=color:#f92672>=</span> tableIdentifier<span style=color:#f92672>.</span><span style=color:#a6e22e>name</span><span style=color:#f92672>();</span>
+    <span style=color:#75715e>// instantiate the CustomTableOperations
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> CustomTableOperations<span style=color:#f92672>(</span>configuration<span style=color:#f92672>,</span> dbName<span style=color:#f92672>,</span> tableName<span style=color:#f92672>);</span>
+  <span style=color:#f92672>}</span>
+
+  <span style=color:#a6e22e>@Override</span>
+  <span style=color:#66d9ef>protected</span> String <span style=color:#a6e22e>defaultWarehouseLocation</span><span style=color:#f92672>(</span>TableIdentifier tableIdentifier<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+
+    <span style=color:#75715e>// Can choose to use any other configuration name
+</span><span style=color:#75715e></span>    String tableLocation <span style=color:#f92672>=</span> configuration<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;custom.iceberg.warehouse.location&#34;</span><span style=color:#f92672>);</span>
+
+    <span style=color:#75715e>// Can be an s3 or hdfs path
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>tableLocation <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span><span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+      <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> RuntimeException<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;custom.iceberg.warehouse.location configuration not set!&#34;</span><span style=color:#f92672>);</span>
+    <span style=color:#f92672>}</span>
+
+    <span style=color:#66d9ef>return</span> String<span style=color:#f92672>.</span><span style=color:#a6e22e>format</span><span style=color:#f92672>(</span>
+            <span style=color:#e6db74>&#34;%s/%s.db/%s&#34;</span><span style=color:#f92672>,</span> tableLocation<span style=color:#f92672>,</span>
+            tableIdentifier<span style=color:#f92672>.</span><span style=color:#a6e22e>namespace</span><span style=color:#f92672>().</span><span style=color:#a6e22e>levels</span><span style=color:#f92672>()[</span>0<span style=color:#f92672>],</span>
+            tableIdentifier<span style=color:#f92672>.</span><span style=color:#a6e22e>name</span><span style=color:#f92672>());</span>
+  <span style=color:#f92672>}</span>
+
+  <span style=color:#a6e22e>@Override</span>
+  <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>boolean</span> <span style=color:#a6e22e>dropTable</span><span style=color:#f92672>(</span>TableIdentifier identifier<span style=color:#f92672>,</span> <span style=color:#66d9ef>boolean</span> purge<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+    <span style=color:#75715e>// Example service to delete table
+</span><span style=color:#75715e></span>    CustomService<span style=color:#f92672>.</span><span style=color:#a6e22e>deleteTable</span><span style=color:#f92672>(</span>identifier<span style=color:#f92672>.</span><span style=color:#a6e22e>namepsace</span><span style=color:#f92672>().</span><span style=color:#a6e22e>level</span><span style=color:#f92672>(</span>0<span style=color:#f92672>),</span> identifier<span style=color:#f92672>.</span><span style=color:#a6e22e>name</span><span style=color:#f92672>());</span>
+  <span style=color:#f92672>}</span>
+
+  <span style=color:#a6e22e>@Override</span>
+  <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>renameTable</span><span style=color:#f92672>(</span>TableIdentifier from<span style=color:#f92672>,</span> TableIdentifier to<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+    Preconditions<span style=color:#f92672>.</span><span style=color:#a6e22e>checkArgument</span><span style=color:#f92672>(</span>from<span style=color:#f92672>.</span><span style=color:#a6e22e>namespace</span><span style=color:#f92672>().</span><span style=color:#a6e22e>level</span><span style=color:#f92672>(</span>0<span style=color:#f92672>).</span><span style=color:#a6e22e>equals</span><span style=color:#f92672>(</span>to<span style=color:#f92672>.</span><span style=color:#a6e22e>namespace</span><span style=color:#f92672>().</span><span style=color:#a6e22e>level</span><span style=color:#f92672>(</span>0<span style=color:#f92672>)),</span>
+            <span style=color:#e6db74>&#34;Cannot move table between databases&#34;</span><span style=color:#f92672>);</span>
+    <span style=color:#75715e>// Example service to rename table
+</span><span style=color:#75715e></span>    CustomService<span style=color:#f92672>.</span><span style=color:#a6e22e>renameTable</span><span style=color:#f92672>(</span>from<span style=color:#f92672>.</span><span style=color:#a6e22e>namepsace</span><span style=color:#f92672>().</span><span style=color:#a6e22e>level</span><span style=color:#f92672>(</span>0<span style=color:#f92672>),</span> from<span style=color:#f92672>.</span><span style=color:#a6e22e>name</span><span style=color:#f92672>(),</span> to<span style=color:#f92672>.</span><span style=color:#a6e22e>name</span><span style=color:#f92672>());</span>
+  <span style=color:#f92672>}</span>
+
+  <span style=color:#75715e>// implement this method to read catalog name and properties during initialization
+</span><span style=color:#75715e></span>  <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>initialize</span><span style=color:#f92672>(</span>String name<span style=color:#f92672>,</span> Map<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span> String<span style=color:#f92672>&gt;</span> properties<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+  <span style=color:#f92672>}</span>
+<span style=color:#f92672>}</span>
+</code></pre></div><p>Catalog implementations can be dynamically loaded in most compute engines.
+For Spark and Flink, you can specify the <code>catalog-impl</code> catalog property to load it.
+Read the <a href=../configuration/#catalog-properties>Configuration</a> section for more details.
+For MapReduce, implement <code>org.apache.iceberg.mr.CatalogLoader</code> and set Hadoop property <code>iceberg.mr.catalog.loader.class</code> to load it.
+If your catalog must read Hadoop configuration to access certain environment properties, make your catalog implement <code>org.apache.hadoop.conf.Configurable</code>.</p>
+<h3 id=custom-file-io-implementation>
+Custom file IO implementation
+<a class=anchor href=#custom-file-io-implementation>#</a>
+</h3>
+<p>Extend <code>FileIO</code> and provide implementation to read and write data files</p>
+<p>Example:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CustomFileIO</span> <span style=color:#66d9ef>implements</span> FileIO <span style=color:#f92672>{</span>
+
+  <span style=color:#75715e>// must have a no-arg constructor to be dynamically loaded
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// initialize(Map&lt;String, String&gt; properties) will be called to complete initialization
+</span><span style=color:#75715e></span>  <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>CustomFileIO</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+  <span style=color:#f92672>}</span>
+
+  <span style=color:#a6e22e>@Override</span>
+  <span style=color:#66d9ef>public</span> InputFile <span style=color:#a6e22e>newInputFile</span><span style=color:#f92672>(</span>String s<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+    <span style=color:#75715e>// you also need to implement the InputFile interface for a custom input file
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> CustomInputFile<span style=color:#f92672>(</span>s<span style=color:#f92672>);</span>
+  <span style=color:#f92672>}</span>
+
+  <span style=color:#a6e22e>@Override</span>
+  <span style=color:#66d9ef>public</span> OutputFile <span style=color:#a6e22e>newOutputFile</span><span style=color:#f92672>(</span>String s<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+    <span style=color:#75715e>// you also need to implement the OutputFile interface for a custom output file
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> CustomOutputFile<span style=color:#f92672>(</span>s<span style=color:#f92672>);</span>
+  <span style=color:#f92672>}</span>
+
+  <span style=color:#a6e22e>@Override</span>
+  <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>deleteFile</span><span style=color:#f92672>(</span>String path<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+    Path toDelete <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Path<span style=color:#f92672>(</span>path<span style=color:#f92672>);</span>
+    FileSystem fs <span style=color:#f92672>=</span> Util<span style=color:#f92672>.</span><span style=color:#a6e22e>getFs</span><span style=color:#f92672>(</span>toDelete<span style=color:#f92672>);</span>
+    <span style=color:#66d9ef>try</span> <span style=color:#f92672>{</span>
+        fs<span style=color:#f92672>.</span><span style=color:#a6e22e>delete</span><span style=color:#f92672>(</span>toDelete<span style=color:#f92672>,</span> <span style=color:#66d9ef>false</span> <span style=color:#75715e>/* not recursive */</span><span style=color:#f92672>);</span>
+    <span style=color:#f92672>}</span> <span style=color:#66d9ef>catch</span> <span style=color:#f92672>(</span>IOException e<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+        <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> RuntimeIOException<span style=color:#f92672>(</span>e<span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;Failed to delete file: %s&#34;</span><span style=color:#f92672>,</span> path<span style=color:#f92672>);</span>
+    <span style=color:#f92672>}</span>
+  <span style=color:#f92672>}</span>
+
+  <span style=color:#75715e>// implement this method to read catalog properties during initialization
+</span><span style=color:#75715e></span>  <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>initialize</span><span style=color:#f92672>(</span>Map<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span> String<span style=color:#f92672>&gt;</span> properties<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+  <span style=color:#f92672>}</span>
+<span style=color:#f92672>}</span>
+</code></pre></div><p>If you are already implementing your own catalog, you can implement <code>TableOperations.io()</code> to use your custom <code>FileIO</code>.
+In addition, custom <code>FileIO</code> implementations can also be dynamically loaded in <code>HadoopCatalog</code> and <code>HiveCatalog</code> by specifying the <code>io-impl</code> catalog property.
+Read the <a href=../configuration/#catalog-properties>Configuration</a> section for more details.
+If your <code>FileIO</code> must read Hadoop configuration to access certain environment properties, make your <code>FileIO</code> implement <code>org.apache.hadoop.conf.Configurable</code>.</p>
+<h3 id=custom-location-provider-implementation>
+Custom location provider implementation
+<a class=anchor href=#custom-location-provider-implementation>#</a>
+</h3>
+<p>Extend <code>LocationProvider</code> and provide implementation to determine the file path to write data</p>
+<p>Example:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CustomLocationProvider</span> <span style=color:#66d9ef>implements</span> LocationProvider <span style=color:#f92672>{</span>
+
+  <span style=color:#66d9ef>private</span> String tableLocation<span style=color:#f92672>;</span>
+
+  <span style=color:#75715e>// must have a 2-arg constructor like this, or a no-arg constructor
+</span><span style=color:#75715e></span>  <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>CustomLocationProvider</span><span style=color:#f92672>(</span>String tableLocation<span style=color:#f92672>,</span> Map<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span> String<span style=color:#f92672>&gt;</span> properties<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+    <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>tableLocation</span> <span style=color:#f92672>=</span> tableLocation<span style=color:#f92672>;</span>
+  <span style=color:#f92672>}</span>
+
+  <span style=color:#a6e22e>@Override</span>
+  <span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>newDataLocation</span><span style=color:#f92672>(</span>String filename<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+    <span style=color:#75715e>// can use any custom method to generate a file path given a file name
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>return</span> String<span style=color:#f92672>.</span><span style=color:#a6e22e>format</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;%s/%s/%s&#34;</span><span style=color:#f92672>,</span> tableLocation<span style=color:#f92672>,</span> UUID<span style=color:#f92672>.</span><span style=color:#a6e22e>randomUUID</span><span style=color:#f92672>().</span><span style=color:#a6e22e>toString</span><span style=color:#f92672>(),</span> filename<span style=color:#f92672>);</span>
+  <span style=color:#f92672>}</span>
+
+  <span style=color:#a6e22e>@Override</span>
+  <span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>newDataLocation</span><span style=color:#f92672>(</span>PartitionSpec spec<span style=color:#f92672>,</span> StructLike partitionData<span style=color:#f92672>,</span> String filename<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+    <span style=color:#75715e>// can use any custom method to generate a file path given a partition info and file name
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>return</span> newDataLocation<span style=color:#f92672>(</span>filename<span style=color:#f92672>);</span>
+  <span style=color:#f92672>}</span>
+<span style=color:#f92672>}</span>
+</code></pre></div><p>If you are already implementing your own catalog, you can override <code>TableOperations.locationProvider()</code> to use your custom default <code>LocationProvider</code>.
+To use a different custom location provider for a specific table, specify the implementation when creating the table using table property <code>write.location-provider.impl</code></p>
+<p>Example:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> hive.<span style=color:#66d9ef>default</span>.my_table (
+  id bigint,
+  <span style=color:#66d9ef>data</span> string,
+  category string)
+<span style=color:#66d9ef>USING</span> iceberg
+<span style=color:#66d9ef>OPTIONS</span> (
+  <span style=color:#e6db74>&#39;write.location-provider.impl&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;com.my.CustomLocationProvider&#39;</span>
+)
+PARTITIONED <span style=color:#66d9ef>BY</span> (category);
+</code></pre></div><h3 id=custom-icebergsource>
+Custom IcebergSource
+<a class=anchor href=#custom-icebergsource>#</a>
+</h3>
+<p>Extend <code>IcebergSource</code> and provide implementation to read from <code>CustomCatalog</code></p>
+<p>Example:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CustomIcebergSource</span> <span style=color:#66d9ef>extends</span> IcebergSource <span style=color:#f92672>{</span>
+
+  <span style=color:#a6e22e>@Override</span>
+  <span style=color:#66d9ef>protected</span> Table <span style=color:#a6e22e>findTable</span><span style=color:#f92672>(</span>DataSourceOptions options<span style=color:#f92672>,</span> Configuration conf<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+    Optional<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> path <span style=color:#f92672>=</span> options<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;path&#34;</span><span style=color:#f92672>);</span>
+    Preconditions<span style=color:#f92672>.</span><span style=color:#a6e22e>checkArgument</span><span style=color:#f92672>(</span>path<span style=color:#f92672>.</span><span style=color:#a6e22e>isPresent</span><span style=color:#f92672>(),</span> <span style=color:#e6db74>&#34;Cannot open table: path is not set&#34;</span><span style=color:#f92672>);</span>
+
+    <span style=color:#75715e>// Read table from CustomCatalog
+</span><span style=color:#75715e></span>    CustomCatalog catalog <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> CustomCatalog<span style=color:#f92672>(</span>conf<span style=color:#f92672>);</span>
+    TableIdentifier tableIdentifier <span style=color:#f92672>=</span> TableIdentifier<span style=color:#f92672>.</span><span style=color:#a6e22e>parse</span><span style=color:#f92672>(</span>path<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>());</span>
+    <span style=color:#66d9ef>return</span> catalog<span style=color:#f92672>.</span><span style=color:#a6e22e>loadTable</span><span style=color:#f92672>(</span>tableIdentifier<span style=color:#f92672>);</span>
+  <span style=color:#f92672>}</span>
+<span style=color:#f92672>}</span>
+</code></pre></div><p>Register the <code>CustomIcebergSource</code> by updating <code>META-INF/services/org.apache.spark.sql.sources.DataSourceRegister</code> with its fully qualified name</p>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#custom-table-operations-implementation>Custom table operations implementation</a></li>
+<li><a href=#custom-catalog-implementation-1>Custom catalog implementation</a></li>
+<li><a href=#custom-file-io-implementation>Custom file IO implementation</a></li>
+<li><a href=#custom-location-provider-implementation>Custom location provider implementation</a></li>
+<li><a href=#custom-icebergsource>Custom IcebergSource</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>
