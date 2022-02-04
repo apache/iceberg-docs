@@ -1,0 +1,165 @@
+<!doctype html><html>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content>
+<meta name=author content>
+<base href=https://iceberg.apache.org/>
+<title></title>
+<link href=https://iceberg.apache.org//css/bootstrap.css rel=stylesheet>
+<link href=https://iceberg.apache.org//css/landing-page.css rel=stylesheet>
+<link href=https://iceberg.apache.org//css/markdown.css rel=stylesheet>
+<link href=https://iceberg.apache.org//css/katex.min.css rel=stylesheet>
+<link rel=stylesheet href=https://iceberg.apache.org//css/pricing.css>
+<link href=https://iceberg.apache.org//font-awesome-4.7.0/css/font-awesome.min.css rel=stylesheet type=text/css>
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel=stylesheet type=text/css>
+<link href=https://iceberg.apache.org//css/termynal.css rel=stylesheet>
+</head>
+<body>
+<head>
+<link href=https://iceberg.apache.org//css/markdown.css rel=stylesheet>
+<link href=https://iceberg.apache.org//css/katex.min.css rel=stylesheet>
+</head>
+<nav class="navbar navbar-default navbar-fixed-top" role=navigation>
+<div class=container>
+<div class="navbar-header page-scroll">
+<button type=button class=navbar-toggle data-toggle=collapse data-target=#bs-example-navbar-collapse-1>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class="page-scroll navbar-brand" href=#intro><img class=top-navbar-logo src=https://iceberg.apache.org//img/iceberg-logo-icon.png> Apache Iceberg</a>
+</div>
+<div class="collapse navbar-collapse" id=bs-example-navbar-collapse-1>
+<ul class="nav navbar-nav navbar-right">
+<li>
+<a class=page-scroll href=https://iceberg.apache.org/docs/latest>Docs</a>
+</li>
+<li>
+<a class=page-scroll href=https://iceberg.apache.org/docs/latest/getting-started/>Spark</a>
+</li>
+<li>
+<a class=page-scroll href=https://iceberg.apache.org/docs/latest/flink/>Flink</a>
+</li>
+<li>
+<a class=page-scroll href=https://trino.io/docs/current/connector/iceberg.html target=_blank>Trino</a>
+</li>
+<li>
+<a class=page-scroll href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>Presto</a>
+</li>
+<li>
+<a class=page-scroll href=https://iceberg.apache.org/releases>Releases</a>
+</li>
+<li>
+<a class=page-scroll href=https://iceberg.apache.org/roadmap>Roadmap</a>
+</li>
+<li>
+<a class=page-scroll href=https://iceberg.apache.org/community>Community</a>
+</li>
+<li>
+<a class=page-scroll href=https://iceberg.apache.org/blogs>Blogs</a>
+</li>
+<li>
+<a class=page-scroll href=https://iceberg.apache.org/talks>Talks</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<div class=pad-for-navbar></div>
+<body dir=" ltr">
+<div class=markdown-body>
+<h1 id=how-to-verify-a-release>How to Verify a Release</h1>
+<p>Each Apache Iceberg release is validated by the community by holding a vote. A community release manager
+will prepare a release candidate and call a vote on the Iceberg
+<a href=https://iceberg.apache.org/#community/#mailing-lists>dev list</a>.
+To validate the release candidate, community members will test it out in their downstream projects and environments.
+It&rsquo;s recommended to report the Java, Scala, Spark, Flink and Hive versions you have tested against when you vote.</p>
+<p>In addition to testing in downstream projects, community members also check the release&rsquo;s signatures, checksums, and
+license documentation.</p>
+<h2 id=validating-a-source-release-candidate>Validating a source release candidate</h2>
+<p>Release announcements include links to the following:</p>
+<ul>
+<li><strong>A source tarball</strong></li>
+<li><strong>A signature (.asc)</strong></li>
+<li><strong>A checksum (.sha512)</strong></li>
+<li><strong>KEYS file</strong></li>
+<li><strong>GitHub change comparison</strong></li>
+</ul>
+<p>After downloading the source tarball, signature, checksum, and KEYS file, here are instructions on how to
+verify signatures, checksums, and documentation.</p>
+<h3 id=verifying-signatures>Verifying Signatures</h3>
+<p>First, import the keys.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>curl https://dist.apache.org/repos/dist/dev/iceberg/KEYS -o KEYS
+gpg --import KEYS
+</code></pre></div><p>Next, verify the <code>.asc</code> file.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>gpg --verify apache-iceberg-0.12.1.tar.gz.asc
+</code></pre></div><h3 id=verifying-checksums>Verifying Checksums</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>shasum -a <span style=color:#ae81ff>512</span> apache-iceberg-0.12.1.tar.gz.sha512
+</code></pre></div><h3 id=verifying-license-documentation>Verifying License Documentation</h3>
+<p>Untar the archive and change into the source directory.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>tar xzf apache-iceberg-0.12.1.tar.gz
+cd apache-iceberg-0.12.1
+</code></pre></div><p>Run RAT checks to validate license headers.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>dev/check-license
+</code></pre></div><h3 id=verifying-build-and-test>Verifying Build and Test</h3>
+<p>To verify that the release candidate builds properly, run the following command.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>./gradlew build
+</code></pre></div><h2 id=testing-release-binaries>Testing release binaries</h2>
+<p>Release announcements will also include a maven repository location. You can use this
+location to test downstream dependencies by adding it to your maven or gradle build.</p>
+<p>To use the release in your maven build, add the following to your <code>POM</code> or <code>settings.xml</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml>...
+  <span style=color:#f92672>&lt;repositories&gt;</span>
+    <span style=color:#f92672>&lt;repository&gt;</span>
+      <span style=color:#f92672>&lt;id&gt;</span>iceberg-release-candidate<span style=color:#f92672>&lt;/id&gt;</span>
+      <span style=color:#f92672>&lt;name&gt;</span>Iceberg Release Candidate<span style=color:#f92672>&lt;/name&gt;</span>
+      <span style=color:#f92672>&lt;url&gt;</span>${MAVEN_URL}<span style=color:#f92672>&lt;/url&gt;</span>
+    <span style=color:#f92672>&lt;/repository&gt;</span>
+  <span style=color:#f92672>&lt;/repositories&gt;</span>
+...
+</code></pre></div><p>To use the release in your gradle build, add the following to your <code>build.gradle</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-groovy data-lang=groovy>repositories <span style=color:#f92672>{</span>
+    mavenCentral<span style=color:#f92672>()</span>
+    maven <span style=color:#f92672>{</span>
+        url <span style=color:#e6db74>&#34;${MAVEN_URL}&#34;</span>
+    <span style=color:#f92672>}</span>
+<span style=color:#f92672>}</span>
+</code></pre></div><p>!!! Note
+Replace <code>${MAVEN_URL}</code> with the URL provided in the release announcement</p>
+<h3 id=verifying-with-spark>Verifying with Spark</h3>
+<p>To verify using spark, start a <code>spark-shell</code> with a command like the following command:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>spark-shell <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --conf spark.jars.repositories<span style=color:#f92672>=</span><span style=color:#e6db74>${</span>MAVEN_URL<span style=color:#e6db74>}</span> <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --packages org.apache.iceberg:iceberg-spark3-runtime:0.12.1 <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --conf spark.sql.extensions<span style=color:#f92672>=</span>org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --conf spark.sql.catalog.local<span style=color:#f92672>=</span>org.apache.iceberg.spark.SparkCatalog <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --conf spark.sql.catalog.local.type<span style=color:#f92672>=</span>hadoop <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --conf spark.sql.catalog.local.warehouse<span style=color:#f92672>=</span><span style=color:#e6db74>${</span>LOCAL_WAREHOUSE_PATH<span style=color:#e6db74>}</span> <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --conf spark.sql.catalog.local.default-namespace<span style=color:#f92672>=</span>default <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --conf spark.sql.defaultCatalog<span style=color:#f92672>=</span>local
+</code></pre></div><h3 id=verifying-with-flink>Verifying with Flink</h3>
+<p>To verify using Flink, start a Flink SQL Client with the following command:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>wget <span style=color:#e6db74>${</span>MAVEN_URL<span style=color:#e6db74>}</span>/iceberg-flink-runtime/0.12.1/iceberg-flink-runtime-0.12.1.jar
+
+sql-client.sh embedded <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    -j iceberg-flink-runtime-0.12.1.jar <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    -j <span style=color:#e6db74>${</span>FLINK_CONNECTOR_PACKAGE<span style=color:#e6db74>}</span>-<span style=color:#e6db74>${</span>HIVE_VERSION<span style=color:#e6db74>}</span>_<span style=color:#e6db74>${</span>SCALA_VERSION<span style=color:#e6db74>}</span>-<span style=color:#e6db74>${</span>FLINK_VERSION<span style=color:#e6db74>}</span>.jar <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    shell
+</code></pre></div><h2 id=voting>Voting</h2>
+<p>Votes are cast by replying to the release candidate announcement email on the dev mailing list
+with either <code>+1</code>, <code>0</code>, or <code>-1</code>.</p>
+<blockquote>
+<p>[ ] +1 Release this as Apache Iceberg 0.12.1
+[ ] +0
+[ ] -1 Do not release this because&mldr;</p>
+</blockquote>
+<p>In addition to your vote, it&rsquo;s customary to specify if your vote is binding or non-binding. Only members
+of the Project Management Committee have formally binding votes. If you&rsquo;re unsure, you can specify that your
+vote is non-binding. To read more about voting in the Apache framework, checkout the
+<a href=https://www.apache.org/foundation/voting.html>Voting</a> information page on the Apache foundation&rsquo;s website.</p>
+</div>
+</body>
+</html>
