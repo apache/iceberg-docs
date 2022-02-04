@@ -25,14 +25,18 @@ url: releases
 The latest version of Iceberg is [{{% icebergVersion %}}](https://github.com/apache/iceberg/releases/tag/apache-iceberg-{{% icebergVersion %}}).
 
 * [{{% icebergVersion %}} source tar.gz](https://www.apache.org/dyn/closer.cgi/iceberg/apache-iceberg-{{% icebergVersion %}}/apache-iceberg-{{% icebergVersion %}}.tar.gz) -- [signature](https://downloads.apache.org/iceberg/apache-iceberg-{{% icebergVersion %}}/apache-iceberg-{{% icebergVersion %}}.tar.gz.asc) -- [sha512](https://downloads.apache.org/iceberg/apache-iceberg-{{% icebergVersion %}}/apache-iceberg-{{% icebergVersion %}}.tar.gz.sha512)
+* [{{% icebergVersion %}} Spark 3.2 runtime Jar](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime-3.2_2.12/{{% icebergVersion %}}/iceberg-spark-runtime-{{% icebergVersion %}}-3.2_2.12.jar)
+* [{{% icebergVersion %}} Spark 3.1 runtime Jar](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime-3.1_2.12/{{% icebergVersion %}}/iceberg-spark-runtime-{{% icebergVersion %}}-3.1_2.12.jar)
 * [{{% icebergVersion %}} Spark 3.0 runtime Jar](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark3-runtime/{{% icebergVersion %}}/iceberg-spark3-runtime-{{% icebergVersion %}}.jar)
 * [{{% icebergVersion %}} Spark 2.4 runtime Jar](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime/{{% icebergVersion %}}/iceberg-spark-runtime-{{% icebergVersion %}}.jar)
-* [{{% icebergVersion %}} Flink runtime Jar](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime/{{% icebergVersion %}}/iceberg-flink-runtime-{{% icebergVersion %}}.jar)
+* [{{% icebergVersion %}} Flink 1.14 runtime Jar](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime-1.14/{{% icebergVersion %}}/iceberg-flink-runtime-{{% icebergVersion %}}-1.14.jar)
+* [{{% icebergVersion %}} Flink 1.13 runtime Jar](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime-1.13/{{% icebergVersion %}}/iceberg-flink-runtime-{{% icebergVersion %}}-1.13.jar)
+* [{{% icebergVersion %}} Flink 1.12 runtime Jar](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime-1.12/{{% icebergVersion %}}/iceberg-flink-runtime-{{% icebergVersion %}}-1.12.jar)
 * [{{% icebergVersion %}} Hive runtime Jar](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-hive-runtime/{{% icebergVersion %}}/iceberg-hive-runtime-{{% icebergVersion %}}.jar)
 
-To use Iceberg in Spark, download the runtime JAR and add it to the jars folder of your Spark install. Use iceberg-spark3-runtime for Spark 3, and iceberg-spark-runtime for Spark 2.4.
+To use Iceberg in Spark/Flink, download the runtime JAR based on your Spark/Flink version and add it to the jars folder of your Spark/Flink install.
 
-To use Iceberg in Hive, download the iceberg-hive-runtime JAR and add it to Hive using `ADD JAR`.
+To use Iceberg in Hive, download the `iceberg-hive-runtime` JAR and add it to Hive using `ADD JAR`.
 
 ### Gradle
 
@@ -145,7 +149,7 @@ Apache Iceberg 0.13.0 was released on February 4th, 2022.
   * `FileIO` serialization can be disabled using Hadoop config `iceberg.mr.config.serialization.disabled` for better performance [[\#3752](https://github.com/apache/iceberg/pull/3752)]
 **Other notable changes:**
 
-* The community has finalized the long-term strategy of multi-version support of Spark, Flink and Hive. See [Multi-engine Support](/multi-engine-support) for more details.
+* The community has finalized the long-term strategy of multi-version support of Spark, Flink and Hive. Iceberg will start to provide version-specific implementations and runtime executables to ensure a smooth integration experience with latest engine features for Iceberg users.
 * The Iceberg Python module is renamed as [python_legacy](https://github.com/apache/iceberg/tree/master/python_legacy) [[\#3074](https://github.com/apache/iceberg/pull/3074)]. A [new Python module](https://github.com/apache/iceberg/tree/master/python) is under development to provide better user experience for the Python community. See the [Github Project](https://github.com/apache/iceberg/projects/7) for progress.
 * Iceberg starts to publish daily snapshot to the [Apache snapshot repository](https://repository.apache.org/content/groups/snapshots/org/apache/iceberg/) [[\#3353](https://github.com/apache/iceberg/pull/3353)] for developers that would like to consume the latest unreleased artifact.
 * Iceberg website is now managed by a separated repository [iceberg-docs](https://github.com/apache/iceberg-docs/) with a new layout. See [README](https://github.com/apache/iceberg-docs/blob/main/README.md) for how to make documentation contributions going forward.
