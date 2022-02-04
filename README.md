@@ -62,7 +62,10 @@ cd docs && hugo serve
 
 If you would like to see how the latest website looks based on the documentation in the Iceberg repository, you can copy docs to this repository by:
 ```shell
-cp -r iceberg/documentation/* iceberg-docs/docs/content/docs
+rm -rf docs/content/docs
+rm -rf landing-page/content/common
+cp -r <path to iceberg repo>/documentation/docs docs/content/docs
+cp -r <path to iceberg repo>/documentation/common docs/content/common
 ```
 
 ## Scanning For Broken Links
