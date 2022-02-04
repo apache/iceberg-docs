@@ -3,6 +3,10 @@
 resources
 !javadoc/resources
 
+# IntelliJ
+.idea
+*.iml
+
 # Other
 __pycache__
 .DS_Store
