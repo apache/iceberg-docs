@@ -329,6 +329,25 @@
 <h4 id=column-projection>Column Projection</h4>
 <p>Columns in Iceberg data files are selected by field id. The table schema&rsquo;s column names and order may change after a data file is written, and projection must be done using field ids. If a field id is missing from a data file, its value for each row should be <code>null</code>.</p>
 <p>For example, a file may be written with schema <code>1: a int, 2: b string, 3: c double</code> and read using projection schema <code>3: measurement, 2: name, 4: a</code>. This must select file columns <code>c</code> (renamed to <code>measurement</code>), <code>b</code> (now called <code>name</code>), and a column of <code>null</code> values called <code>a</code>; in that order.</p>
+<p>For example, a file may be written with schema <code>1: a int, 2: b string, 3: c double</code> and read using projection schema <code>3: measurement, 2: name, 4: a</code>. This must select file columns <code>c</code> (renamed to <code>measurement</code>), <code>b</code> (now called <code>name</code>), and a column of <code>null</code> values called <code>a</code>; in that order.</p>
+<p>Tables may also define a property <code>schema.name-mapping.default</code> with a JSON name mapping containing a list of field mapping objects. These mappings provide fallback field ids to be used when a data file does not contain field id information. Each object should contain</p>
+<ul>
+<li><code>names</code>: A required list of 0 or more names for a field.</li>
+<li><code>field-id</code>: An optional Iceberg field ID used when a field&rsquo;s name is present in <code>names</code></li>
+<li><code>fields</code>: An optional list of field mappings for child field of structs, maps, and lists.</li>
+</ul>
+<p>Field mapping fields are constrained by the following rules:</p>
+<ul>
+<li>A name may contain <code>.</code> but this refers to a literal name, not a nested field. For example, <code>a.b</code> refers to a field named <code>a.b</code>, not child field <code>b</code> of field <code>a</code>.</li>
+<li>Each child field should be defined with their own field mapping under <code>fields</code>.</li>
+<li>Multiple values for <code>names</code> may be mapped to a single field ID to support cases where a field may have different names in different data files. For example, all Avro field aliases should be listed in <code>names</code>.</li>
+<li>Fields which exist only in the Iceberg schema and not in imported data files may use an empty <code>names</code> list.</li>
+<li>Fields that exist in imported files but not in the Iceberg schema may omit <code>field-id</code>.</li>
+<li>List types should contain a mapping in <code>fields</code> for <code>element</code>.</li>
+<li>Map types should contain mappings in <code>fields</code> for <code>key</code> and <code>value</code>.</li>
+<li>Struct types should contain mappings in <code>fields</code> for their child fields.</li>
+</ul>
+<p>For details on serialization, see <a href=#name-mapping-serialization>Appendix C</a>.</p>
 <h4 id=identifier-field-ids>Identifier Field IDs</h4>
 <p>A schema can optionally track the set of primitive fields that identify rows in a table, using the property <code>identifier-field-ids</code> (see JSON encoding in Appendix C).</p>
 <p>Two rows are the &ldquo;same&rdquo;&mdash;that is, the rows represent the same entity&mdash;if the identifier fields are equal. However, uniqueness of rows by this identifier is not guaranteed or required by Iceberg and it is the responsibility of processing engines or data providers to enforce.</p>
@@ -1090,6 +1109,76 @@
 <li>An alternative, <em>strict projection</em>, creates a partition predicate that will match a file if all of the rows in the file must match the scan predicate. These projections are used to calculate the residual predicates for each file in a scan.</li>
 <li>For example, if <code>file_a</code> has rows with <code>id</code> between 1 and 10 and a delete file contains rows with <code>id</code> between 1 and 4, a scan for <code>id = 9</code> may ignore the delete file because none of the deletes can match a row that will be selected.</li>
 </ol>
+<h4 id=snapshot-reference>Snapshot Reference</h4>
+<p>Iceberg tables keep track of branches and tags using snapshot references.
+Tags are labels for individual snapshots. Branches are mutable named references that can be updated by committing a new snapshot as the branch&rsquo;s referenced snapshot using the <a href=#commit-conflict-resolution-and-retry>Commit Conflict Resolution and Retry</a> procedures.</p>
+<p>The snapshot reference object records all the information of a reference including snapshot ID, reference type and <a href=#snapshot-retention-policy>Snapshot Retention Policy</a>.</p>
+<table>
+<thead>
+<tr>
+<th>v1</th>
+<th>v2</th>
+<th>Field name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>required</em></td>
+<td><em>required</em></td>
+<td><strong><code>snapshot-id</code></strong></td>
+<td><code>long</code></td>
+<td>A reference&rsquo;s snapshot ID. The tagged snapshot or latest snapshot of a branch.</td>
+</tr>
+<tr>
+<td><em>required</em></td>
+<td><em>required</em></td>
+<td><strong><code>type</code></strong></td>
+<td><code>string</code></td>
+<td>Type of the reference, <code>tag</code> or <code>branch</code></td>
+</tr>
+<tr>
+<td><em>optional</em></td>
+<td><em>optional</em></td>
+<td><strong><code>min-snapshots-to-keep</code></strong></td>
+<td><code>int</code></td>
+<td>For <code>branch</code> type only, a positive number for the minimum number of snapshots to keep in a branch while expiring snapshots. Defaults to table property <code>history.expire.min-snapshots-to-keep</code>.</td>
+</tr>
+<tr>
+<td><em>optional</em></td>
+<td><em>optional</em></td>
+<td><strong><code>max-snapshot-age-ms</code></strong></td>
+<td><code>long</code></td>
+<td>For <code>branch</code> type only, a positive number for the max age of snapshots to keep when expiring, including the latest snapshot. Defaults to table property <code>history.expire.max-snapshot-age-ms</code>.</td>
+</tr>
+<tr>
+<td><em>optional</em></td>
+<td><em>optional</em></td>
+<td><strong><code>max-ref-age-ms</code></strong></td>
+<td><code>long</code></td>
+<td>For snapshot references except the <code>main</code> branch, a positive number for the max age of the snapshot reference to keep while expiring snapshots. Defaults to table property <code>history.expire.max-ref-age-ms</code>. The <code>main</code> branch never expires.</td>
+</tr>
+</tbody>
+</table>
+<p>Valid snapshot references are stored as the values of the <code>refs</code> map in table metadata. For serialization, see Appendix C.</p>
+<h4 id=snapshot-retention-policy>Snapshot Retention Policy</h4>
+<p>Table snapshots expire and are removed from metadata to allow removed or replaced data files to be physically deleted.
+The snapshot expiration procedure removes snapshots from table metadata and applies the table&rsquo;s retention policy.
+Retention policy can be configured both globally and on snapshot reference through properties <code>min-snapshots-to-keep</code>, <code>max-snapshot-age-ms</code> and <code>max-ref-age-ms</code>.</p>
+<p>When expiring snapshots, retention policies in table and snapshot references are evaluated in the following way:</p>
+<ol>
+<li>Start with an empty set of snapshots to retain</li>
+<li>Remove any refs (other than main) where the referenced snapshot is older than <code>max-ref-age-ms</code></li>
+<li>For each branch and tag, add the referenced snapshot to the retained set</li>
+<li>For each branch, add its ancestors to the retained set until:
+<ol>
+<li>The snapshot is older than <code>max-snapshot-age-ms</code>, AND</li>
+<li>The snapshot is not one of the first <code>min-snapshots-to-keep</code> in the branch (including the branch&rsquo;s referenced snapshot)</li>
+</ol>
+</li>
+<li>Expire any snapshot not in the set of snapshots to retain.</li>
+</ol>
 <h3 id=table-metadata>Table Metadata</h3>
 <p>Table metadata is stored as JSON. Each table metadata change creates a new table metadata file that is committed by an atomic operation. This operation is used to ensure that a new version of table metadata replaces the version on which it was based. This produces a linear history of table versions and ensures that concurrent writes are not lost.</p>
 <p>The atomic operation used to commit metadata depends on how tables are tracked and is not standardized by this spec. See the sections below for examples.</p>
@@ -1193,7 +1282,7 @@
 <td><em>optional</em></td>
 <td><em>optional</em></td>
 <td><strong><code>current-snapshot-id</code></strong></td>
-<td><code>long</code> ID of the current table snapshot.</td>
+<td><code>long</code> ID of the current table snapshot; must be the same as the current ID of the <code>main</code> branch in <code>refs</code>.</td>
 </tr>
 <tr>
 <td><em>optional</em></td>
@@ -1224,6 +1313,12 @@
 <td><em>required</em></td>
 <td><strong><code>default-sort-order-id</code></strong></td>
 <td>Default sort order id of the table. Note that this could be used by writers, but is not used when reading because reads use the specs stored in manifest files.</td>
+</tr>
+<tr>
+<td></td>
+<td><em>optional</em></td>
+<td><strong><code>refs</code></strong></td>
+<td>A map of snapshot references. The map keys are the unique snapshot reference names in the table, and the map values are snapshot reference objects. There is always a <code>main</code> branch reference pointing to the <code>current-snapshot-id</code> even if the <code>refs</code> map is null.</td>
 </tr>
 </tbody>
 </table>
@@ -2238,9 +2333,49 @@ Hash results are not dependent on decimal scale, which is part of the type, not 
 <td><code>JSON int</code></td>
 <td><code>0</code></td>
 </tr>
+<tr>
+<td><strong><code>refs</code></strong></td>
+<td><code>JSON map with string key and object value:</code><code>{</code>  <code>"&lt;name>": {</code>  <code>"snapshot-id": &lt;id>,</code>  <code>"type": &lt;type>,</code>  <code>"max-ref-age-ms": &lt;long>,</code>  <code>...</code>  <code>}</code>  <code>...</code><code>}</code></td>
+<td><code>{</code>  <code>"test": {</code>  <code>"snapshot-id": 123456789000,</code>  <code>"type": "tag",</code>  <code>"max-ref-age-ms": 10000000</code>  <code>}</code><code>}</code></td>
+</tr>
 </tbody>
 </table>
-<h2 id=appendix-d-single-value-serialization>Appendix D: Single-value serialization</h2>
+<h3 id=name-mapping-serialization>Name Mapping Serialization</h3>
+<p>Name mapping is serialized as a list of field mapping JSON Objects which are serialized as follows</p>
+<table>
+<thead>
+<tr>
+<th>Field mapping field</th>
+<th>JSON representation</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>names</code></strong></td>
+<td><code>JSON list of strings</code></td>
+<td><code>["latitude", "lat"]</code></td>
+</tr>
+<tr>
+<td><strong><code>field_id</code></strong></td>
+<td><code>JSON int</code></td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><strong><code>fields</code></strong></td>
+<td><code>JSON field mappings (list of objects)</code></td>
+<td><code>[{ </code>  <code>"field-id": 4,</code>  <code>"names": ["latitude", "lat"]</code><code>}, {</code>  <code>"field-id": 5,</code>  <code>"names": ["longitude", "long"]</code><code>}]</code></td>
+</tr>
+</tbody>
+</table>
+<p>Example</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>[ { <span style=color:#f92672>&#34;field-id&#34;</span>: <span style=color:#ae81ff>1</span>, <span style=color:#f92672>&#34;names&#34;</span>: [<span style=color:#e6db74>&#34;id&#34;</span>, <span style=color:#e6db74>&#34;record_id&#34;</span>] },
+   { <span style=color:#f92672>&#34;field-id&#34;</span>: <span style=color:#ae81ff>2</span>, <span style=color:#f92672>&#34;names&#34;</span>: [<span style=color:#e6db74>&#34;data&#34;</span>] },
+   { <span style=color:#f92672>&#34;field-id&#34;</span>: <span style=color:#ae81ff>3</span>, <span style=color:#f92672>&#34;names&#34;</span>: [<span style=color:#e6db74>&#34;location&#34;</span>], <span style=color:#f92672>&#34;fields&#34;</span>: [
+       { <span style=color:#f92672>&#34;field-id&#34;</span>: <span style=color:#ae81ff>4</span>, <span style=color:#f92672>&#34;names&#34;</span>: [<span style=color:#e6db74>&#34;latitude&#34;</span>, <span style=color:#e6db74>&#34;lat&#34;</span>] },
+       { <span style=color:#f92672>&#34;field-id&#34;</span>: <span style=color:#ae81ff>5</span>, <span style=color:#f92672>&#34;names&#34;</span>: [<span style=color:#e6db74>&#34;longitude&#34;</span>, <span style=color:#e6db74>&#34;long&#34;</span>] }
+     ] } ]
+</code></pre></div><h2 id=appendix-d-single-value-serialization>Appendix D: Single-value serialization</h2>
 <p>This serialization scheme is for storing single values as individual binary values in the lower and upper bounds maps of manifest files.</p>
 <table>
 <thead>

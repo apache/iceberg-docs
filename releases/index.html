@@ -99,8 +99,32 @@
   &lt;/dependency&gt;
   ...
 &lt;/dependencies&gt;
-</code></pre><h2 id=0120-release-notes>0.12.0 Release Notes</h2>
+</code></pre><h2 id=0121-release-notes>0.12.1 Release Notes</h2>
+<p>Apache Iceberg 0.12.1 was released on November 8th, 2021.</p>
+<p>Important bug fixes and changes:</p>
+<ul>
+<li><a href=https://github.com/apache/iceberg/pull/3258>#3264</a> fixes validation failures that occurred after snapshot expiration when writing Flink CDC streams to Iceberg tables.</li>
+<li><a href=https://github.com/apache/iceberg/pull/3264>#3264</a> fixes reading projected map columns from Parquet files written before Parquet 1.11.1.</li>
+<li><a href=https://github.com/apache/iceberg/pull/3195>#3195</a> allows validating that commits that produce row-level deltas don&rsquo;t conflict with concurrently added files. Ensures users can maintain serializable isolation for update and delete operations, including merge operations.</li>
+<li><a href=https://github.com/apache/iceberg/pull/3199>#3199</a> allows validating that commits that overwrite files don&rsquo;t conflict with concurrently added files. Ensures users can maintain serializable isolation for overwrite operations.</li>
+<li><a href=https://github.com/apache/iceberg/pull/3135>#3135</a> fixes equality-deletes using <code>DATE</code>, <code>TIMESTAMP</code>, and <code>TIME</code> types.</li>
+<li><a href=https://github.com/apache/iceberg/pull/3078>#3078</a> prevents the JDBC catalog from overwriting the <code>jdbc.user</code> property if any property called user exists in the environment.</li>
+<li><a href=https://github.com/apache/iceberg/pull/3035>#3035</a> fixes drop namespace calls with the DyanmoDB catalog.</li>
+<li><a href=https://github.com/apache/iceberg/pull/3273>#3273</a> fixes importing Avro files via <code>add_files</code> by correctly setting the number of records.</li>
+<li><a href=https://github.com/apache/iceberg/pull/3332>#3332</a> fixes importing ORC files with float or double columns in <code>add_files</code>.</li>
+</ul>
+<p>A more exhaustive list of changes is available under the <a href="https://github.com/apache/iceberg/milestone/15?closed=1">0.12.1 release milestone</a>.</p>
+<h2 id=past-releases>Past releases</h2>
+<h3 id=0120>0.12.0</h3>
 <p>Apache Iceberg 0.12.0 was released on August 15, 2021. It consists of 395 commits authored by 74 contributors over a 139 day period.</p>
+<ul>
+<li>Git tag: <a href=https://github.com/apache/iceberg/releases/tag/apache-iceberg-0.12.0>0.12.0</a></li>
+<li><a href=https://www.apache.org/dyn/closer.cgi/iceberg/apache-iceberg-0.12.0/apache-iceberg-0.12.0.tar.gz>0.12.0 source tar.gz</a> &ndash; <a href=https://downloads.apache.org/iceberg/apache-iceberg-0.12.0/apache-iceberg-0.12.0.tar.gz.asc>signature</a> &ndash; <a href=https://downloads.apache.org/iceberg/apache-iceberg-0.12.0/apache-iceberg-0.12.0.tar.gz.sha512>sha512</a></li>
+<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark3-runtime/0.12.0/iceberg-spark3-runtime-0.12.0.jar">0.12.0 Spark 3.x runtime Jar</a></li>
+<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime/0.12.0/iceberg-spark-runtime-0.12.0.jar">0.12.0 Spark 2.4 runtime Jar</a></li>
+<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime/0.12.0/iceberg-flink-runtime-0.12.0.jar">0.12.0 Flink runtime Jar</a></li>
+<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-hive-runtime/0.12.0/iceberg-hive-runtime-0.12.0.jar">0.12.0 Hive runtime Jar</a></li>
+</ul>
 <p><strong>High-level features:</strong></p>
 <ul>
 <li><strong>Core</strong>
@@ -187,7 +211,6 @@
 </ul>
 </li>
 </ul>
-<h2 id=past-releases>Past releases</h2>
 <h3 id=0111>0.11.1</h3>
 <ul>
 <li>Git tag: <a href=https://github.com/apache/iceberg/releases/tag/apache-iceberg-0.11.1>0.11.1</a></li>

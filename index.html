@@ -122,10 +122,10 @@ Iceberg is a high-performance format for huge analytic tables. Iceberg brings th
 </div>
 </section>
 <section id=services>
-<div class=content-section-a>
+<div class=content-section-b>
 <div class=container>
 <div class=row>
-<div class="col-lg-5 col-sm-6">
+<div class="col-lg-5 col-lg-offset-1 col-sm-push-6 col-sm-6">
 <hr class=section-heading-spacer>
 <div class=clearfix></div>
 <h2 class=section-heading>Expressive SQL</h2>
@@ -138,7 +138,7 @@ Iceberg supports flexible SQL commands to merge new data, update existing rows, 
 </li>
 </ul>
 </div>
-<div class="col-lg-5 col-lg col-sm-6">
+<div class="col-lg-5 col-sm-pull-6 col-sm-6">
 <div id=termynal-expressive-sql data-termynal data-ty-startdelay=2000 data-ty-typedelay=20 data-ty-linedelay=500>
 <span data-ty=input data-ty-cursor=▋ data-ty-prompt="sql>">MERGE INTO prod.nyc.taxis pt</span>
 <span data-ty=input data-ty-cursor=▋ data-ty-prompt>USING (SELECT * FROM staging.nyc.taxis) st</span>
@@ -186,10 +186,10 @@ Schema evolution just works. Adding a column won't bring back "zombie" data. Col
 </div>
 </div>
 </div>
-<div class=content-section-a>
+<div class=content-section-b>
 <div class=container>
 <div class=row>
-<div class="col-lg-5 col-sm-6">
+<div class="col-lg-5 col-lg-offset-1 col-sm-push-6 col-sm-6">
 <hr class=section-heading-spacer>
 <div class=clearfix></div>
 <h2 class=section-heading>Hidden Partitioning</h2>
@@ -202,19 +202,19 @@ Iceberg handles the tedious and error-prone task of producing partition values f
 </li>
 </ul>
 </div>
-<div class="col-lg-5 col-lg col-sm-6">
+<div class="col-lg-5 col-sm-pull-6 col-sm-6">
 </div>
-<div class="col-lg-5 col-lg-offset-2 col-sm-6">
+<div class="col-lg-5 col-sm-pull-6 col-sm-6">
 <script src=https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js></script>
 <lottie-player src=https://iceberg.apache.org/lottie/hidden-partitioning-animation.json background=transparent speed=0.5 style="width: 600px; height: 400px;" loop autoplay></lottie-player>
 </div>
 </div>
 </div>
 </div>
-<div class=content-section-b>
+<div class=content-section-a>
 <div class=container>
 <div class=row>
-<div class="col-lg-5 col-lg-offset-1 col-sm-push-6 col-sm-6">
+<div class="col-lg-5 col-sm-6">
 <hr class=section-heading-spacer>
 <div class=clearfix></div>
 <h2 class=section-heading>Time Travel and Rollback</h2>
@@ -227,7 +227,7 @@ Time-travel enables reproducible queries that use exactly the same table snapsho
 </li>
 </ul>
 </div>
-<div class="col-lg-5 col-sm-pull-6 col-sm-6">
+<div class="col-lg-5 col-lg col-sm-6">
 <div class=termynal-container>
 <div id=termynal-time-travel data-termynal data-ty-startdelay=6000 data-ty-typedelay=20 data-ty-linedelay=500>
 <span data-ty=input data-ty-cursor=▋ data-ty-prompt="scala>">spark.read.table("taxis").count()</span>
@@ -247,16 +247,16 @@ Time-travel enables reproducible queries that use exactly the same table snapsho
 </div>
 </div>
 </div>
-<div class=content-section-a>
+<div class=content-section-b>
 <div class=container>
 <div class=row>
-<div class="col-lg-5 col-sm-6">
+<div class="col-lg-5 col-lg-offset-1 col-sm-push-6 col-sm-6">
 <hr class=section-heading-spacer>
 <div class=clearfix></div>
 <h2 class=section-heading>Data Compaction</h2>
 Data compaction is supported out-of-the-box and you can choose from different rewrite strategies such as bin-packing or sorting to optimize file layout and size.
 </div>
-<div class="col-lg-5 col-lg col-sm-6">
+<div class="col-lg-5 col-sm-pull-6 col-sm-6">
 <div id=termynal-data-compaction data-termynal data-ty-startdelay=8000 data-ty-typedelay=20 data-ty-linedelay=500>
 <span data-ty=input data-ty-cursor=▋ data-ty-prompt="sql>">CALL system.rewrite_data_files("nyc.taxis");</span>
 </div>
