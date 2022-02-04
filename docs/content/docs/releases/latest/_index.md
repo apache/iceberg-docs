@@ -1,5 +1,5 @@
 ---
 title: "Latest"
-weight: 98
+weight: 1
 bookUrlFromBaseURL: /latest
 ---
