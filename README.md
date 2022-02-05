@@ -26,52 +26,64 @@ It's built with [Hugo](https://gohugo.io/) and hosted at https://iceberg.apache.
 
 The Iceberg documentation site is actually constructed from two hugo sites. The first, is the landing page. The second site, 
 is the documentation site which contains the full Iceberg documentation, including the javadoc. The landing page and
-documentation sites are completely self-contained in the `./landing-page` and `./docs` directories, respectively. The Javadocs are in the `./javadoc` directory.
+documentation sites are completely self-contained in the `./landing-page` and `./docs` directories, respectively.
+The Javadocs are in the `./javadoc` directory.
+
+## Relationship to the Iceberg Repository
+
+The `documentation` folder in the [Iceberg repository](https://github.com/apache/iceberg) contains all the markdown docs used by the website.
+The `common` subfolder contains contents used by the landing page.
+The `versioned` subfolder contains the contents different for each version.
+
+During each new release, the release manager copies contents from the Iceberg repository to this docs repository and cuts a new version branch.
+Contents under `common` are copied to `./landing-page/contents/common` here,
+and contents under `versioned` are copied to `./docs/contents/docs` here.
+Javadocs generated from the release are copied to the `javadoc` directory.
 
 # How to Contribute
 
 ## Submitting Pull Requests
 
-All pull requests to update the latest documentations should be submitted to the [Iceberg repository](https://github.com/apache/iceberg).
-When Iceberg publishes a new release, the release manager copies all the documentation to this repository and cut a new version branch.
+Changes to the markdown contents should be submitted directly in the Iceberg repository.
 
-Changes to the landing page should be submitted to this repository against the `main` branch.
+Changes to the website appearance (e.g. HTML, CSS changes) should be submitted to this repository against the `main` branch.
 
 Changes to the documentation of old Iceberg versions should be submitted to this repository against the specific version branch.
 
 ## Reporting Issues
 
-All issues related to documentation and website should still be submitted to the [Iceberg repository](https://github.com/apache/iceberg).
+All issues related to the doc website should still be submitted to the [Iceberg repository](https://github.com/apache/iceberg).
+The GitHub Issues feature of this repository is disabled.
 
 ## Running Locally
 
-To start the landing page site locally, clone this repository and run the following.
+Clone this repository to run the website locally:
 ```shell
 git clone git@github.com:apache/iceberg-docs.git
+cd iceberg-docs
+```
+
+To start the landing page site locally, run:
+```shell
 cd landing-page && hugo serve
 ```
 
-To start the documentation site locally, clone this repository and run the following.
+To start the documentation site locally, run:
 ```shell
-git clone git@github.com:apache/iceberg-docs.git
-git submodule update --init
 cd docs && hugo serve
 ```
-
-## Viewing Latest Website
 
 If you would like to see how the latest website looks based on the documentation in the Iceberg repository, you can copy docs to this repository by:
 ```shell
 rm -rf docs/content/docs
 rm -rf landing-page/content/common
-cp -r <path to iceberg repo>/documentation/docs docs/content/docs
+cp -r <path to iceberg repo>/documentation/versioned docs/content/docs
 cp -r <path to iceberg repo>/documentation/common docs/content/common
 ```
 
 ## Scanning For Broken Links
 
 If you'd like to scan for broken links, one available tool is linkcheck that can be found [here](https://github.com/filiph/linkcheck).
-
 
 # How the Website is Deployed
 
@@ -92,11 +104,11 @@ yet exist in the `asf-site` branch, it will be created.
 Additionally, the contents of the `javadoc` directory is deployed to a `javadoc/<branch_name>` directory in
 the `asf-site` branch.
 
-#### Latest Docs
+### Latest Docs
 In [./docs/redirect/index.html](./docs/redirect/index.html), a redirect meta tag exists to forward `/docs` 
 and `/latest` to `/docs/latest`.
 
-# `asf-site` Branch Structure
+## `asf-site` Branch Structure
 
 The `asf-site` branch structure is the following:
 ```
