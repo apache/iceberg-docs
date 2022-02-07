@@ -34,7 +34,7 @@ The latest version of Iceberg is [{{% icebergVersion %}}](https://github.com/apa
 * [{{% icebergVersion %}} Flink 1.12 runtime Jar](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime-1.12/{{% icebergVersion %}}/iceberg-flink-runtime-1.12-{{% icebergVersion %}}.jar)
 * [{{% icebergVersion %}} Hive runtime Jar](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-hive-runtime/{{% icebergVersion %}}/iceberg-hive-runtime-{{% icebergVersion %}}.jar)
 
-To use Iceberg in Spark/Flink, download the runtime JAR based on your Spark/Flink version and add it to the jars folder of your Spark/Flink install.
+To use Iceberg in Spark or Flink, download the runtime JAR for your engine version and add it to the jars folder of your installation.
 
 To use Iceberg in Hive, download the Hive runtime JAR and add it to Hive using `ADD JAR`.
 
@@ -75,7 +75,7 @@ Apache Iceberg 0.13.0 was released on February 4th, 2022.
 * **Core**
   * Catalog caching now supports cache expiration through catalog property `cache.expiration-interval-ms` [[\#3543](https://github.com/apache/iceberg/pull/3543)]
   * Catalog now supports registration of Iceberg table from a given metadata file location [[\#3851](https://github.com/apache/iceberg/pull/3851)]
-  * Hadoop catalog now supports atomic commit using a pessimistic lock manager [[\#3663](https://github.com/apache/iceberg/pull/3663)]
+  * Hadoop catalog now supports atomic commit using a lock manager [[\#3663](https://github.com/apache/iceberg/pull/3663)]
 * **Vendor Integrations**
   * Google Cloud Storage (GCS) `FileIO` support is added with optimized read and write using GCS streaming transfer [[\#3711](https://github.com/apache/iceberg/pull/3711)]
   * Aliyun Object Storage Service (OSS) `FileIO` support is added [[\#3553](https://github.com/apache/iceberg/pull/3553)]
@@ -89,8 +89,9 @@ Apache Iceberg 0.13.0 was released on February 4th, 2022.
 * **Spark**
   * Spark 3.2 support is added [[\#3335](https://github.com/apache/iceberg/pull/3335)] with merge-on-read `DELETE` [[\#3970](https://github.com/apache/iceberg/pull/3970)]
   * `RewriteDataFiles` action now supports sort-based table optimization [[\#2829](https://github.com/apache/iceberg/pull/2829)] and merge-on-read delete compaction [[\#3454](https://github.com/apache/iceberg/pull/3454)]. The corresponding Spark call procedure `rewrite_data_files` is also added [[\#3375](https://github.com/apache/iceberg/pull/3375)]
-  * Spark SQL time travel support is added. Snapshot schema is now used instead of the table's latest schema [[\#3722](https://github.com/apache/iceberg/pull/3722)]
-  * Spark vectorized merge-on-read support is added [[\#3557](https://github.com/apache/iceberg/pull/3557)] [[\#3287](https://github.com/apache/iceberg/pull/3287)]
+  * Snapshot schema is now used instead of the table's latest schema [[\#3722](https://github.com/apache/iceberg/pull/3722)]
+  * Spark vectorized reads now support row-level deletes [[\#3557](https://github.com/apache/iceberg/pull/3557)] [[\#3287](https://github.com/apache/iceberg/pull/3287)]
+  * `add_files` procedure now skips duplicated files by default (can be turned off with the `check_duplicate_files` flag) [[\#2895](https://github.com/apache/iceberg/issues/2779)], skips folder without file [[\#2895](https://github.com/apache/iceberg/issues/3455)] and partitions with `null` values [[\#2895](https://github.com/apache/iceberg/issues/3778)] instead of throwing exception, and supports partition pruning for faster table import [[\#3745](https://github.com/apache/iceberg/issues/3745)]
 * **Flink**
   * Flink 1.13 and 1.14 supports are added [[\#3116](https://github.com/apache/iceberg/pull/3116)] [[\#3434](https://github.com/apache/iceberg/pull/3434)]
   * Flink connector support is added [[\#2666](https://github.com/apache/iceberg/pull/2666)]
@@ -104,7 +105,6 @@ Apache Iceberg 0.13.0 was released on February 4th, 2022.
 * **Core**
   * Iceberg new data file root path is configured through `write.data.path` going forward. `write.folder-storage.path` and `write.object-storage.path` are deprecated [[\#3094](https://github.com/apache/iceberg/pull/3094)]
   * Catalog commit status is `UNKNOWN` instead of `FAILURE` when new metadata location cannot be found in snapshot history [[\#3717](https://github.com/apache/iceberg/pull/3717)]
-  * Hadoop catalog now returns false when dropping a table that does not exist instead of returning true [[\#3097](https://github.com/apache/iceberg/pull/3097)]
   * Dropping table now also deletes old metadata files instead of leaving them strained [[\#3622](https://github.com/apache/iceberg/pull/3622)]
   * `history` and `snapshots` metadata tables can now query tables with no current snapshot instead of returning empty [[\#3812](https://github.com/apache/iceberg/pull/3812)]
 * **Vendor Integrations**
@@ -114,10 +114,8 @@ Apache Iceberg 0.13.0 was released on February 4th, 2022.
   * Parquet file writing issue is fixed for string data with over 16 unparseable chars (e.g. high/low surrogates) [[\#3760](https://github.com/apache/iceberg/pull/3760)]
   * ORC vectorized read is now configured using `read.orc.vectorization.batch-size` instead of `read.parquet.vectorization.batch-size`  [[\#3133](https://github.com/apache/iceberg/pull/3133)]
 * **Spark**
-  * `REFRESH TABLE` can now be used with Spark session catalog instead of throwing exception [[\#3072](https://github.com/apache/iceberg/pull/3072)]
-  * Insert overwrite mode now skips empty partition instead of throwing exception [[\#2895](https://github.com/apache/iceberg/issues/2895)]
-  * `add_files` procedure now skips duplicated files by default (can be turned off with the `check_duplicate_files` flag) [[\#2895](https://github.com/apache/iceberg/issues/2779)], skips folder without file [[\#2895](https://github.com/apache/iceberg/issues/3455)] and partitions with `null` values [[\#2895](https://github.com/apache/iceberg/issues/3778)] instead of throwing exception, and supports partition pruning for faster table import [[\#3745](https://github.com/apache/iceberg/issues/3745)] 
-  * Reading unknown partition transform (e.g. old reader reading new transform type) will now throw `ValidationException` instead of causing unknown behavior downstream [[\#2992](https://github.com/apache/iceberg/issues/2992)]
+  * For Spark >= 3.1, `REFRESH TABLE` can now be used with Spark session catalog instead of throwing exception [[\#3072](https://github.com/apache/iceberg/pull/3072)]
+  * Insert overwrite mode now skips partition with 0 records instead of throwing exception [[\#2895](https://github.com/apache/iceberg/issues/2895)]
   * Spark snapshot expiration now supports custom `FileIO` instead of just `HadoopFileIO` [[\#3089](https://github.com/apache/iceberg/pull/3089)]
   * `REPLACE TABLE AS SELECT` can now work with tables with columns that have changed partition transform. Each old partition field of the same column is converted to a void transform with a different name [[\#3421](https://github.com/apache/iceberg/issues/3421)]
   * Spark SQL statements containing binary or fixed literals can now be parsed correctly instead of throwing exception [[\#3728](https://github.com/apache/iceberg/pull/3728)]
@@ -132,8 +130,6 @@ Apache Iceberg 0.13.0 was released on February 4th, 2022.
 **Other notable changes:**
 
 * The community has finalized the long-term strategy of Spark, Flink and Hive support. See [Multi-Engine Support](../multi-engine-support) page for more details.
-* The Iceberg Python module is renamed as [python_legacy](https://github.com/apache/iceberg/tree/master/python_legacy) [[\#3074](https://github.com/apache/iceberg/pull/3074)]. A [new Python module](https://github.com/apache/iceberg/tree/master/python) is under development to provide better user experience for the Python community. See the [Github Project](https://github.com/apache/iceberg/projects/7) for progress.
-* Iceberg starts to publish daily snapshot in the [Apache snapshot repository](https://repository.apache.org/content/groups/snapshots/org/apache/iceberg/) [[\#3353](https://github.com/apache/iceberg/pull/3353)] for developers that would like to consume the latest unreleased artifact.
 * Iceberg website is now managed by a separated repository [iceberg-docs](https://github.com/apache/iceberg-docs/) with a new look. See [README](https://github.com/apache/iceberg-docs/blob/main/README.md) for contribution guidelines going forward.
 * An OpenAPI specification for Iceberg catalog is approved by the community, and a REST-based Iceberg catalog based on the specification is currently under development [[\#3770](https://github.com/apache/iceberg/pull/3770)]
 
