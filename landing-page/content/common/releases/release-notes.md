@@ -84,7 +84,7 @@ Apache Iceberg 0.13.0 was released on February 4th, 2022.
   * AWS `GlueCatalog` now displays more table information including location, description [[\#3467](https://github.com/apache/iceberg/pull/3467)] and used columns [[\#3888](https://github.com/apache/iceberg/pull/3888)]
   * `ResolvingFileIO` is added to support using multiple `FileIO`s to access different storage providers based on file scheme. [[\#3593](https://github.com/apache/iceberg/pull/3593)]
 * **File Formats**
-  * Reading legacy Parquet file (e.g. produced by `ParquetHiveSerDe` or Spark `spark.sql.parquet.writeLegacyFormat=true`) is now fully supported [[\#3723](https://github.com/apache/iceberg/pull/3723)] to facilitate Hive to Iceberg table migration.
+  * Reading legacy Parquet file (e.g. produced by `ParquetHiveSerDe` or Spark `spark.sql.parquet.writeLegacyFormat=true`) is now fully supported  to facilitate Hive to Iceberg table migration [[\#3723](https://github.com/apache/iceberg/pull/3723)]
   * ORC merge-on-read file write support is added [[\#3248](https://github.com/apache/iceberg/pull/3248)] [[\#3250](https://github.com/apache/iceberg/pull/3250)] [[\#3366](https://github.com/apache/iceberg/pull/3366)]
 * **Spark**
   * Spark 3.2 support is added [[\#3335](https://github.com/apache/iceberg/pull/3335)] with merge-on-read `DELETE` [[\#3970](https://github.com/apache/iceberg/pull/3970)]
@@ -96,7 +96,7 @@ Apache Iceberg 0.13.0 was released on February 4th, 2022.
   * Flink connector support is added [[\#2666](https://github.com/apache/iceberg/pull/2666)]
   * Upsert write option is added [[\#2863](https://github.com/apache/iceberg/pull/2863)]
 * **Hive**
-  * Table listing in Hive catalog can now skip non-Iceberg tables using flag `list-all-tables` [[\#3908](https://github.com/apache/iceberg/pull/3908)]
+  * Table listing in Hive catalog can now skip non-Iceberg tables by disabling flag `list-all-tables` [[\#3908](https://github.com/apache/iceberg/pull/3908)]
   * Hive tables imported to Iceberg can now be read by `IcebergInputFormat` [[\#3312](https://github.com/apache/iceberg/pull/3312)]
   
 **Important bug fixes:**
@@ -105,20 +105,20 @@ Apache Iceberg 0.13.0 was released on February 4th, 2022.
   * Iceberg new data file root path is configured through `write.data.path` going forward. `write.folder-storage.path` and `write.object-storage.path` are deprecated [[\#3094](https://github.com/apache/iceberg/pull/3094)]
   * Catalog commit status is `UNKNOWN` instead of `FAILURE` when new metadata location cannot be found in snapshot history [[\#3717](https://github.com/apache/iceberg/pull/3717)]
   * Hadoop catalog now returns false when dropping a table that does not exist instead of returning true [[\#3097](https://github.com/apache/iceberg/pull/3097)]
-  * Using non-Hadoop `Catalog` and `FileIO` no longer fail when missing Hadoop dependencies in the execution environment [[\#3590](https://github.com/apache/iceberg/pull/3590)]
   * Dropping table now also deletes old metadata files instead of leaving them strained [[\#3622](https://github.com/apache/iceberg/pull/3622)]
   * `history` and `snapshots` metadata tables can now query tables with no current snapshot instead of returning empty [[\#3812](https://github.com/apache/iceberg/pull/3812)]
 * **Vendor Integrations**
+  * Using cloud service integrations such as AWS `GlueCatalog` and `S3FileIO` no longer fail when missing Hadoop dependencies in the execution environment [[\#3590](https://github.com/apache/iceberg/pull/3590)]
   * AWS clients are now auto-closed when `FileIO` or `Catalog` is closed. There is no need to close the AWS clients separately [[\#2878](https://github.com/apache/iceberg/pull/2878)]
 * **File Formats**
-  * Parquet file writing issue is fixed for data with over 16 unparseable chars [[\#3760](https://github.com/apache/iceberg/pull/3760)]
+  * Parquet file writing issue is fixed for string data with over 16 unparseable chars (e.g. high/low surrogates) [[\#3760](https://github.com/apache/iceberg/pull/3760)]
   * ORC vectorized read is now configured using `read.orc.vectorization.batch-size` instead of `read.parquet.vectorization.batch-size`  [[\#3133](https://github.com/apache/iceberg/pull/3133)]
 * **Spark**
   * `REFRESH TABLE` can now be used with Spark session catalog instead of throwing exception [[\#3072](https://github.com/apache/iceberg/pull/3072)]
   * Insert overwrite mode now skips empty partition instead of throwing exception [[\#2895](https://github.com/apache/iceberg/issues/2895)]
   * `add_files` procedure now skips duplicated files by default (can be turned off with the `check_duplicate_files` flag) [[\#2895](https://github.com/apache/iceberg/issues/2779)], skips folder without file [[\#2895](https://github.com/apache/iceberg/issues/3455)] and partitions with `null` values [[\#2895](https://github.com/apache/iceberg/issues/3778)] instead of throwing exception, and supports partition pruning for faster table import [[\#3745](https://github.com/apache/iceberg/issues/3745)] 
   * Reading unknown partition transform (e.g. old reader reading new transform type) will now throw `ValidationException` instead of causing unknown behavior downstream [[\#2992](https://github.com/apache/iceberg/issues/2992)]
-  * Snapshot expiration now supports custom `FileIO` instead of just `HadoopFileIO` [[\#3089](https://github.com/apache/iceberg/pull/3089)]
+  * Spark snapshot expiration now supports custom `FileIO` instead of just `HadoopFileIO` [[\#3089](https://github.com/apache/iceberg/pull/3089)]
   * `REPLACE TABLE AS SELECT` can now work with tables with columns that have changed partition transform. Each old partition field of the same column is converted to a void transform with a different name [[\#3421](https://github.com/apache/iceberg/issues/3421)]
   * Spark SQL statements containing binary or fixed literals can now be parsed correctly instead of throwing exception [[\#3728](https://github.com/apache/iceberg/pull/3728)]
 * **Flink**
@@ -126,8 +126,8 @@ Apache Iceberg 0.13.0 was released on February 4th, 2022.
   * Changelog tables can now be queried without `RowData` serialization issues [[\#3240](https://github.com/apache/iceberg/pull/3240)]
   * `java.sql.Time` data type can now be written without data overflow problem [[\#3740](https://github.com/apache/iceberg/pull/3740)]
 * **Hive**
-  * Hive catalog can now be initialized using a `null` Hadoop configuration instead of throwing exception [[\3252](https://github.com/apache/iceberg/pull/3252)]
-  * Table creation can succeed instead of throwing exception when some columns do not have comments [[\#3531](https://github.com/apache/iceberg/pull/3531)]
+  * Hive catalog can now be initialized with a `null` Hadoop configuration instead of throwing exception [[\3252](https://github.com/apache/iceberg/pull/3252)]
+  * Table creation can now succeed instead of throwing exception when some columns do not have comments [[\#3531](https://github.com/apache/iceberg/pull/3531)]
 
 **Other notable changes:**
 
