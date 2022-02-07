@@ -1,0 +1,15 @@
+{
+  "name": "Apache Iceberg",
+  "short_name": "Apache Iceberg",
+  "start_url": "/docs/latest/",
+  "scope": "/docs/latest/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/docs/latest/favicon.svg",
+      "sizes": "512x512"
+    }
+  ]
+}
