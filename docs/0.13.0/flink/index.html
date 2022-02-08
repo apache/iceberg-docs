@@ -1,0 +1,1035 @@
+<!doctype html><html lang=en dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Flink #  Apache Iceberg supports both Apache Flink&rsquo;s DataStream API and Table API. Currently, Iceberg integration for Apache Flink is available for Flink versions 1.12, 1.13, and 1.14. Previous versions of Iceberg also support Flink 1.11.
+   Feature support Flink Notes     SQL create catalog ✔️    SQL create database ✔️    SQL create table ✔️    SQL create table like ✔️    SQL alter table ✔️ Only support altering table properties, column and partition changes are not supported   SQL drop_table ✔️    SQL select ✔️ Support both streaming and batch mode   SQL insert into ✔️ ️ Support both streaming and batch mode   SQL insert overwrite ✔️ ️    DataStream read ✔️ ️    DataStream append ✔️ ️    DataStream overwrite ✔️ ️    Metadata tables ️ Support Java API but does not support Flink SQL   Rewrite files action ✔️ ️     Preparation when using Flink SQL Client #  To create iceberg table in flink, we recommend to use Flink SQL Client because it&rsquo;s easier for users to understand the concepts.">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content="Getting Started">
+<meta property="og:description" content="Flink #  Apache Iceberg supports both Apache Flink&rsquo;s DataStream API and Table API. Currently, Iceberg integration for Apache Flink is available for Flink versions 1.12, 1.13, and 1.14. Previous versions of Iceberg also support Flink 1.11.
+   Feature support Flink Notes     SQL create catalog ✔️    SQL create database ✔️    SQL create table ✔️    SQL create table like ✔️    SQL alter table ✔️ Only support altering table properties, column and partition changes are not supported   SQL drop_table ✔️    SQL select ✔️ Support both streaming and batch mode   SQL insert into ✔️ ️ Support both streaming and batch mode   SQL insert overwrite ✔️ ️    DataStream read ✔️ ️    DataStream append ✔️ ️    DataStream overwrite ✔️ ️    Metadata tables ️ Support Java API but does not support Flink SQL   Rewrite files action ✔️ ️     Preparation when using Flink SQL Client #  To create iceberg table in flink, we recommend to use Flink SQL Client because it&rsquo;s easier for users to understand the concepts.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://iceberg.apache.org/docs/0.13.0/flink/"><meta property="article:section" content="docs">
+<title>Getting Started | Apache Iceberg</title>
+<link rel=manifest href=/docs/0.13.0/manifest.json>
+<link rel=icon href=/docs/0.13.0/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/docs/0.13.0/book.min.179e158d24f3ef709534173fd8b1c1e541a4fa3e23c1b5d8e887464c58949cc9.css integrity="sha256-F54VjSTz73CVNBc/2LHB5UGk+j4jwbXY6IdGTFiUnMk=" crossorigin=anonymous>
+<script defer src=/docs/0.13.0/flexsearch.min.js></script>
+<script defer src=/docs/0.13.0/en.search.min.567e2d138bb78093cae5579d4329807546e9ef622b25c07cce6dc0a4872608b4.js integrity="sha256-Vn4tE4u3gJPK5VedQymAdUbp72IrJcB8zm3ApIcmCLQ=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/docs/0.13.0/../../><img src=/docs/0.13.0/img/iceberg-logo-icon.png alt=Logo><span>Apache Iceberg</span>
+</a>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../releases>
+<img id=version-shield src=https://img.shields.io/badge/version-0.13.0-blue alt>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+<a href=https://github.com/apache/iceberg target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/GitHub-Mark.png target=_blank class=top-external-icon>
+</a>
+<a href=https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/Slack_Mark_Web.png target=_blank class=top-external-icon>
+</a>
+</div>
+<ul>
+<li class=book-section-flats>
+<span>
+<i class="fa fa-table fa-fw"></i>
+Tables</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/configuration/>
+Configuration</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/evolution/>
+Evolution</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/maintenance/>
+Maintenance</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/partitioning/>
+Partitioning</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/performance/>
+Performance</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/reliability/>
+Reliability</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/schemas/>
+Schemas</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<span>
+<i class="fa fa-star-o fa-fw"></i>
+Spark</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/getting-started/>
+Getting Started</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-configuration/>
+Configuration</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-ddl/>
+DDL</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-procedures/>
+Procedures</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-queries/>
+Queries</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-structured-streaming/>
+Structured Streaming</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-writes/>
+Writes</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<span>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/flink-logo.png class="navigation-icon fa-fw">Flink</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/flink/ class=active>
+Getting Started</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/flink-connector/>
+Flink Connector</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<a href=https://iceberg.apache.org/docs/0.13.0/hive/>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/hive-logo.png class="navigation-icon fa-fw">Hive</a>
+<ul>
+</ul>
+</li>
+<li>
+<a href=https://trino.io/docs/current/connector/iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/trino-logo.png class="navigation-icon fa-fw">
+Trino
+</a>
+</li>
+<li>
+<a href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/prestodb-logo.png class="navigation-icon fa-fw">
+Presto
+</a>
+</li>
+<li>
+<a href=https://docs.dremio.com/data-formats/apache-iceberg/ target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/dremio-logo.png class="navigation-icon fa-fw">
+Dremio
+</a>
+</li>
+<li>
+<a href=https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/athena-logo.png class="navigation-icon fa-fw">
+Amazon Athena
+</a>
+</li>
+<li>
+<a href=https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-create-cluster.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/emr-logo.png class="navigation-icon fa-fw">
+Amazon EMR
+</a>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-56605d8e971a871885e28ee5142728bf class=toggle>
+<label for=section-56605d8e971a871885e28ee5142728bf class="flex justify-between">
+<a role=button>
+<i class="fa fa-handshake-o fa-fw"></i>
+Integrations</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/aws/>
+AWS</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/jdbc/>
+JDBC</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/nessie/>
+Nessie</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-bf7b3283e3790c00c8caaa140299052b class=toggle>
+<label for=section-bf7b3283e3790c00c8caaa140299052b class="flex justify-between">
+<a role=button>
+<i class="fa fa-connectdevelop fa-fw"></i>
+API</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/java-api-quickstart/>
+Java Quickstart</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/api/>
+Java API</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/custom-catalog/>
+Java Custom Catalog</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../javadoc/0.13.0>
+Javadocs
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/python-quickstart/>
+Python Quickstart</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/python-api-intro/>
+Python API</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/python-feature-support/>
+Python Feature Support</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-7e66f1754ca5d93e20ecdc89df5b8b28 class=toggle>
+<label for=section-7e66f1754ca5d93e20ecdc89df5b8b28 class="flex justify-between">
+<a role=button>
+<i class="fa fa-users fa-fw"></i>
+Community</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../blogs>
+Blogs
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../community>
+Join
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../talks>
+Talks
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-87dda23e9104fe3231cee3bc88a2d754 class=toggle>
+<label for=section-87dda23e9104fe3231cee3bc88a2d754 class="flex justify-between">
+<a role=button>
+<i class="fa fa-object-ungroup fa-fw"></i>
+Format</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../spec>
+Spec
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../terms>
+Terms
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-2e5d3f5f142758d8dd368e9c281dd08e class=toggle>
+<label for=section-2e5d3f5f142758d8dd368e9c281dd08e class="flex justify-between">
+<a role=button>
+<i class="fa fa-wrench fa-fw"></i>
+Project</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../how-to-release>
+How to Release
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../roadmap>
+Roadmap
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../security>
+Security
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../trademarks>
+Trademarks
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-4ddb27a8612bc8118c0b36386905d332 class=toggle>
+<label for=section-4ddb27a8612bc8118c0b36386905d332 class="flex justify-between">
+<a role=button>
+<i class="fa fa-code-fork fa-fw"></i>
+Releases</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../latest>
+Latest
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../0.13.0>
+0.13.0
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../0.12.1>
+0.12.1
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../releases>
+Release Notes
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-296746d27808aa768e500824aaf2adea class=toggle>
+<label for=section-296746d27808aa768e500824aaf2adea class="flex justify-between">
+<a role=button>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/asf.png class="navigation-icon fa-fw">ASF</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/licenses/ target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+License
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/security/ target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Security
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/foundation/thanks.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Sponsors
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/foundation/sponsorship.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Donate
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/events/current-event.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Events
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<link rel=stylesheet href=/docs/0.13.0/fontawesome/css/font-awesome.min.css>
+<label for=menu-control>
+<img src=/docs/0.13.0/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Getting Started</strong>
+<label for=toc-control>
+<img src=/docs/0.13.0/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#preparation-when-using-flink-sql-client>Preparation when using Flink SQL Client</a></li>
+<li><a href=#preparation-when-using-flinks-python-api>Preparation when using Flink&rsquo;s Python API</a></li>
+<li><a href=#creating-catalogs-and-using-catalogs>Creating catalogs and using catalogs.</a>
+<ul>
+<li><a href=#catalog-configuration>Catalog Configuration</a></li>
+<li><a href=#hive-catalog>Hive catalog</a></li>
+<li><a href=#hadoop-catalog>Hadoop catalog</a></li>
+<li><a href=#custom-catalog>Custom catalog</a></li>
+<li><a href=#create-through-yaml-config>Create through YAML config</a></li>
+</ul>
+</li>
+<li><a href=#ddl-commands>DDL commands</a>
+<ul>
+<li><a href=#create-database><code>CREATE DATABASE</code></a></li>
+<li><a href=#create-table><code>CREATE TABLE</code></a></li>
+<li><a href=#partitioned-by><code>PARTITIONED BY</code></a></li>
+<li><a href=#create-table-like><code>CREATE TABLE LIKE</code></a></li>
+<li><a href=#alter-table><code>ALTER TABLE</code></a></li>
+<li><a href=#alter-table--rename-to><code>ALTER TABLE .. RENAME TO</code></a></li>
+<li><a href=#drop-table><code>DROP TABLE</code></a></li>
+</ul>
+</li>
+<li><a href=#querying-with-sql>Querying with SQL</a>
+<ul>
+<li><a href=#flink-batch-read>Flink batch read</a></li>
+<li><a href=#flink-streaming-read>Flink streaming read</a></li>
+</ul>
+</li>
+<li><a href=#writing-with-sql>Writing with SQL</a>
+<ul>
+<li><a href=#insert-into><code>INSERT INTO</code></a></li>
+<li><a href=#insert-overwrite><code>INSERT OVERWRITE</code></a></li>
+</ul>
+</li>
+<li><a href=#reading-with-datastream>Reading with DataStream</a>
+<ul>
+<li><a href=#batch-read>Batch Read</a></li>
+<li><a href=#streaming-read>Streaming read</a></li>
+</ul>
+</li>
+<li><a href=#writing-with-datastream>Writing with DataStream</a>
+<ul>
+<li><a href=#appending-data>Appending data.</a></li>
+<li><a href=#overwrite-data>Overwrite data</a></li>
+</ul>
+</li>
+<li><a href=#inspecting-tables>Inspecting tables.</a></li>
+<li><a href=#rewrite-files-action>Rewrite files action.</a></li>
+<li><a href=#future-improvement>Future improvement.</a></li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown>
+<h1 id=flink>
+Flink
+<a class=anchor href=#flink>#</a>
+</h1>
+<p>Apache Iceberg supports both <a href=https://flink.apache.org/>Apache Flink</a>&rsquo;s DataStream API and Table API. Currently,
+Iceberg integration for Apache Flink is available for Flink versions 1.12, 1.13, and 1.14. Previous versions of Iceberg also support Flink 1.11.</p>
+<table>
+<thead>
+<tr>
+<th>Feature support</th>
+<th>Flink</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href=#creating-catalogs-and-using-catalogs>SQL create catalog</a></td>
+<td>✔️</td>
+<td></td>
+</tr>
+<tr>
+<td><a href=#create-database>SQL create database</a></td>
+<td>✔️</td>
+<td></td>
+</tr>
+<tr>
+<td><a href=#create-table>SQL create table</a></td>
+<td>✔️</td>
+<td></td>
+</tr>
+<tr>
+<td><a href=#create-table-like>SQL create table like</a></td>
+<td>✔️</td>
+<td></td>
+</tr>
+<tr>
+<td><a href=#alter-table>SQL alter table</a></td>
+<td>✔️</td>
+<td>Only support altering table properties, column and partition changes are not supported</td>
+</tr>
+<tr>
+<td><a href=#drop-table>SQL drop_table</a></td>
+<td>✔️</td>
+<td></td>
+</tr>
+<tr>
+<td><a href=#querying-with-sql>SQL select</a></td>
+<td>✔️</td>
+<td>Support both streaming and batch mode</td>
+</tr>
+<tr>
+<td><a href=#insert-into>SQL insert into</a></td>
+<td>✔️ ️</td>
+<td>Support both streaming and batch mode</td>
+</tr>
+<tr>
+<td><a href=#insert-overwrite>SQL insert overwrite</a></td>
+<td>✔️ ️</td>
+<td></td>
+</tr>
+<tr>
+<td><a href=#reading-with-datastream>DataStream read</a></td>
+<td>✔️ ️</td>
+<td></td>
+</tr>
+<tr>
+<td><a href=#appending-data>DataStream append</a></td>
+<td>✔️ ️</td>
+<td></td>
+</tr>
+<tr>
+<td><a href=#overwrite-data>DataStream overwrite</a></td>
+<td>✔️ ️</td>
+<td></td>
+</tr>
+<tr>
+<td><a href=#inspecting-tables>Metadata tables</a></td>
+<td>️</td>
+<td>Support Java API but does not support Flink SQL</td>
+</tr>
+<tr>
+<td><a href=#rewrite-files-action>Rewrite files action</a></td>
+<td>✔️ ️</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id=preparation-when-using-flink-sql-client>
+Preparation when using Flink SQL Client
+<a class=anchor href=#preparation-when-using-flink-sql-client>#</a>
+</h2>
+<p>To create iceberg table in flink, we recommend to use <a href=https://ci.apache.org/projects/flink/flink-docs-stable/dev/table/sqlClient.html>Flink SQL Client</a> because it&rsquo;s easier for users to understand the concepts.</p>
+<p>Step.1 Downloading the flink 1.11.x binary package from the apache flink <a href=https://flink.apache.org/downloads.html>download page</a>. We now use scala 2.12 to archive the apache iceberg-flink-runtime jar, so it&rsquo;s recommended to use flink 1.11 bundled with scala 2.12.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>FLINK_VERSION<span style=color:#f92672>=</span>1.11.1
+SCALA_VERSION<span style=color:#f92672>=</span>2.12
+APACHE_FLINK_URL<span style=color:#f92672>=</span>archive.apache.org/dist/flink/
+wget <span style=color:#e6db74>${</span>APACHE_FLINK_URL<span style=color:#e6db74>}</span>/flink-<span style=color:#e6db74>${</span>FLINK_VERSION<span style=color:#e6db74>}</span>/flink-<span style=color:#e6db74>${</span>FLINK_VERSION<span style=color:#e6db74>}</span>-bin-scala_<span style=color:#e6db74>${</span>SCALA_VERSION<span style=color:#e6db74>}</span>.tgz
+tar xzvf flink-<span style=color:#e6db74>${</span>FLINK_VERSION<span style=color:#e6db74>}</span>-bin-scala_<span style=color:#e6db74>${</span>SCALA_VERSION<span style=color:#e6db74>}</span>.tgz
+</code></pre></div><p>Step.2 Start a standalone flink cluster within hadoop environment.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># HADOOP_HOME is your hadoop root directory after unpack the binary package.</span>
+export HADOOP_CLASSPATH<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>$HADOOP_HOME/bin/hadoop classpath<span style=color:#e6db74>`</span>
+
+<span style=color:#75715e># Start the flink standalone cluster</span>
+./bin/start-cluster.sh
+</code></pre></div><p>Step.3 Start the flink SQL client.</p>
+<p>We&rsquo;ve created a separate <code>flink-runtime</code> module in iceberg project to generate a bundled jar, which could be loaded by flink SQL client directly.</p>
+<p>If we want to build the <code>flink-runtime</code> bundled jar manually, please just build the <code>iceberg</code> project and it will generate the jar under <code>&lt;iceberg-root-dir>/flink-runtime/build/libs</code>. Of course, we could also download the <code>flink-runtime</code> jar from the <a href=https://repo.maven.apache.org/maven2/org/apache/iceberg/iceberg-flink-runtime/>apache official repository</a>.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># HADOOP_HOME is your hadoop root directory after unpack the binary package.</span>
+export HADOOP_CLASSPATH<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>$HADOOP_HOME/bin/hadoop classpath<span style=color:#e6db74>`</span>
+
+./bin/sql-client.sh embedded -j &lt;flink-runtime-directory&gt;/iceberg-flink-runtime-xxx.jar shell
+</code></pre></div><p>By default, iceberg has included hadoop jars for hadoop catalog. If we want to use hive catalog, we will need to load the hive jars when opening the flink sql client. Fortunately, apache flink has provided a <a href=https://repo.maven.apache.org/maven2/org/apache/flink/flink-sql-connector-hive-2.3.6_2.11/1.11.0/flink-sql-connector-hive-2.3.6_2.11-1.11.0.jar>bundled hive jar</a> for sql client. So we could open the sql client
+as the following:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># HADOOP_HOME is your hadoop root directory after unpack the binary package.</span>
+export HADOOP_CLASSPATH<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>$HADOOP_HOME/bin/hadoop classpath<span style=color:#e6db74>`</span>
+
+<span style=color:#75715e># download Iceberg dependency</span>
+ICEBERG_VERSION<span style=color:#f92672>=</span>0.11.1
+MAVEN_URL<span style=color:#f92672>=</span>https://repo1.maven.org/maven2
+ICEBERG_MAVEN_URL<span style=color:#f92672>=</span><span style=color:#e6db74>${</span>MAVEN_URL<span style=color:#e6db74>}</span>/org/apache/iceberg
+ICEBERG_PACKAGE<span style=color:#f92672>=</span>iceberg-flink-runtime
+wget <span style=color:#e6db74>${</span>ICEBERG_MAVEN_URL<span style=color:#e6db74>}</span>/<span style=color:#e6db74>${</span>ICEBERG_PACKAGE<span style=color:#e6db74>}</span>/<span style=color:#e6db74>${</span>ICEBERG_VERSION<span style=color:#e6db74>}</span>/<span style=color:#e6db74>${</span>ICEBERG_PACKAGE<span style=color:#e6db74>}</span>-<span style=color:#e6db74>${</span>ICEBERG_VERSION<span style=color:#e6db74>}</span>.jar
+
+<span style=color:#75715e># download the flink-sql-connector-hive-${HIVE_VERSION}_${SCALA_VERSION}-${FLINK_VERSION}.jar</span>
+HIVE_VERSION<span style=color:#f92672>=</span>2.3.6
+SCALA_VERSION<span style=color:#f92672>=</span>2.11
+FLINK_VERSION<span style=color:#f92672>=</span>1.11.0
+FLINK_CONNECTOR_URL<span style=color:#f92672>=</span><span style=color:#e6db74>${</span>MAVEN_URL<span style=color:#e6db74>}</span>/org/apache/flink
+FLINK_CONNECTOR_PACKAGE<span style=color:#f92672>=</span>flink-sql-connector-hive
+wget <span style=color:#e6db74>${</span>FLINK_CONNECTOR_URL<span style=color:#e6db74>}</span>/<span style=color:#e6db74>${</span>FLINK_CONNECTOR_PACKAGE<span style=color:#e6db74>}</span>-<span style=color:#e6db74>${</span>HIVE_VERSION<span style=color:#e6db74>}</span>_<span style=color:#e6db74>${</span>SCALA_VERSION<span style=color:#e6db74>}</span>/<span style=color:#e6db74>${</span>FLINK_VERSION<span style=color:#e6db74>}</span>/<span style=color:#e6db74>${</span>FLINK_CONNECTOR_PACKAGE<span style=color:#e6db74>}</span>-<span style=color:#e6db74>${</span>HIVE_VERSION<span style=color:#e6db74>}</span>_<span style=color:#e6db74>${</span>SCALA_VERSION<span style=color:#e6db74>}</span>-<span style=color:#e6db74>${</span>FLINK_VERSION<span style=color:#e6db74>}</span>.jar
+
+<span style=color:#75715e># open the SQL client.</span>
+/path/to/bin/sql-client.sh embedded <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    -j <span style=color:#e6db74>${</span>ICEBERG_PACKAGE<span style=color:#e6db74>}</span>-<span style=color:#e6db74>${</span>ICEBERG_VERSION<span style=color:#e6db74>}</span>.jar <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    -j <span style=color:#e6db74>${</span>FLINK_CONNECTOR_PACKAGE<span style=color:#e6db74>}</span>-<span style=color:#e6db74>${</span>HIVE_VERSION<span style=color:#e6db74>}</span>_<span style=color:#e6db74>${</span>SCALA_VERSION<span style=color:#e6db74>}</span>-<span style=color:#e6db74>${</span>FLINK_VERSION<span style=color:#e6db74>}</span>.jar <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    shell
+</code></pre></div><h2 id=preparation-when-using-flinks-python-api>
+Preparation when using Flink&rsquo;s Python API
+<a class=anchor href=#preparation-when-using-flinks-python-api>#</a>
+</h2>
+<p>Install the Apache Flink dependency using <code>pip</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>pip install apache<span style=color:#f92672>-</span>flink<span style=color:#f92672>==</span><span style=color:#ae81ff>1.11.1</span>
+</code></pre></div><p>In order for <code>pyflink</code> to function properly, it needs to have access to all Hadoop jars. For <code>pyflink</code>
+we need to copy those Hadoop jars to the installation directory of <code>pyflink</code>, which can be found under
+<code>&lt;PYTHON_ENV_INSTALL_DIR>/site-packages/pyflink/lib/</code> (see also a mention of this on
+the <a href=http://mail-archives.apache.org/mod_mbox/flink-user/202105.mbox/%3C3D98BDD2-89B1-42F5-B6F4-6C06A038F978%40gmail.com%3E>Flink ML</a>).
+We can use the following short Python script to copy all Hadoop jars (you need to make sure that <code>HADOOP_HOME</code>
+points to your Hadoop installation):</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> os
+<span style=color:#f92672>import</span> shutil
+<span style=color:#f92672>import</span> site
+
+
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>copy_all_hadoop_jars_to_pyflink</span>():
+    <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> os<span style=color:#f92672>.</span>getenv(<span style=color:#e6db74>&#34;HADOOP_HOME&#34;</span>):
+        <span style=color:#66d9ef>raise</span> <span style=color:#a6e22e>Exception</span>(<span style=color:#e6db74>&#34;The HADOOP_HOME env var must be set and point to a valid Hadoop installation&#34;</span>)
+
+    jar_files <span style=color:#f92672>=</span> []
+
+    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>find_pyflink_lib_dir</span>():
+        <span style=color:#66d9ef>for</span> dir <span style=color:#f92672>in</span> site<span style=color:#f92672>.</span>getsitepackages():
+            package_dir <span style=color:#f92672>=</span> os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>join(dir, <span style=color:#e6db74>&#34;pyflink&#34;</span>, <span style=color:#e6db74>&#34;lib&#34;</span>)
+            <span style=color:#66d9ef>if</span> os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>exists(package_dir):
+                <span style=color:#66d9ef>return</span> package_dir
+        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>None</span>
+
+    <span style=color:#66d9ef>for</span> root, _, files <span style=color:#f92672>in</span> os<span style=color:#f92672>.</span>walk(os<span style=color:#f92672>.</span>getenv(<span style=color:#e6db74>&#34;HADOOP_HOME&#34;</span>)):
+        <span style=color:#66d9ef>for</span> file <span style=color:#f92672>in</span> files:
+            <span style=color:#66d9ef>if</span> file<span style=color:#f92672>.</span>endswith(<span style=color:#e6db74>&#34;.jar&#34;</span>):
+                jar_files<span style=color:#f92672>.</span>append(os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>join(root, file))
+
+    pyflink_lib_dir <span style=color:#f92672>=</span> find_pyflink_lib_dir()
+
+    num_jar_files <span style=color:#f92672>=</span> len(jar_files)
+    print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;Copying </span><span style=color:#e6db74>{</span>num_jar_files<span style=color:#e6db74>}</span><span style=color:#e6db74> Hadoop jar files to pyflink&#39;s lib directory at </span><span style=color:#e6db74>{</span>pyflink_lib_dir<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+    <span style=color:#66d9ef>for</span> jar <span style=color:#f92672>in</span> jar_files:
+        shutil<span style=color:#f92672>.</span>copy(jar, pyflink_lib_dir)
+
+
+<span style=color:#66d9ef>if</span> __name__ <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;__main__&#39;</span>:
+    copy_all_hadoop_jars_to_pyflink()
+</code></pre></div><p>Once the script finished, you should see output similar to</p>
+<pre tabindex=0><code>Copying 645 Hadoop jar files to pyflink's lib directory at &lt;PYTHON_DIR&gt;/lib/python3.8/site-packages/pyflink/lib
+</code></pre><p>Now we need to provide a <code>file://</code> path to the <code>iceberg-flink-runtime</code> jar, which we can either get by building the project
+and looking at <code>&lt;iceberg-root-dir>/flink-runtime/build/libs</code>, or downloading it from the <a href=https://repo.maven.apache.org/maven2/org/apache/iceberg/iceberg-flink-runtime/>Apache official repository</a>.
+Third-party libs can be added to <code>pyflink</code> via <code>env.add_jars("file:///my/jar/path/connector.jar")</code> / <code>table_env.get_config().get_configuration().set_string("pipeline.jars", "file:///my/jar/path/connector.jar")</code>, which is also mentioned in the official <a href=https://ci.apache.org/projects/flink/flink-docs-release-1.13/docs/dev/python/dependency_management/>docs</a>.
+In our example we&rsquo;re using <code>env.add_jars(..)</code> as shown below:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> os
+
+<span style=color:#f92672>from</span> pyflink.datastream <span style=color:#f92672>import</span> StreamExecutionEnvironment
+
+env <span style=color:#f92672>=</span> StreamExecutionEnvironment<span style=color:#f92672>.</span>get_execution_environment()
+iceberg_flink_runtime_jar <span style=color:#f92672>=</span> os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>join(os<span style=color:#f92672>.</span>getcwd(), <span style=color:#e6db74>&#34;iceberg-flink-runtime-0.13.0.jar&#34;</span>)
+
+env<span style=color:#f92672>.</span>add_jars(<span style=color:#e6db74>&#34;file://</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(iceberg_flink_runtime_jar))
+</code></pre></div><p>Once we reached this point, we can then create a <code>StreamTableEnvironment</code> and execute Flink SQL statements.
+The below example shows how to create a custom catalog via the Python Table API:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> pyflink.table <span style=color:#f92672>import</span> StreamTableEnvironment
+table_env <span style=color:#f92672>=</span> StreamTableEnvironment<span style=color:#f92672>.</span>create(env)
+table_env<span style=color:#f92672>.</span>execute_sql(<span style=color:#e6db74>&#34;CREATE CATALOG my_catalog WITH (&#34;</span>
+                      <span style=color:#e6db74>&#34;&#39;type&#39;=&#39;iceberg&#39;, &#34;</span>
+                      <span style=color:#e6db74>&#34;&#39;catalog-impl&#39;=&#39;com.my.custom.CatalogImpl&#39;, &#34;</span>
+                      <span style=color:#e6db74>&#34;&#39;my-additional-catalog-config&#39;=&#39;my-value&#39;)&#34;</span>)
+</code></pre></div><p>For more details, please refer to the <a href=https://ci.apache.org/projects/flink/flink-docs-release-1.13/docs/dev/python/table/intro_to_table_api/>Python Table API</a>.</p>
+<h2 id=creating-catalogs-and-using-catalogs>
+Creating catalogs and using catalogs.
+<a class=anchor href=#creating-catalogs-and-using-catalogs>#</a>
+</h2>
+<p>Flink 1.11 support to create catalogs by using flink sql.</p>
+<h3 id=catalog-configuration>
+Catalog Configuration
+<a class=anchor href=#catalog-configuration>#</a>
+</h3>
+<p>A catalog is created and named by executing the following query (replace <code>&lt;catalog_name></code> with your catalog name and
+<code>&lt;config_key></code>=<code>&lt;config_value></code> with catalog implementation config):</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>CATALOG</span> <span style=color:#f92672>&lt;</span><span style=color:#66d9ef>catalog_name</span><span style=color:#f92672>&gt;</span> <span style=color:#66d9ef>WITH</span> (
+  <span style=color:#e6db74>&#39;type&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;iceberg&#39;</span>,
+  <span style=color:#f92672>`&lt;</span>config_key<span style=color:#f92672>&gt;`=`&lt;</span>config_value<span style=color:#f92672>&gt;`</span>
+); 
+</code></pre></div><p>The following properties can be set globally and are not limited to a specific catalog implementation:</p>
+<ul>
+<li><code>type</code>: Must be <code>iceberg</code>. (required)</li>
+<li><code>catalog-type</code>: <code>hive</code> or <code>hadoop</code> for built-in catalogs, or left unset for custom catalog implementations using catalog-impl. (Optional)</li>
+<li><code>catalog-impl</code>: The fully-qualified class name custom catalog implementation, must be set if <code>catalog-type</code> is unset. (Optional)</li>
+<li><code>property-version</code>: Version number to describe the property version. This property can be used for backwards compatibility in case the property format changes. The current property version is <code>1</code>. (Optional)</li>
+<li><code>cache-enabled</code>: Whether to enable catalog cache, default value is <code>true</code></li>
+</ul>
+<h3 id=hive-catalog>
+Hive catalog
+<a class=anchor href=#hive-catalog>#</a>
+</h3>
+<p>This creates an iceberg catalog named <code>hive_catalog</code> that can be configured using <code>'catalog-type'='hive'</code>, which loads tables from a hive metastore:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>CATALOG</span> hive_catalog <span style=color:#66d9ef>WITH</span> (
+  <span style=color:#e6db74>&#39;type&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;iceberg&#39;</span>,
+  <span style=color:#e6db74>&#39;catalog-type&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;hive&#39;</span>,
+  <span style=color:#e6db74>&#39;uri&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;thrift://localhost:9083&#39;</span>,
+  <span style=color:#e6db74>&#39;clients&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;5&#39;</span>,
+  <span style=color:#e6db74>&#39;property-version&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;1&#39;</span>,
+  <span style=color:#e6db74>&#39;warehouse&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;hdfs://nn:8020/warehouse/path&#39;</span>
+);
+</code></pre></div><p>The following properties can be set if using the Hive catalog:</p>
+<ul>
+<li><code>uri</code>: The Hive metastore&rsquo;s thrift URI. (Required)</li>
+<li><code>clients</code>: The Hive metastore client pool size, default value is 2. (Optional)</li>
+<li><code>warehouse</code>: The Hive warehouse location, users should specify this path if neither set the <code>hive-conf-dir</code> to specify a location containing a <code>hive-site.xml</code> configuration file nor add a correct <code>hive-site.xml</code> to classpath.</li>
+<li><code>hive-conf-dir</code>: Path to a directory containing a <code>hive-site.xml</code> configuration file which will be used to provide custom Hive configuration values. The value of <code>hive.metastore.warehouse.dir</code> from <code>&lt;hive-conf-dir>/hive-site.xml</code> (or hive configure file from classpath) will be overwrote with the <code>warehouse</code> value if setting both <code>hive-conf-dir</code> and <code>warehouse</code> when creating iceberg catalog.</li>
+</ul>
+<h3 id=hadoop-catalog>
+Hadoop catalog
+<a class=anchor href=#hadoop-catalog>#</a>
+</h3>
+<p>Iceberg also supports a directory-based catalog in HDFS that can be configured using <code>'catalog-type'='hadoop'</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>CATALOG</span> hadoop_catalog <span style=color:#66d9ef>WITH</span> (
+  <span style=color:#e6db74>&#39;type&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;iceberg&#39;</span>,
+  <span style=color:#e6db74>&#39;catalog-type&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;hadoop&#39;</span>,
+  <span style=color:#e6db74>&#39;warehouse&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;hdfs://nn:8020/warehouse/path&#39;</span>,
+  <span style=color:#e6db74>&#39;property-version&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;1&#39;</span>
+);
+</code></pre></div><p>The following properties can be set if using the Hadoop catalog:</p>
+<ul>
+<li><code>warehouse</code>: The HDFS directory to store metadata files and data files. (Required)</li>
+</ul>
+<p>We could execute the sql command <code>USE CATALOG hive_catalog</code> to set the current catalog.</p>
+<h3 id=custom-catalog>
+Custom catalog
+<a class=anchor href=#custom-catalog>#</a>
+</h3>
+<p>Flink also supports loading a custom Iceberg <code>Catalog</code> implementation by specifying the <code>catalog-impl</code> property. Here is an example:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>CATALOG</span> my_catalog <span style=color:#66d9ef>WITH</span> (
+  <span style=color:#e6db74>&#39;type&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;iceberg&#39;</span>,
+  <span style=color:#e6db74>&#39;catalog-impl&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;com.my.custom.CatalogImpl&#39;</span>,
+  <span style=color:#e6db74>&#39;my-additional-catalog-config&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;my-value&#39;</span>
+);
+</code></pre></div><h3 id=create-through-yaml-config>
+Create through YAML config
+<a class=anchor href=#create-through-yaml-config>#</a>
+</h3>
+<p>Catalogs can be registered in <code>sql-client-defaults.yaml</code> before starting the SQL client. Here is an example:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>catalogs</span>: 
+  - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>my_catalog</span>
+    <span style=color:#f92672>type</span>: <span style=color:#ae81ff>iceberg</span>
+    <span style=color:#f92672>catalog-type</span>: <span style=color:#ae81ff>hadoop</span>
+    <span style=color:#f92672>warehouse</span>: <span style=color:#ae81ff>hdfs://nn:8020/warehouse/path</span>
+</code></pre></div><h2 id=ddl-commands>
+DDL commands
+<a class=anchor href=#ddl-commands>#</a>
+</h2>
+<h3 id=create-database>
+<code>CREATE DATABASE</code>
+<a class=anchor href=#create-database>#</a>
+</h3>
+<p>By default, iceberg will use the <code>default</code> database in flink. Using the following example to create a separate database if we don&rsquo;t want to create tables under the <code>default</code> database:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>DATABASE</span> iceberg_db;
+USE iceberg_db;
+</code></pre></div><h3 id=create-table>
+<code>CREATE TABLE</code>
+<a class=anchor href=#create-table>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> <span style=color:#f92672>`</span>hive_catalog<span style=color:#f92672>`</span>.<span style=color:#f92672>`</span><span style=color:#66d9ef>default</span><span style=color:#f92672>`</span>.<span style=color:#f92672>`</span>sample<span style=color:#f92672>`</span> (
+    id BIGINT <span style=color:#66d9ef>COMMENT</span> <span style=color:#e6db74>&#39;unique id&#39;</span>,
+    <span style=color:#66d9ef>data</span> STRING
+);
+</code></pre></div><p>Table create commands support the most commonly used <a href=https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/table/sql/create.html#create-table>flink create clauses</a> now, including:</p>
+<ul>
+<li><code>PARTITION BY (column1, column2, ...)</code> to configure partitioning, apache flink does not yet support hidden partitioning.</li>
+<li><code>COMMENT 'table document'</code> to set a table description.</li>
+<li><code>WITH ('key'='value', ...)</code> to set <a href=../configuration>table configuration</a> which will be stored in apache iceberg table properties.</li>
+</ul>
+<p>Currently, it does not support computed column, primary key and watermark definition etc.</p>
+<h3 id=partitioned-by>
+<code>PARTITIONED BY</code>
+<a class=anchor href=#partitioned-by>#</a>
+</h3>
+<p>To create a partition table, use <code>PARTITIONED BY</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> <span style=color:#f92672>`</span>hive_catalog<span style=color:#f92672>`</span>.<span style=color:#f92672>`</span><span style=color:#66d9ef>default</span><span style=color:#f92672>`</span>.<span style=color:#f92672>`</span>sample<span style=color:#f92672>`</span> (
+    id BIGINT <span style=color:#66d9ef>COMMENT</span> <span style=color:#e6db74>&#39;unique id&#39;</span>,
+    <span style=color:#66d9ef>data</span> STRING
+) PARTITIONED <span style=color:#66d9ef>BY</span> (<span style=color:#66d9ef>data</span>);
+</code></pre></div><p>Apache Iceberg support hidden partition but apache flink don&rsquo;t support partitioning by a function on columns, so we&rsquo;ve no way to support hidden partition in flink DDL now, we will improve apache flink DDL in future.</p>
+<h3 id=create-table-like>
+<code>CREATE TABLE LIKE</code>
+<a class=anchor href=#create-table-like>#</a>
+</h3>
+<p>To create a table with the same schema, partitioning, and table properties as another table, use <code>CREATE TABLE LIKE</code>.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> <span style=color:#f92672>`</span>hive_catalog<span style=color:#f92672>`</span>.<span style=color:#f92672>`</span><span style=color:#66d9ef>default</span><span style=color:#f92672>`</span>.<span style=color:#f92672>`</span>sample<span style=color:#f92672>`</span> (
+    id BIGINT <span style=color:#66d9ef>COMMENT</span> <span style=color:#e6db74>&#39;unique id&#39;</span>,
+    <span style=color:#66d9ef>data</span> STRING
+);
+
+<span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span>  <span style=color:#f92672>`</span>hive_catalog<span style=color:#f92672>`</span>.<span style=color:#f92672>`</span><span style=color:#66d9ef>default</span><span style=color:#f92672>`</span>.<span style=color:#f92672>`</span>sample_like<span style=color:#f92672>`</span> <span style=color:#66d9ef>LIKE</span> <span style=color:#f92672>`</span>hive_catalog<span style=color:#f92672>`</span>.<span style=color:#f92672>`</span><span style=color:#66d9ef>default</span><span style=color:#f92672>`</span>.<span style=color:#f92672>`</span>sample<span style=color:#f92672>`</span>;
+</code></pre></div><p>For more details, refer to the <a href=https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/table/sql/create.html#create-table>Flink <code>CREATE TABLE</code> documentation</a>.</p>
+<h3 id=alter-table>
+<code>ALTER TABLE</code>
+<a class=anchor href=#alter-table>#</a>
+</h3>
+<p>Iceberg only support altering table properties in flink 1.11 now.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> <span style=color:#f92672>`</span>hive_catalog<span style=color:#f92672>`</span>.<span style=color:#f92672>`</span><span style=color:#66d9ef>default</span><span style=color:#f92672>`</span>.<span style=color:#f92672>`</span>sample<span style=color:#f92672>`</span> <span style=color:#66d9ef>SET</span> (<span style=color:#e6db74>&#39;write.format.default&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;avro&#39;</span>)
+</code></pre></div><h3 id=alter-table--rename-to>
+<code>ALTER TABLE .. RENAME TO</code>
+<a class=anchor href=#alter-table--rename-to>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> <span style=color:#f92672>`</span>hive_catalog<span style=color:#f92672>`</span>.<span style=color:#f92672>`</span><span style=color:#66d9ef>default</span><span style=color:#f92672>`</span>.<span style=color:#f92672>`</span>sample<span style=color:#f92672>`</span> <span style=color:#66d9ef>RENAME</span> <span style=color:#66d9ef>TO</span> <span style=color:#f92672>`</span>hive_catalog<span style=color:#f92672>`</span>.<span style=color:#f92672>`</span><span style=color:#66d9ef>default</span><span style=color:#f92672>`</span>.<span style=color:#f92672>`</span>new_sample<span style=color:#f92672>`</span>;
+</code></pre></div><h3 id=drop-table>
+<code>DROP TABLE</code>
+<a class=anchor href=#drop-table>#</a>
+</h3>
+<p>To delete a table, run:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>TABLE</span> <span style=color:#f92672>`</span>hive_catalog<span style=color:#f92672>`</span>.<span style=color:#f92672>`</span><span style=color:#66d9ef>default</span><span style=color:#f92672>`</span>.<span style=color:#f92672>`</span>sample<span style=color:#f92672>`</span>;
+</code></pre></div><h2 id=querying-with-sql>
+Querying with SQL
+<a class=anchor href=#querying-with-sql>#</a>
+</h2>
+<p>Iceberg support both streaming and batch read in flink now. we could execute the following sql command to switch the execute type from &lsquo;streaming&rsquo; mode to &lsquo;batch&rsquo; mode, and vice versa:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#75715e>-- Execute the flink job in streaming mode for current session context
+</span><span style=color:#75715e></span><span style=color:#66d9ef>SET</span> execution.<span style=color:#66d9ef>type</span> <span style=color:#f92672>=</span> streaming
+
+<span style=color:#75715e>-- Execute the flink job in batch mode for current session context
+</span><span style=color:#75715e></span><span style=color:#66d9ef>SET</span> execution.<span style=color:#66d9ef>type</span> <span style=color:#f92672>=</span> batch
+</code></pre></div><h3 id=flink-batch-read>
+Flink batch read
+<a class=anchor href=#flink-batch-read>#</a>
+</h3>
+<p>If want to check all the rows in iceberg table by submitting a flink <strong>batch</strong> job, you could execute the following sentences:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#75715e>-- Execute the flink job in batch mode for current session context
+</span><span style=color:#75715e></span><span style=color:#66d9ef>SET</span> execution.<span style=color:#66d9ef>type</span> <span style=color:#f92672>=</span> batch ;
+<span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> sample       ;
+</code></pre></div><h3 id=flink-streaming-read>
+Flink streaming read
+<a class=anchor href=#flink-streaming-read>#</a>
+</h3>
+<p>Iceberg supports processing incremental data in flink streaming jobs which starts from a historical snapshot-id:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#75715e>-- Submit the flink job in streaming mode for current session.
+</span><span style=color:#75715e></span><span style=color:#66d9ef>SET</span> execution.<span style=color:#66d9ef>type</span> <span style=color:#f92672>=</span> streaming ;
+
+<span style=color:#75715e>-- Enable this switch because streaming read SQL will provide few job options in flink SQL hint options.
+</span><span style=color:#75715e></span><span style=color:#66d9ef>SET</span> <span style=color:#66d9ef>table</span>.<span style=color:#66d9ef>dynamic</span><span style=color:#f92672>-</span><span style=color:#66d9ef>table</span><span style=color:#f92672>-</span><span style=color:#66d9ef>options</span>.enabled<span style=color:#f92672>=</span><span style=color:#66d9ef>true</span>;
+
+<span style=color:#75715e>-- Read all the records from the iceberg current snapshot, and then read incremental data starting from that snapshot.
+</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> sample <span style=color:#75715e>/*+ OPTIONS(&#39;streaming&#39;=&#39;true&#39;, &#39;monitor-interval&#39;=&#39;1s&#39;)*/</span> ;
+
+<span style=color:#75715e>-- Read all incremental data starting from the snapshot-id &#39;3821550127947089987&#39; (records from this snapshot will be excluded).
+</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> sample <span style=color:#75715e>/*+ OPTIONS(&#39;streaming&#39;=&#39;true&#39;, &#39;monitor-interval&#39;=&#39;1s&#39;, &#39;start-snapshot-id&#39;=&#39;3821550127947089987&#39;)*/</span> ;
+</code></pre></div><p>Those are the options that could be set in flink SQL hint options for streaming job:</p>
+<ul>
+<li>monitor-interval: time interval for consecutively monitoring newly committed data files (default value: &lsquo;1s&rsquo;).</li>
+<li>start-snapshot-id: the snapshot id that streaming job starts from.</li>
+</ul>
+<h2 id=writing-with-sql>
+Writing with SQL
+<a class=anchor href=#writing-with-sql>#</a>
+</h2>
+<p>Iceberg support both <code>INSERT INTO</code> and <code>INSERT OVERWRITE</code> in flink 1.11 now.</p>
+<h3 id=insert-into>
+<code>INSERT INTO</code>
+<a class=anchor href=#insert-into>#</a>
+</h3>
+<p>To append new data to a table with a flink streaming job, use <code>INSERT INTO</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> <span style=color:#f92672>`</span>hive_catalog<span style=color:#f92672>`</span>.<span style=color:#f92672>`</span><span style=color:#66d9ef>default</span><span style=color:#f92672>`</span>.<span style=color:#f92672>`</span>sample<span style=color:#f92672>`</span> <span style=color:#66d9ef>VALUES</span> (<span style=color:#ae81ff>1</span>, <span style=color:#e6db74>&#39;a&#39;</span>);
+<span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> <span style=color:#f92672>`</span>hive_catalog<span style=color:#f92672>`</span>.<span style=color:#f92672>`</span><span style=color:#66d9ef>default</span><span style=color:#f92672>`</span>.<span style=color:#f92672>`</span>sample<span style=color:#f92672>`</span> <span style=color:#66d9ef>SELECT</span> id, <span style=color:#66d9ef>data</span> <span style=color:#66d9ef>from</span> other_kafka_table;
+</code></pre></div><h3 id=insert-overwrite>
+<code>INSERT OVERWRITE</code>
+<a class=anchor href=#insert-overwrite>#</a>
+</h3>
+<p>To replace data in the table with the result of a query, use <code>INSERT OVERWRITE</code> in batch job (flink streaming job does not support <code>INSERT OVERWRITE</code>). Overwrites are atomic operations for Iceberg tables.</p>
+<p>Partitions that have rows produced by the SELECT query will be replaced, for example:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>INSERT</span> OVERWRITE sample <span style=color:#66d9ef>VALUES</span> (<span style=color:#ae81ff>1</span>, <span style=color:#e6db74>&#39;a&#39;</span>);
+</code></pre></div><p>Iceberg also support overwriting given partitions by the <code>select</code> values:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>INSERT</span> OVERWRITE <span style=color:#f92672>`</span>hive_catalog<span style=color:#f92672>`</span>.<span style=color:#f92672>`</span><span style=color:#66d9ef>default</span><span style=color:#f92672>`</span>.<span style=color:#f92672>`</span>sample<span style=color:#f92672>`</span> PARTITION(<span style=color:#66d9ef>data</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;a&#39;</span>) <span style=color:#66d9ef>SELECT</span> <span style=color:#ae81ff>6</span>;
+</code></pre></div><p>For a partitioned iceberg table, when all the partition columns are set a value in <code>PARTITION</code> clause, it is inserting into a static partition, otherwise if partial partition columns (prefix part of all partition columns) are set a value in <code>PARTITION</code> clause, it is writing the query result into a dynamic partition.
+For an unpartitioned iceberg table, its data will be completely overwritten by <code>INSERT OVERWRITE</code>.</p>
+<h2 id=reading-with-datastream>
+Reading with DataStream
+<a class=anchor href=#reading-with-datastream>#</a>
+</h2>
+<p>Iceberg support streaming or batch read in Java API now.</p>
+<h3 id=batch-read>
+Batch Read
+<a class=anchor href=#batch-read>#</a>
+</h3>
+<p>This example will read all records from iceberg table and then print to the stdout console in flink batch job:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>StreamExecutionEnvironment env <span style=color:#f92672>=</span> StreamExecutionEnvironment<span style=color:#f92672>.</span><span style=color:#a6e22e>createLocalEnvironment</span><span style=color:#f92672>();</span>
+TableLoader tableLoader <span style=color:#f92672>=</span> TableLoader<span style=color:#f92672>.</span><span style=color:#a6e22e>fromHadoopTable</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;hdfs://nn:8020/warehouse/path&#34;</span><span style=color:#f92672>);</span>
+DataStream<span style=color:#f92672>&lt;</span>RowData<span style=color:#f92672>&gt;</span> batch <span style=color:#f92672>=</span> FlinkSource<span style=color:#f92672>.</span><span style=color:#a6e22e>forRowData</span><span style=color:#f92672>()</span>
+     <span style=color:#f92672>.</span><span style=color:#a6e22e>env</span><span style=color:#f92672>(</span>env<span style=color:#f92672>)</span>
+     <span style=color:#f92672>.</span><span style=color:#a6e22e>tableLoader</span><span style=color:#f92672>(</span>tableLoader<span style=color:#f92672>)</span>
+     <span style=color:#f92672>.</span><span style=color:#a6e22e>streaming</span><span style=color:#f92672>(</span><span style=color:#66d9ef>false</span><span style=color:#f92672>)</span>
+     <span style=color:#f92672>.</span><span style=color:#a6e22e>build</span><span style=color:#f92672>();</span>
+
+<span style=color:#75715e>// Print all records to stdout.
+</span><span style=color:#75715e></span>batch<span style=color:#f92672>.</span><span style=color:#a6e22e>print</span><span style=color:#f92672>();</span>
+
+<span style=color:#75715e>// Submit and execute this batch read job.
+</span><span style=color:#75715e></span>env<span style=color:#f92672>.</span><span style=color:#a6e22e>execute</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Test Iceberg Batch Read&#34;</span><span style=color:#f92672>);</span>
+</code></pre></div><h3 id=streaming-read>
+Streaming read
+<a class=anchor href=#streaming-read>#</a>
+</h3>
+<p>This example will read incremental records which start from snapshot-id &lsquo;3821550127947089987&rsquo; and print to stdout console in flink streaming job:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>StreamExecutionEnvironment env <span style=color:#f92672>=</span> StreamExecutionEnvironment<span style=color:#f92672>.</span><span style=color:#a6e22e>createLocalEnvironment</span><span style=color:#f92672>();</span>
+TableLoader tableLoader <span style=color:#f92672>=</span> TableLoader<span style=color:#f92672>.</span><span style=color:#a6e22e>fromHadoopTable</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;hdfs://nn:8020/warehouse/path&#34;</span><span style=color:#f92672>);</span>
+DataStream<span style=color:#f92672>&lt;</span>RowData<span style=color:#f92672>&gt;</span> stream <span style=color:#f92672>=</span> FlinkSource<span style=color:#f92672>.</span><span style=color:#a6e22e>forRowData</span><span style=color:#f92672>()</span>
+     <span style=color:#f92672>.</span><span style=color:#a6e22e>env</span><span style=color:#f92672>(</span>env<span style=color:#f92672>)</span>
+     <span style=color:#f92672>.</span><span style=color:#a6e22e>tableLoader</span><span style=color:#f92672>(</span>tableLoader<span style=color:#f92672>)</span>
+     <span style=color:#f92672>.</span><span style=color:#a6e22e>streaming</span><span style=color:#f92672>(</span><span style=color:#66d9ef>true</span><span style=color:#f92672>)</span>
+     <span style=color:#f92672>.</span><span style=color:#a6e22e>startSnapshotId</span><span style=color:#f92672>(</span>3821550127947089987L<span style=color:#f92672>)</span>
+     <span style=color:#f92672>.</span><span style=color:#a6e22e>build</span><span style=color:#f92672>();</span>
+
+<span style=color:#75715e>// Print all records to stdout.
+</span><span style=color:#75715e></span>stream<span style=color:#f92672>.</span><span style=color:#a6e22e>print</span><span style=color:#f92672>();</span>
+
+<span style=color:#75715e>// Submit and execute this streaming read job.
+</span><span style=color:#75715e></span>env<span style=color:#f92672>.</span><span style=color:#a6e22e>execute</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Test Iceberg Streaming Read&#34;</span><span style=color:#f92672>);</span>
+</code></pre></div><p>There are other options that we could set by Java API, please see the <a href=../../../javadoc/0.13.0/org/apache/iceberg/flink/source/FlinkSource.html>FlinkSource#Builder</a>.</p>
+<h2 id=writing-with-datastream>
+Writing with DataStream
+<a class=anchor href=#writing-with-datastream>#</a>
+</h2>
+<p>Iceberg support writing to iceberg table from different DataStream input.</p>
+<h3 id=appending-data>
+Appending data.
+<a class=anchor href=#appending-data>#</a>
+</h3>
+<p>we have supported writing <code>DataStream&lt;RowData></code> and <code>DataStream&lt;Row></code> to the sink iceberg table natively.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>StreamExecutionEnvironment env <span style=color:#f92672>=</span> <span style=color:#f92672>...;</span>
+
+DataStream<span style=color:#f92672>&lt;</span>RowData<span style=color:#f92672>&gt;</span> input <span style=color:#f92672>=</span> <span style=color:#f92672>...</span> <span style=color:#f92672>;</span>
+Configuration hadoopConf <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Configuration<span style=color:#f92672>();</span>
+TableLoader tableLoader <span style=color:#f92672>=</span> TableLoader<span style=color:#f92672>.</span><span style=color:#a6e22e>fromHadoopTable</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;hdfs://nn:8020/warehouse/path&#34;</span><span style=color:#f92672>,</span> hadoopConf<span style=color:#f92672>);</span>
+
+FlinkSink<span style=color:#f92672>.</span><span style=color:#a6e22e>forRowData</span><span style=color:#f92672>(</span>input<span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>tableLoader</span><span style=color:#f92672>(</span>tableLoader<span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>build</span><span style=color:#f92672>();</span>
+
+env<span style=color:#f92672>.</span><span style=color:#a6e22e>execute</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Test Iceberg DataStream&#34;</span><span style=color:#f92672>);</span>
+</code></pre></div><p>The iceberg API also allows users to write generic <code>DataStream&lt;T></code> to iceberg table, more example could be found in this <a href=https://github.com/apache/iceberg/blob/master/flink/src/test/java/org/apache/iceberg/flink/sink/TestFlinkIcebergSink.java>unit test</a>.</p>
+<h3 id=overwrite-data>
+Overwrite data
+<a class=anchor href=#overwrite-data>#</a>
+</h3>
+<p>To overwrite the data in existing iceberg table dynamically, we could set the <code>overwrite</code> flag in FlinkSink builder.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>StreamExecutionEnvironment env <span style=color:#f92672>=</span> <span style=color:#f92672>...;</span>
+
+DataStream<span style=color:#f92672>&lt;</span>RowData<span style=color:#f92672>&gt;</span> input <span style=color:#f92672>=</span> <span style=color:#f92672>...</span> <span style=color:#f92672>;</span>
+Configuration hadoopConf <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Configuration<span style=color:#f92672>();</span>
+TableLoader tableLoader <span style=color:#f92672>=</span> TableLoader<span style=color:#f92672>.</span><span style=color:#a6e22e>fromHadoopTable</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;hdfs://nn:8020/warehouse/path&#34;</span><span style=color:#f92672>,</span> hadoopConf<span style=color:#f92672>);</span>
+
+FlinkSink<span style=color:#f92672>.</span><span style=color:#a6e22e>forRowData</span><span style=color:#f92672>(</span>input<span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>tableLoader</span><span style=color:#f92672>(</span>tableLoader<span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>overwrite</span><span style=color:#f92672>(</span><span style=color:#66d9ef>true</span><span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>build</span><span style=color:#f92672>();</span>
+
+env<span style=color:#f92672>.</span><span style=color:#a6e22e>execute</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Test Iceberg DataStream&#34;</span><span style=color:#f92672>);</span>
+</code></pre></div><h2 id=inspecting-tables>
+Inspecting tables.
+<a class=anchor href=#inspecting-tables>#</a>
+</h2>
+<p>Iceberg does not support inspecting table in flink sql now, we need to use <a href=../api>iceberg&rsquo;s Java API</a> to read iceberg&rsquo;s meta data to get those table information.</p>
+<h2 id=rewrite-files-action>
+Rewrite files action.
+<a class=anchor href=#rewrite-files-action>#</a>
+</h2>
+<p>Iceberg provides API to rewrite small files into large files by submitting flink batch job. The behavior of this flink action is the same as the spark&rsquo;s <a href=../maintenance/#compact-data-files>rewriteDataFiles</a>.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#f92672>import</span> org.apache.iceberg.flink.actions.Actions<span style=color:#f92672>;</span>
+
+TableLoader tableLoader <span style=color:#f92672>=</span> TableLoader<span style=color:#f92672>.</span><span style=color:#a6e22e>fromHadoopTable</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;hdfs://nn:8020/warehouse/path&#34;</span><span style=color:#f92672>);</span>
+Table table <span style=color:#f92672>=</span> tableLoader<span style=color:#f92672>.</span><span style=color:#a6e22e>loadTable</span><span style=color:#f92672>();</span>
+RewriteDataFilesActionResult result <span style=color:#f92672>=</span> Actions<span style=color:#f92672>.</span><span style=color:#a6e22e>forTable</span><span style=color:#f92672>(</span>table<span style=color:#f92672>)</span>
+        <span style=color:#f92672>.</span><span style=color:#a6e22e>rewriteDataFiles</span><span style=color:#f92672>()</span>
+        <span style=color:#f92672>.</span><span style=color:#a6e22e>execute</span><span style=color:#f92672>();</span>
+</code></pre></div><p>For more doc about options of the rewrite files action, please see <a href=../../../javadoc/0.13.0/org/apache/iceberg/flink/actions/RewriteDataFilesAction.html>RewriteDataFilesAction</a></p>
+<h2 id=future-improvement>
+Future improvement.
+<a class=anchor href=#future-improvement>#</a>
+</h2>
+<p>There are some features that we do not yet support in the current flink iceberg integration work:</p>
+<ul>
+<li>Don&rsquo;t support creating iceberg table with hidden partitioning. <a href=http://mail-archives.apache.org/mod_mbox/flink-dev/202008.mbox/%3cCABi+2jQCo3MsOa4+ywaxV5J-Z8TGKNZDX-pQLYB-dG+dVUMiMw@mail.gmail.com%3e>Discussion</a> in flink mail list.</li>
+<li>Don&rsquo;t support creating iceberg table with computed column.</li>
+<li>Don&rsquo;t support creating iceberg table with watermark.</li>
+<li>Don&rsquo;t support adding columns, removing columns, renaming columns, changing columns. <a href=https://issues.apache.org/jira/browse/FLINK-19062>FLINK-19062</a> is tracking this.</li>
+</ul>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#preparation-when-using-flink-sql-client>Preparation when using Flink SQL Client</a></li>
+<li><a href=#preparation-when-using-flinks-python-api>Preparation when using Flink&rsquo;s Python API</a></li>
+<li><a href=#creating-catalogs-and-using-catalogs>Creating catalogs and using catalogs.</a>
+<ul>
+<li><a href=#catalog-configuration>Catalog Configuration</a></li>
+<li><a href=#hive-catalog>Hive catalog</a></li>
+<li><a href=#hadoop-catalog>Hadoop catalog</a></li>
+<li><a href=#custom-catalog>Custom catalog</a></li>
+<li><a href=#create-through-yaml-config>Create through YAML config</a></li>
+</ul>
+</li>
+<li><a href=#ddl-commands>DDL commands</a>
+<ul>
+<li><a href=#create-database><code>CREATE DATABASE</code></a></li>
+<li><a href=#create-table><code>CREATE TABLE</code></a></li>
+<li><a href=#partitioned-by><code>PARTITIONED BY</code></a></li>
+<li><a href=#create-table-like><code>CREATE TABLE LIKE</code></a></li>
+<li><a href=#alter-table><code>ALTER TABLE</code></a></li>
+<li><a href=#alter-table--rename-to><code>ALTER TABLE .. RENAME TO</code></a></li>
+<li><a href=#drop-table><code>DROP TABLE</code></a></li>
+</ul>
+</li>
+<li><a href=#querying-with-sql>Querying with SQL</a>
+<ul>
+<li><a href=#flink-batch-read>Flink batch read</a></li>
+<li><a href=#flink-streaming-read>Flink streaming read</a></li>
+</ul>
+</li>
+<li><a href=#writing-with-sql>Writing with SQL</a>
+<ul>
+<li><a href=#insert-into><code>INSERT INTO</code></a></li>
+<li><a href=#insert-overwrite><code>INSERT OVERWRITE</code></a></li>
+</ul>
+</li>
+<li><a href=#reading-with-datastream>Reading with DataStream</a>
+<ul>
+<li><a href=#batch-read>Batch Read</a></li>
+<li><a href=#streaming-read>Streaming read</a></li>
+</ul>
+</li>
+<li><a href=#writing-with-datastream>Writing with DataStream</a>
+<ul>
+<li><a href=#appending-data>Appending data.</a></li>
+<li><a href=#overwrite-data>Overwrite data</a></li>
+</ul>
+</li>
+<li><a href=#inspecting-tables>Inspecting tables.</a></li>
+<li><a href=#rewrite-files-action>Rewrite files action.</a></li>
+<li><a href=#future-improvement>Future improvement.</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>

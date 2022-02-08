@@ -1,0 +1,667 @@
+<!doctype html><html lang=en dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Iceberg Java API #  Tables #  The main purpose of the Iceberg API is to manage table metadata, like schema, partition spec, metadata, and data files that store table data.
+Table metadata and operations are accessed through the Table interface. This interface will return table information.
+Table metadata #  The Table interface provides access to the table metadata:
+ schema returns the current table schema spec returns the current table partition spec properties returns a map of key-value properties currentSnapshot returns the current table snapshot snapshots returns all valid snapshots for the table snapshot(id) returns a specific snapshot by ID location returns the table&rsquo;s base location  Tables also provide refresh to update the table to the latest version, and expose helpers:">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content="Java API">
+<meta property="og:description" content="Iceberg Java API #  Tables #  The main purpose of the Iceberg API is to manage table metadata, like schema, partition spec, metadata, and data files that store table data.
+Table metadata and operations are accessed through the Table interface. This interface will return table information.
+Table metadata #  The Table interface provides access to the table metadata:
+ schema returns the current table schema spec returns the current table partition spec properties returns a map of key-value properties currentSnapshot returns the current table snapshot snapshots returns all valid snapshots for the table snapshot(id) returns a specific snapshot by ID location returns the table&rsquo;s base location  Tables also provide refresh to update the table to the latest version, and expose helpers:">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://iceberg.apache.org/docs/0.13.0/api/"><meta property="article:section" content="docs">
+<title>Java API | Apache Iceberg</title>
+<link rel=manifest href=/docs/0.13.0/manifest.json>
+<link rel=icon href=/docs/0.13.0/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/docs/0.13.0/book.min.179e158d24f3ef709534173fd8b1c1e541a4fa3e23c1b5d8e887464c58949cc9.css integrity="sha256-F54VjSTz73CVNBc/2LHB5UGk+j4jwbXY6IdGTFiUnMk=" crossorigin=anonymous>
+<script defer src=/docs/0.13.0/flexsearch.min.js></script>
+<script defer src=/docs/0.13.0/en.search.min.567e2d138bb78093cae5579d4329807546e9ef622b25c07cce6dc0a4872608b4.js integrity="sha256-Vn4tE4u3gJPK5VedQymAdUbp72IrJcB8zm3ApIcmCLQ=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/docs/0.13.0/../../><img src=/docs/0.13.0/img/iceberg-logo-icon.png alt=Logo><span>Apache Iceberg</span>
+</a>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../releases>
+<img id=version-shield src=https://img.shields.io/badge/version-0.13.0-blue alt>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+<a href=https://github.com/apache/iceberg target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/GitHub-Mark.png target=_blank class=top-external-icon>
+</a>
+<a href=https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/Slack_Mark_Web.png target=_blank class=top-external-icon>
+</a>
+</div>
+<ul>
+<li class=book-section-flats>
+<span>
+<i class="fa fa-table fa-fw"></i>
+Tables</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/configuration/>
+Configuration</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/evolution/>
+Evolution</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/maintenance/>
+Maintenance</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/partitioning/>
+Partitioning</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/performance/>
+Performance</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/reliability/>
+Reliability</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/schemas/>
+Schemas</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<span>
+<i class="fa fa-star-o fa-fw"></i>
+Spark</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/getting-started/>
+Getting Started</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-configuration/>
+Configuration</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-ddl/>
+DDL</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-procedures/>
+Procedures</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-queries/>
+Queries</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-structured-streaming/>
+Structured Streaming</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-writes/>
+Writes</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<span>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/flink-logo.png class="navigation-icon fa-fw">Flink</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/flink/>
+Getting Started</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/flink-connector/>
+Flink Connector</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<a href=https://iceberg.apache.org/docs/0.13.0/hive/>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/hive-logo.png class="navigation-icon fa-fw">Hive</a>
+<ul>
+</ul>
+</li>
+<li>
+<a href=https://trino.io/docs/current/connector/iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/trino-logo.png class="navigation-icon fa-fw">
+Trino
+</a>
+</li>
+<li>
+<a href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/prestodb-logo.png class="navigation-icon fa-fw">
+Presto
+</a>
+</li>
+<li>
+<a href=https://docs.dremio.com/data-formats/apache-iceberg/ target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/dremio-logo.png class="navigation-icon fa-fw">
+Dremio
+</a>
+</li>
+<li>
+<a href=https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/athena-logo.png class="navigation-icon fa-fw">
+Amazon Athena
+</a>
+</li>
+<li>
+<a href=https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-create-cluster.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/emr-logo.png class="navigation-icon fa-fw">
+Amazon EMR
+</a>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-56605d8e971a871885e28ee5142728bf class=toggle>
+<label for=section-56605d8e971a871885e28ee5142728bf class="flex justify-between">
+<a role=button>
+<i class="fa fa-handshake-o fa-fw"></i>
+Integrations</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/aws/>
+AWS</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/jdbc/>
+JDBC</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/nessie/>
+Nessie</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-bf7b3283e3790c00c8caaa140299052b class=toggle checked>
+<label for=section-bf7b3283e3790c00c8caaa140299052b class="flex justify-between">
+<a role=button>
+<i class="fa fa-connectdevelop fa-fw"></i>
+API</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/java-api-quickstart/>
+Java Quickstart</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/api/ class=active>
+Java API</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/custom-catalog/>
+Java Custom Catalog</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../javadoc/0.13.0>
+Javadocs
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/python-quickstart/>
+Python Quickstart</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/python-api-intro/>
+Python API</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/python-feature-support/>
+Python Feature Support</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-7e66f1754ca5d93e20ecdc89df5b8b28 class=toggle>
+<label for=section-7e66f1754ca5d93e20ecdc89df5b8b28 class="flex justify-between">
+<a role=button>
+<i class="fa fa-users fa-fw"></i>
+Community</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../blogs>
+Blogs
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../community>
+Join
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../talks>
+Talks
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-87dda23e9104fe3231cee3bc88a2d754 class=toggle>
+<label for=section-87dda23e9104fe3231cee3bc88a2d754 class="flex justify-between">
+<a role=button>
+<i class="fa fa-object-ungroup fa-fw"></i>
+Format</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../spec>
+Spec
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../terms>
+Terms
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-2e5d3f5f142758d8dd368e9c281dd08e class=toggle>
+<label for=section-2e5d3f5f142758d8dd368e9c281dd08e class="flex justify-between">
+<a role=button>
+<i class="fa fa-wrench fa-fw"></i>
+Project</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../how-to-release>
+How to Release
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../roadmap>
+Roadmap
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../security>
+Security
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../trademarks>
+Trademarks
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-4ddb27a8612bc8118c0b36386905d332 class=toggle>
+<label for=section-4ddb27a8612bc8118c0b36386905d332 class="flex justify-between">
+<a role=button>
+<i class="fa fa-code-fork fa-fw"></i>
+Releases</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../latest>
+Latest
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../0.13.0>
+0.13.0
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../0.12.1>
+0.12.1
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../releases>
+Release Notes
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-296746d27808aa768e500824aaf2adea class=toggle>
+<label for=section-296746d27808aa768e500824aaf2adea class="flex justify-between">
+<a role=button>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/asf.png class="navigation-icon fa-fw">ASF</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/licenses/ target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+License
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/security/ target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Security
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/foundation/thanks.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Sponsors
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/foundation/sponsorship.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Donate
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/events/current-event.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Events
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<link rel=stylesheet href=/docs/0.13.0/fontawesome/css/font-awesome.min.css>
+<label for=menu-control>
+<img src=/docs/0.13.0/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Java API</strong>
+<label for=toc-control>
+<img src=/docs/0.13.0/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#tables>Tables</a>
+<ul>
+<li><a href=#table-metadata>Table metadata</a></li>
+<li><a href=#scanning>Scanning</a></li>
+<li><a href=#update-operations>Update operations</a></li>
+<li><a href=#transactions>Transactions</a></li>
+</ul>
+</li>
+<li><a href=#types>Types</a>
+<ul>
+<li><a href=#primitives>Primitives</a></li>
+<li><a href=#nested-types>Nested types</a></li>
+</ul>
+</li>
+<li><a href=#expressions>Expressions</a>
+<ul>
+<li><a href=#expression-binding>Expression binding</a></li>
+<li><a href=#expression-example>Expression example</a></li>
+</ul>
+</li>
+<li><a href=#modules>Modules</a></li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown>
+<h1 id=iceberg-java-api>
+Iceberg Java API
+<a class=anchor href=#iceberg-java-api>#</a>
+</h1>
+<h2 id=tables>
+Tables
+<a class=anchor href=#tables>#</a>
+</h2>
+<p>The main purpose of the Iceberg API is to manage table metadata, like schema, partition spec, metadata, and data files that store table data.</p>
+<p>Table metadata and operations are accessed through the <code>Table</code> interface. This interface will return table information.</p>
+<h3 id=table-metadata>
+Table metadata
+<a class=anchor href=#table-metadata>#</a>
+</h3>
+<p>The <a href=../../../javadoc/0.13.0/index.html?org/apache/iceberg/Table.html><code>Table</code> interface</a> provides access to the table metadata:</p>
+<ul>
+<li><code>schema</code> returns the current table <a href=../schemas>schema</a></li>
+<li><code>spec</code> returns the current table partition spec</li>
+<li><code>properties</code> returns a map of key-value <a href=../configuration>properties</a></li>
+<li><code>currentSnapshot</code> returns the current table snapshot</li>
+<li><code>snapshots</code> returns all valid snapshots for the table</li>
+<li><code>snapshot(id)</code> returns a specific snapshot by ID</li>
+<li><code>location</code> returns the table&rsquo;s base location</li>
+</ul>
+<p>Tables also provide <code>refresh</code> to update the table to the latest version, and expose helpers:</p>
+<ul>
+<li><code>io</code> returns the <code>FileIO</code> used to read and write table files</li>
+<li><code>locationProvider</code> returns a <code>LocationProvider</code> used to create paths for data and metadata files</li>
+</ul>
+<h3 id=scanning>
+Scanning
+<a class=anchor href=#scanning>#</a>
+</h3>
+<h4 id=file-level>
+File level
+<a class=anchor href=#file-level>#</a>
+</h4>
+<p>Iceberg table scans start by creating a <code>TableScan</code> object with <code>newScan</code>.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>TableScan scan <span style=color:#f92672>=</span> table<span style=color:#f92672>.</span><span style=color:#a6e22e>newScan</span><span style=color:#f92672>();</span>
+</code></pre></div><p>To configure a scan, call <code>filter</code> and <code>select</code> on the <code>TableScan</code> to get a new <code>TableScan</code> with those changes.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>TableScan filteredScan <span style=color:#f92672>=</span> scan<span style=color:#f92672>.</span><span style=color:#a6e22e>filter</span><span style=color:#f92672>(</span>Expressions<span style=color:#f92672>.</span><span style=color:#a6e22e>equal</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;id&#34;</span><span style=color:#f92672>,</span> 5<span style=color:#f92672>))</span>
+</code></pre></div><p>Calls to configuration methods create a new <code>TableScan</code> so that each <code>TableScan</code> is immutable and won&rsquo;t change unexpectedly if shared across threads.</p>
+<p>When a scan is configured, <code>planFiles</code>, <code>planTasks</code>, and <code>schema</code> are used to return files, tasks, and the read projection.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>TableScan scan <span style=color:#f92672>=</span> table<span style=color:#f92672>.</span><span style=color:#a6e22e>newScan</span><span style=color:#f92672>()</span>
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>filter</span><span style=color:#f92672>(</span>Expressions<span style=color:#f92672>.</span><span style=color:#a6e22e>equal</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;id&#34;</span><span style=color:#f92672>,</span> 5<span style=color:#f92672>))</span>
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>select</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;id&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;data&#34;</span><span style=color:#f92672>);</span>
+
+Schema projection <span style=color:#f92672>=</span> scan<span style=color:#f92672>.</span><span style=color:#a6e22e>schema</span><span style=color:#f92672>();</span>
+Iterable<span style=color:#f92672>&lt;</span>CombinedScanTask<span style=color:#f92672>&gt;</span> tasks <span style=color:#f92672>=</span> scan<span style=color:#f92672>.</span><span style=color:#a6e22e>planTasks</span><span style=color:#f92672>();</span>
+</code></pre></div><p>Use <code>asOfTime</code> or <code>useSnapshot</code> to configure the table snapshot for time travel queries.</p>
+<h4 id=row-level>
+Row level
+<a class=anchor href=#row-level>#</a>
+</h4>
+<p>Iceberg table scans start by creating a <code>ScanBuilder</code> object with <code>IcebergGenerics.read</code>.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>ScanBuilder scanBuilder <span style=color:#f92672>=</span> IcebergGenerics<span style=color:#f92672>.</span><span style=color:#a6e22e>read</span><span style=color:#f92672>(</span>table<span style=color:#f92672>)</span>
+</code></pre></div><p>To configure a scan, call <code>where</code> and <code>select</code> on the <code>ScanBuilder</code> to get a new <code>ScanBuilder</code> with those changes.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>scanBuilder<span style=color:#f92672>.</span><span style=color:#a6e22e>where</span><span style=color:#f92672>(</span>Expressions<span style=color:#f92672>.</span><span style=color:#a6e22e>equal</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;id&#34;</span><span style=color:#f92672>,</span> 5<span style=color:#f92672>))</span>
+</code></pre></div><p>When a scan is configured, call method <code>build</code> to execute scan. <code>build</code> return <code>CloseableIterable&lt;Record></code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>CloseableIterable<span style=color:#f92672>&lt;</span>Record<span style=color:#f92672>&gt;</span> result <span style=color:#f92672>=</span> IcebergGenerics<span style=color:#f92672>.</span><span style=color:#a6e22e>read</span><span style=color:#f92672>(</span>table<span style=color:#f92672>)</span>
+        <span style=color:#f92672>.</span><span style=color:#a6e22e>where</span><span style=color:#f92672>(</span>Expressions<span style=color:#f92672>.</span><span style=color:#a6e22e>lessThan</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;id&#34;</span><span style=color:#f92672>,</span> 5<span style=color:#f92672>))</span>
+        <span style=color:#f92672>.</span><span style=color:#a6e22e>build</span><span style=color:#f92672>();</span>
+</code></pre></div><p>where <code>Record</code> is Iceberg record for iceberg-data module <code>org.apache.iceberg.data.Record</code>.</p>
+<h3 id=update-operations>
+Update operations
+<a class=anchor href=#update-operations>#</a>
+</h3>
+<p><code>Table</code> also exposes operations that update the table. These operations use a builder pattern, <a href=../../../javadoc/0.13.0/index.html?org/apache/iceberg/PendingUpdate.html><code>PendingUpdate</code></a>, that commits when <code>PendingUpdate#commit</code> is called.</p>
+<p>For example, updating the table schema is done by calling <code>updateSchema</code>, adding updates to the builder, and finally calling <code>commit</code> to commit the pending changes to the table:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>table<span style=color:#f92672>.</span><span style=color:#a6e22e>updateSchema</span><span style=color:#f92672>()</span>
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>addColumn</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;count&#34;</span><span style=color:#f92672>,</span> Types<span style=color:#f92672>.</span><span style=color:#a6e22e>LongType</span><span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span>
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>commit</span><span style=color:#f92672>();</span>
+</code></pre></div><p>Available operations to update a table are:</p>
+<ul>
+<li><code>updateSchema</code> &ndash; update the table schema</li>
+<li><code>updateProperties</code> &ndash; update table properties</li>
+<li><code>updateLocation</code> &ndash; update the table&rsquo;s base location</li>
+<li><code>newAppend</code> &ndash; used to append data files</li>
+<li><code>newFastAppend</code> &ndash; used to append data files, will not compact metadata</li>
+<li><code>newOverwrite</code> &ndash; used to append data files and remove files that are overwritten</li>
+<li><code>newDelete</code> &ndash; used to delete data files</li>
+<li><code>newRewrite</code> &ndash; used to rewrite data files; will replace existing files with new versions</li>
+<li><code>newTransaction</code> &ndash; create a new table-level transaction</li>
+<li><code>rewriteManifests</code> &ndash; rewrite manifest data by clustering files, for faster scan planning</li>
+<li><code>rollback</code> &ndash; rollback the table state to a specific snapshot</li>
+</ul>
+<h3 id=transactions>
+Transactions
+<a class=anchor href=#transactions>#</a>
+</h3>
+<p>Transactions are used to commit multiple table changes in a single atomic operation. A transaction is used to create individual operations using factory methods, like <code>newAppend</code>, just like working with a <code>Table</code>. Operations created by a transaction are committed as a group when <code>commitTransaction</code> is called.</p>
+<p>For example, deleting and appending a file in the same transaction:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Transaction t <span style=color:#f92672>=</span> table<span style=color:#f92672>.</span><span style=color:#a6e22e>newTransaction</span><span style=color:#f92672>();</span>
+
+<span style=color:#75715e>// commit operations to the transaction
+</span><span style=color:#75715e></span>t<span style=color:#f92672>.</span><span style=color:#a6e22e>newDelete</span><span style=color:#f92672>().</span><span style=color:#a6e22e>deleteFromRowFilter</span><span style=color:#f92672>(</span>filter<span style=color:#f92672>).</span><span style=color:#a6e22e>commit</span><span style=color:#f92672>();</span>
+t<span style=color:#f92672>.</span><span style=color:#a6e22e>newAppend</span><span style=color:#f92672>().</span><span style=color:#a6e22e>appendFile</span><span style=color:#f92672>(</span>data<span style=color:#f92672>).</span><span style=color:#a6e22e>commit</span><span style=color:#f92672>();</span>
+
+<span style=color:#75715e>// commit all the changes to the table
+</span><span style=color:#75715e></span>t<span style=color:#f92672>.</span><span style=color:#a6e22e>commitTransaction</span><span style=color:#f92672>();</span>
+</code></pre></div><h2 id=types>
+Types
+<a class=anchor href=#types>#</a>
+</h2>
+<p>Iceberg data types are located in the <a href=../../../javadoc/0.13.0/index.html?org/apache/iceberg/types/package-summary.html><code>org.apache.iceberg.types</code> package</a>.</p>
+<h3 id=primitives>
+Primitives
+<a class=anchor href=#primitives>#</a>
+</h3>
+<p>Primitive type instances are available from static methods in each type class. Types without parameters use <code>get</code>, and types like <code>decimal</code> use factory methods:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Types<span style=color:#f92672>.</span><span style=color:#a6e22e>IntegerType</span><span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>()</span>    <span style=color:#75715e>// int
+</span><span style=color:#75715e></span>Types<span style=color:#f92672>.</span><span style=color:#a6e22e>DoubleType</span><span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>()</span>     <span style=color:#75715e>// double
+</span><span style=color:#75715e></span>Types<span style=color:#f92672>.</span><span style=color:#a6e22e>DecimalType</span><span style=color:#f92672>.</span><span style=color:#a6e22e>of</span><span style=color:#f92672>(</span>9<span style=color:#f92672>,</span> 2<span style=color:#f92672>)</span> <span style=color:#75715e>// decimal(9, 2)
+</span></code></pre></div><h3 id=nested-types>
+Nested types
+<a class=anchor href=#nested-types>#</a>
+</h3>
+<p>Structs, maps, and lists are created using factory methods in type classes.</p>
+<p>Like struct fields, map keys or values and list elements are tracked as nested fields. Nested fields track <a href=../evolution#correctness>field IDs</a> and nullability.</p>
+<p>Struct fields are created using <code>NestedField.optional</code> or <code>NestedField.required</code>. Map value and list element nullability is set in the map and list factory methods.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#75715e>// struct&lt;1 id: int, 2 data: optional string&gt;
+</span><span style=color:#75715e></span>StructType struct <span style=color:#f92672>=</span> Struct<span style=color:#f92672>.</span><span style=color:#a6e22e>of</span><span style=color:#f92672>(</span>
+    Types<span style=color:#f92672>.</span><span style=color:#a6e22e>NestedField</span><span style=color:#f92672>.</span><span style=color:#a6e22e>required</span><span style=color:#f92672>(</span>1<span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;id&#34;</span><span style=color:#f92672>,</span> Types<span style=color:#f92672>.</span><span style=color:#a6e22e>IntegerType</span><span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>()),</span>
+    Types<span style=color:#f92672>.</span><span style=color:#a6e22e>NestedField</span><span style=color:#f92672>.</span><span style=color:#a6e22e>optional</span><span style=color:#f92672>(</span>2<span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;data&#34;</span><span style=color:#f92672>,</span> Types<span style=color:#f92672>.</span><span style=color:#a6e22e>StringType</span><span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span>
+  <span style=color:#f92672>)</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#75715e>// map&lt;1 key: int, 2 value: optional string&gt;
+</span><span style=color:#75715e></span>MapType map <span style=color:#f92672>=</span> MapType<span style=color:#f92672>.</span><span style=color:#a6e22e>ofOptional</span><span style=color:#f92672>(</span>
+    1<span style=color:#f92672>,</span> 2<span style=color:#f92672>,</span>
+    Types<span style=color:#f92672>.</span><span style=color:#a6e22e>IntegerType</span><span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>(),</span>
+    Types<span style=color:#f92672>.</span><span style=color:#a6e22e>StringType</span><span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>()</span>
+  <span style=color:#f92672>)</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#75715e>// array&lt;1 element: int&gt;
+</span><span style=color:#75715e></span>ListType list <span style=color:#f92672>=</span> ListType<span style=color:#f92672>.</span><span style=color:#a6e22e>ofRequired</span><span style=color:#f92672>(</span>1<span style=color:#f92672>,</span> IntegerType<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>());</span>
+</code></pre></div><h2 id=expressions>
+Expressions
+<a class=anchor href=#expressions>#</a>
+</h2>
+<p>Iceberg&rsquo;s expressions are used to configure table scans. To create expressions, use the factory methods in <a href=../../../javadoc/0.13.0/index.html?org/apache/iceberg/expressions/Expressions.html><code>Expressions</code></a>.</p>
+<p>Supported predicate expressions are:</p>
+<ul>
+<li><code>isNull</code></li>
+<li><code>notNull</code></li>
+<li><code>equal</code></li>
+<li><code>notEqual</code></li>
+<li><code>lessThan</code></li>
+<li><code>lessThanOrEqual</code></li>
+<li><code>greaterThan</code></li>
+<li><code>greaterThanOrEqual</code></li>
+<li><code>in</code></li>
+<li><code>notIn</code></li>
+<li><code>startsWith</code></li>
+<li><code>notStartsWith</code></li>
+</ul>
+<p>Supported expression operations are:</p>
+<ul>
+<li><code>and</code></li>
+<li><code>or</code></li>
+<li><code>not</code></li>
+</ul>
+<p>Constant expressions are:</p>
+<ul>
+<li><code>alwaysTrue</code></li>
+<li><code>alwaysFalse</code></li>
+</ul>
+<h3 id=expression-binding>
+Expression binding
+<a class=anchor href=#expression-binding>#</a>
+</h3>
+<p>When created, expressions are unbound. Before an expression is used, it will be bound to a data type to find the field ID the expression name represents, and to convert predicate literals.</p>
+<p>For example, before using the expression <code>lessThan("x", 10)</code>, Iceberg needs to determine which column <code>"x"</code> refers to and convert <code>10</code> to that column&rsquo;s data type.</p>
+<p>If the expression could be bound to the type <code>struct&lt;1 x: long, 2 y: long></code> or to <code>struct&lt;11 x: int, 12 y: int></code>.</p>
+<h3 id=expression-example>
+Expression example
+<a class=anchor href=#expression-example>#</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>table<span style=color:#f92672>.</span><span style=color:#a6e22e>newScan</span><span style=color:#f92672>()</span>
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>filter</span><span style=color:#f92672>(</span>Expressions<span style=color:#f92672>.</span><span style=color:#a6e22e>greaterThanOrEqual</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;x&#34;</span><span style=color:#f92672>,</span> 5<span style=color:#f92672>))</span>
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>filter</span><span style=color:#f92672>(</span>Expressions<span style=color:#f92672>.</span><span style=color:#a6e22e>lessThan</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;x&#34;</span><span style=color:#f92672>,</span> 10<span style=color:#f92672>))</span>
+</code></pre></div><h2 id=modules>
+Modules
+<a class=anchor href=#modules>#</a>
+</h2>
+<p>Iceberg table support is organized in library modules:</p>
+<ul>
+<li><code>iceberg-common</code> contains utility classes used in other modules</li>
+<li><code>iceberg-api</code> contains the public Iceberg API, including expressions, types, tables, and operations</li>
+<li><code>iceberg-arrow</code> is an implementation of the Iceberg type system for reading and writing data stored in Iceberg tables using Apache Arrow as the in-memory data format</li>
+<li><code>iceberg-aws</code> contains implementations of the Iceberg API to be used with tables stored on AWS S3 and/or for tables defined using the AWS Glue data catalog</li>
+<li><code>iceberg-core</code> contains implementations of the Iceberg API and support for Avro data files, <strong>this is what processing engines should depend on</strong></li>
+<li><code>iceberg-parquet</code> is an optional module for working with tables backed by Parquet files</li>
+<li><code>iceberg-orc</code> is an optional module for working with tables backed by ORC files (<em>experimental</em>)</li>
+<li><code>iceberg-hive-metastore</code> is an implementation of Iceberg tables backed by the Hive metastore Thrift client</li>
+</ul>
+<p>This project Iceberg also has modules for adding Iceberg support to processing engines and associated tooling:</p>
+<ul>
+<li><code>iceberg-spark2</code> is an implementation of Spark&rsquo;s Datasource V2 API in 2.4 for Iceberg (use iceberg-spark-runtime for a shaded version)</li>
+<li><code>iceberg-spark3</code> is an implementation of Spark&rsquo;s Datasource V2 API in 3.0 for Iceberg (use iceberg-spark3-runtime for a shaded version)</li>
+<li><code>iceberg-flink</code> is an implementation of Flink&rsquo;s Table and DataStream API for Iceberg (use iceberg-flink-runtime for a shaded version)</li>
+<li><code>iceberg-hive3</code> is an implementation of Hive 3 specific SerDe&rsquo;s for Timestamp, TimestampWithZone, and Date object inspectors (use iceberg-hive-runtime for a shaded version).</li>
+<li><code>iceberg-mr</code> is an implementation of MapReduce and Hive InputFormats and SerDes for Iceberg (use iceberg-hive-runtime for a shaded version for use with Hive)</li>
+<li><code>iceberg-nessie</code> is a module used to integrate Iceberg table metadata history and operations with <a href=https://projectnessie.org/>Project Nessie</a></li>
+<li><code>iceberg-data</code> is a client library used to read Iceberg tables from JVM applications</li>
+<li><code>iceberg-pig</code> is an implementation of Pig&rsquo;s LoadFunc API for Iceberg</li>
+<li><code>iceberg-runtime</code> generates a shaded runtime jar for Spark to integrate with iceberg tables</li>
+</ul>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#tables>Tables</a>
+<ul>
+<li><a href=#table-metadata>Table metadata</a></li>
+<li><a href=#scanning>Scanning</a></li>
+<li><a href=#update-operations>Update operations</a></li>
+<li><a href=#transactions>Transactions</a></li>
+</ul>
+</li>
+<li><a href=#types>Types</a>
+<ul>
+<li><a href=#primitives>Primitives</a></li>
+<li><a href=#nested-types>Nested types</a></li>
+</ul>
+</li>
+<li><a href=#expressions>Expressions</a>
+<ul>
+<li><a href=#expression-binding>Expression binding</a></li>
+<li><a href=#expression-example>Expression example</a></li>
+</ul>
+</li>
+<li><a href=#modules>Modules</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>

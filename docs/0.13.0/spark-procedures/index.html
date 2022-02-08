@@ -1,0 +1,1426 @@
+<!doctype html><html lang=en dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Spark Procedures #  To use Iceberg in Spark, first configure Spark catalogs. Stored procedures are only available when using Iceberg SQL extensions in Spark 3.x.
+Usage #  Procedures can be used from any configured Iceberg catalog with CALL. All procedures are in the namespace system.
+CALL supports passing arguments by name (recommended) or by position. Mixing position and named arguments is not supported.
+Named arguments #  All procedure arguments are named.">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content="Procedures">
+<meta property="og:description" content="Spark Procedures #  To use Iceberg in Spark, first configure Spark catalogs. Stored procedures are only available when using Iceberg SQL extensions in Spark 3.x.
+Usage #  Procedures can be used from any configured Iceberg catalog with CALL. All procedures are in the namespace system.
+CALL supports passing arguments by name (recommended) or by position. Mixing position and named arguments is not supported.
+Named arguments #  All procedure arguments are named.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://iceberg.apache.org/docs/0.13.0/spark-procedures/"><meta property="article:section" content="docs">
+<title>Procedures | Apache Iceberg</title>
+<link rel=manifest href=/docs/0.13.0/manifest.json>
+<link rel=icon href=/docs/0.13.0/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/docs/0.13.0/book.min.179e158d24f3ef709534173fd8b1c1e541a4fa3e23c1b5d8e887464c58949cc9.css integrity="sha256-F54VjSTz73CVNBc/2LHB5UGk+j4jwbXY6IdGTFiUnMk=" crossorigin=anonymous>
+<script defer src=/docs/0.13.0/flexsearch.min.js></script>
+<script defer src=/docs/0.13.0/en.search.min.567e2d138bb78093cae5579d4329807546e9ef622b25c07cce6dc0a4872608b4.js integrity="sha256-Vn4tE4u3gJPK5VedQymAdUbp72IrJcB8zm3ApIcmCLQ=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/docs/0.13.0/../../><img src=/docs/0.13.0/img/iceberg-logo-icon.png alt=Logo><span>Apache Iceberg</span>
+</a>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../releases>
+<img id=version-shield src=https://img.shields.io/badge/version-0.13.0-blue alt>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+<a href=https://github.com/apache/iceberg target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/GitHub-Mark.png target=_blank class=top-external-icon>
+</a>
+<a href=https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/Slack_Mark_Web.png target=_blank class=top-external-icon>
+</a>
+</div>
+<ul>
+<li class=book-section-flats>
+<span>
+<i class="fa fa-table fa-fw"></i>
+Tables</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/configuration/>
+Configuration</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/evolution/>
+Evolution</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/maintenance/>
+Maintenance</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/partitioning/>
+Partitioning</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/performance/>
+Performance</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/reliability/>
+Reliability</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/schemas/>
+Schemas</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<span>
+<i class="fa fa-star-o fa-fw"></i>
+Spark</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/getting-started/>
+Getting Started</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-configuration/>
+Configuration</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-ddl/>
+DDL</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-procedures/ class=active>
+Procedures</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-queries/>
+Queries</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-structured-streaming/>
+Structured Streaming</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-writes/>
+Writes</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<span>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/flink-logo.png class="navigation-icon fa-fw">Flink</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/flink/>
+Getting Started</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/flink-connector/>
+Flink Connector</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<a href=https://iceberg.apache.org/docs/0.13.0/hive/>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/hive-logo.png class="navigation-icon fa-fw">Hive</a>
+<ul>
+</ul>
+</li>
+<li>
+<a href=https://trino.io/docs/current/connector/iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/trino-logo.png class="navigation-icon fa-fw">
+Trino
+</a>
+</li>
+<li>
+<a href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/prestodb-logo.png class="navigation-icon fa-fw">
+Presto
+</a>
+</li>
+<li>
+<a href=https://docs.dremio.com/data-formats/apache-iceberg/ target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/dremio-logo.png class="navigation-icon fa-fw">
+Dremio
+</a>
+</li>
+<li>
+<a href=https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/athena-logo.png class="navigation-icon fa-fw">
+Amazon Athena
+</a>
+</li>
+<li>
+<a href=https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-create-cluster.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/emr-logo.png class="navigation-icon fa-fw">
+Amazon EMR
+</a>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-56605d8e971a871885e28ee5142728bf class=toggle>
+<label for=section-56605d8e971a871885e28ee5142728bf class="flex justify-between">
+<a role=button>
+<i class="fa fa-handshake-o fa-fw"></i>
+Integrations</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/aws/>
+AWS</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/jdbc/>
+JDBC</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/nessie/>
+Nessie</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-bf7b3283e3790c00c8caaa140299052b class=toggle>
+<label for=section-bf7b3283e3790c00c8caaa140299052b class="flex justify-between">
+<a role=button>
+<i class="fa fa-connectdevelop fa-fw"></i>
+API</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/java-api-quickstart/>
+Java Quickstart</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/api/>
+Java API</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/custom-catalog/>
+Java Custom Catalog</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../javadoc/0.13.0>
+Javadocs
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/python-quickstart/>
+Python Quickstart</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/python-api-intro/>
+Python API</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/python-feature-support/>
+Python Feature Support</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-7e66f1754ca5d93e20ecdc89df5b8b28 class=toggle>
+<label for=section-7e66f1754ca5d93e20ecdc89df5b8b28 class="flex justify-between">
+<a role=button>
+<i class="fa fa-users fa-fw"></i>
+Community</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../blogs>
+Blogs
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../community>
+Join
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../talks>
+Talks
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-87dda23e9104fe3231cee3bc88a2d754 class=toggle>
+<label for=section-87dda23e9104fe3231cee3bc88a2d754 class="flex justify-between">
+<a role=button>
+<i class="fa fa-object-ungroup fa-fw"></i>
+Format</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../spec>
+Spec
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../terms>
+Terms
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-2e5d3f5f142758d8dd368e9c281dd08e class=toggle>
+<label for=section-2e5d3f5f142758d8dd368e9c281dd08e class="flex justify-between">
+<a role=button>
+<i class="fa fa-wrench fa-fw"></i>
+Project</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../how-to-release>
+How to Release
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../roadmap>
+Roadmap
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../security>
+Security
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../trademarks>
+Trademarks
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-4ddb27a8612bc8118c0b36386905d332 class=toggle>
+<label for=section-4ddb27a8612bc8118c0b36386905d332 class="flex justify-between">
+<a role=button>
+<i class="fa fa-code-fork fa-fw"></i>
+Releases</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../latest>
+Latest
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../0.13.0>
+0.13.0
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../0.12.1>
+0.12.1
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../releases>
+Release Notes
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-296746d27808aa768e500824aaf2adea class=toggle>
+<label for=section-296746d27808aa768e500824aaf2adea class="flex justify-between">
+<a role=button>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/asf.png class="navigation-icon fa-fw">ASF</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/licenses/ target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+License
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/security/ target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Security
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/foundation/thanks.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Sponsors
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/foundation/sponsorship.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Donate
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/events/current-event.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Events
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<link rel=stylesheet href=/docs/0.13.0/fontawesome/css/font-awesome.min.css>
+<label for=menu-control>
+<img src=/docs/0.13.0/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Procedures</strong>
+<label for=toc-control>
+<img src=/docs/0.13.0/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#usage>Usage</a>
+<ul>
+<li><a href=#named-arguments>Named arguments</a></li>
+<li><a href=#positional-arguments>Positional arguments</a></li>
+</ul>
+</li>
+<li><a href=#snapshot-management>Snapshot management</a>
+<ul>
+<li><a href=#rollback_to_snapshot><code>rollback_to_snapshot</code></a></li>
+<li><a href=#rollback_to_timestamp><code>rollback_to_timestamp</code></a></li>
+<li><a href=#set_current_snapshot><code>set_current_snapshot</code></a></li>
+<li><a href=#cherrypick_snapshot><code>cherrypick_snapshot</code></a></li>
+</ul>
+</li>
+<li><a href=#metadata-management>Metadata management</a>
+<ul>
+<li><a href=#expire_snapshots><code>expire_snapshots</code></a></li>
+<li><a href=#remove_orphan_files><code>remove_orphan_files</code></a></li>
+<li><a href=#rewrite_data_files><code>rewrite_data_files</code></a></li>
+<li><a href=#rewrite_manifests><code>rewrite_manifests</code></a></li>
+</ul>
+</li>
+<li><a href=#table-migration>Table migration</a>
+<ul>
+<li><a href=#snapshot><code>snapshot</code></a></li>
+<li><a href=#migrate><code>migrate</code></a></li>
+<li><a href=#add_files><code>add_files</code></a></li>
+</ul>
+</li>
+<li><a href=#metadata-information><code>Metadata information</code></a>
+<ul>
+<li><a href=#ancestors_of><code>ancestors_of</code></a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown>
+<h1 id=spark-procedures>
+Spark Procedures
+<a class=anchor href=#spark-procedures>#</a>
+</h1>
+<p>To use Iceberg in Spark, first configure <a href=../spark-configuration>Spark catalogs</a>. Stored procedures are only available when using <a href=../spark-configuration#sql-extensions>Iceberg SQL extensions</a> in Spark 3.x.</p>
+<h2 id=usage>
+Usage
+<a class=anchor href=#usage>#</a>
+</h2>
+<p>Procedures can be used from any configured Iceberg catalog with <code>CALL</code>. All procedures are in the namespace <code>system</code>.</p>
+<p><code>CALL</code> supports passing arguments by name (recommended) or by position. Mixing position and named arguments is not supported.</p>
+<h3 id=named-arguments>
+Named arguments
+<a class=anchor href=#named-arguments>#</a>
+</h3>
+<p>All procedure arguments are named. When passing arguments by name, arguments can be in any order and any optional argument can be omitted.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.procedure_name(arg_name_2 <span style=color:#f92672>=&gt;</span> arg_2, arg_name_1 <span style=color:#f92672>=&gt;</span> arg_1)
+</code></pre></div><h3 id=positional-arguments>
+Positional arguments
+<a class=anchor href=#positional-arguments>#</a>
+</h3>
+<p>When passing arguments by position, only the ending arguments may be omitted if they are optional.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.procedure_name(arg_1, arg_2, ... arg_n)
+</code></pre></div><h2 id=snapshot-management>
+Snapshot management
+<a class=anchor href=#snapshot-management>#</a>
+</h2>
+<h3 id=rollback_to_snapshot>
+<code>rollback_to_snapshot</code>
+<a class=anchor href=#rollback_to_snapshot>#</a>
+</h3>
+<p>Roll back a table to a specific snapshot ID.</p>
+<p>To roll back to a specific time, use <a href=#rollback_to_timestamp><code>rollback_to_timestamp</code></a>.</p>
+<blockquote class="book-hint info">
+This procedure invalidates all cached Spark plans that reference the affected table.
+</blockquote>
+<h4 id=usage-1>
+Usage
+<a class=anchor href=#usage-1>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>Argument Name</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>table</code></td>
+<td>✔️</td>
+<td>string</td>
+<td>Name of the table to update</td>
+</tr>
+<tr>
+<td><code>snapshot_id</code></td>
+<td>✔️</td>
+<td>long</td>
+<td>Snapshot ID to rollback to</td>
+</tr>
+</tbody>
+</table>
+<h4 id=output>
+Output
+<a class=anchor href=#output>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>Output Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>previous_snapshot_id</code></td>
+<td>long</td>
+<td>The current snapshot ID before the rollback</td>
+</tr>
+<tr>
+<td><code>current_snapshot_id</code></td>
+<td>long</td>
+<td>The new current snapshot ID</td>
+</tr>
+</tbody>
+</table>
+<h4 id=example>
+Example
+<a class=anchor href=#example>#</a>
+</h4>
+<p>Roll back table <code>db.sample</code> to snapshot ID <code>1</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.rollback_to_snapshot(<span style=color:#e6db74>&#39;db.sample&#39;</span>, <span style=color:#ae81ff>1</span>)
+</code></pre></div><h3 id=rollback_to_timestamp>
+<code>rollback_to_timestamp</code>
+<a class=anchor href=#rollback_to_timestamp>#</a>
+</h3>
+<p>Roll back a table to the snapshot that was current at some time.</p>
+<blockquote class="book-hint info">
+This procedure invalidates all cached Spark plans that reference the affected table.
+</blockquote>
+<h4 id=usage-2>
+Usage
+<a class=anchor href=#usage-2>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>Argument Name</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>table</code></td>
+<td>✔️</td>
+<td>string</td>
+<td>Name of the table to update</td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td>✔️</td>
+<td>timestamp</td>
+<td>A timestamp to rollback to</td>
+</tr>
+</tbody>
+</table>
+<h4 id=output-1>
+Output
+<a class=anchor href=#output-1>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>Output Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>previous_snapshot_id</code></td>
+<td>long</td>
+<td>The current snapshot ID before the rollback</td>
+</tr>
+<tr>
+<td><code>current_snapshot_id</code></td>
+<td>long</td>
+<td>The new current snapshot ID</td>
+</tr>
+</tbody>
+</table>
+<h4 id=example-1>
+Example
+<a class=anchor href=#example-1>#</a>
+</h4>
+<p>Roll back <code>db.sample</code> to one day</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.rollback_to_timestamp(<span style=color:#e6db74>&#39;db.sample&#39;</span>, <span style=color:#66d9ef>TIMESTAMP</span> <span style=color:#e6db74>&#39;2021-06-30 00:00:00.000&#39;</span>)
+</code></pre></div><h3 id=set_current_snapshot>
+<code>set_current_snapshot</code>
+<a class=anchor href=#set_current_snapshot>#</a>
+</h3>
+<p>Sets the current snapshot ID for a table.</p>
+<p>Unlike rollback, the snapshot is not required to be an ancestor of the current table state.</p>
+<blockquote class="book-hint info">
+This procedure invalidates all cached Spark plans that reference the affected table.
+</blockquote>
+<h4 id=usage-3>
+Usage
+<a class=anchor href=#usage-3>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>Argument Name</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>table</code></td>
+<td>✔️</td>
+<td>string</td>
+<td>Name of the table to update</td>
+</tr>
+<tr>
+<td><code>snapshot_id</code></td>
+<td>✔️</td>
+<td>long</td>
+<td>Snapshot ID to set as current</td>
+</tr>
+</tbody>
+</table>
+<h4 id=output-2>
+Output
+<a class=anchor href=#output-2>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>Output Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>previous_snapshot_id</code></td>
+<td>long</td>
+<td>The current snapshot ID before the rollback</td>
+</tr>
+<tr>
+<td><code>current_snapshot_id</code></td>
+<td>long</td>
+<td>The new current snapshot ID</td>
+</tr>
+</tbody>
+</table>
+<h4 id=example-2>
+Example
+<a class=anchor href=#example-2>#</a>
+</h4>
+<p>Set the current snapshot for <code>db.sample</code> to 1:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.set_current_snapshot(<span style=color:#e6db74>&#39;db.sample&#39;</span>, <span style=color:#ae81ff>1</span>)
+</code></pre></div><h3 id=cherrypick_snapshot>
+<code>cherrypick_snapshot</code>
+<a class=anchor href=#cherrypick_snapshot>#</a>
+</h3>
+<p>Cherry-picks changes from a snapshot into the current table state.</p>
+<p>Cherry-picking creates a new snapshot from an existing snapshot without altering or removing the original.</p>
+<p>Only append and dynamic overwrite snapshots can be cherry-picked.</p>
+<blockquote class="book-hint info">
+This procedure invalidates all cached Spark plans that reference the affected table.
+</blockquote>
+<h4 id=usage-4>
+Usage
+<a class=anchor href=#usage-4>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>Argument Name</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>table</code></td>
+<td>✔️</td>
+<td>string</td>
+<td>Name of the table to update</td>
+</tr>
+<tr>
+<td><code>snapshot_id</code></td>
+<td>✔️</td>
+<td>long</td>
+<td>The snapshot ID to cherry-pick</td>
+</tr>
+</tbody>
+</table>
+<h4 id=output-3>
+Output
+<a class=anchor href=#output-3>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>Output Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>source_snapshot_id</code></td>
+<td>long</td>
+<td>The table&rsquo;s current snapshot before the cherry-pick</td>
+</tr>
+<tr>
+<td><code>current_snapshot_id</code></td>
+<td>long</td>
+<td>The snapshot ID created by applying the cherry-pick</td>
+</tr>
+</tbody>
+</table>
+<h4 id=examples>
+Examples
+<a class=anchor href=#examples>#</a>
+</h4>
+<p>Cherry-pick snapshot 1</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.cherrypick_snapshot(<span style=color:#e6db74>&#39;my_table&#39;</span>, <span style=color:#ae81ff>1</span>)
+</code></pre></div><p>Cherry-pick snapshot 1 with named args</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.cherrypick_snapshot(snapshot_id <span style=color:#f92672>=&gt;</span> <span style=color:#ae81ff>1</span>, <span style=color:#66d9ef>table</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;my_table&#39;</span> )
+</code></pre></div><h2 id=metadata-management>
+Metadata management
+<a class=anchor href=#metadata-management>#</a>
+</h2>
+<p>Many <a href=../maintenance>maintenance actions</a> can be performed using Iceberg stored procedures.</p>
+<h3 id=expire_snapshots>
+<code>expire_snapshots</code>
+<a class=anchor href=#expire_snapshots>#</a>
+</h3>
+<p>Each write/update/delete/upsert/compaction in Iceberg produces a new snapshot while keeping the old data and metadata
+around for snapshot isolation and time travel. The <code>expire_snapshots</code> procedure can be used to remove older snapshots
+and their files which are no longer needed.</p>
+<p>This procedure will remove old snapshots and data files which are uniquely required by those old snapshots. This means
+the <code>expire_snapshots</code> procedure will never remove files which are still required by a non-expired snapshot.</p>
+<h4 id=usage-5>
+Usage
+<a class=anchor href=#usage-5>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>Argument Name</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>table</code></td>
+<td>✔️</td>
+<td>string</td>
+<td>Name of the table to update</td>
+</tr>
+<tr>
+<td><code>older_than</code></td>
+<td>️</td>
+<td>timestamp</td>
+<td>Timestamp before which snapshots will be removed (Default: 5 days ago)</td>
+</tr>
+<tr>
+<td><code>retain_last</code></td>
+<td></td>
+<td>int</td>
+<td>Number of ancestor snapshots to preserve regardless of <code>older_than</code> (defaults to 1)</td>
+</tr>
+<tr>
+<td><code>max_concurrent_deletes</code></td>
+<td></td>
+<td>int</td>
+<td>Size of the thread pool used for delete file actions (by default, no thread pool is used)</td>
+</tr>
+</tbody>
+</table>
+<p>If <code>older_than</code> and <code>retain_last</code> are omitted, the table&rsquo;s <a href=./configuration/#table-behavior-properties>expiration properties</a> will be used.</p>
+<h4 id=output-4>
+Output
+<a class=anchor href=#output-4>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>Output Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>deleted_data_files_count</code></td>
+<td>long</td>
+<td>Number of data files deleted by this operation</td>
+</tr>
+<tr>
+<td><code>deleted_manifest_files_count</code></td>
+<td>long</td>
+<td>Number of manifest files deleted by this operation</td>
+</tr>
+<tr>
+<td><code>deleted_manifest_lists_count</code></td>
+<td>long</td>
+<td>Number of manifest List files deleted by this operation</td>
+</tr>
+</tbody>
+</table>
+<h4 id=examples-1>
+Examples
+<a class=anchor href=#examples-1>#</a>
+</h4>
+<p>Remove snapshots older than one day, but retain the last 100 snapshots:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> hive_prod.<span style=color:#66d9ef>system</span>.expire_snapshots(<span style=color:#e6db74>&#39;db.sample&#39;</span>, <span style=color:#66d9ef>TIMESTAMP</span> <span style=color:#e6db74>&#39;2021-06-30 00:00:00.000&#39;</span>, <span style=color:#ae81ff>100</span>)
+</code></pre></div><p>Erase all snapshots older than the current timestamp but retain the last 5 snapshots:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> hive_prod.<span style=color:#66d9ef>system</span>.expire_snapshots(<span style=color:#66d9ef>table</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;db.sample&#39;</span>, older_than <span style=color:#f92672>=&gt;</span> now(), retain_last <span style=color:#f92672>=&gt;</span> <span style=color:#ae81ff>5</span>)
+</code></pre></div><h3 id=remove_orphan_files>
+<code>remove_orphan_files</code>
+<a class=anchor href=#remove_orphan_files>#</a>
+</h3>
+<p>Used to remove files which are not referenced in any metadata files of an Iceberg table and can thus be considered &ldquo;orphaned&rdquo;.</p>
+<h4 id=usage-6>
+Usage
+<a class=anchor href=#usage-6>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>Argument Name</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>table</code></td>
+<td>✔️</td>
+<td>string</td>
+<td>Name of the table to clean</td>
+</tr>
+<tr>
+<td><code>older_than</code></td>
+<td>️</td>
+<td>timestamp</td>
+<td>Remove orphan files created before this timestamp (Defaults to 3 days ago)</td>
+</tr>
+<tr>
+<td><code>location</code></td>
+<td></td>
+<td>string</td>
+<td>Directory to look for files in (defaults to the table&rsquo;s location)</td>
+</tr>
+<tr>
+<td><code>dry_run</code></td>
+<td></td>
+<td>boolean</td>
+<td>When true, don&rsquo;t actually remove files (defaults to false)</td>
+</tr>
+<tr>
+<td><code>max_concurrent_deletes</code></td>
+<td></td>
+<td>int</td>
+<td>Size of the thread pool used for delete file actions (by default, no thread pool is used)</td>
+</tr>
+</tbody>
+</table>
+<h4 id=output-5>
+Output
+<a class=anchor href=#output-5>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>Output Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>orphan_file_location</code></td>
+<td>String</td>
+<td>The path to each file determined to be an orphan by this command</td>
+</tr>
+</tbody>
+</table>
+<h4 id=examples-2>
+Examples
+<a class=anchor href=#examples-2>#</a>
+</h4>
+<p>List all the files that are candidates for removal by performing a dry run of the <code>remove_orphan_files</code> command on this table without actually removing them:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.remove_orphan_files(<span style=color:#66d9ef>table</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;db.sample&#39;</span>, dry_run <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>true</span>)
+</code></pre></div><p>Remove any files in the <code>tablelocation/data</code> folder which are not known to the table <code>db.sample</code>.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.remove_orphan_files(<span style=color:#66d9ef>table</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;db.sample&#39;</span>, <span style=color:#66d9ef>location</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;tablelocation/data&#39;</span>)
+</code></pre></div><h3 id=rewrite_data_files>
+<code>rewrite_data_files</code>
+<a class=anchor href=#rewrite_data_files>#</a>
+</h3>
+<p>Iceberg tracks each data file in a table. More data files leads to more metadata stored in manifest files, and small data files causes an unnecessary amount of metadata and less efficient queries from file open costs.</p>
+<p>Iceberg can compact data files in parallel using Spark with the <code>rewriteDataFiles</code> action. This will combine small files into larger files to reduce metadata overhead and runtime file open cost.</p>
+<h4 id=usage-7>
+Usage
+<a class=anchor href=#usage-7>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>Argument Name</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>table</code></td>
+<td>✔️</td>
+<td>string</td>
+<td>Name of the table to update</td>
+</tr>
+<tr>
+<td><code>strategy</code></td>
+<td></td>
+<td>string</td>
+<td>Name of the strategy - binpack or sort. Defaults to binpack strategy</td>
+</tr>
+<tr>
+<td><code>sort_order</code></td>
+<td></td>
+<td>string</td>
+<td>Comma separated sort_order_column. Where sort_order_column is a space separated sort order info per column (ColumnName SortDirection NullOrder). SortDirection can be ASC or DESC. NullOrder can be NULLS FIRST or NULLS LAST</td>
+</tr>
+<tr>
+<td><code>options</code></td>
+<td>️</td>
+<td>map&lt;string, string></td>
+<td>Options to be used for actions</td>
+</tr>
+<tr>
+<td><code>where</code></td>
+<td>️</td>
+<td>string</td>
+<td>predicate as a string used for filtering the files. Note that all files that may contain data matching the filter will be selected for rewriting</td>
+</tr>
+</tbody>
+</table>
+<p>See the [<code>RewriteDataFiles</code> Javadoc](./javadoc/{{ versions.iceberg }}/org/apache/iceberg/actions/RewriteDataFiles.html#field.summary), [<code>BinPackStrategy</code> Javadoc](./javadoc/{{ versions.iceberg }}/org/apache/iceberg/actions/BinPackStrategy.html#field.summary)
+and [<code>SortStrategy</code> Javadoc](./javadoc/{{ versions.iceberg }}/org/apache/iceberg/actions/SortStrategy.html#field.summary)
+for list of all the supported options for this action.</p>
+<h4 id=output-6>
+Output
+<a class=anchor href=#output-6>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>Output Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rewritten_data_files_count</code></td>
+<td>int</td>
+<td>Number of data which were re-written by this command</td>
+</tr>
+<tr>
+<td><code>added_data_files_count</code></td>
+<td>int</td>
+<td>Number of new data files which were written by this command</td>
+</tr>
+</tbody>
+</table>
+<h4 id=examples-3>
+Examples
+<a class=anchor href=#examples-3>#</a>
+</h4>
+<p>Rewrite the data files in table <code>db.sample</code> using the default rewrite algorithm of bin-packing to combine small files
+and also split large files according to the default write size of the table.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.rewrite_data_files(<span style=color:#e6db74>&#39;db.sample&#39;</span>)
+</code></pre></div><p>Rewrite the data files in table <code>db.sample</code> by sorting all the data on id and name
+using the same defaults as bin-pack to determine which files to rewrite.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.rewrite_data_files(<span style=color:#66d9ef>table</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;db.sample&#39;</span>, strategy <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;sort&#39;</span>, sort_order <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;id DESC NULLS LAST,name ASC NULLS FIRST&#39;</span>)
+</code></pre></div><p>Rewrite the data files in table <code>db.sample</code> using bin-pack strategy in any partition where more than 2 or more files need to be rewritten.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.rewrite_data_files(<span style=color:#66d9ef>table</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;db.sample&#39;</span>, <span style=color:#66d9ef>options</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>map</span>(<span style=color:#e6db74>&#39;min-input-files&#39;</span>,<span style=color:#e6db74>&#39;2&#39;</span>))
+</code></pre></div><p>Rewrite the data files in table <code>db.sample</code> and select the files that may contain data matching the filter (id = 3 and name = &ldquo;foo&rdquo;) to be rewritten.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.rewrite_data_files(<span style=color:#66d9ef>table</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;db.sample&#39;</span>, <span style=color:#66d9ef>where</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;id = 3 and name = &#34;foo&#34;&#39;</span>)
+</code></pre></div><h3 id=rewrite_manifests>
+<code>rewrite_manifests</code>
+<a class=anchor href=#rewrite_manifests>#</a>
+</h3>
+<p>Rewrite manifests for a table to optimize scan planning.</p>
+<p>Data files in manifests are sorted by fields in the partition spec. This procedure runs in parallel using a Spark job.</p>
+<p>See the <a href=../../../javadoc/0.13.0/org/apache/iceberg/actions/RewriteManifestsAction.html><code>RewriteManifestsAction</code> Javadoc</a>
+to see more configuration options.</p>
+<blockquote class="book-hint info">
+This procedure invalidates all cached Spark plans that reference the affected table.
+</blockquote>
+<h4 id=usage-8>
+Usage
+<a class=anchor href=#usage-8>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>Argument Name</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>table</code></td>
+<td>✔️</td>
+<td>string</td>
+<td>Name of the table to update</td>
+</tr>
+<tr>
+<td><code>use_caching</code></td>
+<td>️</td>
+<td>boolean</td>
+<td>Use Spark caching during operation (defaults to true)</td>
+</tr>
+</tbody>
+</table>
+<h4 id=output-7>
+Output
+<a class=anchor href=#output-7>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>Output Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rewritten_manifests_count</code></td>
+<td>int</td>
+<td>Number of manifests which were re-written by this command</td>
+</tr>
+<tr>
+<td><code>added_mainfests_count</code></td>
+<td>int</td>
+<td>Number of new manifest files which were written by this command</td>
+</tr>
+</tbody>
+</table>
+<h4 id=examples-4>
+Examples
+<a class=anchor href=#examples-4>#</a>
+</h4>
+<p>Rewrite the manifests in table <code>db.sample</code> and align manifest files with table partitioning.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.rewrite_manifests(<span style=color:#e6db74>&#39;db.sample&#39;</span>)
+</code></pre></div><p>Rewrite the manifests in table <code>db.sample</code> and disable the use of Spark caching. This could be done to avoid memory issues on executors.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.rewrite_manifests(<span style=color:#e6db74>&#39;db.sample&#39;</span>, <span style=color:#66d9ef>false</span>)
+</code></pre></div><h2 id=table-migration>
+Table migration
+<a class=anchor href=#table-migration>#</a>
+</h2>
+<p>The <code>snapshot</code> and <code>migrate</code> procedures help test and migrate existing Hive or Spark tables to Iceberg.</p>
+<h3 id=snapshot>
+<code>snapshot</code>
+<a class=anchor href=#snapshot>#</a>
+</h3>
+<p>Create a light-weight temporary copy of a table for testing, without changing the source table.</p>
+<p>The newly created table can be changed or written to without affecting the source table, but the snapshot uses the original table&rsquo;s data files.</p>
+<p>When inserts or overwrites run on the snapshot, new files are placed in the snapshot table&rsquo;s location rather than the original table location.</p>
+<p>When finished testing a snapshot table, clean it up by running <code>DROP TABLE</code>.</p>
+<blockquote class="book-hint info">
+Because tables created by <code>snapshot</code> are not the sole owners of their data files, they are prohibited from
+actions like <code>expire_snapshots</code> which would physically delete data files. Iceberg deletes, which only effect metadata,
+are still allowed. In addition, any operations which affect the original data files will disrupt the Snapshot&rsquo;s
+integrity. DELETE statements executed against the original Hive table will remove original data files and the
+<code>snapshot</code> table will no longer be able to access them.
+</blockquote>
+<p>See <a href=#migrate><code>migrate</code></a> to replace an existing table with an Iceberg table.</p>
+<h4 id=usage-9>
+Usage
+<a class=anchor href=#usage-9>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>Argument Name</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>source_table</code></td>
+<td>✔️</td>
+<td>string</td>
+<td>Name of the table to snapshot</td>
+</tr>
+<tr>
+<td><code>table</code></td>
+<td>✔️</td>
+<td>string</td>
+<td>Name of the new Iceberg table to create</td>
+</tr>
+<tr>
+<td><code>location</code></td>
+<td></td>
+<td>string</td>
+<td>Table location for the new table (delegated to the catalog by default)</td>
+</tr>
+<tr>
+<td><code>properties</code></td>
+<td>️</td>
+<td>map&lt;string, string></td>
+<td>Properties to add to the newly created table</td>
+</tr>
+</tbody>
+</table>
+<h4 id=output-8>
+Output
+<a class=anchor href=#output-8>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>Output Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>imported_files_count</code></td>
+<td>long</td>
+<td>Number of files added to the new table</td>
+</tr>
+</tbody>
+</table>
+<h4 id=examples-5>
+Examples
+<a class=anchor href=#examples-5>#</a>
+</h4>
+<p>Make an isolated Iceberg table which references table <code>db.sample</code> named <code>db.snap</code> at the
+catalog&rsquo;s default location for <code>db.snap</code>.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.snapshot(<span style=color:#e6db74>&#39;db.sample&#39;</span>, <span style=color:#e6db74>&#39;db.snap&#39;</span>)
+</code></pre></div><p>Migrate an isolated Iceberg table which references table <code>db.sample</code> named <code>db.snap</code> at
+a manually specified location <code>/tmp/temptable/</code>.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.snapshot(<span style=color:#e6db74>&#39;db.sample&#39;</span>, <span style=color:#e6db74>&#39;db.snap&#39;</span>, <span style=color:#e6db74>&#39;/tmp/temptable/&#39;</span>)
+</code></pre></div><h3 id=migrate>
+<code>migrate</code>
+<a class=anchor href=#migrate>#</a>
+</h3>
+<p>Replace a table with an Iceberg table, loaded with the source&rsquo;s data files.</p>
+<p>Table schema, partitioning, properties, and location will be copied from the source table.</p>
+<p>Migrate will fail if any table partition uses an unsupported format. Supported formats are Avro, Parquet, and ORC.
+Existing data files are added to the Iceberg table&rsquo;s metadata and can be read using a name-to-id mapping created from the original table schema.</p>
+<p>To leave the original table intact while testing, use <a href=#snapshot><code>snapshot</code></a> to create new temporary table that shares source data files and schema.</p>
+<h4 id=usage-10>
+Usage
+<a class=anchor href=#usage-10>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>Argument Name</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>table</code></td>
+<td>✔️</td>
+<td>string</td>
+<td>Name of the table to migrate</td>
+</tr>
+<tr>
+<td><code>properties</code></td>
+<td>️</td>
+<td>map&lt;string, string></td>
+<td>Properties for the new Iceberg table</td>
+</tr>
+</tbody>
+</table>
+<h4 id=output-9>
+Output
+<a class=anchor href=#output-9>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>Output Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>migrated_files_count</code></td>
+<td>long</td>
+<td>Number of files appended to the Iceberg table</td>
+</tr>
+</tbody>
+</table>
+<h4 id=examples-6>
+Examples
+<a class=anchor href=#examples-6>#</a>
+</h4>
+<p>Migrate the table <code>db.sample</code> in Spark&rsquo;s default catalog to an Iceberg table and add a property &lsquo;foo&rsquo; set to &lsquo;bar&rsquo;:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.migrate(<span style=color:#e6db74>&#39;spark_catalog.db.sample&#39;</span>, <span style=color:#66d9ef>map</span>(<span style=color:#e6db74>&#39;foo&#39;</span>, <span style=color:#e6db74>&#39;bar&#39;</span>))
+</code></pre></div><p>Migrate <code>db.sample</code> in the current catalog to an Iceberg table without adding any additional properties:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.migrate(<span style=color:#e6db74>&#39;db.sample&#39;</span>)
+</code></pre></div><h3 id=add_files>
+<code>add_files</code>
+<a class=anchor href=#add_files>#</a>
+</h3>
+<p>Attempts to directly add files from a Hive or file based table into a given Iceberg table. Unlike migrate or
+snapshot, <code>add_files</code> can import files from a specific partition or partitions and does not create a new Iceberg table.
+This command will create metadata for the new files and will not move them. This procedure will not analyze the schema
+of the files to determine if they actually match the schema of the Iceberg table. Upon completion, the Iceberg table
+will then treat these files as if they are part of the set of files owned by Iceberg. This means any subsequent
+<code>expire_snapshot</code> calls will be able to physically delete the added files. This method should not be used if
+<code>migrate</code> or <code>snapshot</code> are possible.</p>
+<h4 id=usage-11>
+Usage
+<a class=anchor href=#usage-11>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>Argument Name</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>table</code></td>
+<td>✔️</td>
+<td>string</td>
+<td>Table which will have files added to</td>
+</tr>
+<tr>
+<td><code>source_table</code></td>
+<td>✔️</td>
+<td>string</td>
+<td>Table where files should come from, paths are also possible in the form of `file_format`.`path`</td>
+</tr>
+<tr>
+<td><code>partition_filter</code></td>
+<td>️</td>
+<td>map&lt;string, string></td>
+<td>A map of partitions in the source table to import from</td>
+</tr>
+</tbody>
+</table>
+<p>Warning : Schema is not validated, adding files with different schema to the Iceberg table will cause issues.</p>
+<p>Warning : Files added by this method can be physically deleted by Iceberg operations</p>
+<h4 id=examples-7>
+Examples
+<a class=anchor href=#examples-7>#</a>
+</h4>
+<p>Add the files from table <code>db.src_table</code>, a Hive or Spark table registered in the session Catalog, to Iceberg table
+<code>db.tbl</code>. Only add files that exist within partitions where <code>part_col_1</code> is equal to <code>A</code>.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> spark_catalog.<span style=color:#66d9ef>system</span>.add_files(
+<span style=color:#66d9ef>table</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;db.tbl&#39;</span>,
+source_table <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;db.src_tbl&#39;</span>,
+partition_filter <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>map</span>(<span style=color:#e6db74>&#39;part_col_1&#39;</span>, <span style=color:#e6db74>&#39;A&#39;</span>)
+)
+</code></pre></div><p>Add files from a <code>parquet</code> file based table at location <code>path/to/table</code> to the Iceberg table <code>db.tbl</code>. Add all
+files regardless of what partition they belong to.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> spark_catalog.<span style=color:#66d9ef>system</span>.add_files(
+  <span style=color:#66d9ef>table</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;db.tbl&#39;</span>,
+  source_table <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;`parquet`.`path/to/table`&#39;</span>
+)
+</code></pre></div><h2 id=metadata-information>
+<code>Metadata information</code>
+<a class=anchor href=#metadata-information>#</a>
+</h2>
+<h3 id=ancestors_of>
+<code>ancestors_of</code>
+<a class=anchor href=#ancestors_of>#</a>
+</h3>
+<p>Report the live snapshot IDs of parents of a specified snapshot</p>
+<h4 id=usage-12>
+Usage
+<a class=anchor href=#usage-12>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>Argument Name</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>table</code></td>
+<td>✔️</td>
+<td>string</td>
+<td>Name of the table to report live snapshot IDs</td>
+</tr>
+<tr>
+<td><code>snapshot_id</code></td>
+<td>️</td>
+<td>long</td>
+<td>Use a specified snapshot to get the live snapshot IDs of parents</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>tip : Using snapshot_id</p>
+<p>Given snapshots history with roll back to B and addition of C' -> D'</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>A -&gt; B - &gt; C -&gt; D
+      <span style=color:#ae81ff>\ </span>-&gt; C<span style=color:#e6db74>&#39; -&gt; (D&#39;</span><span style=color:#f92672>)</span>
+</code></pre></div><p>Not specifying the snapshot ID would return A -> B -> C' -> D', while providing the snapshot ID of
+D as an argument would return A-> B -> C -> D</p>
+</blockquote>
+<h4 id=output-10>
+Output
+<a class=anchor href=#output-10>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>Output Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>snapshot_id</code></td>
+<td>long</td>
+<td>the ancestor snapshot id</td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td>long</td>
+<td>snapshot creation time</td>
+</tr>
+</tbody>
+</table>
+<h4 id=examples-8>
+Examples
+<a class=anchor href=#examples-8>#</a>
+</h4>
+<p>Get all the snapshot ancestors of current snapshots(default)</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> spark_catalog.<span style=color:#66d9ef>system</span>.ancestors_of(<span style=color:#e6db74>&#39;db.tbl&#39;</span>)
+</code></pre></div><p>Get all the snapshot ancestors by a particular snapshot</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> spark_catalog.<span style=color:#66d9ef>system</span>.ancestors_of(<span style=color:#e6db74>&#39;db.tbl&#39;</span>, <span style=color:#ae81ff>1</span>)
+<span style=color:#66d9ef>CALL</span> spark_catalog.<span style=color:#66d9ef>system</span>.ancestors_of(snapshot_id <span style=color:#f92672>=&gt;</span> <span style=color:#ae81ff>1</span>, <span style=color:#66d9ef>table</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;db.tbl&#39;</span>)
+</code></pre></div></article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#usage>Usage</a>
+<ul>
+<li><a href=#named-arguments>Named arguments</a></li>
+<li><a href=#positional-arguments>Positional arguments</a></li>
+</ul>
+</li>
+<li><a href=#snapshot-management>Snapshot management</a>
+<ul>
+<li><a href=#rollback_to_snapshot><code>rollback_to_snapshot</code></a></li>
+<li><a href=#rollback_to_timestamp><code>rollback_to_timestamp</code></a></li>
+<li><a href=#set_current_snapshot><code>set_current_snapshot</code></a></li>
+<li><a href=#cherrypick_snapshot><code>cherrypick_snapshot</code></a></li>
+</ul>
+</li>
+<li><a href=#metadata-management>Metadata management</a>
+<ul>
+<li><a href=#expire_snapshots><code>expire_snapshots</code></a></li>
+<li><a href=#remove_orphan_files><code>remove_orphan_files</code></a></li>
+<li><a href=#rewrite_data_files><code>rewrite_data_files</code></a></li>
+<li><a href=#rewrite_manifests><code>rewrite_manifests</code></a></li>
+</ul>
+</li>
+<li><a href=#table-migration>Table migration</a>
+<ul>
+<li><a href=#snapshot><code>snapshot</code></a></li>
+<li><a href=#migrate><code>migrate</code></a></li>
+<li><a href=#add_files><code>add_files</code></a></li>
+</ul>
+</li>
+<li><a href=#metadata-information><code>Metadata information</code></a>
+<ul>
+<li><a href=#ancestors_of><code>ancestors_of</code></a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>

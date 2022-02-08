@@ -1,0 +1,536 @@
+<!doctype html><html lang=en dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Flink Connector #  Apache Flink supports creating Iceberg table directly without creating the explicit Flink catalog in Flink SQL. That means we can just create an iceberg table by specifying 'connector'='iceberg' table option in Flink SQL which is similar to usage in the Flink official document.
+In Flink, the SQL CREATE TABLE test (..) WITH ('connector'='iceberg', ...) will create a Flink table in current Flink catalog (use GenericInMemoryCatalog by default), which is just mapping to the underlying iceberg table instead of maintaining iceberg table directly in current Flink catalog.">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content>
+<meta property="og:description" content="Flink Connector #  Apache Flink supports creating Iceberg table directly without creating the explicit Flink catalog in Flink SQL. That means we can just create an iceberg table by specifying 'connector'='iceberg' table option in Flink SQL which is similar to usage in the Flink official document.
+In Flink, the SQL CREATE TABLE test (..) WITH ('connector'='iceberg', ...) will create a Flink table in current Flink catalog (use GenericInMemoryCatalog by default), which is just mapping to the underlying iceberg table instead of maintaining iceberg table directly in current Flink catalog.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://iceberg.apache.org/docs/0.13.0/flink-connector/"><meta property="article:section" content="docs">
+<title>Flink Connector | Apache Iceberg</title>
+<link rel=manifest href=/docs/0.13.0/manifest.json>
+<link rel=icon href=/docs/0.13.0/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/docs/0.13.0/book.min.179e158d24f3ef709534173fd8b1c1e541a4fa3e23c1b5d8e887464c58949cc9.css integrity="sha256-F54VjSTz73CVNBc/2LHB5UGk+j4jwbXY6IdGTFiUnMk=" crossorigin=anonymous>
+<script defer src=/docs/0.13.0/flexsearch.min.js></script>
+<script defer src=/docs/0.13.0/en.search.min.567e2d138bb78093cae5579d4329807546e9ef622b25c07cce6dc0a4872608b4.js integrity="sha256-Vn4tE4u3gJPK5VedQymAdUbp72IrJcB8zm3ApIcmCLQ=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/docs/0.13.0/../../><img src=/docs/0.13.0/img/iceberg-logo-icon.png alt=Logo><span>Apache Iceberg</span>
+</a>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../releases>
+<img id=version-shield src=https://img.shields.io/badge/version-0.13.0-blue alt>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+<a href=https://github.com/apache/iceberg target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/GitHub-Mark.png target=_blank class=top-external-icon>
+</a>
+<a href=https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/Slack_Mark_Web.png target=_blank class=top-external-icon>
+</a>
+</div>
+<ul>
+<li class=book-section-flats>
+<span>
+<i class="fa fa-table fa-fw"></i>
+Tables</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/configuration/>
+Configuration</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/evolution/>
+Evolution</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/maintenance/>
+Maintenance</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/partitioning/>
+Partitioning</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/performance/>
+Performance</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/reliability/>
+Reliability</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/schemas/>
+Schemas</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<span>
+<i class="fa fa-star-o fa-fw"></i>
+Spark</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/getting-started/>
+Getting Started</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-configuration/>
+Configuration</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-ddl/>
+DDL</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-procedures/>
+Procedures</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-queries/>
+Queries</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-structured-streaming/>
+Structured Streaming</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-writes/>
+Writes</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<span>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/flink-logo.png class="navigation-icon fa-fw">Flink</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/flink/>
+Getting Started</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/flink-connector/ class=active>
+Flink Connector</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<a href=https://iceberg.apache.org/docs/0.13.0/hive/>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/hive-logo.png class="navigation-icon fa-fw">Hive</a>
+<ul>
+</ul>
+</li>
+<li>
+<a href=https://trino.io/docs/current/connector/iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/trino-logo.png class="navigation-icon fa-fw">
+Trino
+</a>
+</li>
+<li>
+<a href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/prestodb-logo.png class="navigation-icon fa-fw">
+Presto
+</a>
+</li>
+<li>
+<a href=https://docs.dremio.com/data-formats/apache-iceberg/ target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/dremio-logo.png class="navigation-icon fa-fw">
+Dremio
+</a>
+</li>
+<li>
+<a href=https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/athena-logo.png class="navigation-icon fa-fw">
+Amazon Athena
+</a>
+</li>
+<li>
+<a href=https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-create-cluster.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/emr-logo.png class="navigation-icon fa-fw">
+Amazon EMR
+</a>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-56605d8e971a871885e28ee5142728bf class=toggle>
+<label for=section-56605d8e971a871885e28ee5142728bf class="flex justify-between">
+<a role=button>
+<i class="fa fa-handshake-o fa-fw"></i>
+Integrations</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/aws/>
+AWS</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/jdbc/>
+JDBC</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/nessie/>
+Nessie</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-bf7b3283e3790c00c8caaa140299052b class=toggle>
+<label for=section-bf7b3283e3790c00c8caaa140299052b class="flex justify-between">
+<a role=button>
+<i class="fa fa-connectdevelop fa-fw"></i>
+API</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/java-api-quickstart/>
+Java Quickstart</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/api/>
+Java API</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/custom-catalog/>
+Java Custom Catalog</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../javadoc/0.13.0>
+Javadocs
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/python-quickstart/>
+Python Quickstart</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/python-api-intro/>
+Python API</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/python-feature-support/>
+Python Feature Support</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-7e66f1754ca5d93e20ecdc89df5b8b28 class=toggle>
+<label for=section-7e66f1754ca5d93e20ecdc89df5b8b28 class="flex justify-between">
+<a role=button>
+<i class="fa fa-users fa-fw"></i>
+Community</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../blogs>
+Blogs
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../community>
+Join
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../talks>
+Talks
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-87dda23e9104fe3231cee3bc88a2d754 class=toggle>
+<label for=section-87dda23e9104fe3231cee3bc88a2d754 class="flex justify-between">
+<a role=button>
+<i class="fa fa-object-ungroup fa-fw"></i>
+Format</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../spec>
+Spec
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../terms>
+Terms
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-2e5d3f5f142758d8dd368e9c281dd08e class=toggle>
+<label for=section-2e5d3f5f142758d8dd368e9c281dd08e class="flex justify-between">
+<a role=button>
+<i class="fa fa-wrench fa-fw"></i>
+Project</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../how-to-release>
+How to Release
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../roadmap>
+Roadmap
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../security>
+Security
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../trademarks>
+Trademarks
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-4ddb27a8612bc8118c0b36386905d332 class=toggle>
+<label for=section-4ddb27a8612bc8118c0b36386905d332 class="flex justify-between">
+<a role=button>
+<i class="fa fa-code-fork fa-fw"></i>
+Releases</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../latest>
+Latest
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../0.13.0>
+0.13.0
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../0.12.1>
+0.12.1
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../releases>
+Release Notes
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-296746d27808aa768e500824aaf2adea class=toggle>
+<label for=section-296746d27808aa768e500824aaf2adea class="flex justify-between">
+<a role=button>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/asf.png class="navigation-icon fa-fw">ASF</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/licenses/ target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+License
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/security/ target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Security
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/foundation/thanks.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Sponsors
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/foundation/sponsorship.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Donate
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/events/current-event.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Events
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<link rel=stylesheet href=/docs/0.13.0/fontawesome/css/font-awesome.min.css>
+<label for=menu-control>
+<img src=/docs/0.13.0/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Flink Connector</strong>
+<label for=toc-control>
+<img src=/docs/0.13.0/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#table-managed-in-hive-catalog>Table managed in Hive catalog.</a></li>
+<li><a href=#table-managed-in-hadoop-catalog>Table managed in hadoop catalog</a></li>
+<li><a href=#table-managed-in-custom-catalog>Table managed in custom catalog</a></li>
+<li><a href=#a-complete-example>A complete example.</a></li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown>
+<h1 id=flink-connector>
+Flink Connector
+<a class=anchor href=#flink-connector>#</a>
+</h1>
+<p>Apache Flink supports creating Iceberg table directly without creating the explicit Flink catalog in Flink SQL. That means we can just create an iceberg table by specifying <code>'connector'='iceberg'</code> table option in Flink SQL which is similar to usage in the Flink official <a href=https://nightlies.apache.org/flink/flink-docs-release-1.13/docs/connectors/table/overview/>document</a>.</p>
+<p>In Flink, the SQL <code>CREATE TABLE test (..) WITH ('connector'='iceberg', ...)</code> will create a Flink table in current Flink catalog (use <a href=https://ci.apache.org/projects/flink/flink-docs-release-1.13/docs/dev/table/catalogs/#genericinmemorycatalog>GenericInMemoryCatalog</a> by default),
+which is just mapping to the underlying iceberg table instead of maintaining iceberg table directly in current Flink catalog.</p>
+<p>To create the table in Flink SQL by using SQL syntax <code>CREATE TABLE test (..) WITH ('connector'='iceberg', ...)</code>, Flink iceberg connector provides the following table properties:</p>
+<ul>
+<li><code>connector</code>: Use the constant <code>iceberg</code>.</li>
+<li><code>catalog-name</code>: User-specified catalog name. It&rsquo;s required because the connector don&rsquo;t have any default value.</li>
+<li><code>catalog-type</code>: Default to use <code>hive</code> if don&rsquo;t specify any value. The optional values are:
+<ul>
+<li><code>hive</code>: The Hive metastore catalog.</li>
+<li><code>hadoop</code>: The hadoop catalog.</li>
+<li><code>custom</code>: The customized catalog, see <a href=../custom-catalog>custom catalog</a> for more details.</li>
+</ul>
+</li>
+<li><code>catalog-database</code>: The iceberg database name in the backend catalog, use the current flink database name by default.</li>
+<li><code>catalog-table</code>: The iceberg table name in the backend catalog. Default to use the table name in the flink <code>CREATE TABLE</code> sentence.</li>
+</ul>
+<h2 id=table-managed-in-hive-catalog>
+Table managed in Hive catalog.
+<a class=anchor href=#table-managed-in-hive-catalog>#</a>
+</h2>
+<p>Before executing the following SQL, please make sure you&rsquo;ve configured the Flink SQL client correctly according to the quick start <a href=../flink>document</a>.</p>
+<p>The following SQL will create a Flink table in the current Flink catalog, which maps to the iceberg table <code>default_database.iceberg_table</code> managed in iceberg catalog.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> flink_table (
+    id   BIGINT,
+    <span style=color:#66d9ef>data</span> STRING
+) <span style=color:#66d9ef>WITH</span> (
+    <span style=color:#e6db74>&#39;connector&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;iceberg&#39;</span>,
+    <span style=color:#e6db74>&#39;catalog-name&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;hive_prod&#39;</span>,
+    <span style=color:#e6db74>&#39;uri&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;thrift://localhost:9083&#39;</span>,
+    <span style=color:#e6db74>&#39;warehouse&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;hdfs://nn:8020/path/to/warehouse&#39;</span>
+);
+</code></pre></div><p>If you want to create a Flink table mapping to a different iceberg table managed in Hive catalog (such as <code>hive_db.hive_iceberg_table</code> in Hive), then you can create Flink table as following:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> flink_table (
+    id   BIGINT,
+    <span style=color:#66d9ef>data</span> STRING
+) <span style=color:#66d9ef>WITH</span> (
+    <span style=color:#e6db74>&#39;connector&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;iceberg&#39;</span>,
+    <span style=color:#e6db74>&#39;catalog-name&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;hive_prod&#39;</span>,
+    <span style=color:#e6db74>&#39;catalog-database&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;hive_db&#39;</span>,
+    <span style=color:#e6db74>&#39;catalog-table&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;hive_iceberg_table&#39;</span>,
+    <span style=color:#e6db74>&#39;uri&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;thrift://localhost:9083&#39;</span>,
+    <span style=color:#e6db74>&#39;warehouse&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;hdfs://nn:8020/path/to/warehouse&#39;</span>
+);
+</code></pre></div><blockquote class="book-hint info">
+The underlying catalog database (<code>hive_db</code> in the above example) will be created automatically if it does not exist when writing records into the Flink table.
+</blockquote>
+<h2 id=table-managed-in-hadoop-catalog>
+Table managed in hadoop catalog
+<a class=anchor href=#table-managed-in-hadoop-catalog>#</a>
+</h2>
+<p>The following SQL will create a Flink table in current Flink catalog, which maps to the iceberg table <code>default_database.flink_table</code> managed in hadoop catalog.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> flink_table (
+    id   BIGINT,
+    <span style=color:#66d9ef>data</span> STRING
+) <span style=color:#66d9ef>WITH</span> (
+    <span style=color:#e6db74>&#39;connector&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;iceberg&#39;</span>,
+    <span style=color:#e6db74>&#39;catalog-name&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;hadoop_prod&#39;</span>,
+    <span style=color:#e6db74>&#39;catalog-type&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;hadoop&#39;</span>,
+    <span style=color:#e6db74>&#39;warehouse&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;hdfs://nn:8020/path/to/warehouse&#39;</span>
+);
+</code></pre></div><h2 id=table-managed-in-custom-catalog>
+Table managed in custom catalog
+<a class=anchor href=#table-managed-in-custom-catalog>#</a>
+</h2>
+<p>The following SQL will create a Flink table in current Flink catalog, which maps to the iceberg table <code>default_database.flink_table</code> managed in custom catalog.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> flink_table (
+    id   BIGINT,
+    <span style=color:#66d9ef>data</span> STRING
+) <span style=color:#66d9ef>WITH</span> (
+    <span style=color:#e6db74>&#39;connector&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;iceberg&#39;</span>,
+    <span style=color:#e6db74>&#39;catalog-name&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;custom_prod&#39;</span>,
+    <span style=color:#e6db74>&#39;catalog-type&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;custom&#39;</span>,
+    <span style=color:#e6db74>&#39;catalog-impl&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;com.my.custom.CatalogImpl&#39;</span>,
+     <span style=color:#75715e>-- More table properties for the customized catalog
+</span><span style=color:#75715e></span>    <span style=color:#e6db74>&#39;my-additional-catalog-config&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;my-value&#39;</span>,
+     ...
+);
+</code></pre></div><p>Please check sections under the Integrations tab for all custom catalogs.</p>
+<h2 id=a-complete-example>
+A complete example.
+<a class=anchor href=#a-complete-example>#</a>
+</h2>
+<p>Take the Hive catalog as an example:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> flink_table (
+    id   BIGINT,
+    <span style=color:#66d9ef>data</span> STRING
+) <span style=color:#66d9ef>WITH</span> (
+    <span style=color:#e6db74>&#39;connector&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;iceberg&#39;</span>,
+    <span style=color:#e6db74>&#39;catalog-name&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;hive_prod&#39;</span>,
+    <span style=color:#e6db74>&#39;uri&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;thrift://localhost:9083&#39;</span>,
+    <span style=color:#e6db74>&#39;warehouse&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;file:///path/to/warehouse&#39;</span>
+);
+
+<span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> flink_table <span style=color:#66d9ef>VALUES</span> (<span style=color:#ae81ff>1</span>, <span style=color:#e6db74>&#39;AAA&#39;</span>), (<span style=color:#ae81ff>2</span>, <span style=color:#e6db74>&#39;BBB&#39;</span>), (<span style=color:#ae81ff>3</span>, <span style=color:#e6db74>&#39;CCC&#39;</span>);
+
+<span style=color:#66d9ef>SET</span> execution.<span style=color:#66d9ef>result</span><span style=color:#f92672>-</span><span style=color:#66d9ef>mode</span><span style=color:#f92672>=</span>tableau;
+<span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> flink_table;
+
+<span style=color:#f92672>+</span><span style=color:#75715e>----+------+
+</span><span style=color:#75715e></span><span style=color:#f92672>|</span> id <span style=color:#f92672>|</span> <span style=color:#66d9ef>data</span> <span style=color:#f92672>|</span>
+<span style=color:#f92672>+</span><span style=color:#75715e>----+------+
+</span><span style=color:#75715e></span><span style=color:#f92672>|</span>  <span style=color:#ae81ff>1</span> <span style=color:#f92672>|</span>  AAA <span style=color:#f92672>|</span>
+<span style=color:#f92672>|</span>  <span style=color:#ae81ff>2</span> <span style=color:#f92672>|</span>  BBB <span style=color:#f92672>|</span>
+<span style=color:#f92672>|</span>  <span style=color:#ae81ff>3</span> <span style=color:#f92672>|</span>  CCC <span style=color:#f92672>|</span>
+<span style=color:#f92672>+</span><span style=color:#75715e>----+------+
+</span><span style=color:#75715e></span><span style=color:#ae81ff>3</span> <span style=color:#66d9ef>rows</span> <span style=color:#66d9ef>in</span> <span style=color:#66d9ef>set</span>
+</code></pre></div><p>For more details, please refer to the Iceberg <a href=../flink>Flink document</a>.</p>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#table-managed-in-hive-catalog>Table managed in Hive catalog.</a></li>
+<li><a href=#table-managed-in-hadoop-catalog>Table managed in hadoop catalog</a></li>
+<li><a href=#table-managed-in-custom-catalog>Table managed in custom catalog</a></li>
+<li><a href=#a-complete-example>A complete example.</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>

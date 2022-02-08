@@ -1,0 +1,560 @@
+<!doctype html><html lang=en dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Spark Structured Streaming #  Iceberg uses Apache Spark&rsquo;s DataSourceV2 API for data source and catalog implementations. Spark DSv2 is an evolving API with different levels of support in Spark versions.
+As of Spark 3.0, DataFrame reads and writes are supported.
+   Feature support Spark 3.0 Spark 2.4 Notes     DataFrame write ✔ ✔     Streaming Reads #  Iceberg supports processing incremental data in spark structured streaming jobs which starts from a historical timestamp:">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content="Structured Streaming">
+<meta property="og:description" content="Spark Structured Streaming #  Iceberg uses Apache Spark&rsquo;s DataSourceV2 API for data source and catalog implementations. Spark DSv2 is an evolving API with different levels of support in Spark versions.
+As of Spark 3.0, DataFrame reads and writes are supported.
+   Feature support Spark 3.0 Spark 2.4 Notes     DataFrame write ✔ ✔     Streaming Reads #  Iceberg supports processing incremental data in spark structured streaming jobs which starts from a historical timestamp:">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://iceberg.apache.org/docs/0.13.0/spark-structured-streaming/"><meta property="article:section" content="docs">
+<title>Structured Streaming | Apache Iceberg</title>
+<link rel=manifest href=/docs/0.13.0/manifest.json>
+<link rel=icon href=/docs/0.13.0/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/docs/0.13.0/book.min.179e158d24f3ef709534173fd8b1c1e541a4fa3e23c1b5d8e887464c58949cc9.css integrity="sha256-F54VjSTz73CVNBc/2LHB5UGk+j4jwbXY6IdGTFiUnMk=" crossorigin=anonymous>
+<script defer src=/docs/0.13.0/flexsearch.min.js></script>
+<script defer src=/docs/0.13.0/en.search.min.567e2d138bb78093cae5579d4329807546e9ef622b25c07cce6dc0a4872608b4.js integrity="sha256-Vn4tE4u3gJPK5VedQymAdUbp72IrJcB8zm3ApIcmCLQ=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/docs/0.13.0/../../><img src=/docs/0.13.0/img/iceberg-logo-icon.png alt=Logo><span>Apache Iceberg</span>
+</a>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../releases>
+<img id=version-shield src=https://img.shields.io/badge/version-0.13.0-blue alt>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+<a href=https://github.com/apache/iceberg target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/GitHub-Mark.png target=_blank class=top-external-icon>
+</a>
+<a href=https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/Slack_Mark_Web.png target=_blank class=top-external-icon>
+</a>
+</div>
+<ul>
+<li class=book-section-flats>
+<span>
+<i class="fa fa-table fa-fw"></i>
+Tables</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/configuration/>
+Configuration</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/evolution/>
+Evolution</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/maintenance/>
+Maintenance</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/partitioning/>
+Partitioning</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/performance/>
+Performance</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/reliability/>
+Reliability</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/schemas/>
+Schemas</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<span>
+<i class="fa fa-star-o fa-fw"></i>
+Spark</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/getting-started/>
+Getting Started</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-configuration/>
+Configuration</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-ddl/>
+DDL</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-procedures/>
+Procedures</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-queries/>
+Queries</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-structured-streaming/ class=active>
+Structured Streaming</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/spark-writes/>
+Writes</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<span>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/flink-logo.png class="navigation-icon fa-fw">Flink</span>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/flink/>
+Getting Started</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/flink-connector/>
+Flink Connector</a>
+</li>
+</ul>
+</li>
+<li class=book-section-flats>
+<a href=https://iceberg.apache.org/docs/0.13.0/hive/>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/hive-logo.png class="navigation-icon fa-fw">Hive</a>
+<ul>
+</ul>
+</li>
+<li>
+<a href=https://trino.io/docs/current/connector/iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/trino-logo.png class="navigation-icon fa-fw">
+Trino
+</a>
+</li>
+<li>
+<a href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/prestodb-logo.png class="navigation-icon fa-fw">
+Presto
+</a>
+</li>
+<li>
+<a href=https://docs.dremio.com/data-formats/apache-iceberg/ target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/dremio-logo.png class="navigation-icon fa-fw">
+Dremio
+</a>
+</li>
+<li>
+<a href=https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/athena-logo.png class="navigation-icon fa-fw">
+Amazon Athena
+</a>
+</li>
+<li>
+<a href=https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-create-cluster.html target=_blank>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/emr-logo.png class="navigation-icon fa-fw">
+Amazon EMR
+</a>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-56605d8e971a871885e28ee5142728bf class=toggle>
+<label for=section-56605d8e971a871885e28ee5142728bf class="flex justify-between">
+<a role=button>
+<i class="fa fa-handshake-o fa-fw"></i>
+Integrations</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/aws/>
+AWS</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/jdbc/>
+JDBC</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/nessie/>
+Nessie</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-bf7b3283e3790c00c8caaa140299052b class=toggle>
+<label for=section-bf7b3283e3790c00c8caaa140299052b class="flex justify-between">
+<a role=button>
+<i class="fa fa-connectdevelop fa-fw"></i>
+API</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/java-api-quickstart/>
+Java Quickstart</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/api/>
+Java API</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/custom-catalog/>
+Java Custom Catalog</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../javadoc/0.13.0>
+Javadocs
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/python-quickstart/>
+Python Quickstart</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/python-api-intro/>
+Python API</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/python-feature-support/>
+Python Feature Support</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-7e66f1754ca5d93e20ecdc89df5b8b28 class=toggle>
+<label for=section-7e66f1754ca5d93e20ecdc89df5b8b28 class="flex justify-between">
+<a role=button>
+<i class="fa fa-users fa-fw"></i>
+Community</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../blogs>
+Blogs
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../community>
+Join
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../talks>
+Talks
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-87dda23e9104fe3231cee3bc88a2d754 class=toggle>
+<label for=section-87dda23e9104fe3231cee3bc88a2d754 class="flex justify-between">
+<a role=button>
+<i class="fa fa-object-ungroup fa-fw"></i>
+Format</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../spec>
+Spec
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../terms>
+Terms
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-2e5d3f5f142758d8dd368e9c281dd08e class=toggle>
+<label for=section-2e5d3f5f142758d8dd368e9c281dd08e class="flex justify-between">
+<a role=button>
+<i class="fa fa-wrench fa-fw"></i>
+Project</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../how-to-release>
+How to Release
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../roadmap>
+Roadmap
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../security>
+Security
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../trademarks>
+Trademarks
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-4ddb27a8612bc8118c0b36386905d332 class=toggle>
+<label for=section-4ddb27a8612bc8118c0b36386905d332 class="flex justify-between">
+<a role=button>
+<i class="fa fa-code-fork fa-fw"></i>
+Releases</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../latest>
+Latest
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../0.13.0>
+0.13.0
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../0.12.1>
+0.12.1
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/0.13.0/../../../releases>
+Release Notes
+</a>
+</li>
+</ul>
+</li>
+<li class=book-section-collapsed>
+<input type=checkbox id=section-296746d27808aa768e500824aaf2adea class=toggle>
+<label for=section-296746d27808aa768e500824aaf2adea class="flex justify-between">
+<a role=button>
+<img src=https://iceberg.apache.org/docs/0.13.0/img/../img/asf.png class="navigation-icon fa-fw">ASF</a>
+</label>
+<ul>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/licenses/ target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+License
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/security/ target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Security
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/foundation/thanks.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Sponsors
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/foundation/sponsorship.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Donate
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://www.apache.org/events/current-event.html target=_blank>
+<i class="fa fa-external-link fa-fw"></i>
+Events
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<link rel=stylesheet href=/docs/0.13.0/fontawesome/css/font-awesome.min.css>
+<label for=menu-control>
+<img src=/docs/0.13.0/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Structured Streaming</strong>
+<label for=toc-control>
+<img src=/docs/0.13.0/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#streaming-reads>Streaming Reads</a></li>
+<li><a href=#streaming-writes>Streaming Writes</a>
+<ul>
+<li><a href=#writing-against-partitioned-table>Writing against partitioned table</a></li>
+</ul>
+</li>
+<li><a href=#maintenance-for-streaming-tables>Maintenance for streaming tables</a>
+<ul>
+<li><a href=#tune-the-rate-of-commits>Tune the rate of commits</a></li>
+<li><a href=#expire-old-snapshots>Expire old snapshots</a></li>
+<li><a href=#compacting-data-files>Compacting data files</a></li>
+<li><a href=#rewrite-manifests>Rewrite manifests</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown>
+<h1 id=spark-structured-streaming>
+Spark Structured Streaming
+<a class=anchor href=#spark-structured-streaming>#</a>
+</h1>
+<p>Iceberg uses Apache Spark&rsquo;s DataSourceV2 API for data source and catalog implementations. Spark DSv2 is an evolving API
+with different levels of support in Spark versions.</p>
+<p>As of Spark 3.0, DataFrame reads and writes are supported.</p>
+<table>
+<thead>
+<tr>
+<th>Feature support</th>
+<th>Spark 3.0</th>
+<th>Spark 2.4</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href=#streaming-writes>DataFrame write</a></td>
+<td>✔</td>
+<td>✔</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id=streaming-reads>
+Streaming Reads
+<a class=anchor href=#streaming-reads>#</a>
+</h2>
+<p>Iceberg supports processing incremental data in spark structured streaming jobs which starts from a historical timestamp:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scala data-lang=scala><span style=color:#66d9ef>val</span> df <span style=color:#66d9ef>=</span> spark<span style=color:#f92672>.</span>readStream
+    <span style=color:#f92672>.</span>format<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;iceberg&#34;</span><span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span>option<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;stream-from-timestamp&#34;</span><span style=color:#f92672>,</span> <span style=color:#a6e22e>Long</span><span style=color:#f92672>.</span>toString<span style=color:#f92672>(</span>streamStartTimestamp<span style=color:#f92672>))</span>
+    <span style=color:#f92672>.</span>load<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;database.table_name&#34;</span><span style=color:#f92672>)</span>
+</code></pre></div><blockquote class="book-hint warning">
+Iceberg only supports reading data from append snapshots. Overwrite snapshots cannot be processed and will cause an exception. Similarly, delete snapshots will cause an exception by default, but deletes may be ignored by setting <code>streaming-skip-delete-snapshots=true</code>.
+</blockquote>
+<h2 id=streaming-writes>
+Streaming Writes
+<a class=anchor href=#streaming-writes>#</a>
+</h2>
+<p>To write values from streaming query to Iceberg table, use <code>DataStreamWriter</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scala data-lang=scala><span style=color:#66d9ef>val</span> tableIdentifier<span style=color:#66d9ef>:</span> <span style=color:#66d9ef>String</span> <span style=color:#f92672>=</span> <span style=color:#f92672>...</span>
+data<span style=color:#f92672>.</span>writeStream
+    <span style=color:#f92672>.</span>format<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;iceberg&#34;</span><span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span>outputMode<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;append&#34;</span><span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span>trigger<span style=color:#f92672>(</span><span style=color:#a6e22e>Trigger</span><span style=color:#f92672>.</span><span style=color:#a6e22e>ProcessingTime</span><span style=color:#f92672>(</span><span style=color:#ae81ff>1</span><span style=color:#f92672>,</span> <span style=color:#a6e22e>TimeUnit</span><span style=color:#f92672>.</span><span style=color:#a6e22e>MINUTES</span><span style=color:#f92672>))</span>
+    <span style=color:#f92672>.</span>option<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;path&#34;</span><span style=color:#f92672>,</span> tableIdentifier<span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span>option<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;checkpointLocation&#34;</span><span style=color:#f92672>,</span> checkpointPath<span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span>start<span style=color:#f92672>()</span>
+</code></pre></div><p>The <code>tableIdentifier</code> can be:</p>
+<ul>
+<li>The fully-qualified path to a HDFS table, like <code>hdfs://nn:8020/path/to/table</code></li>
+<li>A table name if the table is tracked by a catalog, like <code>database.table_name</code></li>
+</ul>
+<p>Iceberg doesn&rsquo;t support &ldquo;continuous processing&rdquo;, as it doesn&rsquo;t provide the interface to &ldquo;commit&rdquo; the output.</p>
+<p>Iceberg supports <code>append</code> and <code>complete</code> output modes:</p>
+<ul>
+<li><code>append</code>: appends the rows of every micro-batch to the table</li>
+<li><code>complete</code>: replaces the table contents every micro-batch</li>
+</ul>
+<p>The table should be created in prior to start the streaming query. Refer <a href=../spark-ddl/#create-table>SQL create table</a>
+on Spark page to see how to create the Iceberg table.</p>
+<h3 id=writing-against-partitioned-table>
+Writing against partitioned table
+<a class=anchor href=#writing-against-partitioned-table>#</a>
+</h3>
+<p>Iceberg requires the data to be sorted according to the partition spec per task (Spark partition) in prior to write
+against partitioned table. For batch queries you&rsquo;re encouraged to do explicit sort to fulfill the requirement
+(see <a href=../spark-writes/#writing-to-partitioned-tables>here</a>), but the approach would bring additional latency as
+repartition and sort are considered as heavy operations for streaming workload. To avoid additional latency, you can
+enable fanout writer to eliminate the requirement.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scala data-lang=scala><span style=color:#66d9ef>val</span> tableIdentifier<span style=color:#66d9ef>:</span> <span style=color:#66d9ef>String</span> <span style=color:#f92672>=</span> <span style=color:#f92672>...</span>
+data<span style=color:#f92672>.</span>writeStream
+    <span style=color:#f92672>.</span>format<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;iceberg&#34;</span><span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span>outputMode<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;append&#34;</span><span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span>trigger<span style=color:#f92672>(</span><span style=color:#a6e22e>Trigger</span><span style=color:#f92672>.</span><span style=color:#a6e22e>ProcessingTime</span><span style=color:#f92672>(</span><span style=color:#ae81ff>1</span><span style=color:#f92672>,</span> <span style=color:#a6e22e>TimeUnit</span><span style=color:#f92672>.</span><span style=color:#a6e22e>MINUTES</span><span style=color:#f92672>))</span>
+    <span style=color:#f92672>.</span>option<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;path&#34;</span><span style=color:#f92672>,</span> tableIdentifier<span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span>option<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;fanout-enabled&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;true&#34;</span><span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span>option<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;checkpointLocation&#34;</span><span style=color:#f92672>,</span> checkpointPath<span style=color:#f92672>)</span>
+    <span style=color:#f92672>.</span>start<span style=color:#f92672>()</span>
+</code></pre></div><p>Fanout writer opens the files per partition value and doesn&rsquo;t close these files till write task is finished.
+This functionality is discouraged for batch query, as explicit sort against output rows isn&rsquo;t expensive for batch workload.</p>
+<h2 id=maintenance-for-streaming-tables>
+Maintenance for streaming tables
+<a class=anchor href=#maintenance-for-streaming-tables>#</a>
+</h2>
+<p>Streaming queries can create new table versions quickly, which creates lots of table metadata to track those versions.
+Maintaining metadata by tuning the rate of commits, expiring old snapshots, and automatically cleaning up metadata files
+is highly recommended.</p>
+<h3 id=tune-the-rate-of-commits>
+Tune the rate of commits
+<a class=anchor href=#tune-the-rate-of-commits>#</a>
+</h3>
+<p>Having high rate of commits would produce lots of data files, manifests, and snapshots which leads the table hard
+to maintain. We encourage having trigger interval 1 minute at minimum, and increase the interval if needed.</p>
+<p>The triggers section in <a href=https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#triggers>Structured Streaming Programming Guide</a>
+documents how to configure the interval.</p>
+<h3 id=expire-old-snapshots>
+Expire old snapshots
+<a class=anchor href=#expire-old-snapshots>#</a>
+</h3>
+<p>Each micro-batch written to a table produces a new snapshot, which are tracked in table metadata until they are expired to remove the metadata and any data files that are no longer needed. Snapshots accumulate quickly with frequent commits, so it is highly recommended that tables written by streaming queries are <a href=../maintenance#expire-snapshots>regularly maintained</a>.</p>
+<h3 id=compacting-data-files>
+Compacting data files
+<a class=anchor href=#compacting-data-files>#</a>
+</h3>
+<p>The amount of data written in a micro batch is typically small, which can cause the table metadata to track lots of small files. <a href=../maintenance#compact-data-files>Compacting small files into larger files</a> reduces the metadata needed by the table, and increases query efficiency.</p>
+<h3 id=rewrite-manifests>
+Rewrite manifests
+<a class=anchor href=#rewrite-manifests>#</a>
+</h3>
+<p>To optimize write latency on streaming workload, Iceberg may write the new snapshot with a &ldquo;fast&rdquo; append that does not automatically compact manifests.
+This could lead lots of small manifest files. Manifests can be <a href=../maintenance#rewrite-manifests>rewritten to optimize queries and to compact</a>.</p>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#streaming-reads>Streaming Reads</a></li>
+<li><a href=#streaming-writes>Streaming Writes</a>
+<ul>
+<li><a href=#writing-against-partitioned-table>Writing against partitioned table</a></li>
+</ul>
+</li>
+<li><a href=#maintenance-for-streaming-tables>Maintenance for streaming tables</a>
+<ul>
+<li><a href=#tune-the-rate-of-commits>Tune the rate of commits</a></li>
+<li><a href=#expire-old-snapshots>Expire old snapshots</a></li>
+<li><a href=#compacting-data-files>Compacting data files</a></li>
+<li><a href=#rewrite-manifests>Rewrite manifests</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>
