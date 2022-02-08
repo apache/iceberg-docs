@@ -176,8 +176,9 @@ StructType struct = Struct.of(
 ```java
 // map<1 key: int, 2 value: optional string>
 MapType map = MapType.ofOptional(
-    1, Types.IntegerType.get(),
-    2, Types.StringType.get()
+    1, 2,
+    Types.IntegerType.get(),
+    Types.StringType.get()
   )
 ```
 ```java
@@ -203,6 +204,7 @@ Supported predicate expressions are:
 * `in`
 * `notIn`
 * `startsWith`
+* `notStartsWith`
 
 Supported expression operations are:
 

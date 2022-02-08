@@ -55,7 +55,9 @@ Roll back a table to a specific snapshot ID.
 
 To roll back to a specific time, use [`rollback_to_timestamp`](#rollback_to_timestamp).
 
-**Note** this procedure invalidates all cached Spark plans that reference the affected table.
+{{< hint info >}}
+This procedure invalidates all cached Spark plans that reference the affected table.
+{{< /hint >}}
 
 #### Usage
 
@@ -83,7 +85,9 @@ CALL catalog_name.system.rollback_to_snapshot('db.sample', 1)
 
 Roll back a table to the snapshot that was current at some time.
 
-**Note** this procedure invalidates all cached Spark plans that reference the affected table.
+{{< hint info >}}
+This procedure invalidates all cached Spark plans that reference the affected table.
+{{< /hint >}}
 
 #### Usage
 
@@ -112,7 +116,9 @@ Sets the current snapshot ID for a table.
 
 Unlike rollback, the snapshot is not required to be an ancestor of the current table state.
 
-**Note** this procedure invalidates all cached Spark plans that reference the affected table.
+{{< hint info >}}
+This procedure invalidates all cached Spark plans that reference the affected table.
+{{< /hint >}}
 
 #### Usage
 
@@ -143,7 +149,9 @@ Cherry-picking creates a new snapshot from an existing snapshot without altering
 
 Only append and dynamic overwrite snapshots can be cherry-picked.
 
-**Note** this procedure invalidates all cached Spark plans that reference the affected table.
+{{< hint info >}}
+This procedure invalidates all cached Spark plans that reference the affected table.
+{{< /hint >}}
 
 #### Usage
 
@@ -192,6 +200,9 @@ the `expire_snapshots` procedure will never remove files which are still require
 | `table`       | ✔️  | string | Name of the table to update |
 | `older_than`  | ️   | timestamp | Timestamp before which snapshots will be removed (Default: 5 days ago) |
 | `retain_last` |    | int       | Number of ancestor snapshots to preserve regardless of `older_than` (defaults to 1) |
+| `max_concurrent_deletes` |    | int       | Size of the thread pool used for delete file actions (by default, no thread pool is used) |
+
+If `older_than` and `retain_last` are omitted, the table's [expiration properties](./configuration/#table-behavior-properties) will be used.
 
 #### Output
 
@@ -227,6 +238,7 @@ Used to remove files which are not referenced in any metadata files of an Iceber
 | `older_than`  | ️   | timestamp | Remove orphan files created before this timestamp (Defaults to 3 days ago) |
 | `location`    |    | string    | Directory to look for files in (defaults to the table's location) |
 | `dry_run`     |    | boolean   | When true, don't actually remove files (defaults to false) |
+| `max_concurrent_deletes` |    | int       | Size of the thread pool used for delete file actions (by default, no thread pool is used) |
 
 #### Output
 
@@ -308,7 +320,9 @@ Data files in manifests are sorted by fields in the partition spec. This procedu
 See the [`RewriteManifestsAction` Javadoc](../../../javadoc/{{% icebergVersion %}}/org/apache/iceberg/actions/RewriteManifestsAction.html)
 to see more configuration options.
 
-**Note** this procedure invalidates all cached Spark plans that reference the affected table.
+{{< hint info >}}
+This procedure invalidates all cached Spark plans that reference the affected table.
+{{< /hint >}}
 
 #### Usage
 
@@ -350,11 +364,13 @@ When inserts or overwrites run on the snapshot, new files are placed in the snap
 
 When finished testing a snapshot table, clean it up by running `DROP TABLE`.
 
-**Note** Because tables created by `snapshot` are not the sole owners of their data files, they are prohibited from
+{{< hint info >}}
+Because tables created by `snapshot` are not the sole owners of their data files, they are prohibited from
 actions like `expire_snapshots` which would physically delete data files. Iceberg deletes, which only effect metadata,
 are still allowed. In addition, any operations which affect the original data files will disrupt the Snapshot's 
 integrity. DELETE statements executed against the original Hive table will remove original data files and the
 `snapshot` table will no longer be able to access them.
+{{< /hint >}}
 
 See [`migrate`](#migrate) to replace an existing table with an Iceberg table.
 
