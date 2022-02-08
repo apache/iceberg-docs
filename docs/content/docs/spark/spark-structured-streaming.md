@@ -32,6 +32,21 @@ As of Spark 3.0, DataFrame reads and writes are supported.
 |--------------------------------------------------|----------|------------|------------------------------------------------|
 | [DataFrame write](#streaming-writes)             | ✔        | ✔          |                                                |
 
+## Streaming Reads
+
+Iceberg supports processing incremental data in spark structured streaming jobs which starts from a historical timestamp:
+
+```scala
+val df = spark.readStream
+    .format("iceberg")
+    .option("stream-from-timestamp", Long.toString(streamStartTimestamp))
+    .load("database.table_name")
+```
+
+{{< hint warning >}}
+Iceberg only supports reading data from append snapshots. Overwrite snapshots cannot be processed and will cause an exception. Similarly, delete snapshots will cause an exception by default, but deletes may be ignored by setting `streaming-skip-delete-snapshots=true`.
+{{</ hint >}}
+
 ## Streaming Writes
 
 To write values from streaming query to Iceberg table, use `DataStreamWriter`:
