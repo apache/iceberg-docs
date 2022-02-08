@@ -77,7 +77,14 @@
 <li>Apache LDAP credentals for Nexus and SVN</li>
 <li>A <a href=https://www.apache.org/dev/release-signing#generate>GPG key for signing</a>, published in <a href=https://dist.apache.org/repos/dist/dev/iceberg/KEYS>KEYS</a></li>
 </ul>
-<h3 id=nexus-access>Nexus access</h3>
+<p>If you have not published your GPG key yet, you must publish it before sending the vote email by doing:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>svn co https://dist.apache.org/repos/dist/dev/iceberg icebergsvn
+cd icebergsvn
+echo <span style=color:#e6db74>&#34;&#34;</span> &gt;&gt; KEYS <span style=color:#75715e># append a newline</span>
+gpg --list-sigs &lt;YOUR KEY ID HERE&gt; &gt;&gt; KEYS <span style=color:#75715e># append signatures</span>
+gpg --armor --export &lt;YOUR KEY ID HERE&gt; &gt;&gt; KEYS <span style=color:#75715e># append public key block</span>
+svn commit -m <span style=color:#e6db74>&#34;add key for &lt;YOUR NAME HERE&gt;&#34;</span>
+</code></pre></div><h3 id=nexus-access>Nexus access</h3>
 <p>Nexus credentials are configured in your personal <code>~/.gradle/gradle.properties</code> file using <code>mavenUser</code> and <code>mavenPassword</code>:</p>
 <pre tabindex=0><code>mavenUser=yourApacheID
 mavenPassword=SomePassword
@@ -90,28 +97,69 @@ mavenPassword=SomePassword
 <h2 id=creating-a-release-candidate>Creating a release candidate</h2>
 <h3 id=build-the-source-release>Build the source release</h3>
 <p>To create the source release artifacts, run the <code>source-release.sh</code> script with the release version and release candidate number:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>dev/source-release.sh 0.8.1 <span style=color:#ae81ff>0</span>
-</code></pre></div><pre tabindex=0><code>Preparing source for apache-iceberg-0.8.1-rc0
-...
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>dev/source-release.sh -v 0.13.0 -r <span style=color:#ae81ff>0</span> -k &lt;YOUR KEY ID HERE&gt;
+</code></pre></div><p>Example console output:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Preparing source for apache-iceberg-0.13.0-rc1
+Adding version.txt and tagging release...
+[master ca8bb7d0] Add version.txt for release 0.13.0
+ 1 file changed, 1 insertion(+)
+ create mode 100644 version.txt
+Pushing apache-iceberg-0.13.0-rc1 to origin...
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 433 bytes | 433.00 KiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/apache/iceberg.git
+ * [new tag]           apache-iceberg-0.13.0-rc1 -&gt; apache-iceberg-0.13.0-rc1
+Creating tarball  using commit ca8bb7d0821f35bbcfa79a39841be8fb630ac3e5
+Signing the tarball...
+Checking out Iceberg RC subversion repo...
+Checked out revision 52260.
+Adding tarball to the Iceberg distribution Subversion repo...
+A         tmp/apache-iceberg-0.13.0-rc1
+A         tmp/apache-iceberg-0.13.0-rc1/apache-iceberg-0.13.0.tar.gz.asc
+A  (bin)  tmp/apache-iceberg-0.13.0-rc1/apache-iceberg-0.13.0.tar.gz
+A         tmp/apache-iceberg-0.13.0-rc1/apache-iceberg-0.13.0.tar.gz.sha512
+Adding         tmp/apache-iceberg-0.13.0-rc1
+Adding  (bin)  tmp/apache-iceberg-0.13.0-rc1/apache-iceberg-0.13.0.tar.gz
+Adding         tmp/apache-iceberg-0.13.0-rc1/apache-iceberg-0.13.0.tar.gz.asc
+Adding         tmp/apache-iceberg-0.13.0-rc1/apache-iceberg-0.13.0.tar.gz.sha512
+Transmitting file data ...done
+Committing transaction...
+Committed revision 52261.
+Creating release-announcement-email.txt...
 Success! The release candidate is available here:
-  https://dist.apache.org/repos/dist/dev/iceberg/apache-iceberg-0.8.1-rc0/
+  https://dist.apache.org/repos/dist/dev/iceberg/apache-iceberg-0.13.0-rc1
 
-Commit SHA1: 4b4716c76559b3cdf3487e6b60ab52950241989b
-</code></pre><p>The source release script will create a candidate tag based on the HEAD revision in git and will prepare the release tarball, signature, and checksum files. It will also upload the source artifacts to SVN.</p>
+Commit SHA1: ca8bb7d0821f35bbcfa79a39841be8fb630ac3e5
+
+We have generated a release announcement email for you here:
+/Users/jackye/iceberg/release-announcement-email.txt
+
+Please note that you must update the Nexus repository URL
+contained in the mail before sending it out.
+</code></pre></div><p>The source release script will create a candidate tag based on the HEAD revision in git and will prepare the release tarball, signature, and checksum files. It will also upload the source artifacts to SVN.</p>
 <p>Note the commit SHA1 and candidate location because those will be added to the vote thread.</p>
 <p>Once the source release is ready, use it to stage convenience binary artifacts in Nexus.</p>
 <h3 id=build-and-stage-convenience-binaries>Build and stage convenience binaries</h3>
 <p>Convenience binaries are created using the source release tarball from in the last step.</p>
 <p>Untar the source release and go into the release directory:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>tar xzf apache-iceberg-0.8.1.tar.gz
-cd apache-iceberg-0.8.1
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>tar xzf apache-iceberg-0.13.0.tar.gz
+cd apache-iceberg-0.13.0
 </code></pre></div><p>To build and publish the convenience binaries, run the <code>dev/stage-binaries.sh</code> script. This will push to a release staging repository.</p>
 <pre tabindex=0><code>dev/stage-binaries.sh
 </code></pre><p>Next, you need to close the staging repository:</p>
 <ol>
 <li>Go to <a href=https://repository.apache.org/>Nexus</a> and log in</li>
 <li>In the menu on the left, choose &ldquo;Staging Repositories&rdquo;</li>
-<li>Select the Iceberg repository</li>
+<li>Select the Iceberg repository
+<ul>
+<li>If multiple staging repositories are created after running the script, set <code>org.gradle.parallel=false</code> in <code>gradle.properties</code></li>
+</ul>
+</li>
 <li>At the top, select &ldquo;Close&rdquo; and follow the instructions
 <ul>
 <li>In the comment field use &ldquo;Apache Iceberg &lt;version> RC&lt;num>&rdquo;</li>
@@ -119,9 +167,12 @@ cd apache-iceberg-0.8.1
 </li>
 </ol>
 <h3 id=start-a-vote-thread>Start a VOTE thread</h3>
-<p>The last step for a candidate is to create a VOTE thread on the dev mailing list.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Subject: [VOTE] Release Apache Iceberg &lt;VERSION&gt; RC&lt;NUM&gt;
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Hi everyone,
+<p>The last step for a candidate is to create a VOTE thread on the dev mailing list.
+The email template is already generated in <code>release-announcement-email.txt</code> with some details filled.</p>
+<p>Example title subject:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>[VOTE] Release Apache Iceberg &lt;VERSION&gt; RC&lt;NUM&gt;
+</code></pre></div><p>Example content:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Hi everyone,
 
 I propose the following RC to be released as official Apache Iceberg &lt;VERSION&gt; release.
 
