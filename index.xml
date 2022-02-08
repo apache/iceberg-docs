@@ -3,9 +3,11 @@ Community discussions happen primarily on the dev mailing list, on apache-iceber
 Contributing The Iceberg Project is hosted on Github at https://github.com/apache/iceberg.
 The Iceberg community prefers to receive contributions as Github pull requests.
 View open pull requests Learn about pull requests Issues Issues are tracked in GitHub:</description></item><item><title/><link>https://iceberg.apache.org/blogs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://iceberg.apache.org/blogs/</guid><description>Iceberg Blogs Here is a list of company blogs that talk about Iceberg. The blogs are ordered from most recent to oldest.
-Using Flink CDC to synchronize data from MySQL sharding tables and build real-time data lake Date: 11 November 2021, Company: Ververica, Alibaba Could Author: Yuxia Luo, Jark Wu, Zheng Hu
-Metadata Indexing in Iceberg Date: 10 October 2021, Company: Tabular Author: Ryan Blue
-Using Debezium to Create a Data Lake with Apache Iceberg Date: October 20th, 2021, Company: Memiiso Community Author: Ismail Simsek</description></item><item><title/><link>https://iceberg.apache.org/talks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://iceberg.apache.org/talks/</guid><description>Iceberg Talks Here is a list of talks and other videos related to Iceberg.
+Docker, Spark, and Iceberg: The Fastest Way to Try Iceberg! Date: February 2nd, 2022, Company: Tabular
+Author: Sam Redai, Kyle Bendickson
+Iceberg FileIO: Cloud Native Tables Date: December 16th, 2021, Company: Tabular
+Author: Daniel Weeks
+Using Spark in EMR with Apache Iceberg Date: December 10th, 2021, Company: Tabular</description></item><item><title/><link>https://iceberg.apache.org/talks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://iceberg.apache.org/talks/</guid><description>Iceberg Talks Here is a list of talks and other videos related to Iceberg.
 Expert Roundtable: The Future of Metadata After Hive Metastore Date: November 15, 2021, Authors: Lior Ebel, Seshu Adunuthula, Ryan Blue &amp;amp; Oz Katz
 Spark and Iceberg at Apple&amp;rsquo;s Scale - Leveraging differential files for efficient upserts and deletes Date: October 21, 2020, Author: Anton
 Apache Iceberg - A Table Format for Huge Analytic Datasets Date: October 21, 2020, Author: Ryan Blue</description></item><item><title/><link>https://iceberg.apache.org/releases/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://iceberg.apache.org/releases/</guid><description>Downloads The latest version of Iceberg is 0.12.1.
