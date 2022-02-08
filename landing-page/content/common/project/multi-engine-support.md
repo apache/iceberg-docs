@@ -22,19 +22,33 @@ url: multi-engine-support
 
 # Multi-Engine Support
 
-Multi-engine support is a core tenant of Apache Iceberg.
+Apache Iceberg is an open standard for huge analytic tables that can be used by any processing engine.
 The community continuously improves Iceberg core library components to enable integrations with different compute engines that power analytics, business intelligence, machine learning, etc.
-Support of [Apache Spark](../../../docs/spark-configuration), [Apache Flink](../../../docs/flink) and [Apache Hive](../../../docs/hive) are provided inside the Iceberg main repository.
+Connectors for Spark, Flink and Hive are maintained in the main Iceberg repository.
 
 ## Multi-Version Support
 
-Engines maintained within the Iceberg repository have multi-version support.
-This means each new version of an engine that introduces backwards incompatible upgrade has its dedicated integration codebase and release artifacts.
-For example, the code for Iceberg Spark 3.1 integration is under `/spark/v3.1`, and for Iceberg Spark 3.2 integration is under `/spark/v3.2`,
-Different artifacts (`iceberg-spark-3.1_2.12` and `iceberg-spark-3.2_2.12`) are released for users to consume.
-By doing this, changes across versions are isolated. New features in Iceberg could be developed against the latest features of an engine without breaking support of old APIs in past engine versions.
+Processing engine connectors maintained in the iceberg repository are built for multiple versions.
 
-## Engine Version Lifecycle
+For Spark and Flink, each new version that introduces backwards incompatible upgrade has its dedicated integration codebase and release artifacts.
+For example, the code for Iceberg Spark 3.1 integration is under `/spark/v3.1` and the code for Iceberg Spark 3.2 integration is under `/spark/v3.2`.
+Different artifacts (`iceberg-spark-3.1_2.12` and `iceberg-spark-3.2_2.12`) are released for users to consume.
+By doing this, changes across versions are isolated. 
+New features in Iceberg could be developed against the latest features of an engine without breaking support of old APIs in past engine versions.
+
+For Hive, Hive 2 uses the `iceberg-mr` package for Iceberg integration, and Hive 3 requires an additional dependency of the `iceberg-hive3` package.
+
+### Runtime Jar
+
+Iceberg provides a runtime connector Jar for each supported version of Spark, Flink and Hive.
+When using Iceberg with these engines, the runtime jar is the only addition to the classpath needed in addition to vendor dependencies.
+For example, to use Iceberg with Spark 3.2 and AWS integrations, `iceberg-spark-runtime-3.2_2.12` and AWS SDK dependencies are needed for the Spark installation.
+
+Spark and Flink provide different runtime jars for each supported engine version.
+Hive 2 and Hive 3 currently share the same runtime jar.
+The runtime jar names and latest version download links are listed in [the tables below](./multi-engine-support/#current-engine-version-lifecycle-status).
+
+### Engine Version Lifecycle
 
 Each engine version undergoes the following lifecycle stages:
 
@@ -47,29 +61,32 @@ Each engine version undergoes the following lifecycle stages:
 
 ### Apache Spark
 
-| Version    | Lifecycle Stage    |
-| ---------- | ------------------ |
-| 2.4        | Deprecated         | 
-| 3.0        | Maintained         | 
-| 3.1        | Maintained         |
-| 3.2        | Beta               |
+Note that Spark 2.4 and 3.0 artifact names do not comply to the naming convention of later versions for backwards compatibility.
+
+| Version    | Lifecycle Stage    | Runtime Artifact |
+| ---------- | ------------------ | ---------------- |
+| 2.4        | Deprecated         | [iceberg-spark-runtime](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime/{{% icebergVersion %}}/iceberg-spark-runtime-{{% icebergVersion %}}.jar) |
+| 3.0        | Maintained         | [iceberg-spark3-runtime](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark3-runtime/{{% icebergVersion %}}/iceberg-spark3-runtime-{{% icebergVersion %}}.jar) |
+| 3.1        | Maintained         | [iceberg-spark-runtime-3.1_2.12](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime-3.1_2.12/{{% icebergVersion %}}/iceberg-spark-runtime-3.1_2.12-{{% icebergVersion %}}.jar) |
+| 3.2        | Maintained         | [iceberg-spark-runtime-3.2_2.12](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime-3.2_2.12/{{% icebergVersion %}}/iceberg-spark-runtime-3.2_2.12-{{% icebergVersion %}}.jar) |
 
 ### Apache Flink
 
 Based on the guideline of the Flink community, only the latest 2 minor versions are actively maintained.
 Users should continuously upgrade their Flink version to stay up-to-date.
 
-| Version    | Lifecycle Stage   |
-| ---------- | ----------------- | 
-| 1.12       | Deprecated        | 
-| 1.13       | Maintained        | 
-| 1.14       | Maintained        | 
+| Version    | Lifecycle Stage   | Runtime Artifact |
+| ---------- | ----------------- | ---------------- |
+| 1.12       | Deprecated        | [iceberg-flink-runtime-1.12](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime-1.12/{{% icebergVersion %}}/iceberg-flink-runtime-1.12-{{% icebergVersion %}}.jar) |
+| 1.13       | Maintained        | [iceberg-flink-runtime-1.13](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime-1.13/{{% icebergVersion %}}/iceberg-flink-runtime-1.13-{{% icebergVersion %}}.jar) |
+| 1.14       | Maintained        | [iceberg-flink-runtime-1.14](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime-1.14/{{% icebergVersion %}}/iceberg-flink-runtime-1.14-{{% icebergVersion %}}.jar) |
+
 ### Apache Hive
 
-| Version                         | Lifecycle Stage   |
-| ------------------------------- | ----------------- | 
-| 2 (recommended >= 2.3)          | Maintained        |
-| 3                               | Maintained        | 
+| Version        | Recommended minor version | Lifecycle Stage   | Runtime Artifact |
+| -------------- | ------------------------- | ----------------- | ---------------- |
+| 2              | 2.3.8                     | Maintained        | [iceberg-hive-runtime](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-hive-runtime/{{% icebergVersion %}}/iceberg-hive-runtime-{{% icebergVersion %}}.jar) |
+| 3              | 3.1.2                     | Maintained        | [iceberg-hive-runtime](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-hive-runtime/{{% icebergVersion %}}/iceberg-hive-runtime-{{% icebergVersion %}}.jar) |
 
 ## Developer Guide
 

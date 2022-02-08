@@ -36,7 +36,7 @@ The latest version of Iceberg is [{{% icebergVersion %}}](https://github.com/apa
 
 To use Iceberg in Spark or Flink, download the runtime JAR for your engine version and add it to the jars folder of your installation.
 
-To use Iceberg in Hive, download the Hive runtime JAR and add it to Hive using `ADD JAR`.
+To use Iceberg in Hive 2 or Hive 3, download the Hive runtime JAR and add it to Hive using `ADD JAR`.
 
 ### Gradle
 
@@ -75,31 +75,31 @@ Apache Iceberg 0.13.0 was released on February 4th, 2022.
 * **Core**
   * Catalog caching now supports cache expiration through catalog property `cache.expiration-interval-ms` [[\#3543](https://github.com/apache/iceberg/pull/3543)]
   * Catalog now supports registration of Iceberg table from a given metadata file location [[\#3851](https://github.com/apache/iceberg/pull/3851)]
-  * Hadoop catalog now supports atomic commit using a lock manager [[\#3663](https://github.com/apache/iceberg/pull/3663)]
+  * Hadoop catalog can be used with S3 and other file systems safely by using a lock manager [[\#3663](https://github.com/apache/iceberg/pull/3663)]
 * **Vendor Integrations**
-  * Google Cloud Storage (GCS) `FileIO` support is added with optimized read and write using GCS streaming transfer [[\#3711](https://github.com/apache/iceberg/pull/3711)]
-  * Aliyun Object Storage Service (OSS) `FileIO` support is added [[\#3553](https://github.com/apache/iceberg/pull/3553)]
+  * Google Cloud Storage (GCS) `FileIO` is supported with optimized read and write using GCS streaming transfer [[\#3711](https://github.com/apache/iceberg/pull/3711)]
+  * Aliyun Object Storage Service (OSS) `FileIO` is supported [[\#3553](https://github.com/apache/iceberg/pull/3553)]
   * Any S3-compatible storage (e.g. MinIO) can now be accessed through AWS `S3FileIO` with custom endpoint and credential configurations [[\#3656](https://github.com/apache/iceberg/pull/3656)] [[\#3658](https://github.com/apache/iceberg/pull/3658)]
   * AWS `S3FileIO` now supports server-side checksum validation [[\#3813](https://github.com/apache/iceberg/pull/3813)]
-  * AWS `GlueCatalog` now displays more table information including location, description [[\#3467](https://github.com/apache/iceberg/pull/3467)] and used columns [[\#3888](https://github.com/apache/iceberg/pull/3888)]
-  * `ResolvingFileIO` is added to support using multiple `FileIO`s to access different storage providers based on file scheme. [[\#3593](https://github.com/apache/iceberg/pull/3593)]
-* **File Formats**
-  * Reading legacy Parquet file (e.g. produced by `ParquetHiveSerDe` or Spark `spark.sql.parquet.writeLegacyFormat=true`) is now fully supported  to facilitate Hive to Iceberg table migration [[\#3723](https://github.com/apache/iceberg/pull/3723)]
-  * ORC merge-on-read file write support is added [[\#3248](https://github.com/apache/iceberg/pull/3248)] [[\#3250](https://github.com/apache/iceberg/pull/3250)] [[\#3366](https://github.com/apache/iceberg/pull/3366)]
+  * AWS `GlueCatalog` now displays more table information including table location, description [[\#3467](https://github.com/apache/iceberg/pull/3467)] and columns [[\#3888](https://github.com/apache/iceberg/pull/3888)]
+  * Using multiple `FileIO`s based on file path scheme is supported by configuring a `ResolvingFileIO` [[\#3593](https://github.com/apache/iceberg/pull/3593)]
 * **Spark**
-  * Spark 3.2 support is added [[\#3335](https://github.com/apache/iceberg/pull/3335)] with merge-on-read `DELETE` [[\#3970](https://github.com/apache/iceberg/pull/3970)]
-  * `RewriteDataFiles` action now supports sort-based table optimization [[\#2829](https://github.com/apache/iceberg/pull/2829)] and merge-on-read delete compaction [[\#3454](https://github.com/apache/iceberg/pull/3454)]. The corresponding Spark call procedure `rewrite_data_files` is also added [[\#3375](https://github.com/apache/iceberg/pull/3375)]
-  * Snapshot schema is now used instead of the table's latest schema [[\#3722](https://github.com/apache/iceberg/pull/3722)]
+  * Spark 3.2 is supported [[\#3335](https://github.com/apache/iceberg/pull/3335)] with merge-on-read `DELETE` [[\#3970](https://github.com/apache/iceberg/pull/3970)]
+  * `RewriteDataFiles` action now supports sort-based table optimization [[\#2829](https://github.com/apache/iceberg/pull/2829)] and merge-on-read delete compaction [[\#3454](https://github.com/apache/iceberg/pull/3454)]. The corresponding Spark call procedure `rewrite_data_files` is also supported [[\#3375](https://github.com/apache/iceberg/pull/3375)]
+  * Time travel queries now use snapshot schema instead of the table's latest schema [[\#3722](https://github.com/apache/iceberg/pull/3722)]
   * Spark vectorized reads now support row-level deletes [[\#3557](https://github.com/apache/iceberg/pull/3557)] [[\#3287](https://github.com/apache/iceberg/pull/3287)]
   * `add_files` procedure now skips duplicated files by default (can be turned off with the `check_duplicate_files` flag) [[\#2895](https://github.com/apache/iceberg/issues/2779)], skips folder without file [[\#2895](https://github.com/apache/iceberg/issues/3455)] and partitions with `null` values [[\#2895](https://github.com/apache/iceberg/issues/3778)] instead of throwing exception, and supports partition pruning for faster table import [[\#3745](https://github.com/apache/iceberg/issues/3745)]
 * **Flink**
-  * Flink 1.13 and 1.14 supports are added [[\#3116](https://github.com/apache/iceberg/pull/3116)] [[\#3434](https://github.com/apache/iceberg/pull/3434)]
-  * Flink connector support is added [[\#2666](https://github.com/apache/iceberg/pull/2666)]
-  * Upsert write option is added [[\#2863](https://github.com/apache/iceberg/pull/2863)]
+  * Flink 1.13 and 1.14 are supported [[\#3116](https://github.com/apache/iceberg/pull/3116)] [[\#3434](https://github.com/apache/iceberg/pull/3434)]
+  * Flink connector support is supported [[\#2666](https://github.com/apache/iceberg/pull/2666)]
+  * Upsert write option is supported [[\#2863](https://github.com/apache/iceberg/pull/2863)]
 * **Hive**
   * Table listing in Hive catalog can now skip non-Iceberg tables by disabling flag `list-all-tables` [[\#3908](https://github.com/apache/iceberg/pull/3908)]
   * Hive tables imported to Iceberg can now be read by `IcebergInputFormat` [[\#3312](https://github.com/apache/iceberg/pull/3312)]
-  
+* **File Formats**
+  * Reading legacy Parquet file (e.g. produced by `ParquetHiveSerDe` or Spark `spark.sql.parquet.writeLegacyFormat=true`) is now fully supported  to facilitate Hive to Iceberg table migration [[\#3723](https://github.com/apache/iceberg/pull/3723)]
+  * ORC now supports writing delete file [[\#3248](https://github.com/apache/iceberg/pull/3248)] [[\#3250](https://github.com/apache/iceberg/pull/3250)] [[\#3366](https://github.com/apache/iceberg/pull/3366)]
+
 **Important bug fixes:**
 
 * **Core**
@@ -109,29 +109,28 @@ Apache Iceberg 0.13.0 was released on February 4th, 2022.
   * `history` and `snapshots` metadata tables can now query tables with no current snapshot instead of returning empty [[\#3812](https://github.com/apache/iceberg/pull/3812)]
 * **Vendor Integrations**
   * Using cloud service integrations such as AWS `GlueCatalog` and `S3FileIO` no longer fail when missing Hadoop dependencies in the execution environment [[\#3590](https://github.com/apache/iceberg/pull/3590)]
-  * AWS clients are now auto-closed when `FileIO` or `Catalog` is closed. There is no need to close the AWS clients separately [[\#2878](https://github.com/apache/iceberg/pull/2878)]
-* **File Formats**
-  * Parquet file writing issue is fixed for string data with over 16 unparseable chars (e.g. high/low surrogates) [[\#3760](https://github.com/apache/iceberg/pull/3760)]
-  * ORC vectorized read is now configured using `read.orc.vectorization.batch-size` instead of `read.parquet.vectorization.batch-size`  [[\#3133](https://github.com/apache/iceberg/pull/3133)]
+  * AWS clients are now auto-closed when related `FileIO` or `Catalog` is closed. There is no need to close the AWS clients separately [[\#2878](https://github.com/apache/iceberg/pull/2878)]
 * **Spark**
   * For Spark >= 3.1, `REFRESH TABLE` can now be used with Spark session catalog instead of throwing exception [[\#3072](https://github.com/apache/iceberg/pull/3072)]
-  * Insert overwrite mode now skips partition with 0 records instead of throwing exception [[\#2895](https://github.com/apache/iceberg/issues/2895)]
-  * Spark snapshot expiration now supports custom `FileIO` instead of just `HadoopFileIO` [[\#3089](https://github.com/apache/iceberg/pull/3089)]
+  * Insert overwrite mode now skips partition with 0 record instead of failing the write operation [[\#2895](https://github.com/apache/iceberg/issues/2895)]
+  * Spark snapshot expiration action now supports custom `FileIO` instead of just `HadoopFileIO` [[\#3089](https://github.com/apache/iceberg/pull/3089)]
   * `REPLACE TABLE AS SELECT` can now work with tables with columns that have changed partition transform. Each old partition field of the same column is converted to a void transform with a different name [[\#3421](https://github.com/apache/iceberg/issues/3421)]
-  * Spark SQL statements containing binary or fixed literals can now be parsed correctly instead of throwing exception [[\#3728](https://github.com/apache/iceberg/pull/3728)]
+  * Spark SQL filters containing binary or fixed literals can now be pushed down instead of throwing exception [[\#3728](https://github.com/apache/iceberg/pull/3728)]
 * **Flink**
   * A `ValidationException` will be thrown if a user configures both `catalog-type` and `catalog-impl`. Previously it chose to use `catalog-type`. The new behavior brings Flink consistent with Spark and Hive [[\#3308](https://github.com/apache/iceberg/issues/3308)]
   * Changelog tables can now be queried without `RowData` serialization issues [[\#3240](https://github.com/apache/iceberg/pull/3240)]
   * `java.sql.Time` data type can now be written without data overflow problem [[\#3740](https://github.com/apache/iceberg/pull/3740)]
+  * Avro position delete files can now be read without encountering `NullPointerException` [[\#3540](https://github.com/apache/iceberg/pull/3540)]
 * **Hive**
-  * Hive catalog can now be initialized with a `null` Hadoop configuration instead of throwing exception [[\3252](https://github.com/apache/iceberg/pull/3252)]
+  * Hive catalog can now be initialized with a `null` Hadoop configuration instead of throwing exception [[\#3252](https://github.com/apache/iceberg/pull/3252)]
   * Table creation can now succeed instead of throwing exception when some columns do not have comments [[\#3531](https://github.com/apache/iceberg/pull/3531)]
+* **File Formats**
+  * Parquet file writing issue is fixed for string data with over 16 unparseable chars (e.g. high/low surrogates) [[\#3760](https://github.com/apache/iceberg/pull/3760)]
+  * ORC vectorized read is now configured using `read.orc.vectorization.batch-size` instead of `read.parquet.vectorization.batch-size`  [[\#3133](https://github.com/apache/iceberg/pull/3133)]
 
 **Other notable changes:**
 
 * The community has finalized the long-term strategy of Spark, Flink and Hive support. See [Multi-Engine Support](../multi-engine-support) page for more details.
-* Iceberg website is now managed by a separated repository [iceberg-docs](https://github.com/apache/iceberg-docs/) with a new look. See [README](https://github.com/apache/iceberg-docs/blob/main/README.md) for contribution guidelines going forward.
-* An OpenAPI specification for Iceberg catalog is approved by the community, and a REST-based Iceberg catalog based on the specification is currently under development [[\#3770](https://github.com/apache/iceberg/pull/3770)]
 
 ## Past releases
 
