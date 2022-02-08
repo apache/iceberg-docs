@@ -447,6 +447,11 @@ spark-sql --packages org.apache.iceberg:iceberg-spark3-runtime:{{% icebergVersio
 
 ## Run Iceberg on AWS
 
+### Amazon Athena
+
+[Amazon Athena](https://aws.amazon.com/athena/) provides a serverless query engine that could be used to perform read, write, update and optimization tasks against Iceberg tables.
+More details could be found [here](https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html).
+
 ### Amazon EMR
 
 [Amazon EMR](https://aws.amazon.com/emr/) can provision clusters with [Spark](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-spark.html) (EMR 6 for Spark 3, EMR 5 for Spark 2),
@@ -494,6 +499,10 @@ install_dependencies $LIB_PATH $ICEBERG_MAVEN_URL $ICEBERG_VERSION "${ICEBERG_PA
 install_dependencies $LIB_PATH $AWS_MAVEN_URL $AWS_SDK_VERSION "${AWS_PACKAGES[@]}"
 ```
 
+### AWS EKS
+
+[AWS Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks/) can be used to start any Spark, Flink, Hive, Presto or Trino clusters to work with Iceberg.
+Search the [Iceberg blogs](../../../blogs) page for tutorials around running Iceberg with Docker and Kubernetes.
 
 ### Amazon Kinesis
 
