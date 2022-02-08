@@ -77,8 +77,8 @@ If you would like to see how the latest website looks based on the documentation
 ```shell
 rm -rf docs/content/docs
 rm -rf landing-page/content/common
-cp -r <path to iceberg repo>/documentation/versioned docs/content/docs
-cp -r <path to iceberg repo>/documentation/common docs/content/common
+cp -r <path to iceberg repo>/docs/versioned docs/content/docs
+cp -r <path to iceberg repo>/docs/common landing-page/content/common
 ```
 
 ## Scanning For Broken Links
