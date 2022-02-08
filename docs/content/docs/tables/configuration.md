@@ -77,6 +77,14 @@ Iceberg tables support table properties to configure table behavior, like the de
 | history.expire.min-snapshots-to-keep | 1                | Default min number of snapshots to keep while expiring snapshots |
 | history.expire.max-ref-age-ms      | `Long.MAX_VALUE` (forever) | For snapshot references except the `main` branch, default max age of snapshot references to keep while expiring snapshots. The `main` branch never expires. |
 
+### Reserved table properties
+Reserved table properties are only used to control behaviors when creating or updating a table.
+The value of these properties are not persisted as a part of the table metadata.
+
+| Property       | Default  | Description                                                   |
+| -------------- | -------- | ------------------------------------------------------------- |
+| format-version | 1        | Table's format version (can be 1 or 2) as defined in the [Spec](./spec.md#format-versioning). |
+
 ### Compatibility flags
 
 | Property                                      | Default  | Description                                                   |
