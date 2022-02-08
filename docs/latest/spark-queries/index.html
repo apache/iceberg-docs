@@ -17,7 +17,7 @@ Iceberg uses Apache Spark&rsquo;s DataSourceV2 API for data source and catalog i
 <link rel=icon href=/docs/latest/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/docs/latest/book.min.179e158d24f3ef709534173fd8b1c1e541a4fa3e23c1b5d8e887464c58949cc9.css integrity="sha256-F54VjSTz73CVNBc/2LHB5UGk+j4jwbXY6IdGTFiUnMk=" crossorigin=anonymous>
 <script defer src=/docs/latest/flexsearch.min.js></script>
-<script defer src=/docs/latest/en.search.min.9b124723b1c81e63210b068f5fc39a9b749ca2630cbfefa154cc41d5c8b91b2e.js integrity="sha256-mxJHI7HIHmMhCwaPX8Oam3ScomMMv++hVMxB1ci5Gy4=" crossorigin=anonymous></script>
+<script defer src=/docs/latest/en.search.min.ac57fb46ef8e371d5a90bbe5908a0ae7784ec7fe50ebe122dc2b8141f82ab247.js integrity="sha256-rFf7Ru+ONx1akLvlkIoK53hOx/5Q6+Ei3CuBQfgqskc=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -30,7 +30,7 @@ Iceberg uses Apache Spark&rsquo;s DataSourceV2 API for data source and catalog i
 <a class="flex align-center" href=/docs/latest/../../><img src=/docs/latest/img/iceberg-logo-icon.png alt=Logo><span>Apache Iceberg</span>
 </a>
 <a href=https://iceberg.apache.org/docs/latest/../../releases>
-<img id=version-shield src=https://img.shields.io/badge/version-0.12.1-blue alt>
+<img id=version-shield src=https://img.shields.io/badge/version-0.13.0-blue alt>
 </a>
 </h2>
 <div class=book-search>
@@ -145,6 +145,24 @@ Trino
 <a href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>
 <img src=https://iceberg.apache.org/docs/latest/img/../img/prestodb-logo.png class="navigation-icon fa-fw">
 Presto
+</a>
+</li>
+<li>
+<a href=https://docs.dremio.com/data-formats/apache-iceberg/ target=_blank>
+<img src=https://iceberg.apache.org/docs/latest/img/../img/dremio-logo.png class="navigation-icon fa-fw">
+Dremio
+</a>
+</li>
+<li>
+<a href=https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/latest/img/../img/athena-logo.png class="navigation-icon fa-fw">
+Amazon Athena
+</a>
+</li>
+<li>
+<a href=https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-create-cluster.html target=_blank>
+<img src=https://iceberg.apache.org/docs/latest/img/../img/emr-logo.png class="navigation-icon fa-fw">
+Amazon EMR
 </a>
 </li>
 <li class=book-section-collapsed>
@@ -297,6 +315,11 @@ Latest
 </a>
 </li>
 <li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/latest/../0.13.0>
+0.13.0
+</a>
+</li>
+<li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/../0.12.1>
 0.12.1
 </a>
@@ -372,6 +395,7 @@ Events
 <ul>
 <li><a href=#catalogs-with-dataframereader>Catalogs with DataFrameReader</a></li>
 <li><a href=#time-travel>Time travel</a></li>
+<li><a href=#incremental-read>Incremental read</a></li>
 <li><a href=#spark-24>Spark 2.4</a></li>
 </ul>
 </li>
@@ -458,7 +482,89 @@ Querying with SQL
 </span></code></pre></div><p>Metadata tables, like <code>history</code> and <code>snapshots</code>, can use the Iceberg table name as a namespace.</p>
 <p>For example, to read from the <code>files</code> metadata table for <code>prod.db.table</code>, run:</p>
 <pre tabindex=0><code>SELECT * FROM prod.db.table.files
-</code></pre><h2 id=querying-with-dataframes>
+</code></pre><table>
+<thead>
+<tr>
+<th>content</th>
+<th>file_path</th>
+<th>file_format</th>
+<th>spec_id</th>
+<th>partition</th>
+<th>record_count</th>
+<th>file_size_in_bytes</th>
+<th>column_sizes</th>
+<th>value_counts</th>
+<th>null_value_counts</th>
+<th>nan_value_counts</th>
+<th>lower_bounds</th>
+<th>upper_bounds</th>
+<th>key_metadata</th>
+<th>split_offsets</th>
+<th>equality_ids</th>
+<th>sort_order_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>s3:/&mldr;/table/data/00000-3-8d6d60e8-d427-4809-bcf0-f5d45a4aad96.parquet</td>
+<td>PARQUET</td>
+<td>0</td>
+<td>{1999-01-01, 01}</td>
+<td>1</td>
+<td>597</td>
+<td>[1 -> 90, 2 -> 62]</td>
+<td>[1 -> 1, 2 -> 1]</td>
+<td>[1 -> 0, 2 -> 0]</td>
+<td>[]</td>
+<td>[1 -> , 2 -> c]</td>
+<td>[1 -> , 2 -> c]</td>
+<td>null</td>
+<td>[4]</td>
+<td>null</td>
+<td>null</td>
+</tr>
+<tr>
+<td>0</td>
+<td>s3:/&mldr;/table/data/00001-4-8d6d60e8-d427-4809-bcf0-f5d45a4aad96.parquet</td>
+<td>PARQUET</td>
+<td>0</td>
+<td>{1999-01-01, 02}</td>
+<td>1</td>
+<td>597</td>
+<td>[1 -> 90, 2 -> 62]</td>
+<td>[1 -> 1, 2 -> 1]</td>
+<td>[1 -> 0, 2 -> 0]</td>
+<td>[]</td>
+<td>[1 -> , 2 -> b]</td>
+<td>[1 -> , 2 -> b]</td>
+<td>null</td>
+<td>[4]</td>
+<td>null</td>
+<td>null</td>
+</tr>
+<tr>
+<td>0</td>
+<td>s3:/&mldr;/table/data/00002-5-8d6d60e8-d427-4809-bcf0-f5d45a4aad96.parquet</td>
+<td>PARQUET</td>
+<td>0</td>
+<td>{1999-01-01, 03}</td>
+<td>1</td>
+<td>597</td>
+<td>[1 -> 90, 2 -> 62]</td>
+<td>[1 -> 1, 2 -> 1]</td>
+<td>[1 -> 0, 2 -> 0]</td>
+<td>[]</td>
+<td>[1 -> , 2 -> a]</td>
+<td>[1 -> , 2 -> a]</td>
+<td>null</td>
+<td>[4]</td>
+<td>null</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h2 id=querying-with-dataframes>
 Querying with DataFrames
 <a class=anchor href=#querying-with-dataframes>#</a>
 </h2>
@@ -506,6 +612,26 @@ ignored. Do not use <code>table</code> when attempting to time-travel or use oth
 in <a href=https://issues.apache.org/jira/browse/SPARK-32592>Spark 3.1 - SPARK-32592</a>.
 </blockquote>
 <p>Time travel is not yet supported by Spark&rsquo;s SQL syntax.</p>
+<h3 id=incremental-read>
+Incremental read
+<a class=anchor href=#incremental-read>#</a>
+</h3>
+<p>To read appended data incrementally, use:</p>
+<ul>
+<li><code>start-snapshot-id</code> Start snapshot ID used in incremental scans (exclusive).</li>
+<li><code>end-snapshot-id</code> End snapshot ID used in incremental scans (inclusive). This is optional. Omitting it will default to the current snapshot.</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scala data-lang=scala><span style=color:#75715e>// get the data added after start-snapshot-id (10963874102873L) until end-snapshot-id (63874143573109L)
+</span><span style=color:#75715e></span>spark<span style=color:#f92672>.</span>read<span style=color:#f92672>()</span>
+  <span style=color:#f92672>.</span>format<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;iceberg&#34;</span><span style=color:#f92672>)</span>
+  <span style=color:#f92672>.</span>option<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;start-snapshot-id&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;10963874102873&#34;</span><span style=color:#f92672>)</span>
+  <span style=color:#f92672>.</span>option<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;end-snapshot-id&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;63874143573109&#34;</span><span style=color:#f92672>)</span>
+  <span style=color:#f92672>.</span>load<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;path/to/table&#34;</span><span style=color:#f92672>)</span>
+</code></pre></div><blockquote class="book-hint info">
+Currently gets only the data from <code>append</code> operation. Cannot support <code>replace</code>, <code>overwrite</code>, <code>delete</code> operations.
+Incremental read works with both V1 and V2 format-version.
+Incremental read is not supported by Spark&rsquo;s SQL syntax.
+</blockquote>
 <h3 id=spark-24>
 Spark 2.4
 <a class=anchor href=#spark-24>#</a>
@@ -591,14 +717,89 @@ Files
 </h3>
 <p>To show a table&rsquo;s data files and each file&rsquo;s metadata, run:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> prod.db.<span style=color:#66d9ef>table</span>.files
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>+-------------------------------------------------------------------------+-------------+--------------+--------------------+--------------------+------------------+-------------------+------------------+-----------------+-----------------+--------------+---------------+
-| file_path                                                               | file_format | record_count | file_size_in_bytes | column_sizes       | value_counts     | null_value_counts | nan_value_counts | lower_bounds    | upper_bounds    | key_metadata | split_offsets |
-+-------------------------------------------------------------------------+-------------+--------------+--------------------+--------------------+------------------+-------------------+------------------+-----------------+-----------------+--------------+---------------+
-| s3:/.../table/data/00000-3-8d6d60e8-d427-4809-bcf0-f5d45a4aad96.parquet | PARQUET     | 1            | 597                | [1 -&gt; 90, 2 -&gt; 62] | [1 -&gt; 1, 2 -&gt; 1] | [1 -&gt; 0, 2 -&gt; 0]  | []               | [1 -&gt; , 2 -&gt; c] | [1 -&gt; , 2 -&gt; c] | null         | [4]           |
-| s3:/.../table/data/00001-4-8d6d60e8-d427-4809-bcf0-f5d45a4aad96.parquet | PARQUET     | 1            | 597                | [1 -&gt; 90, 2 -&gt; 62] | [1 -&gt; 1, 2 -&gt; 1] | [1 -&gt; 0, 2 -&gt; 0]  | []               | [1 -&gt; , 2 -&gt; b] | [1 -&gt; , 2 -&gt; b] | null         | [4]           |
-| s3:/.../table/data/00002-5-8d6d60e8-d427-4809-bcf0-f5d45a4aad96.parquet | PARQUET     | 1            | 597                | [1 -&gt; 90, 2 -&gt; 62] | [1 -&gt; 1, 2 -&gt; 1] | [1 -&gt; 0, 2 -&gt; 0]  | []               | [1 -&gt; , 2 -&gt; a] | [1 -&gt; , 2 -&gt; a] | null         | [4]           |
-+-------------------------------------------------------------------------+-------------+--------------+--------------------+--------------------+------------------+-------------------+------------------+-----------------+-----------------+--------------+---------------+
-</code></pre></div><h3 id=manifests>
+</code></pre></div><table>
+<thead>
+<tr>
+<th>content</th>
+<th>file_path</th>
+<th>file_format</th>
+<th>spec_id</th>
+<th>partition</th>
+<th>record_count</th>
+<th>file_size_in_bytes</th>
+<th>column_sizes</th>
+<th>value_counts</th>
+<th>null_value_counts</th>
+<th>nan_value_counts</th>
+<th>lower_bounds</th>
+<th>upper_bounds</th>
+<th>key_metadata</th>
+<th>split_offsets</th>
+<th>equality_ids</th>
+<th>sort_order_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>s3:/&mldr;/table/data/00000-3-8d6d60e8-d427-4809-bcf0-f5d45a4aad96.parquet</td>
+<td>PARQUET</td>
+<td>0</td>
+<td>{1999-01-01, 01}</td>
+<td>1</td>
+<td>597</td>
+<td>[1 -> 90, 2 -> 62]</td>
+<td>[1 -> 1, 2 -> 1]</td>
+<td>[1 -> 0, 2 -> 0]</td>
+<td>[]</td>
+<td>[1 -> , 2 -> c]</td>
+<td>[1 -> , 2 -> c]</td>
+<td>null</td>
+<td>[4]</td>
+<td>null</td>
+<td>null</td>
+</tr>
+<tr>
+<td>0</td>
+<td>s3:/&mldr;/table/data/00001-4-8d6d60e8-d427-4809-bcf0-f5d45a4aad96.parquet</td>
+<td>PARQUET</td>
+<td>0</td>
+<td>{1999-01-01, 02}</td>
+<td>1</td>
+<td>597</td>
+<td>[1 -> 90, 2 -> 62]</td>
+<td>[1 -> 1, 2 -> 1]</td>
+<td>[1 -> 0, 2 -> 0]</td>
+<td>[]</td>
+<td>[1 -> , 2 -> b]</td>
+<td>[1 -> , 2 -> b]</td>
+<td>null</td>
+<td>[4]</td>
+<td>null</td>
+<td>null</td>
+</tr>
+<tr>
+<td>0</td>
+<td>s3:/&mldr;/table/data/00002-5-8d6d60e8-d427-4809-bcf0-f5d45a4aad96.parquet</td>
+<td>PARQUET</td>
+<td>0</td>
+<td>{1999-01-01, 03}</td>
+<td>1</td>
+<td>597</td>
+<td>[1 -> 90, 2 -> 62]</td>
+<td>[1 -> 1, 2 -> 1]</td>
+<td>[1 -> 0, 2 -> 0]</td>
+<td>[]</td>
+<td>[1 -> , 2 -> a]</td>
+<td>[1 -> , 2 -> a]</td>
+<td>null</td>
+<td>[4]</td>
+<td>null</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h3 id=manifests>
 Manifests
 <a class=anchor href=#manifests>#</a>
 </h3>
@@ -650,6 +851,7 @@ Inspecting with DataFrames
 <ul>
 <li><a href=#catalogs-with-dataframereader>Catalogs with DataFrameReader</a></li>
 <li><a href=#time-travel>Time travel</a></li>
+<li><a href=#incremental-read>Incremental read</a></li>
 <li><a href=#spark-24>Spark 2.4</a></li>
 </ul>
 </li>

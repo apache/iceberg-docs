@@ -14,7 +14,7 @@
 <link rel=icon href=/docs/latest/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/docs/latest/book.min.179e158d24f3ef709534173fd8b1c1e541a4fa3e23c1b5d8e887464c58949cc9.css integrity="sha256-F54VjSTz73CVNBc/2LHB5UGk+j4jwbXY6IdGTFiUnMk=" crossorigin=anonymous>
 <script defer src=/docs/latest/flexsearch.min.js></script>
-<script defer src=/docs/latest/en.search.min.9b124723b1c81e63210b068f5fc39a9b749ca2630cbfefa154cc41d5c8b91b2e.js integrity="sha256-mxJHI7HIHmMhCwaPX8Oam3ScomMMv++hVMxB1ci5Gy4=" crossorigin=anonymous></script>
+<script defer src=/docs/latest/en.search.min.ac57fb46ef8e371d5a90bbe5908a0ae7784ec7fe50ebe122dc2b8141f82ab247.js integrity="sha256-rFf7Ru+ONx1akLvlkIoK53hOx/5Q6+Ei3CuBQfgqskc=" crossorigin=anonymous></script>
 <link rel=alternate type=application/rss+xml href=https://iceberg.apache.org/docs/latest/hive/index.xml title="Apache Iceberg">
 </head>
 <body dir=ltr>
@@ -28,7 +28,7 @@
 <a class="flex align-center" href=/docs/latest/../../><img src=/docs/latest/img/iceberg-logo-icon.png alt=Logo><span>Apache Iceberg</span>
 </a>
 <a href=https://iceberg.apache.org/docs/latest/../../releases>
-<img id=version-shield src=https://img.shields.io/badge/version-0.12.1-blue alt>
+<img id=version-shield src=https://img.shields.io/badge/version-0.13.0-blue alt>
 </a>
 </h2>
 <div class=book-search>
@@ -143,6 +143,24 @@ Trino
 <a href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>
 <img src=https://iceberg.apache.org/docs/latest/img/../img/prestodb-logo.png class="navigation-icon fa-fw">
 Presto
+</a>
+</li>
+<li>
+<a href=https://docs.dremio.com/data-formats/apache-iceberg/ target=_blank>
+<img src=https://iceberg.apache.org/docs/latest/img/../img/dremio-logo.png class="navigation-icon fa-fw">
+Dremio
+</a>
+</li>
+<li>
+<a href=https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/latest/img/../img/athena-logo.png class="navigation-icon fa-fw">
+Amazon Athena
+</a>
+</li>
+<li>
+<a href=https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-create-cluster.html target=_blank>
+<img src=https://iceberg.apache.org/docs/latest/img/../img/emr-logo.png class="navigation-icon fa-fw">
+Amazon EMR
 </a>
 </li>
 <li class=book-section-collapsed>
@@ -292,6 +310,11 @@ Releases</a>
 <li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/../latest>
 Latest
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/latest/../0.13.0>
+0.13.0
 </a>
 </li>
 <li class=navigation-icon-pad>
@@ -490,6 +513,13 @@ Map<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span>
 tableProperties<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span>TableProperties<span style=color:#f92672>.</span><span style=color:#a6e22e>ENGINE_HIVE_ENABLED</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;true&#34;</span><span style=color:#f92672>);</span> <span style=color:#75715e>// engine.hive.enabled=true
 </span><span style=color:#75715e></span>catalog<span style=color:#f92672>.</span><span style=color:#a6e22e>createTable</span><span style=color:#f92672>(</span>tableId<span style=color:#f92672>,</span> schema<span style=color:#f92672>,</span> spec<span style=color:#f92672>,</span> tableProperties<span style=color:#f92672>);</span>
 </code></pre></div><p>The table level configuration overrides the global Hadoop configuration.</p>
+<h4 id=hive-on-tez-configuration>
+Hive on Tez configuration
+<a class=anchor href=#hive-on-tez-configuration>#</a>
+</h4>
+<p>To use the Tez engine on Hive <code>3.1.2</code> or later, Tez needs to be upgraded to >= <code>0.10.1</code> which contains a necessary fix <a href=https://issues.apache.org/jira/browse/TEZ-4248>Tez-4248</a>.</p>
+<p>To use the Tez engine on Hive <code>2.3.x</code>, you will need to manually build Tez from the <code>branch-0.9</code> branch due to a backwards incompatibility issue with Tez <code>0.10.1</code>.</p>
+<p>You will also need to set the following property in the Hive configuration: <code>tez.mrreader.config.update.properties=hive.io.file.readcolumn.names,hive.io.file.readcolumn.ids</code>.</p>
 <h2 id=catalog-management>
 Catalog Management
 <a class=anchor href=#catalog-management>#</a>
@@ -562,8 +592,8 @@ CREATE EXTERNAL TABLE
 <a class=anchor href=#create-external-table>#</a>
 </h3>
 <p>The <code>CREATE EXTERNAL TABLE</code> command is used to overlay a Hive table &ldquo;on top of&rdquo; an existing Iceberg table.
-Iceberg tables are created using either a <a href=../../../javadoc/0.12.1/index.html?org/apache/iceberg/catalog/Catalog.html><code>Catalog</code></a>,
-or an implementation of the <a href=../../../javadoc/0.12.1/index.html?org/apache/iceberg/Tables.html><code>Tables</code></a> interface,
+Iceberg tables are created using either a <a href=../../../javadoc/0.13.0/index.html?org/apache/iceberg/catalog/Catalog.html><code>Catalog</code></a>,
+or an implementation of the <a href=../../../javadoc/0.13.0/index.html?org/apache/iceberg/Tables.html><code>Tables</code></a> interface,
 and Hive needs to be configured accordingly to operate on these different types of table.</p>
 <h4 id=hive-catalog-tables>
 Hive catalog tables

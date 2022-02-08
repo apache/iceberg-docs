@@ -17,7 +17,7 @@ Spark 2.4 can&rsquo;t create Iceberg tables with DDL, instead use Spark 3.x or t
 <link rel=icon href=/docs/latest/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/docs/latest/book.min.179e158d24f3ef709534173fd8b1c1e541a4fa3e23c1b5d8e887464c58949cc9.css integrity="sha256-F54VjSTz73CVNBc/2LHB5UGk+j4jwbXY6IdGTFiUnMk=" crossorigin=anonymous>
 <script defer src=/docs/latest/flexsearch.min.js></script>
-<script defer src=/docs/latest/en.search.min.9b124723b1c81e63210b068f5fc39a9b749ca2630cbfefa154cc41d5c8b91b2e.js integrity="sha256-mxJHI7HIHmMhCwaPX8Oam3ScomMMv++hVMxB1ci5Gy4=" crossorigin=anonymous></script>
+<script defer src=/docs/latest/en.search.min.ac57fb46ef8e371d5a90bbe5908a0ae7784ec7fe50ebe122dc2b8141f82ab247.js integrity="sha256-rFf7Ru+ONx1akLvlkIoK53hOx/5Q6+Ei3CuBQfgqskc=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -30,7 +30,7 @@ Spark 2.4 can&rsquo;t create Iceberg tables with DDL, instead use Spark 3.x or t
 <a class="flex align-center" href=/docs/latest/../../><img src=/docs/latest/img/iceberg-logo-icon.png alt=Logo><span>Apache Iceberg</span>
 </a>
 <a href=https://iceberg.apache.org/docs/latest/../../releases>
-<img id=version-shield src=https://img.shields.io/badge/version-0.12.1-blue alt>
+<img id=version-shield src=https://img.shields.io/badge/version-0.13.0-blue alt>
 </a>
 </h2>
 <div class=book-search>
@@ -145,6 +145,24 @@ Trino
 <a href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>
 <img src=https://iceberg.apache.org/docs/latest/img/../img/prestodb-logo.png class="navigation-icon fa-fw">
 Presto
+</a>
+</li>
+<li>
+<a href=https://docs.dremio.com/data-formats/apache-iceberg/ target=_blank>
+<img src=https://iceberg.apache.org/docs/latest/img/../img/dremio-logo.png class="navigation-icon fa-fw">
+Dremio
+</a>
+</li>
+<li>
+<a href=https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/latest/img/../img/athena-logo.png class="navigation-icon fa-fw">
+Amazon Athena
+</a>
+</li>
+<li>
+<a href=https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-create-cluster.html target=_blank>
+<img src=https://iceberg.apache.org/docs/latest/img/../img/emr-logo.png class="navigation-icon fa-fw">
+Amazon EMR
 </a>
 </li>
 <li class=book-section-collapsed>
@@ -297,6 +315,11 @@ Latest
 </a>
 </li>
 <li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/latest/../0.13.0>
+0.13.0
+</a>
+</li>
+<li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/../0.12.1>
 0.12.1
 </a>
@@ -390,6 +413,7 @@ Events
 <li><a href=#alter-table--add-partition-field><code>ALTER TABLE ... ADD PARTITION FIELD</code></a></li>
 <li><a href=#alter-table--drop-partition-field><code>ALTER TABLE ... DROP PARTITION FIELD</code></a></li>
 <li><a href=#alter-table--write-ordered-by><code>ALTER TABLE ... WRITE ORDERED BY</code></a></li>
+<li><a href=#alter-table--write-distributed-by-partition><code>ALTER TABLE ... WRITE DISTRIBUTED BY PARTITION</code></a></li>
 </ul>
 </li>
 </ul>
@@ -474,6 +498,11 @@ PARTITIONED <span style=color:#66d9ef>BY</span> (bucket(<span style=color:#ae81f
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>TABLE</span> prod.db.sample
 <span style=color:#66d9ef>USING</span> iceberg
 <span style=color:#66d9ef>AS</span> <span style=color:#66d9ef>SELECT</span> ...
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>TABLE</span> prod.db.sample
+<span style=color:#66d9ef>USING</span> iceberg
+PARTITIONED <span style=color:#66d9ef>BY</span> (part)
+TBLPROPERTIES (<span style=color:#e6db74>&#39;key&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;value&#39;</span>)
+<span style=color:#66d9ef>AS</span> <span style=color:#66d9ef>SELECT</span> ...
 </code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>TABLE</span> prod.db.sample
 <span style=color:#66d9ef>USING</span> iceberg
 <span style=color:#66d9ef>AS</span> <span style=color:#66d9ef>SELECT</span> ...
@@ -533,7 +562,22 @@ The new table properties in the <code>REPLACE TABLE</code> command will be merge
 <span style=color:#75715e>-- add a field to the struct
 </span><span style=color:#75715e></span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> prod.db.sample
 <span style=color:#66d9ef>ADD</span> <span style=color:#66d9ef>COLUMN</span> point.z double
-</code></pre></div><p>In Spark 2.4.4 and later, you can add columns in any position by adding <code>FIRST</code> or <code>AFTER</code> clauses:</p>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#75715e>-- create a nested array column of struct
+</span><span style=color:#75715e></span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> prod.db.sample
+<span style=color:#66d9ef>ADD</span> <span style=color:#66d9ef>COLUMN</span> points array<span style=color:#f92672>&lt;</span>struct<span style=color:#f92672>&lt;</span>x: double, y: double<span style=color:#f92672>&gt;&gt;</span>;
+
+<span style=color:#75715e>-- add a field to the struct within an array. Using keyword &#39;element&#39; to access the array&#39;s element column.
+</span><span style=color:#75715e></span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> prod.db.sample
+<span style=color:#66d9ef>ADD</span> <span style=color:#66d9ef>COLUMN</span> points.element.z double
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#75715e>-- create a map column of struct key and struct value
+</span><span style=color:#75715e></span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> prod.db.sample
+<span style=color:#66d9ef>ADD</span> <span style=color:#66d9ef>COLUMN</span> points <span style=color:#66d9ef>map</span><span style=color:#f92672>&lt;</span>struct<span style=color:#f92672>&lt;</span>x: int<span style=color:#f92672>&gt;</span>, struct<span style=color:#f92672>&lt;</span>a: int<span style=color:#f92672>&gt;&gt;</span>;
+
+<span style=color:#75715e>-- add a field to the value struct in a map. Using keyword &#39;value&#39; to access the map&#39;s value column.
+</span><span style=color:#75715e></span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> prod.db.sample
+<span style=color:#66d9ef>ADD</span> <span style=color:#66d9ef>COLUMN</span> points.value.b int
+</code></pre></div><p>Note: Altering a map &lsquo;key&rsquo; column by adding columns is not allowed. Only map values can be updated.</p>
+<p>In Spark 2.4.4 and later, you can add columns in any position by adding <code>FIRST</code> or <code>AFTER</code> clauses:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> prod.db.sample
 <span style=color:#66d9ef>ADD</span> <span style=color:#66d9ef>COLUMN</span> new_column bigint <span style=color:#66d9ef>AFTER</span> other_column
 </code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> prod.db.sample
@@ -636,7 +680,21 @@ Be careful when dropping a partition field because it will change the schema of 
 </code></pre></div><blockquote class="book-hint info">
 Table write order does not guarantee data order for queries. It only affects how data is written to the table.
 </blockquote>
-</article>
+<p><code>WRITE ORDERED BY</code> sets a global ordering where rows are ordered across tasks, like using <code>ORDER BY</code> in an <code>INSERT</code> command:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> prod.db.sample
+<span style=color:#66d9ef>SELECT</span> id, <span style=color:#66d9ef>data</span>, category, ts <span style=color:#66d9ef>FROM</span> another_table
+<span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> ts, category
+</code></pre></div><p>To order within each task, not across tasks, use <code>LOCALLY ORDERED BY</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> prod.db.sample <span style=color:#66d9ef>WRITE</span> LOCALLY ORDERED <span style=color:#66d9ef>BY</span> category, id
+</code></pre></div><h3 id=alter-table--write-distributed-by-partition>
+<code>ALTER TABLE ... WRITE DISTRIBUTED BY PARTITION</code>
+<a class=anchor href=#alter-table--write-distributed-by-partition>#</a>
+</h3>
+<p><code>WRITE DISTRIBUTED BY PARTITION</code> will request that each partition is handled by one writer, the default implementation is hash distribution.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> prod.db.sample <span style=color:#66d9ef>WRITE</span> DISTRIBUTED <span style=color:#66d9ef>BY</span> PARTITION
+</code></pre></div><p><code>DISTRIBUTED BY PARTITION</code> and <code>LOCALLY ORDERED BY</code> may be used together, to distribute by partition and locally order rows within each task.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> prod.db.sample <span style=color:#66d9ef>WRITE</span> DISTRIBUTED <span style=color:#66d9ef>BY</span> PARTITION LOCALLY ORDERED <span style=color:#66d9ef>BY</span> category, id
+</code></pre></div></article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
 </div>
@@ -673,6 +731,7 @@ Table write order does not guarantee data order for queries. It only affects how
 <li><a href=#alter-table--add-partition-field><code>ALTER TABLE ... ADD PARTITION FIELD</code></a></li>
 <li><a href=#alter-table--drop-partition-field><code>ALTER TABLE ... DROP PARTITION FIELD</code></a></li>
 <li><a href=#alter-table--write-ordered-by><code>ALTER TABLE ... WRITE ORDERED BY</code></a></li>
+<li><a href=#alter-table--write-distributed-by-partition><code>ALTER TABLE ... WRITE DISTRIBUTED BY PARTITION</code></a></li>
 </ul>
 </li>
 </ul>

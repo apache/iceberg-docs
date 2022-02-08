@@ -2,12 +2,12 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="Getting Started #  The latest version of Iceberg is 0.12.1.
+<meta name=description content="Getting Started #  The latest version of Iceberg is 0.13.0.
 Spark is currently the most feature-rich compute engine for Iceberg operations. We recommend you to get started with Spark to understand Iceberg concepts and features with examples. You can also view documentations of using Iceberg with other compute engine under the Engines tab.
 Using Iceberg in Spark 3 #  To use Iceberg in a Spark shell, use the --packages option:">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="Getting Started">
-<meta property="og:description" content="Getting Started #  The latest version of Iceberg is 0.12.1.
+<meta property="og:description" content="Getting Started #  The latest version of Iceberg is 0.13.0.
 Spark is currently the most feature-rich compute engine for Iceberg operations. We recommend you to get started with Spark to understand Iceberg concepts and features with examples. You can also view documentations of using Iceberg with other compute engine under the Engines tab.
 Using Iceberg in Spark 3 #  To use Iceberg in a Spark shell, use the --packages option:">
 <meta property="og:type" content="article">
@@ -17,7 +17,7 @@ Using Iceberg in Spark 3 #  To use Iceberg in a Spark shell, use the --packages 
 <link rel=icon href=/docs/latest/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/docs/latest/book.min.179e158d24f3ef709534173fd8b1c1e541a4fa3e23c1b5d8e887464c58949cc9.css integrity="sha256-F54VjSTz73CVNBc/2LHB5UGk+j4jwbXY6IdGTFiUnMk=" crossorigin=anonymous>
 <script defer src=/docs/latest/flexsearch.min.js></script>
-<script defer src=/docs/latest/en.search.min.9b124723b1c81e63210b068f5fc39a9b749ca2630cbfefa154cc41d5c8b91b2e.js integrity="sha256-mxJHI7HIHmMhCwaPX8Oam3ScomMMv++hVMxB1ci5Gy4=" crossorigin=anonymous></script>
+<script defer src=/docs/latest/en.search.min.ac57fb46ef8e371d5a90bbe5908a0ae7784ec7fe50ebe122dc2b8141f82ab247.js integrity="sha256-rFf7Ru+ONx1akLvlkIoK53hOx/5Q6+Ei3CuBQfgqskc=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -30,7 +30,7 @@ Using Iceberg in Spark 3 #  To use Iceberg in a Spark shell, use the --packages 
 <a class="flex align-center" href=/docs/latest/../../><img src=/docs/latest/img/iceberg-logo-icon.png alt=Logo><span>Apache Iceberg</span>
 </a>
 <a href=https://iceberg.apache.org/docs/latest/../../releases>
-<img id=version-shield src=https://img.shields.io/badge/version-0.12.1-blue alt>
+<img id=version-shield src=https://img.shields.io/badge/version-0.13.0-blue alt>
 </a>
 </h2>
 <div class=book-search>
@@ -145,6 +145,24 @@ Trino
 <a href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>
 <img src=https://iceberg.apache.org/docs/latest/img/../img/prestodb-logo.png class="navigation-icon fa-fw">
 Presto
+</a>
+</li>
+<li>
+<a href=https://docs.dremio.com/data-formats/apache-iceberg/ target=_blank>
+<img src=https://iceberg.apache.org/docs/latest/img/../img/dremio-logo.png class="navigation-icon fa-fw">
+Dremio
+</a>
+</li>
+<li>
+<a href=https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/latest/img/../img/athena-logo.png class="navigation-icon fa-fw">
+Amazon Athena
+</a>
+</li>
+<li>
+<a href=https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-create-cluster.html target=_blank>
+<img src=https://iceberg.apache.org/docs/latest/img/../img/emr-logo.png class="navigation-icon fa-fw">
+Amazon EMR
 </a>
 </li>
 <li class=book-section-collapsed>
@@ -297,6 +315,11 @@ Latest
 </a>
 </li>
 <li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/latest/../0.13.0>
+0.13.0
+</a>
+</li>
+<li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/../0.12.1>
 0.12.1
 </a>
@@ -385,7 +408,7 @@ Events
 Getting Started
 <a class=anchor href=#getting-started>#</a>
 </h1>
-<p>The latest version of Iceberg is <a href=../../../releases>0.12.1</a>.</p>
+<p>The latest version of Iceberg is <a href=../../../releases>0.13.0</a>.</p>
 <p>Spark is currently the most feature-rich compute engine for Iceberg operations.
 We recommend you to get started with Spark to understand Iceberg concepts and features with examples.
 You can also view documentations of using Iceberg with other compute engine under the <strong>Engines</strong> tab.</p>
@@ -394,7 +417,7 @@ Using Iceberg in Spark 3
 <a class=anchor href=#using-iceberg-in-spark-3>#</a>
 </h2>
 <p>To use Iceberg in a Spark shell, use the <code>--packages</code> option:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>spark-shell --packages org.apache.iceberg:iceberg-spark3-runtime:0.12.1
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>spark-shell --packages org.apache.iceberg:iceberg-spark3-runtime:0.13.0
 </code></pre></div><blockquote class="book-hint info">
 If you want to include Iceberg in your Spark installation, add the [<code>iceberg-spark3-runtime</code> Jar][spark-runtime-jar] to Spark&rsquo;s <code>jars</code> folder.
 </blockquote>
@@ -404,7 +427,7 @@ Adding catalogs
 </h3>
 <p>Iceberg comes with <a href=../spark-configuration#catalogs>catalogs</a> that enable SQL commands to manage tables and load them by name. Catalogs are configured using properties under <code>spark.sql.catalog.(catalog_name)</code>.</p>
 <p>This command creates a path-based catalog named <code>local</code> for tables under <code>$PWD/warehouse</code> and adds support for Iceberg tables to Spark&rsquo;s built-in catalog:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>spark-sql --packages org.apache.iceberg:iceberg-spark3-runtime:0.12.1<span style=color:#ae81ff>\
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>spark-sql --packages org.apache.iceberg:iceberg-spark3-runtime:0.13.0<span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>    --conf spark.sql.extensions<span style=color:#f92672>=</span>org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>    --conf spark.sql.catalog.spark_catalog<span style=color:#f92672>=</span>org.apache.iceberg.spark.SparkSessionCatalog <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>    --conf spark.sql.catalog.spark_catalog.type<span style=color:#f92672>=</span>hive <span style=color:#ae81ff>\

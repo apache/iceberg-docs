@@ -19,7 +19,7 @@ Named arguments #  All procedure arguments are named.">
 <link rel=icon href=/docs/latest/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/docs/latest/book.min.179e158d24f3ef709534173fd8b1c1e541a4fa3e23c1b5d8e887464c58949cc9.css integrity="sha256-F54VjSTz73CVNBc/2LHB5UGk+j4jwbXY6IdGTFiUnMk=" crossorigin=anonymous>
 <script defer src=/docs/latest/flexsearch.min.js></script>
-<script defer src=/docs/latest/en.search.min.9b124723b1c81e63210b068f5fc39a9b749ca2630cbfefa154cc41d5c8b91b2e.js integrity="sha256-mxJHI7HIHmMhCwaPX8Oam3ScomMMv++hVMxB1ci5Gy4=" crossorigin=anonymous></script>
+<script defer src=/docs/latest/en.search.min.ac57fb46ef8e371d5a90bbe5908a0ae7784ec7fe50ebe122dc2b8141f82ab247.js integrity="sha256-rFf7Ru+ONx1akLvlkIoK53hOx/5Q6+Ei3CuBQfgqskc=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -32,7 +32,7 @@ Named arguments #  All procedure arguments are named.">
 <a class="flex align-center" href=/docs/latest/../../><img src=/docs/latest/img/iceberg-logo-icon.png alt=Logo><span>Apache Iceberg</span>
 </a>
 <a href=https://iceberg.apache.org/docs/latest/../../releases>
-<img id=version-shield src=https://img.shields.io/badge/version-0.12.1-blue alt>
+<img id=version-shield src=https://img.shields.io/badge/version-0.13.0-blue alt>
 </a>
 </h2>
 <div class=book-search>
@@ -147,6 +147,24 @@ Trino
 <a href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>
 <img src=https://iceberg.apache.org/docs/latest/img/../img/prestodb-logo.png class="navigation-icon fa-fw">
 Presto
+</a>
+</li>
+<li>
+<a href=https://docs.dremio.com/data-formats/apache-iceberg/ target=_blank>
+<img src=https://iceberg.apache.org/docs/latest/img/../img/dremio-logo.png class="navigation-icon fa-fw">
+Dremio
+</a>
+</li>
+<li>
+<a href=https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/latest/img/../img/athena-logo.png class="navigation-icon fa-fw">
+Amazon Athena
+</a>
+</li>
+<li>
+<a href=https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-create-cluster.html target=_blank>
+<img src=https://iceberg.apache.org/docs/latest/img/../img/emr-logo.png class="navigation-icon fa-fw">
+Amazon EMR
 </a>
 </li>
 <li class=book-section-collapsed>
@@ -299,6 +317,11 @@ Latest
 </a>
 </li>
 <li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/latest/../0.13.0>
+0.13.0
+</a>
+</li>
+<li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/../0.12.1>
 0.12.1
 </a>
@@ -387,6 +410,7 @@ Events
 <ul>
 <li><a href=#expire_snapshots><code>expire_snapshots</code></a></li>
 <li><a href=#remove_orphan_files><code>remove_orphan_files</code></a></li>
+<li><a href=#rewrite_data_files><code>rewrite_data_files</code></a></li>
 <li><a href=#rewrite_manifests><code>rewrite_manifests</code></a></li>
 </ul>
 </li>
@@ -440,7 +464,9 @@ Snapshot management
 </h3>
 <p>Roll back a table to a specific snapshot ID.</p>
 <p>To roll back to a specific time, use <a href=#rollback_to_timestamp><code>rollback_to_timestamp</code></a>.</p>
-<p><strong>Note</strong> this procedure invalidates all cached Spark plans that reference the affected table.</p>
+<blockquote class="book-hint info">
+This procedure invalidates all cached Spark plans that reference the affected table.
+</blockquote>
 <h4 id=usage-1>
 Usage
 <a class=anchor href=#usage-1>#</a>
@@ -505,7 +531,9 @@ Example
 <a class=anchor href=#rollback_to_timestamp>#</a>
 </h3>
 <p>Roll back a table to the snapshot that was current at some time.</p>
-<p><strong>Note</strong> this procedure invalidates all cached Spark plans that reference the affected table.</p>
+<blockquote class="book-hint info">
+This procedure invalidates all cached Spark plans that reference the affected table.
+</blockquote>
 <h4 id=usage-2>
 Usage
 <a class=anchor href=#usage-2>#</a>
@@ -571,7 +599,9 @@ Example
 </h3>
 <p>Sets the current snapshot ID for a table.</p>
 <p>Unlike rollback, the snapshot is not required to be an ancestor of the current table state.</p>
-<p><strong>Note</strong> this procedure invalidates all cached Spark plans that reference the affected table.</p>
+<blockquote class="book-hint info">
+This procedure invalidates all cached Spark plans that reference the affected table.
+</blockquote>
 <h4 id=usage-3>
 Usage
 <a class=anchor href=#usage-3>#</a>
@@ -638,7 +668,9 @@ Example
 <p>Cherry-picks changes from a snapshot into the current table state.</p>
 <p>Cherry-picking creates a new snapshot from an existing snapshot without altering or removing the original.</p>
 <p>Only append and dynamic overwrite snapshots can be cherry-picked.</p>
-<p><strong>Note</strong> this procedure invalidates all cached Spark plans that reference the affected table.</p>
+<blockquote class="book-hint info">
+This procedure invalidates all cached Spark plans that reference the affected table.
+</blockquote>
 <h4 id=usage-4>
 Usage
 <a class=anchor href=#usage-4>#</a>
@@ -746,8 +778,15 @@ Usage
 <td>int</td>
 <td>Number of ancestor snapshots to preserve regardless of <code>older_than</code> (defaults to 1)</td>
 </tr>
+<tr>
+<td><code>max_concurrent_deletes</code></td>
+<td></td>
+<td>int</td>
+<td>Size of the thread pool used for delete file actions (by default, no thread pool is used)</td>
+</tr>
 </tbody>
 </table>
+<p>If <code>older_than</code> and <code>retain_last</code> are omitted, the table&rsquo;s <a href=./configuration/#table-behavior-properties>expiration properties</a> will be used.</p>
 <h4 id=output-4>
 Output
 <a class=anchor href=#output-4>#</a>
@@ -829,6 +868,12 @@ Usage
 <td>boolean</td>
 <td>When true, don&rsquo;t actually remove files (defaults to false)</td>
 </tr>
+<tr>
+<td><code>max_concurrent_deletes</code></td>
+<td></td>
+<td>int</td>
+<td>Size of the thread pool used for delete file actions (by default, no thread pool is used)</td>
+</tr>
 </tbody>
 </table>
 <h4 id=output-5>
@@ -859,18 +904,114 @@ Examples
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.remove_orphan_files(<span style=color:#66d9ef>table</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;db.sample&#39;</span>, dry_run <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>true</span>)
 </code></pre></div><p>Remove any files in the <code>tablelocation/data</code> folder which are not known to the table <code>db.sample</code>.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.remove_orphan_files(<span style=color:#66d9ef>table</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;db.sample&#39;</span>, <span style=color:#66d9ef>location</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;tablelocation/data&#39;</span>)
+</code></pre></div><h3 id=rewrite_data_files>
+<code>rewrite_data_files</code>
+<a class=anchor href=#rewrite_data_files>#</a>
+</h3>
+<p>Iceberg tracks each data file in a table. More data files leads to more metadata stored in manifest files, and small data files causes an unnecessary amount of metadata and less efficient queries from file open costs.</p>
+<p>Iceberg can compact data files in parallel using Spark with the <code>rewriteDataFiles</code> action. This will combine small files into larger files to reduce metadata overhead and runtime file open cost.</p>
+<h4 id=usage-7>
+Usage
+<a class=anchor href=#usage-7>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>Argument Name</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>table</code></td>
+<td>✔️</td>
+<td>string</td>
+<td>Name of the table to update</td>
+</tr>
+<tr>
+<td><code>strategy</code></td>
+<td></td>
+<td>string</td>
+<td>Name of the strategy - binpack or sort. Defaults to binpack strategy</td>
+</tr>
+<tr>
+<td><code>sort_order</code></td>
+<td></td>
+<td>string</td>
+<td>Comma separated sort_order_column. Where sort_order_column is a space separated sort order info per column (ColumnName SortDirection NullOrder). SortDirection can be ASC or DESC. NullOrder can be NULLS FIRST or NULLS LAST</td>
+</tr>
+<tr>
+<td><code>options</code></td>
+<td>️</td>
+<td>map&lt;string, string></td>
+<td>Options to be used for actions</td>
+</tr>
+<tr>
+<td><code>where</code></td>
+<td>️</td>
+<td>string</td>
+<td>predicate as a string used for filtering the files. Note that all files that may contain data matching the filter will be selected for rewriting</td>
+</tr>
+</tbody>
+</table>
+<p>See the [<code>RewriteDataFiles</code> Javadoc](./javadoc/{{ versions.iceberg }}/org/apache/iceberg/actions/RewriteDataFiles.html#field.summary), [<code>BinPackStrategy</code> Javadoc](./javadoc/{{ versions.iceberg }}/org/apache/iceberg/actions/BinPackStrategy.html#field.summary)
+and [<code>SortStrategy</code> Javadoc](./javadoc/{{ versions.iceberg }}/org/apache/iceberg/actions/SortStrategy.html#field.summary)
+for list of all the supported options for this action.</p>
+<h4 id=output-6>
+Output
+<a class=anchor href=#output-6>#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th>Output Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rewritten_data_files_count</code></td>
+<td>int</td>
+<td>Number of data which were re-written by this command</td>
+</tr>
+<tr>
+<td><code>added_data_files_count</code></td>
+<td>int</td>
+<td>Number of new data files which were written by this command</td>
+</tr>
+</tbody>
+</table>
+<h4 id=examples-3>
+Examples
+<a class=anchor href=#examples-3>#</a>
+</h4>
+<p>Rewrite the data files in table <code>db.sample</code> using the default rewrite algorithm of bin-packing to combine small files
+and also split large files according to the default write size of the table.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.rewrite_data_files(<span style=color:#e6db74>&#39;db.sample&#39;</span>)
+</code></pre></div><p>Rewrite the data files in table <code>db.sample</code> by sorting all the data on id and name
+using the same defaults as bin-pack to determine which files to rewrite.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.rewrite_data_files(<span style=color:#66d9ef>table</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;db.sample&#39;</span>, strategy <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;sort&#39;</span>, sort_order <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;id DESC NULLS LAST,name ASC NULLS FIRST&#39;</span>)
+</code></pre></div><p>Rewrite the data files in table <code>db.sample</code> using bin-pack strategy in any partition where more than 2 or more files need to be rewritten.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.rewrite_data_files(<span style=color:#66d9ef>table</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;db.sample&#39;</span>, <span style=color:#66d9ef>options</span> <span style=color:#f92672>=&gt;</span> <span style=color:#66d9ef>map</span>(<span style=color:#e6db74>&#39;min-input-files&#39;</span>,<span style=color:#e6db74>&#39;2&#39;</span>))
+</code></pre></div><p>Rewrite the data files in table <code>db.sample</code> and select the files that may contain data matching the filter (id = 3 and name = &ldquo;foo&rdquo;) to be rewritten.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.rewrite_data_files(<span style=color:#66d9ef>table</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;db.sample&#39;</span>, <span style=color:#66d9ef>where</span> <span style=color:#f92672>=&gt;</span> <span style=color:#e6db74>&#39;id = 3 and name = &#34;foo&#34;&#39;</span>)
 </code></pre></div><h3 id=rewrite_manifests>
 <code>rewrite_manifests</code>
 <a class=anchor href=#rewrite_manifests>#</a>
 </h3>
 <p>Rewrite manifests for a table to optimize scan planning.</p>
 <p>Data files in manifests are sorted by fields in the partition spec. This procedure runs in parallel using a Spark job.</p>
-<p>See the <a href=../../../javadoc/0.12.1/org/apache/iceberg/actions/RewriteManifestsAction.html><code>RewriteManifestsAction</code> Javadoc</a>
+<p>See the <a href=../../../javadoc/0.13.0/org/apache/iceberg/actions/RewriteManifestsAction.html><code>RewriteManifestsAction</code> Javadoc</a>
 to see more configuration options.</p>
-<p><strong>Note</strong> this procedure invalidates all cached Spark plans that reference the affected table.</p>
-<h4 id=usage-7>
+<blockquote class="book-hint info">
+This procedure invalidates all cached Spark plans that reference the affected table.
+</blockquote>
+<h4 id=usage-8>
 Usage
-<a class=anchor href=#usage-7>#</a>
+<a class=anchor href=#usage-8>#</a>
 </h4>
 <table>
 <thead>
@@ -896,9 +1037,9 @@ Usage
 </tr>
 </tbody>
 </table>
-<h4 id=output-6>
+<h4 id=output-7>
 Output
-<a class=anchor href=#output-6>#</a>
+<a class=anchor href=#output-7>#</a>
 </h4>
 <table>
 <thead>
@@ -921,9 +1062,9 @@ Output
 </tr>
 </tbody>
 </table>
-<h4 id=examples-3>
+<h4 id=examples-4>
 Examples
-<a class=anchor href=#examples-3>#</a>
+<a class=anchor href=#examples-4>#</a>
 </h4>
 <p>Rewrite the manifests in table <code>db.sample</code> and align manifest files with table partitioning.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.rewrite_manifests(<span style=color:#e6db74>&#39;db.sample&#39;</span>)
@@ -942,15 +1083,17 @@ Table migration
 <p>The newly created table can be changed or written to without affecting the source table, but the snapshot uses the original table&rsquo;s data files.</p>
 <p>When inserts or overwrites run on the snapshot, new files are placed in the snapshot table&rsquo;s location rather than the original table location.</p>
 <p>When finished testing a snapshot table, clean it up by running <code>DROP TABLE</code>.</p>
-<p><strong>Note</strong> Because tables created by <code>snapshot</code> are not the sole owners of their data files, they are prohibited from
+<blockquote class="book-hint info">
+Because tables created by <code>snapshot</code> are not the sole owners of their data files, they are prohibited from
 actions like <code>expire_snapshots</code> which would physically delete data files. Iceberg deletes, which only effect metadata,
 are still allowed. In addition, any operations which affect the original data files will disrupt the Snapshot&rsquo;s
 integrity. DELETE statements executed against the original Hive table will remove original data files and the
-<code>snapshot</code> table will no longer be able to access them.</p>
+<code>snapshot</code> table will no longer be able to access them.
+</blockquote>
 <p>See <a href=#migrate><code>migrate</code></a> to replace an existing table with an Iceberg table.</p>
-<h4 id=usage-8>
+<h4 id=usage-9>
 Usage
-<a class=anchor href=#usage-8>#</a>
+<a class=anchor href=#usage-9>#</a>
 </h4>
 <table>
 <thead>
@@ -988,9 +1131,9 @@ Usage
 </tr>
 </tbody>
 </table>
-<h4 id=output-7>
+<h4 id=output-8>
 Output
-<a class=anchor href=#output-7>#</a>
+<a class=anchor href=#output-8>#</a>
 </h4>
 <table>
 <thead>
@@ -1008,9 +1151,9 @@ Output
 </tr>
 </tbody>
 </table>
-<h4 id=examples-4>
+<h4 id=examples-5>
 Examples
-<a class=anchor href=#examples-4>#</a>
+<a class=anchor href=#examples-5>#</a>
 </h4>
 <p>Make an isolated Iceberg table which references table <code>db.sample</code> named <code>db.snap</code> at the
 catalog&rsquo;s default location for <code>db.snap</code>.</p>
@@ -1027,9 +1170,9 @@ a manually specified location <code>/tmp/temptable/</code>.</p>
 <p>Migrate will fail if any table partition uses an unsupported format. Supported formats are Avro, Parquet, and ORC.
 Existing data files are added to the Iceberg table&rsquo;s metadata and can be read using a name-to-id mapping created from the original table schema.</p>
 <p>To leave the original table intact while testing, use <a href=#snapshot><code>snapshot</code></a> to create new temporary table that shares source data files and schema.</p>
-<h4 id=usage-9>
+<h4 id=usage-10>
 Usage
-<a class=anchor href=#usage-9>#</a>
+<a class=anchor href=#usage-10>#</a>
 </h4>
 <table>
 <thead>
@@ -1055,9 +1198,9 @@ Usage
 </tr>
 </tbody>
 </table>
-<h4 id=output-8>
+<h4 id=output-9>
 Output
-<a class=anchor href=#output-8>#</a>
+<a class=anchor href=#output-9>#</a>
 </h4>
 <table>
 <thead>
@@ -1075,9 +1218,9 @@ Output
 </tr>
 </tbody>
 </table>
-<h4 id=examples-5>
+<h4 id=examples-6>
 Examples
-<a class=anchor href=#examples-5>#</a>
+<a class=anchor href=#examples-6>#</a>
 </h4>
 <p>Migrate the table <code>db.sample</code> in Spark&rsquo;s default catalog to an Iceberg table and add a property &lsquo;foo&rsquo; set to &lsquo;bar&rsquo;:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> <span style=color:#66d9ef>catalog_name</span>.<span style=color:#66d9ef>system</span>.migrate(<span style=color:#e6db74>&#39;spark_catalog.db.sample&#39;</span>, <span style=color:#66d9ef>map</span>(<span style=color:#e6db74>&#39;foo&#39;</span>, <span style=color:#e6db74>&#39;bar&#39;</span>))
@@ -1094,9 +1237,9 @@ of the files to determine if they actually match the schema of the Iceberg table
 will then treat these files as if they are part of the set of files owned by Iceberg. This means any subsequent
 <code>expire_snapshot</code> calls will be able to physically delete the added files. This method should not be used if
 <code>migrate</code> or <code>snapshot</code> are possible.</p>
-<h4 id=usage-10>
+<h4 id=usage-11>
 Usage
-<a class=anchor href=#usage-10>#</a>
+<a class=anchor href=#usage-11>#</a>
 </h4>
 <table>
 <thead>
@@ -1130,9 +1273,9 @@ Usage
 </table>
 <p>Warning : Schema is not validated, adding files with different schema to the Iceberg table will cause issues.</p>
 <p>Warning : Files added by this method can be physically deleted by Iceberg operations</p>
-<h4 id=examples-6>
+<h4 id=examples-7>
 Examples
-<a class=anchor href=#examples-6>#</a>
+<a class=anchor href=#examples-7>#</a>
 </h4>
 <p>Add the files from table <code>db.src_table</code>, a Hive or Spark table registered in the session Catalog, to Iceberg table
 <code>db.tbl</code>. Only add files that exist within partitions where <code>part_col_1</code> is equal to <code>A</code>.</p>
@@ -1156,9 +1299,9 @@ files regardless of what partition they belong to.</p>
 <a class=anchor href=#ancestors_of>#</a>
 </h3>
 <p>Report the live snapshot IDs of parents of a specified snapshot</p>
-<h4 id=usage-11>
+<h4 id=usage-12>
 Usage
-<a class=anchor href=#usage-11>#</a>
+<a class=anchor href=#usage-12>#</a>
 </h4>
 <table>
 <thead>
@@ -1192,9 +1335,9 @@ Usage
 </code></pre></div><p>Not specifying the snapshot ID would return A -> B -> C' -> D', while providing the snapshot ID of
 D as an argument would return A-> B -> C -> D</p>
 </blockquote>
-<h4 id=output-9>
+<h4 id=output-10>
 Output
-<a class=anchor href=#output-9>#</a>
+<a class=anchor href=#output-10>#</a>
 </h4>
 <table>
 <thead>
@@ -1217,9 +1360,9 @@ Output
 </tr>
 </tbody>
 </table>
-<h4 id=examples-7>
+<h4 id=examples-8>
 Examples
-<a class=anchor href=#examples-7>#</a>
+<a class=anchor href=#examples-8>#</a>
 </h4>
 <p>Get all the snapshot ancestors of current snapshots(default)</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CALL</span> spark_catalog.<span style=color:#66d9ef>system</span>.ancestors_of(<span style=color:#e6db74>&#39;db.tbl&#39;</span>)
@@ -1258,6 +1401,7 @@ Examples
 <ul>
 <li><a href=#expire_snapshots><code>expire_snapshots</code></a></li>
 <li><a href=#remove_orphan_files><code>remove_orphan_files</code></a></li>
+<li><a href=#rewrite_data_files><code>rewrite_data_files</code></a></li>
 <li><a href=#rewrite_manifests><code>rewrite_manifests</code></a></li>
 </ul>
 </li>

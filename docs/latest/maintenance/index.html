@@ -15,7 +15,7 @@ Snapshots accumulate until they are expired by the expireSnapshots operation.">
 <link rel=icon href=/docs/latest/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/docs/latest/book.min.179e158d24f3ef709534173fd8b1c1e541a4fa3e23c1b5d8e887464c58949cc9.css integrity="sha256-F54VjSTz73CVNBc/2LHB5UGk+j4jwbXY6IdGTFiUnMk=" crossorigin=anonymous>
 <script defer src=/docs/latest/flexsearch.min.js></script>
-<script defer src=/docs/latest/en.search.min.9b124723b1c81e63210b068f5fc39a9b749ca2630cbfefa154cc41d5c8b91b2e.js integrity="sha256-mxJHI7HIHmMhCwaPX8Oam3ScomMMv++hVMxB1ci5Gy4=" crossorigin=anonymous></script>
+<script defer src=/docs/latest/en.search.min.ac57fb46ef8e371d5a90bbe5908a0ae7784ec7fe50ebe122dc2b8141f82ab247.js integrity="sha256-rFf7Ru+ONx1akLvlkIoK53hOx/5Q6+Ei3CuBQfgqskc=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -28,7 +28,7 @@ Snapshots accumulate until they are expired by the expireSnapshots operation.">
 <a class="flex align-center" href=/docs/latest/../../><img src=/docs/latest/img/iceberg-logo-icon.png alt=Logo><span>Apache Iceberg</span>
 </a>
 <a href=https://iceberg.apache.org/docs/latest/../../releases>
-<img id=version-shield src=https://img.shields.io/badge/version-0.12.1-blue alt>
+<img id=version-shield src=https://img.shields.io/badge/version-0.13.0-blue alt>
 </a>
 </h2>
 <div class=book-search>
@@ -143,6 +143,24 @@ Trino
 <a href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>
 <img src=https://iceberg.apache.org/docs/latest/img/../img/prestodb-logo.png class="navigation-icon fa-fw">
 Presto
+</a>
+</li>
+<li>
+<a href=https://docs.dremio.com/data-formats/apache-iceberg/ target=_blank>
+<img src=https://iceberg.apache.org/docs/latest/img/../img/dremio-logo.png class="navigation-icon fa-fw">
+Dremio
+</a>
+</li>
+<li>
+<a href=https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/latest/img/../img/athena-logo.png class="navigation-icon fa-fw">
+Amazon Athena
+</a>
+</li>
+<li>
+<a href=https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-create-cluster.html target=_blank>
+<img src=https://iceberg.apache.org/docs/latest/img/../img/emr-logo.png class="navigation-icon fa-fw">
+Amazon EMR
 </a>
 </li>
 <li class=book-section-collapsed>
@@ -295,6 +313,11 @@ Latest
 </a>
 </li>
 <li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/latest/../0.13.0>
+0.13.0
+</a>
+</li>
+<li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/../0.12.1>
 0.12.1
 </a>
@@ -369,7 +392,7 @@ Events
 <ul>
 <li><a href=#expire-snapshots>Expire Snapshots</a></li>
 <li><a href=#remove-old-metadata-files>Remove old metadata files</a></li>
-<li><a href=#remove-orphan-files>Remove orphan files</a></li>
+<li><a href=#delete-orphan-files>Delete orphan files</a></li>
 </ul>
 </li>
 <li><a href=#optional-maintenance>Optional Maintenance</a>
@@ -399,17 +422,19 @@ Expire Snapshots
 <a class=anchor href=#expire-snapshots>#</a>
 </h3>
 <p>Each write to an Iceberg table creates a new <em>snapshot</em>, or version, of a table. Snapshots can be used for time-travel queries, or the table can be rolled back to any valid snapshot.</p>
-<p>Snapshots accumulate until they are expired by the <a href=../../../javadoc/0.12.1/org/apache/iceberg/Table.html#expireSnapshots--><code>expireSnapshots</code></a> operation. Regularly expiring snapshots is recommended to delete data files that are no longer needed, and to keep the size of table metadata small.</p>
+<p>Snapshots accumulate until they are expired by the <a href=../../../javadoc/0.13.0/org/apache/iceberg/Table.html#expireSnapshots--><code>expireSnapshots</code></a> operation. Regularly expiring snapshots is recommended to delete data files that are no longer needed, and to keep the size of table metadata small.</p>
 <p>This example expires snapshots that are older than 1 day:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Table table <span style=color:#f92672>=</span> <span style=color:#f92672>...</span>
 <span style=color:#66d9ef>long</span> tsToExpire <span style=color:#f92672>=</span> System<span style=color:#f92672>.</span><span style=color:#a6e22e>currentTimeMillis</span><span style=color:#f92672>()</span> <span style=color:#f92672>-</span> <span style=color:#f92672>(</span>1000 <span style=color:#f92672>*</span> 60 <span style=color:#f92672>*</span> 60 <span style=color:#f92672>*</span> 24<span style=color:#f92672>);</span> <span style=color:#75715e>// 1 day
 </span><span style=color:#75715e></span>table<span style=color:#f92672>.</span><span style=color:#a6e22e>expireSnapshots</span><span style=color:#f92672>()</span>
      <span style=color:#f92672>.</span><span style=color:#a6e22e>expireOlderThan</span><span style=color:#f92672>(</span>tsToExpire<span style=color:#f92672>)</span>
      <span style=color:#f92672>.</span><span style=color:#a6e22e>commit</span><span style=color:#f92672>();</span>
-</code></pre></div><p>See the <a href=../../../javadoc/0.12.1/org/apache/iceberg/ExpireSnapshots.html><code>ExpireSnapshots</code> Javadoc</a> to see more configuration options.</p>
+</code></pre></div><p>See the <a href=../../../javadoc/0.13.0/org/apache/iceberg/ExpireSnapshots.html><code>ExpireSnapshots</code> Javadoc</a> to see more configuration options.</p>
 <p>There is also a Spark action that can run table expiration in parallel for large tables:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Actions<span style=color:#f92672>.</span><span style=color:#a6e22e>forTable</span><span style=color:#f92672>(</span>table<span style=color:#f92672>)</span>
-    <span style=color:#f92672>.</span><span style=color:#a6e22e>expireSnapshots</span><span style=color:#f92672>()</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Table table <span style=color:#f92672>=</span> <span style=color:#f92672>...</span>
+SparkActions
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>()</span>
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>expireSnapshots</span><span style=color:#f92672>(</span>table<span style=color:#f92672>)</span>
     <span style=color:#f92672>.</span><span style=color:#a6e22e>expireOlderThan</span><span style=color:#f92672>(</span>tsToExpire<span style=color:#f92672>)</span>
     <span style=color:#f92672>.</span><span style=color:#a6e22e>execute</span><span style=color:#f92672>();</span>
 </code></pre></div><p>Expiring old snapshots removes them from metadata, so they are no longer available for time travel queries.</p>
@@ -443,17 +468,18 @@ Remove old metadata files
 </tbody>
 </table>
 <p>See <a href=../configuration/#write-properties>table write properties</a> for more details.</p>
-<h3 id=remove-orphan-files>
-Remove orphan files
-<a class=anchor href=#remove-orphan-files>#</a>
+<h3 id=delete-orphan-files>
+Delete orphan files
+<a class=anchor href=#delete-orphan-files>#</a>
 </h3>
 <p>In Spark and other distributed processing engines, task or job failures can leave files that are not referenced by table metadata, and in some cases normal snapshot expiration may not be able to determine a file is no longer needed and delete it.</p>
-<p>To clean up these &ldquo;orphan&rdquo; files under a table location, use the <code>removeOrphanFiles</code> action.</p>
+<p>To clean up these &ldquo;orphan&rdquo; files under a table location, use the <code>deleteOrphanFiles</code> action.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Table table <span style=color:#f92672>=</span> <span style=color:#f92672>...</span>
-Actions<span style=color:#f92672>.</span><span style=color:#a6e22e>forTable</span><span style=color:#f92672>(</span>table<span style=color:#f92672>)</span>
-    <span style=color:#f92672>.</span><span style=color:#a6e22e>removeOrphanFiles</span><span style=color:#f92672>()</span>
+SparkActions
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>()</span>
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>deleteOrphanFiles</span><span style=color:#f92672>(</span>table<span style=color:#f92672>)</span>
     <span style=color:#f92672>.</span><span style=color:#a6e22e>execute</span><span style=color:#f92672>();</span>
-</code></pre></div><p>See the <a href=../../../javadoc/0.12.1/org/apache/iceberg/actions/RemoveOrphanFilesAction.html>RemoveOrphanFilesAction Javadoc</a> to see more configuration options.</p>
+</code></pre></div><p>See the <a href=../../../javadoc/0.13.0/org/apache/iceberg/actions/DeleteOrphanFiles.html>DeleteOrphanFiles Javadoc</a> to see more configuration options.</p>
 <p>This action may take a long time to finish if you have lots of files in data and metadata directories. It is recommended to execute this periodically, but you may not need to execute this often.</p>
 <blockquote class="book-hint info">
 It is dangerous to remove orphan files with a retention interval shorter than the time expected for any write to complete because it
@@ -478,12 +504,14 @@ Compact data files
 <p>Iceberg tracks each data file in a table. More data files leads to more metadata stored in manifest files, and small data files causes an unnecessary amount of metadata and less efficient queries from file open costs.</p>
 <p>Iceberg can compact data files in parallel using Spark with the <code>rewriteDataFiles</code> action. This will combine small files into larger files to reduce metadata overhead and runtime file open cost.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Table table <span style=color:#f92672>=</span> <span style=color:#f92672>...</span>
-Actions<span style=color:#f92672>.</span><span style=color:#a6e22e>forTable</span><span style=color:#f92672>(</span>table<span style=color:#f92672>).</span><span style=color:#a6e22e>rewriteDataFiles</span><span style=color:#f92672>()</span>
+SparkActions
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>()</span>
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>rewriteDataFiles</span><span style=color:#f92672>(</span>table<span style=color:#f92672>)</span>
     <span style=color:#f92672>.</span><span style=color:#a6e22e>filter</span><span style=color:#f92672>(</span>Expressions<span style=color:#f92672>.</span><span style=color:#a6e22e>equal</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;date&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;2020-08-18&#34;</span><span style=color:#f92672>))</span>
-    <span style=color:#f92672>.</span><span style=color:#a6e22e>targetSizeInBytes</span><span style=color:#f92672>(</span>500 <span style=color:#f92672>*</span> 1024 <span style=color:#f92672>*</span> 1024<span style=color:#f92672>)</span> <span style=color:#75715e>// 500 MB
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>option</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;target-file-size-bytes&#34;</span><span style=color:#f92672>,</span> Long<span style=color:#f92672>.</span><span style=color:#a6e22e>toString</span><span style=color:#f92672>(</span>500 <span style=color:#f92672>*</span> 1024 <span style=color:#f92672>*</span> 1024<span style=color:#f92672>))</span> <span style=color:#75715e>// 500 MB
 </span><span style=color:#75715e></span>    <span style=color:#f92672>.</span><span style=color:#a6e22e>execute</span><span style=color:#f92672>();</span>
-</code></pre></div><p>The <code>files</code> metadata table is useful for inspecting data file sizes and determining when to compact partitons.</p>
-<p>See the <a href=../../../javadoc/0.12.1/org/apache/iceberg/actions/RewriteDataFilesAction.html><code>RewriteDataFilesAction</code> Javadoc</a> to see more configuration options.</p>
+</code></pre></div><p>The <code>files</code> metadata table is useful for inspecting data file sizes and determining when to compact partitions.</p>
+<p>See the <a href=../../../javadoc/0.13.0/org/apache/iceberg/actions/RewriteDataFiles.html><code>RewriteDataFiles</code> Javadoc</a> to see more configuration options.</p>
 <h3 id=rewrite-manifests>
 Rewrite manifests
 <a class=anchor href=#rewrite-manifests>#</a>
@@ -493,11 +521,12 @@ Rewrite manifests
 <p>When a table&rsquo;s write pattern doesn&rsquo;t align with the query pattern, metadata can be rewritten to re-group data files into manifests using <code>rewriteManifests</code> or the <code>rewriteManifests</code> action (for parallel rewrites using Spark).</p>
 <p>This example rewrites small manifests and groups data files by the first partition field.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Table table <span style=color:#f92672>=</span> <span style=color:#f92672>...</span>
-table<span style=color:#f92672>.</span><span style=color:#a6e22e>rewriteManifests</span><span style=color:#f92672>()</span>
+SparkActions
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>()</span>
+    <span style=color:#f92672>.</span><span style=color:#a6e22e>rewriteManifests</span><span style=color:#f92672>(</span>table<span style=color:#f92672>)</span>
     <span style=color:#f92672>.</span><span style=color:#a6e22e>rewriteIf</span><span style=color:#f92672>(</span>file <span style=color:#f92672>-&gt;</span> file<span style=color:#f92672>.</span><span style=color:#a6e22e>length</span><span style=color:#f92672>()</span> <span style=color:#f92672>&lt;</span> 10 <span style=color:#f92672>*</span> 1024 <span style=color:#f92672>*</span> 1024<span style=color:#f92672>)</span> <span style=color:#75715e>// 10 MB
-</span><span style=color:#75715e></span>    <span style=color:#f92672>.</span><span style=color:#a6e22e>clusterBy</span><span style=color:#f92672>(</span>file <span style=color:#f92672>-&gt;</span> file<span style=color:#f92672>.</span><span style=color:#a6e22e>partition</span><span style=color:#f92672>().</span><span style=color:#a6e22e>get</span><span style=color:#f92672>(</span>0<span style=color:#f92672>,</span> Integer<span style=color:#f92672>.</span><span style=color:#a6e22e>class</span><span style=color:#f92672>))</span>
-    <span style=color:#f92672>.</span><span style=color:#a6e22e>commit</span><span style=color:#f92672>();</span>
-</code></pre></div><p>See the <a href=../../../javadoc/0.12.1/org/apache/iceberg/actions/RewriteManifestsAction.html><code>RewriteManifestsAction</code> Javadoc</a> to see more configuration options.</p>
+</span><span style=color:#75715e></span>    <span style=color:#f92672>.</span><span style=color:#a6e22e>execute</span><span style=color:#f92672>();</span>
+</code></pre></div><p>See the <a href=../../../javadoc/0.13.0/org/apache/iceberg/actions/RewriteManifests.html><code>RewriteManifests</code> Javadoc</a> to see more configuration options.</p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
@@ -516,7 +545,7 @@ table<span style=color:#f92672>.</span><span style=color:#a6e22e>rewriteManifest
 <ul>
 <li><a href=#expire-snapshots>Expire Snapshots</a></li>
 <li><a href=#remove-old-metadata-files>Remove old metadata files</a></li>
-<li><a href=#remove-orphan-files>Remove orphan files</a></li>
+<li><a href=#delete-orphan-files>Delete orphan files</a></li>
 </ul>
 </li>
 <li><a href=#optional-maintenance>Optional Maintenance</a>

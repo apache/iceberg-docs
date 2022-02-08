@@ -15,7 +15,7 @@ Enabling AWS Integration #  The iceberg-aws module is bundled with Spark and Fli
 <link rel=icon href=/docs/latest/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/docs/latest/book.min.179e158d24f3ef709534173fd8b1c1e541a4fa3e23c1b5d8e887464c58949cc9.css integrity="sha256-F54VjSTz73CVNBc/2LHB5UGk+j4jwbXY6IdGTFiUnMk=" crossorigin=anonymous>
 <script defer src=/docs/latest/flexsearch.min.js></script>
-<script defer src=/docs/latest/en.search.min.9b124723b1c81e63210b068f5fc39a9b749ca2630cbfefa154cc41d5c8b91b2e.js integrity="sha256-mxJHI7HIHmMhCwaPX8Oam3ScomMMv++hVMxB1ci5Gy4=" crossorigin=anonymous></script>
+<script defer src=/docs/latest/en.search.min.ac57fb46ef8e371d5a90bbe5908a0ae7784ec7fe50ebe122dc2b8141f82ab247.js integrity="sha256-rFf7Ru+ONx1akLvlkIoK53hOx/5Q6+Ei3CuBQfgqskc=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -28,7 +28,7 @@ Enabling AWS Integration #  The iceberg-aws module is bundled with Spark and Fli
 <a class="flex align-center" href=/docs/latest/../../><img src=/docs/latest/img/iceberg-logo-icon.png alt=Logo><span>Apache Iceberg</span>
 </a>
 <a href=https://iceberg.apache.org/docs/latest/../../releases>
-<img id=version-shield src=https://img.shields.io/badge/version-0.12.1-blue alt>
+<img id=version-shield src=https://img.shields.io/badge/version-0.13.0-blue alt>
 </a>
 </h2>
 <div class=book-search>
@@ -143,6 +143,24 @@ Trino
 <a href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>
 <img src=https://iceberg.apache.org/docs/latest/img/../img/prestodb-logo.png class="navigation-icon fa-fw">
 Presto
+</a>
+</li>
+<li>
+<a href=https://docs.dremio.com/data-formats/apache-iceberg/ target=_blank>
+<img src=https://iceberg.apache.org/docs/latest/img/../img/dremio-logo.png class="navigation-icon fa-fw">
+Dremio
+</a>
+</li>
+<li>
+<a href=https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html target=_blank>
+<img src=https://iceberg.apache.org/docs/latest/img/../img/athena-logo.png class="navigation-icon fa-fw">
+Amazon Athena
+</a>
+</li>
+<li>
+<a href=https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-create-cluster.html target=_blank>
+<img src=https://iceberg.apache.org/docs/latest/img/../img/emr-logo.png class="navigation-icon fa-fw">
+Amazon EMR
 </a>
 </li>
 <li class=book-section-collapsed>
@@ -295,6 +313,11 @@ Latest
 </a>
 </li>
 <li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/latest/../0.13.0>
+0.13.0
+</a>
+</li>
+<li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/../0.12.1>
 0.12.1
 </a>
@@ -388,6 +411,7 @@ Events
 <li><a href=#object-store-file-layout>Object Store File Layout</a></li>
 <li><a href=#s3-strong-consistency>S3 Strong Consistency</a></li>
 <li><a href=#hadoop-s3a-filesystem>Hadoop S3A FileSystem</a></li>
+<li><a href=#s3-write-checksum-verification>S3 Write Checksum Verification</a></li>
 </ul>
 </li>
 <li><a href=#aws-client-customization>AWS Client Customization</a>
@@ -397,7 +421,9 @@ Events
 </li>
 <li><a href=#run-iceberg-on-aws>Run Iceberg on AWS</a>
 <ul>
+<li><a href=#amazon-athena>Amazon Athena</a></li>
 <li><a href=#amazon-emr>Amazon EMR</a></li>
+<li><a href=#aws-eks>AWS EKS</a></li>
 <li><a href=#amazon-kinesis>Amazon Kinesis</a></li>
 </ul>
 </li>
@@ -435,7 +461,7 @@ Spark
 </h3>
 <p>For example, to use AWS features with Spark 3 and AWS clients version 2.15.40, you can start the Spark SQL shell with:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#75715e># add Iceberg dependency</span>
-ICEBERG_VERSION<span style=color:#f92672>=</span>0.12.1
+ICEBERG_VERSION<span style=color:#f92672>=</span>0.13.0
 DEPENDENCIES<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;org.apache.iceberg:iceberg-spark3-runtime:</span>$ICEBERG_VERSION<span style=color:#e6db74>&#34;</span>
 
 <span style=color:#75715e># add AWS dependnecy</span>
@@ -464,7 +490,7 @@ Flink
 </h3>
 <p>To use AWS module with Flink, you can download the necessary dependencies and specify them when starting the Flink SQL client:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#75715e># download Iceberg dependency</span>
-ICEBERG_VERSION<span style=color:#f92672>=</span>0.12.1
+ICEBERG_VERSION<span style=color:#f92672>=</span>0.13.0
 MAVEN_URL<span style=color:#f92672>=</span>https://repo1.maven.org/maven2
 ICEBERG_MAVEN_URL<span style=color:#f92672>=</span>$MAVEN_URL/org/apache/iceberg
 wget $ICEBERG_MAVEN_URL/iceberg-flink-runtime/$ICEBERG_VERSION/iceberg-flink-runtime-$ICEBERG_VERSION.jar
@@ -865,6 +891,12 @@ This feature allows people to easily switch from S3A to <code>S3FileIO</code>.</
 <li>Add <a href=https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-aws>hadoop-aws</a> as a runtime dependency of your compute engine.</li>
 <li>Configure AWS settings based on <a href=https://hadoop.apache.org/docs/current/hadoop-aws/tools/hadoop-aws/index.html>hadoop-aws documentation</a> (make sure you check the version, S3A configuration varies a lot based on the version you use).</li>
 </ol>
+<h3 id=s3-write-checksum-verification>
+S3 Write Checksum Verification
+<a class=anchor href=#s3-write-checksum-verification>#</a>
+</h3>
+<p>To ensure integrity of uploaded objects, checksum validations for S3 writes can be turned on by setting catalog property <code>s3.checksum-enabled</code> to <code>true</code>.
+This is turned off by default.</p>
 <h2 id=aws-client-customization>
 AWS Client Customization
 <a class=anchor href=#aws-client-customization>#</a>
@@ -914,7 +946,7 @@ This also serves as an example for users who would like to implement their own A
 <p>By using this client factory, an STS client is initialized with the default credential and region to assume the specified role.
 The Glue, S3 and DynamoDB clients are then initialized with the assume-role credential and region to access resources.
 Here is an example to start Spark shell with this client factory:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>spark-sql --packages org.apache.iceberg:iceberg-spark3-runtime:0.12.1,software.amazon.awssdk:bundle:2.15.40 <span style=color:#ae81ff>\
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>spark-sql --packages org.apache.iceberg:iceberg-spark3-runtime:0.13.0,software.amazon.awssdk:bundle:2.15.40 <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>    --conf spark.sql.catalog.my_catalog<span style=color:#f92672>=</span>org.apache.iceberg.spark.SparkCatalog <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>    --conf spark.sql.catalog.my_catalog.warehouse<span style=color:#f92672>=</span>s3://my-bucket/my/key/prefix <span style=color:#ae81ff>\ </span>   
     --conf spark.sql.catalog.my_catalog.catalog-impl<span style=color:#f92672>=</span>org.apache.iceberg.aws.glue.GlueCatalog <span style=color:#ae81ff>\
@@ -925,6 +957,12 @@ Here is an example to start Spark shell with this client factory:</p>
 Run Iceberg on AWS
 <a class=anchor href=#run-iceberg-on-aws>#</a>
 </h2>
+<h3 id=amazon-athena>
+Amazon Athena
+<a class=anchor href=#amazon-athena>#</a>
+</h3>
+<p><a href=https://aws.amazon.com/athena/>Amazon Athena</a> provides a serverless query engine that could be used to perform read, write, update and optimization tasks against Iceberg tables.
+More details could be found <a href=https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html>here</a>.</p>
 <h3 id=amazon-emr>
 Amazon EMR
 <a class=anchor href=#amazon-emr>#</a>
@@ -932,11 +970,13 @@ Amazon EMR
 <p><a href=https://aws.amazon.com/emr/>Amazon EMR</a> can provision clusters with <a href=https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-spark.html>Spark</a> (EMR 6 for Spark 3, EMR 5 for Spark 2),
 <a href=https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hive.html>Hive</a>, <a href=https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-flink.html>Flink</a>,
 <a href=https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-presto.html>Trino</a> that can run Iceberg.</p>
-<p>You can use a <a href=https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-bootstrap.html>bootstrap action</a> similar to the following to pre-install all necessary dependencies:</p>
+<p>Starting with EMR version 6.5.0, EMR clusters can be configured to have the necessary Apache Iceberg dependencies installed without requiring bootstrap actions.
+Please refer to the <a href=https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-create-cluster.html>official documentation</a> on how to create a cluster with Iceberg installed.</p>
+<p>For versions before 6.5.0, you can use a <a href=https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-bootstrap.html>bootstrap action</a> similar to the following to pre-install all necessary dependencies:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#75715e>#!/bin/bash
 </span><span style=color:#75715e></span>
 AWS_SDK_VERSION<span style=color:#f92672>=</span>2.15.40
-ICEBERG_VERSION<span style=color:#f92672>=</span>0.12.1
+ICEBERG_VERSION<span style=color:#f92672>=</span>0.13.0
 MAVEN_URL<span style=color:#f92672>=</span>https://repo1.maven.org/maven2
 ICEBERG_MAVEN_URL<span style=color:#f92672>=</span>$MAVEN_URL/org/apache/iceberg
 AWS_MAVEN_URL<span style=color:#f92672>=</span>$MAVEN_URL/software/amazon/awssdk
@@ -967,7 +1007,13 @@ install_dependencies <span style=color:#f92672>()</span> <span style=color:#f926
 
 install_dependencies $LIB_PATH $ICEBERG_MAVEN_URL $ICEBERG_VERSION <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>ICEBERG_PACKAGES[@]<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
 install_dependencies $LIB_PATH $AWS_MAVEN_URL $AWS_SDK_VERSION <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>AWS_PACKAGES[@]<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
-</code></pre></div><h3 id=amazon-kinesis>
+</code></pre></div><h3 id=aws-eks>
+AWS EKS
+<a class=anchor href=#aws-eks>#</a>
+</h3>
+<p><a href=https://aws.amazon.com/eks/>AWS Elastic Kubernetes Service (EKS)</a> can be used to start any Spark, Flink, Hive, Presto or Trino clusters to work with Iceberg.
+Search the <a href=../../../blogs>Iceberg blogs</a> page for tutorials around running Iceberg with Docker and Kubernetes.</p>
+<h3 id=amazon-kinesis>
 Amazon Kinesis
 <a class=anchor href=#amazon-kinesis>#</a>
 </h3>
@@ -1010,6 +1056,7 @@ to run fully managed Apache Flink applications. You can include Iceberg in your 
 <li><a href=#object-store-file-layout>Object Store File Layout</a></li>
 <li><a href=#s3-strong-consistency>S3 Strong Consistency</a></li>
 <li><a href=#hadoop-s3a-filesystem>Hadoop S3A FileSystem</a></li>
+<li><a href=#s3-write-checksum-verification>S3 Write Checksum Verification</a></li>
 </ul>
 </li>
 <li><a href=#aws-client-customization>AWS Client Customization</a>
@@ -1019,7 +1066,9 @@ to run fully managed Apache Flink applications. You can include Iceberg in your 
 </li>
 <li><a href=#run-iceberg-on-aws>Run Iceberg on AWS</a>
 <ul>
+<li><a href=#amazon-athena>Amazon Athena</a></li>
 <li><a href=#amazon-emr>Amazon EMR</a></li>
+<li><a href=#aws-eks>AWS EKS</a></li>
 <li><a href=#amazon-kinesis>Amazon Kinesis</a></li>
 </ul>
 </li>
