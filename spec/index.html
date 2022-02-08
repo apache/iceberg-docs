@@ -94,7 +94,7 @@
 <li><strong>Formats</strong> &ndash; Underlying data file formats will support identical schema evolution rules and types. Both read- and write-optimized formats will be available.</li>
 </ul>
 <h2 id=overview>Overview</h2>
-<p><img src=../img/iceberg-metadata.png alt="Iceberg snapshot structure">{.spec-img}</p>
+<p><img src=../../../img/iceberg-metadata.png alt="Iceberg snapshot structure"></p>
 <p>This table format tracks individual data files in a table instead of directories. This allows writers to create data files in-place and only adds files to the table in an explicit commit.</p>
 <p>Table state is maintained in metadata files. All changes to table state create a new metadata file and replace the old metadata with an atomic swap. The table metadata file tracks the table schema, partitioning config, custom properties, and snapshots of the table contents. A snapshot represents the state of a table at some time and is used to access the complete set of data files in the table.</p>
 <p>Data files in snapshots are tracked by one or more manifest files that contain a row for each data file in the table, the file&rsquo;s partition data, and its metrics. The data in a snapshot is the union of all files in its manifests. Manifest files are reused across snapshots to avoid rewriting metadata that is slow-changing. Manifests can track data files with any subset of a table and are not associated with partitions.</p>
