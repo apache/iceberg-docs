@@ -72,20 +72,24 @@
 <body dir=" ltr">
 <div class=markdown-body>
 <h2 id=downloads>Downloads</h2>
-<p>The latest version of Iceberg is <a href=https://github.com/apache/iceberg/releases/tag/apache-iceberg-0.12.1>0.12.1</a>.</p>
+<p>The latest version of Iceberg is <a href=https://github.com/apache/iceberg/releases/tag/apache-iceberg-0.13.0>0.13.0</a>.</p>
 <ul>
-<li><a href=https://www.apache.org/dyn/closer.cgi/iceberg/apache-iceberg-0.12.1/apache-iceberg-0.12.1.tar.gz>0.12.1 source tar.gz</a> &ndash; <a href=https://downloads.apache.org/iceberg/apache-iceberg-0.12.1/apache-iceberg-0.12.1.tar.gz.asc>signature</a> &ndash; <a href=https://downloads.apache.org/iceberg/apache-iceberg-0.12.1/apache-iceberg-0.12.1.tar.gz.sha512>sha512</a></li>
-<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark3-runtime/0.12.1/iceberg-spark3-runtime-0.12.1.jar">0.12.1 Spark 3.0 runtime Jar</a></li>
-<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime/0.12.1/iceberg-spark-runtime-0.12.1.jar">0.12.1 Spark 2.4 runtime Jar</a></li>
-<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime/0.12.1/iceberg-flink-runtime-0.12.1.jar">0.12.1 Flink runtime Jar</a></li>
-<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-hive-runtime/0.12.1/iceberg-hive-runtime-0.12.1.jar">0.12.1 Hive runtime Jar</a></li>
+<li><a href=https://www.apache.org/dyn/closer.cgi/iceberg/apache-iceberg-0.13.0/apache-iceberg-0.13.0.tar.gz>0.13.0 source tar.gz</a> &ndash; <a href=https://downloads.apache.org/iceberg/apache-iceberg-0.13.0/apache-iceberg-0.13.0.tar.gz.asc>signature</a> &ndash; <a href=https://downloads.apache.org/iceberg/apache-iceberg-0.13.0/apache-iceberg-0.13.0.tar.gz.sha512>sha512</a></li>
+<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime-3.2_2.12/0.13.0/iceberg-spark-runtime-3.2_2.12-0.13.0.jar">0.13.0 Spark 3.2 runtime Jar</a></li>
+<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime-3.1_2.12/0.13.0/iceberg-spark-runtime-3.1_2.12-0.13.0.jar">0.13.0 Spark 3.1 runtime Jar</a></li>
+<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark3-runtime/0.13.0/iceberg-spark3-runtime-0.13.0.jar">0.13.0 Spark 3.0 runtime Jar</a></li>
+<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime/0.13.0/iceberg-spark-runtime-0.13.0.jar">0.13.0 Spark 2.4 runtime Jar</a></li>
+<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime-1.14/0.13.0/iceberg-flink-runtime-1.14-0.13.0.jar">0.13.0 Flink 1.14 runtime Jar</a></li>
+<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime-1.13/0.13.0/iceberg-flink-runtime-1.13-0.13.0.jar">0.13.0 Flink 1.13 runtime Jar</a></li>
+<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime-1.12/0.13.0/iceberg-flink-runtime-1.12-0.13.0.jar">0.13.0 Flink 1.12 runtime Jar</a></li>
+<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-hive-runtime/0.13.0/iceberg-hive-runtime-0.13.0.jar">0.13.0 Hive runtime Jar</a></li>
 </ul>
-<p>To use Iceberg in Spark, download the runtime JAR and add it to the jars folder of your Spark install. Use iceberg-spark3-runtime for Spark 3, and iceberg-spark-runtime for Spark 2.4.</p>
-<p>To use Iceberg in Hive, download the iceberg-hive-runtime JAR and add it to Hive using <code>ADD JAR</code>.</p>
+<p>To use Iceberg in Spark or Flink, download the runtime JAR for your engine version and add it to the jars folder of your installation.</p>
+<p>To use Iceberg in Hive 2 or Hive 3, download the Hive runtime JAR and add it to Hive using <code>ADD JAR</code>.</p>
 <h3 id=gradle>Gradle</h3>
 <p>To add a dependency on Iceberg in Gradle, add the following to <code>build.gradle</code>:</p>
 <pre tabindex=0><code>dependencies {
-  compile 'org.apache.iceberg:iceberg-core:0.12.1'
+  compile 'org.apache.iceberg:iceberg-core:0.13.0'
 }
 </code></pre><p>You may also want to include <code>iceberg-parquet</code> for Parquet file support.</p>
 <h3 id=maven>Maven</h3>
@@ -95,12 +99,121 @@
   &lt;dependency&gt;
     &lt;groupId&gt;org.apache.iceberg&lt;/groupId&gt;
     &lt;artifactId&gt;iceberg-core&lt;/artifactId&gt;
-    &lt;version&gt;0.12.1&lt;/version&gt;
+    &lt;version&gt;0.13.0&lt;/version&gt;
   &lt;/dependency&gt;
   ...
 &lt;/dependencies&gt;
-</code></pre><h2 id=0121-release-notes>0.12.1 Release Notes</h2>
+</code></pre><h2 id=0130-release-notes>0.13.0 Release Notes</h2>
+<p>Apache Iceberg 0.13.0 was released on February 4th, 2022.</p>
+<p><strong>High-level features:</strong></p>
+<ul>
+<li><strong>Core</strong>
+<ul>
+<li>Catalog caching now supports cache expiration through catalog property <code>cache.expiration-interval-ms</code> [<a href=https://github.com/apache/iceberg/pull/3543>#3543</a>]</li>
+<li>Catalog now supports registration of Iceberg table from a given metadata file location [<a href=https://github.com/apache/iceberg/pull/3851>#3851</a>]</li>
+<li>Hadoop catalog can be used with S3 and other file systems safely by using a lock manager [<a href=https://github.com/apache/iceberg/pull/3663>#3663</a>]</li>
+</ul>
+</li>
+<li><strong>Vendor Integrations</strong>
+<ul>
+<li>Google Cloud Storage (GCS) <code>FileIO</code> is supported with optimized read and write using GCS streaming transfer [<a href=https://github.com/apache/iceberg/pull/3711>#3711</a>]</li>
+<li>Aliyun Object Storage Service (OSS) <code>FileIO</code> is supported [<a href=https://github.com/apache/iceberg/pull/3553>#3553</a>]</li>
+<li>Any S3-compatible storage (e.g. MinIO) can now be accessed through AWS <code>S3FileIO</code> with custom endpoint and credential configurations [<a href=https://github.com/apache/iceberg/pull/3656>#3656</a>] [<a href=https://github.com/apache/iceberg/pull/3658>#3658</a>]</li>
+<li>AWS <code>S3FileIO</code> now supports server-side checksum validation [<a href=https://github.com/apache/iceberg/pull/3813>#3813</a>]</li>
+<li>AWS <code>GlueCatalog</code> now displays more table information including table location, description [<a href=https://github.com/apache/iceberg/pull/3467>#3467</a>] and columns [<a href=https://github.com/apache/iceberg/pull/3888>#3888</a>]</li>
+<li>Using multiple <code>FileIO</code>s based on file path scheme is supported by configuring a <code>ResolvingFileIO</code> [<a href=https://github.com/apache/iceberg/pull/3593>#3593</a>]</li>
+</ul>
+</li>
+<li><strong>Spark</strong>
+<ul>
+<li>Spark 3.2 is supported [<a href=https://github.com/apache/iceberg/pull/3335>#3335</a>] with merge-on-read <code>DELETE</code> [<a href=https://github.com/apache/iceberg/pull/3970>#3970</a>]</li>
+<li><code>RewriteDataFiles</code> action now supports sort-based table optimization [<a href=https://github.com/apache/iceberg/pull/2829>#2829</a>] and merge-on-read delete compaction [<a href=https://github.com/apache/iceberg/pull/3454>#3454</a>]. The corresponding Spark call procedure <code>rewrite_data_files</code> is also supported [<a href=https://github.com/apache/iceberg/pull/3375>#3375</a>]</li>
+<li>Time travel queries now use snapshot schema instead of the table&rsquo;s latest schema [<a href=https://github.com/apache/iceberg/pull/3722>#3722</a>]</li>
+<li>Spark vectorized reads now support row-level deletes [<a href=https://github.com/apache/iceberg/pull/3557>#3557</a>] [<a href=https://github.com/apache/iceberg/pull/3287>#3287</a>]</li>
+<li><code>add_files</code> procedure now skips duplicated files by default (can be turned off with the <code>check_duplicate_files</code> flag) [<a href=https://github.com/apache/iceberg/issues/2779>#2895</a>], skips folder without file [<a href=https://github.com/apache/iceberg/issues/3455>#2895</a>] and partitions with <code>null</code> values [<a href=https://github.com/apache/iceberg/issues/3778>#2895</a>] instead of throwing exception, and supports partition pruning for faster table import [<a href=https://github.com/apache/iceberg/issues/3745>#3745</a>]</li>
+</ul>
+</li>
+<li><strong>Flink</strong>
+<ul>
+<li>Flink 1.13 and 1.14 are supported [<a href=https://github.com/apache/iceberg/pull/3116>#3116</a>] [<a href=https://github.com/apache/iceberg/pull/3434>#3434</a>]</li>
+<li>Flink connector support is supported [<a href=https://github.com/apache/iceberg/pull/2666>#2666</a>]</li>
+<li>Upsert write option is supported [<a href=https://github.com/apache/iceberg/pull/2863>#2863</a>]</li>
+</ul>
+</li>
+<li><strong>Hive</strong>
+<ul>
+<li>Table listing in Hive catalog can now skip non-Iceberg tables by disabling flag <code>list-all-tables</code> [<a href=https://github.com/apache/iceberg/pull/3908>#3908</a>]</li>
+<li>Hive tables imported to Iceberg can now be read by <code>IcebergInputFormat</code> [<a href=https://github.com/apache/iceberg/pull/3312>#3312</a>]</li>
+</ul>
+</li>
+<li><strong>File Formats</strong>
+<ul>
+<li>Reading legacy Parquet file (e.g. produced by <code>ParquetHiveSerDe</code> or Spark <code>spark.sql.parquet.writeLegacyFormat=true</code>) is now fully supported to facilitate Hive to Iceberg table migration [<a href=https://github.com/apache/iceberg/pull/3723>#3723</a>]</li>
+<li>ORC now supports writing delete file [<a href=https://github.com/apache/iceberg/pull/3248>#3248</a>] [<a href=https://github.com/apache/iceberg/pull/3250>#3250</a>] [<a href=https://github.com/apache/iceberg/pull/3366>#3366</a>]</li>
+</ul>
+</li>
+</ul>
+<p><strong>Important bug fixes:</strong></p>
+<ul>
+<li><strong>Core</strong>
+<ul>
+<li>Iceberg new data file root path is configured through <code>write.data.path</code> going forward. <code>write.folder-storage.path</code> and <code>write.object-storage.path</code> are deprecated [<a href=https://github.com/apache/iceberg/pull/3094>#3094</a>]</li>
+<li>Catalog commit status is <code>UNKNOWN</code> instead of <code>FAILURE</code> when new metadata location cannot be found in snapshot history [<a href=https://github.com/apache/iceberg/pull/3717>#3717</a>]</li>
+<li>Dropping table now also deletes old metadata files instead of leaving them strained [<a href=https://github.com/apache/iceberg/pull/3622>#3622</a>]</li>
+<li><code>history</code> and <code>snapshots</code> metadata tables can now query tables with no current snapshot instead of returning empty [<a href=https://github.com/apache/iceberg/pull/3812>#3812</a>]</li>
+</ul>
+</li>
+<li><strong>Vendor Integrations</strong>
+<ul>
+<li>Using cloud service integrations such as AWS <code>GlueCatalog</code> and <code>S3FileIO</code> no longer fail when missing Hadoop dependencies in the execution environment [<a href=https://github.com/apache/iceberg/pull/3590>#3590</a>]</li>
+<li>AWS clients are now auto-closed when related <code>FileIO</code> or <code>Catalog</code> is closed. There is no need to close the AWS clients separately [<a href=https://github.com/apache/iceberg/pull/2878>#2878</a>]</li>
+</ul>
+</li>
+<li><strong>Spark</strong>
+<ul>
+<li>For Spark >= 3.1, <code>REFRESH TABLE</code> can now be used with Spark session catalog instead of throwing exception [<a href=https://github.com/apache/iceberg/pull/3072>#3072</a>]</li>
+<li>Insert overwrite mode now skips partition with 0 record instead of failing the write operation [<a href=https://github.com/apache/iceberg/issues/2895>#2895</a>]</li>
+<li>Spark snapshot expiration action now supports custom <code>FileIO</code> instead of just <code>HadoopFileIO</code> [<a href=https://github.com/apache/iceberg/pull/3089>#3089</a>]</li>
+<li><code>REPLACE TABLE AS SELECT</code> can now work with tables with columns that have changed partition transform. Each old partition field of the same column is converted to a void transform with a different name [<a href=https://github.com/apache/iceberg/issues/3421>#3421</a>]</li>
+<li>Spark SQL filters containing binary or fixed literals can now be pushed down instead of throwing exception [<a href=https://github.com/apache/iceberg/pull/3728>#3728</a>]</li>
+</ul>
+</li>
+<li><strong>Flink</strong>
+<ul>
+<li>A <code>ValidationException</code> will be thrown if a user configures both <code>catalog-type</code> and <code>catalog-impl</code>. Previously it chose to use <code>catalog-type</code>. The new behavior brings Flink consistent with Spark and Hive [<a href=https://github.com/apache/iceberg/issues/3308>#3308</a>]</li>
+<li>Changelog tables can now be queried without <code>RowData</code> serialization issues [<a href=https://github.com/apache/iceberg/pull/3240>#3240</a>]</li>
+<li><code>java.sql.Time</code> data type can now be written without data overflow problem [<a href=https://github.com/apache/iceberg/pull/3740>#3740</a>]</li>
+<li>Avro position delete files can now be read without encountering <code>NullPointerException</code> [<a href=https://github.com/apache/iceberg/pull/3540>#3540</a>]</li>
+</ul>
+</li>
+<li><strong>Hive</strong>
+<ul>
+<li>Hive catalog can now be initialized with a <code>null</code> Hadoop configuration instead of throwing exception [<a href=https://github.com/apache/iceberg/pull/3252>#3252</a>]</li>
+<li>Table creation can now succeed instead of throwing exception when some columns do not have comments [<a href=https://github.com/apache/iceberg/pull/3531>#3531</a>]</li>
+</ul>
+</li>
+<li><strong>File Formats</strong>
+<ul>
+<li>Parquet file writing issue is fixed for string data with over 16 unparseable chars (e.g. high/low surrogates) [<a href=https://github.com/apache/iceberg/pull/3760>#3760</a>]</li>
+<li>ORC vectorized read is now configured using <code>read.orc.vectorization.batch-size</code> instead of <code>read.parquet.vectorization.batch-size</code> [<a href=https://github.com/apache/iceberg/pull/3133>#3133</a>]</li>
+</ul>
+</li>
+</ul>
+<p><strong>Other notable changes:</strong></p>
+<ul>
+<li>The community has finalized the long-term strategy of Spark, Flink and Hive support. See <a href=../multi-engine-support>Multi-Engine Support</a> page for more details.</li>
+</ul>
+<h2 id=past-releases>Past releases</h2>
+<h3 id=0121>0.12.1</h3>
 <p>Apache Iceberg 0.12.1 was released on November 8th, 2021.</p>
+<ul>
+<li>Git tag: <a href=https://github.com/apache/iceberg/releases/tag/apache-iceberg-0.12.1>0.12.1</a></li>
+<li><a href=https://www.apache.org/dyn/closer.cgi/iceberg/apache-iceberg-0.12.1/apache-iceberg-0.12.1.tar.gz>0.12.1 source tar.gz</a> &ndash; <a href=https://downloads.apache.org/iceberg/apache-iceberg-0.12.1/apache-iceberg-0.12.1.tar.gz.asc>signature</a> &ndash; <a href=https://downloads.apache.org/iceberg/apache-iceberg-0.12.1/apache-iceberg-0.12.1.tar.gz.sha512>sha512</a></li>
+<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark3-runtime/0.12.1/iceberg-spark3-runtime-0.12.1.jar">0.12.1 Spark 3.x runtime Jar</a></li>
+<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime/0.12.1/iceberg-spark-runtime-0.12.1.jar">0.12.1 Spark 2.4 runtime Jar</a></li>
+<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime/0.12.1/iceberg-flink-runtime-0.12.1.jar">0.12.1 Flink runtime Jar</a></li>
+<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-hive-runtime/0.12.1/iceberg-hive-runtime-0.12.1.jar">0.12.1 Hive runtime Jar</a></li>
+</ul>
 <p>Important bug fixes and changes:</p>
 <ul>
 <li><a href=https://github.com/apache/iceberg/pull/3258>#3264</a> fixes validation failures that occurred after snapshot expiration when writing Flink CDC streams to Iceberg tables.</li>
@@ -114,7 +227,6 @@
 <li><a href=https://github.com/apache/iceberg/pull/3332>#3332</a> fixes importing ORC files with float or double columns in <code>add_files</code>.</li>
 </ul>
 <p>A more exhaustive list of changes is available under the <a href="https://github.com/apache/iceberg/milestone/15?closed=1">0.12.1 release milestone</a>.</p>
-<h2 id=past-releases>Past releases</h2>
 <h3 id=0120>0.12.0</h3>
 <p>Apache Iceberg 0.12.0 was released on August 15, 2021. It consists of 395 commits authored by 74 contributors over a 139 day period.</p>
 <ul>

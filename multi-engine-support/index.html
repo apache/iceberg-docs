@@ -1,0 +1,206 @@
+<!doctype html><html>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content>
+<meta name=author content>
+<base href=https://iceberg.apache.org/>
+<title>Multi-Engine Support</title>
+<link href=https://iceberg.apache.org//css/bootstrap.css rel=stylesheet>
+<link href=https://iceberg.apache.org//css/landing-page.css rel=stylesheet>
+<link href=https://iceberg.apache.org//css/markdown.css rel=stylesheet>
+<link href=https://iceberg.apache.org//css/katex.min.css rel=stylesheet>
+<link rel=stylesheet href=https://iceberg.apache.org//css/pricing.css>
+<link href=https://iceberg.apache.org//font-awesome-4.7.0/css/font-awesome.min.css rel=stylesheet type=text/css>
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel=stylesheet type=text/css>
+<link href=https://iceberg.apache.org//css/termynal.css rel=stylesheet>
+</head>
+<body>
+<head>
+<link href=https://iceberg.apache.org//css/markdown.css rel=stylesheet>
+<link href=https://iceberg.apache.org//css/katex.min.css rel=stylesheet>
+</head>
+<nav class="navbar navbar-default navbar-fixed-top" role=navigation>
+<div class=container>
+<div class="navbar-header page-scroll">
+<button type=button class=navbar-toggle data-toggle=collapse data-target=#bs-example-navbar-collapse-1>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class="page-scroll navbar-brand" href=#intro><img class=top-navbar-logo src=https://iceberg.apache.org//img/iceberg-logo-icon.png> Apache Iceberg</a>
+</div>
+<div class="collapse navbar-collapse" id=bs-example-navbar-collapse-1>
+<ul class="nav navbar-nav navbar-right">
+<li>
+<a class=page-scroll href=https://iceberg.apache.org/docs/latest>Docs</a>
+</li>
+<li>
+<a class=page-scroll href=https://iceberg.apache.org/docs/latest/getting-started/>Spark</a>
+</li>
+<li>
+<a class=page-scroll href=https://iceberg.apache.org/docs/latest/flink/>Flink</a>
+</li>
+<li>
+<a class=page-scroll href=https://trino.io/docs/current/connector/iceberg.html target=_blank>Trino</a>
+</li>
+<li>
+<a class=page-scroll href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>Presto</a>
+</li>
+<li>
+<a class=page-scroll href=https://iceberg.apache.org/releases>Releases</a>
+</li>
+<li>
+<a class=page-scroll href=https://iceberg.apache.org/roadmap>Roadmap</a>
+</li>
+<li>
+<a class=page-scroll href=https://iceberg.apache.org/community>Community</a>
+</li>
+<li>
+<a class=page-scroll href=https://iceberg.apache.org/blogs>Blogs</a>
+</li>
+<li>
+<a class=page-scroll href=https://iceberg.apache.org/talks>Talks</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<div class=pad-for-navbar></div>
+<body dir=" ltr">
+<div class=markdown-body>
+<h1 id=multi-engine-support>Multi-Engine Support</h1>
+<p>Apache Iceberg is an open standard for huge analytic tables that can be used by any processing engine.
+The community continuously improves Iceberg core library components to enable integrations with different compute engines that power analytics, business intelligence, machine learning, etc.
+Connectors for Spark, Flink and Hive are maintained in the main Iceberg repository.</p>
+<h2 id=multi-version-support>Multi-Version Support</h2>
+<p>Processing engine connectors maintained in the iceberg repository are built for multiple versions.</p>
+<p>For Spark and Flink, each new version that introduces backwards incompatible upgrade has its dedicated integration codebase and release artifacts.
+For example, the code for Iceberg Spark 3.1 integration is under <code>/spark/v3.1</code> and the code for Iceberg Spark 3.2 integration is under <code>/spark/v3.2</code>.
+Different artifacts (<code>iceberg-spark-3.1_2.12</code> and <code>iceberg-spark-3.2_2.12</code>) are released for users to consume.
+By doing this, changes across versions are isolated.
+New features in Iceberg could be developed against the latest features of an engine without breaking support of old APIs in past engine versions.</p>
+<p>For Hive, Hive 2 uses the <code>iceberg-mr</code> package for Iceberg integration, and Hive 3 requires an additional dependency of the <code>iceberg-hive3</code> package.</p>
+<h3 id=runtime-jar>Runtime Jar</h3>
+<p>Iceberg provides a runtime connector Jar for each supported version of Spark, Flink and Hive.
+When using Iceberg with these engines, the runtime jar is the only addition to the classpath needed in addition to vendor dependencies.
+For example, to use Iceberg with Spark 3.2 and AWS integrations, <code>iceberg-spark-runtime-3.2_2.12</code> and AWS SDK dependencies are needed for the Spark installation.</p>
+<p>Spark and Flink provide different runtime jars for each supported engine version.
+Hive 2 and Hive 3 currently share the same runtime jar.
+The runtime jar names and latest version download links are listed in <a href=./multi-engine-support/#current-engine-version-lifecycle-status>the tables below</a>.</p>
+<h3 id=engine-version-lifecycle>Engine Version Lifecycle</h3>
+<p>Each engine version undergoes the following lifecycle stages:</p>
+<ol>
+<li><strong>Beta</strong>: a new engine version is supported, but still in the experimental stage. Maybe the engine version itself is still in preview (e.g. Spark <code>3.0.0-preview</code>), or the engine does not yet have full feature compatibility compared to old versions yet. This stage allows Iceberg to release an engine version support without the need to wait for feature parity, shortening the release time.</li>
+<li><strong>Maintained</strong>: an engine version is actively maintained by the community. Users can expect parity for most features across all the maintained versions. If a feature has to leverage some new engine functionalities that older versions don&rsquo;t have, then feature parity across maintained versions is not guaranteed.</li>
+<li><strong>Deprecated</strong>: an engine version is no longer actively maintained. People who are still interested in the version can backport any necessary feature or bug fix from newer versions, but the community will not spend effort in achieving feature parity. Iceberg recommends users to move towards a newer version. Contributions to a deprecated version is expected to diminish over time, so that eventually no change is added to a deprecated version.</li>
+<li><strong>End-of-life</strong>: a vote can be initiated in the community to fully remove a deprecated version out of the Iceberg repository to mark as its end of life.</li>
+</ol>
+<h2 id=current-engine-version-lifecycle-status>Current Engine Version Lifecycle Status</h2>
+<h3 id=apache-spark>Apache Spark</h3>
+<p>Note that Spark 2.4 and 3.0 artifact names do not comply to the naming convention of later versions for backwards compatibility.</p>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Lifecycle Stage</th>
+<th>Runtime Artifact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2.4</td>
+<td>Deprecated</td>
+<td><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime/0.13.0/iceberg-spark-runtime-0.13.0.jar">iceberg-spark-runtime</a></td>
+</tr>
+<tr>
+<td>3.0</td>
+<td>Maintained</td>
+<td><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark3-runtime/0.13.0/iceberg-spark3-runtime-0.13.0.jar">iceberg-spark3-runtime</a></td>
+</tr>
+<tr>
+<td>3.1</td>
+<td>Maintained</td>
+<td><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime-3.1_2.12/0.13.0/iceberg-spark-runtime-3.1_2.12-0.13.0.jar">iceberg-spark-runtime-3.1_2.12</a></td>
+</tr>
+<tr>
+<td>3.2</td>
+<td>Maintained</td>
+<td><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime-3.2_2.12/0.13.0/iceberg-spark-runtime-3.2_2.12-0.13.0.jar">iceberg-spark-runtime-3.2_2.12</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id=apache-flink>Apache Flink</h3>
+<p>Based on the guideline of the Flink community, only the latest 2 minor versions are actively maintained.
+Users should continuously upgrade their Flink version to stay up-to-date.</p>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Lifecycle Stage</th>
+<th>Runtime Artifact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.12</td>
+<td>Deprecated</td>
+<td><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime-1.12/0.13.0/iceberg-flink-runtime-1.12-0.13.0.jar">iceberg-flink-runtime-1.12</a></td>
+</tr>
+<tr>
+<td>1.13</td>
+<td>Maintained</td>
+<td><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime-1.13/0.13.0/iceberg-flink-runtime-1.13-0.13.0.jar">iceberg-flink-runtime-1.13</a></td>
+</tr>
+<tr>
+<td>1.14</td>
+<td>Maintained</td>
+<td><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime-1.14/0.13.0/iceberg-flink-runtime-1.14-0.13.0.jar">iceberg-flink-runtime-1.14</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id=apache-hive>Apache Hive</h3>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Recommended minor version</th>
+<th>Lifecycle Stage</th>
+<th>Runtime Artifact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>2.3.8</td>
+<td>Maintained</td>
+<td><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-hive-runtime/0.13.0/iceberg-hive-runtime-0.13.0.jar">iceberg-hive-runtime</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>3.1.2</td>
+<td>Maintained</td>
+<td><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-hive-runtime/0.13.0/iceberg-hive-runtime-0.13.0.jar">iceberg-hive-runtime</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id=developer-guide>Developer Guide</h2>
+<h3 id=maintaining-existing-engine-versions>Maintaining existing engine versions</h3>
+<p>Iceberg recommends the following for developers who are maintaining existing engine versions:</p>
+<ol>
+<li>New features should always be prioritized first in the latest version, which is either a maintained or beta version.</li>
+<li>For features that could be backported, contributors are encouraged to either perform backports to all maintained versions, or at least create some issues to track the backport.</li>
+<li>If the change is small enough, updating all versions in a single PR is acceptable. Otherwise, using separated PRs for each version is recommended.</li>
+</ol>
+<h3 id=supporting-new-engines>Supporting new engines</h3>
+<p>Iceberg recommends new engines to build support by importing the Iceberg libraries to the engine&rsquo;s project.
+This allows the Iceberg support to evolve with the engine.
+Projects such as <a href=https://trino.io/docs/current/connector/iceberg.html>Trino</a> and <a href=https://prestodb.io/docs/current/connector/iceberg.html>Presto</a> are good examples of such support strategy.</p>
+<p>In this approach, an Iceberg version upgrade is needed for an engine to consume new Iceberg features.
+To facilitate engine development against unreleased Iceberg features, a daily snapshot is published in the <a href=https://repository.apache.org/content/repositories/snapshots/org/apache/iceberg/>Apache snapshot repository</a>.</p>
+<p>If bringing an engine directly to the Iceberg main repository is needed, please raise a discussion thread in the <a href=../community>Iceberg community</a>.</p>
+</div>
+</body>
+</html>

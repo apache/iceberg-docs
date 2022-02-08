@@ -1347,7 +1347,7 @@ Retention policy can be configured both globally and on snapshot reference throu
 </ol>
 <p>Notes:</p>
 <ol>
-<li>The file system table scheme is implemented in <a href=../../../javadoc/0.12.1/index.html?org/apache/iceberg/hadoop/HadoopTableOperations.html>HadoopTableOperations</a>.</li>
+<li>The file system table scheme is implemented in <a href=../../../javadoc/0.13.0/index.html?org/apache/iceberg/hadoop/HadoopTableOperations.html>HadoopTableOperations</a>.</li>
 </ol>
 <h4 id=metastore-tables>Metastore Tables</h4>
 <p>The atomic swap needed to commit new versions of table metadata can be implemented by storing a pointer in a metastore or database that is updated with a check-and-put operation [1]. The check-and-put validates that the version of the table that a write is based on is still current and then makes the new metadata from the write the current version.</p>
@@ -1364,7 +1364,7 @@ Retention policy can be configured both globally and on snapshot reference throu
 </ol>
 <p>Notes:</p>
 <ol>
-<li>The metastore table scheme is partly implemented in <a href=../../../javadoc/0.12.1/index.html?org/apache/iceberg/BaseMetastoreTableOperations.html>BaseMetastoreTableOperations</a>.</li>
+<li>The metastore table scheme is partly implemented in <a href=../../../javadoc/0.13.0/index.html?org/apache/iceberg/BaseMetastoreTableOperations.html>BaseMetastoreTableOperations</a>.</li>
 </ol>
 <h3 id=delete-formats>Delete Formats</h3>
 <p>This section details how to encode row-level deletes in Iceberg delete files. Row-level deletes are not supported in v1.</p>
