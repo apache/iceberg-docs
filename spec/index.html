@@ -78,11 +78,11 @@
 <p>The format version number is incremented when new features are added that will break forward-compatibility&mdash;that is, when older readers would not read newer table features correctly. Tables may continue to be written with an older version of the spec to ensure compatibility by not using features that are not yet implemented by processing engines.</p>
 <h4 id=version-1-analytic-data-tables>Version 1: Analytic Data Tables</h4>
 <p>Version 1 of the Iceberg spec defines how to manage large analytic tables using immutable file formats: Parquet, Avro, and ORC.</p>
-<p>All version 1 data and metadata files are valid after upgrading a table to version 2. <a href=#version-2>Appendix E</a> documents how to default version 2 fields when reading version 1 metadata.</p>
+<p>All version 1 data and metadata files are valid after upgrading a table to version 2. <a href=spec/#version-2>Appendix E</a> documents how to default version 2 fields when reading version 1 metadata.</p>
 <h4 id=version-2-row-level-deletes>Version 2: Row-level Deletes</h4>
 <p>Version 2 of the Iceberg spec adds row-level updates and deletes for analytic tables with immutable files.</p>
 <p>The primary change in version 2 adds delete files to encode that rows that are deleted in existing data files. This version can be used to delete or replace individual rows in immutable data files without rewriting the files.</p>
-<p>In addition to row-level deletes, version 2 makes some requirements stricter for writers. The full set of changes are listed in <a href=#version-2>Appendix E</a>.</p>
+<p>In addition to row-level deletes, version 2 makes some requirements stricter for writers. The full set of changes are listed in <a href=spec/#version-2>Appendix E</a>.</p>
 <h2 id=goals>Goals</h2>
 <ul>
 <li><strong>Serializable isolation</strong> &ndash; Reads will be isolated from concurrent writes and always use a committed snapshot of a table’s data. Writes will support removing and adding files in a single operation and are never partially visible. Readers will not acquire locks.</li>
@@ -112,10 +112,10 @@
 <p>Row-level deletes are stored in delete files.</p>
 <p>There are two ways to encode a row-level delete:</p>
 <ul>
-<li><a href=#position-delete-files><em>Position deletes</em></a> mark a row deleted by data file path and the row position in the data file</li>
-<li><a href=#equality-delete-files><em>Equality deletes</em></a> mark a row deleted by one or more column values, like <code>id = 5</code></li>
+<li><a href=spec/#position-delete-files><em>Position deletes</em></a> mark a row deleted by data file path and the row position in the data file</li>
+<li><a href=spec/#equality-delete-files><em>Equality deletes</em></a> mark a row deleted by one or more column values, like <code>id = 5</code></li>
 </ul>
-<p>Like data files, delete files are tracked by partition. In general, a delete file must be applied to older data files with the same partition; see <a href=#scan-planning>Scan Planning</a> for details. Column metrics can be used to determine whether a delete file&rsquo;s rows overlap the contents of a data file or a scan range.</p>
+<p>Like data files, delete files are tracked by partition. In general, a delete file must be applied to older data files with the same partition; see <a href=spec/#scan-planning>Scan Planning</a> for details. Column metrics can be used to determine whether a delete file&rsquo;s rows overlap the contents of a data file or a scan range.</p>
 <h4 id=file-system-operations>File System Operations</h4>
 <p>Iceberg only requires that file systems support the following operations:</p>
 <ul>
@@ -347,7 +347,7 @@
 <li>Map types should contain mappings in <code>fields</code> for <code>key</code> and <code>value</code>.</li>
 <li>Struct types should contain mappings in <code>fields</code> for their child fields.</li>
 </ul>
-<p>For details on serialization, see <a href=#name-mapping-serialization>Appendix C</a>.</p>
+<p>For details on serialization, see <a href=spec/#name-mapping-serialization>Appendix C</a>.</p>
 <h4 id=identifier-field-ids>Identifier Field IDs</h4>
 <p>A schema can optionally track the set of primitive fields that identify rows in a table, using the property <code>identifier-field-ids</code> (see JSON encoding in Appendix C).</p>
 <p>Two rows are the &ldquo;same&rdquo;&mdash;that is, the rows represent the same entity&mdash;if the identifier fields are equal. However, uniqueness of rows by this identifier is not guaranteed or required by Iceberg and it is the responsibility of processing engines or data providers to enforce.</p>
@@ -547,15 +547,15 @@
 <p>A sort order is defined by an sort order id and a list of sort fields. The order of the sort fields within the list defines the order in which the sort is applied to the data. Each sort field consists of:</p>
 <ul>
 <li>A <strong>source column id</strong> from the table&rsquo;s schema</li>
-<li>A <strong>transform</strong> that is used to produce values to be sorted on from the source column. This is the same transform as described in <a href=#partition-transforms>partition transforms</a>.</li>
+<li>A <strong>transform</strong> that is used to produce values to be sorted on from the source column. This is the same transform as described in <a href=spec/#partition-transforms>partition transforms</a>.</li>
 <li>A <strong>sort direction</strong>, that can only be either <code>asc</code> or <code>desc</code></li>
 <li>A <strong>null order</strong> that describes the order of null values when sorted. Can only be either <code>nulls-first</code> or <code>nulls-last</code></li>
 </ul>
 <p>Order id <code>0</code> is reserved for the unsorted order.</p>
 <p>Sorting floating-point numbers should produce the following behavior: <code>-NaN</code> &lt; <code>-Infinity</code> &lt; <code>-value</code> &lt; <code>-0</code> &lt; <code>0</code> &lt; <code>value</code> &lt; <code>Infinity</code> &lt; <code>NaN</code>. This aligns with the implementation of Java floating-point types comparisons.</p>
-<p>A data or delete file is associated with a sort order by the sort order&rsquo;s id within <a href=#manifests>a manifest</a>. Therefore, the table must declare all the sort orders for lookup. A table could also be configured with a default sort order id, indicating how the new data should be sorted by default. Writers should use this default sort order to sort the data on write, but are not required to if the default order is prohibitively expensive, as it would be for streaming writes.</p>
+<p>A data or delete file is associated with a sort order by the sort order&rsquo;s id within <a href=spec/#manifests>a manifest</a>. Therefore, the table must declare all the sort orders for lookup. A table could also be configured with a default sort order id, indicating how the new data should be sorted by default. Writers should use this default sort order to sort the data on write, but are not required to if the default order is prohibitively expensive, as it would be for streaming writes.</p>
 <h3 id=manifests>Manifests</h3>
-<p>A manifest is an immutable Avro file that lists data files or delete files, along with each file’s partition data tuple, metrics, and tracking information. One or more manifest files are used to store a <a href=#snapshots>snapshot</a>, which tracks all of the files in a table at some point in time. Manifests are tracked by a <a href=#manifest-lists>manifest list</a> for each table snapshot.</p>
+<p>A manifest is an immutable Avro file that lists data files or delete files, along with each file’s partition data tuple, metrics, and tracking information. One or more manifest files are used to store a <a href=spec/#snapshots>snapshot</a>, which tracks all of the files in a table at some point in time. Manifests are tracked by a <a href=spec/#manifest-lists>manifest list</a> for each table snapshot.</p>
 <p>A manifest is a valid Iceberg data file: files must use valid Iceberg formats, schemas, and column projection.</p>
 <p>A manifest may store either data files or delete files, but not both because manifests that contain delete files are scanned first during job planning. Whether a manifest is a data manifest or a delete manifest is stored in manifest metadata.</p>
 <p>A manifest stores files for a single partition spec. When a table’s partition spec changes, old files remain in the older manifest and newer files are written to a new manifest. This is required because a manifest file’s schema is based on its partition spec (see below). The partition spec of each manifest is also used to transform predicates on the table&rsquo;s data rows into predicates on partition values that are used during job planning to select files from a manifest.</p>
@@ -808,7 +808,7 @@
 <ol>
 <li>Single-value serialization for lower and upper bounds is detailed in Appendix D.</li>
 <li>For <code>float</code> and <code>double</code>, the value <code>-0.0</code> must precede <code>+0.0</code>, as in the IEEE 754 <code>totalOrder</code> predicate.</li>
-<li>If sort order ID is missing or unknown, then the order is assumed to be unsorted. Only data files and equality delete files should be written with a non-null order id. <a href=#position-delete-files>Position deletes</a> are required to be sorted by file and position, not a table order, and should set sort order id to null. Readers must ignore sort order id for position delete files.</li>
+<li>If sort order ID is missing or unknown, then the order is assumed to be unsorted. Only data files and equality delete files should be written with a non-null order id. <a href=spec/#position-delete-files>Position deletes</a> are required to be sorted by file and position, not a table order, and should set sort order id to null. Readers must ignore sort order id for position delete files.</li>
 </ol>
 <p>The <code>partition</code> struct stores the tuple of partition values for each file. Its type is derived from the partition fields of the partition spec used to write the manifest file. In v2, the partition struct&rsquo;s field ids must match the ids from the partition spec.</p>
 <p>The column metrics maps are used when filtering to select both data and delete files. For delete files, the metrics must store bounds and counts for all deleted rows, or must be omitted. Storing metrics for deleted rows ensures that the values can be used during job planning to find delete files that must be merged during a scan.</p>
@@ -1111,8 +1111,8 @@
 </ol>
 <h4 id=snapshot-reference>Snapshot Reference</h4>
 <p>Iceberg tables keep track of branches and tags using snapshot references.
-Tags are labels for individual snapshots. Branches are mutable named references that can be updated by committing a new snapshot as the branch&rsquo;s referenced snapshot using the <a href=#commit-conflict-resolution-and-retry>Commit Conflict Resolution and Retry</a> procedures.</p>
-<p>The snapshot reference object records all the information of a reference including snapshot ID, reference type and <a href=#snapshot-retention-policy>Snapshot Retention Policy</a>.</p>
+Tags are labels for individual snapshots. Branches are mutable named references that can be updated by committing a new snapshot as the branch&rsquo;s referenced snapshot using the <a href=spec/#commit-conflict-resolution-and-retry>Commit Conflict Resolution and Retry</a> procedures.</p>
+<p>The snapshot reference object records all the information of a reference including snapshot ID, reference type and <a href=spec/#snapshot-retention-policy>Snapshot Retention Policy</a>.</p>
 <table>
 <thead>
 <tr>
@@ -1413,8 +1413,8 @@ Retention policy can be configured both globally and on snapshot reference throu
 </ul>
 <h4 id=equality-delete-files>Equality Delete Files</h4>
 <p>Equality delete files identify deleted rows in a collection of data files by one or more column values, and may optionally contain additional columns of the deleted row.</p>
-<p>Equality delete files store any subset of a table&rsquo;s columns and use the table&rsquo;s field ids. The <em>delete columns</em> are the columns of the delete file used to match data rows. Delete columns are identified by id in the delete file <a href=#manifests>metadata column <code>equality_ids</code></a>. Float and double columns cannot be used as delete columns in equality delete files.</p>
-<p>A data row is deleted if its values are equal to all delete columns for any row in an equality delete file that applies to the row&rsquo;s data file (see <a href=#scan-planning><code>Scan Planning</code></a>).</p>
+<p>Equality delete files store any subset of a table&rsquo;s columns and use the table&rsquo;s field ids. The <em>delete columns</em> are the columns of the delete file used to match data rows. Delete columns are identified by id in the delete file <a href=spec/#manifests>metadata column <code>equality_ids</code></a>. Float and double columns cannot be used as delete columns in equality delete files.</p>
+<p>A data row is deleted if its values are equal to all delete columns for any row in an equality delete file that applies to the row&rsquo;s data file (see <a href=spec/#scan-planning><code>Scan Planning</code></a>).</p>
 <p>Each row of the delete file produces one equality predicate that matches any row where the delete columns are equal. Multiple columns can be thought of as an <code>AND</code> of equality predicates. A <code>null</code> value in a delete column matches a row if the row&rsquo;s value is <code>null</code>, equivalent to <code>col IS NULL</code>.</p>
 <p>For example, a table with the following data:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text> 1: id | 2: category | 3: name
@@ -1595,7 +1595,7 @@ Retention policy can be configured both globally and on snapshot reference throu
 <h3 id=parquet>Parquet</h3>
 <p><strong>Data Type Mappings</strong></p>
 <p>Values should be stored in Parquet using the types and logical type annotations in the table below. Column IDs are required.</p>
-<p>Lists must use the <a href=https://github.com/apache/parquet-format/blob/master/LogicalTypes#lists>3-level representation</a>.</p>
+<p>Lists must use the <a href=https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists>3-level representation</a>.</p>
 <table>
 <thead>
 <tr>
