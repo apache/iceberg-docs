@@ -15,7 +15,7 @@ Enabling AWS Integration #  The iceberg-aws module is bundled with Spark and Fli
 <link rel=icon href=/docs/FixSparkArtifactVersion/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/docs/FixSparkArtifactVersion/book.min.179e158d24f3ef709534173fd8b1c1e541a4fa3e23c1b5d8e887464c58949cc9.css integrity="sha256-F54VjSTz73CVNBc/2LHB5UGk+j4jwbXY6IdGTFiUnMk=" crossorigin=anonymous>
 <script defer src=/docs/FixSparkArtifactVersion/flexsearch.min.js></script>
-<script defer src=/docs/FixSparkArtifactVersion/en.search.min.c820daa3b65f60b8fd1d0c23bdfc14d11391adbbb729b6180e16d34137a679e2.js integrity="sha256-yCDao7ZfYLj9HQwjvfwU0RORrbu3KbYYDhbTQTemeeI=" crossorigin=anonymous></script>
+<script defer src=/docs/FixSparkArtifactVersion/en.search.min.e0778e974d4a5abab21e996292e501f6e8b5700dafb8925dd6347134c4b7a84e.js integrity="sha256-4HeOl01KWrqyHplikuUB9ui1cA2vuJJd1jRxNMS3qE4=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -459,10 +459,10 @@ Here are some examples.</p>
 Spark
 <a class=anchor href=#spark>#</a>
 </h3>
-<p>For example, to use AWS features with Spark 3 and AWS clients version 2.15.40, you can start the Spark SQL shell with:</p>
+<p>For example, to use AWS features with Spark 3.0 and AWS clients version 2.15.40, you can start the Spark SQL shell with:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#75715e># add Iceberg dependency</span>
 ICEBERG_VERSION<span style=color:#f92672>=</span>FixSparkArtifactVersion
-DEPENDENCIES<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;org.apache.iceberg:iceberg-spark-runtime-3.2_2.12:</span>$ICEBERG_VERSION<span style=color:#e6db74>&#34;</span>
+DEPENDENCIES<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;org.apache.iceberg:iceberg-spark3-runtime:</span>$ICEBERG_VERSION<span style=color:#e6db74>&#34;</span>
 
 <span style=color:#75715e># add AWS dependnecy</span>
 AWS_SDK_VERSION<span style=color:#f92672>=</span>2.15.40
