@@ -130,7 +130,8 @@ location to test downstream dependencies by adding it to your maven or gradle bu
 </code></pre></div><p>!!! Note
 Replace <code>${MAVEN_URL}</code> with the URL provided in the release announcement</p>
 <h3 id=verifying-with-spark>Verifying with Spark</h3>
-<p>To verify using spark, start a <code>spark-shell</code> with a command like the following command:</p>
+<p>To verify using spark, start a <code>spark-shell</code> with a command like the following command (use the appropriate
+spark-runtime jar for the Spark installation):</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>spark-shell <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>    --conf spark.jars.repositories<span style=color:#f92672>=</span><span style=color:#e6db74>${</span>MAVEN_URL<span style=color:#e6db74>}</span> <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>    --packages org.apache.iceberg:iceberg-spark3-runtime:0.13.0 <span style=color:#ae81ff>\
