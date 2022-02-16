@@ -1,0 +1,15 @@
+{
+  "name": "Apache Iceberg",
+  "short_name": "Apache Iceberg",
+  "start_url": "/docs/0.13.1/",
+  "scope": "/docs/0.13.1/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/docs/0.13.1/favicon.svg",
+      "sizes": "512x512"
+    }
+  ]
+}
