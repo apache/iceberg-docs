@@ -8,5 +8,5 @@ theme= "hugo-book"
   BookLogo = "img/iceberg-logo-icon.png"
   versions.iceberg = "" # This is populated by the github deploy workflow and is equal to the branch name
   versions.nessie = "0.18.0"
-  latestVersions.iceberg = "0.13.0"  # This is used for the version badge on the "latest" site version
+  latestVersions.iceberg = "0.13.1"  # This is used for the version badge on the "latest" site version
   BookSection='docs' # This determines which directory will inform the left navigation menu
