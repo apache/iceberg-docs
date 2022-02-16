@@ -15,7 +15,7 @@ Enabling AWS Integration #  The iceberg-aws module is bundled with Spark and Fli
 <link rel=icon href=/docs/latest/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/docs/latest/book.min.179e158d24f3ef709534173fd8b1c1e541a4fa3e23c1b5d8e887464c58949cc9.css integrity="sha256-F54VjSTz73CVNBc/2LHB5UGk+j4jwbXY6IdGTFiUnMk=" crossorigin=anonymous>
 <script defer src=/docs/latest/flexsearch.min.js></script>
-<script defer src=/docs/latest/en.search.min.ac57fb46ef8e371d5a90bbe5908a0ae7784ec7fe50ebe122dc2b8141f82ab247.js integrity="sha256-rFf7Ru+ONx1akLvlkIoK53hOx/5Q6+Ei3CuBQfgqskc=" crossorigin=anonymous></script>
+<script defer src=/docs/latest/en.search.min.62023fe4d52c3ba56afb71ab69fc56aae142e013c61cb31f924b89fe28e839b2.js integrity="sha256-YgI/5NUsO6Vq+3GrafxWquFC4BPGHLMfkkuJ/ijoObI=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -28,7 +28,7 @@ Enabling AWS Integration #  The iceberg-aws module is bundled with Spark and Fli
 <a class="flex align-center" href=/docs/latest/../../><img src=/docs/latest/img/iceberg-logo-icon.png alt=Logo><span>Apache Iceberg</span>
 </a>
 <a href=https://iceberg.apache.org/docs/latest/../../releases>
-<img id=version-shield src=https://img.shields.io/badge/version-0.13.0-blue alt>
+<img id=version-shield src=https://img.shields.io/badge/version-0.13.1-blue alt>
 </a>
 </h2>
 <div class=book-search>
@@ -233,18 +233,23 @@ Community</a>
 </label>
 <ul>
 <li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/../../../blogs>
-Blogs
-</a>
-</li>
-<li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/../../../community>
 Join
 </a>
 </li>
 <li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/latest/../../../blogs>
+Blogs
+</a>
+</li>
+<li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/../../../talks>
 Talks
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/latest/../../../contribute>
+Contribute
 </a>
 </li>
 </ul>
@@ -280,6 +285,11 @@ Project</a>
 <li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/../../../how-to-release>
 How to Release
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/latest/../../../multi-engine-support>
+Multi-Engine Support
 </a>
 </li>
 <li class=navigation-icon-pad>
@@ -459,9 +469,9 @@ Here are some examples.</p>
 Spark
 <a class=anchor href=#spark>#</a>
 </h3>
-<p>For example, to use AWS features with Spark 3 and AWS clients version 2.15.40, you can start the Spark SQL shell with:</p>
+<p>For example, to use AWS features with Spark 3.0 and AWS clients version 2.15.40, you can start the Spark SQL shell with:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#75715e># add Iceberg dependency</span>
-ICEBERG_VERSION<span style=color:#f92672>=</span>0.13.0
+ICEBERG_VERSION<span style=color:#f92672>=</span>0.13.1
 DEPENDENCIES<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;org.apache.iceberg:iceberg-spark3-runtime:</span>$ICEBERG_VERSION<span style=color:#e6db74>&#34;</span>
 
 <span style=color:#75715e># add AWS dependnecy</span>
@@ -490,7 +500,7 @@ Flink
 </h3>
 <p>To use AWS module with Flink, you can download the necessary dependencies and specify them when starting the Flink SQL client:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#75715e># download Iceberg dependency</span>
-ICEBERG_VERSION<span style=color:#f92672>=</span>0.13.0
+ICEBERG_VERSION<span style=color:#f92672>=</span>0.13.1
 MAVEN_URL<span style=color:#f92672>=</span>https://repo1.maven.org/maven2
 ICEBERG_MAVEN_URL<span style=color:#f92672>=</span>$MAVEN_URL/org/apache/iceberg
 wget $ICEBERG_MAVEN_URL/iceberg-flink-runtime/$ICEBERG_VERSION/iceberg-flink-runtime-$ICEBERG_VERSION.jar
@@ -946,7 +956,7 @@ This also serves as an example for users who would like to implement their own A
 <p>By using this client factory, an STS client is initialized with the default credential and region to assume the specified role.
 The Glue, S3 and DynamoDB clients are then initialized with the assume-role credential and region to access resources.
 Here is an example to start Spark shell with this client factory:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>spark-sql --packages org.apache.iceberg:iceberg-spark3-runtime:0.13.0,software.amazon.awssdk:bundle:2.15.40 <span style=color:#ae81ff>\
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>spark-sql --packages org.apache.iceberg:iceberg-spark-runtime-3.2_2.12:0.13.1,software.amazon.awssdk:bundle:2.15.40 <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>    --conf spark.sql.catalog.my_catalog<span style=color:#f92672>=</span>org.apache.iceberg.spark.SparkCatalog <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>    --conf spark.sql.catalog.my_catalog.warehouse<span style=color:#f92672>=</span>s3://my-bucket/my/key/prefix <span style=color:#ae81ff>\ </span>   
     --conf spark.sql.catalog.my_catalog.catalog-impl<span style=color:#f92672>=</span>org.apache.iceberg.aws.glue.GlueCatalog <span style=color:#ae81ff>\
@@ -976,7 +986,7 @@ Please refer to the <a href=https://docs.aws.amazon.com/emr/latest/ReleaseGuide/
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#75715e>#!/bin/bash
 </span><span style=color:#75715e></span>
 AWS_SDK_VERSION<span style=color:#f92672>=</span>2.15.40
-ICEBERG_VERSION<span style=color:#f92672>=</span>0.13.0
+ICEBERG_VERSION<span style=color:#f92672>=</span>0.13.1
 MAVEN_URL<span style=color:#f92672>=</span>https://repo1.maven.org/maven2
 ICEBERG_MAVEN_URL<span style=color:#f92672>=</span>$MAVEN_URL/org/apache/iceberg
 AWS_MAVEN_URL<span style=color:#f92672>=</span>$MAVEN_URL/software/amazon/awssdk
@@ -990,7 +1000,7 @@ AWS_PACKAGES<span style=color:#f92672>=(</span>
 <span style=color:#f92672>)</span>
 
 ICEBERG_PACKAGES<span style=color:#f92672>=(</span>
-  <span style=color:#e6db74>&#34;iceberg-spark3-runtime&#34;</span>
+  <span style=color:#e6db74>&#34;iceberg-spark-runtime-3.2_2.12&#34;</span>
   <span style=color:#e6db74>&#34;iceberg-flink-runtime&#34;</span>
 <span style=color:#f92672>)</span>
 

@@ -19,7 +19,7 @@ Table metadata #  The Table interface provides access to the table metadata:
 <link rel=icon href=/docs/latest/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/docs/latest/book.min.179e158d24f3ef709534173fd8b1c1e541a4fa3e23c1b5d8e887464c58949cc9.css integrity="sha256-F54VjSTz73CVNBc/2LHB5UGk+j4jwbXY6IdGTFiUnMk=" crossorigin=anonymous>
 <script defer src=/docs/latest/flexsearch.min.js></script>
-<script defer src=/docs/latest/en.search.min.ac57fb46ef8e371d5a90bbe5908a0ae7784ec7fe50ebe122dc2b8141f82ab247.js integrity="sha256-rFf7Ru+ONx1akLvlkIoK53hOx/5Q6+Ei3CuBQfgqskc=" crossorigin=anonymous></script>
+<script defer src=/docs/latest/en.search.min.62023fe4d52c3ba56afb71ab69fc56aae142e013c61cb31f924b89fe28e839b2.js integrity="sha256-YgI/5NUsO6Vq+3GrafxWquFC4BPGHLMfkkuJ/ijoObI=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -32,7 +32,7 @@ Table metadata #  The Table interface provides access to the table metadata:
 <a class="flex align-center" href=/docs/latest/../../><img src=/docs/latest/img/iceberg-logo-icon.png alt=Logo><span>Apache Iceberg</span>
 </a>
 <a href=https://iceberg.apache.org/docs/latest/../../releases>
-<img id=version-shield src=https://img.shields.io/badge/version-0.13.0-blue alt>
+<img id=version-shield src=https://img.shields.io/badge/version-0.13.1-blue alt>
 </a>
 </h2>
 <div class=book-search>
@@ -237,18 +237,23 @@ Community</a>
 </label>
 <ul>
 <li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/../../../blogs>
-Blogs
-</a>
-</li>
-<li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/../../../community>
 Join
 </a>
 </li>
 <li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/latest/../../../blogs>
+Blogs
+</a>
+</li>
+<li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/../../../talks>
 Talks
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/latest/../../../contribute>
+Contribute
 </a>
 </li>
 </ul>
@@ -284,6 +289,11 @@ Project</a>
 <li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/../../../how-to-release>
 How to Release
+</a>
+</li>
+<li class=navigation-icon-pad>
+<a href=https://iceberg.apache.org/docs/latest/../../../multi-engine-support>
+Multi-Engine Support
 </a>
 </li>
 <li class=navigation-icon-pad>
@@ -432,7 +442,7 @@ Tables
 Table metadata
 <a class=anchor href=#table-metadata>#</a>
 </h3>
-<p>The <a href=../../../javadoc/0.13.0/index.html?org/apache/iceberg/Table.html><code>Table</code> interface</a> provides access to the table metadata:</p>
+<p>The <a href=../../../javadoc/0.13.1/index.html?org/apache/iceberg/Table.html><code>Table</code> interface</a> provides access to the table metadata:</p>
 <ul>
 <li><code>schema</code> returns the current table <a href=../schemas>schema</a></li>
 <li><code>spec</code> returns the current table partition spec</li>
@@ -485,7 +495,7 @@ Row level
 Update operations
 <a class=anchor href=#update-operations>#</a>
 </h3>
-<p><code>Table</code> also exposes operations that update the table. These operations use a builder pattern, <a href=../../../javadoc/0.13.0/index.html?org/apache/iceberg/PendingUpdate.html><code>PendingUpdate</code></a>, that commits when <code>PendingUpdate#commit</code> is called.</p>
+<p><code>Table</code> also exposes operations that update the table. These operations use a builder pattern, <a href=../../../javadoc/0.13.1/index.html?org/apache/iceberg/PendingUpdate.html><code>PendingUpdate</code></a>, that commits when <code>PendingUpdate#commit</code> is called.</p>
 <p>For example, updating the table schema is done by calling <code>updateSchema</code>, adding updates to the builder, and finally calling <code>commit</code> to commit the pending changes to the table:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>table<span style=color:#f92672>.</span><span style=color:#a6e22e>updateSchema</span><span style=color:#f92672>()</span>
     <span style=color:#f92672>.</span><span style=color:#a6e22e>addColumn</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;count&#34;</span><span style=color:#f92672>,</span> Types<span style=color:#f92672>.</span><span style=color:#a6e22e>LongType</span><span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span>
@@ -522,7 +532,7 @@ t<span style=color:#f92672>.</span><span style=color:#a6e22e>newAppend</span><sp
 Types
 <a class=anchor href=#types>#</a>
 </h2>
-<p>Iceberg data types are located in the <a href=../../../javadoc/0.13.0/index.html?org/apache/iceberg/types/package-summary.html><code>org.apache.iceberg.types</code> package</a>.</p>
+<p>Iceberg data types are located in the <a href=../../../javadoc/0.13.1/index.html?org/apache/iceberg/types/package-summary.html><code>org.apache.iceberg.types</code> package</a>.</p>
 <h3 id=primitives>
 Primitives
 <a class=anchor href=#primitives>#</a>
@@ -555,7 +565,7 @@ Nested types
 Expressions
 <a class=anchor href=#expressions>#</a>
 </h2>
-<p>Iceberg&rsquo;s expressions are used to configure table scans. To create expressions, use the factory methods in <a href=../../../javadoc/0.13.0/index.html?org/apache/iceberg/expressions/Expressions.html><code>Expressions</code></a>.</p>
+<p>Iceberg&rsquo;s expressions are used to configure table scans. To create expressions, use the factory methods in <a href=../../../javadoc/0.13.1/index.html?org/apache/iceberg/expressions/Expressions.html><code>Expressions</code></a>.</p>
 <p>Supported predicate expressions are:</p>
 <ul>
 <li><code>isNull</code></li>
@@ -615,6 +625,8 @@ Modules
 <ul>
 <li><code>iceberg-spark2</code> is an implementation of Spark&rsquo;s Datasource V2 API in 2.4 for Iceberg (use iceberg-spark-runtime for a shaded version)</li>
 <li><code>iceberg-spark3</code> is an implementation of Spark&rsquo;s Datasource V2 API in 3.0 for Iceberg (use iceberg-spark3-runtime for a shaded version)</li>
+<li><code>iceberg-spark-3.1</code> is an implementation of Spark&rsquo;s Datasource V2 API in 3.1 for Iceberg (use iceberg-spark-runtime-3.1 for a shaded version)</li>
+<li><code>iceberg-spark-3.2</code> is an implementation of Spark&rsquo;s Datasource V2 API in 3.2 for Iceberg (use iceberg-spark-runtime-3.2 for a shaded version)</li>
 <li><code>iceberg-flink</code> is an implementation of Flink&rsquo;s Table and DataStream API for Iceberg (use iceberg-flink-runtime for a shaded version)</li>
 <li><code>iceberg-hive3</code> is an implementation of Hive 3 specific SerDe&rsquo;s for Timestamp, TimestampWithZone, and Date object inspectors (use iceberg-hive-runtime for a shaded version).</li>
 <li><code>iceberg-mr</code> is an implementation of MapReduce and Hive InputFormats and SerDes for Iceberg (use iceberg-hive-runtime for a shaded version for use with Hive)</li>
