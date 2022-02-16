@@ -94,6 +94,9 @@ mavenPassword=SomePassword
 <pre tabindex=0><code>signing.gnupg.keyName=Your Name (CODE SIGNING KEY)
 </code></pre><p>To use <code>gpg</code> instead of <code>gpg2</code>, also set <code>signing.gnupg.executable=gpg</code></p>
 <p>For more information, see the Gradle <a href=https://docs.gradle.org/current/userguide/signing_plugin.html#sec:signatory_credentials>signing documentation</a>.</p>
+<h3 id=apache-repository>Apache repository</h3>
+<p>The release should be executed against <code>https://github.com/apache/iceberg.git</code> instead of any fork.
+Set it as remote with name <code>apache</code> for release if it is not already set up.</p>
 <h2 id=creating-a-release-candidate>Creating a release candidate</h2>
 <h3 id=build-the-source-release>Build the source release</h3>
 <p>To create the source release artifacts, run the <code>source-release.sh</code> script with the release version and release candidate number:</p>
@@ -238,6 +241,49 @@ This release can be downloaded from: https://www.apache.org/dyn/closer.cgi/icebe
 Java artifacts are available from Maven Central.
 
 Thanks to everyone for contributing!
+</code></pre></div><h3 id=documentation-release>Documentation Release</h3>
+<p>Documentation needs to be updated as a part of Iceberg release after a release candidate is passed.
+The commands described below assume the <code>iceberg-docs</code> repository and <code>iceberg</code> repository are in the same parent directory locally,
+and the release manager is executing commands in the <code>iceberg</code> repository.
+Adjust the commands accordingly if it is not the case.</p>
+<h4 id=iceberg-repository-preparations>iceberg repository preparations</h4>
+<p>A PR needs to be published in <code>iceberg</code> repository with the following changes:</p>
+<ol>
+<li>Mark the current latest release notes to past releases</li>
+<li>Update the latest artifact links in the release notes page</li>
+<li>Add release notes for the new release version</li>
+<li>Create new folder called <code>docs/versioned/releases/&lt;VERSION NUMBER></code> with a <code>_index.md</code> file. See the existing folders under <code>docs/versioned/releases</code> for more details.</li>
+</ol>
+<h4 id=iceberg-docs-repository-preparations>iceberg-docs repository preparations</h4>
+<p>A PR needs to be published in <code>iceberg-docs</code> repository with the following changes:</p>
+<ol>
+<li>Update variable <code>latestVersions.iceberg</code> to the new release version in <code>landing-page/config.toml</code></li>
+<li>Update variable <code>latestVersions.iceberg</code> to the new release version in <code>docs/config.toml</code></li>
+</ol>
+<h4 id=documentation-update>Documentation update</h4>
+<p>To start the release process, run the following steps in the <code>iceberg-docs</code> repository to copy docs over:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>rm -rf ../iceberg-docs/docs/content/docs
+rm -rf ../iceberg-docs/landing-page/content/common
+cp -r docs/versioned ../iceberg-docs/docs/content/docs
+cp -r docs/common ../iceberg-docs/landing-page/content/common
+</code></pre></div><p>The resulted changes in <code>iceberg-docs</code> should be approved in a separate PR.</p>
+<h4 id=javadoc-update>Javadoc update</h4>
+<p>In the <code>iceberg</code> repository, generate the javadoc for your release and copy it to the <code>javadoc</code> folder in <code>iceberg-docs</code> repo:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>./gradlew refreshJavadoc
+rm -rf ../iceberg-docs/javadoc
+cp site/docs/javadoc/&lt;VERSION NUMBER&gt; ../iceberg-docs/javadoc
+</code></pre></div><p>This resulted changes in <code>iceberg-docs</code> should be approved in a separate PR.</p>
+<h4 id=cut-a-new-version-branch>Cut a new version branch</h4>
+<p>Once completed, go to the <code>iceberg-docs</code> repository to cut a new branch using the version number as the branch name.
+For example, to cut a new versioned doc for release <code>0.13.0</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git checkout -b 0.13.0
+git push --set-upstream apache 0.13.0
+</code></pre></div><h4 id=update-the-latest-branch>Update the latest branch</h4>
+<p>The last step is to point the <code>latest</code> branch to the latest version.
+Because <code>main</code> is currently the same as the version branch, simply rebase <code>latest</code> branch against <code>main</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git checkout latest
+git rebase main
+git push apache latest
 </code></pre></div></div>
 </body>
 </html>

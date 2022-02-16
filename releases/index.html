@@ -72,8 +72,63 @@
 <body dir=" ltr">
 <div class=markdown-body>
 <h2 id=downloads>Downloads</h2>
-<p>The latest version of Iceberg is <a href=https://github.com/apache/iceberg/releases/tag/apache-iceberg-0.13.0>0.13.0</a>.</p>
+<p>The latest version of Iceberg is <a href=https://github.com/apache/iceberg/releases/tag/apache-iceberg-0.13.1>0.13.1</a>.</p>
 <ul>
+<li><a href=https://www.apache.org/dyn/closer.cgi/iceberg/apache-iceberg-0.13.1/apache-iceberg-0.13.1.tar.gz>0.13.1 source tar.gz</a> &ndash; <a href=https://downloads.apache.org/iceberg/apache-iceberg-0.13.1/apache-iceberg-0.13.1.tar.gz.asc>signature</a> &ndash; <a href=https://downloads.apache.org/iceberg/apache-iceberg-0.13.1/apache-iceberg-0.13.1.tar.gz.sha512>sha512</a></li>
+<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime-3.2_2.12/0.13.1/iceberg-spark-runtime-3.2_2.12-0.13.1.jar">0.13.1 Spark 3.2 runtime Jar</a></li>
+<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime-3.1_2.12/0.13.1/iceberg-spark-runtime-3.1_2.12-0.13.1.jar">0.13.1 Spark 3.1 runtime Jar</a></li>
+<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark3-runtime/0.13.1/iceberg-spark3-runtime-0.13.1.jar">0.13.1 Spark 3.0 runtime Jar</a></li>
+<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime/0.13.1/iceberg-spark-runtime-0.13.1.jar">0.13.1 Spark 2.4 runtime Jar</a></li>
+<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime-1.14/0.13.1/iceberg-flink-runtime-1.14-0.13.1.jar">0.13.1 Flink 1.14 runtime Jar</a></li>
+<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime-1.13/0.13.1/iceberg-flink-runtime-1.13-0.13.1.jar">0.13.1 Flink 1.13 runtime Jar</a></li>
+<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime-1.12/0.13.1/iceberg-flink-runtime-1.12-0.13.1.jar">0.13.1 Flink 1.12 runtime Jar</a></li>
+<li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-hive-runtime/0.13.1/iceberg-hive-runtime-0.13.1.jar">0.13.1 Hive runtime Jar</a></li>
+</ul>
+<p>To use Iceberg in Spark or Flink, download the runtime JAR for your engine version and add it to the jars folder of your installation.</p>
+<p>To use Iceberg in Hive 2 or Hive 3, download the Hive runtime JAR and add it to Hive using <code>ADD JAR</code>.</p>
+<h3 id=gradle>Gradle</h3>
+<p>To add a dependency on Iceberg in Gradle, add the following to <code>build.gradle</code>:</p>
+<pre tabindex=0><code>dependencies {
+  compile 'org.apache.iceberg:iceberg-core:0.13.1'
+}
+</code></pre><p>You may also want to include <code>iceberg-parquet</code> for Parquet file support.</p>
+<h3 id=maven>Maven</h3>
+<p>To add a dependency on Iceberg in Maven, add the following to your <code>pom.xml</code>:</p>
+<pre tabindex=0><code>&lt;dependencies&gt;
+  ...
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.apache.iceberg&lt;/groupId&gt;
+    &lt;artifactId&gt;iceberg-core&lt;/artifactId&gt;
+    &lt;version&gt;0.13.1&lt;/version&gt;
+  &lt;/dependency&gt;
+  ...
+&lt;/dependencies&gt;
+</code></pre><h2 id=0131-release-notes>0.13.1 Release Notes</h2>
+<p>Apache Iceberg 0.13.1 was released on February 14th, 2022.</p>
+<p><strong>Important bug fixes:</strong></p>
+<ul>
+<li>
+<p><strong>Spark</strong></p>
+<ul>
+<li><a href=https://github.com/apache/iceberg/pull/4023>#4023</a> fixes predicate pushdown in row-level operations for merge conditions in Spark 3.2.
+Prior to the fix, filters would not be extracted and targeted merge conditions were not pushed down leading to degraded performance
+for these targeted merge operations.</li>
+<li><a href=https://github.com/apache/iceberg/pull/4024>#4024</a> fixes table creation in the root namespace of a Hadoop Catalog.</li>
+</ul>
+</li>
+<li>
+<p><strong>Flink</strong></p>
+<ul>
+<li><a href=https://github.com/apache/iceberg/pull/3986>#3986</a> fixes manifest location collisions when there are multiple committers
+in the same Flink job.</li>
+</ul>
+</li>
+</ul>
+<h2 id=past-releases>Past releases</h2>
+<h3 id=0130-release-notes>0.13.0 Release Notes</h3>
+<p>Apache Iceberg 0.13.0 was released on February 4th, 2022.</p>
+<ul>
+<li>Git tag: <a href=https://github.com/apache/iceberg/releases/tag/apache-iceberg-0.13.0>0.13.0</a></li>
 <li><a href=https://www.apache.org/dyn/closer.cgi/iceberg/apache-iceberg-0.13.0/apache-iceberg-0.13.0.tar.gz>0.13.0 source tar.gz</a> &ndash; <a href=https://downloads.apache.org/iceberg/apache-iceberg-0.13.0/apache-iceberg-0.13.0.tar.gz.asc>signature</a> &ndash; <a href=https://downloads.apache.org/iceberg/apache-iceberg-0.13.0/apache-iceberg-0.13.0.tar.gz.sha512>sha512</a></li>
 <li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime-3.2_2.12/0.13.0/iceberg-spark-runtime-3.2_2.12-0.13.0.jar">0.13.0 Spark 3.2 runtime Jar</a></li>
 <li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime-3.1_2.12/0.13.0/iceberg-spark-runtime-3.1_2.12-0.13.0.jar">0.13.0 Spark 3.1 runtime Jar</a></li>
@@ -84,27 +139,6 @@
 <li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime-1.12/0.13.0/iceberg-flink-runtime-1.12-0.13.0.jar">0.13.0 Flink 1.12 runtime Jar</a></li>
 <li><a href="https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-hive-runtime/0.13.0/iceberg-hive-runtime-0.13.0.jar">0.13.0 Hive runtime Jar</a></li>
 </ul>
-<p>To use Iceberg in Spark or Flink, download the runtime JAR for your engine version and add it to the jars folder of your installation.</p>
-<p>To use Iceberg in Hive 2 or Hive 3, download the Hive runtime JAR and add it to Hive using <code>ADD JAR</code>.</p>
-<h3 id=gradle>Gradle</h3>
-<p>To add a dependency on Iceberg in Gradle, add the following to <code>build.gradle</code>:</p>
-<pre tabindex=0><code>dependencies {
-  compile 'org.apache.iceberg:iceberg-core:0.13.0'
-}
-</code></pre><p>You may also want to include <code>iceberg-parquet</code> for Parquet file support.</p>
-<h3 id=maven>Maven</h3>
-<p>To add a dependency on Iceberg in Maven, add the following to your <code>pom.xml</code>:</p>
-<pre tabindex=0><code>&lt;dependencies&gt;
-  ...
-  &lt;dependency&gt;
-    &lt;groupId&gt;org.apache.iceberg&lt;/groupId&gt;
-    &lt;artifactId&gt;iceberg-core&lt;/artifactId&gt;
-    &lt;version&gt;0.13.0&lt;/version&gt;
-  &lt;/dependency&gt;
-  ...
-&lt;/dependencies&gt;
-</code></pre><h2 id=0130-release-notes>0.13.0 Release Notes</h2>
-<p>Apache Iceberg 0.13.0 was released on February 4th, 2022.</p>
 <p><strong>High-level features:</strong></p>
 <ul>
 <li><strong>Core</strong>
@@ -202,7 +236,6 @@
 <ul>
 <li>The community has finalized the long-term strategy of Spark, Flink and Hive support. See <a href=../multi-engine-support>Multi-Engine Support</a> page for more details.</li>
 </ul>
-<h2 id=past-releases>Past releases</h2>
 <h3 id=0121>0.12.1</h3>
 <p>Apache Iceberg 0.12.1 was released on November 8th, 2021.</p>
 <ul>
