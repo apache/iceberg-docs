@@ -32,11 +32,12 @@ The Javadocs are in the `./javadoc` directory.
 ## Relationship to the Iceberg Repository
 
 All markdown pages that are part of a versioned released are maintained in the iceberg repository. All pages common across all version releases are
-kept here in the iceberg-docs repo. A few exceptions are the markdown files that can be found in the `spec` folder in the iceberg repository.
+kept here in the iceberg-docs repo. A few exceptions are the markdown files that can be found in the `format` folder in the iceberg repository and contains
+markdown files that are copied to `./landing-page/content/common/format`.
 
 `apache/iceberg`
 - The `docs` folder in the [Iceberg repository](https://github.com/apache/iceberg) contains all the markdown docs used by the **versioned** docs site.
-- The `spec` folder contains some items that are common accross all versions, such as the Iceberg format specification.
+- The `format` folder contains some items that are common accross all versions, such as the Iceberg format specification.
 
 `apache/iceberg-docs`
 - The `docs/content/docs` folder is a mirror of the `docs` folder in the iceberg repo and the target when copying the docs over during a release
