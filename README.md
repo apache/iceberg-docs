@@ -40,13 +40,15 @@ the iceberg repository and contains markdown files that are copied to `./landing
 - The `format` folder contains some items that are common across all versions, such as the Iceberg format specification.
 
 `apache/iceberg-docs`
-- The `docs/content/docs` folder is a mirror of the `docs` folder in the iceberg repo and the target when copying the docs over during a release
+- The `docs/content/docs` folder is the target folder when copying the docs over during a version release
 - The `landing-page/content/common` folder is where you can find the common markdown files shared across all versions
 
-During each new release, the release manager copies contents from the Iceberg repository to this docs repository and cuts a new version branch.
-Contents under `docs` are copied to `./docs/content/docs` here,
-and contents under `format` are copied to `./landing-page/content/common/format` here.
-Javadocs generated from the release are copied to the `javadoc` directory.
+During each new release, the release manager will:
+1. Create a branch in this repo from main named for the release version
+2. Copy the contents under `docs` in the iceberg repo to `./docs/content/docs` in the release branch
+3. Copy the contents under `format` in the iceberg repo to `./landing-page/content/common/format` in the release branch
+4. Generate the javadocs for the release and copy them into the `javadoc` directory in the release branch
+5. Update the latest branch HEAD to point to the release branch HEAD
 
 # How to Contribute
 
