@@ -62,6 +62,9 @@ Changes to the website appearance (e.g. HTML, CSS changes) should be submitted t
 
 Changes to the documentation of old Iceberg versions should be submitted to this repository against the specific version branch.
 
+In summary, you can open a PR against where you find the related markdown file. There are no duplicate markdown files between the
+`master` branch in the iceberg repo and the `main` branch in the iceberg-docs repo.
+
 ## Reporting Issues
 
 All issues related to the doc website should still be submitted to the [Iceberg repository](https://github.com/apache/iceberg).
