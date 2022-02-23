@@ -31,20 +31,29 @@ The Javadocs are in the `./javadoc` directory.
 
 ## Relationship to the Iceberg Repository
 
-The `documentation` folder in the [Iceberg repository](https://github.com/apache/iceberg) contains all the markdown docs used by the website.
-The `common` subfolder contains contents used by the landing page.
-The `versioned` subfolder contains the contents different for each version.
+All markdown pages that are part of a versioned released are maintained in the iceberg repository. All pages common across all version releases are
+kept here in the iceberg-docs repo. A few exceptions are the markdown files that can be found in the `spec` folder in the iceberg repository.
+
+`apache/iceberg`
+- The `docs` folder in the [Iceberg repository](https://github.com/apache/iceberg) contains all the markdown docs used by the **versioned** docs site.
+- The `spec` folder contains some items that are common accross all versions, such as the Iceberg format specification.
+
+`apache/iceberg-docs`
+- The `docs/content/docs` folder is a mirror of the `docs` folder in the iceberg repo and the target when copying the docs over during a release
+- The `landing-page/content/common` folder is where you can find the common markdown files shared across all versions
 
 During each new release, the release manager copies contents from the Iceberg repository to this docs repository and cuts a new version branch.
-Contents under `common` are copied to `./landing-page/contents/common` here,
-and contents under `versioned` are copied to `./docs/contents/docs` here.
+Contents under `docs` are copied to `./docs/content/docs` here,
+and contents under `format` are copied to `./landing-page/content/common/format` here.
 Javadocs generated from the release are copied to the `javadoc` directory.
 
 # How to Contribute
 
 ## Submitting Pull Requests
 
-Changes to the markdown contents should be submitted directly in the Iceberg repository.
+Changes to the markdown contents for **version** specific pages should be submitted directly in the Iceberg repository.
+
+Changes to the markdown contents for common pages should be submitted to this repository against the `main` branch.
 
 Changes to the website appearance (e.g. HTML, CSS changes) should be submitted to this repository against the `main` branch.
 
@@ -76,9 +85,9 @@ cd docs && hugo serve
 If you would like to see how the latest website looks based on the documentation in the Iceberg repository, you can copy docs to this repository by:
 ```shell
 rm -rf docs/content/docs
-rm -rf landing-page/content/common
-cp -r <path to iceberg repo>/docs/versioned docs/content/docs
-cp -r <path to iceberg repo>/docs/common landing-page/content/common
+rm -rf landing-page/content/common/format
+cp -r <path to iceberg repo>/docs docs/content/docs
+cp -r <path to iceberg repo>/format landing-page/content/common/format
 ```
 
 ## Scanning For Broken Links
