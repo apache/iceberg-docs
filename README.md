@@ -37,7 +37,7 @@ the iceberg repository and contains markdown files that are copied to `./landing
 
 `apache/iceberg`
 - The `docs` folder in the [Iceberg repository](https://github.com/apache/iceberg) contains all the markdown docs used by the **versioned** docs site.
-- The `format` folder contains some items that are common accross all versions, such as the Iceberg format specification.
+- The `format` folder contains some items that are common across all versions, such as the Iceberg format specification.
 
 `apache/iceberg-docs`
 - The `docs/content/docs` folder is a mirror of the `docs` folder in the iceberg repo and the target when copying the docs over during a release
