@@ -93,7 +93,7 @@ If you would like to see how the latest website looks based on the documentation
 rm -rf docs/content/docs
 rm -rf landing-page/content/common/format
 cp -r <path to iceberg repo>/docs docs/content/docs
-cp -r <path to iceberg repo>/format landing-page/content/common/format
+cp -r <path to iceberg repo>/format/* landing-page/content/common/
 ```
 
 ## Scanning For Broken Links
