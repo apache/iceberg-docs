@@ -33,7 +33,7 @@ The Javadocs are in the `./javadoc` directory.
 
 All markdown pages that are specific to an Iceberg version are maintained in the iceberg repository. All pages common across all version
 releases are kept here in the iceberg-docs repo. A few exceptions are the markdown files that can be found in the `format` folder in
-the iceberg repository and contains markdown files that are copied to `./landing-page/content/common/format`.
+the iceberg repository and contains markdown files that are copied into `./landing-page/content/common/`.
 
 `apache/iceberg`
 - The `docs` folder in the [Iceberg repository](https://github.com/apache/iceberg) contains all the markdown docs used by the **versioned** docs site.
@@ -92,7 +92,6 @@ cd docs && hugo serve
 If you would like to see how the latest website looks based on the documentation in the Iceberg repository, you can copy docs to this repository by:
 ```shell
 rm -rf docs/content/docs
-rm -rf landing-page/content/common/format
 cp -r <path to iceberg repo>/docs docs/content/docs
 cp -r <path to iceberg repo>/format/* landing-page/content/common/
 ```
