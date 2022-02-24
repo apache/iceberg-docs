@@ -44,9 +44,9 @@ the iceberg repository and contains markdown files that are copied to `./landing
 - The `landing-page/content/common` folder is where you can find the common markdown files shared across all versions
 
 During each new release, the release manager will:
-1. Create a branch in this repo from main named for the release version
-2. Copy the contents under `docs` in the iceberg repo to `./docs/content/docs` in the release branch
-3. Copy the contents under `format` in the iceberg repo to `./landing-page/content/common/format` in the release branch
+1. Copy the contents under `format` in the iceberg repo to `./landing-page/content/common/` in the `main` branch
+2. Create a branch in this repo from main named for the release version
+3. Copy the contents under `docs` in the iceberg repo to `./docs/content/docs` in the **release** branch
 4. Generate the javadocs for the release and copy them into the `javadoc` directory in the release branch
 5. Update the latest branch HEAD to point to the release branch HEAD
 
