@@ -22,6 +22,12 @@ url: blogs
 
 Here is a list of company blogs that talk about Iceberg. The blogs are ordered from most recent to oldest.
 
+### [Introducing Apache Iceberg in Cloudera Data Platform](https://blog.cloudera.com/introducing-apache-iceberg-in-cloudera-data-platform/)
+**Date**: February 23rd, 2022, **Company**: Cloudera
+
+**Authors**: [Bill Zhang](https://www.linkedin.com/in/billzhang01/), [Peter Vary](https://www.linkedin.com/in/peter-vary/), [Marton Bod](https://www.linkedin.com/in/martonbod/), [Wing Yew Poon](https://github.com/wypoon)
+
+
 ### [Docker, Spark, and Iceberg: The Fastest Way to Try Iceberg!](https://tabular.io/blog/docker-spark-and-iceberg/)
 **Date**: February 2nd, 2022, **Company**: Tabular
 
