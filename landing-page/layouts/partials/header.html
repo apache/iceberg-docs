@@ -16,7 +16,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="page-scroll" href="{{ .Site.BaseURL }}docs/latest">Docs</a>
+                    <a class="page-scroll" href="{{ .Site.BaseURL }}docs/latest">{{ i18n "Docs" }}</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="{{ .Site.BaseURL }}docs/latest/getting-started/">Spark</a>
@@ -31,19 +31,19 @@
                     <a class="page-scroll" href="https://prestodb.io/docs/current/connector/iceberg.html" target="_blank">Presto</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="{{ .Site.BaseURL }}releases">Releases</a>
+                    <a class="page-scroll" href="{{ "releases/" | absLangURL }}">{{ i18n "Releases" }}</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="{{ .Site.BaseURL }}roadmap">Roadmap</a>
+                    <a class="page-scroll" href="{{ "roadmap/" | absLangURL }}">{{ i18n "Roadmap" }}</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="{{ .Site.BaseURL }}community">Community</a>
+                    <a class="page-scroll" href="{{ "community/" | absLangURL }}">{{ i18n "Community" }}</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="{{ .Site.BaseURL }}blogs">Blogs</a>
+                    <a class="page-scroll" href="{{ "blogs/" | absLangURL }}">{{ i18n "Blogs" }}</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="{{ .Site.BaseURL }}talks">Talks</a>
+                    <a class="page-scroll" href="{{ "talks/" | absLangURL }}">{{ i18n "Talks" }}</a>
                 </li>
                 {{ range where .Data.Pages "Section" "pricing" | first 1 }}
                     <li>
@@ -52,6 +52,15 @@
                 {{ end }}
                 {{ if isset .Site.Params "social" }}
                 {{ end }}
+                <select class="language-select" onchange="window.open(this.options[this.selectedIndex].value,target='_self')">
+                    {{ range $.Site.Home.AllTranslations }}
+                        {{ if eq $.Site.Language.Lang .Language.Lang }}
+                            <option value='{{ .Permalink }}' selected>{{ .Site.Language.LanguageName }}</option>
+                        {{ else }}
+                            <option value='{{ .Permalink }}'>{{ .Site.Language.LanguageName }}</option>
+                        {{ end }}
+                    {{ end }}
+                </select>
             </ul>
         </div>
         <!-- /.navbar-collapse -->

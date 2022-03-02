@@ -1,0 +1,39 @@
+---
+Title: 时间旅行与回退
+Description: 时间旅行支持使用相同表快照的查询多次重试，允许用户轻松检视修改。版本回退允许用户将表重置为某个良好的状态来快速的纠正问题。
+LearnMore: /docs/latest/spark-queries/#time-travel
+Category: Post
+Draft: false
+weight: 4
+---
+<!--
+ - Licensed to the Apache Software Foundation (ASF) under one or more
+ - contributor license agreements.  See the NOTICE file distributed with
+ - this work for additional information regarding copyright ownership.
+ - The ASF licenses this file to You under the Apache License, Version 2.0
+ - (the "License"); you may not use this file except in compliance with
+ - the License.  You may obtain a copy of the License at
+ -
+ -   http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -->
+ <div class="termynal-container">
+    <div id="termynal-time-travel" data-termynal data-ty-startDelay="6000" data-ty-typeDelay="20" data-ty-lineDelay="500">
+        <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="scala>">spark.read.table("taxis").count()</span>
+        <span data-ty>2,853,020</span>
+        <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="scala>">val ONE_DAY_MS=86400000</span>
+        <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="scala>">val NOW=System.currentTimeMillis()</span>
+        <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="scala>">val YESTERDAY=NOW - ONE_DAY_MS</span>
+        <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="scala>">(spark</span>
+        <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="">.read</span>
+        <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="">.option("as-of-timestamp", YESTERDAY)</span>
+        <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="">.table("taxis")</span>
+        <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="">.count())</span>
+        <span data-ty>2,798,371</span>
+    </div>
+</div>

@@ -1,6 +1,7 @@
 baseURL = "" # This is populated by the github deploy workflow and is equal to "<domainName>"
 languageCode = "en-us"
 title = "Apache Iceberg"
+defaultContentLanguage = "en-us"
 
 [params]
   description = "The open table format for analytic datasets."
@@ -19,3 +20,12 @@ title = "Apache Iceberg"
   title = "slack"
   icon = "slack"
   url = "https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg"  
+[languages]
+  [languages.en-us]
+    weight = 1
+    languageName = 'English'
+    contentDir = 'content'
+  [languages.zh-cn]
+    weight = 1
+    languageName = '简体中文'
+    contentDir = 'content.zh'

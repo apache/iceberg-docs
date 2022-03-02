@@ -225,3 +225,16 @@ a.page-scroll {
 .termynal-container {
     padding-top: 3rem;
 }
+
+
+.language-select {
+    border: 0;
+    background: #f8f8f8;
+    padding-top: 12px;
+    padding-bottom: 10px;
+    float: none;
+    text-align: center;
+    background-size: cover;
+    font-size: 0.9rem;
+    color: #777;
+}
