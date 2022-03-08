@@ -5,25 +5,23 @@
 <meta name=description content="Iceberg Python API #  Much of the python api conforms to the java api. You can get more info about the java api here.
 Catalog #  The Catalog interface, like java provides search and management operations for tables.
 To create a catalog:
-from iceberg.hive import HiveTables # instantiate Hive Tables conf = {&#34;hive.metastore.uris&#34;: 'thrift://{hms_host}:{hms_port}'} tables = HiveTables(conf) and to create a table from a catalog:
+from iceberg.hive import HiveTables  # instantiate Hive Tables conf = {&#34;hive.metastore.uris&#34;: 'thrift://{hms_host}:{hms_port}'} tables = HiveTables(conf) and to create a table from a catalog:
 from iceberg.api.schema import Schema\ from iceberg.">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content="Python API">
 <meta property="og:description" content="Iceberg Python API #  Much of the python api conforms to the java api. You can get more info about the java api here.
 Catalog #  The Catalog interface, like java provides search and management operations for tables.
 To create a catalog:
-from iceberg.hive import HiveTables # instantiate Hive Tables conf = {&#34;hive.metastore.uris&#34;: 'thrift://{hms_host}:{hms_port}'} tables = HiveTables(conf) and to create a table from a catalog:
+from iceberg.hive import HiveTables  # instantiate Hive Tables conf = {&#34;hive.metastore.uris&#34;: 'thrift://{hms_host}:{hms_port}'} tables = HiveTables(conf) and to create a table from a catalog:
 from iceberg.api.schema import Schema\ from iceberg.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://iceberg.apache.org/docs/latest/python-api-intro/"><meta property="article:section" content="docs">
-<title>Python API | Apache Iceberg</title>
-<link rel=manifest href=/docs/latest/manifest.json>
+<title>Python API | Apache Iceberg</title><link rel=manifest href=/docs/latest/manifest.json>
 <link rel=icon href=/docs/latest/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/docs/latest/book.min.179e158d24f3ef709534173fd8b1c1e541a4fa3e23c1b5d8e887464c58949cc9.css integrity="sha256-F54VjSTz73CVNBc/2LHB5UGk+j4jwbXY6IdGTFiUnMk=" crossorigin=anonymous>
 <script defer src=/docs/latest/flexsearch.min.js></script>
-<script defer src=/docs/latest/en.search.min.62023fe4d52c3ba56afb71ab69fc56aae142e013c61cb31f924b89fe28e839b2.js integrity="sha256-YgI/5NUsO6Vq+3GrafxWquFC4BPGHLMfkkuJ/ijoObI=" crossorigin=anonymous></script>
-</head>
-<body dir=ltr>
+<script defer src=/docs/latest/en.search.min.83895b298912348dd1ff0b1c7a303ac7cb2ca825a31829e3c6a3c335d9d056f9.js integrity="sha256-g4lbKYkSNI3R/wscejA6x8ssqCWjGCnjxqPDNdnQVvk=" crossorigin=anonymous></script>
+</head><body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control>
 <main class="container flex">
@@ -36,19 +34,15 @@ from iceberg.api.schema import Schema\ from iceberg.">
 <a href=https://iceberg.apache.org/docs/latest/../../releases>
 <img id=version-shield src=https://img.shields.io/badge/version-0.13.1-blue alt>
 </a>
-</h2>
-<div class=book-search>
+</h2><div class=book-search>
 <input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
-<div class="book-search-spinner hidden"></div>
-<ul id=book-search-results></ul>
-<a href=https://github.com/apache/iceberg target=_blank>
+<div class="book-search-spinner hidden"></div><ul id=book-search-results></ul><a href=https://github.com/apache/iceberg target=_blank>
 <img src=https://iceberg.apache.org/docs/latest/img/GitHub-Mark.png target=_blank class=top-external-icon>
 </a>
 <a href=https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg target=_blank>
 <img src=https://iceberg.apache.org/docs/latest/img/Slack_Mark_Web.png target=_blank class=top-external-icon>
 </a>
-</div>
-<ul>
+</div><ul>
 <li class=book-section-flats>
 <span>
 <i class="fa fa-table fa-fw"></i>
@@ -57,34 +51,25 @@ Tables</span>
 <li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/configuration/>
 Configuration</a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/evolution/>
 Evolution</a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/maintenance/>
 Maintenance</a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/partitioning/>
 Partitioning</a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/performance/>
 Performance</a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/reliability/>
 Reliability</a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/schemas/>
 Schemas</a>
-</li>
-</ul>
-</li>
-<li class=book-section-flats>
+</li></ul></li><li class=book-section-flats>
 <span>
 <i class="fa fa-star-o fa-fw"></i>
 Spark</span>
@@ -92,84 +77,64 @@ Spark</span>
 <li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/getting-started/>
 Getting Started</a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/spark-configuration/>
 Configuration</a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/spark-ddl/>
 DDL</a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/spark-procedures/>
 Procedures</a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/spark-queries/>
 Queries</a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/spark-structured-streaming/>
 Structured Streaming</a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/spark-writes/>
 Writes</a>
-</li>
-</ul>
-</li>
-<li class=book-section-flats>
+</li></ul></li><li class=book-section-flats>
 <span>
 <img src=https://iceberg.apache.org/docs/latest/img/flink-logo.png class="navigation-icon fa-fw">Flink</span>
 <ul>
 <li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/flink/>
 Getting Started</a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/flink-connector/>
 Flink Connector</a>
-</li>
-</ul>
-</li>
-<li class=book-section-flats>
+</li></ul></li><li class=book-section-flats>
 <a href=https://iceberg.apache.org/docs/latest/hive/>
 <img src=https://iceberg.apache.org/docs/latest/img/../img/hive-logo.png class="navigation-icon fa-fw">Hive</a>
 <ul>
-</ul>
-</li>
-<li>
+</ul></li><li>
 <a href=https://trino.io/docs/current/connector/iceberg.html target=_blank>
 <img src=https://iceberg.apache.org/docs/latest/img/../img/trino-logo.png class="navigation-icon fa-fw">
 Trino
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>
 <img src=https://iceberg.apache.org/docs/latest/img/../img/prestodb-logo.png class="navigation-icon fa-fw">
 Presto
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://docs.dremio.com/data-formats/apache-iceberg/ target=_blank>
 <img src=https://iceberg.apache.org/docs/latest/img/../img/dremio-logo.png class="navigation-icon fa-fw">
 Dremio
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html target=_blank>
 <img src=https://iceberg.apache.org/docs/latest/img/../img/athena-logo.png class="navigation-icon fa-fw">
 Amazon Athena
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-create-cluster.html target=_blank>
 <img src=https://iceberg.apache.org/docs/latest/img/../img/emr-logo.png class="navigation-icon fa-fw">
 Amazon EMR
 </a>
-</li>
-<li class=book-section-collapsed>
+</li><li class=book-section-collapsed>
 <input type=checkbox id=section-56605d8e971a871885e28ee5142728bf class=toggle>
 <label for=section-56605d8e971a871885e28ee5142728bf class="flex justify-between">
 <a role=button>
@@ -180,18 +145,13 @@ Integrations</a>
 <li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/aws/>
 AWS</a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/jdbc/>
 JDBC</a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/nessie/>
 Nessie</a>
-</li>
-</ul>
-</li>
-<li class=book-section-collapsed>
+</li></ul></li><li class=book-section-collapsed>
 <input type=checkbox id=section-bf7b3283e3790c00c8caaa140299052b class=toggle checked>
 <label for=section-bf7b3283e3790c00c8caaa140299052b class="flex justify-between">
 <a role=button>
@@ -202,35 +162,26 @@ API</a>
 <li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/java-api-quickstart/>
 Java Quickstart</a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/api/>
 Java API</a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/custom-catalog/>
 Java Custom Catalog</a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/../../javadoc/latest>
 Javadocs
 </a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/python-quickstart/>
 Python Quickstart</a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/python-api-intro/ class=active>
 Python API</a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/python-feature-support/>
 Python Feature Support</a>
-</li>
-</ul>
-</li>
-<li class=book-section-collapsed>
+</li></ul></li><li class=book-section-collapsed>
 <input type=checkbox id=section-7e66f1754ca5d93e20ecdc89df5b8b28 class=toggle>
 <label for=section-7e66f1754ca5d93e20ecdc89df5b8b28 class="flex justify-between">
 <a role=button>
@@ -242,25 +193,19 @@ Community</a>
 <a href=https://iceberg.apache.org/docs/latest/../../../community>
 Join
 </a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/../../../blogs>
 Blogs
 </a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/../../../talks>
 Talks
 </a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/../../../contribute>
 Contribute
 </a>
-</li>
-</ul>
-</li>
-<li class=book-section-collapsed>
+</li></ul></li><li class=book-section-collapsed>
 <input type=checkbox id=section-87dda23e9104fe3231cee3bc88a2d754 class=toggle>
 <label for=section-87dda23e9104fe3231cee3bc88a2d754 class="flex justify-between">
 <a role=button>
@@ -272,15 +217,11 @@ Format</a>
 <a href=https://iceberg.apache.org/docs/latest/../../../spec>
 Spec
 </a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/../../../terms>
 Terms
 </a>
-</li>
-</ul>
-</li>
-<li class=book-section-collapsed>
+</li></ul></li><li class=book-section-collapsed>
 <input type=checkbox id=section-2e5d3f5f142758d8dd368e9c281dd08e class=toggle>
 <label for=section-2e5d3f5f142758d8dd368e9c281dd08e class="flex justify-between">
 <a role=button>
@@ -292,30 +233,23 @@ Project</a>
 <a href=https://iceberg.apache.org/docs/latest/../../../how-to-release>
 How to Release
 </a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/../../../multi-engine-support>
 Multi-Engine Support
 </a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/../../../roadmap>
 Roadmap
 </a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/../../../security>
 Security
 </a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/../../../trademarks>
 Trademarks
 </a>
-</li>
-</ul>
-</li>
-<li class=book-section-collapsed>
+</li></ul></li><li class=book-section-collapsed>
 <input type=checkbox id=section-4ddb27a8612bc8118c0b36386905d332 class=toggle>
 <label for=section-4ddb27a8612bc8118c0b36386905d332 class="flex justify-between">
 <a role=button>
@@ -327,30 +261,23 @@ Releases</a>
 <a href=https://iceberg.apache.org/docs/latest/../latest>
 Latest
 </a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/../0.13.1>
 0.13.1
 </a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/../0.13.0>
 0.13.0
 </a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/../0.12.1>
 0.12.1
 </a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://iceberg.apache.org/docs/latest/../../../releases>
 Release Notes
 </a>
-</li>
-</ul>
-</li>
-<li class=book-section-collapsed>
+</li></ul></li><li class=book-section-collapsed>
 <input type=checkbox id=section-296746d27808aa768e500824aaf2adea class=toggle>
 <label for=section-296746d27808aa768e500824aaf2adea class="flex justify-between">
 <a role=button>
@@ -362,39 +289,28 @@ Release Notes
 <i class="fa fa-external-link fa-fw"></i>
 License
 </a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://www.apache.org/security/ target=_blank>
 <i class="fa fa-external-link fa-fw"></i>
 Security
 </a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://www.apache.org/foundation/thanks.html target=_blank>
 <i class="fa fa-external-link fa-fw"></i>
 Sponsors
 </a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://www.apache.org/foundation/sponsorship.html target=_blank>
 <i class="fa fa-external-link fa-fw"></i>
 Donate
 </a>
-</li>
-<li class=navigation-icon-pad>
+</li><li class=navigation-icon-pad>
 <a href=https://www.apache.org/events/current-event.html target=_blank>
 <i class="fa fa-external-link fa-fw"></i>
 Events
 </a>
-</li>
-</ul>
-</li>
-</ul>
-</nav>
-<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
-</div>
-</aside>
-<div class=book-page>
+</li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div></aside><div class=book-page>
 <header class=book-header>
 <div class="flex align-center justify-between">
 <link rel=stylesheet href=/docs/latest/fontawesome/css/font-awesome.min.css>
@@ -405,181 +321,93 @@ Events
 <label for=toc-control>
 <img src=/docs/latest/svg/toc.svg class=book-icon alt="Table of Contents">
 </label>
-</div>
-<aside class="hidden clearfix">
+</div><aside class="hidden clearfix">
 <nav id=TableOfContents>
 <ul>
-<li><a href=#catalog>Catalog</a></li>
-<li><a href=#tables>Tables</a>
+<li><a href=#catalog>Catalog</a></li><li><a href=#tables>Tables</a>
 <ul>
-<li><a href=#scanning>Scanning</a></li>
-</ul>
-</li>
-<li><a href=#types>Types</a>
+<li><a href=#scanning>Scanning</a></li></ul></li><li><a href=#types>Types</a>
 <ul>
-<li><a href=#primitives>Primitives</a></li>
-<li><a href=#nested-types>Nested types</a></li>
-</ul>
-</li>
-<li><a href=#expressions>Expressions</a></li>
-</ul>
-</nav>
-</aside>
-</header>
-<article class=markdown>
+<li><a href=#primitives>Primitives</a></li><li><a href=#nested-types>Nested types</a></li></ul></li><li><a href=#expressions>Expressions</a></li></ul></nav></aside></header><article class=markdown>
 <h1 id=iceberg-python-api>
 Iceberg Python API
 <a class=anchor href=#iceberg-python-api>#</a>
-</h1>
-<p>Much of the python api conforms to the java api. You can get more info about the java api <a href=../api>here</a>.</p>
-<h2 id=catalog>
+</h1><p>Much of the python api conforms to the java api. You can get more info about the java api <a href=../api>here</a>.</p><h2 id=catalog>
 Catalog
 <a class=anchor href=#catalog>#</a>
-</h2>
-<p>The Catalog interface, like java provides search and management operations for tables.</p>
-<p>To create a catalog:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> iceberg.hive <span style=color:#f92672>import</span> HiveTables
-
-<span style=color:#75715e># instantiate Hive Tables</span>
-conf <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;hive.metastore.uris&#34;</span>: <span style=color:#e6db74>&#39;thrift://</span><span style=color:#e6db74>{hms_host}</span><span style=color:#e6db74>:</span><span style=color:#e6db74>{hms_port}</span><span style=color:#e6db74>&#39;</span>}
-tables <span style=color:#f92672>=</span> HiveTables(conf)
-</code></pre></div><p>and to create a table from a catalog:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> iceberg.api.schema <span style=color:#f92672>import</span> Schema\
-<span style=color:#f92672>from</span> iceberg.api.types <span style=color:#f92672>import</span> TimestampType, DoubleType, StringType, NestedField
-<span style=color:#f92672>from</span> iceberg.api.partition_spec <span style=color:#f92672>import</span> PartitionSpecBuilder
-
-schema <span style=color:#f92672>=</span> Schema(NestedField<span style=color:#f92672>.</span>optional(<span style=color:#ae81ff>1</span>, <span style=color:#e6db74>&#34;DateTime&#34;</span>, TimestampType<span style=color:#f92672>.</span>with_timezone()),
-                NestedField<span style=color:#f92672>.</span>optional(<span style=color:#ae81ff>2</span>, <span style=color:#e6db74>&#34;Bid&#34;</span>, DoubleType<span style=color:#f92672>.</span>get()),
-                NestedField<span style=color:#f92672>.</span>optional(<span style=color:#ae81ff>3</span>, <span style=color:#e6db74>&#34;Ask&#34;</span>, DoubleType<span style=color:#f92672>.</span>get()),
-                NestedField<span style=color:#f92672>.</span>optional(<span style=color:#ae81ff>4</span>, <span style=color:#e6db74>&#34;symbol&#34;</span>, StringType<span style=color:#f92672>.</span>get()))
-partition_spec <span style=color:#f92672>=</span> PartitionSpecBuilder(schema)<span style=color:#f92672>.</span>add(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>1000</span>, <span style=color:#e6db74>&#34;DateTime_day&#34;</span>, <span style=color:#e6db74>&#34;day&#34;</span>)<span style=color:#f92672>.</span>build()
-
-tables<span style=color:#f92672>.</span>create(schema, <span style=color:#e6db74>&#34;test.test_123&#34;</span>, partition)
-</code></pre></div><h2 id=tables>
+</h2><p>The Catalog interface, like java provides search and management operations for tables.</p><p>To create a catalog:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>from</span> iceberg.hive <span style=color:#f92672>import</span> HiveTables
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># instantiate Hive Tables</span>
+</span></span><span style=display:flex><span>conf <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;hive.metastore.uris&#34;</span>: <span style=color:#e6db74>&#39;thrift://</span><span style=color:#e6db74>{hms_host}</span><span style=color:#e6db74>:</span><span style=color:#e6db74>{hms_port}</span><span style=color:#e6db74>&#39;</span>}
+</span></span><span style=display:flex><span>tables <span style=color:#f92672>=</span> HiveTables(conf)
+</span></span></code></pre></div><p>and to create a table from a catalog:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>from</span> iceberg.api.schema <span style=color:#f92672>import</span> Schema\
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> iceberg.api.types <span style=color:#f92672>import</span> TimestampType, DoubleType, StringType, NestedField
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> iceberg.api.partition_spec <span style=color:#f92672>import</span> PartitionSpecBuilder
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>schema <span style=color:#f92672>=</span> Schema(NestedField<span style=color:#f92672>.</span>optional(<span style=color:#ae81ff>1</span>, <span style=color:#e6db74>&#34;DateTime&#34;</span>, TimestampType<span style=color:#f92672>.</span>with_timezone()),
+</span></span><span style=display:flex><span>                NestedField<span style=color:#f92672>.</span>optional(<span style=color:#ae81ff>2</span>, <span style=color:#e6db74>&#34;Bid&#34;</span>, DoubleType<span style=color:#f92672>.</span>get()),
+</span></span><span style=display:flex><span>                NestedField<span style=color:#f92672>.</span>optional(<span style=color:#ae81ff>3</span>, <span style=color:#e6db74>&#34;Ask&#34;</span>, DoubleType<span style=color:#f92672>.</span>get()),
+</span></span><span style=display:flex><span>                NestedField<span style=color:#f92672>.</span>optional(<span style=color:#ae81ff>4</span>, <span style=color:#e6db74>&#34;symbol&#34;</span>, StringType<span style=color:#f92672>.</span>get()))
+</span></span><span style=display:flex><span>partition_spec <span style=color:#f92672>=</span> PartitionSpecBuilder(schema)<span style=color:#f92672>.</span>add(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>1000</span>, <span style=color:#e6db74>&#34;DateTime_day&#34;</span>, <span style=color:#e6db74>&#34;day&#34;</span>)<span style=color:#f92672>.</span>build()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>tables<span style=color:#f92672>.</span>create(schema, <span style=color:#e6db74>&#34;test.test_123&#34;</span>, partition)
+</span></span></code></pre></div><h2 id=tables>
 Tables
 <a class=anchor href=#tables>#</a>
-</h2>
-<p>The Table interface provides access to table metadata</p>
-<ul>
-<li>schema returns the current table <code>Schema</code></li>
-<li>spec returns the current table <code>PartitonSpec</code></li>
-<li>properties returns a map of key-value <code>TableProperties</code></li>
-<li>currentSnapshot returns the current table <code>Snapshot</code></li>
-<li>snapshots returns all valid snapshots for the table</li>
-<li>snapshot(id) returns a specific snapshot by ID</li>
-<li>location returns the table’s base location</li>
-</ul>
-<p>Tables also provide refresh to update the table to the latest version.</p>
-<h3 id=scanning>
+</h2><p>The Table interface provides access to table metadata</p><ul>
+<li>schema returns the current table <code>Schema</code></li><li>spec returns the current table <code>PartitonSpec</code></li><li>properties returns a map of key-value <code>TableProperties</code></li><li>currentSnapshot returns the current table <code>Snapshot</code></li><li>snapshots returns all valid snapshots for the table</li><li>snapshot(id) returns a specific snapshot by ID</li><li>location returns the table’s base location</li></ul><p>Tables also provide refresh to update the table to the latest version.</p><h3 id=scanning>
 Scanning
 <a class=anchor href=#scanning>#</a>
-</h3>
-<p>Iceberg table scans start by creating a <code>TableScan</code> object with <code>newScan</code>.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>scan <span style=color:#f92672>=</span> table<span style=color:#f92672>.</span>new_scan();
-</code></pre></div><p>To configure a scan, call filter and select on the <code>TableScan</code> to get a new <code>TableScan</code> with those changes.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>filtered_scan <span style=color:#f92672>=</span> scan<span style=color:#f92672>.</span>filter(Expressions<span style=color:#f92672>.</span>equal(<span style=color:#e6db74>&#34;id&#34;</span>, <span style=color:#ae81ff>5</span>))
-</code></pre></div><p>String expressions can also be passed to the filter method.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>filtered_scan <span style=color:#f92672>=</span> scan<span style=color:#f92672>.</span>filter(<span style=color:#e6db74>&#34;id=5&#34;</span>)
-</code></pre></div><p><code>Schema</code> projections can be applied against a <code>TableScan</code> by passing a list of column names.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>filtered_scan <span style=color:#f92672>=</span> scan<span style=color:#f92672>.</span>select([<span style=color:#e6db74>&#34;col_1&#34;</span>, <span style=color:#e6db74>&#34;col_2&#34;</span>, <span style=color:#e6db74>&#34;col_3&#34;</span>])
-</code></pre></div><p>Because some data types cannot be read using the python library, a convenience method for excluding columns from projection is provided.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>filtered_scan <span style=color:#f92672>=</span> scan<span style=color:#f92672>.</span>select_except([<span style=color:#e6db74>&#34;unsupported_col_1&#34;</span>, <span style=color:#e6db74>&#34;unsupported_col_2&#34;</span>])
-</code></pre></div><p>Calls to configuration methods create a new <code>TableScan</code> so that each <code>TableScan</code> is immutable.</p>
-<p>When a scan is configured, <code>planFiles</code>, <code>planTasks</code>, and <code>Schema</code> are used to return files, tasks, and the read projection.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>scan <span style=color:#f92672>=</span> table<span style=color:#f92672>.</span>new_scan() \
-    <span style=color:#f92672>.</span>filter(<span style=color:#e6db74>&#34;id=5&#34;</span>) \
-    <span style=color:#f92672>.</span>select([<span style=color:#e6db74>&#34;id&#34;</span>, <span style=color:#e6db74>&#34;data&#34;</span>])
-
-projection <span style=color:#f92672>=</span> scan<span style=color:#f92672>.</span>schema
-<span style=color:#66d9ef>for</span> task <span style=color:#f92672>in</span> scan<span style=color:#f92672>.</span>plan_tasks():
-    print(task)
-</code></pre></div><h2 id=types>
+</h3><p>Iceberg table scans start by creating a <code>TableScan</code> object with <code>newScan</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>scan <span style=color:#f92672>=</span> table<span style=color:#f92672>.</span>new_scan();
+</span></span></code></pre></div><p>To configure a scan, call filter and select on the <code>TableScan</code> to get a new <code>TableScan</code> with those changes.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>filtered_scan <span style=color:#f92672>=</span> scan<span style=color:#f92672>.</span>filter(Expressions<span style=color:#f92672>.</span>equal(<span style=color:#e6db74>&#34;id&#34;</span>, <span style=color:#ae81ff>5</span>))
+</span></span></code></pre></div><p>String expressions can also be passed to the filter method.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>filtered_scan <span style=color:#f92672>=</span> scan<span style=color:#f92672>.</span>filter(<span style=color:#e6db74>&#34;id=5&#34;</span>)
+</span></span></code></pre></div><p><code>Schema</code> projections can be applied against a <code>TableScan</code> by passing a list of column names.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>filtered_scan <span style=color:#f92672>=</span> scan<span style=color:#f92672>.</span>select([<span style=color:#e6db74>&#34;col_1&#34;</span>, <span style=color:#e6db74>&#34;col_2&#34;</span>, <span style=color:#e6db74>&#34;col_3&#34;</span>])
+</span></span></code></pre></div><p>Because some data types cannot be read using the python library, a convenience method for excluding columns from projection is provided.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>filtered_scan <span style=color:#f92672>=</span> scan<span style=color:#f92672>.</span>select_except([<span style=color:#e6db74>&#34;unsupported_col_1&#34;</span>, <span style=color:#e6db74>&#34;unsupported_col_2&#34;</span>])
+</span></span></code></pre></div><p>Calls to configuration methods create a new <code>TableScan</code> so that each <code>TableScan</code> is immutable.</p><p>When a scan is configured, <code>planFiles</code>, <code>planTasks</code>, and <code>Schema</code> are used to return files, tasks, and the read projection.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>scan <span style=color:#f92672>=</span> table<span style=color:#f92672>.</span>new_scan() \
+</span></span><span style=display:flex><span>    <span style=color:#f92672>.</span>filter(<span style=color:#e6db74>&#34;id=5&#34;</span>) \
+</span></span><span style=display:flex><span>    <span style=color:#f92672>.</span>select([<span style=color:#e6db74>&#34;id&#34;</span>, <span style=color:#e6db74>&#34;data&#34;</span>])
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>projection <span style=color:#f92672>=</span> scan<span style=color:#f92672>.</span>schema
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> task <span style=color:#f92672>in</span> scan<span style=color:#f92672>.</span>plan_tasks():
+</span></span><span style=display:flex><span>    print(task)
+</span></span></code></pre></div><h2 id=types>
 Types
 <a class=anchor href=#types>#</a>
-</h2>
-<p>Iceberg data types are located in <code>iceberg.api.types.types</code></p>
-<h3 id=primitives>
+</h2><p>Iceberg data types are located in <code>iceberg.api.types.types</code></p><h3 id=primitives>
 Primitives
 <a class=anchor href=#primitives>#</a>
-</h3>
-<p>Primitive type instances are available from static methods in each type class. Types without parameters use <code>get</code>, and types like <code>DecimalType</code> use factory methods:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>IntegerType<span style=color:#f92672>.</span>get()    <span style=color:#75715e># int</span>
-DoubleType<span style=color:#f92672>.</span>get()     <span style=color:#75715e># double</span>
-DecimalType<span style=color:#f92672>.</span>of(<span style=color:#ae81ff>9</span>, <span style=color:#ae81ff>2</span>) <span style=color:#75715e># decimal(9, 2)</span>
-</code></pre></div><h3 id=nested-types>
+</h3><p>Primitive type instances are available from static methods in each type class. Types without parameters use <code>get</code>, and types like <code>DecimalType</code> use factory methods:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>IntegerType<span style=color:#f92672>.</span>get()    <span style=color:#75715e># int</span>
+</span></span><span style=display:flex><span>DoubleType<span style=color:#f92672>.</span>get()     <span style=color:#75715e># double</span>
+</span></span><span style=display:flex><span>DecimalType<span style=color:#f92672>.</span>of(<span style=color:#ae81ff>9</span>, <span style=color:#ae81ff>2</span>) <span style=color:#75715e># decimal(9, 2)</span>
+</span></span></code></pre></div><h3 id=nested-types>
 Nested types
 <a class=anchor href=#nested-types>#</a>
-</h3>
-<p>Structs, maps, and lists are created using factory methods in type classes.</p>
-<p>Like struct fields, map keys or values and list elements are tracked as nested fields. Nested fields track <a href=https://iceberg.apache.org/evolution/#correctness>field IDs</a> and nullability.</p>
-<p>Struct fields are created using <code>NestedField.optional</code> or <code>NestedField.required</code>. Map value and list element nullability is set in the map and list factory methods.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e># struct&lt;1 id: int, 2 data: optional string&gt;</span>
-struct <span style=color:#f92672>=</span> StructType<span style=color:#f92672>.</span>of([NestedField<span style=color:#f92672>.</span>required(<span style=color:#ae81ff>1</span>, <span style=color:#e6db74>&#34;id&#34;</span>, IntegerType<span style=color:#f92672>.</span>get()),
-                        NestedField<span style=color:#f92672>.</span>optional(<span style=color:#ae81ff>2</span>, <span style=color:#e6db74>&#34;data&#34;</span>, StringType<span style=color:#f92672>.</span>get()])
-  )
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e># map&lt;1 key: int, 2 value: optional string&gt;</span>
-map_var <span style=color:#f92672>=</span> MapType<span style=color:#f92672>.</span>of_optional(<span style=color:#ae81ff>1</span>, IntegerType<span style=color:#f92672>.</span>get(),
-                          <span style=color:#ae81ff>2</span>, StringType<span style=color:#f92672>.</span>get())
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e># array&lt;1 element: int&gt;</span>
-list_var <span style=color:#f92672>=</span> ListType<span style=color:#f92672>.</span>of_required(<span style=color:#ae81ff>1</span>, IntegerType<span style=color:#f92672>.</span>get());
-</code></pre></div><h2 id=expressions>
+</h3><p>Structs, maps, and lists are created using factory methods in type classes.</p><p>Like struct fields, map keys or values and list elements are tracked as nested fields. Nested fields track <a href=https://iceberg.apache.org/evolution/#correctness>field IDs</a> and nullability.</p><p>Struct fields are created using <code>NestedField.optional</code> or <code>NestedField.required</code>. Map value and list element nullability is set in the map and list factory methods.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># struct&lt;1 id: int, 2 data: optional string&gt;</span>
+</span></span><span style=display:flex><span>struct <span style=color:#f92672>=</span> StructType<span style=color:#f92672>.</span>of([NestedField<span style=color:#f92672>.</span>required(<span style=color:#ae81ff>1</span>, <span style=color:#e6db74>&#34;id&#34;</span>, IntegerType<span style=color:#f92672>.</span>get()),
+</span></span><span style=display:flex><span>                        NestedField<span style=color:#f92672>.</span>optional(<span style=color:#ae81ff>2</span>, <span style=color:#e6db74>&#34;data&#34;</span>, StringType<span style=color:#f92672>.</span>get()])
+</span></span><span style=display:flex><span>  )
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># map&lt;1 key: int, 2 value: optional string&gt;</span>
+</span></span><span style=display:flex><span>map_var <span style=color:#f92672>=</span> MapType<span style=color:#f92672>.</span>of_optional(<span style=color:#ae81ff>1</span>, IntegerType<span style=color:#f92672>.</span>get(),
+</span></span><span style=display:flex><span>                          <span style=color:#ae81ff>2</span>, StringType<span style=color:#f92672>.</span>get())
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># array&lt;1 element: int&gt;</span>
+</span></span><span style=display:flex><span>list_var <span style=color:#f92672>=</span> ListType<span style=color:#f92672>.</span>of_required(<span style=color:#ae81ff>1</span>, IntegerType<span style=color:#f92672>.</span>get());
+</span></span></code></pre></div><h2 id=expressions>
 Expressions
 <a class=anchor href=#expressions>#</a>
-</h2>
-<p>Iceberg’s <code>Expressions</code> are used to configure table scans. To create <code>Expressions</code>, use the factory methods in <code>Expressions</code>.</p>
-<p>Supported <code>Predicate</code> expressions are:</p>
-<ul>
-<li><code>is_null</code></li>
-<li><code>not_null</code></li>
-<li><code>equal</code></li>
-<li><code>not_equal</code></li>
-<li><code>less_than</code></li>
-<li><code>less_than_or_equal</code></li>
-<li><code>greater_than</code></li>
-<li><code>greater_than_or_equal</code></li>
-</ul>
-<p>Supported expression <code>Operations</code>are:</p>
-<ul>
-<li><code>and</code></li>
-<li><code>or</code></li>
-<li><code>not</code></li>
-</ul>
-<p>Constant expressions are:</p>
-<ul>
-<li><code>always_true</code></li>
-<li><code>always_false</code></li>
-</ul>
-</article>
-<footer class=book-footer>
+</h2><p>Iceberg’s <code>Expressions</code> are used to configure table scans. To create <code>Expressions</code>, use the factory methods in <code>Expressions</code>.</p><p>Supported <code>Predicate</code> expressions are:</p><ul>
+<li><code>is_null</code></li><li><code>not_null</code></li><li><code>equal</code></li><li><code>not_equal</code></li><li><code>less_than</code></li><li><code>less_than_or_equal</code></li><li><code>greater_than</code></li><li><code>greater_than_or_equal</code></li></ul><p>Supported expression <code>Operations</code>are:</p><ul>
+<li><code>and</code></li><li><code>or</code></li><li><code>not</code></li></ul><p>Constant expressions are:</p><ul>
+<li><code>always_true</code></li><li><code>always_false</code></li></ul></article><footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-</div>
-<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
-</footer>
-<div class=book-comments>
-</div>
-<label for=menu-control class="hidden book-menu-overlay"></label>
-</div>
-<aside class=book-toc>
+</div><script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+</footer><div class=book-comments>
+</div><label for=menu-control class="hidden book-menu-overlay"></label>
+</div><aside class=book-toc>
 <div class=book-toc-content>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#catalog>Catalog</a></li>
-<li><a href=#tables>Tables</a>
+<li><a href=#catalog>Catalog</a></li><li><a href=#tables>Tables</a>
 <ul>
-<li><a href=#scanning>Scanning</a></li>
-</ul>
-</li>
-<li><a href=#types>Types</a>
+<li><a href=#scanning>Scanning</a></li></ul></li><li><a href=#types>Types</a>
 <ul>
-<li><a href=#primitives>Primitives</a></li>
-<li><a href=#nested-types>Nested types</a></li>
-</ul>
-</li>
-<li><a href=#expressions>Expressions</a></li>
-</ul>
-</nav>
-</div>
-</aside>
-</main>
-</body>
-</html>
+<li><a href=#primitives>Primitives</a></li><li><a href=#nested-types>Nested types</a></li></ul></li><li><a href=#expressions>Expressions</a></li></ul></nav></div></aside></main></body></html>
