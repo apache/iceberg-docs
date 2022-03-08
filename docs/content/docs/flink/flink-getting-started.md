@@ -22,8 +22,8 @@ url: flink
 
 # Flink
 
-Apache Iceberg supports both [Apache Flink](https://flink.apache.org/)'s DataStream API and Table API/SQL. Currently,
-Iceberg can with work Apache Flink versions 1.12, 1.13, and 1.14. Previous versions of Iceberg also support Flink 1.11.
+Apache Iceberg supports both [Apache Flink](https://flink.apache.org/)'s DataStream API and Table API. Currently,
+Iceberg integration for Apache Flink is available for Flink versions 1.12, 1.13, and 1.14. Previous versions of Iceberg also support Flink 1.11.
 
 | Feature support                                             | Flink  | Notes                                                        |
 | ----------------------------------------------------------- | -----  | ------------------------------------------------------------ |
@@ -31,7 +31,7 @@ Iceberg can with work Apache Flink versions 1.12, 1.13, and 1.14. Previous versi
 | [SQL create database](#create-database)                     | ✔️     |                                                              |
 | [SQL create table](#create-table)                           | ✔️     |                                                              |
 | [SQL create table like](#create-table-like)                 | ✔️     |                                                              |
-| [SQL alter table](#alter-table)                             | ✔️     | Only support altering table properties. Changing column and partition are not supported. |
+| [SQL alter table](#alter-table)                             | ✔️     | Only support altering table properties, column and partition changes are not supported |
 | [SQL drop_table](#drop-table)                               | ✔️     |                                                              |
 | [SQL select](#querying-with-sql)                            | ✔️     | Support both streaming and batch mode.                       |
 | [SQL insert into](#insert-into)                             | ✔️ ️   | Support both streaming and batch mode.                       |
