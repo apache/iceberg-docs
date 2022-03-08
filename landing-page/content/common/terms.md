@@ -61,4 +61,3 @@ The **snapshot log** is a metadata log of how the table's current snapshot has c
 The log is a list of timestamp and ID pairs: when the current snapshot changed and the snapshot ID the current snapshot was changed to.
 
 The snapshot log is stored in [table metadata as `snapshot-log`](../spec#table-metadata-fields).
-
