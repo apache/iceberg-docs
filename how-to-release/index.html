@@ -1,59 +1,9 @@
-<!doctype html><html>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content>
-<meta name=author content>
-<base href=https://iceberg.apache.org/>
-<title>How To Release</title><link href=https://iceberg.apache.org//css/bootstrap.css rel=stylesheet>
-<link href=https://iceberg.apache.org//css/landing-page.css rel=stylesheet>
-<link href=https://iceberg.apache.org//css/markdown.css rel=stylesheet>
-<link href=https://iceberg.apache.org//css/katex.min.css rel=stylesheet>
-<link rel=stylesheet href=https://iceberg.apache.org//css/pricing.css>
-<link href=https://iceberg.apache.org//font-awesome-4.7.0/css/font-awesome.min.css rel=stylesheet type=text/css>
-<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel=stylesheet type=text/css>
-<link href=https://iceberg.apache.org//css/termynal.css rel=stylesheet>
-</head><body>
-<head>
-<link href=https://iceberg.apache.org//css/markdown.css rel=stylesheet>
-<link href=https://iceberg.apache.org//css/katex.min.css rel=stylesheet>
-</head><nav class="navbar navbar-default navbar-fixed-top" role=navigation>
-<div class=container>
-<div class="navbar-header page-scroll">
-<button type=button class=navbar-toggle data-toggle=collapse data-target=#bs-example-navbar-collapse-1>
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=author content><base href=https://iceberg.apache.org/><title>How To Release</title><link href=https://iceberg.apache.org//css/bootstrap.css rel=stylesheet><link href=https://iceberg.apache.org//css/landing-page.css rel=stylesheet><link href=https://iceberg.apache.org//css/markdown.css rel=stylesheet><link href=https://iceberg.apache.org//css/katex.min.css rel=stylesheet><link rel=stylesheet href=https://iceberg.apache.org//css/pricing.css><link href=https://iceberg.apache.org//font-awesome-4.7.0/css/font-awesome.min.css rel=stylesheet type=text/css><link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel=stylesheet type=text/css><link href=https://iceberg.apache.org//css/termynal.css rel=stylesheet></head><body><head><link href=https://iceberg.apache.org//css/markdown.css rel=stylesheet><link href=https://iceberg.apache.org//css/katex.min.css rel=stylesheet></head><nav class="navbar navbar-default navbar-fixed-top" role=navigation><div class=container><div class="navbar-header page-scroll"><button type=button class=navbar-toggle data-toggle=collapse data-target=#bs-example-navbar-collapse-1>
 <span class=sr-only>Toggle navigation</span>
 <span class=icon-bar></span>
 <span class=icon-bar></span>
-<span class=icon-bar></span>
-</button>
-<a class="page-scroll navbar-brand" href=#intro><img class=top-navbar-logo src=https://iceberg.apache.org//img/iceberg-logo-icon.png> Apache Iceberg</a>
-</div><div class="collapse navbar-collapse" id=bs-example-navbar-collapse-1>
-<ul class="nav navbar-nav navbar-right">
-<li>
-<a class=page-scroll href=https://iceberg.apache.org/docs/latest>Docs</a>
-</li><li>
-<a class=page-scroll href=https://iceberg.apache.org/docs/latest/getting-started/>Spark</a>
-</li><li>
-<a class=page-scroll href=https://iceberg.apache.org/docs/latest/flink/>Flink</a>
-</li><li>
-<a class=page-scroll href=https://trino.io/docs/current/connector/iceberg.html target=_blank>Trino</a>
-</li><li>
-<a class=page-scroll href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>Presto</a>
-</li><li>
-<a class=page-scroll href=https://iceberg.apache.org/releases>Releases</a>
-</li><li>
-<a class=page-scroll href=https://iceberg.apache.org/roadmap>Roadmap</a>
-</li><li>
-<a class=page-scroll href=https://iceberg.apache.org/community>Community</a>
-</li><li>
-<a class=page-scroll href=https://iceberg.apache.org/blogs>Blogs</a>
-</li><li>
-<a class=page-scroll href=https://iceberg.apache.org/talks>Talks</a>
-</li></ul></div></div></nav><div class=pad-for-navbar></div><body dir=" ltr">
-<div class=markdown-body>
-<h2 id=setup>Setup</h2><p>To create a release candidate, you will need:</p><ul>
-<li>Apache LDAP credentals for Nexus and SVN</li><li>A <a href=https://www.apache.org/dev/release-signing#generate>GPG key for signing</a>, published in <a href=https://dist.apache.org/repos/dist/dev/iceberg/KEYS>KEYS</a></li></ul><p>If you have not published your GPG key yet, you must publish it before sending the vote email by doing:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>svn co https://dist.apache.org/repos/dist/dev/iceberg icebergsvn
+<span class=icon-bar></span></button>
+<a class="page-scroll navbar-brand" href=#intro><img class=top-navbar-logo src=https://iceberg.apache.org//img/iceberg-logo-icon.png> Apache Iceberg</a></div><div class="collapse navbar-collapse" id=bs-example-navbar-collapse-1><ul class="nav navbar-nav navbar-right"><li><a class=page-scroll href=https://iceberg.apache.org/docs/latest>Docs</a></li><li><a class=page-scroll href=https://iceberg.apache.org/docs/latest/getting-started/>Spark</a></li><li><a class=page-scroll href=https://iceberg.apache.org/docs/latest/flink/>Flink</a></li><li><a class=page-scroll href=https://trino.io/docs/current/connector/iceberg.html target=_blank>Trino</a></li><li><a class=page-scroll href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>Presto</a></li><li><a class=page-scroll href=https://iceberg.apache.org/releases>Releases</a></li><li><a class=page-scroll href=https://iceberg.apache.org/roadmap>Roadmap</a></li><li><a class=page-scroll href=https://iceberg.apache.org/community>Community</a></li><li><a class=page-scroll href=https://iceberg.apache.org/blogs>Blogs</a></li><li><a class=page-scroll href=https://iceberg.apache.org/talks>Talks</a></li></ul></div></div></nav><div class=pad-for-navbar></div><body dir=" ltr"><div class=markdown-body><h2 id=setup>Setup</h2><p>To create a release candidate, you will need:</p><ul><li>Apache LDAP credentals for Nexus and SVN</li><li>A <a href=https://www.apache.org/dev/release-signing#generate>GPG key for signing</a>, published in <a href=https://dist.apache.org/repos/dist/dev/iceberg/KEYS>KEYS</a></li></ul><p>If you have not published your GPG key yet, you must publish it before sending the vote email by doing:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>svn co https://dist.apache.org/repos/dist/dev/iceberg icebergsvn
 </span></span><span style=display:flex><span>cd icebergsvn
 </span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#34;&#34;</span> &gt;&gt; KEYS <span style=color:#75715e># append a newline</span>
 </span></span><span style=display:flex><span>gpg --list-sigs &lt;YOUR KEY ID HERE&gt; &gt;&gt; KEYS <span style=color:#75715e># append signatures</span>
@@ -109,12 +59,7 @@ Set it as remote with name <code>apache</code> for release if it is not already 
 </span></span></code></pre></div><p>The source release script will create a candidate tag based on the HEAD revision in git and will prepare the release tarball, signature, and checksum files. It will also upload the source artifacts to SVN.</p><p>Note the commit SHA1 and candidate location because those will be added to the vote thread.</p><p>Once the source release is ready, use it to stage convenience binary artifacts in Nexus.</p><h3 id=build-and-stage-convenience-binaries>Build and stage convenience binaries</h3><p>Convenience binaries are created using the source release tarball from in the last step.</p><p>Untar the source release and go into the release directory:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>tar xzf apache-iceberg-0.13.0.tar.gz
 </span></span><span style=display:flex><span>cd apache-iceberg-0.13.0
 </span></span></code></pre></div><p>To build and publish the convenience binaries, run the <code>dev/stage-binaries.sh</code> script. This will push to a release staging repository.</p><pre tabindex=0><code>dev/stage-binaries.sh
-</code></pre><p>Next, you need to close the staging repository:</p><ol>
-<li>Go to <a href=https://repository.apache.org/>Nexus</a> and log in</li><li>In the menu on the left, choose &ldquo;Staging Repositories&rdquo;</li><li>Select the Iceberg repository
-<ul>
-<li>If multiple staging repositories are created after running the script, set <code>org.gradle.parallel=false</code> in <code>gradle.properties</code></li></ul></li><li>At the top, select &ldquo;Close&rdquo; and follow the instructions
-<ul>
-<li>In the comment field use &ldquo;Apache Iceberg &lt;version> RC&lt;num>&rdquo;</li></ul></li></ol><h3 id=start-a-vote-thread>Start a VOTE thread</h3><p>The last step for a candidate is to create a VOTE thread on the dev mailing list.
+</code></pre><p>Next, you need to close the staging repository:</p><ol><li>Go to <a href=https://repository.apache.org/>Nexus</a> and log in</li><li>In the menu on the left, choose &ldquo;Staging Repositories&rdquo;</li><li>Select the Iceberg repository<ul><li>If multiple staging repositories are created after running the script, set <code>org.gradle.parallel=false</code> in <code>gradle.properties</code></li></ul></li><li>At the top, select &ldquo;Close&rdquo; and follow the instructions<ul><li>In the comment field use &ldquo;Apache Iceberg &lt;version> RC&lt;num>&rdquo;</li></ul></li></ol><h3 id=start-a-vote-thread>Start a VOTE thread</h3><p>The last step for a candidate is to create a VOTE thread on the dev mailing list.
 The email template is already generated in <code>release-announcement-email.txt</code> with some details filled.</p><p>Example title subject:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>[VOTE] Release Apache Iceberg &lt;VERSION&gt; RC&lt;NUM&gt;
 </span></span></code></pre></div><p>Example content:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>Hi everyone,
 </span></span><span style=display:flex><span>
@@ -178,9 +123,7 @@ The email template is already generated in <code>release-announcement-email.txt<
 </span></span></code></pre></div><h3 id=documentation-release>Documentation Release</h3><p>Documentation needs to be updated as a part of Iceberg release after a release candidate is passed.
 The commands described below assume the <code>iceberg-docs</code> repository and <code>iceberg</code> repository are in the same parent directory locally,
 and the release manager is executing commands in the <code>iceberg</code> repository.
-Adjust the commands accordingly if it is not the case.</p><h4 id=iceberg-repository-preparations>iceberg repository preparations</h4><p>A PR needs to be published in <code>iceberg</code> repository with the following changes:</p><ol>
-<li>Mark the current latest release notes to past releases</li><li>Update the latest artifact links in the release notes page</li><li>Add release notes for the new release version</li><li>Create new folder called <code>docs/versioned/releases/&lt;VERSION NUMBER></code> with a <code>_index.md</code> file. See the existing folders under <code>docs/versioned/releases</code> for more details.</li></ol><h4 id=iceberg-docs-repository-preparations>iceberg-docs repository preparations</h4><p>A PR needs to be published in <code>iceberg-docs</code> repository with the following changes:</p><ol>
-<li>Update variable <code>latestVersions.iceberg</code> to the new release version in <code>landing-page/config.toml</code></li><li>Update variable <code>latestVersions.iceberg</code> to the new release version in <code>docs/config.toml</code></li></ol><h4 id=documentation-update>Documentation update</h4><p>To start the release process, run the following steps in the <code>iceberg-docs</code> repository to copy docs over:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>rm -rf ../iceberg-docs/docs/content/docs
+Adjust the commands accordingly if it is not the case.</p><h4 id=iceberg-repository-preparations>iceberg repository preparations</h4><p>A PR needs to be published in <code>iceberg</code> repository with the following changes:</p><ol><li>Mark the current latest release notes to past releases</li><li>Update the latest artifact links in the release notes page</li><li>Add release notes for the new release version</li><li>Create new folder called <code>docs/versioned/releases/&lt;VERSION NUMBER></code> with a <code>_index.md</code> file. See the existing folders under <code>docs/versioned/releases</code> for more details.</li></ol><h4 id=iceberg-docs-repository-preparations>iceberg-docs repository preparations</h4><p>A PR needs to be published in <code>iceberg-docs</code> repository with the following changes:</p><ol><li>Update variable <code>latestVersions.iceberg</code> to the new release version in <code>landing-page/config.toml</code></li><li>Update variable <code>latestVersions.iceberg</code> to the new release version in <code>docs/config.toml</code></li></ol><h4 id=documentation-update>Documentation update</h4><p>To start the release process, run the following steps in the <code>iceberg-docs</code> repository to copy docs over:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>rm -rf ../iceberg-docs/docs/content/docs
 </span></span><span style=display:flex><span>rm -rf ../iceberg-docs/landing-page/content/common
 </span></span><span style=display:flex><span>cp -r docs/versioned ../iceberg-docs/docs/content/docs
 </span></span><span style=display:flex><span>cp -r docs/common ../iceberg-docs/landing-page/content/common
