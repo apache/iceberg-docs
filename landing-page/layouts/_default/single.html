@@ -16,8 +16,11 @@
 </head>
 {{ partial "header.html" . }}
 <body dir="{{ .Site.Language.LanguageDirection | default " ltr" }}">
-    <div class="markdown-body">
-        {{- .Content -}}
+    <div class="grid-container">
+        {{ partial "toc.html" . }}
+        <div class="markdown-body">
+            {{- .Content -}}
+        </div>
     </div>
 </body>
 

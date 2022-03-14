@@ -235,3 +235,35 @@ h1:hover a { visibility: visible}
 h2:hover a { visibility: visible}
 h3:hover a { visibility: visible}
 h4:hover a { visibility: visible}
+
+/* Fixed table of contents */
+.grid-container {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    grid-gap: 10px;
+}
+
+
+#toc {
+    position: fixed;
+    right: 0;
+    top: 0;
+    background-color:#FFF;
+    display: block;
+    flex: 0 0 20rem;
+    font-size: 0.6rem;
+    width: 20rem;
+    min-width: 0;
+    padding: 30px;
+    padding-right: 50px;
+    margin-top: 2rem;
+    list-style-type: none;
+}
+
+#toc ul {
+    list-style: none;
+}
+
+@media screen and (min-width: 401px) and (max-width: 1280px) {
+    #toc { display: none; }   /* hide it elsewhere */
+  }
