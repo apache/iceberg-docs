@@ -9,6 +9,8 @@ html {
     width: 100%;
     height: 100%;
     font-size: 20px;    
+    scroll-padding-top: 3rem;
+    scroll-behavior: smooth;
 }
 
 body,
@@ -225,3 +227,11 @@ a.page-scroll {
 .termynal-container {
     padding-top: 3rem;
 }
+
+/* Anchor tags for headers */
+.anchortag { font-size: 80%; visibility: hidden;}
+
+h1:hover a { visibility: visible}
+h2:hover a { visibility: visible}
+h3:hover a { visibility: visible}
+h4:hover a { visibility: visible}
