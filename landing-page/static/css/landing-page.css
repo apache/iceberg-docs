@@ -240,7 +240,7 @@ h4:hover a { visibility: visible}
 .grid-container {
     display: grid;
     grid-template-columns: 5fr 1fr;
-    grid-gap: 10px;
+    grid-gap: 1rem;
 }
 
 
@@ -254,8 +254,7 @@ h4:hover a { visibility: visible}
     font-size: 0.6rem;
     width: 20rem;
     min-width: 0;
-    padding: 30px;
-    padding-right: 50px;
+    padding: 2rem;
     margin-top: 2rem;
     list-style-type: none;
 }
