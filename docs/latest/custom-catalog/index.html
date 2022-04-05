@@ -1,334 +1,39 @@
-<!doctype html><html lang=en dir=ltr>
-<head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="Custom Catalog Implementation #  It&rsquo;s possible to read an iceberg table either from an hdfs path or from a hive table. It&rsquo;s also possible to use a custom metastore in place of hive. The steps to do that are as follows.
- Custom TableOperations Custom Catalog Custom FileIO Custom LocationProvider Custom IcebergSource  Custom table operations implementation #  Extend BaseMetastoreTableOperations to provide implementation on how to read and write metadata">
-<meta name=theme-color content="#FFFFFF">
-<meta name=color-scheme content="light dark"><meta property="og:title" content="Java Custom Catalog">
-<meta property="og:description" content="Custom Catalog Implementation #  It&rsquo;s possible to read an iceberg table either from an hdfs path or from a hive table. It&rsquo;s also possible to use a custom metastore in place of hive. The steps to do that are as follows.
- Custom TableOperations Custom Catalog Custom FileIO Custom LocationProvider Custom IcebergSource  Custom table operations implementation #  Extend BaseMetastoreTableOperations to provide implementation on how to read and write metadata">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://iceberg.apache.org/docs/latest/custom-catalog/"><meta property="article:section" content="docs">
-<title>Java Custom Catalog | Apache Iceberg</title><link rel=manifest href=/docs/latest/manifest.json>
-<link rel=icon href=/docs/latest/favicon.png type=image/x-icon>
-<link rel=stylesheet href=/docs/latest/book.min.179e158d24f3ef709534173fd8b1c1e541a4fa3e23c1b5d8e887464c58949cc9.css integrity="sha256-F54VjSTz73CVNBc/2LHB5UGk+j4jwbXY6IdGTFiUnMk=" crossorigin=anonymous>
-<script defer src=/docs/latest/flexsearch.min.js></script>
-<script defer src=/docs/latest/en.search.min.83895b298912348dd1ff0b1c7a303ac7cb2ca825a31829e3c6a3c335d9d056f9.js integrity="sha256-g4lbKYkSNI3R/wscejA6x8ssqCWjGCnjxqPDNdnQVvk=" crossorigin=anonymous></script>
-</head><body dir=ltr>
-<input type=checkbox class="hidden toggle" id=menu-control>
-<input type=checkbox class="hidden toggle" id=toc-control>
-<main class="container flex">
-<aside class=book-menu>
-<div class=book-menu-content>
-<nav>
-<h2 class=book-brand>
-<a class="flex align-center" href=/docs/latest/../../><img src=/docs/latest/img/iceberg-logo-icon.png alt=Logo><span>Apache Iceberg</span>
-</a>
-<a href=https://iceberg.apache.org/docs/latest/../../releases>
-<img id=version-shield src=https://img.shields.io/badge/version-0.13.1-blue alt>
-</a>
-</h2><div class=book-search>
-<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
-<div class="book-search-spinner hidden"></div><ul id=book-search-results></ul><a href=https://github.com/apache/iceberg target=_blank>
-<img src=https://iceberg.apache.org/docs/latest/img/GitHub-Mark.png target=_blank class=top-external-icon>
-</a>
-<a href=https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg target=_blank>
-<img src=https://iceberg.apache.org/docs/latest/img/Slack_Mark_Web.png target=_blank class=top-external-icon>
-</a>
-</div><ul>
-<li class=book-section-flats>
-<span>
-<i class="fa fa-table fa-fw"></i>
-Tables</span>
-<ul>
-<li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/configuration/>
-Configuration</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/evolution/>
-Evolution</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/maintenance/>
-Maintenance</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/partitioning/>
-Partitioning</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/performance/>
-Performance</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/reliability/>
-Reliability</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/schemas/>
-Schemas</a>
-</li></ul></li><li class=book-section-flats>
-<span>
-<i class="fa fa-star-o fa-fw"></i>
-Spark</span>
-<ul>
-<li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/getting-started/>
-Getting Started</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/spark-configuration/>
-Configuration</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/spark-ddl/>
-DDL</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/spark-procedures/>
-Procedures</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/spark-queries/>
-Queries</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/spark-structured-streaming/>
-Structured Streaming</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/spark-writes/>
-Writes</a>
-</li></ul></li><li class=book-section-flats>
-<span>
-<img src=https://iceberg.apache.org/docs/latest/img/flink-logo.png class="navigation-icon fa-fw">Flink</span>
-<ul>
-<li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/flink/>
-Getting Started</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/flink-connector/>
-Flink Connector</a>
-</li></ul></li><li class=book-section-flats>
-<a href=https://iceberg.apache.org/docs/latest/hive/>
-<img src=https://iceberg.apache.org/docs/latest/img/../img/hive-logo.png class="navigation-icon fa-fw">Hive</a>
-<ul>
-</ul></li><li>
-<a href=https://trino.io/docs/current/connector/iceberg.html target=_blank>
-<img src=https://iceberg.apache.org/docs/latest/img/../img/trino-logo.png class="navigation-icon fa-fw">
-Trino
-</a>
-</li><li>
-<a href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>
-<img src=https://iceberg.apache.org/docs/latest/img/../img/prestodb-logo.png class="navigation-icon fa-fw">
-Presto
-</a>
-</li><li>
-<a href=https://docs.dremio.com/data-formats/apache-iceberg/ target=_blank>
-<img src=https://iceberg.apache.org/docs/latest/img/../img/dremio-logo.png class="navigation-icon fa-fw">
-Dremio
-</a>
-</li><li>
-<a href=https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html target=_blank>
-<img src=https://iceberg.apache.org/docs/latest/img/../img/athena-logo.png class="navigation-icon fa-fw">
-Amazon Athena
-</a>
-</li><li>
-<a href=https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-create-cluster.html target=_blank>
-<img src=https://iceberg.apache.org/docs/latest/img/../img/emr-logo.png class="navigation-icon fa-fw">
-Amazon EMR
-</a>
-</li><li class=book-section-collapsed>
-<input type=checkbox id=section-56605d8e971a871885e28ee5142728bf class=toggle>
-<label for=section-56605d8e971a871885e28ee5142728bf class="flex justify-between">
-<a role=button>
-<i class="fa fa-handshake-o fa-fw"></i>
-Integrations</a>
-</label>
-<ul>
-<li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/aws/>
-AWS</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/jdbc/>
-JDBC</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/nessie/>
-Nessie</a>
-</li></ul></li><li class=book-section-collapsed>
-<input type=checkbox id=section-bf7b3283e3790c00c8caaa140299052b class=toggle checked>
-<label for=section-bf7b3283e3790c00c8caaa140299052b class="flex justify-between">
-<a role=button>
-<i class="fa fa-connectdevelop fa-fw"></i>
-API</a>
-</label>
-<ul>
-<li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/java-api-quickstart/>
-Java Quickstart</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/api/>
-Java API</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/custom-catalog/ class=active>
-Java Custom Catalog</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/../../javadoc/latest>
-Javadocs
-</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/python-quickstart/>
-Python Quickstart</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/python-api-intro/>
-Python API</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/python-feature-support/>
-Python Feature Support</a>
-</li></ul></li><li class=book-section-collapsed>
-<input type=checkbox id=section-7e66f1754ca5d93e20ecdc89df5b8b28 class=toggle>
-<label for=section-7e66f1754ca5d93e20ecdc89df5b8b28 class="flex justify-between">
-<a role=button>
-<i class="fa fa-users fa-fw"></i>
-Community</a>
-</label>
-<ul>
-<li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/../../../community>
-Join
-</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/../../../blogs>
-Blogs
-</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/../../../talks>
-Talks
-</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/../../../contribute>
-Contribute
-</a>
-</li></ul></li><li class=book-section-collapsed>
-<input type=checkbox id=section-87dda23e9104fe3231cee3bc88a2d754 class=toggle>
-<label for=section-87dda23e9104fe3231cee3bc88a2d754 class="flex justify-between">
-<a role=button>
-<i class="fa fa-object-ungroup fa-fw"></i>
-Format</a>
-</label>
-<ul>
-<li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/../../../spec>
-Spec
-</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/../../../terms>
-Terms
-</a>
-</li></ul></li><li class=book-section-collapsed>
-<input type=checkbox id=section-2e5d3f5f142758d8dd368e9c281dd08e class=toggle>
-<label for=section-2e5d3f5f142758d8dd368e9c281dd08e class="flex justify-between">
-<a role=button>
-<i class="fa fa-wrench fa-fw"></i>
-Project</a>
-</label>
-<ul>
-<li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/../../../how-to-release>
-How to Release
-</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/../../../multi-engine-support>
-Multi-Engine Support
-</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/../../../roadmap>
-Roadmap
-</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/../../../security>
-Security
-</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/../../../trademarks>
-Trademarks
-</a>
-</li></ul></li><li class=book-section-collapsed>
-<input type=checkbox id=section-4ddb27a8612bc8118c0b36386905d332 class=toggle>
-<label for=section-4ddb27a8612bc8118c0b36386905d332 class="flex justify-between">
-<a role=button>
-<i class="fa fa-code-fork fa-fw"></i>
-Releases</a>
-</label>
-<ul>
-<li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/../latest>
-Latest
-</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/../0.13.1>
-0.13.1
-</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/../0.13.0>
-0.13.0
-</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/../0.12.1>
-0.12.1
-</a>
-</li><li class=navigation-icon-pad>
-<a href=https://iceberg.apache.org/docs/latest/../../../releases>
-Release Notes
-</a>
-</li></ul></li><li class=book-section-collapsed>
-<input type=checkbox id=section-296746d27808aa768e500824aaf2adea class=toggle>
-<label for=section-296746d27808aa768e500824aaf2adea class="flex justify-between">
-<a role=button>
-<img src=https://iceberg.apache.org/docs/latest/img/../img/asf.png class="navigation-icon fa-fw">ASF</a>
-</label>
-<ul>
-<li class=navigation-icon-pad>
-<a href=https://www.apache.org/licenses/ target=_blank>
-<i class="fa fa-external-link fa-fw"></i>
-License
-</a>
-</li><li class=navigation-icon-pad>
-<a href=https://www.apache.org/security/ target=_blank>
-<i class="fa fa-external-link fa-fw"></i>
-Security
-</a>
-</li><li class=navigation-icon-pad>
-<a href=https://www.apache.org/foundation/thanks.html target=_blank>
-<i class="fa fa-external-link fa-fw"></i>
-Sponsors
-</a>
-</li><li class=navigation-icon-pad>
-<a href=https://www.apache.org/foundation/sponsorship.html target=_blank>
-<i class="fa fa-external-link fa-fw"></i>
-Donate
-</a>
-</li><li class=navigation-icon-pad>
-<a href=https://www.apache.org/events/current-event.html target=_blank>
-<i class="fa fa-external-link fa-fw"></i>
-Events
-</a>
-</li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
-</div></aside><div class=book-page>
-<header class=book-header>
-<div class="flex align-center justify-between">
-<link rel=stylesheet href=/docs/latest/fontawesome/css/font-awesome.min.css>
-<label for=menu-control>
-<img src=/docs/latest/svg/menu.svg class=book-icon alt=Menu>
-</label>
+<!doctype html><html lang=en dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Custom Catalog Implementation #  It&rsquo;s possible to read an iceberg table either from an hdfs path or from a hive table. It&rsquo;s also possible to use a custom metastore in place of hive. The steps to do that are as follows.
+ Custom TableOperations Custom Catalog Custom FileIO Custom LocationProvider Custom IcebergSource  Custom table operations implementation #  Extend BaseMetastoreTableOperations to provide implementation on how to read and write metadata"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="Java Custom Catalog"><meta property="og:description" content="Custom Catalog Implementation #  It&rsquo;s possible to read an iceberg table either from an hdfs path or from a hive table. It&rsquo;s also possible to use a custom metastore in place of hive. The steps to do that are as follows.
+ Custom TableOperations Custom Catalog Custom FileIO Custom LocationProvider Custom IcebergSource  Custom table operations implementation #  Extend BaseMetastoreTableOperations to provide implementation on how to read and write metadata"><meta property="og:type" content="article"><meta property="og:url" content="https://iceberg.apache.org/docs/latest/custom-catalog/"><meta property="article:section" content="docs"><title>Java Custom Catalog | Apache Iceberg</title><link rel=manifest href=/docs/latest/manifest.json><link rel=icon href=/docs/latest/favicon.png type=image/x-icon><link rel=stylesheet href=/docs/latest/book.min.179e158d24f3ef709534173fd8b1c1e541a4fa3e23c1b5d8e887464c58949cc9.css integrity="sha256-F54VjSTz73CVNBc/2LHB5UGk+j4jwbXY6IdGTFiUnMk=" crossorigin=anonymous><script defer src=/docs/latest/flexsearch.min.js></script>
+<script defer src=/docs/latest/en.search.min.83895b298912348dd1ff0b1c7a303ac7cb2ca825a31829e3c6a3c335d9d056f9.js integrity="sha256-g4lbKYkSNI3R/wscejA6x8ssqCWjGCnjxqPDNdnQVvk=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/docs/latest/../../><img src=/docs/latest/img/iceberg-logo-icon.png alt=Logo><span>Apache Iceberg</span></a>
+<a href=https://iceberg.apache.org/docs/latest/../../releases><img id=version-shield src=https://img.shields.io/badge/version-0.13.1-blue alt></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul><a href=https://github.com/apache/iceberg target=_blank><img src=https://iceberg.apache.org/docs/latest/img/GitHub-Mark.png target=_blank class=top-external-icon></a>
+<a href=https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg target=_blank><img src=https://iceberg.apache.org/docs/latest/img/Slack_Mark_Web.png target=_blank class=top-external-icon></a></div><ul><li class=book-section-flats><span><i class="fa fa-table fa-fw"></i>
+Tables</span><ul><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/configuration/>Configuration</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/evolution/>Evolution</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/maintenance/>Maintenance</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/partitioning/>Partitioning</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/performance/>Performance</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/reliability/>Reliability</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/schemas/>Schemas</a></li></ul></li><li class=book-section-flats><span><i class="fa fa-star-o fa-fw"></i>
+Spark</span><ul><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/getting-started/>Getting Started</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/spark-configuration/>Configuration</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/spark-ddl/>DDL</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/spark-procedures/>Procedures</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/spark-queries/>Queries</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/spark-structured-streaming/>Structured Streaming</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/spark-writes/>Writes</a></li></ul></li><li class=book-section-flats><span><img src=https://iceberg.apache.org/docs/latest/img/flink-logo.png class="navigation-icon fa-fw">Flink</span><ul><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/flink/>Getting Started</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/flink-connector/>Flink Connector</a></li></ul></li><li class=book-section-flats><a href=https://iceberg.apache.org/docs/latest/hive/><img src=https://iceberg.apache.org/docs/latest/img/../img/hive-logo.png class="navigation-icon fa-fw">Hive</a><ul></ul></li><li><a href=https://trino.io/docs/current/connector/iceberg.html target=_blank><img src=https://iceberg.apache.org/docs/latest/img/../img/trino-logo.png class="navigation-icon fa-fw">
+Trino</a></li><li><a href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank><img src=https://iceberg.apache.org/docs/latest/img/../img/prestodb-logo.png class="navigation-icon fa-fw">
+Presto</a></li><li><a href=https://docs.dremio.com/data-formats/apache-iceberg/ target=_blank><img src=https://iceberg.apache.org/docs/latest/img/../img/dremio-logo.png class="navigation-icon fa-fw">
+Dremio</a></li><li><a href=https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html target=_blank><img src=https://iceberg.apache.org/docs/latest/img/../img/athena-logo.png class="navigation-icon fa-fw">
+Amazon Athena</a></li><li><a href=https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-create-cluster.html target=_blank><img src=https://iceberg.apache.org/docs/latest/img/../img/emr-logo.png class="navigation-icon fa-fw">
+Amazon EMR</a></li><li class=book-section-collapsed><input type=checkbox id=section-56605d8e971a871885e28ee5142728bf class=toggle>
+<label for=section-56605d8e971a871885e28ee5142728bf class="flex justify-between"><a role=button><i class="fa fa-handshake-o fa-fw"></i>
+Integrations</a></label><ul><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/aws/>AWS</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/jdbc/>JDBC</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/nessie/>Nessie</a></li></ul></li><li class=book-section-collapsed><input type=checkbox id=section-bf7b3283e3790c00c8caaa140299052b class=toggle checked>
+<label for=section-bf7b3283e3790c00c8caaa140299052b class="flex justify-between"><a role=button><i class="fa fa-connectdevelop fa-fw"></i>
+API</a></label><ul><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/java-api-quickstart/>Java Quickstart</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/api/>Java API</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/custom-catalog/ class=active>Java Custom Catalog</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/../../javadoc/latest>Javadocs</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/python-quickstart/>Python Quickstart</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/python-api-intro/>Python API</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/python-feature-support/>Python Feature Support</a></li></ul></li><li class=book-section-collapsed><input type=checkbox id=section-7e66f1754ca5d93e20ecdc89df5b8b28 class=toggle>
+<label for=section-7e66f1754ca5d93e20ecdc89df5b8b28 class="flex justify-between"><a role=button><i class="fa fa-users fa-fw"></i>
+Community</a></label><ul><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/../../../community>Join</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/../../../blogs>Blogs</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/../../../talks>Talks</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/../../../contribute>Contribute</a></li></ul></li><li class=book-section-collapsed><input type=checkbox id=section-87dda23e9104fe3231cee3bc88a2d754 class=toggle>
+<label for=section-87dda23e9104fe3231cee3bc88a2d754 class="flex justify-between"><a role=button><i class="fa fa-object-ungroup fa-fw"></i>
+Format</a></label><ul><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/../../../spec>Spec</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/../../../terms>Terms</a></li></ul></li><li class=book-section-collapsed><input type=checkbox id=section-2e5d3f5f142758d8dd368e9c281dd08e class=toggle>
+<label for=section-2e5d3f5f142758d8dd368e9c281dd08e class="flex justify-between"><a role=button><i class="fa fa-wrench fa-fw"></i>
+Project</a></label><ul><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/../../../how-to-release>How to Release</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/../../../multi-engine-support>Multi-Engine Support</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/../../../roadmap>Roadmap</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/../../../security>Security</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/../../../trademarks>Trademarks</a></li></ul></li><li class=book-section-collapsed><input type=checkbox id=section-4ddb27a8612bc8118c0b36386905d332 class=toggle>
+<label for=section-4ddb27a8612bc8118c0b36386905d332 class="flex justify-between"><a role=button><i class="fa fa-code-fork fa-fw"></i>
+Releases</a></label><ul><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/../latest>Latest</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/../0.13.1>0.13.1</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/../0.13.0>0.13.0</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/../0.12.1>0.12.1</a></li><li class=navigation-icon-pad><a href=https://iceberg.apache.org/docs/latest/../../../releases>Release Notes</a></li></ul></li><li class=book-section-collapsed><input type=checkbox id=section-296746d27808aa768e500824aaf2adea class=toggle>
+<label for=section-296746d27808aa768e500824aaf2adea class="flex justify-between"><a role=button><img src=https://iceberg.apache.org/docs/latest/img/../img/asf.png class="navigation-icon fa-fw">ASF</a></label><ul><li class=navigation-icon-pad><a href=https://www.apache.org/licenses/ target=_blank><i class="fa fa-external-link fa-fw"></i>
+License</a></li><li class=navigation-icon-pad><a href=https://www.apache.org/security/ target=_blank><i class="fa fa-external-link fa-fw"></i>
+Security</a></li><li class=navigation-icon-pad><a href=https://www.apache.org/foundation/thanks.html target=_blank><i class="fa fa-external-link fa-fw"></i>
+Sponsors</a></li><li class=navigation-icon-pad><a href=https://www.apache.org/foundation/sponsorship.html target=_blank><i class="fa fa-external-link fa-fw"></i>
+Donate</a></li><li class=navigation-icon-pad><a href=https://www.apache.org/events/current-event.html target=_blank><i class="fa fa-external-link fa-fw"></i>
+Events</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><link rel=stylesheet href=/docs/latest/fontawesome/css/font-awesome.min.css><label for=menu-control><img src=/docs/latest/svg/menu.svg class=book-icon alt=Menu></label>
 <strong>Java Custom Catalog</strong>
-<label for=toc-control>
-<img src=/docs/latest/svg/toc.svg class=book-icon alt="Table of Contents">
-</label>
-</div><aside class="hidden clearfix">
-<nav id=TableOfContents>
-<ul>
-<li>
-<ul>
-<li><a href=#custom-table-operations-implementation>Custom table operations implementation</a></li><li><a href=#custom-catalog-implementation-1>Custom catalog implementation</a></li><li><a href=#custom-file-io-implementation>Custom file IO implementation</a></li><li><a href=#custom-location-provider-implementation>Custom location provider implementation</a></li><li><a href=#custom-icebergsource>Custom IcebergSource</a></li></ul></li></ul></nav></aside></header><article class=markdown>
-<h1 id=custom-catalog-implementation>
-Custom Catalog Implementation
-<a class=anchor href=#custom-catalog-implementation>#</a>
-</h1><p>It&rsquo;s possible to read an iceberg table either from an hdfs path or from a hive table. It&rsquo;s also possible to use a custom metastore in place of hive. The steps to do that are as follows.</p><ul>
-<li><a href=#custom-table-operations-implementation>Custom TableOperations</a></li><li><a href=#custom-catalog-implementation>Custom Catalog</a></li><li><a href=#custom-file-io-implementation>Custom FileIO</a></li><li><a href=#custom-location-provider-implementation>Custom LocationProvider</a></li><li><a href=#custom-icebergsource>Custom IcebergSource</a></li></ul><h3 id=custom-table-operations-implementation>
-Custom table operations implementation
-<a class=anchor href=#custom-table-operations-implementation>#</a>
-</h3><p>Extend <code>BaseMetastoreTableOperations</code> to provide implementation on how to read and write metadata</p><p>Example:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CustomTableOperations</span> <span style=color:#66d9ef>extends</span> BaseMetastoreTableOperations <span style=color:#f92672>{</span>
+<label for=toc-control><img src=/docs/latest/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><ul><li><a href=#custom-table-operations-implementation>Custom table operations implementation</a></li><li><a href=#custom-catalog-implementation-1>Custom catalog implementation</a></li><li><a href=#custom-file-io-implementation>Custom file IO implementation</a></li><li><a href=#custom-location-provider-implementation>Custom location provider implementation</a></li><li><a href=#custom-icebergsource>Custom IcebergSource</a></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=custom-catalog-implementation>Custom Catalog Implementation
+<a class=anchor href=#custom-catalog-implementation>#</a></h1><p>It&rsquo;s possible to read an iceberg table either from an hdfs path or from a hive table. It&rsquo;s also possible to use a custom metastore in place of hive. The steps to do that are as follows.</p><ul><li><a href=#custom-table-operations-implementation>Custom TableOperations</a></li><li><a href=#custom-catalog-implementation>Custom Catalog</a></li><li><a href=#custom-file-io-implementation>Custom FileIO</a></li><li><a href=#custom-location-provider-implementation>Custom LocationProvider</a></li><li><a href=#custom-icebergsource>Custom IcebergSource</a></li></ul><h3 id=custom-table-operations-implementation>Custom table operations implementation
+<a class=anchor href=#custom-table-operations-implementation>#</a></h3><p>Extend <code>BaseMetastoreTableOperations</code> to provide implementation on how to read and write metadata</p><p>Example:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CustomTableOperations</span> <span style=color:#66d9ef>extends</span> BaseMetastoreTableOperations <span style=color:#f92672>{</span>
 </span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> String dbName<span style=color:#f92672>;</span>
 </span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> String tableName<span style=color:#f92672>;</span>
 </span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> Configuration conf<span style=color:#f92672>;</span>
@@ -375,10 +80,8 @@ Custom table operations implementation
 </span></span><span style=display:flex><span>  <span style=color:#f92672>}</span>
 </span></span><span style=display:flex><span><span style=color:#f92672>}</span>
 </span></span></code></pre></div><p>A <code>TableOperations</code> instance is usually obtained by calling <code>Catalog.newTableOps(TableIdentifier)</code>.
-See the next section about implementing and loading a custom catalog.</p><h3 id=custom-catalog-implementation-1>
-Custom catalog implementation
-<a class=anchor href=#custom-catalog-implementation-1>#</a>
-</h3><p>Extend <code>BaseMetastoreCatalog</code> to provide default warehouse locations and instantiate <code>CustomTableOperations</code></p><p>Example:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CustomCatalog</span> <span style=color:#66d9ef>extends</span> BaseMetastoreCatalog <span style=color:#f92672>{</span>
+See the next section about implementing and loading a custom catalog.</p><h3 id=custom-catalog-implementation-1>Custom catalog implementation
+<a class=anchor href=#custom-catalog-implementation-1>#</a></h3><p>Extend <code>BaseMetastoreCatalog</code> to provide default warehouse locations and instantiate <code>CustomTableOperations</code></p><p>Example:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CustomCatalog</span> <span style=color:#66d9ef>extends</span> BaseMetastoreCatalog <span style=color:#f92672>{</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> Configuration configuration<span style=color:#f92672>;</span>
 </span></span><span style=display:flex><span>
@@ -438,10 +141,8 @@ Custom catalog implementation
 For Spark and Flink, you can specify the <code>catalog-impl</code> catalog property to load it.
 Read the <a href=../configuration/#catalog-properties>Configuration</a> section for more details.
 For MapReduce, implement <code>org.apache.iceberg.mr.CatalogLoader</code> and set Hadoop property <code>iceberg.mr.catalog.loader.class</code> to load it.
-If your catalog must read Hadoop configuration to access certain environment properties, make your catalog implement <code>org.apache.hadoop.conf.Configurable</code>.</p><h3 id=custom-file-io-implementation>
-Custom file IO implementation
-<a class=anchor href=#custom-file-io-implementation>#</a>
-</h3><p>Extend <code>FileIO</code> and provide implementation to read and write data files</p><p>Example:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CustomFileIO</span> <span style=color:#66d9ef>implements</span> FileIO <span style=color:#f92672>{</span>
+If your catalog must read Hadoop configuration to access certain environment properties, make your catalog implement <code>org.apache.hadoop.conf.Configurable</code>.</p><h3 id=custom-file-io-implementation>Custom file IO implementation
+<a class=anchor href=#custom-file-io-implementation>#</a></h3><p>Extend <code>FileIO</code> and provide implementation to read and write data files</p><p>Example:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CustomFileIO</span> <span style=color:#66d9ef>implements</span> FileIO <span style=color:#f92672>{</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>  <span style=color:#75715e>// must have a no-arg constructor to be dynamically loaded
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#75715e>// initialize(Map&lt;String, String&gt; properties) will be called to complete initialization
@@ -478,10 +179,8 @@ Custom file IO implementation
 </span></span></code></pre></div><p>If you are already implementing your own catalog, you can implement <code>TableOperations.io()</code> to use your custom <code>FileIO</code>.
 In addition, custom <code>FileIO</code> implementations can also be dynamically loaded in <code>HadoopCatalog</code> and <code>HiveCatalog</code> by specifying the <code>io-impl</code> catalog property.
 Read the <a href=../configuration/#catalog-properties>Configuration</a> section for more details.
-If your <code>FileIO</code> must read Hadoop configuration to access certain environment properties, make your <code>FileIO</code> implement <code>org.apache.hadoop.conf.Configurable</code>.</p><h3 id=custom-location-provider-implementation>
-Custom location provider implementation
-<a class=anchor href=#custom-location-provider-implementation>#</a>
-</h3><p>Extend <code>LocationProvider</code> and provide implementation to determine the file path to write data</p><p>Example:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CustomLocationProvider</span> <span style=color:#66d9ef>implements</span> LocationProvider <span style=color:#f92672>{</span>
+If your <code>FileIO</code> must read Hadoop configuration to access certain environment properties, make your <code>FileIO</code> implement <code>org.apache.hadoop.conf.Configurable</code>.</p><h3 id=custom-location-provider-implementation>Custom location provider implementation
+<a class=anchor href=#custom-location-provider-implementation>#</a></h3><p>Extend <code>LocationProvider</code> and provide implementation to determine the file path to write data</p><p>Example:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CustomLocationProvider</span> <span style=color:#66d9ef>implements</span> LocationProvider <span style=color:#f92672>{</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>  <span style=color:#66d9ef>private</span> String tableLocation<span style=color:#f92672>;</span>
 </span></span><span style=display:flex><span>
@@ -512,10 +211,8 @@ To use a different custom location provider for a specific table, specify the im
 </span></span><span style=display:flex><span>  <span style=color:#e6db74>&#39;write.location-provider.impl&#39;</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#39;com.my.CustomLocationProvider&#39;</span>
 </span></span><span style=display:flex><span>)
 </span></span><span style=display:flex><span>PARTITIONED <span style=color:#66d9ef>BY</span> (category);
-</span></span></code></pre></div><h3 id=custom-icebergsource>
-Custom IcebergSource
-<a class=anchor href=#custom-icebergsource>#</a>
-</h3><p>Extend <code>IcebergSource</code> and provide implementation to read from <code>CustomCatalog</code></p><p>Example:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CustomIcebergSource</span> <span style=color:#66d9ef>extends</span> IcebergSource <span style=color:#f92672>{</span>
+</span></span></code></pre></div><h3 id=custom-icebergsource>Custom IcebergSource
+<a class=anchor href=#custom-icebergsource>#</a></h3><p>Extend <code>IcebergSource</code> and provide implementation to read from <code>CustomCatalog</code></p><p>Example:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CustomIcebergSource</span> <span style=color:#66d9ef>extends</span> IcebergSource <span style=color:#f92672>{</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>@Override</span>
 </span></span><span style=display:flex><span>  <span style=color:#66d9ef>protected</span> Table <span style=color:#a6e22e>findTable</span><span style=color:#f92672>(</span>DataSourceOptions options<span style=color:#f92672>,</span> Configuration conf<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
@@ -528,15 +225,4 @@ Custom IcebergSource
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> catalog<span style=color:#f92672>.</span><span style=color:#a6e22e>loadTable</span><span style=color:#f92672>(</span>tableIdentifier<span style=color:#f92672>);</span>
 </span></span><span style=display:flex><span>  <span style=color:#f92672>}</span>
 </span></span><span style=display:flex><span><span style=color:#f92672>}</span>
-</span></span></code></pre></div><p>Register the <code>CustomIcebergSource</code> by updating <code>META-INF/services/org.apache.spark.sql.sources.DataSourceRegister</code> with its fully qualified name</p></article><footer class=book-footer>
-<div class="flex flex-wrap justify-between">
-</div><script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
-</footer><div class=book-comments>
-</div><label for=menu-control class="hidden book-menu-overlay"></label>
-</div><aside class=book-toc>
-<div class=book-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li>
-<ul>
-<li><a href=#custom-table-operations-implementation>Custom table operations implementation</a></li><li><a href=#custom-catalog-implementation-1>Custom catalog implementation</a></li><li><a href=#custom-file-io-implementation>Custom file IO implementation</a></li><li><a href=#custom-location-provider-implementation>Custom location provider implementation</a></li><li><a href=#custom-icebergsource>Custom IcebergSource</a></li></ul></li></ul></nav></div></aside></main></body></html>
+</span></span></code></pre></div><p>Register the <code>CustomIcebergSource</code> by updating <code>META-INF/services/org.apache.spark.sql.sources.DataSourceRegister</code> with its fully qualified name</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><ul><li><a href=#custom-table-operations-implementation>Custom table operations implementation</a></li><li><a href=#custom-catalog-implementation-1>Custom catalog implementation</a></li><li><a href=#custom-file-io-implementation>Custom file IO implementation</a></li><li><a href=#custom-location-provider-implementation>Custom location provider implementation</a></li><li><a href=#custom-icebergsource>Custom IcebergSource</a></li></ul></li></ul></nav></div></aside></main></body></html>
