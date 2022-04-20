@@ -93,7 +93,7 @@
     const searchHits = window.pages.filter(page => page.content.toLowerCase().includes(input.value.toLowerCase()) )
     searchHits.forEach(function (page) {
 
-      var contentPreview = getSearchPreview(page, input.value, 30);
+      var contentPreview = getSearchPreview(page, input.value, 50);
 
       const li = element('<li><p></p><small></small></li>');
       const p = li.querySelector('p'), small = li.querySelector('small');

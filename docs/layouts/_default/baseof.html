@@ -15,6 +15,16 @@
     </aside>
 
     <div class="book-page">
+      <div class="book-search">
+        <input type="text" id="book-search-input" placeholder="{{ i18n "Search" }}" aria-label="{{ i18n "Search" }}" maxlength="64" data-hotkeys="s/" />
+      </div>
+      <div >
+        <ul id="book-search-results">
+          <!--Reserve a <li> to solve safari compatibility problem-->
+          <li id="liFirst" style="background-color:#e7e8eb00; border-bottom:#e7e8eb00; color:#e7e8eb00;">.</li>
+        </ul>
+      </div>
+      </br>
       <header class="book-header">
         {{ template "header" . }} <!-- Mobile layout header -->
       </header>
