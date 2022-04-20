@@ -266,3 +266,85 @@ h4:hover a { visibility: visible}
 @media screen and (max-width: 1280px) {
     #toc { display: none; }  /* Hide the TOC if the page is less than 1280px */
   }
+
+/* Style for the hint shortcode */
+.info, .success, .warning, .error {
+    margin: 10px 0px;
+    padding:12px;
+ 
+}
+.info {
+    color: #00529B;
+    background-color: #BDE5F8;
+}
+.success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+}
+.warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+}
+.error {
+    color: #D8000C;
+    background-color: #FFD2D2;
+}
+
+/* Style the codetab shortcode */
+  #codetabs h1 {
+    padding: 50px 0;
+    font-weight: 400;
+    text-align: center;
+  }
+  
+  #codetabs p {
+    margin: 0 0 20px;
+    line-height: 1.5;
+  }
+  
+  #codetabs main {
+    min-width: 320px;
+    max-width: 800px;
+    padding: 50px;
+    margin: 0 auto;
+    background: #fff;
+  }
+  
+  #codetabs section {
+    display: none;
+    padding: 20px 0 0;
+    border-top: 1px solid #ddd;
+  }
+  
+  #codetabs input {
+    display: none;
+  }
+  
+  #codetabs label {
+    display: inline-block;
+    margin: 0 0 -1px;
+    padding: 15px 25px;
+    font-weight: 600;
+    text-align: center;
+    color: #bbb;
+    border: 1px solid transparent;
+  }
+  
+  #codetabs label:hover {
+    color: #000;
+    cursor: pointer;
+  }
+  
+  #codetabs input:checked + label {
+    color: #000;
+    border: 1px solid #ddd;
+    border-top: 2px solid orange;
+    border-bottom: 1px solid #fff;
+  }
+  
+  #codetabs #Python:checked ~ #Python,
+  #codetabs #Java:checked ~ #Java,
+  #codetabs #Scala:checked ~ #Scala,
+  #codetabs #tab4:checked ~ #content4 {
+    display: block;
+  }
