@@ -1,2 +1,2 @@
-<input id="{{ .Get 0 }}" type="radio" name="tabs" checked>
-<label for="{{ .Get 0 }}">{{ .Get 0 }}</label>
+<input id="{{ .Parent.Get 0 }}{{ .Get 0 }}" type="radio" name="{{ .Parent.Get 0 }}" {{ .Get 1 }}>
+<label for="{{ .Parent.Get 0 }}{{ .Get 0 }}">{{ .Get 0 }}</label>
