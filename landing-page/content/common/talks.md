@@ -22,6 +22,9 @@ url: talks
 
 Here is a list of talks and other videos related to Iceberg.
 
+### [Why You Shouldn’t Care About Iceberg | Tabular](https://www.youtube.com/watch?v=_GW3GYZK66U)
+**Date**: May 4, 2022, **Authors**: Ryan Blue
+
 ### [Expert Roundtable: The Future of Metadata After Hive Metastore](https://www.youtube.com/watch?v=7_Pt1g2x-XE)
 **Date**: November 15, 2021, **Authors**: Lior Ebel, Seshu Adunuthula, Ryan Blue & Oz Katz
 
