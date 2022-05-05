@@ -475,6 +475,7 @@ A snapshot consists of the following fields:
 | _optional_ |            | **`manifests`**          | A list of manifest file locations. Must be omitted if `manifest-list` is present |
 | _optional_ | _required_ | **`summary`**            | A string map that summarizes the snapshot changes, including `operation` (see below) |
 | _optional_ | _optional_ | **`schema-id`**          | ID of the table's current schema when the snapshot was created |
+|            | _optional_ | **`statistics`**         | A list of statistics files' metadata (see below) |
 
 The snapshot summary's `operation` field is used by some operations, like snapshot expiration, to skip processing certain snapshots. Possible `operation` values are:
 
@@ -493,6 +494,17 @@ Manifests for a snapshot are tracked by a manifest list.
 
 Valid snapshots are stored as a list in table metadata. For serialization, see Appendix C.
 
+Statistics files' metadata within `statistics` field is a struct with the following fields:
+
+| Field name                      | Type                               | Description                                                                                                                                                                                                              |
+|---------------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **`location`**                  | `string`                           | Location of the statistics file. See [Puffin file format](../puffin).                                                                                                                                                    |
+| **`file-size-in-bytes`**        | `long`                             | Size of the statistics file.                                                                                                                                                                                             |
+| **`file-footer-size-in-bytes`** | `long`                             | Size of the statistics file's footer. See [Puffin file format](../puffin) for footer definition.                                                                                                                         |
+| **`source-sequence-number`**    | `long`                             | Table sequence number at which the stats were calculated                                                                                                                                                                 |
+| **`statistics-fields-sets`**    | `map<string, list<list<integer>>>` | A map indicating which statistics are contained in the statistics file and on which columns they were calculated. The map keys are statistics sketch names and map values represent sets of columns, given by column ID. |
+
+Snapshot's statistics field should be retained by writers, unless writer updates the statistics, or knows they became obsolete.
 
 #### Manifest Lists
 
