@@ -22,6 +22,9 @@ url: talks
 
 Here is a list of talks and other videos related to Iceberg.
 
+### [Data architecture in 2022](https://www.youtube.com/watch?v=1oXmBbB77ak)
+**Date**: May 5, 2022, **Authors**: Ryan Blue
+
 ### [Why You Shouldn’t Care About Iceberg | Tabular](https://www.youtube.com/watch?v=_GW3GYZK66U)
 **Date**: March 24, 2022, **Authors**: Ryan Blue
 
