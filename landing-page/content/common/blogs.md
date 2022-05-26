@@ -22,6 +22,11 @@ url: blogs
 
 Here is a list of company blogs that talk about Iceberg. The blogs are ordered from most recent to oldest.
 
+### [An Introduction To The Iceberg Java API Part 2 - Table Scans](https://tabular.io/blog/java-api-part-2/)
+**Date**: May 11th, 2022, **Company**: Tabular
+
+**Author**: [Sam Redai](https://www.linkedin.com/in/sredai/)
+
 ### [Iceberg's Guiding Light: The Iceberg Open Table Format Specification](https://tabular.io/blog/iceberg-format-version/)
 **Date**: April 26th, 2022, **Company**: Tabular
 
