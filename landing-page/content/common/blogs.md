@@ -22,6 +22,11 @@ url: blogs
 
 Here is a list of company blogs that talk about Iceberg. The blogs are ordered from most recent to oldest.
 
+### [Integrated Audits: Streamlined Data Observability With Apache Iceberg](https://tabular.io/blog/integrated-audits/)
+**Date**: March 2nd, 2022, **Company**: Tabular
+
+**Author**: [Sam Redai](https://www.linkedin.com/in/sredai/)
+
 ### [Introducing Apache Iceberg in Cloudera Data Platform](https://blog.cloudera.com/introducing-apache-iceberg-in-cloudera-data-platform/)
 **Date**: February 23rd, 2022, **Company**: Cloudera
 
