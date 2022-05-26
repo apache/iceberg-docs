@@ -22,6 +22,11 @@ url: blogs
 
 Here is a list of company blogs that talk about Iceberg. The blogs are ordered from most recent to oldest.
 
+### [Using Iceberg's S3FileIO Implementation To Store Your Data In MinIO](https://tabular.io/blog/minio/)
+**Date**: April 14th, 2022, **Company**: Tabular
+
+**Author**: [Sam Redai](https://www.linkedin.com/in/sredai/)
+
 ### [An Introduction To The Iceberg Java API - Part 1](https://tabular.io/blog/java-api-part-1/)
 **Date**: April 1st, 2022, **Company**: Tabular
 
