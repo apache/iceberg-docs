@@ -22,6 +22,11 @@ url: blogs
 
 Here is a list of company blogs that talk about Iceberg. The blogs are ordered from most recent to oldest.
 
+### [Iceberg's Guiding Light: The Iceberg Open Table Format Specification](https://tabular.io/blog/iceberg-format-version/)
+**Date**: April 26th, 2022, **Company**: Tabular
+
+**Author**: [Sam Redai](https://www.linkedin.com/in/sredai/)
+
 ### [Using Iceberg's S3FileIO Implementation To Store Your Data In MinIO](https://tabular.io/blog/minio/)
 **Date**: April 14th, 2022, **Company**: Tabular
 
