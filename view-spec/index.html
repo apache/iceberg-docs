@@ -1,0 +1,135 @@
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=author content><title></title><link href=https://iceberg.apache.org//css/bootstrap.css rel=stylesheet><link href=https://iceberg.apache.org//css/landing-page.css rel=stylesheet><link href=https://iceberg.apache.org//css/markdown.css rel=stylesheet><link href=https://iceberg.apache.org//css/katex.min.css rel=stylesheet><link rel=stylesheet href=https://iceberg.apache.org//css/pricing.css><link href=https://iceberg.apache.org//font-awesome-4.7.0/css/font-awesome.min.css rel=stylesheet type=text/css><link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel=stylesheet type=text/css><link href=https://iceberg.apache.org//css/termynal.css rel=stylesheet></head><body><head><link href=https://iceberg.apache.org//css/markdown.css rel=stylesheet><link href=https://iceberg.apache.org//css/katex.min.css rel=stylesheet><script>function addAnchor(e){e.insertAdjacentHTML('beforeend',`<a href="#${e.id}" class="anchortag" ariaLabel="Anchor"> 🔗 </a>`)}document.addEventListener('DOMContentLoaded',function(){var e=document.querySelectorAll('h1[id], h2[id], h3[id], h4[id]');e&&e.forEach(addAnchor)})</script></head><nav class="navbar navbar-default navbar-fixed-top" role=navigation><div class=container><div class="navbar-header page-scroll"><button type=button class=navbar-toggle data-toggle=collapse data-target=#bs-example-navbar-collapse-1>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span></button>
+<a class="page-scroll navbar-brand" href=https://iceberg.apache.org/><img class=top-navbar-logo src=https://iceberg.apache.org//img/iceberg-logo-icon.png> Apache Iceberg</a></div><div class="collapse navbar-collapse" id=bs-example-navbar-collapse-1><ul class="nav navbar-nav navbar-right"><li><a class=page-scroll href=https://iceberg.apache.org/docs/latest>Docs</a></li><li><a class=page-scroll href=https://iceberg.apache.org/docs/latest/getting-started/>Spark</a></li><li><a class=page-scroll href=https://iceberg.apache.org/docs/latest/flink/>Flink</a></li><li><a class=page-scroll href=https://trino.io/docs/current/connector/iceberg.html target=_blank>Trino</a></li><li><a class=page-scroll href=https://prestodb.io/docs/current/connector/iceberg.html target=_blank>Presto</a></li><li><a class=page-scroll href=https://iceberg.apache.org/releases>Releases</a></li><li><a class=page-scroll href=https://iceberg.apache.org/roadmap>Roadmap</a></li><li><a class=page-scroll href=https://iceberg.apache.org/community>Community</a></li><li><a class=page-scroll href=https://iceberg.apache.org/blogs>Blogs</a></li><li><a class=page-scroll href=https://iceberg.apache.org/talks>Talks</a></li></ul></div></div></nav><div class=pad-for-navbar></div><body dir=" ltr"><div class=grid-container><div id=toc class=markdown-body><div id=full><nav id=TableOfContents><ul><li><a href=#background-and-motivation>Background and Motivation</a></li><li><a href=#goals>Goals</a></li><li><a href=#overview>Overview</a><ul><li><a href=#metadata-location>Metadata Location</a></li></ul></li><li><a href=#specification>Specification</a><ul><li><a href=#terms>Terms</a></li><li><a href=#view-metadata>View Metadata</a></li></ul></li><li><a href=#appendix-a-an-example>Appendix A: An Example</a></li></ul></nav></div></div><div class=markdown-body><h1 id=iceberg-view-spec>Iceberg View Spec</h1><h2 id=background-and-motivation>Background and Motivation</h2><p>Most compute engines (e.g. Trino and Apache Spark) support views. A view is a logical table that can be referenced by future queries. Views do not contain any data. Instead, the query stored by the view is executed every time the view is referenced by another query.</p><p>Each compute engine stores the metadata of the view in its proprietary format in the metastore of choice. Thus, views created from one engine can not be read or altered easily from another engine even when engines share the metastore as well as the storage system. This document standardizes the view metadata for ease of sharing the views across engines.</p><h2 id=goals>Goals</h2><ul><li>A common metadata format for view metadata, similar to how Iceberg supports a common table format for tables.</li><li>The view metadata format specification<ul><li>Includes storage format as well as APIs to write/read the metadata.</li><li>Supports versioning of views to track how a view evolved over time.</li></ul></li></ul><h2 id=overview>Overview</h2><p>View metadata storage mirrors how Iceberg table metadata is stored and retrieved. View metadata is maintained in metadata files. All changes to view state create a new view metadata file and completely replace the old metadata using an atomic swap. Like Iceberg tables, this atomic swap is delegated to the metastore that tracks tables and/or views by name. The view metadata file tracks the view schema, custom properties, current and past versions, as well as other metadata.
+Each metadata file is self-sufficient. It contains the history of the last few operations performed on the view and can be used to roll back the view to a previous version.</p><h3 id=metadata-location>Metadata Location</h3><p>An atomic swap of one view metadata file for another provides the basis for making atomic changes. Readers use the version of the view that was current when they loaded the view metadata and are not affected by changes until they refresh and pick up a new metadata location.</p><p>Writers create view metadata files optimistically, assuming that the current metadata location will not be changed before the writer’s commit. Once a writer has created an update, it commits by swapping the view&rsquo;s metadata file pointer from the base location to the new location.</p><h2 id=specification>Specification</h2><h3 id=terms>Terms</h3><ul><li><strong>Schema</strong> &ndash; Names and types of fields in a view.</li><li><strong>Version</strong> &ndash; The state of a view at some point in time.</li></ul><h3 id=view-metadata>View Metadata</h3><p>The view version metadata file has the following fields:</p><table><thead><tr><th>Required/Optional</th><th>Field Name</th><th>Description</th></tr></thead><tbody><tr><td>Required</td><td>format-version</td><td>An integer version number for the view format. Currently, this must be 1. Implementations must throw an exception if the view&rsquo;s version is higher than the supported version.</td></tr><tr><td>Required</td><td>location</td><td>The view&rsquo;s base location. This is used to determine where to store manifest files and view metadata files.</td></tr><tr><td>Required</td><td>current-version-id</td><td>Current version of the view. Set to ‘1’ when the view is first created.</td></tr><tr><td>Optional</td><td>properties</td><td>A string to string map of view properties. This is used for metadata such as &ldquo;comment&rdquo; and for settings that affect view maintenance. This is not intended to be used for arbitrary metadata.</td></tr><tr><td>Required</td><td>versions</td><td>An array of structs describing the last known versions of the view. Controlled by the table property: “version.history.num-entries”. See section <a href=#versions>Versions</a>.</td></tr><tr><td>Required</td><td>version-log</td><td>A list of timestamp and version ID pairs that encodes changes to the current version for the view. Each time the current-version-id is changed, a new entry should be added with the last-updated-ms and the new current-version-id.</td></tr><tr><td>Optional</td><td>schemas</td><td>A list of schemas, the same as the ‘schemas’ field from Iceberg table spec.</td></tr><tr><td>Optional</td><td>current-schema-id</td><td>ID of the current schema of the view</td></tr></tbody></table><h4 id=versions>Versions</h4><p>Field &ldquo;versions&rdquo; is an array of structs with the following fields:</p><table><thead><tr><th>Required/Optional</th><th>Field Name</th><th>Description</th></tr></thead><tbody><tr><td>Required</td><td>version-id</td><td>Monotonically increasing id indicating the version of the view. Starts with 1.</td></tr><tr><td>Required</td><td>timestamp-ms</td><td>Timestamp expressed in ms since epoch at which the version of the view was created.</td></tr><tr><td>Required</td><td>summary</td><td>A string map summarizes the version changes, including <code>operation</code>, described in <a href=#summary>Summary</a>.</td></tr><tr><td>Required</td><td>representations</td><td>A list of &ldquo;representations&rdquo; as described in <a href=#representations>Representations</a>.</td></tr></tbody></table><h4 id=version-log>Version Log</h4><p>Field “version-log” is an array of structs that describe when each version was considered &ldquo;current&rdquo;. Creation time is different and is stored in each version&rsquo;s metadata. This allows you to reconstruct what someone would have seen at some point in time. If the view has been updated and rolled back, this will show it. The struct has the following fields:</p><table><thead><tr><th>Required/Optional</th><th>Field Name</th><th>Description</th></tr></thead><tbody><tr><td>Required</td><td>timestamp-ms</td><td>The timestamp when the referenced version was made the current version</td></tr><tr><td>Required</td><td>version-id</td><td>Version id of the view</td></tr></tbody></table><h4 id=summary>Summary</h4><p>Field “summary” is a string map with the following keys. Only <code>operation</code> is required. Engines may store additional key-value pairs in this map.</p><table><thead><tr><th>Required/Optional</th><th>Key</th><th>Value</th></tr></thead><tbody><tr><td>Required</td><td>operation</td><td>A string value indicating the view operation that caused this metadata to be created. Allowed values are “create” and “replace”.</td></tr><tr><td>Optional</td><td>engine-version</td><td>A string value indicating the version of the engine that performed the operation</td></tr></tbody></table><h4 id=representations>Representations</h4><p>Each representation is stored as an object with only one common field &ldquo;type&rdquo;.
+The rest of the fields are interpreted based on the type.
+There is only one type of representation defined in the spec.</p><h5 id=original-view-definition-in-sql>Original View Definition in SQL</h5><p>This type of representation stores the original view definition in SQL and its SQL dialect.</p><table><thead><tr><th>Required/Optional</th><th>Field Name</th><th>Description</th></tr></thead><tbody><tr><td>Required</td><td>type</td><td>A string indicating the type of representation. It is set to &ldquo;sql&rdquo; for this type.</td></tr><tr><td>Required</td><td>sql</td><td>A string representing the original view definition in SQL</td></tr><tr><td>Required</td><td>dialect</td><td>A string specifying the dialect of the ‘sql’ field. It can be used by the engines to detect the SQL dialect.</td></tr><tr><td>Optional</td><td>schema-id</td><td>ID of the view&rsquo;s schema when the version was created</td></tr><tr><td>Optional</td><td>default-catalog</td><td>A string specifying the catalog to use when the table or view references in the view definition do not contain an explicit catalog.</td></tr><tr><td>Optional</td><td>default-namespace</td><td>The namespace to use when the table or view references in the view definition do not contain an explicit namespace. Since the namespace may contain multiple parts, it is serialized as a list of strings.</td></tr><tr><td>Optional</td><td>field-aliases</td><td>A list of strings of field aliases optionally specified in the create view statement. The list should have the same length as the schema&rsquo;s top level fields. See the example below.</td></tr><tr><td>Optional</td><td>field-docs</td><td>A list of strings of field comments optionally specified in the create view statement. The list should have the same length as the schema&rsquo;s top level fields. See the example below.</td></tr></tbody></table><p>For <code>CREATE VIEW v (alias_name COMMENT 'docs', alias_name2, ...) AS SELECT col1, col2, ...</code>,
+the field aliases are &lsquo;alias_name&rsquo;, &lsquo;alias_name2&rsquo;, and etc., and the field docs are &lsquo;docs&rsquo;, null, and etc.</p><h2 id=appendix-a-an-example>Appendix A: An Example</h2><p>The JSON metadata file format is described using an example below.</p><p>Imagine the following sequence of operations:</p><ul><li><code>CREATE TABLE base_tab(c1 int, c2 varchar);</code></li><li><code>INSERT INTO base_tab VALUES (1,’one’), (2,’two’);</code></li><li><code>CREATE VIEW common_view AS SELECT * FROM base_tab;</code></li><li><code>CREATE OR REPLACE VIEW common_view AS SELECT count(*) AS my_cnt FROM base_tab;</code></li></ul><p>The metadata JSON file created at the end of step 3 looks as follows. The file path looks like:
+<code>s3://my_company/my/warehouse/anorwood.db/common_view</code></p><p>The path is intentionally similar to the path for iceberg tables and contains a ‘metadata’ directory. (<code>METASTORE_WAREHOUSE_DIR/&lt;dbname>.db/&lt;viewname>/metadata</code>)</p><p>The metadata directory contains View Version Metadata files. The text after &lsquo;=>&rsquo; symbols describes the fields.</p><pre tabindex=0><code>{
+  &#34;format-version&#34; : 1, =&gt; JSON format. Will change as format evolves.
+  &#34;location&#34; : &#34;s3n://my_company/my/warehouse/anorwood.db/common_view&#34;,
+  &#34;current-version-id&#34; : 1, =&gt; current / latest version of the view. ‘1’ here since this metadata was created when the view was created.
+  &#34;properties&#34; : {  =&gt; shows properties of the view
+    &#34;comment&#34; : &#34;View captures all the data from the table&#34; =&gt; View comment
+  },
+  &#34;versions&#34; : [ { =&gt; Last few versions of the view.
+    &#34;version-id&#34; : 1,
+    &#34;parent-version-id&#34; : -1,
+    &#34;timestamp-ms&#34; : 1573518431292,
+    &#34;summary&#34; : {
+      &#34;operation&#34; : &#34;create&#34;, =&gt; View operation that caused this metadata to be created
+      &#34;engineVersion&#34; : &#34;presto-350&#34;, =&gt; Version of the engine that performed the operation (create / replace)
+    },
+    &#34;representations&#34; : [ { =&gt; SQL metadata of the view
+      &#34;type&#34; : &#34;sql&#34;,
+      &#34;sql&#34; : &#34;SELECT *\nFROM\n  base_tab\n&#34;, =&gt; original view SQL
+      &#34;dialect&#34; : &#34;presto&#34;,
+      &#34;schema-id&#34; : 1,
+      &#34;default-catalog&#34; : &#34;iceberg&#34;,
+      &#34;default-namespace&#34; : [ &#34;anorwood&#34; ]
+    } ],
+  } ],
+  &#34;version-log&#34; : [ { =&gt; Log of the created versions
+    &#34;timestamp-ms&#34; : 1573518431292,
+    &#34;version-id&#34; : 1
+  } ],
+  &#34;schemas&#34;: [ { =&gt; Schema of the view expressed in Iceberg types
+    &#34;schema-id&#34;: 1,
+    &#34;type&#34; : &#34;struct&#34;,
+    &#34;fields&#34; : [ {
+      &#34;id&#34; : 0,
+      &#34;name&#34; : &#34;c1&#34;,
+      &#34;required&#34; : false,
+      &#34;type&#34; : &#34;int&#34;,
+      &#34;doc&#34; : &#34;&#34; =&gt; Column comment
+    }, {
+      &#34;id&#34; : 1,
+      &#34;name&#34; : &#34;c2&#34;,
+      &#34;required&#34; : false,
+      &#34;type&#34; : &#34;string&#34;,
+      &#34;doc&#34; : &#34;&#34;
+    } ]
+  } ],
+  &#34;current-schema-id&#34;: 1
+}
+</code></pre><p>The Iceberg / view library creates a new metadata JSON file every time the view undergoes a DDL change. This way the history of how the view evolved can be maintained. Following metadata JSON file was created at the end of Step 4.</p><pre tabindex=0><code>{
+  &#34;format-version&#34; : 1,
+  &#34;location&#34; : &#34;s3n://my_company/my/warehouse/anorwood.db/common_view&#34;,
+  &#34;current-version-id&#34; : 2,
+  &#34;properties&#34; : {  =&gt; shows properties of the view
+    &#34;comment&#34; : &#34;View captures count of the data from the table&#34;
+  },
+  &#34;versions&#34; : [ {
+    &#34;version-id&#34; : 1,
+    &#34;parent-version-id&#34; : -1,
+    &#34;timestamp-ms&#34; : 1573518431292,
+    &#34;summary&#34; : {
+      &#34;operation&#34; : &#34;create&#34;,
+      &#34;engineVersion&#34; : &#34;presto-350&#34;,
+    },
+    &#34;representations&#34; : [ {
+      &#34;type&#34; : &#34;sql&#34;,
+      &#34;sql&#34; : &#34;SELECT *\nFROM\n  base_tab\n&#34;,
+      &#34;dialect&#34; : &#34;presto&#34;,
+      &#34;schema-id&#34; : 1,
+      &#34;default-catalog&#34; : &#34;iceberg&#34;,
+      &#34;default-namespace&#34; : [ &#34;anorwood&#34; ]
+    } ],
+    &#34;properties&#34; : { }
+  }, {
+    &#34;version-id&#34; : 2,
+    &#34;parent-version-id&#34; : 1, =&gt; Version 2 was created on top of version 1, making parent-version-id 1
+    &#34;timestamp-ms&#34; : 1573518440265,
+    &#34;summary&#34; : {
+      &#34;operation&#34; : &#34;replace&#34;, =&gt; The ‘replace’ operation caused this latest version creation
+      &#34;engineVersion&#34; : &#34;spark-2.4.4&#34;,
+    },
+    &#34;representations&#34; : [ {
+      &#34;type&#34; : &#34;sql&#34;,
+      &#34;sql&#34; : &#34;SELECT \&#34;count\&#34;(*) my_cnt\nFROM\n  base_tab\n&#34;, =&gt; Note the updated text from the ‘replace’ view statement
+      &#34;dialect&#34; : &#34;spark&#34;,
+      &#34;schema-id&#34; : 2,
+      &#34;default-catalog&#34; : &#34;iceberg&#34;,
+      &#34;default-namespace&#34; : [ &#34;anorwood&#34; ]
+    },
+  } ],
+  &#34;version-log&#34; : [ {
+    &#34;timestamp-ms&#34; : 1573518431292,
+    &#34;version-id&#34; : 1
+  }, {
+    &#34;timestamp-ms&#34; : 1573518440265,
+    &#34;version-id&#34; : 2
+  } ],
+  &#34;schemas&#34;: [ { =&gt; Schema of the view expressed in Iceberg types
+    &#34;schema-id&#34;: 1,
+    &#34;type&#34; : &#34;struct&#34;,
+    &#34;fields&#34; : [ {
+      &#34;id&#34; : 0,
+      &#34;name&#34; : &#34;c1&#34;,
+      &#34;required&#34; : false,
+      &#34;type&#34; : &#34;int&#34;,
+      &#34;doc&#34; : &#34;&#34; =&gt; Column comment
+    }, {
+      &#34;id&#34; : 1,
+      &#34;name&#34; : &#34;c2&#34;,
+      &#34;required&#34; : false,
+      &#34;type&#34; : &#34;string&#34;,
+      &#34;doc&#34; : &#34;&#34;
+    } ]
+  }, { =&gt; Schema change is reflected here
+    &#34;schema-id&#34;: 2,
+    &#34;type&#34; : &#34;struct&#34;,
+    &#34;fields&#34; : [ {
+      &#34;id&#34; : 0,
+      &#34;name&#34; : &#34;my_cnt&#34;,
+      &#34;required&#34; : false,
+      &#34;type&#34; : &#34;long&#34;,
+      &#34;doc&#34; : &#34;&#34;
+    } ]
+  } ],
+  &#34;current-schema-id&#34;: 2
+}
+</code></pre></div></div></body></html>
