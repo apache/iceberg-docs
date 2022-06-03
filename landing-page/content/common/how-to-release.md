@@ -247,7 +247,7 @@ To announce the release, wait until Maven central has mirrored the Apache binari
 [ANNOUNCE] Apache Iceberg release <VERSION>
 ```
 ```text
-I'm please to announce the release of Apache Iceberg <VERSION>!
+I'm pleased to announce the release of Apache Iceberg <VERSION>!
 
 Apache Iceberg is an open table format for huge analytic datasets. Iceberg
 delivers high query performance for tables with tens of petabytes of data,
@@ -264,23 +264,25 @@ Thanks to everyone for contributing!
 ### Documentation Release
 
 Documentation needs to be updated as a part of Iceberg release after a release candidate is passed.
-The commands described below assume the `iceberg-docs` repository and `iceberg` repository are in the same parent directory locally, 
-and the release manager is executing commands in the `iceberg` repository.
+The commands described below assume the `iceberg-docs` repository and `iceberg` repository are in the same parent directory locally,
+and the release manager is executing commands in the `iceberg` repository. Note that all changes in `iceberg` need to happen against the `master` branch
+and changes in `iceberg-docs` need to happen against the `main` branch.
 Adjust the commands accordingly if it is not the case.
 
 #### iceberg repository preparations
 
 A PR needs to be published in `iceberg` repository with the following changes:
-1. Mark the current latest release notes to past releases
-2. Update the latest artifact links in the release notes page
-3. Add release notes for the new release version
-2. Create new folder called `docs/versioned/releases/<VERSION NUMBER>` with a `_index.md` file. See the existing folders under `docs/versioned/releases` for more details.
+
+1. Create a new folder called `docs/releases/<VERSION NUMBER>` with an `_index.md` file. See the existing folders under `docs/releases` for more details.
 
 #### iceberg-docs repository preparations
 
-A PR needs to be published in `iceberg-docs` repository with the following changes:
+A PR needs to be published in the `iceberg-docs` repository with the following changes:
 1. Update variable `latestVersions.iceberg` to the new release version in `landing-page/config.toml`
 2. Update variable `latestVersions.iceberg` to the new release version in `docs/config.toml`
+3. Mark the current latest release notes to past releases under `landing-page/content/common/release-notes.md`
+4. Update the latest artifact links in the release notes page in `landing-page/content/common/release-notes.md`
+5. Add release notes for the new release version in `landing-page/content/common/release-notes.md`
 
 #### Documentation update
 
@@ -288,9 +290,7 @@ To start the release process, run the following steps in the `iceberg-docs` repo
 
 ```shell
 rm -rf ../iceberg-docs/docs/content/docs
-rm -rf ../iceberg-docs/landing-page/content/common
-cp -r docs/versioned ../iceberg-docs/docs/content/docs
-cp -r docs/common ../iceberg-docs/landing-page/content/common
+cp -r ../iceberg/docs ../iceberg-docs/docs/content/docs
 ```
 
 The resulted changes in `iceberg-docs` should be approved in a separate PR.
@@ -301,7 +301,7 @@ In the `iceberg` repository, generate the javadoc for your release and copy it t
 ```shell
 ./gradlew refreshJavadoc
 rm -rf ../iceberg-docs/javadoc
-cp site/docs/javadoc/<VERSION NUMBER> ../iceberg-docs/javadoc
+cp -r site/docs/javadoc/<VERSION NUMBER> ../iceberg-docs/javadoc
 ```
 
 This resulted changes in `iceberg-docs` should be approved in a separate PR.
