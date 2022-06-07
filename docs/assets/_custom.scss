@@ -53,15 +53,31 @@ ul#book-search-results {
   list-style-type: none;
   float: left;
   width: 100%;
-  background-color: white;
-  z-index: 10;
+  max-height: 700px;
+  overflow-y: scroll;
+  border-radius: 6px;
+
+  z-index: 1;
   a b mark {
     background-color: #B8E1F3;
   }
 }
 
-ul#book-search-results li small {
+ul#book-search-results li {
   color: rgb(112, 128, 144);
+  background-color: white;
+  border-bottom: 1px solid #e7e8eb;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  margin: 0px;
+  display: grid;
+}
+
+
+
+ul#book-search-results li p {
+   font-weight: bold;
+    margin-bottom: 4px;
 }
 
 .book-section-flat {
