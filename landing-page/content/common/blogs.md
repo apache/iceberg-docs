@@ -22,10 +22,40 @@ url: blogs
 
 Here is a list of company blogs that talk about Iceberg. The blogs are ordered from most recent to oldest.
 
+### [An Introduction To The Iceberg Java API Part 2 - Table Scans](https://tabular.io/blog/java-api-part-2/)
+**Date**: May 11th, 2022, **Company**: Tabular
+
+**Author**: [Sam Redai](https://www.linkedin.com/in/sredai/)
+
+### [Iceberg's Guiding Light: The Iceberg Open Table Format Specification](https://tabular.io/blog/iceberg-format-version/)
+**Date**: April 26th, 2022, **Company**: Tabular
+
+**Author**: [Sam Redai](https://www.linkedin.com/in/sredai/)
+
+### [Using Iceberg's S3FileIO Implementation To Store Your Data In MinIO](https://tabular.io/blog/minio/)
+**Date**: April 14th, 2022, **Company**: Tabular
+
+**Author**: [Sam Redai](https://www.linkedin.com/in/sredai/)
+
+### [An Introduction To The Iceberg Java API - Part 1](https://tabular.io/blog/java-api-part-1/)
+**Date**: April 1st, 2022, **Company**: Tabular
+
+**Author**: [Sam Redai](https://www.linkedin.com/in/sredai/)
+
+### [Integrated Audits: Streamlined Data Observability With Apache Iceberg](https://tabular.io/blog/integrated-audits/)
+**Date**: March 2nd, 2022, **Company**: Tabular
+
+**Author**: [Sam Redai](https://www.linkedin.com/in/sredai/)
+
 ### [Introducing Apache Iceberg in Cloudera Data Platform](https://blog.cloudera.com/introducing-apache-iceberg-in-cloudera-data-platform/)
 **Date**: February 23rd, 2022, **Company**: Cloudera
 
 **Authors**: [Bill Zhang](https://www.linkedin.com/in/billzhang01/), [Peter Vary](https://www.linkedin.com/in/peter-vary/), [Marton Bod](https://www.linkedin.com/in/martonbod/), [Wing Yew Poon](https://github.com/wypoon)
+
+### [What's new in Iceberg 0.13](https://tabular.io/blog/whats-new-in-iceberg-0.13/)
+**Date**: February 22nd, 2022, **Company**: Tabular
+
+**Author**: [Ryan Blue](https://www.linkedin.com/in/rdblue/)
 
 ### [Apache Iceberg Becomes Industry Open Standard with Ecosystem Adoption](https://www.dremio.com/apache-iceberg-becomes-industry-open-standard-with-ecosystem-adoption/)
 **Date**: February 3rd, 2022, **Company**: Dremio
