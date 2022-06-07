@@ -102,6 +102,10 @@ If you'd like to scan for broken links, one available tool is linkcheck that can
 
 # How the Website is Deployed
 
+**Note**: If you are a release manager looking to release a new version of the website as part of an Iceberg release,
+please refer to the [Documentation Release](https://iceberg.apache.org/how-to-release/#documentation-release) section
+of the **How to Release** page.
+
 ## Landing Page Deployment
 
 The landing page site is automatically deployed to the root of the `asf-site` branch by the `deploy-landing-page`
