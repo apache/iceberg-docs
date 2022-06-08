@@ -1,6 +1,8 @@
 baseURL = "" # This is populated by the github deploy workflow and is equal to "<domainName>"
 languageCode = "en-us"
 title = "Apache Iceberg"
+theme = "iceberg-theme"
+sectionPagesMenu = "main"
 
 [params]
   description = "The open table format for analytic datasets."

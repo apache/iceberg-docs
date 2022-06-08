@@ -1,7 +1,7 @@
 baseURL = ""  # This is populated by the github deploy workflow and is equal to "<domainName>/docs/<version|latest>"
 languageCode = "en-us"
 title = "Apache Iceberg"
-theme= "hugo-book"
+theme= "iceberg-theme"
 
 [params]
   BookTheme = 'auto'
