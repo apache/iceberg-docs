@@ -1,4 +1,4 @@
-{{ if (.Params.toc) }}
+{{ if not .Params.disbaleToc }}
 <div id="toc" class="markdown-body">
     <div id="full">
         {{.TableOfContents}}

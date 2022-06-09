@@ -241,21 +241,40 @@ h4:hover a { visibility: visible}
     display: grid;
     grid-template-columns: 5fr 1fr;
     grid-gap: 1rem;
+    height: 100vh;
+    width: 100vw;
+    overflow-y: scroll;
 }
 
+#sidebar {
+    text-decoration: none;
+    left: 0;
+    top: 0;
+    overflow-y: scroll;
+    background-color:#FFF;
+    display: block;
+    font-size: 0.6rem;
+    min-width: 15rem;
+    list-style-type: none;
+}
+
+#sidebar ul {
+    text-decoration: none;
+    list-style: none;
+}
+
+#sidebar li a {
+    color: black;
+}
 
 #toc {
-    position: fixed;
     right: 0;
     top: 0;
     background-color:#FFF;
     display: block;
-    flex: 0 0 20rem;
     font-size: 0.6rem;
     width: 20rem;
-    min-width: 0;
-    padding: 2rem;
-    margin-top: 2rem;
+    min-width: 15rem;
     list-style-type: none;
 }
 
@@ -263,8 +282,17 @@ h4:hover a { visibility: visible}
     list-style: none;
 }
 
+#content {
+    overflow-y: auto;
+    max-height: 100%;
+}
+
 @media screen and (max-width: 1280px) {
     #toc { display: none; }  /* Hide the TOC if the page is less than 1280px */
+  }
+
+@media screen and (max-width: 1280px) {
+    #sidebar { display: none; }  /* Hide the TOC if the page is less than 1280px */
   }
 
 /* Style for the hint shortcode */
@@ -289,3 +317,20 @@ h4:hover a { visibility: visible}
     color: #D8000C;
     background-color: #FFD2D2;
 }
+
+.fa-table {
+  color: #000000;
+}
+
+.fa-handshake-o {
+  color: #000000;
+}
+
+.fa-object-ungroup {
+  color: #000000;
+}
+
+.fa-star-o {
+  color: #E25A1D;
+}
+

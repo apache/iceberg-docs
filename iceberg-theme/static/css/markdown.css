@@ -1,9 +1,11 @@
 body {
   font-weight: 400;
+  overflow: hidden;
 }
 
 
 .markdown-body {
+  padding-top: 80px;
   color-scheme: light;
   --color-prettylights-syntax-comment: #6e7781;
   --color-prettylights-syntax-constant: #0550ae;
@@ -59,8 +61,8 @@ body {
   line-height: 1.5;
   word-wrap: break-word;
   min-width: 1024px;
-  padding-left: 15%;
-  padding-right: 15%;
+  padding-left: 5%;
+  padding-right: 5%;
   padding-bottom: 100px;
 }
 

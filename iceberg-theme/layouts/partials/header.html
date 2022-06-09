@@ -62,11 +62,10 @@
     <!-- /.container -->
 </nav>
 
-{{ if .IsHome }}
+{{ if and .IsHome (not .Site.Params.disableHome) }}
     <section id="intro">
         <!-- Header -->
         <div class="intro-header">
-
             <div class="container">
 
             <div class="row">
@@ -90,7 +89,4 @@
         </div>
         <!-- /.intro-header -->
     </section>
-
-{{ else }}
-<div class="pad-for-navbar"></div>
 {{ end }}

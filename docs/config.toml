@@ -10,3 +10,72 @@ theme= "iceberg-theme"
   versions.nessie = "0.18.0"
   latestVersions.iceberg = "0.13.2"  # This is used for the version badge on the "latest" site version
   BookSection='docs' # This determines which directory will inform the left navigation menu
+  disableHome=true
+
+[menu]
+  [[menu.main]]
+    name = "Tables"
+    pre = '<i class="fa fa-table"></i>'
+    weight = 100
+  [[menu.main]]
+    name = "Spark"
+    pre = '<i class="fa fa-star-o fa-fw"></i>'
+    weight = 200
+  [[menu.main]]
+    name = "Flink"
+    pre = "<img src='/img/flink-logo.png' class='navigation-icon fa-fw'/>"
+    weight = 300
+  [[menu.main]]
+    name = "Hive"
+    pre = "<img src='/img/hive-logo.png' class='navigation-icon fa-fw'/>"
+    weight = 400
+    url = "https://iceberg.apache.org/docs/latest/hive/"
+  [[menu.main]]
+    name = "Trino"
+    pre = "<img src='/img/trino-logo.png' class='navigation-icon fa-fw'/>"
+    weight = 500
+    url = "https://trino.io/docs/current/connector/iceberg.html"
+  [[menu.main]]
+    name = "Presto"
+    pre = "<img src='/img/prestodb-logo.png' class='navigation-icon fa-fw'/>"
+    weight = 600
+    url = "https://prestodb.io/docs/current/connector/iceberg.html"
+  [[menu.main]]
+    name = "Dremio"
+    pre = "<img src='/img/dremio-logo.png' class='navigation-icon fa-fw'/>"
+    weight = 700
+    url = "https://docs.dremio.com/data-formats/apache-iceberg/"
+  [[menu.main]]
+    name = "Amazon Athena"
+    pre = "<img src='/img/athena-logo.png' class='navigation-icon fa-fw'/>"
+    weight = 800
+    url = "https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html"
+  [[menu.main]]
+    name = "Amazon EMR"
+    pre = "<img src='/img/emr-logo.png' class='navigation-icon fa-fw'/>"
+    weight = 900
+    url = "https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-create-cluster.html"
+  [[menu.main]]
+    name = "Integrations"
+    pre = '<i class="fa fa-handshake-o"></i>'
+    weight = 1000
+  [[menu.main]]
+    name = "API"
+    pre = '<i class="fa fa-connectdevelop"></i>'
+    weight = 1100
+  [[menu.main]]
+    name = "Community"
+    pre = '<i class="fa fa-users"></i>'
+    weight = 1200
+  [[menu.main]]
+    name = "Format"
+    pre = '<i class="fa fa-object-ungroup"></i>'
+    weight = 1300
+  [[menu.main]]
+    name = "Project"
+    pre = "<i class='fa fa-wrench'></i>"
+    weight = 1400
+  [[menu.main]]
+    name = "Releases"
+    pre = '<i class="fa fa-code-fork"></i>'
+    weight = 1500
