@@ -30,7 +30,7 @@ h6 {
 }
 
 .intro-header {
-    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-top: 200Fpx; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
     padding-bottom: 50px;
     text-align: center;
     color: #f8f8f8;
@@ -178,6 +178,7 @@ p.copyright {
 
 a.page-scroll {
     font-size: 0.8rem;
+    color: red;
 }
 
 .pad-for-navbar {
@@ -243,10 +244,11 @@ h4:hover a { visibility: visible}
     grid-gap: 1rem;
     height: 100vh;
     width: 100vw;
+    padding-top: 1rem;
     overflow-y: scroll;
 }
 
-#sidebar {
+div.sidebar {
     text-decoration: none;
     left: 0;
     top: 0;
@@ -258,15 +260,22 @@ h4:hover a { visibility: visible}
     list-style-type: none;
 }
 
-#sidebar ul {
+.sidebar ul {
     text-decoration: none;
     list-style: none;
 }
 
-#sidebar li a {
+.sidebar li a {
     color: black;
 }
 
+.sidebar li a:hover {
+    color: #2879BE;
+}
+
+#active {
+    color: #2879BE;
+}
 #toc {
     right: 0;
     top: 0;
@@ -292,7 +301,7 @@ h4:hover a { visibility: visible}
   }
 
 @media screen and (max-width: 1280px) {
-    #sidebar { display: none; }  /* Hide the TOC if the page is less than 1280px */
+    .sidebar { display: none; }  /* Hide the TOC if the page is less than 1280px */
   }
 
 /* Style for the hint shortcode */
@@ -334,3 +343,9 @@ h4:hover a { visibility: visible}
   color: #E25A1D;
 }
 
+.navbar {
+    margin-bottom: 0;
+}
+.navbar-fixed-top {
+    position: sticky;
+}

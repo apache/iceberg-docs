@@ -5,7 +5,6 @@ body {
 
 
 .markdown-body {
-  padding-top: 80px;
   color-scheme: light;
   --color-prettylights-syntax-comment: #6e7781;
   --color-prettylights-syntax-constant: #0550ae;
