@@ -255,7 +255,7 @@ div.sidebar {
     overflow-y: scroll;
     background-color:#FFF;
     display: block;
-    font-size: 0.6rem;
+    font-size: 16px;
     min-width: 15rem;
     list-style-type: none;
 }
@@ -276,6 +276,15 @@ div.sidebar {
 #active {
     color: #2879BE;
 }
+
+i.fa.fa-chevron-right {
+ float: right;
+}
+
+i.fa.fa-chevron-down {
+ float: right;
+}
+
 #toc {
     right: 0;
     top: 0;

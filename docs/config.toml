@@ -14,8 +14,13 @@ theme= "iceberg-theme"
 
 [menu]
   [[menu.main]]
+    name = "Introduction"
+    url = "/"
+    pre = '<i class="fa fa-book fa-fw"></i>'
+    weight = 1
+  [[menu.main]]
     name = "Tables"
-    pre = '<i class="fa fa-table"></i>'
+    pre = '<i class="fa fa-table fa-fw"></i>'
     weight = 100
   [[menu.main]]
     name = "Spark"
@@ -57,25 +62,25 @@ theme= "iceberg-theme"
     url = "https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-create-cluster.html"
   [[menu.main]]
     name = "Integrations"
-    pre = '<i class="fa fa-handshake-o"></i>'
+    pre = '<i class="fa fa-handshake-o fa-fw"></i>'
     weight = 1000
   [[menu.main]]
     name = "API"
-    pre = '<i class="fa fa-connectdevelop"></i>'
+    pre = '<i class="fa fa-connectdevelop fa-fw"></i>'
     weight = 1100
   [[menu.main]]
     name = "Community"
-    pre = '<i class="fa fa-users"></i>'
+    pre = '<i class="fa fa-users fa-fw"></i>'
     weight = 1200
   [[menu.main]]
     name = "Format"
-    pre = '<i class="fa fa-object-ungroup"></i>'
+    pre = '<i class="fa fa-object-ungroup fa-fw"></i>'
     weight = 1300
   [[menu.main]]
     name = "Project"
-    pre = "<i class='fa fa-wrench'></i>"
+    pre = "<i class='fa fa-wrench fa-fw'></i>"
     weight = 1400
   [[menu.main]]
     name = "Releases"
-    pre = '<i class="fa fa-code-fork"></i>'
+    pre = '<i class="fa fa-code-fork fa-fw"></i>'
     weight = 1500
