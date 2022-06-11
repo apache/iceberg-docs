@@ -7,14 +7,11 @@
                 <li>
 <!--                    Use this line below if you want the active section in the sidebar to be highlighted-->
 <!--                    <a id="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}" href="#">-->
-                    <a data-toggle="collapse" data-parent="full" href="#{{ .Name }}">
+                    <a class="chevron-toggle" data-toggle="collapse" data-parent="full" href="#{{ .Name }}">
                         {{ .Pre }}
                         <span>{{ .Name }}</span>
-                        {{ if $menuContainsCurrentPage }}
-                            <i class="fa fa-chevron-down"></i>
-                        {{ else }}
-                            <i class="fa fa-chevron-right"></i>
-                        {{ end }}
+                        <i class="fa fa-chevron-right"></i>
+                        <i class="fa fa-chevron-down"></i>
                     </a>
                 </li>
         <div id="{{ .Name }}" class="{{ if $menuContainsCurrentPage }}collapse in{{ else }}collapse{{ end }}">
