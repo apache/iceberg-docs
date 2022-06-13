@@ -1,6 +1,7 @@
 {{ if not .Params.disableSidebar }}
     <ul>
         {{ $currentPage := . }}
+<!--        `main` Menu -->
         {{ range .Site.Menus.main }}
         {{ $menuContainsCurrentPage := eq (lower .Name) $currentPage.Section}}
             {{ if .HasChildren }}
@@ -25,31 +26,40 @@
         </div>
             {{ else }}
                 <li>
-                    <a href="{{ .URL }}">
+                    <a {{ if hasPrefix .Identifier "_" }}target="_blank"{{ end }} href="{{ .URL }}">
                         {{ .Pre }}
                         <span>{{ .Name }}</span>
                     </a>
                 </li>
             {{ end }}
         {{ end }}
-        <li>
-            <img src='/img/asf.png' class='navigation-icon fa-fw'/><span>ASF</span>
-        </li>
-        <ul class="sub-menu">
-            <li>
-                <a href="https://www.apache.org/foundation/sponsorship.html" target="_blank">Donate</a>
-            </li>
-            <li>
-                <a href="https://www.apache.org/events/current-event.html" target="_blank">Events</a>
-            </li>
-            <li>
-                <a href="https://www.apache.org/licenses/" target="_blank">License</a>
-            </li>
-            <li>
-                <a href="https://www.apache.org/security/" target="_blank">Security</a>
-            </li>
-            <li>
-                <a href="https://www.apache.org/foundation/sponsorship.html" target="_blank">Sponsors</a>
-            </li>
-    </ul>
+
+<!--        `asflinks` menu-->
+        {{ range .Site.Menus.asflinks }}
+        {{ if .HasChildren }}
+        {{ $menuContainsCurrentPage := eq (lower .Name) $currentPage.Section}}
+                        <li>
+<!--                    Use this line below if you want the active section in the sidebar to be highlighted-->
+<!--                    <a id="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}" href="#">-->
+                    <a class="chevron-toggle {{ if not $menuContainsCurrentPage }}collapsed{{ end }}" data-toggle="collapse" data-parent="full" href="#{{ .Name }}">
+                        {{ .Pre }}
+                        <span>{{ .Name }}</span>
+                        <i class="fa fa-chevron-right"></i>
+                        <i class="fa fa-chevron-down"></i>
+                    </a>
+                </li>
+        <div id="{{ .Name }}" class="{{ if $menuContainsCurrentPage }}collapse in{{ else }}collapse{{ end }}">
+                <ul class="sub-menu">
+        {{ range .Children }}
+                <li>
+                    <a target="_blank" href="{{ .URL }}">
+                        {{ .Pre }}
+                        <span>{{ .Name }}</span>
+                    </a>
+                </li>
+        {{ end }}
+                </ul>
+        </div>
+      {{ end }}
+    {{ end }}
 {{ end }}

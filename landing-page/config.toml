@@ -5,6 +5,7 @@ theme = "iceberg-theme"
 sectionPagesMenu = "main"
 
 [params]
+  siteType = "landing-page"
   description = "The open table format for analytic datasets."
   latestVersions.iceberg = "0.13.2"
   docsBaseURL = ""
@@ -21,6 +22,50 @@ sectionPagesMenu = "main"
   title = "slack"
   icon = "slack"
   url = "https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg"  
+
+[menu]
+  [[menu.topnav]]
+    name = "Docs"
+    url = "/docs/latest"
+    weight = 100
+  [[menu.topnav]]
+    name = "Spark"
+    url = "/docs/latest/getting-started"
+    weight = 200
+  [[menu.topnav]]
+    name = "Flink"
+    url = "/docs/latest/flink"
+    weight = 300
+  [[menu.topnav]]
+    name = "Trino"
+    identifier = "_trino"
+    url = "https://trino.io/docs/current/connector/iceberg.html"
+    weight = 400
+  [[menu.topnav]]
+    name = "Presto"
+    identifier = "_presto"
+    url = "https://prestodb.io/docs/current/connector/iceberg.html"
+    weight = 500
+  [[menu.topnav]]
+    name = "Releases"
+    url = "/releases"
+    weight = 600
+  [[menu.topnav]]
+    name = "Roadmap"
+    url = "/roadmap"
+    weight = 700
+  [[menu.topnav]]
+    name = "Community"
+    url = "/community"
+    weight = 800
+  [[menu.topnav]]
+    name = "Blogs"
+    url = "/blogs"
+    weight = 900
+  [[menu.topnav]]
+    name = "Talks"
+    url = "/talks"
+    weight = 1000
 
 [markup.goldmark.renderer]
 unsafe= true

@@ -1,4 +1,5 @@
 ---
+title: "Community"
 url: community
 disableSidebar: true
 ---

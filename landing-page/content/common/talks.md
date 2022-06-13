@@ -1,4 +1,5 @@
 ---
+title: "Talks"
 url: talks
 disableSidebar: true
 ---

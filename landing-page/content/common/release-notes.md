@@ -1,5 +1,5 @@
 ---
-bookCollapseSection: true
+title: "Releases"
 weight: 1100
 url: releases
 disableSidebar: true

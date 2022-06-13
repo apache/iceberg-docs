@@ -1,4 +1,5 @@
 ---
+title: "Blogs"
 url: blogs
 disableSidebar: true
 ---

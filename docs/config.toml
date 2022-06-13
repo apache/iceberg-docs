@@ -4,6 +4,7 @@ title = "Apache Iceberg"
 theme= "iceberg-theme"
 
 [params]
+  siteType = "docs"
   BookTheme = 'auto'
   BookLogo = "img/iceberg-logo-icon.png"
   versions.iceberg = "" # This is populated by the github deploy workflow and is equal to the branch name
@@ -13,74 +14,135 @@ theme= "iceberg-theme"
   disableHome=true
 
 [menu]
+  [[menu.topnav]]
+    name = "Docs"
+    url = "/docs/latest"
+    weight = 100
+  [[menu.topnav]]
+    name = "Spark"
+    url = "/docs/latest/getting-started"
+    weight = 200
+  [[menu.topnav]]
+    name = "Flink"
+    url = "/docs/latest/flink"
+    weight = 300
+  [[menu.topnav]]
+    name = "Trino"
+    url = "https://trino.io/docs/current/connector/iceberg.html"
+    weight = 400
+  [[menu.topnav]]
+    name = "Presto"
+    url = "https://prestodb.io/docs/current/connector/iceberg.html"
+    weight = 500
+  [[menu.topnav]]
+    name = "Releases"
+    url = "/releases"
+    weight = 600
+  [[menu.topnav]]
+    name = "Roadmap"
+    url = "/roadmap"
+    weight = 700
+  [[menu.topnav]]
+    name = "Community"
+    url = "/community"
+    weight = 800
+  [[menu.topnav]]
+    name = "Blogs"
+    url = "/blogs"
+    weight = 900
+  [[menu.topnav]]
+    name = "Talks"
+    url = "/talks"
+    weight = 1000
   [[menu.main]]
     name = "Introduction"
     url = "/"
-    pre = '<i class="fa fa-book fa-fw"></i>'
     weight = 1
   [[menu.main]]
     name = "Tables"
-    pre = '<i class="fa fa-table fa-fw"></i>'
     weight = 100
   [[menu.main]]
     name = "Spark"
-    pre = '<i class="fa fa-star-o fa-fw"></i>'
     weight = 200
   [[menu.main]]
     name = "Flink"
-    pre = "<img src='/img/flink-logo.png' class='navigation-icon fa-fw'/>"
     weight = 300
   [[menu.main]]
     name = "Hive"
-    pre = "<img src='/img/hive-logo.png' class='navigation-icon fa-fw'/>"
+    identifier = "_hive"  # Opens in a new tab if identifier begins with an underscore
     weight = 400
     url = "https://iceberg.apache.org/docs/latest/hive/"
   [[menu.main]]
     name = "Trino"
-    pre = "<img src='/img/trino-logo.png' class='navigation-icon fa-fw'/>"
+    identifier = "_trino"
     weight = 500
     url = "https://trino.io/docs/current/connector/iceberg.html"
   [[menu.main]]
     name = "Presto"
-    pre = "<img src='/img/prestodb-logo.png' class='navigation-icon fa-fw'/>"
+    identifier = "_presto"
     weight = 600
     url = "https://prestodb.io/docs/current/connector/iceberg.html"
   [[menu.main]]
     name = "Dremio"
-    pre = "<img src='/img/dremio-logo.png' class='navigation-icon fa-fw'/>"
+    identifier = "_dremio"
     weight = 700
     url = "https://docs.dremio.com/data-formats/apache-iceberg/"
   [[menu.main]]
     name = "Amazon Athena"
-    pre = "<img src='/img/athena-logo.png' class='navigation-icon fa-fw'/>"
+    identifier = "_athena"
     weight = 800
     url = "https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html"
   [[menu.main]]
     name = "Amazon EMR"
-    pre = "<img src='/img/emr-logo.png' class='navigation-icon fa-fw'/>"
+    identifier = "_emr"
     weight = 900
     url = "https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-create-cluster.html"
   [[menu.main]]
     name = "Integrations"
-    pre = '<i class="fa fa-handshake-o fa-fw"></i>'
     weight = 1000
   [[menu.main]]
     name = "API"
-    pre = '<i class="fa fa-connectdevelop fa-fw"></i>'
     weight = 1100
   [[menu.main]]
     name = "Community"
-    pre = '<i class="fa fa-users fa-fw"></i>'
     weight = 1200
   [[menu.main]]
     name = "Format"
-    pre = '<i class="fa fa-object-ungroup fa-fw"></i>'
     weight = 1300
   [[menu.main]]
     name = "Project"
-    pre = "<i class='fa fa-wrench fa-fw'></i>"
     weight = 1400
   [[menu.main]]
     name = "Releases"
-    pre = '<i class="fa fa-code-fork fa-fw"></i>'
     weight = 1500
+  [[menu.asflinks]]
+    name = "Donate"
+    identifier = "_donate"
+    parent = "ASF"
+    url = "https://www.apache.org/foundation/sponsorship.html"
+    weight = 1700
+  [[menu.asflinks]]
+    name = "Events"
+    identifier = "_events"
+    url = "https://www.apache.org/events/current-event.html"
+    parent = "ASF"
+    weight = 1800
+  [[menu.asflinks]]
+    name = "License"
+    identifier = "_license"
+    url = "https://www.apache.org/licenses/"
+    parent = "ASF"
+    weight = 1900
+  [[menu.asflinks]]
+    name = "Security"
+    identifier = "_security"
+    url = "https://www.apache.org/security/"
+    parent = "ASF"
+    weight = 2000
+  [[menu.asflinks]]
+    name = "Sponsors"
+    identifier = "_sponsors"
+    url = "https://www.apache.org/foundation/thanks.html"
+    parent = "ASF"
+    weight = 2100
+
