@@ -188,7 +188,7 @@ a.page-scroll {
 /*!
  * Increase the navbar breakpoint to prevent spilling into new line
  */
-@media (max-width: 992px) {
+@media (max-width: 1420px) {
     .navbar-header {
         float: none;
     }
