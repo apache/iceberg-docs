@@ -10,7 +10,6 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="page-scroll navbar-brand" href="{{ .Site.BaseURL }}"><img class="top-navbar-logo" src="{{ .Site.BaseURL }}/img/iceberg-logo-icon.png"/> {{ .Site.Title }}</a>
-
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -28,6 +27,17 @@
                     </li>
                     {{ end }}
                 {{ end }}
+                <li>
+                    <a href="https://github.com/apache/iceberg" target="_blank">
+                        <img src="{{ $.Site.BaseURL }}/img/GitHub-Mark.png" target="_blank" class="top-navbar-logo"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg" target="_blank">
+                        <img src="{{ $.Site.BaseURL }}/img/Slack_Mark_Web.png" target="_blank" class="top-navbar-logo"/>
+                    </a>
+                </li>
+                {{ partial "search.html" . }}
             </ul>
         </div>
         <!-- /.navbar-collapse -->

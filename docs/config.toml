@@ -5,8 +5,7 @@ theme= "iceberg-theme"
 
 [params]
   siteType = "docs"
-  BookTheme = 'auto'
-  BookLogo = "img/iceberg-logo-icon.png"
+  search = true
   versions.iceberg = "" # This is populated by the github deploy workflow and is equal to the branch name
   versions.nessie = "0.18.0"
   latestVersions.iceberg = "0.13.2"  # This is used for the version badge on the "latest" site version
