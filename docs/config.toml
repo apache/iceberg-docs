@@ -13,6 +13,13 @@ theme= "iceberg-theme"
   BookSection='docs' # This determines which directory will inform the left navigation menu
   disableHome=true
 
+[outputFormats.SearchIndex]
+baseName = "search"
+mediaType = "application/json"
+
+[outputs]
+home = [ "HTML", "RSS", "SearchIndex" ]
+
 [menu]
   [[menu.topnav]]
     name = "Docs"

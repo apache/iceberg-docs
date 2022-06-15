@@ -23,6 +23,13 @@ sectionPagesMenu = "main"
   icon = "slack"
   url = "https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg"  
 
+[outputFormats.SearchIndex]
+baseName = "search"
+mediaType = "application/json"
+
+[outputs]
+home = [ "HTML", "RSS", "SearchIndex" ]
+
 [menu]
   [[menu.topnav]]
     name = "Docs"
