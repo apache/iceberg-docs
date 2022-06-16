@@ -1,5 +1,5 @@
 # Hugo generated directories
-/public
+public
 resources
 !javadoc/resources
 
