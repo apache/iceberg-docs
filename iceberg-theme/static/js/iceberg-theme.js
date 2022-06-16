@@ -32,4 +32,8 @@ $('div.modal').on('show.bs.modal', function() {
 
 $("#searchclear").click(function(){
     $("#search-input").val('');
+    const results = document.querySelector('#search-results');
+    while (results.firstChild) {
+      results.removeChild(results.firstChild);
+    }
 });

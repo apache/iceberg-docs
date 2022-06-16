@@ -442,12 +442,15 @@ i.fa.fa-chevron-down {
 #search-results {
     margin-left: 5rem;
     margin-right: 5rem;
+    max-width: 80%;
     color: rgb(112, 128, 144);
+    border-color: red;
+    position: fixed;
+    z-index: 999;
 }
 
 #search-results-container {
     position: absolute;
-    background: #FFFFFF;
     width: 100%;
     padding-left: 4rem;
     padding-right: 4rem;
@@ -463,7 +466,6 @@ ul#search-results {
   width: 100%;
   overflow-y: scroll;
   border-radius: 6px;
-  z-index: 1;
 }
 
 ul#search-results  a b mark {
