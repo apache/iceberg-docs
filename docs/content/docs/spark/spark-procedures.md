@@ -105,7 +105,7 @@ This procedure invalidates all cached Spark plans that reference the affected ta
 
 #### Example
 
-Roll back `db.sample` to one day
+Roll back `db.sample` to a specific day and time.
 ```sql
 CALL catalog_name.system.rollback_to_timestamp('db.sample', TIMESTAMP '2021-06-30 00:00:00.000')
 ```
@@ -201,8 +201,9 @@ the `expire_snapshots` procedure will never remove files which are still require
 | `older_than`  | ️   | timestamp | Timestamp before which snapshots will be removed (Default: 5 days ago) |
 | `retain_last` |    | int       | Number of ancestor snapshots to preserve regardless of `older_than` (defaults to 1) |
 | `max_concurrent_deletes` |    | int       | Size of the thread pool used for delete file actions (by default, no thread pool is used) |
+| `stream_results` |    | boolean       | When true, deletion files will be sent to Spark driver by RDD partition (by default, all the files will be sent to Spark driver). This option is recommended to set to `true` to prevent Spark driver OOM from large file size |
 
-If `older_than` and `retain_last` are omitted, the table's [expiration properties](./configuration/#table-behavior-properties) will be used.
+If `older_than` and `retain_last` are omitted, the table's [expiration properties](../configuration/#table-behavior-properties) will be used.
 
 #### Output
 
@@ -214,16 +215,10 @@ If `older_than` and `retain_last` are omitted, the table's [expiration propertie
 
 #### Examples
 
-Remove snapshots older than one day, but retain the last 100 snapshots:
+Remove snapshots older than specific day and time, but retain the last 100 snapshots:
 
 ```sql
 CALL hive_prod.system.expire_snapshots('db.sample', TIMESTAMP '2021-06-30 00:00:00.000', 100)
-```
-
-Erase all snapshots older than the current timestamp but retain the last 5 snapshots:
-
-```sql
-CALL hive_prod.system.expire_snapshots(table => 'db.sample', older_than => now(), retain_last => 5)
 ```
 
 ### `remove_orphan_files`
@@ -317,7 +312,7 @@ Rewrite manifests for a table to optimize scan planning.
 
 Data files in manifests are sorted by fields in the partition spec. This procedure runs in parallel using a Spark job.
 
-See the [`RewriteManifestsAction` Javadoc](../../../javadoc/{{% icebergVersion %}}/org/apache/iceberg/actions/RewriteManifestsAction.html)
+See the [`RewriteManifests` Javadoc](../../../javadoc/{{% icebergVersion %}}/org/apache/iceberg/actions/RewriteManifests.html)
 to see more configuration options.
 
 {{< hint info >}}

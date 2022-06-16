@@ -226,7 +226,7 @@ body {
 }
 
 .markdown-body a:hover {
-  text-decoration: underline
+  text-decoration: none
 }
 
 .markdown-body hr::before {

@@ -44,7 +44,7 @@ Here are some examples.
 
 ### Spark
 
-For example, to use AWS features with Spark 3.0 and AWS clients version 2.15.40, you can start the Spark SQL shell with:
+For example, to use AWS features with Spark 3.0 and AWS clients version 2.17.131, you can start the Spark SQL shell with:
 
 ```sh
 # add Iceberg dependency
@@ -52,7 +52,7 @@ ICEBERG_VERSION={{% icebergVersion %}}
 DEPENDENCIES="org.apache.iceberg:iceberg-spark3-runtime:$ICEBERG_VERSION"
 
 # add AWS dependnecy
-AWS_SDK_VERSION=2.15.40
+AWS_SDK_VERSION=2.17.131
 AWS_MAVEN_GROUP=software.amazon.awssdk
 AWS_PACKAGES=(
     "bundle"
@@ -67,12 +67,10 @@ spark-sql --packages $DEPENDENCIES \
     --conf spark.sql.catalog.my_catalog=org.apache.iceberg.spark.SparkCatalog \
     --conf spark.sql.catalog.my_catalog.warehouse=s3://my-bucket/my/key/prefix \
     --conf spark.sql.catalog.my_catalog.catalog-impl=org.apache.iceberg.aws.glue.GlueCatalog \
-    --conf spark.sql.catalog.my_catalog.io-impl=org.apache.iceberg.aws.s3.S3FileIO \
-    --conf spark.sql.catalog.my_catalog.lock-impl=org.apache.iceberg.aws.glue.DynamoLockManager \
-    --conf spark.sql.catalog.my_catalog.lock.table=myGlueLockTable
+    --conf spark.sql.catalog.my_catalog.io-impl=org.apache.iceberg.aws.s3.S3FileIO
 ```
 
-As you can see, In the shell command, we use `--packages` to specify the additional AWS bundle and HTTP client dependencies with their version as `2.15.40`.
+As you can see, In the shell command, we use `--packages` to specify the additional AWS bundle and HTTP client dependencies with their version as `2.17.131`.
 
 ### Flink
 
@@ -86,7 +84,7 @@ ICEBERG_MAVEN_URL=$MAVEN_URL/org/apache/iceberg
 wget $ICEBERG_MAVEN_URL/iceberg-flink-runtime/$ICEBERG_VERSION/iceberg-flink-runtime-$ICEBERG_VERSION.jar
 
 # download AWS dependnecy
-AWS_SDK_VERSION=2.15.40
+AWS_SDK_VERSION=2.17.131
 AWS_MAVEN_URL=$MAVEN_URL/software/amazon/awssdk
 AWS_PACKAGES=(
     "bundle"
@@ -111,9 +109,7 @@ CREATE CATALOG my_catalog WITH (
   'type'='iceberg',
   'warehouse'='s3://my-bucket/my/key/prefix',
   'catalog-impl'='org.apache.iceberg.aws.glue.GlueCatalog',
-  'io-impl'='org.apache.iceberg.aws.s3.S3FileIO',
-  'lock-impl'='org.apache.iceberg.aws.glue.DynamoLockManager',
-  'lock.table'='myGlueLockTable'
+  'io-impl'='org.apache.iceberg.aws.s3.S3FileIO'
 );
 ```
 
@@ -126,8 +122,6 @@ catalogs:
     warehouse: s3://my-bucket/my/key/prefix
     catalog-impl: org.apache.iceberg.aws.glue.GlueCatalog
     io-impl: org.apache.iceberg.aws.s3.S3FileIO
-    lock-impl: org.apache.iceberg.aws.glue.DynamoLockManager
-    lock.table: myGlueLockTable
 ```
 
 ### Hive
@@ -148,8 +142,6 @@ SET iceberg.engine.hive.enabled=true;
 SET hive.vectorized.execution.enabled=false;
 SET iceberg.catalog.glue.catalog-impl=org.apache.iceberg.aws.glue.GlueCatalog;
 SET iceberg.catalog.glue.warehouse=s3://my-bucket/my/key/prefix;
-SET iceberg.catalog.glue.lock-impl=org.apache.iceberg.aws.glue.DynamoLockManager;
-SET iceberg.catalog.glue.lock.table=myGlueLockTable;
 
 -- suppose you have an Iceberg table database_a.table_a created by GlueCatalog
 CREATE EXTERNAL TABLE database_a.table_a
@@ -188,21 +180,23 @@ However, if you are streaming data to Iceberg, this will easily create a lot of 
 Therefore, it is recommended to turn off the archive feature in Glue by setting `glue.skip-archive` to `true`.
 For more details, please read [Glue Quotas](https://docs.aws.amazon.com/general/latest/gr/glue.html) and the [UpdateTable API](https://docs.aws.amazon.com/glue/latest/webapi/API_UpdateTable.html).
 
-#### DynamoDB for Commit Locking
+#### Optimistic Locking
 
-Glue does not have a strong guarantee over concurrent updates to a table. 
-Although it throws `ConcurrentModificationException` when detecting two processes updating a table at the same time,
-there is no guarantee that one update would not clobber the other update.
-Therefore, [DynamoDB](https://aws.amazon.com/dynamodb) can be used for Glue, so that for every commit, 
-`GlueCatalog` first obtains a lock using a helper DynamoDB table and then try to safely modify the Glue table.
+By default, Iceberg uses Glue's optimistic locking for concurrent updates to a table.
+With optimistic locking, each table has a version id. 
+If users retrieve the table metadata, Iceberg records the version id of that table. 
+Users can update the table, but only if the version id on the server side has not changed. 
+If there is a version mismatch, it means that someone else has modified the table before you did. 
+The update attempt fails, because you have a stale version of the table. 
+If this happens, Iceberg refreshes the metadata and checks if there might be potential conflict. 
+If there is no commit conflict, the operation will be retried.
+Optimistic locking guarantees atomic transaction of Iceberg tables in Glue.
+It also prevents others from accidentally overwriting your changes.
 
-This feature requires the following lock related catalog properties:
-
-1. Set `lock-impl` as `org.apache.iceberg.aws.glue.DynamoLockManager`.
-2. Set `lock.table` as the DynamoDB table name you would like to use. If the lock table with the given name does not exist in DynamoDB, a new table is created with billing mode set as [pay-per-request](https://aws.amazon.com/blogs/aws/amazon-dynamodb-on-demand-no-capacity-planning-and-pay-per-request-pricing).
-
-Other lock related catalog properties can also be used to adjust locking behaviors such as heartbeat interval.
-For more details, please refer to [Lock catalog properties](../configuration/#lock-catalog-properties). 
+{{< hint info >}}
+Please use AWS SDK version >= 2.17.131 to leverage Glue's Optimistic Locking.
+If the AWS SDK version is below 2.17.131, only in-memory lock is used. To ensure atomic transaction, you need to set up a [DynamoDb Lock Manager](#dynamodb-lock-manager).
+{{< /hint >}}
 
 #### Warehouse Location
 
@@ -293,11 +287,26 @@ Read [this AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserG
 With all the available options, we offer the following guidance when choosing the right catalog to use for your application:
 
 1. if your organization has an existing Glue metastore or plans to use the AWS analytics ecosystem including Glue, [Athena](https://aws.amazon.com/athena), [EMR](https://aws.amazon.com/emr), [Redshift](https://aws.amazon.com/redshift) and [LakeFormation](https://aws.amazon.com/lake-formation), Glue catalog provides the easiest integration.
-2. if your application requires frequent updates to table or high read and write throughput (e.g. streaming write), DynamoDB catalog provides the best performance through optimistic locking.
+2. if your application requires frequent updates to table or high read and write throughput (e.g. streaming write), Glue and DynamoDB catalog provides the best performance through optimistic locking.
 3. if you would like to enforce access control for tables in a catalog, Glue tables can be managed as an [IAM resource](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsglue.html), whereas DynamoDB catalog tables can only be managed through [item-level permission](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/specifying-conditions.html) which is much more complicated.
 4. if you would like to query tables based on table property information without the need to scan the entire catalog, DynamoDB catalog allows you to build secondary indexes for any arbitrary property field and provide efficient query performance.
 5. if you would like to have the benefit of DynamoDB catalog while also connect to Glue, you can enable [DynamoDB stream with Lambda trigger](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.Lambda.Tutorial.html) to asynchronously update your Glue metastore with table information in the DynamoDB catalog. 
 6. if your organization already maintains an existing relational database in RDS or uses [serverless Aurora](https://aws.amazon.com/rds/aurora/serverless/) to manage tables, JDBC catalog provides the easiest integration.
+
+## DynamoDb Lock Manager
+
+[Amazon DynamoDB](https://aws.amazon.com/dynamodb) can be used by `HadoopCatalog` or `HadoopTables`, so that for every commit,
+the catalog first obtains a lock using a helper DynamoDB table and then try to safely modify the Iceberg table.
+This is necessary for a file system-based catalog to ensure atomic transaction in storages like S3 that do not provide file write mutual exclusion.
+
+This feature requires the following lock related catalog properties:
+
+1. Set `lock-impl` as `org.apache.iceberg.aws.dynamodb.DynamoDbLockManager`.
+2. Set `lock.table` as the DynamoDB table name you would like to use. If the lock table with the given name does not exist in DynamoDB, a new table is created with billing mode set as [pay-per-request](https://aws.amazon.com/blogs/aws/amazon-dynamodb-on-demand-no-capacity-planning-and-pay-per-request-pricing).
+
+Other lock related catalog properties can also be used to adjust locking behaviors such as heartbeat interval.
+For more details, please refer to [Lock catalog properties](../configuration/#lock-catalog-properties).
+
 
 ## S3 FileIO
 
@@ -410,6 +419,66 @@ If for any reason you have to use S3A, here are the instructions:
 To ensure integrity of uploaded objects, checksum validations for S3 writes can be turned on by setting catalog property `s3.checksum-enabled` to `true`. 
 This is turned off by default.
 
+### S3 Tags
+
+Custom [tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html) can be added to S3 objects while writing and deleting.
+For example, to write S3 tags with Spark 3.0, you can start the Spark SQL shell with:
+```
+spark-sql --conf spark.sql.catalog.my_catalog=org.apache.iceberg.spark.SparkCatalog \
+    --conf spark.sql.catalog.my_catalog.warehouse=s3://my-bucket/my/key/prefix \
+    --conf spark.sql.catalog.my_catalog.catalog-impl=org.apache.iceberg.aws.glue.GlueCatalog \
+    --conf spark.sql.catalog.my_catalog.io-impl=org.apache.iceberg.aws.s3.S3FileIO \
+    --conf spark.sql.catalog.my_catalog.s3.write.tags.my_key1=my_val1 \
+    --conf spark.sql.catalog.my_catalog.s3.write.tags.my_key2=my_val2
+```
+For the above example, the objects in S3 will be saved with tags: `my_key1=my_val1` and `my_key2=my_val2`. Do note that the specified write tags will be saved only while object creation.
+
+When the catalog property `s3.delete-enabled` is set to `false`, the objects are not hard-deleted from S3.
+This is expected to be used in combination with S3 delete tagging, so objects are tagged and removed using [S3 lifecycle policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html).
+The property is set to `true` by default.
+
+With the `s3.delete.tags` config, objects are tagged with the configured key-value pairs before deletion.
+Users can configure tag-based object lifecycle policy at bucket level to transition objects to different tiers.
+For example, to add S3 delete tags with Spark 3.0, you can start the Spark SQL shell with: 
+
+```
+sh spark-sql --conf spark.sql.catalog.my_catalog=org.apache.iceberg.spark.SparkCatalog \
+    --conf spark.sql.catalog.my_catalog.warehouse=s3://iceberg-warehouse/s3-tagging \
+    --conf spark.sql.catalog.my_catalog.catalog-impl=org.apache.iceberg.aws.glue.GlueCatalog \
+    --conf spark.sql.catalog.my_catalog.io-impl=org.apache.iceberg.aws.s3.S3FileIO \
+    --conf spark.sql.catalog.my_catalog.s3.delete.tags.my_key3=my_val3 \
+    --conf spark.sql.catalog.my_catalog.s3.delete-enabled=false
+```
+
+For the above example, the objects in S3 will be saved with tags: `my_key3=my_val3` before deletion.
+Users can also use the catalog property `s3.delete.num-threads` to mention the number of threads to be used for adding delete tags to the S3 objects.
+
+For more details on tag restrictions, please refer [User-Defined Tag Restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html).
+
+### S3 Access Points
+
+[Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html) can be used to perform 
+S3 operations by specifying a mapping of bucket to access points. This is useful for multi-region access, cross-region access,
+disaster recovery, etc.
+
+For using cross-region access points, we need to additionally set `use-arn-region-enabled` catalog property to
+`true` to enable `S3FileIO` to make cross-region calls, it's not required for same / multi-region access points.
+
+For example, to use S3 access-point with Spark 3.0, you can start the Spark SQL shell with:
+```
+spark-sql --conf spark.sql.catalog.my_catalog=org.apache.iceberg.spark.SparkCatalog \
+    --conf spark.sql.catalog.my_catalog.warehouse=s3://my-bucket2/my/key/prefix \
+    --conf spark.sql.catalog.my_catalog.catalog-impl=org.apache.iceberg.aws.glue.GlueCatalog \
+    --conf spark.sql.catalog.my_catalog.io-impl=org.apache.iceberg.aws.s3.S3FileIO \
+    --conf spark.sql.catalog.my_catalog.s3.use-arn-region-enabled=false \
+    --conf spark.sql.catalog.test.s3.access-points.my-bucket1=arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap \
+    --conf spark.sql.catalog.test.s3.access-points.my-bucket2=arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap
+```
+For the above example, the objects in S3 on `my-bucket1` and `my-bucket2` buckets will use `arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap`
+access-point for all S3 operations.
+
+For more details on using access-points, please refer [Using access points with compatible Amazon S3 operations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-usage-examples.html).
+
 ## AWS Client Customization
 
 Many organizations have customized their way of configuring AWS clients with their own credential provider, access proxy, retry strategy, etc.
@@ -436,7 +505,7 @@ The Glue, S3 and DynamoDB clients are then initialized with the assume-role cred
 Here is an example to start Spark shell with this client factory:
 
 ```shell
-spark-sql --packages org.apache.iceberg:iceberg-spark-runtime-3.2_2.12:{{% icebergVersion %}},software.amazon.awssdk:bundle:2.15.40 \
+spark-sql --packages org.apache.iceberg:iceberg-spark3-runtime:{{% icebergVersion %}},software.amazon.awssdk:bundle:2.17.131 \
     --conf spark.sql.catalog.my_catalog=org.apache.iceberg.spark.SparkCatalog \
     --conf spark.sql.catalog.my_catalog.warehouse=s3://my-bucket/my/key/prefix \    
     --conf spark.sql.catalog.my_catalog.catalog-impl=org.apache.iceberg.aws.glue.GlueCatalog \
@@ -459,13 +528,13 @@ More details could be found [here](https://docs.aws.amazon.com/athena/latest/ug/
 [Trino](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-presto.html) that can run Iceberg.
 
 Starting with EMR version 6.5.0, EMR clusters can be configured to have the necessary Apache Iceberg dependencies installed without requiring bootstrap actions. 
-Please refer to the [official documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-create-cluster.html) on how to create a cluster with Iceberg installed.
+Please refer to the [official documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-use-cluster.html) on how to create a cluster with Iceberg installed.
 
 For versions before 6.5.0, you can use a [bootstrap action](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-bootstrap.html) similar to the following to pre-install all necessary dependencies:
 ```sh
 #!/bin/bash
 
-AWS_SDK_VERSION=2.15.40
+AWS_SDK_VERSION=2.17.131
 ICEBERG_VERSION={{% icebergVersion %}}
 MAVEN_URL=https://repo1.maven.org/maven2
 ICEBERG_MAVEN_URL=$MAVEN_URL/org/apache/iceberg
@@ -480,7 +549,7 @@ AWS_PACKAGES=(
 )
 
 ICEBERG_PACKAGES=(
-  "iceberg-spark-runtime-3.2_2.12"
+  "iceberg-spark3-runtime"
   "iceberg-flink-runtime"
 )
 

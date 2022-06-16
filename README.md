@@ -31,24 +31,40 @@ The Javadocs are in the `./javadoc` directory.
 
 ## Relationship to the Iceberg Repository
 
-The `documentation` folder in the [Iceberg repository](https://github.com/apache/iceberg) contains all the markdown docs used by the website.
-The `common` subfolder contains contents used by the landing page.
-The `versioned` subfolder contains the contents different for each version.
+All markdown pages that are specific to an Iceberg version are maintained in the iceberg repository. All pages common across all version
+releases are kept here in the iceberg-docs repo. A few exceptions are the markdown files that can be found in the `format` folder in
+the iceberg repository and contains markdown files that are copied into `./landing-page/content/common/`.
 
-During each new release, the release manager copies contents from the Iceberg repository to this docs repository and cuts a new version branch.
-Contents under `common` are copied to `./landing-page/contents/common` here,
-and contents under `versioned` are copied to `./docs/contents/docs` here.
-Javadocs generated from the release are copied to the `javadoc` directory.
+`apache/iceberg`
+- The `docs` folder in the [Iceberg repository](https://github.com/apache/iceberg) contains all the markdown docs used by the **versioned** docs site.
+- The `format` folder contains some items that are common across all versions, such as the Iceberg format specification.
+
+`apache/iceberg-docs`
+- The `docs/content/docs` folder is the target folder when copying the docs over during a version release
+- The `landing-page/content/common` folder is where you can find the common markdown files shared across all versions
+
+During each new release, the release manager will:
+1. Copy the contents under `format` in the iceberg repo to `./landing-page/content/common/` in the `main` branch
+2. Create a branch in this repo from main named for the release version
+3. Copy the contents under `docs` in the iceberg repo to `./docs/content/docs` in the **release** branch
+4. Generate the javadocs for the release and copy them into the `javadoc` directory in the release branch
+5. Update the latest branch HEAD to point to the release branch HEAD
 
 # How to Contribute
 
 ## Submitting Pull Requests
 
-Changes to the markdown contents should be submitted directly in the Iceberg repository.
+Changes to the markdown contents for **version** specific pages should be submitted directly in the Iceberg repository.
+
+Changes to the markdown contents for common pages should be submitted to this repository against the `main` branch.
 
 Changes to the website appearance (e.g. HTML, CSS changes) should be submitted to this repository against the `main` branch.
 
 Changes to the documentation of old Iceberg versions should be submitted to this repository against the specific version branch.
+
+In summary, you can open a PR against where you find the related markdown file. With the exception of `spec.md`, there are no duplicate
+markdown files between the `master` branch in the iceberg repo and the `main` branch in the iceberg-docs repo. For changes to `spec.md`,
+PRs should be opened against the iceberg repo, not the iceberg-docs repo.
 
 ## Reporting Issues
 
@@ -76,9 +92,8 @@ cd docs && hugo serve
 If you would like to see how the latest website looks based on the documentation in the Iceberg repository, you can copy docs to this repository by:
 ```shell
 rm -rf docs/content/docs
-rm -rf landing-page/content/common
-cp -r <path to iceberg repo>/docs/versioned docs/content/docs
-cp -r <path to iceberg repo>/docs/common landing-page/content/common
+cp -r <path to iceberg repo>/docs docs/content/docs
+cp -r <path to iceberg repo>/format/* landing-page/content/common/
 ```
 
 ## Scanning For Broken Links
@@ -86,6 +101,10 @@ cp -r <path to iceberg repo>/docs/common landing-page/content/common
 If you'd like to scan for broken links, one available tool is linkcheck that can be found [here](https://github.com/filiph/linkcheck).
 
 # How the Website is Deployed
+
+**Note**: If you are a release manager looking to release a new version of the website as part of an Iceberg release,
+please refer to the [Documentation Release](https://iceberg.apache.org/how-to-release/#documentation-release) section
+of the **How to Release** page.
 
 ## Landing Page Deployment
 
