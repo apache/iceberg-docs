@@ -1,0 +1,25 @@
+
+<!-- Bootstrap Core CSS -->
+<link href="{{ .Site.BaseURL }}/css/bootstrap.css" rel="stylesheet">
+
+<!-- Markdown CSS -->
+<link href="{{ .Site.BaseURL }}/css/markdown.css" rel="stylesheet">
+<link href="{{ .Site.BaseURL }}/css/katex.min.css" rel="stylesheet">
+
+<!-- Pricing CSS -->
+<link rel="stylesheet" href="{{ .Site.BaseURL }}/css/pricing.css">
+
+<!-- Local CSS -->
+{{ range .Site.Params.custom_css }}
+    <link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}">
+{{ end }}
+
+<!-- Custom CSS  -->
+<link href="{{ .Site.BaseURL }}/css/iceberg-theme.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="{{ .Site.BaseURL }}/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+<!-- Needed to render termynal animations -->
+<link href="{{ .Site.BaseURL }}/css/termynal.css" rel="stylesheet">

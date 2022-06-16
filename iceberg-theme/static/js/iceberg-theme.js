@@ -29,3 +29,7 @@ $('div.modal').on('show.bs.modal', function() {
 		}
 	}
 });
+
+$("#searchclear").click(function(){
+    $("#search-input").val('');
+});

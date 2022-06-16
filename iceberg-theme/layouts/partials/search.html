@@ -1,6 +1,6 @@
 {{ if default true .Site.Params.search }}
-<span class="page-scroll navbar-brand">
-  <input type="text" id="search-input" placeholder="Search..." maxlength="64" data-hotkeys="s/">
-  <ul id="search-results">"Search Results Here"</ul>
-</span>
+  <div class="btn-group vertical-center">
+      <input type="search" class="form-control" id="search-input" placeholder="Search..." maxlength="64" data-hotkeys="s/">
+      <span id="searchclear" class="glyphicon glyphicon-remove-circle"></span>
+  </div>
 {{ end }}

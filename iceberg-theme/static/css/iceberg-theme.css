@@ -185,10 +185,14 @@ a.page-scroll {
     padding-top: 80px;
 }
 
+.center-content {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
 /*!
  * Increase the navbar breakpoint to prevent spilling into new line
  */
-@media (max-width: 1420px) {
+@media (max-width: 1280px) {
     .navbar-header {
         float: none;
     }
@@ -211,7 +215,11 @@ a.page-scroll {
     }
     .navbar-nav {
         float: none!important;
-		margin-top: 7.5px;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
 	}
 	.navbar-nav>li {
         float: none;
@@ -371,9 +379,19 @@ i.fa.fa-chevron-down {
 /*search*/
 .container {
     width: 100%;
-    padding-right: 4rem;
+    padding-right: 2rem;
     padding-left: 2rem;
+    position: relative;
 }
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
 /* Add a black background color to the top navigation bar */
 .topnav {
   overflow: hidden;
@@ -404,13 +422,73 @@ i.fa.fa-chevron-down {
 }
 
 /* Style the search box inside the navigation bar */
-.topnav input[type=text] {
-  float: right;
-  padding: 6px;
-  border: none;
-  margin-top: 8px;
-  margin-right: 16px;
-  font-size: 17px;
+#search-input {
+  float: top;
+}
+
+#searchclear {
+    position: absolute;
+    right: 5px;
+    top: 0;
+    bottom: 0;
+    height: 14px;
+    margin: auto;
+    font-size: 14px;
+    cursor: pointer;
+    color: #ccc;
+}
+
+/* Style the search results and search results container */
+#search-results {
+    margin-left: 5rem;
+    margin-right: 5rem;
+    color: rgb(112, 128, 144);
+}
+
+#search-results-container {
+    position: absolute;
+    background: #FFFFFF;
+    width: 100%;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    border-bottom-color: black;
+    border-bottom-width: 5px;
+}
+
+ul#search-results {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  float: left;
+  width: 100%;
+  overflow-y: scroll;
+  border-radius: 6px;
+  z-index: 1;
+}
+
+ul#search-results  a b mark {
+    background-color: #B8E1F3;
+}
+ul#search-results li {
+  color: rgb(112, 128, 144);
+  background-color: white;
+  border-bottom: 1px solid #e7e8eb;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  margin: 0px;
+  display: grid;
+}
+
+
+
+ul#search-results li p {
+   font-weight: bold;
+    margin-bottom: 4px;
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid #777777;
 }
 
 /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
