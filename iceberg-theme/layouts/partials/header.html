@@ -12,10 +12,9 @@
 <!-- - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.-->
 <!-- - See the License for the specific language governing permissions and-->
 <!-- - limitations under the License.-->
-<!-- Navigation -->
+<!-- Top Navigation Bar -->
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container ">
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
@@ -25,11 +24,20 @@
             </button>
             <a class="page-scroll navbar-brand" href="{{ .Site.BaseURL }}"><img class="top-navbar-logo" src="{{ .Site.BaseURL }}/img/iceberg-logo-icon.png"/> {{ .Site.Title }}</a>
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             {{ partial "search.html" . }}
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle vertical-center" type="button" data-toggle="dropdown">Dropdown Example
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="#">HTML</a></li>
+                <li><a href="#">CSS</a></li>
+                <li><a href="#">JavaScript</a></li>
+              </ul>
+            </div>
             <ul class="nav navbar-nav navbar-right">
                 {{ $currentPage := . }}
+                <!-- Loop through the topnav menu defined in config.toml -->
                 {{ range .Site.Menus.topnav }}
                 {{ $menuContainsCurrentPage := eq .Name $currentPage.Page.Title}}
                     {{ if and (eq $.Site.Params.siteType "docs") (eq (lower .Name) "docs") }}
@@ -54,14 +62,12 @@
                 </li>
             </ul>
         </div>
-        <!-- /.navbar-collapse -->
     </div>
-    <!-- /.container -->
 </nav>
 {{ partial "search-results.html" . }}
 {{ if and .IsHome (not .Site.Params.disableHome) }}
+    <!-- Show the Iceberg marketing splash content only when on the homepage-->
     <section id="intro">
-        <!-- Header -->
         <div class="intro-header">
             <div class="container">
             <div class="row">
@@ -78,11 +84,7 @@
                 </div>
                 </div>
             </div>
-
             </div>
-            <!-- /.container -->
-
         </div>
-        <!-- /.intro-header -->
     </section>
 {{ end }}
