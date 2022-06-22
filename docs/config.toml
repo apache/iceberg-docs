@@ -83,26 +83,31 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     identifier = "_trino"
     weight = 500
     url = "https://trino.io/docs/current/connector/iceberg.html"
+    post = ' <i class="fa fa-external-link fa-xs"></i>'
   [[menu.main]]
     name = "Presto"
     identifier = "_presto"
     weight = 600
     url = "https://prestodb.io/docs/current/connector/iceberg.html"
+    post = ' <i class="fa fa-external-link fa-xs"></i>'
   [[menu.main]]
     name = "Dremio"
     identifier = "_dremio"
     weight = 700
     url = "https://docs.dremio.com/data-formats/apache-iceberg/"
+    post = ' <i class="fa fa-external-link fa-fw"></i>'
   [[menu.main]]
     name = "Amazon Athena"
     identifier = "_athena"
     weight = 800
     url = "https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html"
+    post = ' <i class="fa fa-external-link fa-fw"></i>'
   [[menu.main]]
     name = "Amazon EMR"
     identifier = "_emr"
     weight = 900
     url = "https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-create-cluster.html"
+    post = ' <i class="fa fa-external-link fa-fw"></i>'
   [[menu.main]]
     name = "Integrations"
     weight = 1000
@@ -126,29 +131,34 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     identifier = "_donate"
     parent = "ASF"
     url = "https://www.apache.org/foundation/sponsorship.html"
+    post = ' <i class="fa fa-external-link fa-fw"></i>'
     weight = 1700
   [[menu.asflinks]]
     name = "Events"
     identifier = "_events"
     url = "https://www.apache.org/events/current-event.html"
+    post = ' <i class="fa fa-external-link fa-fw"></i>'
     parent = "ASF"
     weight = 1800
   [[menu.asflinks]]
     name = "License"
     identifier = "_license"
     url = "https://www.apache.org/licenses/"
+    post = ' <i class="fa fa-external-link fa-xs"></i>'
     parent = "ASF"
     weight = 1900
   [[menu.asflinks]]
     name = "Security"
     identifier = "_security"
     url = "https://www.apache.org/security/"
+    post = ' <i class="fa fa-external-link fa-fw"></i>'
     parent = "ASF"
     weight = 2000
   [[menu.asflinks]]
     name = "Sponsors"
     identifier = "_sponsors"
     url = "https://www.apache.org/foundation/thanks.html"
+    post = ' <i class="fa fa-external-link fa-fw"></i>'
     parent = "ASF"
     weight = 2100
 

@@ -275,6 +275,7 @@ div.sidebar {
 
 .sidebar li a {
     color: black;
+    display: flex;
 }
 
 .sidebar li a:hover {
@@ -285,17 +286,21 @@ div.sidebar {
     color: #2879BE;
 }
 
+i {
+  justify-content: center;
+}
+
 i.fa.fa-chevron-right {
- float: right;
+ margin-left: auto;
 }
 
 i.fa.fa-chevron-down {
- float: right;
+ margin-left: auto;
 }
 
 .chevron-toggle .fa-chevron-down,
 .chevron-toggle.collapsed .fa-chevron-right {
-    display: inline-block;
+    display: inherit;
 }
 .chevron-toggle .fa-chevron-right,
 .chevron-toggle.collapsed .fa-chevron-down {
