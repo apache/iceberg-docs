@@ -135,6 +135,12 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     name = "API"
     weight = 1100
   [[menu.main]]
+    name = "Javadoc"
+    identifier = "_javadoc"
+    url = "/../../javadoc/latest"
+    post = ' <i class="fa fa-external-link fa-xs"></i>'
+    weight = 1200
+  [[menu.main]]
     name = "Community"
     weight = 1200
   [[menu.main]]

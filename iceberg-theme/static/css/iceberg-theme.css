@@ -460,6 +460,7 @@ i.fa.fa-chevron-down {
     padding-right: 4rem;
     border-bottom-color: black;
     border-bottom-width: 5px;
+    z-index: 999;
 }
 
 ul#search-results {

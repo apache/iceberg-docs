@@ -1,6 +1,7 @@
 ---
-title: Introduction
-type: docs
+title: "Home"
+menu: main
+weight: 0
 ---
 <!--
  - Licensed to the Apache Software Foundation (ASF) under one or more
