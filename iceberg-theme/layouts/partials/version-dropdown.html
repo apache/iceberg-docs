@@ -12,8 +12,15 @@
 <!-- - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.-->
 <!-- - See the License for the specific language governing permissions and-->
 <!-- - limitations under the License.-->
-{{ if default true .Site.Params.search }}
-  <div>
-        <input type="search" class="form-control" id="search-input" placeholder="Search..." maxlength="64" data-hotkeys="s/">
+<div class="versions-dropdown">
+  <span>{{ $.Site.Params.latestVersions.iceberg }}</span><i class="fa fa-chevron-down"></i>
+  <div class="versions-dropdown-content">
+    <ul>
+    {{ range $.Site.Menus.versions }}
+      <li>
+        <a href="{{ .URL }}">{{ .Name }}</a>
+      </li>
+    {{ end }}
+    </ul>
   </div>
-{{ end }}
+</div>

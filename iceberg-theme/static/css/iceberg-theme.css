@@ -332,7 +332,7 @@ i.fa.fa-chevron-down {
   }
 
 @media screen and (max-width: 1280px) {
-    .sidebar { display: none; }  /* Hide the TOC if the page is less than 1280px */
+    .sidebar { display: none; }  /* Hide the sidebar if the page is less than 1280px */
   }
 
 /* Style for the hint shortcode */
@@ -379,6 +379,10 @@ i.fa.fa-chevron-down {
 }
 .navbar-fixed-top {
     position: sticky;
+    display: flex;
+    gap: 15px;
+    justify-content: start;
+    align-items: center;
 }
 
 /*search*/
@@ -426,11 +430,6 @@ i.fa.fa-chevron-down {
   color: white;
 }
 
-/* Style the search box inside the navigation bar */
-#search-input {
-  float: top;
-}
-
 #searchclear {
     position: absolute;
     right: 5px;
@@ -449,9 +448,9 @@ i.fa.fa-chevron-down {
     margin-right: 5rem;
     max-width: 80%;
     color: rgb(112, 128, 144);
-    border-color: red;
-    position: fixed;
-    z-index: 999;
+    background-color: #f9f9f9;
+    max-height: 50%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 #search-results-container {
@@ -498,6 +497,14 @@ hr {
 	border-top: 1px solid #777777;
 }
 
+.topnav-page-selection {
+    margin-left: auto;
+}
+
+.topnav-page-selection a {
+    color: #000000;
+    text-decoration: none;
+}
 /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
 @media screen and (max-width: 600px) {
   .topnav a, .topnav input[type=text] {
@@ -511,4 +518,43 @@ hr {
   .topnav input[type=text] {
     border: 1px solid #ccc;
   }
+}
+
+@media screen and (max-width: 1280px) {
+  .topnav-page-selection {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .navbar-brand {
+    display: none;
+  }
+}
+
+.versions-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.versions-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.versions-dropdown-content ul {
+    list-style-type: none;
+}
+
+.versions-dropdown-content a {
+    color: black;
+    text-decoration: none;
+}
+
+.versions-dropdown:hover .versions-dropdown-content {
+  display: block;
 }

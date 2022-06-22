@@ -20,6 +20,26 @@ mediaType = "application/json"
 home = [ "HTML", "RSS", "SearchIndex" ]
 
 [menu]
+  [[menu.versions]]
+    name = "latest"
+    url = "/../latest"
+    weight = 1
+  [[menu.versions]]
+    name = "0.13.2"
+    url = "/../0.13.2"
+    weight = 997
+  [[menu.versions]]
+    name = "0.13.1"
+    url = "/../0.13.1"
+    weight = 998
+  [[menu.versions]]
+    name = "0.13.0"
+    url = "/../0.13.0"
+    weight = 999
+  [[menu.versions]]
+    name = "0.12.1"
+    url = "/../0.12.1"
+    weight = 1000
   [[menu.topnav]]
     name = "Docs"
     url = "/docs/latest"

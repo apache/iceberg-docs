@@ -14,8 +14,7 @@
 <!-- - limitations under the License.-->
 <!-- Top Navigation Bar -->
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container ">
-        <div class="navbar-header page-scroll">
+        <div>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
@@ -24,45 +23,32 @@
             </button>
             <a class="page-scroll navbar-brand" href="{{ .Site.BaseURL }}"><img class="top-navbar-logo" src="{{ .Site.BaseURL }}/img/iceberg-logo-icon.png"/> {{ .Site.Title }}</a>
         </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             {{ partial "search.html" . }}
-            <div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle vertical-center" type="button" data-toggle="dropdown">Dropdown Example
-              <span class="caret"></span></button>
-              <ul class="dropdown-menu">
-                <li><a href="#">HTML</a></li>
-                <li><a href="#">CSS</a></li>
-                <li><a href="#">JavaScript</a></li>
-              </ul>
-            </div>
-            <ul class="nav navbar-nav navbar-right">
+            {{ partial "version-dropdown.html" . }}
                 {{ $currentPage := . }}
                 <!-- Loop through the topnav menu defined in config.toml -->
                 {{ range .Site.Menus.topnav }}
                 {{ $menuContainsCurrentPage := eq .Name $currentPage.Page.Title}}
                     {{ if and (eq $.Site.Params.siteType "docs") (eq (lower .Name) "docs") }}
-                    <li>
-                        <a id="active" class="page-scroll" href="{{ .URL }}">{{ .Name }}</a>
-                    </li>
+                    <div class="topnav-page-selection">
+                        <a id="active" href="{{ .URL }}">{{ .Name }}</a>
+                    </div>
                     {{ else }}
-                    <li>
-                        <a {{ if $menuContainsCurrentPage }}id="active"{{ end }} {{ if hasPrefix .Identifier "_" }}target="_blank"{{ end }} class="page-scroll" href="{{ .URL }}">{{ .Name }}</a>
-                    </li>
+                    <div class="topnav-page-selection">
+                        <a {{ if $menuContainsCurrentPage }}id="active"{{ end }} {{ if hasPrefix .Identifier "_" }}target="_blank"{{ end }} href="{{ .URL }}">{{ .Name }}</a>
+                    </div class="topnav-page-selection">
                     {{ end }}
                 {{ end }}
-                <li>
+                <div class="topnav-page-selection">
                     <a href="https://github.com/apache/iceberg" target="_blank">
                         <img src="{{ $.Site.BaseURL }}/img/GitHub-Mark.png" target="_blank" class="top-navbar-logo"/>
                     </a>
-                </li>
-                <li>
+                </div>
+                <div class="topnav-page-selection">
                     <a href="https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg" target="_blank">
                         <img src="{{ $.Site.BaseURL }}/img/Slack_Mark_Web.png" target="_blank" class="top-navbar-logo"/>
                     </a>
-                </li>
-            </ul>
-        </div>
-    </div>
+                </div>
 </nav>
 {{ partial "search-results.html" . }}
 {{ if and .IsHome (not .Site.Params.disableHome) }}
