@@ -13,11 +13,11 @@
 <!-- - See the License for the specific language governing permissions and-->
 <!-- - limitations under the License.-->
 <div class="versions-dropdown">
-  <span>{{ $.Site.Params.latestVersions.iceberg }}</span><i class="fa fa-chevron-down"></i>
+  <span>{{ $.Site.Params.latestVersions.iceberg }}</span> <i class="fa fa-chevron-down"></i>
   <div class="versions-dropdown-content">
     <ul>
     {{ range $.Site.Menus.versions }}
-      <li>
+      <li class="versions-dropdown-selection">
         <a href="{{ .URL }}">{{ .Name }}</a>
       </li>
     {{ end }}

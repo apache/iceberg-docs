@@ -1,4 +1,5 @@
 ---
+title: How to Verify a Release
 url: how-to-verify-a-release
 disableSidebar: true
 ---

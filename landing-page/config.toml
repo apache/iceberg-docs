@@ -79,10 +79,6 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     url = "/releases"
     weight = 600
   [[menu.topnav]]
-    name = "Roadmap"
-    url = "/roadmap"
-    weight = 700
-  [[menu.topnav]]
     name = "Community"
     url = "/community"
     weight = 800
@@ -94,6 +90,66 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     name = "Talks"
     url = "/talks"
     weight = 1000
+  [[menu.topnav]]
+    name = "Project"
+    weight = 1100
+  [[menu.topnav]]
+    name = "Roadmap"
+    parent = "Project"
+    url = "/roadmap"
+  [[menu.topnav]]
+    name = "How To Release"
+    parent = "Project"
+    url = "/how-to-release"
+  [[menu.topnav]]
+    name = "How to Verify a Release"
+    parent = "Project"
+    url = "/how-to-verify-a-release"
+  [[menu.topnav]]
+    name = "Spec"
+    url = "/spec"
+    parent = "Project"
+  [[menu.topnav]]
+    name = "View Spec"
+    url = "/view-spec"
+    parent = "Project"
+  [[menu.topnav]]
+    name = "Terms"
+    url = "/terms"
+    parent = "Project"
+  [[menu.topnav]]
+    name = "ASF"
+    weight = 1200
+  [[menu.topnav]]
+    name = "License"
+    identifier = "_license"
+    parent = "ASF"
+    url = "https://www.apache.org/licenses/"
+    post = ' <i class="fa fa-external-link fa-xs"></i>'
+  [[menu.topnav]]
+    name = "Security"
+    identifier = "_security"
+    parent = "ASF"
+    url = "https://www.apache.org/security/"
+    post = ' <i class="fa fa-external-link fa-xs"></i>'
+  [[menu.topnav]]
+    name = "Sponsors"
+    identifier = "_sponsors"
+    parent = "ASF"
+    url = "https://www.apache.org/foundation/thanks.html"
+    post = ' <i class="fa fa-external-link fa-xs"></i>'
+  [[menu.topnav]]
+    name = "Donate"
+    identifier = "_donate"
+    parent = "ASF"
+    url = "https://www.apache.org/foundation/sponsorship.html"
+    post = ' <i class="fa fa-external-link fa-xs"></i>'
+  [[menu.topnav]]
+    name = "Events"
+    identifier = "_events"
+    parent = "ASF"
+    url = "https://www.apache.org/events/current-event.html"
+    post = ' <i class="fa fa-external-link fa-xs"></i>'
 
 [markup.goldmark.renderer]
 unsafe= true

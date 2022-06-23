@@ -1,4 +1,6 @@
 baseURL = ""  # This is populated by the github deploy workflow and is equal to "<domainName>/docs/<version|latest>"
+canonifyURLs = "true"
+relativeURLs = "true"
 languageCode = "en-us"
 title = "Apache Iceberg"
 theme= "iceberg-theme"
@@ -19,26 +21,34 @@ mediaType = "application/json"
 home = [ "HTML", "RSS", "SearchIndex" ]
 
 [menu]
+  # Versions dropdown menu
   [[menu.versions]]
     name = "latest"
+    pre = "relative"
     url = "../latest"
     weight = 1
   [[menu.versions]]
     name = "0.13.2"
+    pre = "relative"
     url = "../0.13.2"
     weight = 997
   [[menu.versions]]
     name = "0.13.1"
+    pre = "relative"
     url = "../0.13.1"
     weight = 998
   [[menu.versions]]
     name = "0.13.0"
+    pre = "relative"
     url = "../0.13.0"
     weight = 999
   [[menu.versions]]
     name = "0.12.1"
+    pre = "relative"
     url = "../0.12.1"
     weight = 1000
+
+  # Top navbar menu
   [[menu.topnav]]
     name = "Docs"
     url = "/docs/latest"
@@ -61,24 +71,93 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     weight = 500
   [[menu.topnav]]
     name = "Releases"
+    pre = "relative"
     url = "../../releases"
     weight = 600
   [[menu.topnav]]
+    name = "Project"
+    weight = 1100
+  [[menu.topnav]]
     name = "Roadmap"
+    parent = "Project"
+    pre = "relative"
     url = "../../roadmap"
+  [[menu.topnav]]
+    name = "How To Release"
+    parent = "Project"
+    pre = "relative"
+    url = "../../how-to-release"
+  [[menu.topnav]]
+    name = "How to Verify a Release"
+    parent = "Project"
+    pre = "relative"
+    url = "../../how-to-verify-a-release"
+  [[menu.topnav]]
+    name = "Spec"
+    pre = "relative"
+    url = "../../spec"
+    parent = "Project"
+  [[menu.topnav]]
+    name = "View Spec"
+    pre = "relative"
+    url = "../../view-spec"
+    parent = "Project"
+  [[menu.topnav]]
+    name = "Terms"
+    pre = "relative"
+    url = "../../terms"
+    parent = "Project"
     weight = 700
   [[menu.topnav]]
     name = "Community"
+    pre = "relative"
     url = "../../community"
     weight = 800
   [[menu.topnav]]
     name = "Blogs"
+    pre = "relative"
     url = "../../blogs"
     weight = 900
   [[menu.topnav]]
     name = "Talks"
+    pre = "relative"
     url = "../../talks"
     weight = 1000
+  [[menu.topnav]]
+    name = "ASF"
+    weight = 1200
+  [[menu.topnav]]
+    name = "License"
+    identifier = "_license"
+    parent = "ASF"
+    url = "https://www.apache.org/licenses/"
+    post = ' <i class="fa fa-external-link fa-xs"></i>'
+  [[menu.topnav]]
+    name = "Security"
+    identifier = "_security"
+    parent = "ASF"
+    url = "https://www.apache.org/security/"
+    post = ' <i class="fa fa-external-link fa-xs"></i>'
+  [[menu.topnav]]
+    name = "Sponsors"
+    identifier = "_sponsors"
+    parent = "ASF"
+    url = "https://www.apache.org/foundation/thanks.html"
+    post = ' <i class="fa fa-external-link fa-xs"></i>'
+  [[menu.topnav]]
+    name = "Donate"
+    identifier = "_donate"
+    parent = "ASF"
+    url = "https://www.apache.org/foundation/sponsorship.html"
+    post = ' <i class="fa fa-external-link fa-xs"></i>'
+  [[menu.topnav]]
+    name = "Events"
+    identifier = "_events"
+    parent = "ASF"
+    url = "https://www.apache.org/events/current-event.html"
+    post = ' <i class="fa fa-external-link fa-xs"></i>'
+
+  # Main menu, docs site left nav
   [[menu.main]]
     name = "Introduction"
     url = "/"
@@ -135,55 +214,6 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     weight = 1100
   [[menu.main]]
     name = "Javadoc"
-    identifier = "_javadoc"
+    pre = "relative"
     url = "../../javadoc/latest"
-    post = ' <i class="fa fa-external-link fa-xs"></i>'
     weight = 1200
-  [[menu.main]]
-    name = "Community"
-    weight = 1200
-  [[menu.main]]
-    name = "Format"
-    weight = 1300
-  [[menu.main]]
-    name = "Project"
-    weight = 1400
-  [[menu.main]]
-    name = "Releases"
-    weight = 1500
-  [[menu.asflinks]]
-    name = "Donate"
-    identifier = "_donate"
-    parent = "ASF"
-    url = "https://www.apache.org/foundation/sponsorship.html"
-    post = ' <i class="fa fa-external-link fa-fw"></i>'
-    weight = 1700
-  [[menu.asflinks]]
-    name = "Events"
-    identifier = "_events"
-    url = "https://www.apache.org/events/current-event.html"
-    post = ' <i class="fa fa-external-link fa-fw"></i>'
-    parent = "ASF"
-    weight = 1800
-  [[menu.asflinks]]
-    name = "License"
-    identifier = "_license"
-    url = "https://www.apache.org/licenses/"
-    post = ' <i class="fa fa-external-link fa-xs"></i>'
-    parent = "ASF"
-    weight = 1900
-  [[menu.asflinks]]
-    name = "Security"
-    identifier = "_security"
-    url = "https://www.apache.org/security/"
-    post = ' <i class="fa fa-external-link fa-fw"></i>'
-    parent = "ASF"
-    weight = 2000
-  [[menu.asflinks]]
-    name = "Sponsors"
-    identifier = "_sponsors"
-    url = "https://www.apache.org/foundation/thanks.html"
-    post = ' <i class="fa fa-external-link fa-fw"></i>'
-    parent = "ASF"
-    weight = 2100
-

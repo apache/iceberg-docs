@@ -23,7 +23,7 @@
 <!--                    Use this line below if you want the active section in the sidebar to be highlighted-->
 <!--                    <a id="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}" href="#">-->
                     <a class="chevron-toggle {{if not (or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .)) }} collapsed{{end}}" data-toggle="collapse" data-parent="full" href="#{{ .Name }}">
-                        <span>{{ .Pre }}{{ .Name }}{{ .Post }}</span>
+                        <span>{{ .Name }}{{ .Post }}</span>
                         <i class="fa fa-chevron-right"></i>
                         <i class="fa fa-chevron-down"></i>
                     </a>
@@ -32,44 +32,17 @@
                 <ul class="sub-menu">
                     {{ range .Children }}
                         <li>
-                            <a id="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}" href="{{ if isset .Page.Params "external" }}{{ .Page.Params.external }}{{ else if isset .Page.Params "relurl" }}{{ .Page.Params.relurl }}{{ else }}{{ .URL }}{{ end }}" {{ if isset .Page.Params "external" }}target="_blank"{{ end }}>{{ .Name }}</a>
+                            <a id="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}" href="{{ if isset .Page.Params "external" }}{{ .Page.Params.external }}{{ else if isset .Page.Params "relurl" }}{{ $.Site.BaseURL }}{{ .Page.Params.relurl }}{{ else }}{{ .URL }}{{ end }}" {{ if isset .Page.Params "external" }}target="_blank"{{ end }}>{{ .Name }}</a>
                         </li>
                     {{ end }}
                 </ul>
         </div>
             {{ else }}
                 <li>
-                    <a {{ if hasPrefix .Identifier "_" }}target="_blank"{{ end }} href="{{ .URL }}">
-                        <span>{{ .Pre }}{{ .Name }}{{ .Post }}</span>
+                    <a id="{{ if eq $currentPage.Title .Name }}active{{ end }}" {{ if hasPrefix .Identifier "_" }}target="_blank"{{ end }} href="{{ if eq .Pre "relative" }}{{ $.Site.BaseURL }}{{ .URL }}{{ else }}{{ .URL }}{{ end }}">
+                        <span>{{ .Name }}{{ .Post }}</span>
                     </a>
                 </li>
             {{ end }}
         {{ end }}
-
-<!--        `asflinks` menu-->
-        {{ range .Site.Menus.asflinks }}
-        {{ if .HasChildren }}
-        {{ $menuContainsCurrentPage := eq (lower .Name) $currentPage.Section}}
-                        <li>
-<!--                    Use this line below if you want the active section in the sidebar to be highlighted-->
-<!--                    <a id="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}" href="#">-->
-                    <a class="chevron-toggle {{ if not $menuContainsCurrentPage }}collapsed{{ end }}" data-toggle="collapse" data-parent="full" href="#{{ .Name }}">
-                        <span>{{ .Pre }}{{ .Name }}{{ .Post }}</span>
-                        <i class="fa fa-chevron-right"></i>
-                        <i class="fa fa-chevron-down"></i>
-                    </a>
-                </li>
-        <div id="{{ .Name }}" class="{{ if $menuContainsCurrentPage }}collapse in{{ else }}collapse{{ end }}">
-                <ul class="sub-menu">
-        {{ range .Children }}
-                <li>
-                    <a target="_blank" href="{{ .URL }}">
-                        <span>{{ .Pre }}{{ .Name }}{{ .Post }}</span>
-                    </a>
-                </li>
-        {{ end }}
-                </ul>
-        </div>
-      {{ end }}
-    {{ end }}
 {{ end }}
