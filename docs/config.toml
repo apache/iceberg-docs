@@ -21,23 +21,23 @@ home = [ "HTML", "RSS", "SearchIndex" ]
 [menu]
   [[menu.versions]]
     name = "latest"
-    url = "/../latest"
+    url = "../latest"
     weight = 1
   [[menu.versions]]
     name = "0.13.2"
-    url = "/../0.13.2"
+    url = "../0.13.2"
     weight = 997
   [[menu.versions]]
     name = "0.13.1"
-    url = "/../0.13.1"
+    url = "../0.13.1"
     weight = 998
   [[menu.versions]]
     name = "0.13.0"
-    url = "/../0.13.0"
+    url = "../0.13.0"
     weight = 999
   [[menu.versions]]
     name = "0.12.1"
-    url = "/../0.12.1"
+    url = "../0.12.1"
     weight = 1000
   [[menu.topnav]]
     name = "Docs"
@@ -61,23 +61,23 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     weight = 500
   [[menu.topnav]]
     name = "Releases"
-    url = "/releases"
+    url = "../../releases"
     weight = 600
   [[menu.topnav]]
     name = "Roadmap"
-    url = "/../../roadmap"
+    url = "../../roadmap"
     weight = 700
   [[menu.topnav]]
     name = "Community"
-    url = "/../../community"
+    url = "../../community"
     weight = 800
   [[menu.topnav]]
     name = "Blogs"
-    url = "/../../blogs"
+    url = "../../blogs"
     weight = 900
   [[menu.topnav]]
     name = "Talks"
-    url = "/../../talks"
+    url = "../../talks"
     weight = 1000
   [[menu.main]]
     name = "Introduction"
@@ -136,7 +136,7 @@ home = [ "HTML", "RSS", "SearchIndex" ]
   [[menu.main]]
     name = "Javadoc"
     identifier = "_javadoc"
-    url = "/../../javadoc/latest"
+    url = "../../javadoc/latest"
     post = ' <i class="fa fa-external-link fa-xs"></i>'
     weight = 1200
   [[menu.main]]
