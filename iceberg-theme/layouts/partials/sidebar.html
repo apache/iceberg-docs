@@ -22,13 +22,13 @@
                 <li>
 <!--                    Use this line below if you want the active section in the sidebar to be highlighted-->
 <!--                    <a id="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}" href="#">-->
-                    <a class="chevron-toggle {{ if not $menuContainsCurrentPage }}collapsed{{ end }}" data-toggle="collapse" data-parent="full" href="#{{ .Name }}">
+                    <a class="chevron-toggle {{if not (or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .)) }} collapsed{{end}}" data-toggle="collapse" data-parent="full" href="#{{ .Name }}">
                         <span>{{ .Pre }}{{ .Name }}{{ .Post }}</span>
                         <i class="fa fa-chevron-right"></i>
                         <i class="fa fa-chevron-down"></i>
                     </a>
                 </li>
-        <div id="{{ .Name }}" class="{{ if $menuContainsCurrentPage }}collapse in{{ else }}collapse{{ end }}">
+        <div id="{{ .Name }}" class="{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}collapse in{{ else }}collapse{{end}}">
                 <ul class="sub-menu">
                     {{ range .Children }}
                         <li>
