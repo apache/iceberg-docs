@@ -66,19 +66,19 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     weight = 600
   [[menu.topnav]]
     name = "Roadmap"
-    url = "/roadmap"
+    url = "/../../roadmap"
     weight = 700
   [[menu.topnav]]
     name = "Community"
-    url = "/community"
+    url = "/../../community"
     weight = 800
   [[menu.topnav]]
     name = "Blogs"
-    url = "/blogs"
+    url = "/../../blogs"
     weight = 900
   [[menu.topnav]]
     name = "Talks"
-    url = "/talks"
+    url = "/../../talks"
     weight = 1000
   [[menu.main]]
     name = "Introduction"
