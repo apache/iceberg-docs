@@ -25,6 +25,7 @@
         </div>
             {{ partial "search.html" . }}
             {{ partial "version-dropdown.html" . }}
+    <div class="navbar-menu-fixed-top">
                 {{ $currentPage := . }}
                 <!-- Loop through the topnav menu defined in config.toml -->
                 {{ range .Site.Menus.topnav }}
@@ -67,6 +68,7 @@
                         <img src="{{ $.Site.BaseURL }}/img/Slack_Mark_Web.png" target="_blank" class="top-navbar-logo"/>
                     </a>
                 </div>
+        </div>
 </nav>
 {{ partial "search-results.html" . }}
 {{ if and .IsHome (not .Site.Params.disableHome) }}

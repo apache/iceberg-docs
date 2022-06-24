@@ -60,8 +60,9 @@ body {
   line-height: 1.5;
   word-wrap: break-word;
   min-width: 1024px;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-top: 1rem;
+  padding-left: 25%;
+  padding-right: 25%;
   padding-bottom: 100px;
 }
 

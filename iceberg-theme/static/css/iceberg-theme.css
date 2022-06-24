@@ -9,7 +9,7 @@ html {
     width: 100%;
     height: 100%;
     font-size: 15px;
-    scroll-padding-top: 3rem;
+    scroll-padding-top: 4rem;
     scroll-behavior: smooth;
 }
 
@@ -248,24 +248,41 @@ h4:hover a { visibility: visible}
 /* Fixed table of contents */
 .grid-container {
     display: grid;
-    grid-template-columns: 5fr 1fr;
     grid-gap: 1rem;
+    overflow-y: scroll;
     height: 100vh;
     width: 100vw;
     padding-top: 1rem;
-    overflow-y: scroll;
+}
+
+#toc {
+    position: fixed;
+    right: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0);
+    display: block;
+    flex: 0 0 20rem;
+    font-size: 14px;
+    width: 20rem;
+    min-width: 0;
+    padding: 2rem;
+    margin-top: 2rem;
+    list-style-type: none;
 }
 
 div.sidebar {
+    position: fixed;
     text-decoration: none;
     left: 0;
     top: 0;
     overflow-y: scroll;
-    background-color:#FFF;
+    background-color: rgba(0,0,0,0);
     display: block;
     font-size: 16px;
-    min-width: 15rem;
+    min-width: 20rem;
     list-style-type: none;
+    padding: 2rem;
+    margin-top: 2rem;
 }
 
 .sidebar ul {
@@ -305,17 +322,6 @@ i.fa.fa-chevron-down {
 .chevron-toggle .fa-chevron-right,
 .chevron-toggle.collapsed .fa-chevron-down {
     display: none;
-}
-
-#toc {
-    right: 0;
-    top: 0;
-    background-color:#FFF;
-    display: block;
-    font-size: 0.6rem;
-    width: 20rem;
-    min-width: 15rem;
-    list-style-type: none;
 }
 
 #toc ul {
@@ -378,6 +384,15 @@ i.fa.fa-chevron-down {
     margin-bottom: 0;
 }
 .navbar-fixed-top {
+    position: sticky;
+    display: flex;
+    gap: 15px;
+    justify-content: start;
+    align-items: center;
+}
+
+.navbar-menu-fixed-top {
+    margin-left: 200px;
     position: sticky;
     display: flex;
     gap: 15px;

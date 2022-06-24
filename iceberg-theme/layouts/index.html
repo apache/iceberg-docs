@@ -33,20 +33,20 @@
 {{ partial "header.html" . }}
 <body dir="{{ .Site.Language.LanguageDirection | default " ltr" }}">
         {{ if and (not .Params.disableSidebar) (not .Params.disableToc) }}
-        <div class="grid-container" style="grid-template-columns: 1fr 5fr 1fr">
+        <div class="grid-container">
             <div class="sidebar markdown-body"><div id="full">{{ partial "sidebar.html" . }}</div></div>
             <div id="content" class="markdown-body">{{- .Content -}}</div>
             {{ partial "toc.html" . }}
         {{ else if not .Params.disableSidebar }}
-        <div class="grid-container" style="grid-template-columns: 1fr 5fr">
+        <div class="grid-container">
             <div class="sidebar markdown-body"><div id="full">{{ partial "sidebar.html" . }}</div></div>
             <div id="content" class="markdown-body">{{- .Content -}}</div>
         {{ else if not .Params.disableToc }}
-        <div class="grid-container" style="grid-dimensions: 1fr 5fr">
+        <div class="grid-container">
             <div id="content" class="markdown-body">{{- .Content -}}</div>
             {{ partial "toc.html" . }}
         {{ else }}
-        <div class="grid-container" style="grid-dimensions: auto">
+        <div class="grid-container">
             <div id="content" class="markdown-body">{{- .Content -}}</div>
         {{ end }}
     </div>
