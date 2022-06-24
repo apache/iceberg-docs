@@ -12,6 +12,7 @@ theme= "iceberg-theme"
   versions.nessie = "0.18.0"
   latestVersions.iceberg = "0.13.2"  # This is used for the version badge on the "latest" site version
   disableHome=true
+  BookSection='docs' # This determines which directory will inform the left navigation menu
 
 [outputFormats.SearchIndex]
 baseName = "search"

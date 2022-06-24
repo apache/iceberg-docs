@@ -266,7 +266,7 @@ h4:hover a { visibility: visible}
     width: 20rem;
     min-width: 0;
     padding: 2rem;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     list-style-type: none;
 }
 
@@ -276,12 +276,12 @@ div.sidebar {
     left: 0;
     top: 0;
     overflow-y: scroll;
-    background-color: rgba(0,0,0,0);
+    background-color: #fff;
     display: block;
     font-size: 16px;
     min-width: 20rem;
     list-style-type: none;
-    padding: 2rem;
+    padding: 2.5rem;
     margin-top: 2rem;
 }
 
@@ -338,7 +338,7 @@ i.fa.fa-chevron-down {
   }
 
 @media screen and (max-width: 1280px) {
-    .sidebar { display: none; }  /* Hide the sidebar if the page is less than 1280px */
+    div.sidebar { display: none; }  /* Hide the sidebar if the page is less than 1280px */
   }
 
 /* Style for the hint shortcode */
@@ -546,7 +546,7 @@ hr {
   }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 720px) {
   .navbar-brand {
     display: none;
   }
