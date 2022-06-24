@@ -387,7 +387,7 @@ i.fa.fa-chevron-down {
     position: sticky;
     display: flex;
     gap: 15px;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
 }
 
