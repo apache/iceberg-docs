@@ -1,4 +1,5 @@
 ---
+title: "Contribute"
 url: contribute
 disableSidebar: true
 ---

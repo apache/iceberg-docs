@@ -1,4 +1,5 @@
 ---
+title: "Spec"
 url: spec
 toc: true
 aliases:

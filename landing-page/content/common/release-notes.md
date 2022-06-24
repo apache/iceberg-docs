@@ -1,5 +1,5 @@
 ---
-title: "Releases"
+title: "Release Notes"
 weight: 1100
 url: releases
 disableSidebar: true

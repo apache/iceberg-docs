@@ -1,4 +1,5 @@
 ---
+title: "View Spec"
 url: view-spec
 toc: true
 aliases:

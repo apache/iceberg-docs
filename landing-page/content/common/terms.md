@@ -1,4 +1,5 @@
 ---
+title: "Terms"
 url: terms
 aliases:
     - "terms"

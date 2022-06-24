@@ -460,7 +460,7 @@ i.fa.fa-chevron-down {
 #search-results {
     margin-left: 5rem;
     margin-right: 5rem;
-    max-width: 80%;
+    max-width: 400px;  /* Add a media query here to change this to 100% below 640px */
     max-height: 500px;
     color: rgb(112, 128, 144);
     background-color: #f9f9f9;
