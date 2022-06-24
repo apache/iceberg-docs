@@ -11,8 +11,8 @@ theme= "iceberg-theme"
   versions.iceberg = "" # This is populated by the github deploy workflow and is equal to the branch name
   versions.nessie = "0.18.0"
   latestVersions.iceberg = "0.13.2"  # This is used for the version badge on the "latest" site version
-  disableHome=true
   BookSection='docs' # This determines which directory will inform the left navigation menu
+  disableHome=true
 
 [outputFormats.SearchIndex]
 baseName = "search"
