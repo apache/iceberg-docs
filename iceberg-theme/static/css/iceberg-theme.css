@@ -267,7 +267,7 @@ div.sidebar {
     text-decoration: none;
     left: 0;
     top: 0;
-    overflow-y: scroll;
+    overflow-y: auto;
     background-color: #fff;
     display: block;
     font-size: 16px;
@@ -488,7 +488,7 @@ ul#search-results {
   list-style-type: none;
   float: left;
   width: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
   border-radius: 6px;
 }
 
@@ -548,6 +548,20 @@ hr {
   .topnav-page-selection {
     display: none;
   }
+}
+
+div#full ul {
+    padding-left: 0;
+    padding-right: 2em;
+}
+
+div#full ul.sub-menu {
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.navbar-brand {
+    padding: 15px 0px;
 }
 
 @media screen and (max-width: 720px) {
