@@ -59,10 +59,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   word-wrap: break-word;
-  padding-top: 1rem;
-  padding-left: 25%;
-  padding-right: 25%;
-  padding-bottom: 100px;
+  margin-top: 1rem;
 }
 
 .markdown-body .octicon {
@@ -547,7 +544,7 @@ body {
 }
 
 .markdown-body blockquote>:first-child {
-  margin-top: 0;
+  margin-top: 25px;
   font-weight: 400;
 }
 

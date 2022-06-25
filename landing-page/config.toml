@@ -57,6 +57,10 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     url = "/docs/latest"
     weight = 100
   [[menu.topnav]]
+    name = "Releases"
+    url = "/releases"
+    weight = 600
+ [[menu.topnav]]
     name = "Spark"
     url = "/docs/latest/getting-started"
     weight = 200
@@ -75,28 +79,24 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     url = "https://prestodb.io/docs/current/connector/iceberg.html"
     weight = 500
   [[menu.topnav]]
-    name = "Releases"
-    url = "/releases"
-    weight = 600
-  [[menu.topnav]]
     name = "Community"
     url = "/community"
     weight = 800
   [[menu.topnav]]
     name = "Blogs"
+    parent = "Community"
     url = "/blogs"
-    weight = 900
   [[menu.topnav]]
     name = "Talks"
+    parent = "Community"
     url = "/talks"
-    weight = 1000
+  [[menu.topnav]]
+    name = "Roadmap"
+    parent = "Community"
+    url = "/roadmap"
   [[menu.topnav]]
     name = "Project"
     weight = 1100
-  [[menu.topnav]]
-    name = "Roadmap"
-    parent = "Project"
-    url = "/roadmap"
   [[menu.topnav]]
     name = "How To Release"
     parent = "Project"

@@ -13,6 +13,8 @@
 <!-- - See the License for the specific language governing permissions and-->
 <!-- - limitations under the License.-->
 {{ if not .Params.disableSidebar }}
+<div class="sidebar markdown-body">
+    <div id="full">
     <ul>
         {{ $currentPage := . }}
 <!--        `main` Menu -->
@@ -46,3 +48,5 @@
             {{ end }}
         {{ end }}
 {{ end }}
+    </div>
+</div>

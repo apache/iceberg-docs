@@ -79,11 +79,6 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     name = "Project"
     weight = 1100
   [[menu.topnav]]
-    name = "Roadmap"
-    parent = "Project"
-    pre = "relative"
-    url = "../../roadmap"
-  [[menu.topnav]]
     name = "How To Release"
     parent = "Project"
     pre = "relative"
@@ -116,14 +111,22 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     weight = 800
   [[menu.topnav]]
     name = "Blogs"
+    parent = "Community"
     pre = "relative"
     url = "../../blogs"
-    weight = 900
+    weight = 200
   [[menu.topnav]]
     name = "Talks"
+    parent = "Community"
     pre = "relative"
     url = "../../talks"
-    weight = 1000
+    weight = 300
+  [[menu.topnav]]
+    name = "Roadmap"
+    parent = "Community"
+    pre = "relative"
+    url = "../../roadmap"
+    weight = 100
   [[menu.topnav]]
     name = "ASF"
     weight = 1200
