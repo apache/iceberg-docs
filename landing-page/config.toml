@@ -32,124 +32,37 @@ mediaType = "application/json"
 home = [ "HTML", "RSS", "SearchIndex" ]
 
 [menu]
-  [[menu.versions]]
-    name = "latest"
-    url = "/docs/latest"
-    weight = 1
-  [[menu.versions]]
-    name = "0.13.2"
-    url = "/docs/0.13.2"
-    weight = 997
-  [[menu.versions]]
-    name = "0.13.1"
-    url = "/docs/0.13.1"
-    weight = 998
-  [[menu.versions]]
-    name = "0.13.0"
-    url = "/docs/0.13.0"
-    weight = 999
-  [[menu.versions]]
-    name = "0.12.1"
-    url = "/docs/0.12.1"
-    weight = 1000
-  [[menu.topnav]]
-    name = "Docs"
-    url = "/docs/latest"
-    weight = 100
-  [[menu.topnav]]
-    name = "Releases"
-    url = "/releases"
-    weight = 600
- [[menu.topnav]]
-    name = "Spark"
-    url = "/docs/latest/getting-started"
-    weight = 200
-  [[menu.topnav]]
-    name = "Flink"
-    url = "/docs/latest/flink"
-    weight = 300
-  [[menu.topnav]]
-    name = "Trino"
-    identifier = "_trino"
-    url = "https://trino.io/docs/current/connector/iceberg.html"
-    weight = 400
-  [[menu.topnav]]
-    name = "Presto"
-    identifier = "_presto"
-    url = "https://prestodb.io/docs/current/connector/iceberg.html"
-    weight = 500
-  [[menu.topnav]]
-    name = "Community"
-    url = "/community"
-    weight = 800
-  [[menu.topnav]]
-    name = "Blogs"
-    parent = "Community"
-    url = "/blogs"
-  [[menu.topnav]]
-    name = "Talks"
-    parent = "Community"
-    url = "/talks"
-  [[menu.topnav]]
-    name = "Roadmap"
-    parent = "Community"
-    url = "/roadmap"
-  [[menu.topnav]]
-    name = "Project"
-    weight = 1100
-  [[menu.topnav]]
-    name = "How To Release"
-    parent = "Project"
-    url = "/how-to-release"
-  [[menu.topnav]]
-    name = "How to Verify a Release"
-    parent = "Project"
-    url = "/how-to-verify-a-release"
-  [[menu.topnav]]
-    name = "Spec"
-    url = "/spec"
-    parent = "Project"
-  [[menu.topnav]]
-    name = "View Spec"
-    url = "/view-spec"
-    parent = "Project"
-  [[menu.topnav]]
-    name = "Terms"
-    url = "/terms"
-    parent = "Project"
-  [[menu.topnav]]
-    name = "ASF"
-    weight = 1200
-  [[menu.topnav]]
-    name = "License"
-    identifier = "_license"
-    parent = "ASF"
-    url = "https://www.apache.org/licenses/"
-    post = ' <i class="fa fa-external-link fa-xs"></i>'
-  [[menu.topnav]]
-    name = "Security"
-    identifier = "_security"
-    parent = "ASF"
-    url = "https://www.apache.org/security/"
-    post = ' <i class="fa fa-external-link fa-xs"></i>'
-  [[menu.topnav]]
-    name = "Sponsors"
-    identifier = "_sponsors"
-    parent = "ASF"
-    url = "https://www.apache.org/foundation/thanks.html"
-    post = ' <i class="fa fa-external-link fa-xs"></i>'
-  [[menu.topnav]]
-    name = "Donate"
-    identifier = "_donate"
-    parent = "ASF"
-    url = "https://www.apache.org/foundation/sponsorship.html"
-    post = ' <i class="fa fa-external-link fa-xs"></i>'
-  [[menu.topnav]]
-    name = "Events"
-    identifier = "_events"
-    parent = "ASF"
-    url = "https://www.apache.org/events/current-event.html"
-    post = ' <i class="fa fa-external-link fa-xs"></i>'
+  versions = [
+    { name = "latest", url = "/docs/latest", weight = 1 },
+    { name = "0.13.2", url = "/docs/0.13.2", weight = 997 },
+    { name = "0.13.1", url = "/docs/0.13.1", weight = 998 },
+    { name = "0.13.0", url = "/docs/0.13.0", weight = 999 },
+    { name = "0.12.1", url = "/docs/0.12.1", weight = 1000 }
+  ]
+  topnav = [
+    { name = "Docs", url = "/docs/latest", weight = 100 },
+    { name = "Releases", url = "/releases", weight = 600 },
+    { name = "Spark", url = "/docs/latest/getting-started", weight = 200 },
+    { name = "Flink", url = "/docs/latest/flink", weight = 300 },
+    { name = "Trino", identifier = "_trino", url = "https://trino.io/docs/current/connector/iceberg.html", weight = 400 },
+    { name = "Presto", identifier = "_presto", url = "https://prestodb.io/docs/current/connector/iceberg.html", weight = 500 },
+    { name = "Community", url = "/community", weight = 800 },
+    { name = "Blogs", parent = "Community", url = "/blogs" },
+    { name = "Talks", parent = "Community", url = "/talks" },
+    { name = "Roadmap", parent = "Community", url = "/roadmap" },
+    { name = "Project", weight = 1100 },
+    { name = "How To Release", parent = "Project", url = "/how-to-release" },
+    { name = "How to Verify a Release", parent = "Project", url = "/how-to-verify-a-release" },
+    { name = "Spec", url = "/spec", parent = "Project" },
+    { name = "View Spec", url = "/view-spec", parent = "Project" },
+    { name = "Terms", url = "/terms", parent = "Project" },
+    { name = "ASF", weight = 1200 },
+    { name = "License", identifier = "_license", parent = "ASF", url = "https://www.apache.org/licenses/", post = ' <i class="fa fa-external-link fa-xs"></i>' },
+    { name = "Security", identifier = "_security", parent = "ASF", url = "https://www.apache.org/security/", post = ' <i class="fa fa-external-link fa-xs"></i>' },
+    { name = "Sponsors", identifier = "_sponsors", parent = "ASF", url = "https://www.apache.org/foundation/thanks.html", post = ' <i class="fa fa-external-link fa-xs"></i>' },
+    { name = "Donate", identifier = "_donate", parent = "ASF", url = "https://www.apache.org/foundation/sponsorship.html", post = ' <i class="fa fa-external-link fa-xs"></i>' },
+    { name = "Events", identifier = "_events", parent = "ASF", url = "https://www.apache.org/events/current-event.html", post = ' <i class="fa fa-external-link fa-xs"></i>' },
+  ]
 
 [markup.goldmark.renderer]
 unsafe= true
