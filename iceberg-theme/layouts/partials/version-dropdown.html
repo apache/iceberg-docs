@@ -18,7 +18,7 @@
     <ul>
     {{ range $.Site.Menus.versions }}
       <li class="versions-dropdown-selection">
-        <a href="{{ .URL }}">{{ .Name }}</a>
+        <a href="{{ if eq .Pre "relative" }}{{ $.Site.BaseURL }}{{ .URL }}{{ else }}{{ .URL }}{{ end }}">{{ .Name }}</a>
       </li>
     {{ end }}
     </ul>
