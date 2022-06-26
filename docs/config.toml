@@ -22,202 +22,48 @@ mediaType = "application/json"
 home = [ "HTML", "RSS", "SearchIndex" ]
 
 [menu]
-  # Versions dropdown menu
-  [[menu.versions]]
-    name = "latest"
-    pre = "relative"
-    url = "../latest"
-    weight = 1
-  [[menu.versions]]
-    name = "0.13.2"
-    pre = "relative"
-    url = "../0.13.2"
-    weight = 997
-  [[menu.versions]]
-    name = "0.13.1"
-    pre = "relative"
-    url = "../0.13.1"
-    weight = 998
-  [[menu.versions]]
-    name = "0.13.0"
-    pre = "relative"
-    url = "../0.13.0"
-    weight = 999
-  [[menu.versions]]
-    name = "0.12.1"
-    pre = "relative"
-    url = "../0.12.1"
-    weight = 1000
-
-  # Top navbar menu
-  [[menu.topnav]]
-    name = "Docs"
-    url = "/docs/latest"
-    weight = 100
-  [[menu.topnav]]
-    name = "Spark"
-    url = "/docs/latest/getting-started"
-    weight = 200
-  [[menu.topnav]]
-    name = "Flink"
-    url = "/docs/latest/flink"
-    weight = 300
-  [[menu.topnav]]
-    name = "Trino"
-    url = "https://trino.io/docs/current/connector/iceberg.html"
-    weight = 400
-  [[menu.topnav]]
-    name = "Presto"
-    url = "https://prestodb.io/docs/current/connector/iceberg.html"
-    weight = 500
-  [[menu.topnav]]
-    name = "Releases"
-    pre = "relative"
-    url = "../../releases"
-    weight = 600
-  [[menu.topnav]]
-    name = "Project"
-    weight = 1100
-  [[menu.topnav]]
-    name = "How To Release"
-    parent = "Project"
-    pre = "relative"
-    url = "../../how-to-release"
-  [[menu.topnav]]
-    name = "How to Verify a Release"
-    parent = "Project"
-    pre = "relative"
-    url = "../../how-to-verify-a-release"
-  [[menu.topnav]]
-    name = "Spec"
-    pre = "relative"
-    url = "../../spec"
-    parent = "Project"
-  [[menu.topnav]]
-    name = "View Spec"
-    pre = "relative"
-    url = "../../view-spec"
-    parent = "Project"
-  [[menu.topnav]]
-    name = "Terms"
-    pre = "relative"
-    url = "../../terms"
-    parent = "Project"
-    weight = 700
-  [[menu.topnav]]
-    name = "Community"
-    pre = "relative"
-    url = "../../community"
-    weight = 800
-  [[menu.topnav]]
-    name = "Blogs"
-    parent = "Community"
-    pre = "relative"
-    url = "../../blogs"
-    weight = 200
-  [[menu.topnav]]
-    name = "Talks"
-    parent = "Community"
-    pre = "relative"
-    url = "../../talks"
-    weight = 300
-  [[menu.topnav]]
-    name = "Roadmap"
-    parent = "Community"
-    pre = "relative"
-    url = "../../roadmap"
-    weight = 100
-  [[menu.topnav]]
-    name = "ASF"
-    weight = 1200
-  [[menu.topnav]]
-    name = "License"
-    identifier = "_license"
-    parent = "ASF"
-    url = "https://www.apache.org/licenses/"
-    post = ' <i class="fa fa-external-link fa-xs"></i>'
-  [[menu.topnav]]
-    name = "Security"
-    identifier = "_security"
-    parent = "ASF"
-    url = "https://www.apache.org/security/"
-    post = ' <i class="fa fa-external-link fa-xs"></i>'
-  [[menu.topnav]]
-    name = "Sponsors"
-    identifier = "_sponsors"
-    parent = "ASF"
-    url = "https://www.apache.org/foundation/thanks.html"
-    post = ' <i class="fa fa-external-link fa-xs"></i>'
-  [[menu.topnav]]
-    name = "Donate"
-    identifier = "_donate"
-    parent = "ASF"
-    url = "https://www.apache.org/foundation/sponsorship.html"
-    post = ' <i class="fa fa-external-link fa-xs"></i>'
-  [[menu.topnav]]
-    name = "Events"
-    identifier = "_events"
-    parent = "ASF"
-    url = "https://www.apache.org/events/current-event.html"
-    post = ' <i class="fa fa-external-link fa-xs"></i>'
-
-  # Main menu, docs site left nav
-  [[menu.main]]
-    name = "Introduction"
-    url = "/"
-    weight = 1
-  [[menu.main]]
-    name = "Tables"
-    weight = 100
-  [[menu.main]]
-    name = "Spark"
-    weight = 200
-  [[menu.main]]
-    name = "Flink"
-    weight = 300
-  [[menu.main]]
-    name = "Hive"
-    identifier = "_hive"  # Opens in a new tab if identifier begins with an underscore
-    weight = 400
-    url = "https://iceberg.apache.org/docs/latest/hive/"
-  [[menu.main]]
-    name = "Trino"
-    identifier = "_trino"
-    weight = 500
-    url = "https://trino.io/docs/current/connector/iceberg.html"
-    post = ' <i class="fa fa-external-link fa-xs"></i>'
-  [[menu.main]]
-    name = "Presto"
-    identifier = "_presto"
-    weight = 600
-    url = "https://prestodb.io/docs/current/connector/iceberg.html"
-    post = ' <i class="fa fa-external-link fa-xs"></i>'
-  [[menu.main]]
-    name = "Dremio"
-    identifier = "_dremio"
-    weight = 700
-    url = "https://docs.dremio.com/data-formats/apache-iceberg/"
-    post = ' <i class="fa fa-external-link fa-fw"></i>'
-  [[menu.main]]
-    name = "Amazon Athena"
-    identifier = "_athena"
-    weight = 800
-    url = "https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html"
-    post = ' <i class="fa fa-external-link fa-fw"></i>'
-  [[menu.main]]
-    name = "Amazon EMR"
-    identifier = "_emr"
-    weight = 900
-    url = "https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-create-cluster.html"
-    post = ' <i class="fa fa-external-link fa-fw"></i>'
-  [[menu.main]]
-    name = "Integrations"
-    weight = 1000
-  [[menu.main]]
-    name = "API"
-    weight = 1100
-  [[menu.main]]
-    name = "Javadoc"
-    pre = "relative"
-    url = "../../javadoc/latest"
-    weight = 1200
+  versions = [
+    { name = "latest", pre = "relative", url = "../latest", weight = 1 },
+    { name = "0.13.2", pre = "relative", url = "../0.13.2", weight = 997 },
+    { name = "0.13.1", pre = "relative", url = "../0.13.1", weight = 998 },
+    { name = "0.13.0", pre = "relative", url = "../0.13.0", weight = 999 },
+    { name = "0.12.1", pre = "relative", url = "../0.12.1", weight = 1000 }
+  ]
+  topnav = [
+    { name = "Docs", url = "/docs/latest", weight = 100 },
+    { name = "Spark", url = "/docs/latest/getting-started", weight = 200 },
+    { name = "Flink", url = "/docs/latest/flink", weight = 300 },
+    { name = "Trino", url = "https://trino.io/docs/current/connector/iceberg.html", weight = 400 },
+    { name = "Presto", url = "../../how-to-release" },
+    { name = "Releases", pre = "relative", url = "../../releases", weight = 600 },
+    { name = "Project", weight = 1100 },
+    { name = "How To Release", parent = "Project", pre = "relative", url = "../../how-to-release" },
+    { name = "How To Verify a Release", parent = "Project", pre = "relative", url = "../../how-to-verify-a-release" },
+    { name = "Spec", parent = "Project", pre = "relative", url = "../../spec" },
+    { name = "View Spec", parent = "Project", pre = "relative", url = "../../view-spec" },
+    { name = "Terms", parent = "Project", pre = "relative", url = "../../terms" },
+    { name = "Community", pre = "relative", url = "../../community", weight = 800 },
+    { name = "Blogs", parent = "Community", pre = "relative", url = "../../blogs" },
+    { name = "Talks", parent = "Community", pre = "relative", url = "../../talks", weight = 300 },
+    { name = "Roadmap", parent = "Community", pre = "relative", url = "../../roadmap", weight = 100 },
+    { name = "ASF", weight = 1200 },
+    { name = "License", identifier = "_license", parent = "ASF", url = "https://www.apache.org/licenses/", post = ' <i class="fa fa-external-link fa-xs"></i>' },
+    { name = "Security", identifier = "_security", parent = "ASF", url = "https://www.apache.org/security/", post = ' <i class="fa fa-external-link fa-xs"></i>' },
+    { name = "Sponsors", identifier = "_sponsors", parent = "ASF", url = "https://www.apache.org/foundation/thanks.html", post = ' <i class="fa fa-external-link fa-xs"></i>' },
+    { name = "Donate", identifier = "_donate", parent = "ASF", url = "https://www.apache.org/foundation/sponsorship.html", post = ' <i class="fa fa-external-link fa-xs"></i>' },
+    { name = "Events", identifier = "_events", parent = "ASF", url = "https://www.apache.org/events/current-event.html", post = ' <i class="fa fa-external-link fa-xs"></i>' },
+  ]
+  main = [ # Main menu, docs site left nav
+    { name = "Introduction", url = "/", weight = 1},
+    { name = "Tables", weight = 100 },
+    { name = "Spark", weight = 200},
+    { name = "Flink", weight = 300},
+    { name = "Trino", identifier = "_trino", weight = 500, url = "https://trino.io/docs/current/connector/iceberg.html", post = ' <i class="fa fa-external-link fa-xs"></i>'},
+    { name = "Presto", identifier = "_presto", weight = 600, url = "https://prestodb.io/docs/current/connector/iceberg.html", post = ' <i class="fa fa-external-link fa-xs"></i>'},
+    { name = "Dremio", identifier = "_dremio", weight = 700, url = "https://docs.dremio.com/data-formats/apache-iceberg/", post = ' <i class="fa fa-external-link fa-xs"></i>'},
+    { name = "Amazon Athena", identifier = "_athena", weight = 800, url = "https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html", post = ' <i class="fa fa-external-link fa-xs"></i>'},
+    { name = "Amazon EMR", identifier = "_emr", weight = 900, url = "https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-create-cluster.html", post = ' <i class="fa fa-external-link fa-xs"></i>'},
+    { name = "Integrations", weight = 1000 },
+    { name = "API", weight = 1100}
+    { name = "Javadoc", pre = "relative", url = "", weight = 1200} # `url` is populated by the github deploy workflow and is equal to "../../javadoc/<branch name>"
+  ]
