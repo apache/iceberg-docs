@@ -13,32 +13,19 @@
 <!-- - See the License for the specific language governing permissions and-->
 <!-- - limitations under the License.-->
 {{ if eq $.Site.Params.siteType "docs" }}
-{{ partial "head.html" . }}
-<head>
-    <link href="{{ .Site.BaseURL }}/css/markdown.css" rel="stylesheet">
-    <link href="{{ .Site.BaseURL }}/css/katex.min.css" rel="stylesheet">
-    <script>
-        // This automatically adds an anchor tag for every h1, h2, h3, and h4 element on the page
-        function addAnchor(element) {
-            element.insertAdjacentHTML('beforeend', `<a href="#${element.id}" class="anchortag" ariaLabel="Anchor"> 🔗 </a>` )
-        }
-        document.addEventListener('DOMContentLoaded', function () {
-            var headers = document.querySelectorAll('h1[id], h2[id], h3[id], h4[id]')
-            if (headers) {
-                headers.forEach(addAnchor)
-            }
-        });
-    </script>
-</head>
-{{ partial "body.html" . }}
+    <!-- Don't include termynal.js for docs homepage -->
+    {{ .Scratch.Set "includeTermynal" false }}
+    {{ partial "body.html" . }}
 {{ else }}
-{{ partial "head.html" . }}
-<div id="content">
-{{ partial "header.html" . }}
-{{ partial "about.html" . }}
-{{ partial "services.html" . }}
-{{ partial "pricing.html" . }}
-{{ partial "contact.html" . }}
-{{ partial "js.html" (dict "context" . "includeTermynal" true) }}
-</div>
+    {{ partial "head.html" . }}
+    <div id="content">
+    {{ partial "header.html" . }}
+    {{ partial "about.html" . }}
+    {{ partial "services.html" . }}
+    {{ partial "pricing.html" . }}
+    {{ partial "contact.html" . }}
+    <!-- Include termynal.js for landing-page homepage -->
+    {{ .Scratch.Set "includeTermynal" true }}
+    {{ partial "js.html" . }}
+    </div>
 {{ end }}

@@ -573,6 +573,7 @@ div#full ul.sub-menu {
 .versions-dropdown {
   position: relative;
   display: inline-block;
+  z-index: 999;
 }
 
 .versions-dropdown-selection {

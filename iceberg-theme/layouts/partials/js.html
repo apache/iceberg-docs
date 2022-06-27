@@ -13,19 +13,22 @@
 <!-- - See the License for the specific language governing permissions and-->
 <!-- - limitations under the License.-->
 <!-- jQuery Version 1.11.0 -->
-<script src="{{ .context.Site.BaseURL }}/js/jquery-1.11.0.js"></script>
+<script src="{{ .Site.BaseURL }}/js/jquery-1.11.0.js"></script>
 
 <!-- Plugin JavaScript -->
-<script src="{{ .context.Site.BaseURL }}/js/jquery.easing.min.js"></script>
+<script src="{{ .Site.BaseURL }}/js/jquery.easing.min.js"></script>
 
 <!-- Search Script -->
-<script type="text/javascript" src="{{ .context.Site.BaseURL }}/js/search.js"></script>
+<script type="text/javascript" src="{{ .Site.BaseURL }}/js/search.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="{{ .context.Site.BaseURL }}/js/bootstrap.min.js"></script>
+<script src="{{ .Site.BaseURL }}/js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="{{ .context.Site.BaseURL }}/js/iceberg-theme.js"></script>
+<script src="{{ .Site.BaseURL }}/js/iceberg-theme.js"></script>
 
+{{ $includeTermynal := .Scratch.Get "includeTermynal" }}
+{{ if $includeTermynal }}
     <!-- Termynal animation renderer (only loaded on home page) -->
-    <script src="{{ .context.Site.BaseURL }}/js/termynal.js" data-termynal-container="#termynal|#termynal-data-compaction|#termynal-expressive-sql|#termynal-time-travel"></script>
+    <script src="{{ .Site.BaseURL }}/js/termynal.js" data-termynal-container="#termynal|#termynal-data-compaction|#termynal-expressive-sql|#termynal-time-travel"></script>
+{{ end }}
