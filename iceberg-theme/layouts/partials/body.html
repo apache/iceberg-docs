@@ -1,7 +1,5 @@
 {{ partial "head.html" . }}
 <head>
-    <link href="{{ .Site.BaseURL }}/css/markdown.css" rel="stylesheet">
-    <link href="{{ .Site.BaseURL }}/css/katex.min.css" rel="stylesheet">
     <script>
         // This automatically adds an anchor tag for every h1, h2, h3, and h4 element on the page
         function addAnchor(element) {
@@ -29,5 +27,5 @@
         </div>
     </section>
 </body>
-{{ partial "footer.html" }}
+{{ partial "js.html" (dict "context" . "includeTermynal" true) }}
 </html>

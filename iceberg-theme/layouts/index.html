@@ -39,6 +39,6 @@
 {{ partial "services.html" . }}
 {{ partial "pricing.html" . }}
 {{ partial "contact.html" . }}
-{{ partial "footer.html" }}
+{{ partial "js.html" (dict "context" . "includeTermynal" true) }}
 </div>
 {{ end }}
