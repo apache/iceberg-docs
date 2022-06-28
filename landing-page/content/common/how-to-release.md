@@ -302,7 +302,8 @@ git push --set-upstream apache <VERSION>
 ```
 2. Copy the versioned docs from the `iceberg` repo into the `iceberg-docs` repo
 ```shell
-cp -r ../iceberg/docs ../iceberg-docs/docs/content/docs
+rm -rf ../iceberg-docs/docs/content
+cp -r ../iceberg/docs ../iceberg-docs/docs/content
 ```
 3. Commit the changes and open a PR against the `<VERSION>` branch in the `iceberg-docs` repo
 
