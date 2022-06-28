@@ -245,7 +245,7 @@ h4:hover a { visibility: visible}
 }
 
 .toc-only {
-    grid-template-columns: 5fr 1fr;
+    grid-template-columns: 1fr;
 }
 
 .leftnav-and-toc {
