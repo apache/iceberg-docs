@@ -243,6 +243,15 @@ h4:hover a { visibility: visible}
     width: 100%;
 }
 
+/* Cards at the top of each quickstart page */
+.quickstart-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80vw;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
+}
+
 .content-only {
     grid-template-columns: auto;
 }
@@ -261,6 +270,10 @@ h4:hover a { visibility: visible}
 
 .margin-for-toc {
     margin-right: 40%;
+}
+
+.margin-without-toc {
+    margin-right: 20%;
 }
 
 #toc {
@@ -637,4 +650,67 @@ div#full ul.sub-menu {
 
 .versions-dropdown:hover .versions-dropdown-content {
   display: block;
+}
+
+.quickstart-card {
+color: #fff;
+width:300px;
+position: relative;
+-webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
+-moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
+-o-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
+box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
+background-image: linear-gradient(to bottom right, #2879be, #57A7D8);
+}
+
+.quickstart-card .quickstart-card-content {
+    padding: 30px;
+    height: 250px;
+}
+
+.quickstart-card .quickstart-card-title {
+    font-size: 25px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.quickstart-card .quickstart-card-text {
+line-height: 1.6;
+}
+
+.quickstart-card .quickstart-card-link {
+padding: 25px;
+width: -webkit-fill-available;
+border-top:1px solid #82c1bb;
+}
+
+.quickstart-card-link a {
+    text-decoration: none;
+    position: relative;
+    padding: 10px 0px;
+    color: #fff;
+}
+
+.quickstart-card .quickstart-card-link a:after {
+    top: 30px;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    width: 0;
+    background:#fff;
+
+    -webkit-transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    -moz-transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    -o-transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+}
+
+.quickstart-card .quickstart-card-link a:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+.quickstart-card .quickstart-card-link a:after {
+    background:#fff;
 }
