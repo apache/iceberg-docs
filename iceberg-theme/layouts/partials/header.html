@@ -14,7 +14,7 @@
 <!-- - limitations under the License.-->
 <!-- Top Navigation Bar -->
     <nav class="navbar navbar-default" role="navigation">
-        <section>
+        <topsection>
             <div class="navbar-fixed-top">
                 <div>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="div.sidebar">
@@ -72,7 +72,7 @@
                         </a>
                     </div>
             </div>
-            </section>
+            </topsection>
     </nav>
 {{ partial "search-results.html" . }}
 {{ if and .IsHome (not .Site.Params.disableHome) }}

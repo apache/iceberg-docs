@@ -18,6 +18,13 @@ section {
     margin-left: 150px;
     margin-right: 0;
 }
+
+topsection {
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
 body,
 h1,
 h2,
@@ -343,6 +350,11 @@ i.fa.fa-chevron-down {
     section {
         margin-left: 20px;
     }
+    topsection {
+        display: flex;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
   }
 
 @media screen and (max-width: 1280px) {
@@ -411,7 +423,7 @@ i.fa.fa-chevron-down {
 
 .navbar-pages-group {
     justify-content: end;
-    margin-left: 20px;
+    margin-left: auto;
     max-width: 720px;
     position: relative;
 }
