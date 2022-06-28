@@ -65,6 +65,6 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     { name = "Amazon Athena", identifier = "_athena", weight = 800, url = "https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html" },
     { name = "Amazon EMR", identifier = "_emr", weight = 900, url = "https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-create-cluster.html" },
     { name = "Integrations", weight = 1000 },
-    { name = "API", weight = 1100}
+    { name = "API", weight = 1100},
     { name = "Javadoc", pre = "relative", url = "../../javadoc/latest", weight = 1200} # `url` is populated by the github deploy workflow and is equal to "../../javadoc/<branch name>"
   ]
