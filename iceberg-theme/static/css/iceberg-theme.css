@@ -15,9 +15,8 @@ html {
 
 section {
     display: flex;
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 20px;
+    margin-left: 10%;
+    margin-right: 0;
 }
 body,
 h1,
@@ -234,6 +233,7 @@ h4:hover a { visibility: visible}
     grid-gap: 1rem;
     overflow-y: auto;
     height: 90vh;
+    width: 100%;
 }
 
 .content-only {
@@ -249,18 +249,23 @@ h4:hover a { visibility: visible}
 }
 
 .leftnav-and-toc {
-    grid-template-columns: 2fr 5fr 1fr
+    grid-template-columns: 1fr 5fr
+}
+
+.margin-for-toc {
+    margin-right: 40%;
 }
 
 #toc {
+    position: fixed;
     right: 0;
     top: 0;
     background-color:#FFF;
-    display: block;
-    font-size: 1rem;
-    width: 20rem;
-    min-width: 15rem;
+    top: 70px;
+    font-size: 0.95rem;
+    width: 260px;
     list-style-type: none;
+    margin: 0 100px;
 }
 
 div.sidebar {
@@ -327,6 +332,9 @@ i.fa.fa-chevron-down {
     #toc { display: none; }  /* Hide the TOC if the page is less than 1280px */
     .grid-container {
         grid-template-columns: auto;
+    }
+    .margin-for-toc {
+        margin-right: 0;
     }
   }
 
@@ -552,7 +560,7 @@ hr {
 
 div#full ul {
     padding-left: 0;
-    padding-right: 2em;
+    padding-right: 1em;
 }
 
 div#full ul.sub-menu {

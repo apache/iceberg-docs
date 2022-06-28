@@ -20,10 +20,14 @@
             {{ if not .Params.disableSidebar }}
                 {{ partial "sidebar.html" . }}
             {{ end }}
-            <div id="content" class="markdown-body">{{- .Content -}}</div>
-            {{ if not .Params.disableToc }}
-                {{ partial "toc.html" . }}
-            {{ end }}
+            <div id="content" class="markdown-body">
+                <div class="{{ if not .Params.disableToc }}margin-for-toc{{ end }}">
+                    {{- .Content -}}
+                </div>
+                {{ if not .Params.disableToc }}
+                    {{ partial "toc.html" . }}
+                {{ end }}
+            </div>
         </div>
     </section>
 </body>
