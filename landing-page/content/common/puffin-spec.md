@@ -1,6 +1,7 @@
 ---
+title: "Puffin Spec"
 url: puffin-spec
-toc: false
+disableSidebar: true
 ---
 <!--
  - Licensed to the Apache Software Foundation (ASF) under one or more
