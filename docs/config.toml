@@ -35,7 +35,7 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     { name = "Spark", url = "/docs/latest/getting-started", weight = 200 },
     { name = "Flink", url = "/docs/latest/flink", weight = 300 },
     { name = "Trino", url = "https://trino.io/docs/current/connector/iceberg.html", weight = 400 },
-    { name = "Presto", url = "../../how-to-release" , weight = 500 },
+    { name = "Presto", url = "https://prestodb.io/docs/current/connector/iceberg.html" , weight = 500 },
     { name = "Blogs", pre = "relative", url = "../../blogs", weight = 998 },
     { name = "Talks", pre = "relative", url = "../../talks", weight = 999 },
     { name = "Roadmap", pre = "relative", url = "../../roadmap", weight = 997 },
