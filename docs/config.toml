@@ -40,7 +40,7 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     { name = "Talks", pre = "relative", url = "../../talks", weight = 999 },
     { name = "Roadmap", pre = "relative", url = "../../roadmap", weight = 997 },
     { name = "Project", weight = 1100 },
-    { name = "Join", parent = "Project", pre = "relative", url = "../../community", weight = 100 },
+    { name = "Community", parent = "Project", pre = "relative", url = "../../community", weight = 100 },
     { name = "Spec", parent = "Project", pre = "relative", url = "../../spec", weight = 200 },
     { name = "View Spec", parent = "Project", pre = "relative", url = "../../view-spec", weight = 300 },
     { name = "Puffin Spec", parent = "Project", pre = "relative", url = "../../puffin-spec", weight = 400 },
