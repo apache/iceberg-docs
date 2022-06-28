@@ -1,6 +1,8 @@
 ---
 title: "How To Release"
 url: how-to-release
+menu: "sidebar"
+disableSidebar: true
 ---
 <!--
  - Licensed to the Apache Software Foundation (ASF) under one or more

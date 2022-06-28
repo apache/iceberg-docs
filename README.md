@@ -81,12 +81,12 @@ cd iceberg-docs
 
 To start the landing page site locally, run:
 ```shell
-cd landing-page && hugo serve
+(cd landing-page && hugo serve)
 ```
 
 To start the documentation site locally, run:
 ```shell
-cd docs && hugo serve
+(cd docs && hugo serve)
 ```
 
 If you would like to see how the latest website looks based on the documentation in the Iceberg repository, you can copy docs to this repository by:
