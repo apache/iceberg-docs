@@ -15,7 +15,7 @@ html {
 
 section {
     display: flex;
-    margin-left: 10%;
+    margin-left: 150px;
     margin-right: 0;
 }
 body,
@@ -310,6 +310,10 @@ i.fa.fa-chevron-down {
  margin-left: auto;
 }
 
+.topnav-page-selection i.fa.fa-chevron-down {
+ font-size: 8px;
+}
+
 .chevron-toggle .fa-chevron-down,
 .chevron-toggle.collapsed .fa-chevron-right {
     display: inherit;
@@ -335,6 +339,9 @@ i.fa.fa-chevron-down {
     }
     .margin-for-toc {
         margin-right: 0;
+    }
+    section {
+        margin-left: 20px;
     }
   }
 

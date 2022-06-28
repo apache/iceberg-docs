@@ -35,7 +35,7 @@
                     {{ $menuContainsCurrentPage := eq .Name $currentPage.Page.Title}}
                     {{ if .HasChildren }}
                         <!-- Top nav element that has a dropdown -->
-                        <div class="versions-dropdown topnav-page-selection">
+                        <div class="versions-dropdown">
                         <div class="topnav-page-selection">
                             <a {{ if $menuContainsCurrentPage }}id="active"{{ end }} {{ if hasPrefix .Identifier "_" }}target="_blank"{{ end }} href="{{ if eq .Pre "relative" }}{{ $.Site.BaseURL }}{{ .URL }}{{ else }}{{ .URL }}{{ end }}">{{ .Name }}{{ .Post }}</a> <i class="fa fa-chevron-down"></i>
                         </div class="topnav-page-selection">
