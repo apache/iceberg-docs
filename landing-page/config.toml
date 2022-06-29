@@ -41,11 +41,13 @@ home = [ "HTML", "RSS", "SearchIndex" ]
   ]
   topnav = [
     { name = "Docs", url = "/docs/latest", weight = 100 },
-    { name = "Releases", url = "/releases", weight = 600 },
-    { name = "Spark", url = "/docs/latest/getting-started", weight = 200 },
+    { name = "Releases", url = "/releases", weight = 800 },
+    { name = "Spark", url = "/docs/latest/spark", weight = 200 },
     { name = "Flink", url = "/docs/latest/flink", weight = 300 },
     { name = "Trino", identifier = "_trino", url = "https://trino.io/docs/current/connector/iceberg.html", weight = 400 },
     { name = "Presto", identifier = "_presto", url = "https://prestodb.io/docs/current/connector/iceberg.html", weight = 500 },
+    { name = "Impala", identifier = "_impala", url = "https://impala.apache.org/docs/build/html/topics/impala_iceberg.html", weight = 600 },
+    { name = "Hive", identifier = "_hive", url = "/docs/latest/hive", weight = 700 },
     { name = "Blogs", url = "/blogs", weight = 998 },
     { name = "Talks", url = "/talks", weight = 999 },
     { name = "Roadmap", url = "/roadmap", weight = 997 },
