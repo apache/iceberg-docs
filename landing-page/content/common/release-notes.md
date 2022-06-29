@@ -68,7 +68,7 @@ To add a dependency on Iceberg in Maven, add the following to your `pom.xml`:
 ```
 ## 0.13.2 Release Notes
 
-Apache Iceberg 0.13.2 was released on June XXth, 2022.
+Apache Iceberg 0.13.2 was released on June 15th, 2022.
 
 **Important bug fixes and changes:**
 
