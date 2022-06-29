@@ -32,7 +32,7 @@ home = [ "HTML", "RSS", "SearchIndex" ]
   topnav = [
     { name = "Docs", url = "/docs/latest", weight = 100 },
     { name = "Releases", pre = "relative", url = "../../releases", weight = 800 },
-    { name = "Spark", url = "/docs/latest/spark", weight = 200 },
+    { name = "Spark", url = "/docs/latest/getting-started", weight = 200 },
     { name = "Flink", url = "/docs/latest/flink", weight = 300 },
     { name = "Trino", url = "https://trino.io/docs/current/connector/iceberg.html", weight = 400 },
     { name = "Presto", url = "https://prestodb.io/docs/current/connector/iceberg.html" , weight = 500 },
