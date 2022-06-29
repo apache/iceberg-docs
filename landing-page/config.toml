@@ -40,12 +40,9 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     { name = "0.12.1", url = "/docs/0.12.1", weight = 1000 }
   ]
   topnav = [
-    { name = "Docs", url = "/docs/latest", weight = 100 },
+    { name = "Quickstart", url = "/spark-quickstart", weight = 100 },
+    { name = "Docs", url = "/docs/latest", weight = 200 },
     { name = "Releases", url = "/releases", weight = 600 },
-    { name = "Spark", url = "/docs/latest/getting-started", weight = 200 },
-    { name = "Flink", url = "/docs/latest/flink", weight = 300 },
-    { name = "Trino", identifier = "_trino", url = "https://trino.io/docs/current/connector/iceberg.html", weight = 400 },
-    { name = "Presto", identifier = "_presto", url = "https://prestodb.io/docs/current/connector/iceberg.html", weight = 500 },
     { name = "Blogs", url = "/blogs", weight = 998 },
     { name = "Talks", url = "/talks", weight = 999 },
     { name = "Roadmap", url = "/roadmap", weight = 997 },
@@ -62,6 +59,9 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     { name = "Sponsors", identifier = "_sponsors", parent = "ASF", url = "https://www.apache.org/foundation/thanks.html" },
     { name = "Donate", identifier = "_donate", parent = "ASF", url = "https://www.apache.org/foundation/sponsorship.html" },
     { name = "Events", identifier = "_events", parent = "ASF", url = "https://www.apache.org/events/current-event.html" },
+  ]
+  quickstarts = [
+    { name = "Spark and Iceberg Quickstart", weight = 100, url = "spark-quickstart", post = "This quickstart will get you up and running with an Iceberg and Spark environment, including sample notebooks." }
   ]
 
 [markup.goldmark.renderer]
