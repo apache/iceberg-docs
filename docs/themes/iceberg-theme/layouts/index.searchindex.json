@@ -1,0 +1,15 @@
+[
+  {{- $pages := where .Site.RegularPages "Params.excludeFromSearch" "!=" true -}}
+  {{- $pages := where $pages "Content" "not in" (slice nil "") -}}
+  {{- range $index, $page := $pages -}}
+      {{- if eq $page.Params.excludeFromSearch true -}}
+      {{ else }}
+        {{- if gt $index 0 -}} , {{- end -}}
+        {{- $entry := dict "uri" $page.RelPermalink "title" $page.Title -}}
+        {{- $entry = merge $entry (dict "content" ($page.Plain | htmlUnescape)) -}}
+        {{- $entry = merge $entry (dict "description" $page.Description) -}}
+        {{- $entry = merge $entry (dict "categories" $page.Params.categories) -}}
+        {{- $entry | jsonify -}}
+      {{- end -}}
+  {{- end -}}
+]
