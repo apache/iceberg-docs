@@ -33,6 +33,7 @@ Related design docs will be linked on the planning boards.
 * Python: [Pythonic refactor](https://github.com/apache/iceberg/projects/7) [medium]
 * Spec: [Z-ordering / Space-filling curves](https://github.com/apache/iceberg/projects/16) [medium]
 * Spec: [Snapshot tagging and branching](https://github.com/apache/iceberg/projects/4) [small]
+* Views: [Spec](https://github.com/apache/iceberg/projects/6) [medium]
 
 # Priority 2
 
