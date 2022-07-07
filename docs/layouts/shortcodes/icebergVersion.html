@@ -1,1 +1,0 @@
-{{ if eq $.Site.Params.versions.iceberg `latest` }}{{ $.Site.Params.latestVersions.iceberg }}{{ else if eq $.Site.Params.versions.iceberg `main` }}{{ $.Site.Params.latestVersions.iceberg }}{{ else if eq $.Site.Params.versions.iceberg `` }}{{ $.Site.Params.latestVersions.iceberg }}{{ else }}{{ $.Site.Params.versions.iceberg }}{{ end }}
