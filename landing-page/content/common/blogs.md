@@ -54,6 +54,11 @@ Here is a list of company blogs that talk about Iceberg. The blogs are ordered f
 
 **Author**: [Sam Redai](https://www.linkedin.com/in/sredai/)
 
+### [Maintaining Iceberg Tables – Compaction, Expiring Snapshots, and More](https://www.dremio.com/subsurface/maintaining-iceberg-tables-compaction-expiring-snapshots-and-more/)
+**Date**: April 7th, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
+
 ### [An Introduction To The Iceberg Java API - Part 1](https://tabular.io/blog/java-api-part-1/)
 **Date**: April 1st, 2022, **Company**: Tabular
 
