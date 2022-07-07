@@ -714,3 +714,78 @@ div#full ul.sub-menu {
 .quickstart-card .quickstart-card-link a:after {
     background:#fff;
 }
+
+/*styling for codetabs*/
+.codetabs h1 {
+  padding: 50px 0;
+  font-weight: 400;
+  text-align: center;
+}
+
+.codetabs p {
+  margin: 0 0 20px;
+  line-height: 1.5;
+}
+
+.codetabs main {
+  min-width: 320px;
+  max-width: 800px;
+  padding: 50px;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.codetabs codeblock {
+  display: none;
+  padding: 20px 0 0;
+  border-top: 1px solid #ddd;
+}
+
+.codetabs input {
+  display: none;
+  visibility:hidden;
+}
+
+.codetabs label {
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: center;
+  color: #bbb;
+  border: 1px solid transparent;
+}
+
+.codetabs label:before {
+  font-family: fontawesome;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+.codetabs label:hover {
+  color: #888;
+  cursor: pointer;
+}
+
+.codetabs input:checked + label {
+  color: #555;
+  border: 1px solid #ddd;
+  border-top: 2px solid #277ABE;
+  border-bottom: 1px solid #fff;
+}
+
+@media screen and (max-width: 500px) {
+  .codetabs label {
+    font-size: 0;
+  }
+  #LaunchSparkClient label:before {
+    margin: 0;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .codetabs label {
+    padding: 15px;
+  }
+}

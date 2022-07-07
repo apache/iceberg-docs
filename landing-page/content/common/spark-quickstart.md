@@ -86,20 +86,20 @@ docker-compose up
 You can then run any of the following commands to start a Spark session.
 
 {{% codetabs "LaunchSparkClient" %}}
-{{% addtab "SparkSQL" checked %}}
-{{% addtab "SparkShell" %}}
-{{% addtab "PySpark" %}}
-{{% tabcontent "SparkSQL"  %}}
+{{% addtab "SparkSQL" "spark-queries" "spark-sql" %}}
+{{% addtab "Spark-Shell" "spark-queries" "spark-shell" %}}
+{{% addtab "PySpark" "spark-queries" "pyspark" %}}
+{{% tabcontent "spark-sql"  %}}
 ```sh
 docker exec -it spark-iceberg spark-sql
 ```
 {{% /tabcontent %}}
-{{% tabcontent "SparkShell" %}}
+{{% tabcontent "spark-shell" %}}
 ```sh
 docker exec -it spark-iceberg spark-shell
 ```
 {{% /tabcontent %}}
-{{% tabcontent "PySpark" %}}
+{{% tabcontent "pyspark" %}}
 ```sh
 docker exec -it spark-iceberg pyspark
 ```
@@ -117,10 +117,10 @@ using `demo.nyc.taxis` where `demo` is the catalog name, `nyc` is the database n
 
 
 {{% codetabs "CreateATable" %}}
-{{% addtab "SparkSQL" checked %}}
-{{% addtab "SparkShell" %}}
-{{% addtab "PySpark" %}}
-{{% tabcontent "SparkSQL"  %}}
+{{% addtab "SparkSQL" "spark-queries" "spark-sql" %}}
+{{% addtab "Spark-Shell" "spark-queries" "spark-shell" %}}
+{{% addtab "PySpark" "spark-queries" "pyspark" %}}
+{{% tabcontent "spark-sql"  %}}
 ```sql
 CREATE TABLE demo.nyc.taxis
 (
@@ -133,7 +133,7 @@ CREATE TABLE demo.nyc.taxis
 PARTITIONED BY (vendor_id);
 ```
 {{% /tabcontent %}}
-{{% tabcontent "SparkShell" %}}
+{{% tabcontent "spark-shell" %}}
 ```scala
 import org.apache.spark.sql.types._
 import org.apache.spark.sql.Row
@@ -148,7 +148,7 @@ val df = spark.createDataFrame(spark.sparkContext.emptyRDD[Row],schema)
 df.writeTo("demo.nyc.taxis").create()
 ```
 {{% /tabcontent %}}
-{{% tabcontent "PySpark" %}}
+{{% tabcontent "pyspark" %}}
 ```py
 from pyspark.sql.types import DoubleType, FloatType, LongType, StructType,StructField, StringType
 schema = StructType([
@@ -177,16 +177,16 @@ Iceberg catalogs support the full range of SQL DDL commands, including:
 Once your table is created, you can insert records.
 
 {{% codetabs "InsertData" %}}
-{{% addtab "SparkSQL" checked %}}
-{{% addtab "SparkShell" %}}
-{{% addtab "PySpark" %}}
-{{% tabcontent "SparkSQL"  %}}
+{{% addtab "SparkSQL" "spark-queries" "spark-sql" %}}
+{{% addtab "Spark-Shell" "spark-queries" "spark-shell" %}}
+{{% addtab "PySpark" "spark-queries" "pyspark" %}}
+{{% tabcontent "spark-sql"  %}}
 ```sql
 INSERT INTO demo.nyc.taxis
 VALUES (1, 1000371, 1.8, 15.32, 'N'), (2, 1000372, 2.5, 22.15, 'N'), (2, 1000373, 0.9, 9.01, 'N'), (1, 1000374, 8.4, 42.13, 'Y');
 ```
 {{% /tabcontent %}}
-{{% tabcontent "SparkShell" %}}
+{{% tabcontent "spark-shell" %}}
 ```scala
 import org.apache.spark.sql.Row
 
@@ -201,7 +201,7 @@ val df = spark.createDataFrame(spark.sparkContext.parallelize(data), schema)
 df.writeTo("demo.nyc.taxis").append()
 ```
 {{% /tabcontent %}}
-{{% tabcontent "PySpark" %}}
+{{% tabcontent "pyspark" %}}
 ```py
 schema = spark.table("demo.nyc.taxis").schema
 data = [
@@ -221,20 +221,20 @@ df.writeTo("demo.nyc.taxis").append()
 To read a table, simply use the Iceberg table's name.
 
 {{% codetabs "SelectData" %}}
-{{% addtab "SparkSQL" checked %}}
-{{% addtab "SparkShell" %}}
-{{% addtab "PySpark" %}}
-{{% tabcontent "SparkSQL"  %}}
+{{% addtab "SparkSQL" "spark-queries" "spark-sql" %}}
+{{% addtab "Spark-Shell" "spark-queries" "spark-shell" %}}
+{{% addtab "PySpark" "spark-queries" "pyspark" %}}
+{{% tabcontent "spark-sql"  %}}
 ```sql
 SELECT * FROM demo.nyc.taxis;
 ```
 {{% /tabcontent %}}
-{{% tabcontent "SparkShell" %}}
+{{% tabcontent "spark-shell" %}}
 ```scala
 val df = spark.table("demo.nyc.taxis").show()
 ```
 {{% /tabcontent %}}
-{{% tabcontent "PySpark" %}}
+{{% tabcontent "pyspark" %}}
 ```py
 df = spark.table("demo.nyc.taxis").show()
 ```
@@ -253,9 +253,9 @@ This configuration creates a path-based catalog named `local` for tables under `
 
 
 {{% codetabs "AddingACatalog" %}}
-{{% addtab "CLI" checked %}}
-{{% addtab "spark-defaults" %}}
-{{% tabcontent "CLI"  %}}
+{{% addtab "CLI" "spark-init" "cli" %}}
+{{% addtab "spark-defaults.conf" "spark-init" "spark-defaults" %}}
+{{% tabcontent "cli"  %}}
 ```sh
 spark-sql --packages org.apache.iceberg:iceberg-spark-runtime-3.2_2.12:{{% icebergVersion %}}\
     --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions \
@@ -293,20 +293,20 @@ If your Iceberg catalog is not set as the default catalog, you will have to swit
 If you already have a Spark environment, you can add Iceberg, using the `--packages` option.
 
 {{% codetabs "AddIcebergToSpark" %}}
-{{% addtab "SparkSQL" checked %}}
-{{% addtab "SparkShell" %}}
-{{% addtab "PySpark" %}}
-{{% tabcontent "SparkSQL"  %}}
+{{% addtab "SparkSQL" "spark-queries" "spark-sql" %}}
+{{% addtab "Spark-Shell" "spark-queries" "spark-shell" %}}
+{{% addtab "PySpark" "spark-queries" "pyspark" %}}
+{{% tabcontent "spark-sql"  %}}
 ```sh
 spark-sql --packages org.apache.iceberg:iceberg-spark-runtime-3.2_2.12:{{% icebergVersion %}}
 ```
 {{% /tabcontent %}}
-{{% tabcontent "SparkShell" %}}
+{{% tabcontent "spark-shell" %}}
 ```sh
 spark-shell --packages org.apache.iceberg:iceberg-spark-runtime-3.2_2.12:{{% icebergVersion %}}
 ```
 {{% /tabcontent %}}
-{{% tabcontent "PySpark" %}}
+{{% tabcontent "pyspark" %}}
 ```sh
 pyspark --packages org.apache.iceberg:iceberg-spark-runtime-3.2_2.12:{{% icebergVersion %}}
 ```
