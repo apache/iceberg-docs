@@ -61,7 +61,7 @@ jobs:
 
       - name: Set baseURL in docs/config.toml
         run: |
-          sed -i -e 's|baseURL = ""|baseURL = "https://iceberg\.apache\.org/docs/${{ steps.vars.outputs.branch_name }}"|g' docs/config.toml
+          sed -i -e 's|baseURL = ""|baseURL = "https://iceberg\.apache\.org/docs/${{ steps.vars.outputs.branch_name }}/"|g' docs/config.toml
           cat docs/config.toml
 
       - name: Set params.versions.iceberg in docs/config.toml
