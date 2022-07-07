@@ -34,6 +34,7 @@ Related design docs will be linked on the planning boards.
 * Spec: [Z-ordering / Space-filling curves](https://github.com/apache/iceberg/projects/16) [medium]
 * Spec: [Snapshot tagging and branching](https://github.com/apache/iceberg/projects/4) [small]
 * Views: [Spec](https://github.com/apache/iceberg/projects/6) [medium]
+* Puffin: [Implement statistics information in table snapshot](https://github.com/apache/iceberg/pull/4741) [medium]
 
 # Priority 2
 
