@@ -30,12 +30,8 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     { name = "0.12.1", pre = "relative", url = "../0.12.1", weight = 1000 }
   ]
   topnav = [
-    { name = "Docs", url = "/docs/latest", weight = 100 },
-    { name = "Releases", pre = "relative", url = "../../releases", weight = 600 },
-    { name = "Spark", url = "/getting-started", weight = 200 },
-    { name = "Flink", url = "/flink", weight = 300 },
-    { name = "Trino", url = "https://trino.io/docs/current/connector/iceberg.html", weight = 400 },
-    { name = "Presto", url = "https://prestodb.io/docs/current/connector/iceberg.html" , weight = 500 },
+    { name = "Quickstart", pre = "relative", url = "../../spark-quickstart", weight = 100 },
+    { name = "Docs", url = "/docs/latest", weight = 200 },
     { name = "Blogs", pre = "relative", url = "../../blogs", weight = 998 },
     { name = "Talks", pre = "relative", url = "../../talks", weight = 999 },
     { name = "Roadmap", pre = "relative", url = "../../roadmap", weight = 997 },
