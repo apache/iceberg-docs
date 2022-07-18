@@ -1,7 +1,9 @@
 ---
+title: "Terms"
 url: terms
 aliases:
     - "terms"
+disableSidebar: true
 ---
 <!--
  - Licensed to the Apache Software Foundation (ASF) under one or more

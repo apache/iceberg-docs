@@ -1,8 +1,7 @@
 ---
+title: "Spec"
 url: spec
-toc: true
-aliases:
-    - "spec"
+disableSidebar: true
 ---
 <!--
  - Licensed to the Apache Software Foundation (ASF) under one or more
@@ -31,13 +30,13 @@ Versions 1 and 2 of the Iceberg spec are complete and adopted by the community.
 
 The format version number is incremented when new features are added that will break forward-compatibility---that is, when older readers would not read newer table features correctly. Tables may continue to be written with an older version of the spec to ensure compatibility by not using features that are not yet implemented by processing engines.
 
-### Version 1: Analytic Data Tables
+#### Version 1: Analytic Data Tables
 
 Version 1 of the Iceberg spec defines how to manage large analytic tables using immutable file formats: Parquet, Avro, and ORC.
 
 All version 1 data and metadata files are valid after upgrading a table to version 2. [Appendix E](#version-2) documents how to default version 2 fields when reading version 1 metadata.
 
-### Version 2: Row-level Deletes
+#### Version 2: Row-level Deletes
 
 Version 2 of the Iceberg spec adds row-level updates and deletes for analytic tables with immutable files.
 
@@ -68,7 +67,7 @@ Data files in snapshots are tracked by one or more manifest files that contain a
 
 The manifests that make up a snapshot are stored in a manifest list file. Each manifest list stores metadata about manifests, including partition stats and data file counts. These stats are used to avoid reading manifests that are not required for an operation.
 
-### Optimistic Concurrency
+#### Optimistic Concurrency
 
 An atomic swap of one table metadata file for another provides the basis for serializable isolation. Readers use the snapshot that was current when they load the table metadata and are not affected by changes until they refresh and pick up a new metadata location.
 
@@ -78,7 +77,7 @@ If the snapshot on which an update is based is no longer current, the writer mus
 
 The conditions required by a write to successfully commit determines the isolation level. Writers can select what to validate and can make different isolation guarantees.
 
-### Sequence Numbers
+#### Sequence Numbers
 
 The relative age of data and delete files relies on a sequence number that is assigned to every successful commit. When a snapshot is created for a commit, it is optimistically assigned the next sequence number, and it is written into the snapshot's metadata. If the commit fails and must be retried, the sequence number is reassigned and written into new snapshot metadata.
 
@@ -87,7 +86,7 @@ All manifests, data files, and delete files created for a snapshot inherit the s
 Inheriting the sequence number from manifest metadata allows writing a new manifest once and reusing it in commit retries. To change a sequence number for a retry, only the manifest list must be rewritten -- which would be rewritten anyway with the latest set of manifests.
 
 
-### Row-level Deletes
+#### Row-level Deletes
 
 Row-level deletes are stored in delete files.
 
@@ -99,7 +98,7 @@ There are two ways to encode a row-level delete:
 Like data files, delete files are tracked by partition. In general, a delete file must be applied to older data files with the same partition; see [Scan Planning](#scan-planning) for details. Column metrics can be used to determine whether a delete file's rows overlap the contents of a data file or a scan range.
 
 
-### File System Operations
+#### File System Operations
 
 Iceberg only requires that file systems support the following operations:
 
@@ -116,7 +115,7 @@ Tables do not require rename, except for tables that use atomic rename to implem
 
 ## Specification
 
-### Terms
+#### Terms
 
 * **Schema** -- Names and types of fields in a table.
 * **Partition spec** -- A definition of how partition values are derived from data fields.
@@ -126,7 +125,7 @@ Tables do not require rename, except for tables that use atomic rename to implem
 * **Data file** -- A file that contains rows of a table.
 * **Delete file** -- A file that encodes rows of a table that are deleted by position or data values.
 
-### Writer requirements
+#### Writer requirements
 
 Some tables in this spec have columns that specify requirements for v1 and v2 tables. These requirements are intended for writers when adding metadata files to a table with the given version.
 
@@ -344,12 +343,13 @@ For hash function details by type, see Appendix B.
 | **`int`**     | `W`, width            | `v - (v % W)`	remainders must be positive	[1]                    | `W=10`: `1` ￫ `0`, `-1` ￫ `-10`  |
 | **`long`**    | `W`, width            | `v - (v % W)`	remainders must be positive	[1]                    | `W=10`: `1` ￫ `0`, `-1` ￫ `-10`  |
 | **`decimal`** | `W`, width (no scale) | `scaled_W = decimal(W, scale(v))` `v - (v % scaled_W)`		[1, 2] | `W=50`, `s=2`: `10.65` ￫ `10.50` |
-| **`string`**  | `L`, length           | Substring of length `L`: `v.substring(0, L)`                     | `L=3`: `iceberg` ￫ `ice`         |
+| **`string`**  | `L`, length           | Substring of length `L`: `v.substring(0, L)` [3]                    | `L=3`: `iceberg` ￫ `ice`         |
 
 Notes:
 
 1. The remainder, `v % W`, must be positive. For languages where `%` can produce negative values, the correct truncate function is: `v - (((v % W) + W) % W)`
 2. The width, `W`, used to truncate decimal values is applied using the scale of the decimal column to avoid additional (and potentially conflicting) parameters.
+3. Strings are truncated to a valid UTF-8 string with no more than `L` code points.
 
 
 #### Partition Evolution
@@ -373,7 +373,7 @@ In v1, partition field IDs were not tracked, but were assigned sequentially star
 
 Users can sort their data within partitions by columns to gain performance. The information on how the data is sorted can be declared per data or delete file, by a **sort order**.
 
-A sort order is defined by an sort order id and a list of sort fields. The order of the sort fields within the list defines the order in which the sort is applied to the data. Each sort field consists of:
+A sort order is defined by a sort order id and a list of sort fields. The order of the sort fields within the list defines the order in which the sort is applied to the data. Each sort field consists of:
 
 *   A **source column id** from the table's schema
 *   A **transform** that is used to produce values to be sorted on from the source column. This is the same transform as described in [partition transforms](#partition-transforms).

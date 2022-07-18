@@ -1,7 +1,8 @@
 ---
-bookCollapseSection: true
+title: "Release Notes"
 weight: 1100
 url: releases
+disableSidebar: true
 ---
 <!--
  - Licensed to the Apache Software Foundation (ASF) under one or more
@@ -65,6 +66,29 @@ To add a dependency on Iceberg in Maven, add the following to your `pom.xml`:
   ...
 </dependencies>
 ```
+## 0.13.2 Release Notes
+
+Apache Iceberg 0.13.2 was released on June 15th, 2022.
+
+**Important bug fixes and changes:**
+
+* **Core**
+  * [\#4673](https://github.com/apache/iceberg/pull/4673) fixes table corruption from OOM during commit cleanup
+  * [\#4514](https://github.com/apache/iceberg/pull/4514) row delta delete files were dropped in sequential commits after table format updated to v2
+  * [\#4464](https://github.com/apache/iceberg/pull/4464) fixes an issue were conflicting transactions have been ignored during a commit
+  * [\#4520](https://github.com/apache/iceberg/pull/4520) fixes an issue with wrong table predicate filtering with evolved partition specs
+* **Spark**
+  * [\#4663](https://github.com/apache/iceberg/pull/4663) fixes NPEs in Spark value converter
+  * [\#4687](https://github.com/apache/iceberg/pull/4687) fixes an issue with incorrect aborts when non-runtime exceptions were thrown in Spark
+* **Flink**
+  * Note that there's a correctness issue when using upsert mode in Flink 1.12. Given that Flink 1.12 is deprecated, it was decided to not fix this bug but rather log a warning (see also [\#4754](https://github.com/apache/iceberg/pull/4754)).
+* **Nessie**
+  * [\#4509](https://github.com/apache/iceberg/pull/4509) fixes a NPE that occurred when accessing refreshed tables in NessieCatalog
+
+
+A more exhaustive list of changes is available under the [0.13.2 release milestone](https://github.com/apache/iceberg/milestone/18?closed=1).
+
+## Past releases
 
 ## 0.13.1 Release Notes
 
@@ -82,7 +106,6 @@ Apache Iceberg 0.13.1 was released on February 14th, 2022.
   * [\#3986](https://github.com/apache/iceberg/pull/3986) fixes manifest location collisions when there are multiple committers
   in the same Flink job.
 
-## Past releases
 
 ### 0.13.0 Release Notes
 
