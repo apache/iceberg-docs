@@ -1,0 +1,52 @@
+<!-- - Licensed to the Apache Software Foundation (ASF) under one or more-->
+<!-- - contributor license agreements.  See the NOTICE file distributed with-->
+<!-- - this work for additional information regarding copyright ownership.-->
+<!-- - The ASF licenses this file to You under the Apache License, Version 2.0-->
+<!-- - (the "License"); you may not use this file except in compliance with-->
+<!-- - the License.  You may obtain a copy of the License at-->
+<!-- - -->
+<!-- -   http://www.apache.org/licenses/LICENSE-2.0-->
+<!-- - -->
+<!-- - Unless required by applicable law or agreed to in writing, software-->
+<!-- - distributed under the License is distributed on an "AS IS" BASIS,-->
+<!-- - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.-->
+<!-- - See the License for the specific language governing permissions and-->
+<!-- - limitations under the License.-->
+<!-- Pricing Section -->
+<section id="pricing" class="container content-section text-center">
+    {{ range where .Site.RegularPages "Section" "pricing" | first 1 }}
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <br/>
+                <br/>
+                <h2>{{ .Title }}</h2>
+                <br/>
+                {{ .Content }}
+                <br/>
+
+                {{ $length := len $.Site.Data.pricing }}
+                <div class="Rtable Rtable--{{ $length }}cols Rtable--collapse">
+
+                    {{ range $index, $content := $.Site.Data.pricing }}
+                        <div style="order:0;" class="Rtable-cell Rtable-cell--head"><h3>{{ $content.name }}</h3></div>
+                        {{ range $i, $feature := $content.features}}
+                            {{ $c :=add $i 1 }}
+                            <div style="order:{{ $c }};" class="Rtable-cell">{{ $feature.name }}</div>
+                        {{ end }}
+                        {{ $d := len $content.features }}
+                        <div style="order:{{ add $d 1 }};" class="Rtable-cell Rtable-cell--foot">
+                            <div class="pricing">
+                                <a href="{{ $content.link }}">
+                                    {{ $content.linkText }}
+                                </a>
+                            </div>
+                        </div>
+
+                    {{ end }}
+                </div>
+
+            </div>
+        </div>
+    {{ end }}
+    </section>
+    

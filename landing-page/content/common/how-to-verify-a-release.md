@@ -1,5 +1,7 @@
 ---
+title: How to Verify a Release
 url: how-to-verify-a-release
+disableSidebar: true
 ---
 <!--
  - Licensed to the Apache Software Foundation (ASF) under one or more
