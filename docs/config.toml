@@ -24,6 +24,7 @@ home = [ "HTML", "RSS", "SearchIndex" ]
 [menu]
   versions = [
     { name = "latest", pre = "relative", url = "../latest", weight = 1 },
+    { name = "0.14.0", pre = "relative", url = "../0.14.0", weight = 996 },
     { name = "0.13.2", pre = "relative", url = "../0.13.2", weight = 997 },
     { name = "0.13.1", pre = "relative", url = "../0.13.1", weight = 998 },
     { name = "0.13.0", pre = "relative", url = "../0.13.0", weight = 999 },
