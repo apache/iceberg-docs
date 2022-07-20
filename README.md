@@ -160,3 +160,27 @@ You can read more about this Hugo URL Management feature [here](https://gohugo.i
 
 For root level redirects that are outside of both sites, the `./redirects` directory contains pages with redirect `meta` tags.
 These are all deployed at the root level of the `asf-site` branch by the `Deploy redirects` step in the [deployment workflow](./.github/workflows/deploy.yml).
+
+## Testing Both Sites Locally
+
+In some cases, it's useful to test both the landing-page site and the docs site locally. Especially in situations
+where you need to test relative links between the two sites. This can be achieved by building both sites with custom
+`baseURL` and `publishDir` values passed to the CLI. You can then run the site with any local live server, such as the
+[Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension for VSCode.
+
+First, change into the `landing-page` directory and build the site. Use `-b` and `-d` to set `baseURL` and `publishDir`, respectively.
+```
+cd landing-page
+hugo -b http://localhost:5500/ -d ../public
+```
+
+Next, change into the `docs` directory and do the same thing. Remember that the docs-site is deployed to a `docs/<VERSION>` url, relative to the landing-page site. Since the landing-page was deployed to `../publish` in the example
+above, the example below usees `../public/docs/latest` to deploy a `latest` version docs-site.
+```
+cd ../docs
+hugo -b http://localhost:5500/docs/latest/ -d ../public/docs/latest
+```
+
+You should then have both sites deployed to the `public` directory which you can launch using your live server.
+
+**Note:** The examples above use port `5500`. Be sure to change the port number if your local live server uses a different port.
