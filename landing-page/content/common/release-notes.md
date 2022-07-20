@@ -81,7 +81,7 @@ Apache Iceberg 0.14.0 was released on 16 July 2022.
 * Added support for Scala 2.13 with Spark 3.2 or later
 * Added merge-on-read support for MERGE and UPDATE queries in Spark 3.2 or later
 * Added support to rewrite partitions using zorder
-* Added support for Flink 1.5 and dropped support for Flink 1.12
+* Added support for Flink 1.15 and dropped support for Flink 1.12
 * Added a spec and implementation for Puffin, a format for large stats and index blobs, like [Theta sketches](https://datasketches.apache.org/docs/Theta/InverseEstimate.html) or bloom filters
 * Added new interfaces for consuming data incrementally (both append and changelog scans)
 * Added support for bulk operations and ranged reads to FileIO interfaces
