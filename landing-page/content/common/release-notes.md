@@ -271,7 +271,7 @@ Apache Iceberg 0.13.1 was released on February 14th, 2022.
   in the same Flink job.
 
 
-### 0.13.0 Release Notes
+### 0.13.0
 
 Apache Iceberg 0.13.0 was released on February 4th, 2022.
 
