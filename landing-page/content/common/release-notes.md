@@ -167,7 +167,6 @@ Apache Iceberg 0.14.0 was released on 16 July 2022.
   - Parquet vectorized reads are enabled by default ([#4196](https://github.com/apache/iceberg/pull/4196))
   - Scan statistics now adjust row counts for split data files ([#4446](https://github.com/apache/iceberg/pull/4446))
   - Implemented `SupportsReportStatistics` in `ScanBuilder` to work around SPARK-38962 ([#5136](https://github.com/apache/iceberg/pull/5136))
-  - Fixed an unreleased performance regression from refactoring Spark interfaces in [#3516](https://github.com/apache/iceberg/pull/3516) ([#5143](https://github.com/apache/iceberg/pull/5143))
   - Updated Spark tables to avoid expensive (and inaccurate) size estimation ([#5225](https://github.com/apache/iceberg/pull/5225))
 * Flink
   - Operators will now use a worker pool per job ([#4177](https://github.com/apache/iceberg/pull/4177))
