@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":6,"i1":6};
+var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -132,19 +132,25 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public interface <span class="typeNameLabel">ReplacePartitions</span>
 extends <a href="SnapshotUpdate.html" title="interface in org.apache.iceberg">SnapshotUpdate</a>&lt;<a href="ReplacePartitions.html" title="interface in org.apache.iceberg">ReplacePartitions</a>&gt;</pre>
-<div class="block">Not recommended: API for overwriting files in a table by partition.
+<div class="block">API for overwriting files in a table by partition.
  <p>
  This is provided to implement SQL compatible with Hive table operations but is not recommended.
  Instead, use the <a href="OverwriteFiles.html" title="interface in org.apache.iceberg"><code>overwrite API</code></a> to explicitly overwrite data.
+ <p>
+ The default validation mode is idempotent, meaning the overwrite is
+ correct and should be committed out regardless of other concurrent changes to the table.
+ Alternatively, this API can be configured to validate that no new data or deletes
+ have been applied since a snapshot ID associated when this operation began.
+ This can be done by calling <a href="#validateNoConflictingDeletes()"><code>validateNoConflictingDeletes()</code></a>, <a href="#validateNoConflictingData()"><code>validateNoConflictingData()</code></a>,
+ to ensure that no conflicting delete files or data files respectively have been written since the snapshot
+ passed to <a href="#validateFromSnapshot(long)"><code>validateFromSnapshot(long)</code></a>.
  <p>
  This API accumulates file additions and produces a new <a href="Snapshot.html" title="interface in org.apache.iceberg"><code>Snapshot</code></a> of the table by replacing
  all files in partitions with new data with the new additions. This operation is used to implement
  dynamic partition replacement.
  <p>
  When committing, these changes will be applied to the latest table snapshot. Commit conflicts
- will be resolved by applying the changes to the new latest snapshot and reattempting the commit.
- This has no requirements for the latest snapshot and will not fail based on other snapshot
- changes.</div>
+ will be resolved by applying the changes to the new latest snapshot and reattempting the commit.</div>
 </li>
 </ul>
 </div>
@@ -179,6 +185,27 @@ extends <a href="SnapshotUpdate.html" title="interface in org.apache.iceberg">Sn
 <div class="block">Validate that no partitions will be replaced and the operation is append-only.</div>
 </td>
 </tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code><a href="ReplacePartitions.html" title="interface in org.apache.iceberg">ReplacePartitions</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#validateFromSnapshot(long)">validateFromSnapshot</a></span>&#8203;(long&nbsp;snapshotId)</code></th>
+<td class="colLast">
+<div class="block">Set the snapshot ID used in validations for this operation.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code><a href="ReplacePartitions.html" title="interface in org.apache.iceberg">ReplacePartitions</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#validateNoConflictingData()">validateNoConflictingData</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Enables validation that data added concurrently does not conflict with this commit's operation.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="ReplacePartitions.html" title="interface in org.apache.iceberg">ReplacePartitions</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#validateNoConflictingDeletes()">validateNoConflictingDeletes</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Enables validation that deletes that happened concurrently do not conflict with this commit's operation.</div>
+</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.org.apache.iceberg.PendingUpdate">
@@ -192,7 +219,7 @@ extends <a href="SnapshotUpdate.html" title="interface in org.apache.iceberg">Sn
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="SnapshotUpdate.html" title="interface in org.apache.iceberg">SnapshotUpdate</a></h3>
-<code><a href="SnapshotUpdate.html#deleteWith(java.util.function.Consumer)">deleteWith</a>, <a href="SnapshotUpdate.html#set(java.lang.String,java.lang.String)">set</a>, <a href="SnapshotUpdate.html#stageOnly()">stageOnly</a></code></li>
+<code><a href="SnapshotUpdate.html#deleteWith(java.util.function.Consumer)">deleteWith</a>, <a href="SnapshotUpdate.html#scanManifestsWith(java.util.concurrent.ExecutorService)">scanManifestsWith</a>, <a href="SnapshotUpdate.html#set(java.lang.String,java.lang.String)">set</a>, <a href="SnapshotUpdate.html#stageOnly()">stageOnly</a></code></li>
 </ul>
 </li>
 </ul>
@@ -229,11 +256,70 @@ extends <a href="SnapshotUpdate.html" title="interface in org.apache.iceberg">Sn
 <a id="validateAppendOnly()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>validateAppendOnly</h4>
 <pre class="methodSignature"><a href="ReplacePartitions.html" title="interface in org.apache.iceberg">ReplacePartitions</a>&nbsp;validateAppendOnly()</pre>
 <div class="block">Validate that no partitions will be replaced and the operation is append-only.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a id="validateFromSnapshot(long)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>validateFromSnapshot</h4>
+<pre class="methodSignature"><a href="ReplacePartitions.html" title="interface in org.apache.iceberg">ReplacePartitions</a>&nbsp;validateFromSnapshot&#8203;(long&nbsp;snapshotId)</pre>
+<div class="block">Set the snapshot ID used in validations for this operation.
+
+ All validations will check changes after this snapshot ID. If this is not called, validation will occur
+ from the beginning of the table's history.
+
+ This method should be called before this operation is committed.
+ If a concurrent operation committed a data or delta file or removed a data file after the given snapshot ID
+ that might contain rows matching a partition marked for deletion, validation will detect this and fail.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>snapshotId</code> - a snapshot ID, it should be set to when this operation started to read the table.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a id="validateNoConflictingDeletes()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>validateNoConflictingDeletes</h4>
+<pre class="methodSignature"><a href="ReplacePartitions.html" title="interface in org.apache.iceberg">ReplacePartitions</a>&nbsp;validateNoConflictingDeletes()</pre>
+<div class="block">Enables validation that deletes that happened concurrently do not conflict with this commit's operation.
+ <p>
+ Validating concurrent deletes is required during non-idempotent replace partition operations.
+ This will check if a concurrent operation deletes data in any of the partitions being overwritten,
+ as the replace partition must be aborted to avoid undeleting rows that were removed concurrently.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a id="validateNoConflictingData()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>validateNoConflictingData</h4>
+<pre class="methodSignature"><a href="ReplacePartitions.html" title="interface in org.apache.iceberg">ReplacePartitions</a>&nbsp;validateNoConflictingData()</pre>
+<div class="block">Enables validation that data added concurrently does not conflict with this commit's operation.
+ <p>
+ Validating concurrent data files is required during non-idempotent replace partition operations.
+ This will check if a concurrent operation inserts data in any of the partitions being overwritten,
+ as the replace partition must be aborted to avoid removing rows added concurrently.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>

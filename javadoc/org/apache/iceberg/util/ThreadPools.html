@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9};
+var data = {"i0":9,"i1":9,"i2":9,"i3":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -187,6 +187,25 @@ extends java.lang.Object</pre>
 <div class="block">Return an <code>ExecutorService</code> that uses the "worker" thread-pool.</div>
 </td>
 </tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>static java.util.concurrent.ScheduledExecutorService</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newScheduledPool(java.lang.String,int)">newScheduledPool</a></span>&#8203;(java.lang.String&nbsp;namePrefix,
+                int&nbsp;poolSize)</code></th>
+<td class="colLast">
+<div class="block">Create a new <code>ScheduledExecutorService</code> with the given name and pool size.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>static java.util.concurrent.ExecutorService</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newWorkerPool(java.lang.String)">newWorkerPool</a></span>&#8203;(java.lang.String&nbsp;namePrefix)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>static java.util.concurrent.ExecutorService</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newWorkerPool(java.lang.String,int)">newWorkerPool</a></span>&#8203;(java.lang.String&nbsp;namePrefix,
+             int&nbsp;poolSize)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
@@ -246,7 +265,7 @@ extends java.lang.Object</pre>
 <a id="getWorkerPool()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getWorkerPool</h4>
 <pre class="methodSignature">public static&nbsp;java.util.concurrent.ExecutorService&nbsp;getWorkerPool()</pre>
@@ -260,6 +279,45 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>an <code>ExecutorService</code> that uses the worker pool</dd>
+</dl>
+</li>
+</ul>
+<a id="newWorkerPool(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>newWorkerPool</h4>
+<pre class="methodSignature">public static&nbsp;java.util.concurrent.ExecutorService&nbsp;newWorkerPool&#8203;(java.lang.String&nbsp;namePrefix)</pre>
+</li>
+</ul>
+<a id="newWorkerPool(java.lang.String,int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>newWorkerPool</h4>
+<pre class="methodSignature">public static&nbsp;java.util.concurrent.ExecutorService&nbsp;newWorkerPool&#8203;(java.lang.String&nbsp;namePrefix,
+                                                                 int&nbsp;poolSize)</pre>
+</li>
+</ul>
+<a id="newScheduledPool(java.lang.String,int)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>newScheduledPool</h4>
+<pre class="methodSignature">public static&nbsp;java.util.concurrent.ScheduledExecutorService&nbsp;newScheduledPool&#8203;(java.lang.String&nbsp;namePrefix,
+                                                                             int&nbsp;poolSize)</pre>
+<div class="block">Create a new <code>ScheduledExecutorService</code> with the given name and pool size.
+ <p>
+ Threads used by this service will be daemon threads.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>namePrefix</code> - a base name for threads in the executor service's thread pool</dd>
+<dd><code>poolSize</code> - max number of threads to use</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>an executor service</dd>
 </dl>
 </li>
 </ul>

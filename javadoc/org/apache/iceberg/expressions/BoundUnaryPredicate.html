@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -194,22 +194,29 @@ extends <a href="BoundPredicate.html" title="class in org.apache.iceberg.express
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isEquivalentTo(org.apache.iceberg.expressions.Expression)">isEquivalentTo</a></span>&#8203;(<a href="Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;other)</code></th>
+<td class="colLast">
+<div class="block">Returns whether this expression will accept the same values as another.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isUnaryPredicate()">isUnaryPredicate</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#negate()">negate</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the negation of this expression, equivalent to not(this).</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#test(T)">test</a></span>&#8203;(<a href="BoundUnaryPredicate.html" title="type parameter in BoundUnaryPredicate">T</a>&nbsp;value)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
@@ -301,6 +308,29 @@ extends <a href="BoundPredicate.html" title="class in org.apache.iceberg.express
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="BoundPredicate.html#test(T)">test</a></code>&nbsp;in class&nbsp;<code><a href="BoundPredicate.html" title="class in org.apache.iceberg.expressions">BoundPredicate</a>&lt;<a href="BoundUnaryPredicate.html" title="type parameter in BoundUnaryPredicate">T</a>&gt;</code></dd>
+</dl>
+</li>
+</ul>
+<a id="isEquivalentTo(org.apache.iceberg.expressions.Expression)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isEquivalentTo</h4>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;isEquivalentTo&#8203;(<a href="Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;other)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="Expression.html#isEquivalentTo(org.apache.iceberg.expressions.Expression)">Expression</a></code></span></div>
+<div class="block">Returns whether this expression will accept the same values as another.
+ <p>
+ If this returns true, the expressions are guaranteed to return the same evaluation for the same input. However, if
+ this returns false the expressions may return the same evaluation for the same input. That is, expressions may
+ be equivalent even if this returns false.
+ <p>
+ For best results, rewrite not and bind expressions before calling this method.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>other</code> - another expression</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the expressions are equivalent</dd>
 </dl>
 </li>
 </ul>

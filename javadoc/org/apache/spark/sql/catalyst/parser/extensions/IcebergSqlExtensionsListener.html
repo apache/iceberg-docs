@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6,"i16":6,"i17":6,"i18":6,"i19":6,"i20":6,"i21":6,"i22":6,"i23":6,"i24":6,"i25":6,"i26":6,"i27":6,"i28":6,"i29":6,"i30":6,"i31":6,"i32":6,"i33":6,"i34":6,"i35":6,"i36":6,"i37":6,"i38":6,"i39":6,"i40":6,"i41":6,"i42":6,"i43":6,"i44":6,"i45":6,"i46":6,"i47":6,"i48":6,"i49":6,"i50":6,"i51":6,"i52":6,"i53":6,"i54":6,"i55":6,"i56":6,"i57":6,"i58":6,"i59":6,"i60":6,"i61":6,"i62":6,"i63":6,"i64":6,"i65":6,"i66":6,"i67":6,"i68":6,"i69":6,"i70":6,"i71":6,"i72":6,"i73":6,"i74":6,"i75":6,"i76":6,"i77":6,"i78":6,"i79":6};
+var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6,"i16":6,"i17":6,"i18":6,"i19":6,"i20":6,"i21":6,"i22":6,"i23":6,"i24":6,"i25":6,"i26":6,"i27":6,"i28":6,"i29":6,"i30":6,"i31":6,"i32":6,"i33":6,"i34":6,"i35":6,"i36":6,"i37":6,"i38":6,"i39":6,"i40":6,"i41":6,"i42":6,"i43":6,"i44":6,"i45":6,"i46":6,"i47":6,"i48":6,"i49":6,"i50":6,"i51":6,"i52":6,"i53":6,"i54":6,"i55":6,"i56":6,"i57":6,"i58":6,"i59":6,"i60":6,"i61":6,"i62":6,"i63":6,"i64":6,"i65":6,"i66":6,"i67":6,"i68":6,"i69":6,"i70":6,"i71":6,"i72":6,"i73":6,"i74":6,"i75":6,"i76":6,"i77":6,"i78":6,"i79":6,"i80":6,"i81":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -380,12 +380,19 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
 </tr>
 <tr id="i29" class="rowColor">
 <td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#enterSingleOrder(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.SingleOrderContext)">enterSingleOrder</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.SingleOrderContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.SingleOrderContext</a>&nbsp;ctx)</code></th>
+<td class="colLast">
+<div class="block">Enter a parse tree produced by <a href="IcebergSqlExtensionsParser.html#singleOrder()"><code>IcebergSqlExtensionsParser.singleOrder()</code></a>.</div>
+</td>
+</tr>
+<tr id="i30" class="altColor">
+<td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#enterSingleStatement(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.SingleStatementContext)">enterSingleStatement</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.SingleStatementContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.SingleStatementContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
 <div class="block">Enter a parse tree produced by <a href="IcebergSqlExtensionsParser.html#singleStatement()"><code>IcebergSqlExtensionsParser.singleStatement()</code></a>.</div>
 </td>
 </tr>
-<tr id="i30" class="altColor">
+<tr id="i31" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#enterSmallIntLiteral(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.SmallIntLiteralContext)">enterSmallIntLiteral</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.SmallIntLiteralContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.SmallIntLiteralContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -393,7 +400,7 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#number()"><code>IcebergSqlExtensionsParser.number()</code></a>.</div>
 </td>
 </tr>
-<tr id="i31" class="rowColor">
+<tr id="i32" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#enterStringLiteral(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.StringLiteralContext)">enterStringLiteral</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.StringLiteralContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.StringLiteralContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -401,14 +408,14 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#constant()"><code>IcebergSqlExtensionsParser.constant()</code></a>.</div>
 </td>
 </tr>
-<tr id="i32" class="altColor">
+<tr id="i33" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#enterStringMap(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.StringMapContext)">enterStringMap</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.StringMapContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.StringMapContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
 <div class="block">Enter a parse tree produced by <a href="IcebergSqlExtensionsParser.html#stringMap()"><code>IcebergSqlExtensionsParser.stringMap()</code></a>.</div>
 </td>
 </tr>
-<tr id="i33" class="rowColor">
+<tr id="i34" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#enterTinyIntLiteral(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.TinyIntLiteralContext)">enterTinyIntLiteral</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.TinyIntLiteralContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.TinyIntLiteralContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -416,14 +423,14 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#number()"><code>IcebergSqlExtensionsParser.number()</code></a>.</div>
 </td>
 </tr>
-<tr id="i34" class="altColor">
+<tr id="i35" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#enterTransformArgument(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.TransformArgumentContext)">enterTransformArgument</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.TransformArgumentContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.TransformArgumentContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
 <div class="block">Enter a parse tree produced by <a href="IcebergSqlExtensionsParser.html#transformArgument()"><code>IcebergSqlExtensionsParser.transformArgument()</code></a>.</div>
 </td>
 </tr>
-<tr id="i35" class="rowColor">
+<tr id="i36" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#enterTypeConstructor(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.TypeConstructorContext)">enterTypeConstructor</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.TypeConstructorContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.TypeConstructorContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -431,7 +438,7 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#constant()"><code>IcebergSqlExtensionsParser.constant()</code></a>.</div>
 </td>
 </tr>
-<tr id="i36" class="altColor">
+<tr id="i37" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#enterUnquotedIdentifier(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.UnquotedIdentifierContext)">enterUnquotedIdentifier</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.UnquotedIdentifierContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.UnquotedIdentifierContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -439,28 +446,28 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#identifier()"><code>IcebergSqlExtensionsParser.identifier()</code></a>.</div>
 </td>
 </tr>
-<tr id="i37" class="rowColor">
+<tr id="i38" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#enterWriteDistributionSpec(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.WriteDistributionSpecContext)">enterWriteDistributionSpec</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.WriteDistributionSpecContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.WriteDistributionSpecContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
 <div class="block">Enter a parse tree produced by <a href="IcebergSqlExtensionsParser.html#writeDistributionSpec()"><code>IcebergSqlExtensionsParser.writeDistributionSpec()</code></a>.</div>
 </td>
 </tr>
-<tr id="i38" class="altColor">
+<tr id="i39" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#enterWriteOrderingSpec(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.WriteOrderingSpecContext)">enterWriteOrderingSpec</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.WriteOrderingSpecContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.WriteOrderingSpecContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
 <div class="block">Enter a parse tree produced by <a href="IcebergSqlExtensionsParser.html#writeOrderingSpec()"><code>IcebergSqlExtensionsParser.writeOrderingSpec()</code></a>.</div>
 </td>
 </tr>
-<tr id="i39" class="rowColor">
+<tr id="i40" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#enterWriteSpec(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.WriteSpecContext)">enterWriteSpec</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.WriteSpecContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.WriteSpecContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
 <div class="block">Enter a parse tree produced by <a href="IcebergSqlExtensionsParser.html#writeSpec()"><code>IcebergSqlExtensionsParser.writeSpec()</code></a>.</div>
 </td>
 </tr>
-<tr id="i40" class="altColor">
+<tr id="i41" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitAddPartitionField(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.AddPartitionFieldContext)">exitAddPartitionField</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.AddPartitionFieldContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.AddPartitionFieldContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -468,7 +475,7 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#statement()"><code>IcebergSqlExtensionsParser.statement()</code></a>.</div>
 </td>
 </tr>
-<tr id="i41" class="rowColor">
+<tr id="i42" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitApplyTransform(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.ApplyTransformContext)">exitApplyTransform</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.ApplyTransformContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.ApplyTransformContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -476,7 +483,7 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#transform()"><code>IcebergSqlExtensionsParser.transform()</code></a>.</div>
 </td>
 </tr>
-<tr id="i42" class="altColor">
+<tr id="i43" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitBigDecimalLiteral(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.BigDecimalLiteralContext)">exitBigDecimalLiteral</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.BigDecimalLiteralContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.BigDecimalLiteralContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -484,7 +491,7 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#number()"><code>IcebergSqlExtensionsParser.number()</code></a>.</div>
 </td>
 </tr>
-<tr id="i43" class="rowColor">
+<tr id="i44" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitBigIntLiteral(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.BigIntLiteralContext)">exitBigIntLiteral</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.BigIntLiteralContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.BigIntLiteralContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -492,7 +499,7 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#number()"><code>IcebergSqlExtensionsParser.number()</code></a>.</div>
 </td>
 </tr>
-<tr id="i44" class="altColor">
+<tr id="i45" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitBooleanLiteral(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.BooleanLiteralContext)">exitBooleanLiteral</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.BooleanLiteralContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.BooleanLiteralContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -500,14 +507,14 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#constant()"><code>IcebergSqlExtensionsParser.constant()</code></a>.</div>
 </td>
 </tr>
-<tr id="i45" class="rowColor">
+<tr id="i46" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitBooleanValue(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.BooleanValueContext)">exitBooleanValue</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.BooleanValueContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.BooleanValueContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
 <div class="block">Exit a parse tree produced by <a href="IcebergSqlExtensionsParser.html#booleanValue()"><code>IcebergSqlExtensionsParser.booleanValue()</code></a>.</div>
 </td>
 </tr>
-<tr id="i46" class="altColor">
+<tr id="i47" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitCall(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.CallContext)">exitCall</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.CallContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.CallContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -515,7 +522,7 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#statement()"><code>IcebergSqlExtensionsParser.statement()</code></a>.</div>
 </td>
 </tr>
-<tr id="i47" class="rowColor">
+<tr id="i48" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitDecimalLiteral(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.DecimalLiteralContext)">exitDecimalLiteral</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.DecimalLiteralContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.DecimalLiteralContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -523,7 +530,7 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#number()"><code>IcebergSqlExtensionsParser.number()</code></a>.</div>
 </td>
 </tr>
-<tr id="i48" class="altColor">
+<tr id="i49" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitDoubleLiteral(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.DoubleLiteralContext)">exitDoubleLiteral</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.DoubleLiteralContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.DoubleLiteralContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -531,7 +538,7 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#number()"><code>IcebergSqlExtensionsParser.number()</code></a>.</div>
 </td>
 </tr>
-<tr id="i49" class="rowColor">
+<tr id="i50" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitDropIdentifierFields(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.DropIdentifierFieldsContext)">exitDropIdentifierFields</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.DropIdentifierFieldsContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.DropIdentifierFieldsContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -539,7 +546,7 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#statement()"><code>IcebergSqlExtensionsParser.statement()</code></a>.</div>
 </td>
 </tr>
-<tr id="i50" class="altColor">
+<tr id="i51" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitDropPartitionField(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.DropPartitionFieldContext)">exitDropPartitionField</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.DropPartitionFieldContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.DropPartitionFieldContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -547,7 +554,7 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#statement()"><code>IcebergSqlExtensionsParser.statement()</code></a>.</div>
 </td>
 </tr>
-<tr id="i51" class="rowColor">
+<tr id="i52" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitExponentLiteral(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.ExponentLiteralContext)">exitExponentLiteral</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.ExponentLiteralContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.ExponentLiteralContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -555,21 +562,21 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#number()"><code>IcebergSqlExtensionsParser.number()</code></a>.</div>
 </td>
 </tr>
-<tr id="i52" class="altColor">
+<tr id="i53" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitExpression(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.ExpressionContext)">exitExpression</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.ExpressionContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.ExpressionContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
 <div class="block">Exit a parse tree produced by <a href="IcebergSqlExtensionsParser.html#expression()"><code>IcebergSqlExtensionsParser.expression()</code></a>.</div>
 </td>
 </tr>
-<tr id="i53" class="rowColor">
+<tr id="i54" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitFieldList(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.FieldListContext)">exitFieldList</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.FieldListContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.FieldListContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
 <div class="block">Exit a parse tree produced by <a href="IcebergSqlExtensionsParser.html#fieldList()"><code>IcebergSqlExtensionsParser.fieldList()</code></a>.</div>
 </td>
 </tr>
-<tr id="i54" class="altColor">
+<tr id="i55" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitFloatLiteral(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.FloatLiteralContext)">exitFloatLiteral</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.FloatLiteralContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.FloatLiteralContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -577,7 +584,7 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#number()"><code>IcebergSqlExtensionsParser.number()</code></a>.</div>
 </td>
 </tr>
-<tr id="i55" class="rowColor">
+<tr id="i56" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitIdentityTransform(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.IdentityTransformContext)">exitIdentityTransform</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.IdentityTransformContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.IdentityTransformContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -585,7 +592,7 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#transform()"><code>IcebergSqlExtensionsParser.transform()</code></a>.</div>
 </td>
 </tr>
-<tr id="i56" class="altColor">
+<tr id="i57" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitIntegerLiteral(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.IntegerLiteralContext)">exitIntegerLiteral</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.IntegerLiteralContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.IntegerLiteralContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -593,14 +600,14 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#number()"><code>IcebergSqlExtensionsParser.number()</code></a>.</div>
 </td>
 </tr>
-<tr id="i57" class="rowColor">
+<tr id="i58" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitMultipartIdentifier(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.MultipartIdentifierContext)">exitMultipartIdentifier</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.MultipartIdentifierContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.MultipartIdentifierContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
 <div class="block">Exit a parse tree produced by <a href="IcebergSqlExtensionsParser.html#multipartIdentifier()"><code>IcebergSqlExtensionsParser.multipartIdentifier()</code></a>.</div>
 </td>
 </tr>
-<tr id="i58" class="altColor">
+<tr id="i59" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitNamedArgument(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.NamedArgumentContext)">exitNamedArgument</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.NamedArgumentContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.NamedArgumentContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -608,14 +615,14 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#callArgument()"><code>IcebergSqlExtensionsParser.callArgument()</code></a>.</div>
 </td>
 </tr>
-<tr id="i59" class="rowColor">
+<tr id="i60" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitNonReserved(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.NonReservedContext)">exitNonReserved</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.NonReservedContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.NonReservedContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
 <div class="block">Exit a parse tree produced by <a href="IcebergSqlExtensionsParser.html#nonReserved()"><code>IcebergSqlExtensionsParser.nonReserved()</code></a>.</div>
 </td>
 </tr>
-<tr id="i60" class="altColor">
+<tr id="i61" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitNumericLiteral(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.NumericLiteralContext)">exitNumericLiteral</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.NumericLiteralContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.NumericLiteralContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -623,21 +630,21 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#constant()"><code>IcebergSqlExtensionsParser.constant()</code></a>.</div>
 </td>
 </tr>
-<tr id="i61" class="rowColor">
+<tr id="i62" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitOrder(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.OrderContext)">exitOrder</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.OrderContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.OrderContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
 <div class="block">Exit a parse tree produced by <a href="IcebergSqlExtensionsParser.html#order()"><code>IcebergSqlExtensionsParser.order()</code></a>.</div>
 </td>
 </tr>
-<tr id="i62" class="altColor">
+<tr id="i63" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitOrderField(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.OrderFieldContext)">exitOrderField</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.OrderFieldContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.OrderFieldContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
 <div class="block">Exit a parse tree produced by <a href="IcebergSqlExtensionsParser.html#orderField()"><code>IcebergSqlExtensionsParser.orderField()</code></a>.</div>
 </td>
 </tr>
-<tr id="i63" class="rowColor">
+<tr id="i64" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitPositionalArgument(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.PositionalArgumentContext)">exitPositionalArgument</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.PositionalArgumentContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.PositionalArgumentContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -645,14 +652,14 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#callArgument()"><code>IcebergSqlExtensionsParser.callArgument()</code></a>.</div>
 </td>
 </tr>
-<tr id="i64" class="altColor">
+<tr id="i65" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitQuotedIdentifier(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.QuotedIdentifierContext)">exitQuotedIdentifier</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.QuotedIdentifierContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.QuotedIdentifierContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
 <div class="block">Exit a parse tree produced by <a href="IcebergSqlExtensionsParser.html#quotedIdentifier()"><code>IcebergSqlExtensionsParser.quotedIdentifier()</code></a>.</div>
 </td>
 </tr>
-<tr id="i65" class="rowColor">
+<tr id="i66" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitQuotedIdentifierAlternative(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.QuotedIdentifierAlternativeContext)">exitQuotedIdentifierAlternative</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.QuotedIdentifierAlternativeContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.QuotedIdentifierAlternativeContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -660,7 +667,7 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#identifier()"><code>IcebergSqlExtensionsParser.identifier()</code></a>.</div>
 </td>
 </tr>
-<tr id="i66" class="altColor">
+<tr id="i67" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitReplacePartitionField(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.ReplacePartitionFieldContext)">exitReplacePartitionField</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.ReplacePartitionFieldContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.ReplacePartitionFieldContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -668,7 +675,7 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#statement()"><code>IcebergSqlExtensionsParser.statement()</code></a>.</div>
 </td>
 </tr>
-<tr id="i67" class="rowColor">
+<tr id="i68" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitSetIdentifierFields(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.SetIdentifierFieldsContext)">exitSetIdentifierFields</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.SetIdentifierFieldsContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.SetIdentifierFieldsContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -676,7 +683,7 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#statement()"><code>IcebergSqlExtensionsParser.statement()</code></a>.</div>
 </td>
 </tr>
-<tr id="i68" class="altColor">
+<tr id="i69" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitSetWriteDistributionAndOrdering(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.SetWriteDistributionAndOrderingContext)">exitSetWriteDistributionAndOrdering</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.SetWriteDistributionAndOrderingContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.SetWriteDistributionAndOrderingContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -684,14 +691,21 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#statement()"><code>IcebergSqlExtensionsParser.statement()</code></a>.</div>
 </td>
 </tr>
-<tr id="i69" class="rowColor">
+<tr id="i70" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitSingleOrder(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.SingleOrderContext)">exitSingleOrder</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.SingleOrderContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.SingleOrderContext</a>&nbsp;ctx)</code></th>
+<td class="colLast">
+<div class="block">Exit a parse tree produced by <a href="IcebergSqlExtensionsParser.html#singleOrder()"><code>IcebergSqlExtensionsParser.singleOrder()</code></a>.</div>
+</td>
+</tr>
+<tr id="i71" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitSingleStatement(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.SingleStatementContext)">exitSingleStatement</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.SingleStatementContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.SingleStatementContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
 <div class="block">Exit a parse tree produced by <a href="IcebergSqlExtensionsParser.html#singleStatement()"><code>IcebergSqlExtensionsParser.singleStatement()</code></a>.</div>
 </td>
 </tr>
-<tr id="i70" class="altColor">
+<tr id="i72" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitSmallIntLiteral(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.SmallIntLiteralContext)">exitSmallIntLiteral</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.SmallIntLiteralContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.SmallIntLiteralContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -699,7 +713,7 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#number()"><code>IcebergSqlExtensionsParser.number()</code></a>.</div>
 </td>
 </tr>
-<tr id="i71" class="rowColor">
+<tr id="i73" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitStringLiteral(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.StringLiteralContext)">exitStringLiteral</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.StringLiteralContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.StringLiteralContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -707,14 +721,14 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#constant()"><code>IcebergSqlExtensionsParser.constant()</code></a>.</div>
 </td>
 </tr>
-<tr id="i72" class="altColor">
+<tr id="i74" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitStringMap(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.StringMapContext)">exitStringMap</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.StringMapContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.StringMapContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
 <div class="block">Exit a parse tree produced by <a href="IcebergSqlExtensionsParser.html#stringMap()"><code>IcebergSqlExtensionsParser.stringMap()</code></a>.</div>
 </td>
 </tr>
-<tr id="i73" class="rowColor">
+<tr id="i75" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitTinyIntLiteral(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.TinyIntLiteralContext)">exitTinyIntLiteral</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.TinyIntLiteralContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.TinyIntLiteralContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -722,14 +736,14 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#number()"><code>IcebergSqlExtensionsParser.number()</code></a>.</div>
 </td>
 </tr>
-<tr id="i74" class="altColor">
+<tr id="i76" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitTransformArgument(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.TransformArgumentContext)">exitTransformArgument</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.TransformArgumentContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.TransformArgumentContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
 <div class="block">Exit a parse tree produced by <a href="IcebergSqlExtensionsParser.html#transformArgument()"><code>IcebergSqlExtensionsParser.transformArgument()</code></a>.</div>
 </td>
 </tr>
-<tr id="i75" class="rowColor">
+<tr id="i77" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitTypeConstructor(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.TypeConstructorContext)">exitTypeConstructor</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.TypeConstructorContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.TypeConstructorContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -737,7 +751,7 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#constant()"><code>IcebergSqlExtensionsParser.constant()</code></a>.</div>
 </td>
 </tr>
-<tr id="i76" class="altColor">
+<tr id="i78" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitUnquotedIdentifier(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.UnquotedIdentifierContext)">exitUnquotedIdentifier</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.UnquotedIdentifierContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.UnquotedIdentifierContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -745,21 +759,21 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#identifier()"><code>IcebergSqlExtensionsParser.identifier()</code></a>.</div>
 </td>
 </tr>
-<tr id="i77" class="rowColor">
+<tr id="i79" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitWriteDistributionSpec(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.WriteDistributionSpecContext)">exitWriteDistributionSpec</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.WriteDistributionSpecContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.WriteDistributionSpecContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
 <div class="block">Exit a parse tree produced by <a href="IcebergSqlExtensionsParser.html#writeDistributionSpec()"><code>IcebergSqlExtensionsParser.writeDistributionSpec()</code></a>.</div>
 </td>
 </tr>
-<tr id="i78" class="altColor">
+<tr id="i80" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitWriteOrderingSpec(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.WriteOrderingSpecContext)">exitWriteOrderingSpec</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.WriteOrderingSpecContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.WriteOrderingSpecContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
 <div class="block">Exit a parse tree produced by <a href="IcebergSqlExtensionsParser.html#writeOrderingSpec()"><code>IcebergSqlExtensionsParser.writeOrderingSpec()</code></a>.</div>
 </td>
 </tr>
-<tr id="i79" class="rowColor">
+<tr id="i81" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#exitWriteSpec(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.WriteSpecContext)">exitWriteSpec</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.WriteSpecContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.WriteSpecContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -1166,6 +1180,34 @@ extends org.antlr.v4.runtime.tree.ParseTreeListener</pre>
 <pre class="methodSignature">void&nbsp;exitNamedArgument&#8203;(<a href="IcebergSqlExtensionsParser.NamedArgumentContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.NamedArgumentContext</a>&nbsp;ctx)</pre>
 <div class="block">Exit a parse tree produced by the <code>namedArgument</code>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#callArgument()"><code>IcebergSqlExtensionsParser.callArgument()</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ctx</code> - the parse tree</dd>
+</dl>
+</li>
+</ul>
+<a id="enterSingleOrder(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.SingleOrderContext)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>enterSingleOrder</h4>
+<pre class="methodSignature">void&nbsp;enterSingleOrder&#8203;(<a href="IcebergSqlExtensionsParser.SingleOrderContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.SingleOrderContext</a>&nbsp;ctx)</pre>
+<div class="block">Enter a parse tree produced by <a href="IcebergSqlExtensionsParser.html#singleOrder()"><code>IcebergSqlExtensionsParser.singleOrder()</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ctx</code> - the parse tree</dd>
+</dl>
+</li>
+</ul>
+<a id="exitSingleOrder(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.SingleOrderContext)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>exitSingleOrder</h4>
+<pre class="methodSignature">void&nbsp;exitSingleOrder&#8203;(<a href="IcebergSqlExtensionsParser.SingleOrderContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.SingleOrderContext</a>&nbsp;ctx)</pre>
+<div class="block">Exit a parse tree produced by <a href="IcebergSqlExtensionsParser.html#singleOrder()"><code>IcebergSqlExtensionsParser.singleOrder()</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>ctx</code> - the parse tree</dd>

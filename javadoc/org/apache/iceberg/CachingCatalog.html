@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":9,"i8":9,"i9":9};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":9,"i9":9,"i10":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -278,6 +278,14 @@ implements <a href="catalog/Catalog.html" title="interface in org.apache.iceberg
 </td>
 </tr>
 <tr id="i6" class="altColor">
+<td class="colFirst"><code><a href="Table.html" title="interface in org.apache.iceberg">Table</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#registerTable(org.apache.iceberg.catalog.TableIdentifier,java.lang.String)">registerTable</a></span>&#8203;(<a href="catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;identifier,
+             java.lang.String&nbsp;metadataFileLocation)</code></th>
+<td class="colLast">
+<div class="block">Register a table with the catalog if it does not exist.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#renameTable(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.catalog.TableIdentifier)">renameTable</a></span>&#8203;(<a href="catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;from,
            <a href="catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;to)</code></th>
@@ -285,19 +293,19 @@ implements <a href="catalog/Catalog.html" title="interface in org.apache.iceberg
 <div class="block">Rename a table.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>static <a href="catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#wrap(org.apache.iceberg.catalog.Catalog)">wrap</a></span>&#8203;(<a href="catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a>&nbsp;catalog)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>static <a href="catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#wrap(org.apache.iceberg.catalog.Catalog,boolean,long)">wrap</a></span>&#8203;(<a href="catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a>&nbsp;catalog,
     boolean&nbsp;caseSensitive,
     long&nbsp;expirationIntervalMillis)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>static <a href="catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#wrap(org.apache.iceberg.catalog.Catalog,long)">wrap</a></span>&#8203;(<a href="catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a>&nbsp;catalog,
     long&nbsp;expirationIntervalMillis)</code></th>
@@ -316,7 +324,7 @@ implements <a href="catalog/Catalog.html" title="interface in org.apache.iceberg
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.iceberg.catalog.<a href="catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a></h3>
-<code><a href="catalog/Catalog.html#createTable(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.Schema)">createTable</a>, <a href="catalog/Catalog.html#createTable(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.Schema,org.apache.iceberg.PartitionSpec)">createTable</a>, <a href="catalog/Catalog.html#createTable(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.Schema,org.apache.iceberg.PartitionSpec,java.lang.String,java.util.Map)">createTable</a>, <a href="catalog/Catalog.html#createTable(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.Schema,org.apache.iceberg.PartitionSpec,java.util.Map)">createTable</a>, <a href="catalog/Catalog.html#dropTable(org.apache.iceberg.catalog.TableIdentifier)">dropTable</a>, <a href="catalog/Catalog.html#initialize(java.lang.String,java.util.Map)">initialize</a>, <a href="catalog/Catalog.html#newCreateTableTransaction(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.Schema)">newCreateTableTransaction</a>, <a href="catalog/Catalog.html#newCreateTableTransaction(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.Schema,org.apache.iceberg.PartitionSpec)">newCreateTableTransaction</a>, <a href="catalog/Catalog.html#newCreateTableTransaction(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.Schema,org.apache.iceberg.PartitionSpec,java.lang.String,java.util.Map)">newCreateTableTransaction</a>, <a href="catalog/Catalog.html#newCreateTableTransaction(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.Schema,org.apache.iceberg.PartitionSpec,java.util.Map)">newCreateTableTransaction</a>, <a href="catalog/Catalog.html#newReplaceTableTransaction(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.Schema,boolean)">newReplaceTableTransaction</a>, <a href="catalog/Catalog.html#newReplaceTableTransaction(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.Schema,org.apache.iceberg.PartitionSpec,boolean)">newReplaceTableTransaction</a>, <a href="catalog/Catalog.html#newReplaceTableTransaction(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.Schema,org.apache.iceberg.PartitionSpec,java.lang.String,java.util.Map,boolean)">newReplaceTableTransaction</a>, <a href="catalog/Catalog.html#newReplaceTableTransaction(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.Schema,org.apache.iceberg.PartitionSpec,java.util.Map,boolean)">newReplaceTableTransaction</a>, <a href="catalog/Catalog.html#registerTable(org.apache.iceberg.catalog.TableIdentifier,java.lang.String)">registerTable</a>, <a href="catalog/Catalog.html#tableExists(org.apache.iceberg.catalog.TableIdentifier)">tableExists</a></code></li>
+<code><a href="catalog/Catalog.html#createTable(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.Schema)">createTable</a>, <a href="catalog/Catalog.html#createTable(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.Schema,org.apache.iceberg.PartitionSpec)">createTable</a>, <a href="catalog/Catalog.html#createTable(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.Schema,org.apache.iceberg.PartitionSpec,java.lang.String,java.util.Map)">createTable</a>, <a href="catalog/Catalog.html#createTable(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.Schema,org.apache.iceberg.PartitionSpec,java.util.Map)">createTable</a>, <a href="catalog/Catalog.html#dropTable(org.apache.iceberg.catalog.TableIdentifier)">dropTable</a>, <a href="catalog/Catalog.html#initialize(java.lang.String,java.util.Map)">initialize</a>, <a href="catalog/Catalog.html#newCreateTableTransaction(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.Schema)">newCreateTableTransaction</a>, <a href="catalog/Catalog.html#newCreateTableTransaction(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.Schema,org.apache.iceberg.PartitionSpec)">newCreateTableTransaction</a>, <a href="catalog/Catalog.html#newCreateTableTransaction(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.Schema,org.apache.iceberg.PartitionSpec,java.lang.String,java.util.Map)">newCreateTableTransaction</a>, <a href="catalog/Catalog.html#newCreateTableTransaction(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.Schema,org.apache.iceberg.PartitionSpec,java.util.Map)">newCreateTableTransaction</a>, <a href="catalog/Catalog.html#newReplaceTableTransaction(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.Schema,boolean)">newReplaceTableTransaction</a>, <a href="catalog/Catalog.html#newReplaceTableTransaction(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.Schema,org.apache.iceberg.PartitionSpec,boolean)">newReplaceTableTransaction</a>, <a href="catalog/Catalog.html#newReplaceTableTransaction(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.Schema,org.apache.iceberg.PartitionSpec,java.lang.String,java.util.Map,boolean)">newReplaceTableTransaction</a>, <a href="catalog/Catalog.html#newReplaceTableTransaction(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.Schema,org.apache.iceberg.PartitionSpec,java.util.Map,boolean)">newReplaceTableTransaction</a>, <a href="catalog/Catalog.html#tableExists(org.apache.iceberg.catalog.TableIdentifier)">tableExists</a></code></li>
 </ul>
 </li>
 </ul>
@@ -528,6 +536,27 @@ implements <a href="catalog/Catalog.html" title="interface in org.apache.iceberg
 <dd><code><a href="catalog/Catalog.html#invalidateTable(org.apache.iceberg.catalog.TableIdentifier)">invalidateTable</a></code>&nbsp;in interface&nbsp;<code><a href="catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>ident</code> - a table identifier</dd>
+</dl>
+</li>
+</ul>
+<a id="registerTable(org.apache.iceberg.catalog.TableIdentifier,java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>registerTable</h4>
+<pre class="methodSignature">public&nbsp;<a href="Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;registerTable&#8203;(<a href="catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;identifier,
+                           java.lang.String&nbsp;metadataFileLocation)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="catalog/Catalog.html#registerTable(org.apache.iceberg.catalog.TableIdentifier,java.lang.String)">Catalog</a></code></span></div>
+<div class="block">Register a table with the catalog if it does not exist.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="catalog/Catalog.html#registerTable(org.apache.iceberg.catalog.TableIdentifier,java.lang.String)">registerTable</a></code>&nbsp;in interface&nbsp;<code><a href="catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>identifier</code> - a table identifier</dd>
+<dd><code>metadataFileLocation</code> - the location of a metadata file</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a Table instance</dd>
 </dl>
 </li>
 </ul>

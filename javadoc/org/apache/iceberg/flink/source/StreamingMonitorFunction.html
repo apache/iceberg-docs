@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -200,7 +200,7 @@ implements org.apache.flink.streaming.api.checkpoint.CheckpointedFunction</pre>
 </tr>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(org.apache.iceberg.flink.TableLoader,org.apache.iceberg.flink.source.ScanContext)">StreamingMonitorFunction</a></span>&#8203;(<a href="../TableLoader.html" title="interface in org.apache.iceberg.flink">TableLoader</a>&nbsp;tableLoader,
-                        org.apache.iceberg.flink.source.ScanContext&nbsp;scanContext)</code></th>
+                        <a href="ScanContext.html" title="class in org.apache.iceberg.flink.source">ScanContext</a>&nbsp;scanContext)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -238,10 +238,15 @@ implements org.apache.flink.streaming.api.checkpoint.CheckpointedFunction</pre>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#run(org.apache.flink.streaming.api.functions.source.SourceFunction.SourceContext)">run</a></span>&#8203;(org.apache.flink.streaming.api.functions.source.SourceFunction.SourceContext&lt;<a href="FlinkInputSplit.html" title="class in org.apache.iceberg.flink.source">FlinkInputSplit</a>&gt;&nbsp;ctx)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#open(org.apache.flink.configuration.Configuration)">open</a></span>&#8203;(org.apache.flink.configuration.Configuration&nbsp;parameters)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#run(org.apache.flink.streaming.api.functions.source.SourceFunction.SourceContext)">run</a></span>&#8203;(org.apache.flink.streaming.api.functions.source.SourceFunction.SourceContext&lt;<a href="FlinkInputSplit.html" title="class in org.apache.iceberg.flink.source">FlinkInputSplit</a>&gt;&nbsp;ctx)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#snapshotState(org.apache.flink.runtime.state.FunctionSnapshotContext)">snapshotState</a></span>&#8203;(org.apache.flink.runtime.state.FunctionSnapshotContext&nbsp;context)</code></th>
 <td class="colLast">&nbsp;</td>
@@ -252,7 +257,7 @@ implements org.apache.flink.streaming.api.checkpoint.CheckpointedFunction</pre>
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.flink.api.common.functions.AbstractRichFunction</h3>
-<code>getIterationRuntimeContext, getRuntimeContext, open, setRuntimeContext</code></li>
+<code>getIterationRuntimeContext, getRuntimeContext, setRuntimeContext</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
@@ -284,7 +289,7 @@ implements org.apache.flink.streaming.api.checkpoint.CheckpointedFunction</pre>
 <li class="blockList">
 <h4>StreamingMonitorFunction</h4>
 <pre>public&nbsp;StreamingMonitorFunction&#8203;(<a href="../TableLoader.html" title="interface in org.apache.iceberg.flink">TableLoader</a>&nbsp;tableLoader,
-                                org.apache.iceberg.flink.source.ScanContext&nbsp;scanContext)</pre>
+                                <a href="ScanContext.html" title="class in org.apache.iceberg.flink.source">ScanContext</a>&nbsp;scanContext)</pre>
 </li>
 </ul>
 </li>
@@ -297,6 +302,24 @@ implements org.apache.flink.streaming.api.checkpoint.CheckpointedFunction</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a id="open(org.apache.flink.configuration.Configuration)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>open</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;open&#8203;(org.apache.flink.configuration.Configuration&nbsp;parameters)
+          throws java.lang.Exception</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>open</code>&nbsp;in interface&nbsp;<code>org.apache.flink.api.common.functions.RichFunction</code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code>open</code>&nbsp;in class&nbsp;<code>org.apache.flink.api.common.functions.AbstractRichFunction</code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.Exception</code></dd>
+</dl>
+</li>
+</ul>
 <a id="initializeState(org.apache.flink.runtime.state.FunctionInitializationContext)">
 <!--   -->
 </a>

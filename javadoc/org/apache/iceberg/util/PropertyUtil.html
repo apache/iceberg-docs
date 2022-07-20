@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9};
+var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -153,34 +153,42 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>static java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#propertiesWithPrefix(java.util.Map,java.lang.String)">propertiesWithPrefix</a></span>&#8203;(java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;properties,
+                    java.lang.String&nbsp;prefix)</code></th>
+<td class="colLast">
+<div class="block">Returns subset of provided map with keys matching the provided prefix.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#propertyAsBoolean(java.util.Map,java.lang.String,boolean)">propertyAsBoolean</a></span>&#8203;(java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;properties,
                  java.lang.String&nbsp;property,
                  boolean&nbsp;defaultValue)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>static double</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#propertyAsDouble(java.util.Map,java.lang.String,double)">propertyAsDouble</a></span>&#8203;(java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;properties,
                 java.lang.String&nbsp;property,
                 double&nbsp;defaultValue)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>static int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#propertyAsInt(java.util.Map,java.lang.String,int)">propertyAsInt</a></span>&#8203;(java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;properties,
              java.lang.String&nbsp;property,
              int&nbsp;defaultValue)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>static long</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#propertyAsLong(java.util.Map,java.lang.String,long)">propertyAsLong</a></span>&#8203;(java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;properties,
               java.lang.String&nbsp;property,
               long&nbsp;defaultValue)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#propertyAsString(java.util.Map,java.lang.String,java.lang.String)">propertyAsString</a></span>&#8203;(java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;properties,
                 java.lang.String&nbsp;property,
@@ -258,12 +266,31 @@ extends java.lang.Object</pre>
 <a id="propertyAsString(java.util.Map,java.lang.String,java.lang.String)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>propertyAsString</h4>
 <pre class="methodSignature">public static&nbsp;java.lang.String&nbsp;propertyAsString&#8203;(java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;properties,
                                                 java.lang.String&nbsp;property,
                                                 java.lang.String&nbsp;defaultValue)</pre>
+</li>
+</ul>
+<a id="propertiesWithPrefix(java.util.Map,java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>propertiesWithPrefix</h4>
+<pre class="methodSignature">public static&nbsp;java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;propertiesWithPrefix&#8203;(java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;properties,
+                                                                                          java.lang.String&nbsp;prefix)</pre>
+<div class="block">Returns subset of provided map with keys matching the provided prefix. Matching is case-sensitive and the matching
+ prefix is removed from the keys in returned map.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>properties</code> - input map</dd>
+<dd><code>prefix</code> - prefix to choose keys from input map</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>subset of input map with keys starting with provided prefix and prefix trimmed out</dd>
+</dl>
 </li>
 </ul>
 </li>

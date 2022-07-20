@@ -155,7 +155,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">ValidationException</span>
 extends java.lang.RuntimeException</pre>
-<div class="block">Exception raised when validation checks fail.
+<div class="block">Exception which is raised when the arguments are valid in isolation, but not in conjunction with
+ other arguments or state, as opposed to <code>IllegalArgumentException</code> which is raised when
+ an argument value is always invalid.
+ <p>
+ A ValidationException will cause the operation to abort.
  <p>
  For example, this is thrown when attempting to create a table with a <a href="../PartitionSpec.html" title="class in org.apache.iceberg"><code>PartitionSpec</code></a> that
  is not compatible with the table <a href="../Schema.html" title="class in org.apache.iceberg"><code>Schema</code></a></div>

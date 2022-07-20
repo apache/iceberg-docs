@@ -124,10 +124,16 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </ul>
 </li>
 <li class="circle">org.apache.iceberg.flink.source.<a href="DataIterator.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">DataIterator</span></a>&lt;T&gt; (implements org.apache.iceberg.io.<a href="../../io/CloseableIterator.html" title="interface in org.apache.iceberg.io">CloseableIterator</a>&lt;T&gt;)</li>
-<li class="circle">org.apache.iceberg.flink.source.<a href="FlinkInputSplit.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">FlinkInputSplit</span></a> (implements org.apache.flink.core.io.InputSplit)</li>
 <li class="circle">org.apache.iceberg.flink.source.<a href="FlinkSource.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">FlinkSource</span></a></li>
 <li class="circle">org.apache.iceberg.flink.source.<a href="FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">FlinkSource.Builder</span></a></li>
 <li class="circle">org.apache.iceberg.flink.source.<a href="FlinkSplitPlanner.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">FlinkSplitPlanner</span></a></li>
+<li class="circle">org.apache.iceberg.flink.source.<a href="IcebergSource.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">IcebergSource</span></a>&lt;T&gt; (implements org.apache.flink.api.connector.source.Source&lt;T,&#8203;SplitT,&#8203;EnumChkT&gt;)</li>
+<li class="circle">org.apache.iceberg.flink.source.<a href="IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">IcebergSource.Builder</span></a>&lt;T&gt;</li>
+<li class="circle">org.apache.flink.core.io.LocatableInputSplit (implements org.apache.flink.core.io.InputSplit, java.io.Serializable)
+<ul>
+<li class="circle">org.apache.iceberg.flink.source.<a href="FlinkInputSplit.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">FlinkInputSplit</span></a></li>
+</ul>
+</li>
 <li class="circle">org.apache.flink.api.common.io.RichInputFormat&lt;OT,&#8203;T&gt; (implements org.apache.flink.api.common.io.InputFormat&lt;OT,&#8203;T&gt;)
 <ul>
 <li class="circle">org.apache.iceberg.flink.source.<a href="FlinkInputFormat.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">FlinkInputFormat</span></a></li>
@@ -135,6 +141,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </li>
 <li class="circle">org.apache.iceberg.flink.source.<a href="RowDataFileScanTaskReader.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">RowDataFileScanTaskReader</span></a> (implements org.apache.iceberg.flink.source.<a href="FileScanTaskReader.html" title="interface in org.apache.iceberg.flink.source">FileScanTaskReader</a>&lt;T&gt;)</li>
 <li class="circle">org.apache.iceberg.flink.source.<a href="RowDataRewriter.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">RowDataRewriter</span></a></li>
+<li class="circle">org.apache.iceberg.flink.source.<a href="ScanContext.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">ScanContext</span></a> (implements java.io.Serializable)</li>
+<li class="circle">org.apache.iceberg.flink.source.<a href="ScanContext.Builder.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">ScanContext.Builder</span></a></li>
 </ul>
 </li>
 </ul>
@@ -145,6 +153,20 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="circle">java.io.Serializable
 <ul>
 <li class="circle">org.apache.iceberg.flink.source.<a href="FileScanTaskReader.html" title="interface in org.apache.iceberg.flink.source"><span class="typeNameLink">FileScanTaskReader</span></a>&lt;T&gt;</li>
+</ul>
+</li>
+</ul>
+</section>
+<section role="region">
+<h2 title="Enum Hierarchy">Enum Hierarchy</h2>
+<ul>
+<li class="circle">java.lang.Object
+<ul>
+<li class="circle">java.lang.Enum&lt;E&gt; (implements java.lang.Comparable&lt;T&gt;, java.io.Serializable)
+<ul>
+<li class="circle">org.apache.iceberg.flink.source.<a href="StreamingStartingStrategy.html" title="enum in org.apache.iceberg.flink.source"><span class="typeNameLink">StreamingStartingStrategy</span></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

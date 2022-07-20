@@ -131,7 +131,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code>org.apache.spark.sql.connector.catalog.SupportsDelete</code>, <code>org.apache.spark.sql.connector.catalog.SupportsMetadataColumns</code>, <code>org.apache.spark.sql.connector.catalog.SupportsRead</code>, <code>org.apache.spark.sql.connector.catalog.SupportsWrite</code>, <code>org.apache.spark.sql.connector.catalog.Table</code>, <code>org.apache.spark.sql.connector.catalog.TruncatableTable</code>, <code><a href="../../../spark/sql/connector/iceberg/catalog/SupportsRowLevelOperations.html" title="interface in org.apache.spark.sql.connector.iceberg.catalog">SupportsRowLevelOperations</a></code></dd>
+<dd><code>org.apache.spark.sql.connector.catalog.SupportsDelete</code>, <code>org.apache.spark.sql.connector.catalog.SupportsMetadataColumns</code>, <code>org.apache.spark.sql.connector.catalog.SupportsRead</code>, <code>org.apache.spark.sql.connector.catalog.SupportsRowLevelOperations</code>, <code>org.apache.spark.sql.connector.catalog.SupportsWrite</code>, <code>org.apache.spark.sql.connector.catalog.Table</code>, <code>org.apache.spark.sql.connector.catalog.TruncatableTable</code></dd>
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
@@ -140,7 +140,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">SparkTable</span>
 extends java.lang.Object
-implements org.apache.spark.sql.connector.catalog.Table, org.apache.spark.sql.connector.catalog.SupportsRead, org.apache.spark.sql.connector.catalog.SupportsWrite, org.apache.spark.sql.connector.catalog.SupportsDelete, <a href="../../../spark/sql/connector/iceberg/catalog/SupportsRowLevelOperations.html" title="interface in org.apache.spark.sql.connector.iceberg.catalog">SupportsRowLevelOperations</a>, org.apache.spark.sql.connector.catalog.SupportsMetadataColumns</pre>
+implements org.apache.spark.sql.connector.catalog.Table, org.apache.spark.sql.connector.catalog.SupportsRead, org.apache.spark.sql.connector.catalog.SupportsWrite, org.apache.spark.sql.connector.catalog.SupportsDelete, org.apache.spark.sql.connector.catalog.SupportsRowLevelOperations, org.apache.spark.sql.connector.catalog.SupportsMetadataColumns</pre>
 </li>
 </ul>
 </div>
@@ -225,11 +225,9 @@ implements org.apache.spark.sql.connector.catalog.Table, org.apache.spark.sql.co
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code><a href="../../../spark/sql/connector/iceberg/write/RowLevelOperationBuilder.html" title="interface in org.apache.spark.sql.connector.iceberg.write">RowLevelOperationBuilder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newRowLevelOperationBuilder(org.apache.spark.sql.connector.iceberg.write.RowLevelOperationInfo)">newRowLevelOperationBuilder</a></span>&#8203;(<a href="../../../spark/sql/connector/iceberg/write/RowLevelOperationInfo.html" title="interface in org.apache.spark.sql.connector.iceberg.write">RowLevelOperationInfo</a>&nbsp;info)</code></th>
-<td class="colLast">
-<div class="block">Returns a RowLevelOperationBuilder to build a RowLevelOperation.</div>
-</td>
+<td class="colFirst"><code>org.apache.spark.sql.connector.write.RowLevelOperationBuilder</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newRowLevelOperationBuilder(org.apache.spark.sql.connector.write.RowLevelOperationInfo)">newRowLevelOperationBuilder</a></span>&#8203;(org.apache.spark.sql.connector.write.RowLevelOperationInfo&nbsp;info)</code></th>
+<td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>org.apache.spark.sql.connector.read.ScanBuilder</code></td>
@@ -441,23 +439,16 @@ implements org.apache.spark.sql.connector.catalog.Table, org.apache.spark.sql.co
 </dl>
 </li>
 </ul>
-<a id="newRowLevelOperationBuilder(org.apache.spark.sql.connector.iceberg.write.RowLevelOperationInfo)">
+<a id="newRowLevelOperationBuilder(org.apache.spark.sql.connector.write.RowLevelOperationInfo)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>newRowLevelOperationBuilder</h4>
-<pre class="methodSignature">public&nbsp;<a href="../../../spark/sql/connector/iceberg/write/RowLevelOperationBuilder.html" title="interface in org.apache.spark.sql.connector.iceberg.write">RowLevelOperationBuilder</a>&nbsp;newRowLevelOperationBuilder&#8203;(<a href="../../../spark/sql/connector/iceberg/write/RowLevelOperationInfo.html" title="interface in org.apache.spark.sql.connector.iceberg.write">RowLevelOperationInfo</a>&nbsp;info)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../spark/sql/connector/iceberg/catalog/SupportsRowLevelOperations.html#newRowLevelOperationBuilder(org.apache.spark.sql.connector.iceberg.write.RowLevelOperationInfo)">SupportsRowLevelOperations</a></code></span></div>
-<div class="block">Returns a RowLevelOperationBuilder to build a RowLevelOperation.
- Spark will call this method while planning DELETE, UPDATE and MERGE operations.</div>
+<pre class="methodSignature">public&nbsp;org.apache.spark.sql.connector.write.RowLevelOperationBuilder&nbsp;newRowLevelOperationBuilder&#8203;(org.apache.spark.sql.connector.write.RowLevelOperationInfo&nbsp;info)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../spark/sql/connector/iceberg/catalog/SupportsRowLevelOperations.html#newRowLevelOperationBuilder(org.apache.spark.sql.connector.iceberg.write.RowLevelOperationInfo)">newRowLevelOperationBuilder</a></code>&nbsp;in interface&nbsp;<code><a href="../../../spark/sql/connector/iceberg/catalog/SupportsRowLevelOperations.html" title="interface in org.apache.spark.sql.connector.iceberg.catalog">SupportsRowLevelOperations</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>info</code> - the row-level operation info such command (e.g. DELETE) and options</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the row-level operation builder</dd>
+<dd><code>newRowLevelOperationBuilder</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.catalog.SupportsRowLevelOperations</code></dd>
 </dl>
 </li>
 </ul>

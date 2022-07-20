@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -135,7 +135,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><code><a href="SortStrategy.html" title="class in org.apache.iceberg.actions">SortStrategy</a></code>, <code><a href="../spark/actions/Spark3BinPackStrategy.html" title="class in org.apache.iceberg.spark.actions">Spark3BinPackStrategy</a></code></dd>
+<dd><code><a href="SortStrategy.html" title="class in org.apache.iceberg.actions">SortStrategy</a></code>, <code><a href="../spark/actions/SparkBinPackStrategy.html" title="class in org.apache.iceberg.spark.actions">SparkBinPackStrategy</a></code></dd>
 </dl>
 <hr>
 <pre>public abstract class <span class="typeNameLabel">BinPackStrategy</span>
@@ -222,6 +222,18 @@ implements <a href="RewriteStrategy.html" title="interface in org.apache.iceberg
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#MIN_INPUT_FILES_DEFAULT">MIN_INPUT_FILES_DEFAULT</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#REWRITE_ALL">REWRITE_ALL</a></span></code></th>
+<td class="colLast">
+<div class="block">Rewrites all files, regardless of their size.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#REWRITE_ALL_DEFAULT">REWRITE_ALL_DEFAULT</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -267,46 +279,41 @@ implements <a href="RewriteStrategy.html" title="interface in org.apache.iceberg
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>protected long</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#maxGroupSize()">maxGroupSize</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#name()">name</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the name of this rewrite strategy</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>protected long</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#numOutputFiles(long)">numOutputFiles</a></span>&#8203;(long&nbsp;totalSizeInBytes)</code></th>
 <td class="colLast">
 <div class="block">Determine how many output files to create when rewriting.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="RewriteStrategy.html" title="interface in org.apache.iceberg.actions">RewriteStrategy</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#options(java.util.Map)">options</a></span>&#8203;(java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;options)</code></th>
 <td class="colLast">
 <div class="block">Sets options to be used with this strategy</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.Iterable&lt;java.util.List&lt;<a href="../FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#planFileGroups(java.lang.Iterable)">planFileGroups</a></span>&#8203;(java.lang.Iterable&lt;<a href="../FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;&nbsp;dataFiles)</code></th>
 <td class="colLast">
 <div class="block">Groups file scans into lists which will be processed in a single executable unit.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.Iterable&lt;<a href="../FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#selectFilesToRewrite(java.lang.Iterable)">selectFilesToRewrite</a></span>&#8203;(java.lang.Iterable&lt;<a href="../FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;&nbsp;dataFiles)</code></th>
 <td class="colLast">
 <div class="block">Selects files which this strategy believes are valid targets to be rewritten.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected long</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#splitSize(long)">splitSize</a></span>&#8203;(long&nbsp;totalSizeInBytes)</code></th>
 <td class="colLast">
@@ -314,19 +321,19 @@ implements <a href="RewriteStrategy.html" title="interface in org.apache.iceberg
  the number of output files we want to generate.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>protected long</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#targetFileSize()">targetFileSize</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.util.Set&lt;java.lang.String&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#validOptions()">validOptions</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns a set of options which this rewrite strategy can use.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>protected long</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeMaxFileSize()">writeMaxFileSize</a></span>()</code></th>
 <td class="colLast">
@@ -481,13 +488,41 @@ implements <a href="RewriteStrategy.html" title="interface in org.apache.iceberg
 <a id="DELETE_FILE_THRESHOLD_DEFAULT">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>DELETE_FILE_THRESHOLD_DEFAULT</h4>
 <pre>public static final&nbsp;int DELETE_FILE_THRESHOLD_DEFAULT</pre>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.BinPackStrategy.DELETE_FILE_THRESHOLD_DEFAULT">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a id="REWRITE_ALL">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>REWRITE_ALL</h4>
+<pre>public static final&nbsp;java.lang.String REWRITE_ALL</pre>
+<div class="block">Rewrites all files, regardless of their size. Defaults to false, rewriting only mis-sized
+ files;</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.BinPackStrategy.REWRITE_ALL">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a id="REWRITE_ALL_DEFAULT">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>REWRITE_ALL_DEFAULT</h4>
+<pre>public static final&nbsp;boolean REWRITE_ALL_DEFAULT</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.BinPackStrategy.REWRITE_ALL_DEFAULT">Constant Field Values</a></dd>
 </dl>
 </li>
 </ul>
@@ -658,15 +693,6 @@ implements <a href="RewriteStrategy.html" title="interface in org.apache.iceberg
 <li class="blockList">
 <h4>inputFileSize</h4>
 <pre class="methodSignature">protected&nbsp;long&nbsp;inputFileSize&#8203;(java.util.List&lt;<a href="../FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;&nbsp;fileToRewrite)</pre>
-</li>
-</ul>
-<a id="maxGroupSize()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>maxGroupSize</h4>
-<pre class="methodSignature">protected&nbsp;long&nbsp;maxGroupSize()</pre>
 </li>
 </ul>
 <a id="writeMaxFileSize()">

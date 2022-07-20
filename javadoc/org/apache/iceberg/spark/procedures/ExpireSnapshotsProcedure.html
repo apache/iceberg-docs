@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10};
+var data = {"i0":10,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -139,7 +139,7 @@ extends java.lang.Object</pre>
 <div class="block">A procedure that expires snapshots in a table.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../actions/ActionsProvider.html#expireSnapshots(org.apache.iceberg.Table)"><code>ActionsProvider.expireSnapshots(Table)</code></a></dd>
+<dd><a href="../actions/SparkActions.html#expireSnapshots(org.apache.iceberg.Table)"><code>SparkActions.expireSnapshots(Table)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -202,72 +202,87 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#closeService()">closeService</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Closes this procedure's executor service if a new one was created with <a href="#executorService(int,java.lang.String)"><code>executorService(int, String)</code></a>.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#description()">description</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the description of this procedure.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>protected java.util.concurrent.ExecutorService</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#executorService(int,java.lang.String)">executorService</a></span>&#8203;(int&nbsp;threadPoolSize,
+               java.lang.String&nbsp;nameFormat)</code></th>
+<td class="colLast">
+<div class="block">Starts a new executor service which can be used by this procedure in its work.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected <a href="../source/SparkTable.html" title="class in org.apache.iceberg.spark.source">SparkTable</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#loadSparkTable(org.apache.spark.sql.connector.catalog.Identifier)">loadSparkTable</a></span>&#8203;(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>protected &lt;T&gt;&nbsp;T</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#modifyIcebergTable(org.apache.spark.sql.connector.catalog.Identifier,java.util.function.Function)">modifyIcebergTable</a></span>&#8203;(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident,
                   java.util.function.Function&lt;<a href="../../Table.html" title="interface in org.apache.iceberg">Table</a>,&#8203;T&gt;&nbsp;func)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.catalyst.InternalRow</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newInternalRow(java.lang.Object...)">newInternalRow</a></span>&#8203;(java.lang.Object...&nbsp;values)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>org.apache.spark.sql.types.StructType</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#outputType()">outputType</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the type of rows produced by this procedure.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../../spark/sql/connector/iceberg/catalog/ProcedureParameter.html" title="interface in org.apache.spark.sql.connector.iceberg.catalog">ProcedureParameter</a>[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#parameters()">parameters</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the input parameters of this procedure.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#refreshSparkCache(org.apache.spark.sql.connector.catalog.Identifier,org.apache.spark.sql.connector.catalog.Table)">refreshSparkCache</a></span>&#8203;(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident,
                  org.apache.spark.sql.connector.catalog.Table&nbsp;table)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.SparkSession</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#spark()">spark</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.connector.catalog.TableCatalog</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#tableCatalog()">tableCatalog</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>protected <a href="../Spark3Util.CatalogAndIdentifier.html" title="class in org.apache.iceberg.spark">Spark3Util.CatalogAndIdentifier</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toCatalogAndIdentifier(java.lang.String,java.lang.String,org.apache.spark.sql.connector.catalog.CatalogPlugin)">toCatalogAndIdentifier</a></span>&#8203;(java.lang.String&nbsp;identifierAsString,
                       java.lang.String&nbsp;argName,
                       org.apache.spark.sql.connector.catalog.CatalogPlugin&nbsp;catalog)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.connector.catalog.Identifier</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toIdentifier(java.lang.String,java.lang.String)">toIdentifier</a></span>&#8203;(java.lang.String&nbsp;identifierAsString,
             java.lang.String&nbsp;argName)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>protected &lt;T&gt;&nbsp;T</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#withIcebergTable(org.apache.spark.sql.connector.catalog.Identifier,java.util.function.Function)">withIcebergTable</a></span>&#8203;(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident,
                 java.util.function.Function&lt;<a href="../../Table.html" title="interface in org.apache.iceberg">Table</a>,&#8203;T&gt;&nbsp;func)</code></th>
@@ -472,10 +487,42 @@ extends java.lang.Object</pre>
 <a id="newInternalRow(java.lang.Object...)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>newInternalRow</h4>
 <pre class="methodSignature">protected&nbsp;org.apache.spark.sql.catalyst.InternalRow&nbsp;newInternalRow&#8203;(java.lang.Object...&nbsp;values)</pre>
+</li>
+</ul>
+<a id="closeService()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>closeService</h4>
+<pre class="methodSignature">protected&nbsp;void&nbsp;closeService()</pre>
+<div class="block">Closes this procedure's executor service if a new one was created with <a href="#executorService(int,java.lang.String)"><code>executorService(int, String)</code></a>. Does
+ not block for any remaining tasks.</div>
+</li>
+</ul>
+<a id="executorService(int,java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>executorService</h4>
+<pre class="methodSignature">protected&nbsp;java.util.concurrent.ExecutorService&nbsp;executorService&#8203;(int&nbsp;threadPoolSize,
+                                                               java.lang.String&nbsp;nameFormat)</pre>
+<div class="block">Starts a new executor service which can be used by this procedure in its work. The pool will be automatically
+ shut down if <a href="#withIcebergTable(org.apache.spark.sql.connector.catalog.Identifier,java.util.function.Function)"><code>withIcebergTable(Identifier, Function)</code></a> or <a href="#modifyIcebergTable(org.apache.spark.sql.connector.catalog.Identifier,java.util.function.Function)"><code>modifyIcebergTable(Identifier, Function)</code></a>
+ are called. If these methods are not used then the service can be shut down with <a href="#closeService()"><code>closeService()</code></a> or left
+ to be closed when this class is finalized.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>threadPoolSize</code> - number of threads in the service</dd>
+<dd><code>nameFormat</code> - name prefix for threads created in this service</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the new executor service owned by this procedure</dd>
+</dl>
 </li>
 </ul>
 </li>

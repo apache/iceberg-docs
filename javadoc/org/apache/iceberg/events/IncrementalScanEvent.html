@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -153,11 +153,12 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,long,long,org.apache.iceberg.expressions.Expression,org.apache.iceberg.Schema)">IncrementalScanEvent</a></span>&#8203;(java.lang.String&nbsp;tableName,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,long,long,org.apache.iceberg.expressions.Expression,org.apache.iceberg.Schema,boolean)">IncrementalScanEvent</a></span>&#8203;(java.lang.String&nbsp;tableName,
                     long&nbsp;fromSnapshotId,
                     long&nbsp;toSnapshotId,
                     <a href="../expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;filter,
-                    <a href="../Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;projection)</code></th>
+                    <a href="../Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;projection,
+                    boolean&nbsp;fromSnapshotInclusive)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -189,16 +190,21 @@ extends java.lang.Object</pre>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isFromSnapshotInclusive()">isFromSnapshotInclusive</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#projection()">projection</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#tableName()">tableName</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toSnapshotId()">toSnapshotId</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
@@ -227,7 +233,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(java.lang.String,long,long,org.apache.iceberg.expressions.Expression,org.apache.iceberg.Schema)">
+<a id="&lt;init&gt;(java.lang.String,long,long,org.apache.iceberg.expressions.Expression,org.apache.iceberg.Schema,boolean)">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -237,7 +243,8 @@ extends java.lang.Object</pre>
                             long&nbsp;fromSnapshotId,
                             long&nbsp;toSnapshotId,
                             <a href="../expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;filter,
-                            <a href="../Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;projection)</pre>
+                            <a href="../Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;projection,
+                            boolean&nbsp;fromSnapshotInclusive)</pre>
 </li>
 </ul>
 </li>
@@ -289,10 +296,19 @@ extends java.lang.Object</pre>
 <a id="projection()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>projection</h4>
 <pre class="methodSignature">public&nbsp;<a href="../Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;projection()</pre>
+</li>
+</ul>
+<a id="isFromSnapshotInclusive()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>isFromSnapshotInclusive</h4>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;isFromSnapshotInclusive()</pre>
 </li>
 </ul>
 </li>

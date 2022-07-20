@@ -1,6 +1,7 @@
 ---
 title: "View Spec"
 url: view-spec
+toc: true
 disableSidebar: true
 ---
 <!--

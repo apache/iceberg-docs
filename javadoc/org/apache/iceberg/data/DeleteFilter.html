@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":6,"i1":10,"i2":10,"i3":10,"i4":10,"i5":6,"i6":10,"i7":10,"i8":10,"i9":10};
+var data = {"i0":6,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":6,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -158,7 +158,8 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected </code></td>
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(org.apache.iceberg.FileScanTask,org.apache.iceberg.Schema,org.apache.iceberg.Schema)">DeleteFilter</a></span>&#8203;(<a href="../FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&nbsp;task,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.util.List,org.apache.iceberg.Schema,org.apache.iceberg.Schema)">DeleteFilter</a></span>&#8203;(java.lang.String&nbsp;filePath,
+            java.util.List&lt;<a href="../DeleteFile.html" title="interface in org.apache.iceberg">DeleteFile</a>&gt;&nbsp;deletes,
             <a href="../Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;tableSchema,
             <a href="../Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;requestedSchema)</code></th>
 <td class="colLast">&nbsp;</td>
@@ -187,46 +188,56 @@ extends java.lang.Object</pre>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>protected int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#columnIsDeletedPosition()">columnIsDeletedPosition</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../deletes/PositionDeleteIndex.html" title="interface in org.apache.iceberg.deletes">PositionDeleteIndex</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#deletedRowPositions()">deletedRowPositions</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.util.function.Predicate&lt;<a href="DeleteFilter.html" title="type parameter in DeleteFilter">T</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#eqDeletedRowFilter()">eqDeletedRowFilter</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="DeleteFilter.html" title="type parameter in DeleteFilter">T</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#filter(org.apache.iceberg.io.CloseableIterable)">filter</a></span>&#8203;(<a href="../io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="DeleteFilter.html" title="type parameter in DeleteFilter">T</a>&gt;&nbsp;records)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="DeleteFilter.html" title="type parameter in DeleteFilter">T</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findEqualityDeleteRows(org.apache.iceberg.io.CloseableIterable)">findEqualityDeleteRows</a></span>&#8203;(<a href="../io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="DeleteFilter.html" title="type parameter in DeleteFilter">T</a>&gt;&nbsp;records)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected abstract <a href="../io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getInputFile(java.lang.String)">getInputFile</a></span>&#8203;(java.lang.String&nbsp;location)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasEqDeletes()">hasEqDeletes</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasPosDeletes()">hasPosDeletes</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#markRowDeleted(T)">markRowDeleted</a></span>&#8203;(<a href="DeleteFilter.html" title="type parameter in DeleteFilter">T</a>&nbsp;item)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>protected long</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#pos(T)">pos</a></span>&#8203;(<a href="DeleteFilter.html" title="type parameter in DeleteFilter">T</a>&nbsp;record)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="../Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#requiredSchema()">requiredSchema</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
@@ -255,13 +266,14 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(org.apache.iceberg.FileScanTask,org.apache.iceberg.Schema,org.apache.iceberg.Schema)">
+<a id="&lt;init&gt;(java.lang.String,java.util.List,org.apache.iceberg.Schema,org.apache.iceberg.Schema)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>DeleteFilter</h4>
-<pre>protected&nbsp;DeleteFilter&#8203;(<a href="../FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&nbsp;task,
+<pre>protected&nbsp;DeleteFilter&#8203;(java.lang.String&nbsp;filePath,
+                       java.util.List&lt;<a href="../DeleteFile.html" title="interface in org.apache.iceberg">DeleteFile</a>&gt;&nbsp;deletes,
                        <a href="../Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;tableSchema,
                        <a href="../Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;requestedSchema)</pre>
 </li>
@@ -276,6 +288,15 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a id="columnIsDeletedPosition()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>columnIsDeletedPosition</h4>
+<pre class="methodSignature">protected&nbsp;int&nbsp;columnIsDeletedPosition()</pre>
+</li>
+</ul>
 <a id="requiredSchema()">
 <!--   -->
 </a>
@@ -350,6 +371,17 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>findEqualityDeleteRows</h4>
 <pre class="methodSignature">public&nbsp;<a href="../io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="DeleteFilter.html" title="type parameter in DeleteFilter">T</a>&gt;&nbsp;findEqualityDeleteRows&#8203;(<a href="../io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="DeleteFilter.html" title="type parameter in DeleteFilter">T</a>&gt;&nbsp;records)</pre>
+</li>
+</ul>
+<a id="markRowDeleted(java.lang.Object)">
+<!--   -->
+</a><a id="markRowDeleted(T)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>markRowDeleted</h4>
+<pre class="methodSignature">protected&nbsp;void&nbsp;markRowDeleted&#8203;(<a href="DeleteFilter.html" title="type parameter in DeleteFilter">T</a>&nbsp;item)</pre>
 </li>
 </ul>
 <a id="eqDeletedRowFilter()">

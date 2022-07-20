@@ -24,6 +24,16 @@ disableSidebar: true
 
 Here is a list of company blogs that talk about Iceberg. The blogs are ordered from most recent to oldest.
 
+### [Migrating a Hive Table to an Iceberg Table Hands-on Tutorial](https://www.dremio.com/subsurface/migrating-a-hive-table-to-an-iceberg-table-hands-on-tutorial/)
+**Date**: June 6th, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
+
+### [Fewer Accidental Full Table Scans Brought to You by Apache Iceberg’s Hidden Partitioning](https://www.dremio.com/subsurface/fewer-accidental-full-table-scans-brought-to-you-by-apache-icebergs-hidden-partitioning/)
+**Date**: May 21st, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
+
 ### [An Introduction To The Iceberg Java API Part 2 - Table Scans](https://tabular.io/blog/java-api-part-2/)
 **Date**: May 11th, 2022, **Company**: Tabular
 
@@ -34,10 +44,20 @@ Here is a list of company blogs that talk about Iceberg. The blogs are ordered f
 
 **Author**: [Sam Redai](https://www.linkedin.com/in/sredai/)
 
+### [How to Migrate a Hive Table to an Iceberg Table](https://www.dremio.com/subsurface/how-to-migrate-a-hive-table-to-an-iceberg-table/)
+**Date**: April 15th, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
+
 ### [Using Iceberg's S3FileIO Implementation To Store Your Data In MinIO](https://tabular.io/blog/minio/)
 **Date**: April 14th, 2022, **Company**: Tabular
 
 **Author**: [Sam Redai](https://www.linkedin.com/in/sredai/)
+
+### [Maintaining Iceberg Tables – Compaction, Expiring Snapshots, and More](https://www.dremio.com/subsurface/maintaining-iceberg-tables-compaction-expiring-snapshots-and-more/)
+**Date**: April 7th, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
 
 ### [An Introduction To The Iceberg Java API - Part 1](https://tabular.io/blog/java-api-part-1/)
 **Date**: April 1st, 2022, **Company**: Tabular

@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18};
+var data = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":18};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -127,11 +127,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dl>
 <dl>
 <dt>All Known Subinterfaces:</dt>
-<dd><code><a href="CombinedScanTask.html" title="interface in org.apache.iceberg">CombinedScanTask</a></code>, <code><a href="DataTask.html" title="interface in org.apache.iceberg">DataTask</a></code>, <code><a href="FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a></code></dd>
+<dd><code><a href="AddedRowsScanTask.html" title="interface in org.apache.iceberg">AddedRowsScanTask</a></code>, <code><a href="ChangelogScanTask.html" title="interface in org.apache.iceberg">ChangelogScanTask</a></code>, <code><a href="CombinedScanTask.html" title="interface in org.apache.iceberg">CombinedScanTask</a></code>, <code><a href="ContentScanTask.html" title="interface in org.apache.iceberg">ContentScanTask</a>&lt;F&gt;</code>, <code><a href="DataTask.html" title="interface in org.apache.iceberg">DataTask</a></code>, <code><a href="DeletedDataFileScanTask.html" title="interface in org.apache.iceberg">DeletedDataFileScanTask</a></code>, <code><a href="DeletedRowsScanTask.html" title="interface in org.apache.iceberg">DeletedRowsScanTask</a></code>, <code><a href="FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a></code>, <code><a href="MergeableScanTask.html" title="interface in org.apache.iceberg">MergeableScanTask</a>&lt;ThisT&gt;</code>, <code><a href="ScanTaskGroup.html" title="interface in org.apache.iceberg">ScanTaskGroup</a>&lt;T&gt;</code>, <code><a href="SplittableScanTask.html" title="interface in org.apache.iceberg">SplittableScanTask</a>&lt;ThisT&gt;</code></dd>
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><code><a href="BaseCombinedScanTask.html" title="class in org.apache.iceberg">BaseCombinedScanTask</a></code></dd>
+<dd><code><a href="BaseCombinedScanTask.html" title="class in org.apache.iceberg">BaseCombinedScanTask</a></code>, <code><a href="BaseFileScanTask.html" title="class in org.apache.iceberg">BaseFileScanTask</a></code>, <code><a href="BaseScanTaskGroup.html" title="class in org.apache.iceberg">BaseScanTaskGroup</a></code></dd>
 </dl>
 <hr>
 <pre>public interface <span class="typeNameLabel">ScanTask</span>
@@ -179,17 +179,31 @@ extends java.io.Serializable</pre>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>default int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#filesCount()">filesCount</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The number of files that will be opened by this scan task.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>default boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isDataTask()">isDataTask</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns true if this is a <a href="DataTask.html" title="interface in org.apache.iceberg"><code>DataTask</code></a>, false otherwise.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>default boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isFileScanTask()">isFileScanTask</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns true if this is a <a href="FileScanTask.html" title="interface in org.apache.iceberg"><code>FileScanTask</code></a>, false otherwise.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>default long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sizeBytes()">sizeBytes</a></span>()</code></th>
+<td class="colLast">
+<div class="block">The number of bytes that should be read by this scan task.</div>
 </td>
 </tr>
 </table>
@@ -209,6 +223,34 @@ extends java.io.Serializable</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a id="sizeBytes()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>sizeBytes</h4>
+<pre class="methodSignature">default&nbsp;long&nbsp;sizeBytes()</pre>
+<div class="block">The number of bytes that should be read by this scan task.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the total number of bytes to read</dd>
+</dl>
+</li>
+</ul>
+<a id="filesCount()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>filesCount</h4>
+<pre class="methodSignature">default&nbsp;int&nbsp;filesCount()</pre>
+<div class="block">The number of files that will be opened by this scan task.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the number of files to open</dd>
+</dl>
+</li>
+</ul>
 <a id="isFileScanTask()">
 <!--   -->
 </a>

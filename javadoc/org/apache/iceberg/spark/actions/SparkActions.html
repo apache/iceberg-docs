@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":9,"i4":9,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":9,"i4":9,"i5":10,"i6":10,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -135,7 +135,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">SparkActions</span>
-extends java.lang.Object</pre>
+extends java.lang.Object
+implements <a href="../../actions/ActionsProvider.html" title="interface in org.apache.iceberg.actions">ActionsProvider</a></pre>
 <div class="block">An implementation of <a href="../../actions/ActionsProvider.html" title="interface in org.apache.iceberg.actions"><code>ActionsProvider</code></a> for Spark.
  <p>
  This class is the primary API for interacting with actions in Spark that users should use
@@ -161,21 +162,21 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="../../actions/DeleteOrphanFiles.html" title="interface in org.apache.iceberg.actions">DeleteOrphanFiles</a></code></td>
+<td class="colFirst"><code><a href="DeleteOrphanFilesSparkAction.html" title="class in org.apache.iceberg.spark.actions">DeleteOrphanFilesSparkAction</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#deleteOrphanFiles(org.apache.iceberg.Table)">deleteOrphanFiles</a></span>&#8203;(<a href="../../Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</code></th>
 <td class="colLast">
 <div class="block">Instantiates an action to delete orphan files.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="../../actions/DeleteReachableFiles.html" title="interface in org.apache.iceberg.actions">DeleteReachableFiles</a></code></td>
+<td class="colFirst"><code><a href="DeleteReachableFilesSparkAction.html" title="class in org.apache.iceberg.spark.actions">DeleteReachableFilesSparkAction</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#deleteReachableFiles(java.lang.String)">deleteReachableFiles</a></span>&#8203;(java.lang.String&nbsp;metadataLocation)</code></th>
 <td class="colLast">
 <div class="block">Instantiates an action to delete all the files reachable from given metadata location.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="../../actions/ExpireSnapshots.html" title="interface in org.apache.iceberg.actions">ExpireSnapshots</a></code></td>
+<td class="colFirst"><code><a href="ExpireSnapshotsSparkAction.html" title="class in org.apache.iceberg.spark.actions">ExpireSnapshotsSparkAction</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#expireSnapshots(org.apache.iceberg.Table)">expireSnapshots</a></span>&#8203;(<a href="../../Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</code></th>
 <td class="colLast">
 <div class="block">Instantiates an action to expire snapshots.</div>
@@ -192,37 +193,32 @@ extends java.lang.Object</pre>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code><a href="../../actions/MigrateTable.html" title="interface in org.apache.iceberg.actions">MigrateTable</a></code></td>
+<td class="colFirst"><code><a href="MigrateTableSparkAction.html" title="class in org.apache.iceberg.spark.actions">MigrateTableSparkAction</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#migrateTable(java.lang.String)">migrateTable</a></span>&#8203;(java.lang.String&nbsp;tableIdent)</code></th>
 <td class="colLast">
 <div class="block">Instantiates an action to migrate an existing table to Iceberg.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code><a href="../../actions/RewriteDataFiles.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles</a></code></td>
+<td class="colFirst"><code><a href="RewriteDataFilesSparkAction.html" title="class in org.apache.iceberg.spark.actions">RewriteDataFilesSparkAction</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#rewriteDataFiles(org.apache.iceberg.Table)">rewriteDataFiles</a></span>&#8203;(<a href="../../Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</code></th>
 <td class="colLast">
 <div class="block">Instantiates an action to rewrite data files.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code><a href="../../actions/RewriteManifests.html" title="interface in org.apache.iceberg.actions">RewriteManifests</a></code></td>
+<td class="colFirst"><code><a href="RewriteManifestsSparkAction.html" title="class in org.apache.iceberg.spark.actions">RewriteManifestsSparkAction</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#rewriteManifests(org.apache.iceberg.Table)">rewriteManifests</a></span>&#8203;(<a href="../../Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</code></th>
 <td class="colLast">
 <div class="block">Instantiates an action to rewrite manifests.</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
-<td class="colFirst"><code><a href="../../actions/SnapshotTable.html" title="interface in org.apache.iceberg.actions">SnapshotTable</a></code></td>
+<td class="colFirst"><code><a href="SnapshotTableSparkAction.html" title="class in org.apache.iceberg.spark.actions">SnapshotTableSparkAction</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#snapshotTable(java.lang.String)">snapshotTable</a></span>&#8203;(java.lang.String&nbsp;tableIdent)</code></th>
 <td class="colLast">
 <div class="block">Instantiates an action to snapshot an existing table as a new Iceberg table.</div>
 </td>
-</tr>
-<tr id="i9" class="rowColor">
-<td class="colFirst"><code>protected org.apache.spark.sql.SparkSession</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#spark()">spark</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -272,9 +268,13 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>snapshotTable</h4>
-<pre class="methodSignature">public&nbsp;<a href="../../actions/SnapshotTable.html" title="interface in org.apache.iceberg.actions">SnapshotTable</a>&nbsp;snapshotTable&#8203;(java.lang.String&nbsp;tableIdent)</pre>
+<pre class="methodSignature">public&nbsp;<a href="SnapshotTableSparkAction.html" title="class in org.apache.iceberg.spark.actions">SnapshotTableSparkAction</a>&nbsp;snapshotTable&#8203;(java.lang.String&nbsp;tableIdent)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../actions/ActionsProvider.html#snapshotTable(java.lang.String)">ActionsProvider</a></code></span></div>
 <div class="block">Instantiates an action to snapshot an existing table as a new Iceberg table.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../actions/ActionsProvider.html#snapshotTable(java.lang.String)">snapshotTable</a></code>&nbsp;in interface&nbsp;<code><a href="../../actions/ActionsProvider.html" title="interface in org.apache.iceberg.actions">ActionsProvider</a></code></dd>
+</dl>
 </li>
 </ul>
 <a id="migrateTable(java.lang.String)">
@@ -283,9 +283,13 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>migrateTable</h4>
-<pre class="methodSignature">public&nbsp;<a href="../../actions/MigrateTable.html" title="interface in org.apache.iceberg.actions">MigrateTable</a>&nbsp;migrateTable&#8203;(java.lang.String&nbsp;tableIdent)</pre>
+<pre class="methodSignature">public&nbsp;<a href="MigrateTableSparkAction.html" title="class in org.apache.iceberg.spark.actions">MigrateTableSparkAction</a>&nbsp;migrateTable&#8203;(java.lang.String&nbsp;tableIdent)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../actions/ActionsProvider.html#migrateTable(java.lang.String)">ActionsProvider</a></code></span></div>
 <div class="block">Instantiates an action to migrate an existing table to Iceberg.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../actions/ActionsProvider.html#migrateTable(java.lang.String)">migrateTable</a></code>&nbsp;in interface&nbsp;<code><a href="../../actions/ActionsProvider.html" title="interface in org.apache.iceberg.actions">ActionsProvider</a></code></dd>
+</dl>
 </li>
 </ul>
 <a id="rewriteDataFiles(org.apache.iceberg.Table)">
@@ -294,18 +298,13 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>rewriteDataFiles</h4>
-<pre class="methodSignature">public&nbsp;<a href="../../actions/RewriteDataFiles.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles</a>&nbsp;rewriteDataFiles&#8203;(<a href="../../Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</pre>
+<pre class="methodSignature">public&nbsp;<a href="RewriteDataFilesSparkAction.html" title="class in org.apache.iceberg.spark.actions">RewriteDataFilesSparkAction</a>&nbsp;rewriteDataFiles&#8203;(<a href="../../Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../actions/ActionsProvider.html#rewriteDataFiles(org.apache.iceberg.Table)">ActionsProvider</a></code></span></div>
 <div class="block">Instantiates an action to rewrite data files.</div>
-</li>
-</ul>
-<a id="spark()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>spark</h4>
-<pre class="methodSignature">protected&nbsp;org.apache.spark.sql.SparkSession&nbsp;spark()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../actions/ActionsProvider.html#rewriteDataFiles(org.apache.iceberg.Table)">rewriteDataFiles</a></code>&nbsp;in interface&nbsp;<code><a href="../../actions/ActionsProvider.html" title="interface in org.apache.iceberg.actions">ActionsProvider</a></code></dd>
+</dl>
 </li>
 </ul>
 <a id="deleteOrphanFiles(org.apache.iceberg.Table)">
@@ -314,7 +313,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>deleteOrphanFiles</h4>
-<pre class="methodSignature">public&nbsp;<a href="../../actions/DeleteOrphanFiles.html" title="interface in org.apache.iceberg.actions">DeleteOrphanFiles</a>&nbsp;deleteOrphanFiles&#8203;(<a href="../../Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</pre>
+<pre class="methodSignature">public&nbsp;<a href="DeleteOrphanFilesSparkAction.html" title="class in org.apache.iceberg.spark.actions">DeleteOrphanFilesSparkAction</a>&nbsp;deleteOrphanFiles&#8203;(<a href="../../Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../actions/ActionsProvider.html#deleteOrphanFiles(org.apache.iceberg.Table)">ActionsProvider</a></code></span></div>
 <div class="block">Instantiates an action to delete orphan files.</div>
 <dl>
@@ -329,7 +328,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>rewriteManifests</h4>
-<pre class="methodSignature">public&nbsp;<a href="../../actions/RewriteManifests.html" title="interface in org.apache.iceberg.actions">RewriteManifests</a>&nbsp;rewriteManifests&#8203;(<a href="../../Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</pre>
+<pre class="methodSignature">public&nbsp;<a href="RewriteManifestsSparkAction.html" title="class in org.apache.iceberg.spark.actions">RewriteManifestsSparkAction</a>&nbsp;rewriteManifests&#8203;(<a href="../../Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../actions/ActionsProvider.html#rewriteManifests(org.apache.iceberg.Table)">ActionsProvider</a></code></span></div>
 <div class="block">Instantiates an action to rewrite manifests.</div>
 <dl>
@@ -344,7 +343,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>expireSnapshots</h4>
-<pre class="methodSignature">public&nbsp;<a href="../../actions/ExpireSnapshots.html" title="interface in org.apache.iceberg.actions">ExpireSnapshots</a>&nbsp;expireSnapshots&#8203;(<a href="../../Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</pre>
+<pre class="methodSignature">public&nbsp;<a href="ExpireSnapshotsSparkAction.html" title="class in org.apache.iceberg.spark.actions">ExpireSnapshotsSparkAction</a>&nbsp;expireSnapshots&#8203;(<a href="../../Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../actions/ActionsProvider.html#expireSnapshots(org.apache.iceberg.Table)">ActionsProvider</a></code></span></div>
 <div class="block">Instantiates an action to expire snapshots.</div>
 <dl>
@@ -359,7 +358,7 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>deleteReachableFiles</h4>
-<pre class="methodSignature">public&nbsp;<a href="../../actions/DeleteReachableFiles.html" title="interface in org.apache.iceberg.actions">DeleteReachableFiles</a>&nbsp;deleteReachableFiles&#8203;(java.lang.String&nbsp;metadataLocation)</pre>
+<pre class="methodSignature">public&nbsp;<a href="DeleteReachableFilesSparkAction.html" title="class in org.apache.iceberg.spark.actions">DeleteReachableFilesSparkAction</a>&nbsp;deleteReachableFiles&#8203;(java.lang.String&nbsp;metadataLocation)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../actions/ActionsProvider.html#deleteReachableFiles(java.lang.String)">ActionsProvider</a></code></span></div>
 <div class="block">Instantiates an action to delete all the files reachable from given metadata location.</div>
 <dl>

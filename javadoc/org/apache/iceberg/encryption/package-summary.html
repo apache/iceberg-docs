@@ -131,6 +131,20 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Module for encrypting and decrypting table data files.</div>
 </td>
 </tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="KmsClient.html" title="interface in org.apache.iceberg.encryption">KmsClient</a></th>
+<td class="colLast">
+<div class="block">A minimum client interface to connect to a key management service (KMS).</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="NativelyEncryptedFile.html" title="interface in org.apache.iceberg.encryption">NativelyEncryptedFile</a></th>
+<td class="colLast">
+<div class="block">This interface is applied to OutputFile and InputFile implementations, in order to enable delivery of crypto
+ parameters (such as encryption keys etc) from the Iceberg key management module to the writers/readers of file
+ formats that support encryption natively (Parquet and ORC).</div>
+</td>
+</tr>
 </tbody>
 </table>
 </li>
@@ -143,20 +157,66 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </tr>
 <tbody>
 <tr class="altColor">
-<th class="colFirst" scope="row"><a href="EncryptedFiles.html" title="class in org.apache.iceberg.encryption">EncryptedFiles</a></th>
+<th class="colFirst" scope="row"><a href="Ciphers.html" title="class in org.apache.iceberg.encryption">Ciphers</a></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<th class="colFirst" scope="row"><a href="EncryptionKeyMetadatas.html" title="class in org.apache.iceberg.encryption">EncryptionKeyMetadatas</a></th>
+<th class="colFirst" scope="row"><a href="Ciphers.AesGcmDecryptor.html" title="class in org.apache.iceberg.encryption">Ciphers.AesGcmDecryptor</a></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
+<th class="colFirst" scope="row"><a href="Ciphers.AesGcmEncryptor.html" title="class in org.apache.iceberg.encryption">Ciphers.AesGcmEncryptor</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="EncryptedFiles.html" title="class in org.apache.iceberg.encryption">EncryptedFiles</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="EncryptionKeyMetadatas.html" title="class in org.apache.iceberg.encryption">EncryptionKeyMetadatas</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <th class="colFirst" scope="row"><a href="InputFilesDecryptor.html" title="class in org.apache.iceberg.encryption">InputFilesDecryptor</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="KmsClient.KeyGenerationResult.html" title="class in org.apache.iceberg.encryption">KmsClient.KeyGenerationResult</a></th>
+<td class="colLast">
+<div class="block">For KMS systems that support key generation, this class keeps the key generation result -
+ the raw secret key, and its wrap.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="NativeFileCryptoParameters.html" title="class in org.apache.iceberg.encryption">NativeFileCryptoParameters</a></th>
+<td class="colLast">
+<div class="block">Barebone encryption parameters, one object per content file.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="NativeFileCryptoParameters.Builder.html" title="class in org.apache.iceberg.encryption">NativeFileCryptoParameters.Builder</a></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <th class="colFirst" scope="row"><a href="PlaintextEncryptionManager.html" title="class in org.apache.iceberg.encryption">PlaintextEncryptionManager</a></th>
 <td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li class="blockList">
+<table class="typeSummary">
+<caption><span>Enum Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Enum</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="EncryptionAlgorithm.html" title="enum in org.apache.iceberg.encryption">EncryptionAlgorithm</a></th>
+<td class="colLast">
+<div class="block">Algorithm supported for file encryption.</div>
+</td>
 </tr>
 </tbody>
 </table>

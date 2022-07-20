@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -131,12 +131,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code>java.io.Closeable</code>, <code>java.io.Serializable</code>, <code>java.lang.AutoCloseable</code>, <code>org.apache.hadoop.conf.Configurable</code>, <code><a href="HadoopConfigurable.html" title="interface in org.apache.iceberg.hadoop">HadoopConfigurable</a></code>, <code><a href="../io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a></code></dd>
+<dd><code>java.io.Closeable</code>, <code>java.io.Serializable</code>, <code>java.lang.AutoCloseable</code>, <code>org.apache.hadoop.conf.Configurable</code>, <code><a href="HadoopConfigurable.html" title="interface in org.apache.iceberg.hadoop">HadoopConfigurable</a></code>, <code><a href="../io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a></code>, <code><a href="../io/SupportsPrefixOperations.html" title="interface in org.apache.iceberg.io">SupportsPrefixOperations</a></code></dd>
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">HadoopFileIO</span>
 extends java.lang.Object
-implements <a href="../io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>, <a href="HadoopConfigurable.html" title="interface in org.apache.iceberg.hadoop">HadoopConfigurable</a></pre>
+implements <a href="../io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>, <a href="HadoopConfigurable.html" title="interface in org.apache.iceberg.hadoop">HadoopConfigurable</a>, <a href="../io/SupportsPrefixOperations.html" title="interface in org.apache.iceberg.io">SupportsPrefixOperations</a></pre>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../serialized-form.html#org.apache.iceberg.hadoop.HadoopFileIO">Serialized Form</a></dd>
@@ -205,32 +205,61 @@ implements <a href="../io/FileIO.html" title="interface in org.apache.iceberg.io
 </td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#deletePrefix(java.lang.String)">deletePrefix</a></span>&#8203;(java.lang.String&nbsp;prefix)</code></th>
+<td class="colLast">
+<div class="block">Delete all files under a prefix.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>org.apache.hadoop.conf.Configuration</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getConf()">getConf</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>java.lang.Iterable&lt;<a href="../io/FileInfo.html" title="class in org.apache.iceberg.io">FileInfo</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#listPrefix(java.lang.String)">listPrefix</a></span>&#8203;(java.lang.String&nbsp;prefix)</code></th>
+<td class="colLast">
+<div class="block">Return an iterable of all files under a prefix.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newInputFile(java.lang.String)">newInputFile</a></span>&#8203;(java.lang.String&nbsp;path)</code></th>
 <td class="colLast">
 <div class="block">Get a <a href="../io/InputFile.html" title="interface in org.apache.iceberg.io"><code>InputFile</code></a> instance to read bytes from the file at the given path.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i6" class="altColor">
+<td class="colFirst"><code><a href="../io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newInputFile(java.lang.String,long)">newInputFile</a></span>&#8203;(java.lang.String&nbsp;path,
+            long&nbsp;length)</code></th>
+<td class="colLast">
+<div class="block">Get a <a href="../io/InputFile.html" title="interface in org.apache.iceberg.io"><code>InputFile</code></a> instance to read bytes from the file at the given path, with a known file length.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../io/OutputFile.html" title="interface in org.apache.iceberg.io">OutputFile</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newOutputFile(java.lang.String)">newOutputFile</a></span>&#8203;(java.lang.String&nbsp;path)</code></th>
 <td class="colLast">
 <div class="block">Get a <a href="../io/OutputFile.html" title="interface in org.apache.iceberg.io"><code>OutputFile</code></a> instance to write bytes to the file at the given path.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#properties()">properties</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the property map used to configure this FileIO</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#serializeConfWith(java.util.function.Function)">serializeConfWith</a></span>&#8203;(java.util.function.Function&lt;org.apache.hadoop.conf.Configuration,&#8203;<a href="../util/SerializableSupplier.html" title="interface in org.apache.iceberg.util">SerializableSupplier</a>&lt;org.apache.hadoop.conf.Configuration&gt;&gt;&nbsp;confSerializer)</code></th>
 <td class="colLast">
 <div class="block">Take a function that serializes Hadoop configuration into a supplier.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setConf(org.apache.hadoop.conf.Configuration)">setConf</a></span>&#8203;(org.apache.hadoop.conf.Configuration&nbsp;conf)</code></th>
 <td class="colLast">&nbsp;</td>
@@ -330,6 +359,22 @@ implements <a href="../io/FileIO.html" title="interface in org.apache.iceberg.io
 </dl>
 </li>
 </ul>
+<a id="newInputFile(java.lang.String,long)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>newInputFile</h4>
+<pre class="methodSignature">public&nbsp;<a href="../io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a>&nbsp;newInputFile&#8203;(java.lang.String&nbsp;path,
+                              long&nbsp;length)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../io/FileIO.html#newInputFile(java.lang.String,long)">FileIO</a></code></span></div>
+<div class="block">Get a <a href="../io/InputFile.html" title="interface in org.apache.iceberg.io"><code>InputFile</code></a> instance to read bytes from the file at the given path, with a known file length.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../io/FileIO.html#newInputFile(java.lang.String,long)">newInputFile</a></code>&nbsp;in interface&nbsp;<code><a href="../io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a></code></dd>
+</dl>
+</li>
+</ul>
 <a id="newOutputFile(java.lang.String)">
 <!--   -->
 </a>
@@ -357,6 +402,21 @@ implements <a href="../io/FileIO.html" title="interface in org.apache.iceberg.io
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../io/FileIO.html#deleteFile(java.lang.String)">deleteFile</a></code>&nbsp;in interface&nbsp;<code><a href="../io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a></code></dd>
+</dl>
+</li>
+</ul>
+<a id="properties()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>properties</h4>
+<pre class="methodSignature">public&nbsp;java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;properties()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../io/FileIO.html#properties()">FileIO</a></code></span></div>
+<div class="block">Returns the property map used to configure this FileIO</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../io/FileIO.html#properties()">properties</a></code>&nbsp;in interface&nbsp;<code><a href="../io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -389,7 +449,7 @@ implements <a href="../io/FileIO.html" title="interface in org.apache.iceberg.io
 <a id="serializeConfWith(java.util.function.Function)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>serializeConfWith</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;serializeConfWith&#8203;(java.util.function.Function&lt;org.apache.hadoop.conf.Configuration,&#8203;<a href="../util/SerializableSupplier.html" title="interface in org.apache.iceberg.util">SerializableSupplier</a>&lt;org.apache.hadoop.conf.Configuration&gt;&gt;&nbsp;confSerializer)</pre>
@@ -401,6 +461,50 @@ implements <a href="../io/FileIO.html" title="interface in org.apache.iceberg.io
 <dd><code><a href="HadoopConfigurable.html#serializeConfWith(java.util.function.Function)">serializeConfWith</a></code>&nbsp;in interface&nbsp;<code><a href="HadoopConfigurable.html" title="interface in org.apache.iceberg.hadoop">HadoopConfigurable</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>confSerializer</code> - A function that takes Hadoop configuration and returns a serializable supplier of it.</dd>
+</dl>
+</li>
+</ul>
+<a id="listPrefix(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>listPrefix</h4>
+<pre class="methodSignature">public&nbsp;java.lang.Iterable&lt;<a href="../io/FileInfo.html" title="class in org.apache.iceberg.io">FileInfo</a>&gt;&nbsp;listPrefix&#8203;(java.lang.String&nbsp;prefix)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../io/SupportsPrefixOperations.html#listPrefix(java.lang.String)">SupportsPrefixOperations</a></code></span></div>
+<div class="block">Return an iterable of all files under a prefix.
+ <p>
+ Hierarchical file systems (e.g. HDFS) may impose additional restrictions
+ like the prefix must fully match a directory whereas key/value object
+ stores may allow for arbitrary prefixes.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../io/SupportsPrefixOperations.html#listPrefix(java.lang.String)">listPrefix</a></code>&nbsp;in interface&nbsp;<code><a href="../io/SupportsPrefixOperations.html" title="interface in org.apache.iceberg.io">SupportsPrefixOperations</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>prefix</code> - prefix to list</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>iterable of file information</dd>
+</dl>
+</li>
+</ul>
+<a id="deletePrefix(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>deletePrefix</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;deletePrefix&#8203;(java.lang.String&nbsp;prefix)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../io/SupportsPrefixOperations.html#deletePrefix(java.lang.String)">SupportsPrefixOperations</a></code></span></div>
+<div class="block">Delete all files under a prefix.
+ <p>
+ Hierarchical file systems (e.g. HDFS) may impose additional restrictions
+ like the prefix must fully match a directory whereas key/value object
+ stores may allow for arbitrary prefixes.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../io/SupportsPrefixOperations.html#deletePrefix(java.lang.String)">deletePrefix</a></code>&nbsp;in interface&nbsp;<code><a href="../io/SupportsPrefixOperations.html" title="interface in org.apache.iceberg.io">SupportsPrefixOperations</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>prefix</code> - prefix to delete</dd>
 </dl>
 </li>
 </ul>

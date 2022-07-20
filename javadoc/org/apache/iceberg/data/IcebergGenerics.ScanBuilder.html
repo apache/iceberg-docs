@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -205,20 +205,25 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="IcebergGenerics.ScanBuilder.html" title="class in org.apache.iceberg.data">IcebergGenerics.ScanBuilder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#reuseContainers()">reuseContainers</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#project(org.apache.iceberg.Schema)">project</a></span>&#8203;(<a href="../Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="IcebergGenerics.ScanBuilder.html" title="class in org.apache.iceberg.data">IcebergGenerics.ScanBuilder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#select(java.lang.String...)">select</a></span>&#8203;(java.lang.String...&nbsp;selectedColumns)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#reuseContainers()">reuseContainers</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="IcebergGenerics.ScanBuilder.html" title="class in org.apache.iceberg.data">IcebergGenerics.ScanBuilder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#useSnapshot(long)">useSnapshot</a></span>&#8203;(long&nbsp;scanSnapshotId)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#select(java.lang.String...)">select</a></span>&#8203;(java.lang.String...&nbsp;selectedColumns)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
+<td class="colFirst"><code><a href="IcebergGenerics.ScanBuilder.html" title="class in org.apache.iceberg.data">IcebergGenerics.ScanBuilder</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#useSnapshot(long)">useSnapshot</a></span>&#8203;(long&nbsp;scanSnapshotId)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="IcebergGenerics.ScanBuilder.html" title="class in org.apache.iceberg.data">IcebergGenerics.ScanBuilder</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#where(org.apache.iceberg.expressions.Expression)">where</a></span>&#8203;(<a href="../expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;rowFilter)</code></th>
 <td class="colLast">&nbsp;</td>
@@ -300,6 +305,15 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>select</h4>
 <pre class="methodSignature">public&nbsp;<a href="IcebergGenerics.ScanBuilder.html" title="class in org.apache.iceberg.data">IcebergGenerics.ScanBuilder</a>&nbsp;select&#8203;(java.lang.String...&nbsp;selectedColumns)</pre>
+</li>
+</ul>
+<a id="project(org.apache.iceberg.Schema)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>project</h4>
+<pre class="methodSignature">public&nbsp;<a href="IcebergGenerics.ScanBuilder.html" title="class in org.apache.iceberg.data">IcebergGenerics.ScanBuilder</a>&nbsp;project&#8203;(<a href="../Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema)</pre>
 </li>
 </ul>
 <a id="useSnapshot(long)">

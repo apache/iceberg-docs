@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -274,90 +274,100 @@ implements <a href="../../ManifestFile.html" title="interface in org.apache.iceb
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
+<td class="colFirst"><code>java.lang.Integer</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getContent()">getContent</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.lang.Long</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLength()">getLength</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.lang.Integer</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPartitionSpecId()">getPartitionSpecId</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPath()">getPath</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>java.nio.ByteBuffer</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#keyMetadata()">keyMetadata</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns metadata about how this manifest file is encrypted, or null if the file is stored in plain text.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>long</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#length()">length</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns length of the manifest file.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#minSequenceNumber()">minSequenceNumber</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the lowest sequence number of any data file in the manifest.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../../ManifestFile.PartitionFieldSummary.html" title="interface in org.apache.iceberg">ManifestFile.PartitionFieldSummary</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#partitions()">partitions</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns a list of <a href="../../ManifestFile.PartitionFieldSummary.html" title="interface in org.apache.iceberg"><code>partition field summaries</code></a>.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#partitionSpecId()">partitionSpecId</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns iD of the <a href="../../PartitionSpec.html" title="class in org.apache.iceberg"><code>PartitionSpec</code></a> used to write the manifest file.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#path()">path</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns fully qualified path to the file, suitable for constructing a Hadoop Path.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sequenceNumber()">sequenceNumber</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the sequence number of the commit that added the manifest file.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setAddedSnapshotId(java.lang.Long)">setAddedSnapshotId</a></span>&#8203;(java.lang.Long&nbsp;addedSnapshotId)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i20" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLength(java.lang.Long)">setLength</a></span>&#8203;(java.lang.Long&nbsp;length)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
 <tr id="i21" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPartitionSpecId(java.lang.Integer)">setPartitionSpecId</a></span>&#8203;(java.lang.Integer&nbsp;partitionSpecId)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setContent(java.lang.Integer)">setContent</a></span>&#8203;(java.lang.Integer&nbsp;content)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i22" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPath(java.lang.String)">setPath</a></span>&#8203;(java.lang.String&nbsp;path)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLength(java.lang.Long)">setLength</a></span>&#8203;(java.lang.Long&nbsp;length)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i23" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPartitionSpecId(java.lang.Integer)">setPartitionSpecId</a></span>&#8203;(java.lang.Integer&nbsp;partitionSpecId)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i24" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPath(java.lang.String)">setPath</a></span>&#8203;(java.lang.String&nbsp;path)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>java.lang.Long</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#snapshotId()">snapshotId</a></span>()</code></th>
 <td class="colLast">
@@ -484,6 +494,24 @@ implements <a href="../../ManifestFile.html" title="interface in org.apache.iceb
 <li class="blockList">
 <h4>setAddedSnapshotId</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setAddedSnapshotId&#8203;(java.lang.Long&nbsp;addedSnapshotId)</pre>
+</li>
+</ul>
+<a id="getContent()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getContent</h4>
+<pre class="methodSignature">public&nbsp;java.lang.Integer&nbsp;getContent()</pre>
+</li>
+</ul>
+<a id="setContent(java.lang.Integer)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setContent</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setContent&#8203;(java.lang.Integer&nbsp;content)</pre>
 </li>
 </ul>
 <a id="path()">

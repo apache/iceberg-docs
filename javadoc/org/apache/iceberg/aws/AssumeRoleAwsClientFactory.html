@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -133,6 +133,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt>All Implemented Interfaces:</dt>
 <dd><code>java.io.Serializable</code>, <code><a href="AwsClientFactory.html" title="interface in org.apache.iceberg.aws">AwsClientFactory</a></code></dd>
 </dl>
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><code><a href="lakeformation/LakeFormationAwsClientFactory.html" title="class in org.apache.iceberg.aws.lakeformation">LakeFormationAwsClientFactory</a></code></dd>
+</dl>
 <hr>
 <pre>public class <span class="typeNameLabel">AssumeRoleAwsClientFactory</span>
 extends java.lang.Object
@@ -183,39 +187,69 @@ implements <a href="AwsClientFactory.html" title="interface in org.apache.iceber
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>protected &lt;T extends software.amazon.awssdk.awscore.client.builder.AwsClientBuilder &amp; software.amazon.awssdk.awscore.client.builder.AwsSyncClientBuilder&gt;<br>T</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#configure(T)">configure</a></span>&#8203;(T&nbsp;clientBuilder)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>software.amazon.awssdk.services.dynamodb.DynamoDbClient</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#dynamo()">dynamo</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Create a Amazon DynamoDB client</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>software.amazon.awssdk.services.glue.GlueClient</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#glue()">glue</a></span>()</code></th>
 <td class="colLast">
 <div class="block">create a AWS Glue client</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>protected java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#httpClientType()">httpClientType</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#initialize(java.util.Map)">initialize</a></span>&#8203;(java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;properties)</code></th>
 <td class="colLast">
 <div class="block">Initialize AWS client factory from catalog properties.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>software.amazon.awssdk.services.kms.KmsClient</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#kms()">kms</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Create a AWS KMS client</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>protected java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#region()">region</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>software.amazon.awssdk.services.s3.S3Client</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#s3()">s3</a></span>()</code></th>
 <td class="colLast">
 <div class="block">create a Amazon S3 client</div>
 </td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>protected java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#s3Endpoint()">s3Endpoint</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#s3UseArnRegionEnabled()">s3UseArnRegionEnabled</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>protected java.util.Set&lt;software.amazon.awssdk.services.sts.model.Tag&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#tags()">tags</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -331,7 +365,7 @@ implements <a href="AwsClientFactory.html" title="interface in org.apache.iceber
 <a id="initialize(java.util.Map)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>initialize</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;initialize&#8203;(java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;properties)</pre>
@@ -343,6 +377,62 @@ implements <a href="AwsClientFactory.html" title="interface in org.apache.iceber
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>properties</code> - catalog properties</dd>
 </dl>
+</li>
+</ul>
+<a id="configure(software.amazon.awssdk.awscore.client.builder.AwsClientBuilder)">
+<!--   -->
+</a><a id="configure(T)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>configure</h4>
+<pre class="methodSignature">protected&nbsp;&lt;T extends software.amazon.awssdk.awscore.client.builder.AwsClientBuilder &amp; software.amazon.awssdk.awscore.client.builder.AwsSyncClientBuilder&gt;&nbsp;T&nbsp;configure&#8203;(T&nbsp;clientBuilder)</pre>
+</li>
+</ul>
+<a id="tags()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>tags</h4>
+<pre class="methodSignature">protected&nbsp;java.util.Set&lt;software.amazon.awssdk.services.sts.model.Tag&gt;&nbsp;tags()</pre>
+</li>
+</ul>
+<a id="region()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>region</h4>
+<pre class="methodSignature">protected&nbsp;java.lang.String&nbsp;region()</pre>
+</li>
+</ul>
+<a id="s3Endpoint()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>s3Endpoint</h4>
+<pre class="methodSignature">protected&nbsp;java.lang.String&nbsp;s3Endpoint()</pre>
+</li>
+</ul>
+<a id="httpClientType()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>httpClientType</h4>
+<pre class="methodSignature">protected&nbsp;java.lang.String&nbsp;httpClientType()</pre>
+</li>
+</ul>
+<a id="s3UseArnRegionEnabled()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>s3UseArnRegionEnabled</h4>
+<pre class="methodSignature">protected&nbsp;boolean&nbsp;s3UseArnRegionEnabled()</pre>
 </li>
 </ul>
 </li>

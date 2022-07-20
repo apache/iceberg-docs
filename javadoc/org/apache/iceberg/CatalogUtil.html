@@ -436,13 +436,14 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>impl</code> - full class name of a custom FileIO implementation</dd>
+<dd><code>properties</code> - used to initialize the FileIO implementation</dd>
 <dd><code>hadoopConf</code> - a hadoop Configuration</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>FileIO class</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.lang.IllegalArgumentException</code> - if class path not found or
   right constructor not found or
-  the loaded class cannot be casted to the given interface type</dd>
+  the loaded class cannot be cast to the given interface type</dd>
 </dl>
 </li>
 </ul>

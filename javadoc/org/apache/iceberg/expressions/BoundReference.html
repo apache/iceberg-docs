@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -184,18 +184,25 @@ implements <a href="BoundTerm.html" title="interface in org.apache.iceberg.expre
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isEquivalentTo(org.apache.iceberg.expressions.BoundTerm)">isEquivalentTo</a></span>&#8203;(<a href="BoundTerm.html" title="interface in org.apache.iceberg.expressions">BoundTerm</a>&lt;?&gt;&nbsp;other)</code></th>
+<td class="colLast">
+<div class="block">Returns whether this term is equivalent to another.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="BoundReference.html" title="class in org.apache.iceberg.expressions">BoundReference</a>&lt;<a href="BoundReference.html" title="type parameter in BoundReference">T</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ref()">ref</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the underlying reference.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../types/Type.html" title="interface in org.apache.iceberg.types">Type</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#type()">type</a></span>()</code></th>
 <td class="colLast">
@@ -288,6 +295,25 @@ implements <a href="BoundTerm.html" title="interface in org.apache.iceberg.expre
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="BoundTerm.html#type()">type</a></code>&nbsp;in interface&nbsp;<code><a href="BoundTerm.html" title="interface in org.apache.iceberg.expressions">BoundTerm</a>&lt;<a href="BoundReference.html" title="type parameter in BoundReference">T</a>&gt;</code></dd>
+</dl>
+</li>
+</ul>
+<a id="isEquivalentTo(org.apache.iceberg.expressions.BoundTerm)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isEquivalentTo</h4>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;isEquivalentTo&#8203;(<a href="BoundTerm.html" title="interface in org.apache.iceberg.expressions">BoundTerm</a>&lt;?&gt;&nbsp;other)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="BoundTerm.html#isEquivalentTo(org.apache.iceberg.expressions.BoundTerm)">BoundTerm</a></code></span></div>
+<div class="block">Returns whether this term is equivalent to another.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="BoundTerm.html#isEquivalentTo(org.apache.iceberg.expressions.BoundTerm)">isEquivalentTo</a></code>&nbsp;in interface&nbsp;<code><a href="BoundTerm.html" title="interface in org.apache.iceberg.expressions">BoundTerm</a>&lt;<a href="BoundReference.html" title="type parameter in BoundReference">T</a>&gt;</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>other</code> - a term</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if this term returns the same values as the other, false otherwise</dd>
 </dl>
 </li>
 </ul>

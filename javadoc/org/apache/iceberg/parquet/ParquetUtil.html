@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9};
+var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -189,15 +189,20 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasNonDictionaryPages(org.apache.parquet.hadoop.metadata.ColumnChunkMetaData)">hasNonDictionaryPages</a></span>&#8203;(org.apache.parquet.hadoop.metadata.ColumnChunkMetaData&nbsp;meta)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasNoBloomFilterPages(org.apache.parquet.hadoop.metadata.ColumnChunkMetaData)">hasNoBloomFilterPages</a></span>&#8203;(org.apache.parquet.hadoop.metadata.ColumnChunkMetaData&nbsp;meta)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isIntType(org.apache.parquet.schema.PrimitiveType)">isIntType</a></span>&#8203;(org.apache.parquet.schema.PrimitiveType&nbsp;primitiveType)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasNonDictionaryPages(org.apache.parquet.hadoop.metadata.ColumnChunkMetaData)">hasNonDictionaryPages</a></span>&#8203;(org.apache.parquet.hadoop.metadata.ColumnChunkMetaData&nbsp;meta)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
+<td class="colFirst"><code>static boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isIntType(org.apache.parquet.schema.PrimitiveType)">isIntType</a></span>&#8203;(org.apache.parquet.schema.PrimitiveType&nbsp;primitiveType)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>static org.apache.parquet.column.Dictionary</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readDictionary(org.apache.parquet.column.ColumnDescriptor,org.apache.parquet.column.page.PageReader)">readDictionary</a></span>&#8203;(org.apache.parquet.column.ColumnDescriptor&nbsp;desc,
               org.apache.parquet.column.page.PageReader&nbsp;pageSource)</code></th>
@@ -288,6 +293,15 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>hasNonDictionaryPages</h4>
 <pre class="methodSignature">public static&nbsp;boolean&nbsp;hasNonDictionaryPages&#8203;(org.apache.parquet.hadoop.metadata.ColumnChunkMetaData&nbsp;meta)</pre>
+</li>
+</ul>
+<a id="hasNoBloomFilterPages(org.apache.parquet.hadoop.metadata.ColumnChunkMetaData)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>hasNoBloomFilterPages</h4>
+<pre class="methodSignature">public static&nbsp;boolean&nbsp;hasNoBloomFilterPages&#8203;(org.apache.parquet.hadoop.metadata.ColumnChunkMetaData&nbsp;meta)</pre>
 </li>
 </ul>
 <a id="readDictionary(org.apache.parquet.column.ColumnDescriptor,org.apache.parquet.column.page.PageReader)">

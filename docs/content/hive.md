@@ -23,7 +23,8 @@ menu: main
 
 # Hive
 
-Iceberg supports reading and writing Iceberg tables through [Hive](https://hive.apache.org) by using a [StorageHandler](https://cwiki.apache.org/confluence/display/Hive/StorageHandlers).
+Iceberg supports reading and writing Iceberg tables through [Hive](https://hive.apache.org) by using
+a [StorageHandler](https://cwiki.apache.org/confluence/display/Hive/StorageHandlers).
 
 ## Feature support
 Iceberg compatibility with Hive 2.x and Hive 3.1.2/3 supports the following features:
@@ -66,49 +67,48 @@ Hive 4.0.0-alpha-1 comes with the Iceberg 0.13.1 included. No additional downloa
 
 ### Hive 2.3.x, Hive 3.1.x
 
-You need to do the following steps:
-* Loading runtime jar
-* Enabling support
+In order to use Hive 2.3.x or Hive 3.1.x, you must load the Iceberg-Hive runtime jar and enable Iceberg support, either globally or for an individual table using a table property.
 
 #### Loading runtime jar
 
-To enable Iceberg support in Hive, the `HiveIcebergStorageHandler` and supporting classes need to be made available on Hive's classpath. 
-These are provided by the `iceberg-hive-runtime` jar file. 
-For example, if using the Hive shell, this can be achieved by issuing a statement like so:
+To enable Iceberg support in Hive, the `HiveIcebergStorageHandler` and supporting classes need to be made available on
+Hive's classpath. These are provided by the `iceberg-hive-runtime` jar file. For example, if using the Hive shell, this
+can be achieved by issuing a statement like so:
 
 ```
 add jar /path/to/iceberg-hive-runtime.jar;
 ```
 
-There are many others ways to achieve this including adding the jar file to Hive's auxiliary classpath so it is available by default.
-Please refer to Hive's documentation for more information.
+There are many others ways to achieve this including adding the jar file to Hive's auxiliary classpath so it is
+available by default. Please refer to Hive's documentation for more information.
 
 #### Enabling support
 
-If the Iceberg storage handler is not in Hive's classpath, then Hive cannot load or update the metadata for an Iceberg table when the storage handler is set.
-To avoid the appearance of broken tables in Hive, Iceberg will not add the storage handler to a table unless Hive support is enabled.
-The storage handler is kept in sync (added or removed) every time Hive engine support for the table is updated, i.e. turned on or off in the table properties.
-There are two ways to enable Hive support: globally in Hadoop Configuration and per-table using a table property.
+If the Iceberg storage handler is not in Hive's classpath, then Hive cannot load or update the metadata for an Iceberg
+table when the storage handler is set. To avoid the appearance of broken tables in Hive, Iceberg will not add the
+storage handler to a table unless Hive support is enabled. The storage handler is kept in sync (added or removed) every
+time Hive engine support for the table is updated, i.e. turned on or off in the table properties. There are two ways to
+enable Hive support: globally in Hadoop Configuration and per-table using a table property.
 
 ##### Hadoop configuration
 
-To enable Hive support globally for an application, set `iceberg.engine.hive.enabled=true` in its Hadoop configuration. 
-For example, setting this in the `hive-site.xml` loaded by Spark will enable the storage handler for all tables created by Spark.
+To enable Hive support globally for an application, set `iceberg.engine.hive.enabled=true` in its Hadoop configuration.
+For example, setting this in the `hive-site.xml` loaded by Spark will enable the storage handler for all tables created
+by Spark.
 
-{{< hint danger >}}
-Starting with Apache Iceberg `0.11.0`, when using Hive with Tez you also have to disable vectorization (`hive.vectorized.execution.enabled=false`).
-{{< /hint >}}
+{{< hint danger >}} Starting with Apache Iceberg `0.11.0`, when using Hive with Tez you also have to disable
+vectorization (`hive.vectorized.execution.enabled=false`). {{< /hint >}}
 
 ##### Table property configuration
 
-Alternatively, the property `engine.hive.enabled` can be set to `true` and added to the table properties when creating the Iceberg table. 
-Here is an example of doing it programmatically:
+Alternatively, the property `engine.hive.enabled` can be set to `true` and added to the table properties when creating
+the Iceberg table. Here is an example of doing it programmatically:
 
 ```java
-Catalog catalog = ...;
-Map<String, String> tableProperties = Maps.newHashMap();
-tableProperties.put(TableProperties.ENGINE_HIVE_ENABLED, "true"); // engine.hive.enabled=true
-catalog.createTable(tableId, schema, spec, tableProperties);
+Catalog catalog=...;
+    Map<String, String> tableProperties=Maps.newHashMap();
+    tableProperties.put(TableProperties.ENGINE_HIVE_ENABLED,"true"); // engine.hive.enabled=true
+    catalog.createTable(tableId,schema,spec,tableProperties);
 ```
 
 The table level configuration overrides the global Hadoop configuration.
@@ -117,29 +117,35 @@ The table level configuration overrides the global Hadoop configuration.
 
 To use the Tez engine on Hive `3.1.2` or later, Tez needs to be upgraded to >= `0.10.1` which contains a necessary fix [TEZ-4248](https://issues.apache.org/jira/browse/TEZ-4248).
 
-To use the Tez engine on Hive `2.3.x`, you will need to manually build Tez from the `branch-0.9` branch due to a backwards incompatibility issue with Tez `0.10.1`.
 
-You will also need to set the following property in the Hive configuration: `tez.mrreader.config.update.properties=hive.io.file.readcolumn.names,hive.io.file.readcolumn.ids`.
+To use the Tez engine on Hive `2.3.x`, you will need to manually build Tez from the `branch-0.9` branch due to a
+backwards incompatibility issue with Tez `0.10.1`.
+
+You will also need to set the following property in the Hive
+configuration: `tez.mrreader.config.update.properties=hive.io.file.readcolumn.names,hive.io.file.readcolumn.ids`.
 
 ## Catalog Management
 
 ### Global Hive catalog
 
-From the Hive engine's perspective, there is only one global data catalog that is defined in the Hadoop configuration in the runtime environment.
-In contrast, Iceberg supports multiple different data catalog types such as Hive, Hadoop, AWS Glue, or custom catalog implementations.
-Iceberg also allows loading a table directly based on its path in the file system. Those tables do not belong to any catalog.
-Users might want to read these cross-catalog and path-based tables through the Hive engine for use cases like join.
+From the Hive engine's perspective, there is only one global data catalog that is defined in the Hadoop configuration in
+the runtime environment. In contrast, Iceberg supports multiple different data catalog types such as Hive, Hadoop, AWS
+Glue, or custom catalog implementations. Iceberg also allows loading a table directly based on its path in the file
+system. Those tables do not belong to any catalog. Users might want to read these cross-catalog and path-based tables
+through the Hive engine for use cases like join.
 
-To support this, a table in the Hive metastore can represent three different ways of loading an Iceberg table,
-depending on the table's `iceberg.catalog` property:
+To support this, a table in the Hive metastore can represent three different ways of loading an Iceberg table, depending
+on the table's `iceberg.catalog` property:
 
-1. The table will be loaded using a `HiveCatalog` that corresponds to the metastore configured in the Hive environment if no `iceberg.catalog` is set
+1. The table will be loaded using a `HiveCatalog` that corresponds to the metastore configured in the Hive environment
+   if no `iceberg.catalog` is set
 2. The table will be loaded using a custom catalog if `iceberg.catalog` is set to a catalog name (see below)
-3. The table can be loaded directly using the table's root location if `iceberg.catalog` is set to `location_based_table`
+3. The table can be loaded directly using the table's root location if `iceberg.catalog` is set
+   to `location_based_table`
 
-For cases 2 and 3 above, users can create an overlay of an Iceberg table in the Hive metastore,
-so that different table types can work together in the same Hive environment.
-See [CREATE EXTERNAL TABLE](#create-external-table) and [CREATE TABLE](#create-table) for more details.
+For cases 2 and 3 above, users can create an overlay of an Iceberg table in the Hive metastore, so that different table
+types can work together in the same Hive environment. See [CREATE EXTERNAL TABLE](#create-external-table)
+and [CREATE TABLE](#create-table) for more details.
 
 ### Custom Iceberg catalogs
 
@@ -283,14 +289,16 @@ CREATE TABLE target PARTITIONED BY SPEC (year(year_field), identity_field) STORE
 
 ### CREATE EXTERNAL TABLE overlaying an existing Iceberg table
 
-The `CREATE EXTERNAL TABLE` command is used to overlay a Hive table "on top of" an existing Iceberg table. 
-Iceberg tables are created using either a [`Catalog`](../../../javadoc/{{% icebergVersion %}}/index.html?org/apache/iceberg/catalog/Catalog.html),
-or an implementation of the [`Tables`](../../../javadoc/{{% icebergVersion %}}/index.html?org/apache/iceberg/Tables.html) interface,
-and Hive needs to be configured accordingly to operate on these different types of table.
+The `CREATE EXTERNAL TABLE` command is used to overlay a Hive table "on top of" an existing Iceberg table. Iceberg
+tables are created using either a [`Catalog`](../../../javadoc/{{% icebergVersion
+%}}/index.html?org/apache/iceberg/catalog/Catalog.html), or an implementation of the [`Tables`](../../../javadoc/{{%
+icebergVersion %}}/index.html?org/apache/iceberg/Tables.html) interface, and Hive needs to be configured accordingly to
+operate on these different types of table.
 
 #### Hive catalog tables
 
-As described before, tables created by the `HiveCatalog` with Hive engine feature enabled are directly visible by the Hive engine, so there is no need to create an overlay.
+As described before, tables created by the `HiveCatalog` with Hive engine feature enabled are directly visible by the
+Hive engine, so there is no need to create an overlay.
 
 #### Custom catalog tables
 
@@ -298,24 +306,29 @@ For a table in a registered catalog, specify the catalog name in the statement u
 For example, the SQL below creates an overlay for a table in a `hadoop` type catalog named `hadoop_cat`:
 
 ```sql
-SET iceberg.catalog.hadoop_cat.type=hadoop;
-SET iceberg.catalog.hadoop_cat.warehouse=hdfs://example.com:8020/hadoop_cat;
+SET
+iceberg.catalog.hadoop_cat.type=hadoop;
+SET
+iceberg.catalog.hadoop_cat.warehouse=hdfs://example.com:8020/hadoop_cat;
 
-CREATE EXTERNAL TABLE database_a.table_a
+CREATE
+EXTERNAL TABLE database_a.table_a
 STORED BY 'org.apache.iceberg.mr.hive.HiveIcebergStorageHandler'
 TBLPROPERTIES ('iceberg.catalog'='hadoop_cat');
 ```
 
-When `iceberg.catalog` is missing from both table properties and the global Hadoop configuration, `HiveCatalog` will be used as default.
+When `iceberg.catalog` is missing from both table properties and the global Hadoop configuration, `HiveCatalog` will be
+used as default.
 
 #### Path-based Hadoop tables
 
-Iceberg tables created using `HadoopTables` are stored entirely in a directory in a filesystem like HDFS.
-These tables are considered to have no catalog. 
-To indicate that, set `iceberg.catalog` property to `location_based_table`. For example:
+Iceberg tables created using `HadoopTables` are stored entirely in a directory in a filesystem like HDFS. These tables
+are considered to have no catalog. To indicate that, set `iceberg.catalog` property to `location_based_table`. For
+example:
 
 ```sql
-CREATE EXTERNAL TABLE table_a 
+CREATE
+EXTERNAL TABLE table_a 
 STORED BY 'org.apache.iceberg.mr.hive.HiveIcebergStorageHandler' 
 LOCATION 'hdfs://some_bucket/some_path/table_a'
 TBLPROPERTIES ('iceberg.catalog'='location_based_table');
@@ -323,28 +336,29 @@ TBLPROPERTIES ('iceberg.catalog'='location_based_table');
 
 #### CREATE TABLE overlaying an existing Iceberg table
 
-You can also create a new table that is managed by a custom catalog. 
-For example, the following code creates a table in a custom Hadoop catalog:
+You can also create a new table that is managed by a custom catalog. For example, the following code creates a table in
+a custom Hadoop catalog:
 
 ```sql
-SET iceberg.catalog.hadoop_cat.type=hadoop;
-SET iceberg.catalog.hadoop_cat.warehouse=hdfs://example.com:8020/hadoop_cat;
+SET
+iceberg.catalog.hadoop_cat.type=hadoop;
+SET
+iceberg.catalog.hadoop_cat.warehouse=hdfs://example.com:8020/hadoop_cat;
 
-CREATE TABLE database_a.table_a (
-  id bigint, name string
+CREATE TABLE database_a.table_a
+(
+    id   bigint,
+    name string
 ) PARTITIONED BY (
   dept string
 ) STORED BY 'org.apache.iceberg.mr.hive.HiveIcebergStorageHandler'
 TBLPROPERTIES ('iceberg.catalog'='hadoop_cat');
 ```
 
-{{< hint danger >}}
-If the table to create already exists in the custom catalog, this will create a managed overlay table.
-This means technically you can omit the `EXTERNAL` keyword when creating an overlay table.
-However, this is **not recommended** because creating managed overlay tables could pose a risk
-to the shared data files in case of accidental drop table commands from the Hive side, 
-which would unintentionally remove all the data in the table.
-{{< /hint >}}
+{{< hint danger >}} If the table to create already exists in the custom catalog, this will create a managed overlay
+table. This means technically you can omit the `EXTERNAL` keyword when creating an overlay table. However, this is **not
+recommended** because creating managed overlay tables could pose a risk to the shared data files in case of accidental
+drop table commands from the Hive side, which would unintentionally remove all the data in the table. {{< /hint >}}
 
 ### ALTER TABLE
 #### Table properties
@@ -439,10 +453,14 @@ Some of the advanced / little used optimizations are not yet implemented for Ice
 Also currently the statistics stored in the MetaStore are used for query planning. This is something we are planning to improve in the future.
 
 ### INSERT INTO
+
 Hive supports the standard single-table INSERT INTO operation:
+
 ```sql
-INSERT INTO table_a VALUES ('a', 1);
-INSERT INTO table_a SELECT ...;
+INSERT INTO table_a
+VALUES ('a', 1);
+INSERT INTO table_a
+SELECT...;
 ```
 
 Multi-table insert is also supported, but it will not be atomic. Commits occur one table at a time.
@@ -450,6 +468,7 @@ Partial changes will be visible during the commit process and failures can leave
 Changes within a single table will remain atomic.
 
 Here is an example of inserting into multiple tables at once in Hive SQL:
+
 ```sql
 FROM customers
    INSERT INTO target1 SELECT customer_id, first_name
@@ -492,9 +511,9 @@ SELECT * FROM table_a FOR SYSTEM_VERSION AS OF 1234567;
 
 ## Type compatibility
 
-Hive and Iceberg support different set of types. Iceberg can perform type conversion automatically, but not for all combinations,
-so you may want to understand the type conversion in Iceberg in prior to design the types of columns in your tables.
-You can enable auto-conversion through Hadoop configuration (not enabled by default):
+Hive and Iceberg support different set of types. Iceberg can perform type conversion automatically, but not for all
+combinations, so you may want to understand the type conversion in Iceberg in prior to design the types of columns in
+your tables. You can enable auto-conversion through Hadoop configuration (not enabled by default):
 
 | Config key                               | Default                     | Description                                         |
 | -----------------------------------------| --------------------------- | --------------------------------------------------- |
@@ -502,8 +521,8 @@ You can enable auto-conversion through Hadoop configuration (not enabled by defa
 
 ### Hive type to Iceberg type
 
-This type conversion table describes how Hive types are converted to the Iceberg types.
-The conversion applies on both creating Iceberg table and writing to Iceberg table via Hive.
+This type conversion table describes how Hive types are converted to the Iceberg types. The conversion applies on both
+creating Iceberg table and writing to Iceberg table via Hive.
 
 | Hive             | Iceberg                 | Notes |
 |------------------|-------------------------|-------|
