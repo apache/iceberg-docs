@@ -54,6 +54,7 @@ Iceberg is built using Gradle with Java 8 or Java 11.
 
 * To invoke a build and run tests: `./gradlew build`
 * To skip tests: `./gradlew build -x test -x integrationTest`
+* To fix code style: `./gradlew spotlessApply`
 
 Iceberg table support is organized in library modules:
 
@@ -76,12 +77,47 @@ This project Iceberg also has modules for adding Iceberg support to processing e
 
 ## Setting up IDE and Code Style
 
-### Configuring Code Formatter for IntelliJ IDEA
+### Configuring Code Formatter for Eclipse/IntelliJ
 
-In the **Settings/Preferences** dialog go to **Editor > Code Style > Java**. Click on the gear wheel and select **Import Scheme** to import IntelliJ IDEA XML code style settings.
-Point to [intellij-java-palantir-style.xml](https://github.com/apache/iceberg/blob/master/.baseline/idea/intellij-java-palantir-style.xml) and hit **OK** (you might need to enable **Show Hidden Files and Directories** in the dialog). The code itself can then be formatted via **Code > Reformat Code**.
+Follow the instructions for [Eclipse](https://github.com/google/google-java-format#eclipse) or
+[IntelliJ](https://github.com/google/google-java-format#intellij-android-studio-and-other-jetbrains-ides) to install the **google-java-format** plugin (note the required manual actions for IntelliJ).
 
-See also the IntelliJ [Code Style docs](https://www.jetbrains.com/help/idea/copying-code-style-settings.html) and [Reformat Code docs](https://www.jetbrains.com/help/idea/reformat-and-rearrange-code.html) for additional details.
+
+## Iceberg Code Contribution Guidelines
+
+### Style
+
+For Python, please use the tox command `tox -e format` to apply autoformatting to the project.
+
+Java code adheres to the [Google style](https://google.github.io/styleguide/javaguide.html), which will be verified via `./gradlew spotlessCheck` during builds.
+In order to automatically fix Java code style issues, please use `./gradlew spotlessApply`.
+
+**NOTE**: The **google-java-format** plugin will always use the latest version of the **google-java-format**. However, `spotless` itself is configured to use **google-java-format** 1.7
+since that version is compatible with JDK 8. When formatting the code in the IDE, there is a slight chance that it will produce slightly different results. In such a case please run `./gradlew spotlessApply`
+as CI will check the style against **google-java-format** 1.7.
+
+### Copyright
+
+Each file must include the Apache license information as a header.
+
+```
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+```
 
 ### Configuring Copyright for IntelliJ IDEA
 
@@ -114,73 +150,7 @@ adding a Copyright profile:
    project.
 5. Click **Apply**.
 
-## Iceberg Code Contribution Guidelines
-
-### Style
-
-For Java styling, check out the section
-[Setting up IDE and Code Style](https://iceberg.apache.org/community/#setting-up-ide-and-code-style) from the
-documentation site.
-
-For Python, please use the tox command `tox -e format` to apply autoformatting to the project.
-
-### Copyright
-
-Each file must include the Apache license information as a header.
-
-```
-Licensed to the Apache Software Foundation (ASF) under one
-or more contributor license agreements.  See the NOTICE file
-distributed with this work for additional information
-regarding copyright ownership.  The ASF licenses this file
-to you under the Apache License, Version 2.0 (the
-"License"); you may not use this file except in compliance
-with the License.  You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing,
-software distributed under the License is distributed on an
-"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, either express or implied.  See the License for the
-specific language governing permissions and limitations
-under the License.
-```
-
 ### Java style guidelines
-
-#### Line breaks
-
-Continuation indents are 2 indents (4 spaces) from the start of the previous line.
-
-Try to break long lines at the same semantic level to make code more readable.
-* Don't use the same level of indentation for arguments to different methods
-* Don't use the same level of indentation for arguments and chained methods
-
-```java
-  // BAD: hard to see arguments passed to the same method
-  doSomething(new ArgumentClass(1,
-      2),
-      3);
-
-  // GOOD: break lines at the same semantic level
-  doSomething(
-      new ArgumentClass(1, 2),
-      3);
-
-  // BAD: arguments and chained methods mixed
-  SomeObject myNewObject = SomeObject.builder(schema, partitionSpec,
-      sortOrder)
-      .withProperty("x", "1")
-      .build()
-
-  // GOOD: method calls at the same level, arguments indented
-  SomeObject myNewObject = SomeObject
-      .builder(schema, partitionSpec,
-          sortOrder)
-      .withProperty("x", "1")
-      .build()
-```
 
 #### Method naming
 
