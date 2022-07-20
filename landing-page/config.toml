@@ -8,7 +8,7 @@ sectionPagesMenu = "main"
   siteType = "landing-page"
   search = true
   description = "The open table format for analytic datasets."
-  latestVersions.iceberg = "0.13.2"
+  latestVersions.iceberg = "0.14.0"
   docsBaseURL = ""
 
 [[params.social]]
