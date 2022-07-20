@@ -127,7 +127,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><code><a href="../spark/actions/BaseExpireSnapshotsSparkAction.html" title="class in org.apache.iceberg.spark.actions">BaseExpireSnapshotsSparkAction</a></code></dd>
+<dd><code><a href="../spark/actions/ExpireSnapshotsSparkAction.html" title="class in org.apache.iceberg.spark.actions">ExpireSnapshotsSparkAction</a></code></dd>
 </dl>
 <hr>
 <pre>public interface <span class="typeNameLabel">ExpireSnapshots</span>
@@ -185,14 +185,14 @@ extends <a href="Action.html" title="interface in org.apache.iceberg.actions">Ac
 <td class="colFirst"><code><a href="ExpireSnapshots.html" title="interface in org.apache.iceberg.actions">ExpireSnapshots</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#deleteWith(java.util.function.Consumer)">deleteWith</a></span>&#8203;(java.util.function.Consumer&lt;java.lang.String&gt;&nbsp;deleteFunc)</code></th>
 <td class="colLast">
-<div class="block">Passes an alternative delete implementation that will be used for manifests and data files.</div>
+<div class="block">Passes an alternative delete implementation that will be used for manifests, data and delete files.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="ExpireSnapshots.html" title="interface in org.apache.iceberg.actions">ExpireSnapshots</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#executeDeleteWith(java.util.concurrent.ExecutorService)">executeDeleteWith</a></span>&#8203;(java.util.concurrent.ExecutorService&nbsp;executorService)</code></th>
 <td class="colLast">
-<div class="block">Passes an alternative executor service that will be used for manifests and data files deletion.</div>
+<div class="block">Passes an alternative executor service that will be used for manifests, data and delete files deletion.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -305,12 +305,12 @@ extends <a href="Action.html" title="interface in org.apache.iceberg.actions">Ac
 <li class="blockList">
 <h4>deleteWith</h4>
 <pre class="methodSignature"><a href="ExpireSnapshots.html" title="interface in org.apache.iceberg.actions">ExpireSnapshots</a>&nbsp;deleteWith&#8203;(java.util.function.Consumer&lt;java.lang.String&gt;&nbsp;deleteFunc)</pre>
-<div class="block">Passes an alternative delete implementation that will be used for manifests and data files.
+<div class="block">Passes an alternative delete implementation that will be used for manifests, data and delete files.
  <p>
- Manifest files that are no longer used by valid snapshots will be deleted. Data files that were
- deleted by snapshots that are expired will be deleted.
+ Manifest files that are no longer used by valid snapshots will be deleted. Content files that were
+ marked as logically deleted by snapshots that are expired will be deleted as well.
  <p>
- If this method is not called, unnecessary manifests and data files will still be deleted.
+ If this method is not called, unnecessary manifests and content files will still be deleted.
  <p>
  Identical to <a href="../ExpireSnapshots.html#deleteWith(java.util.function.Consumer)"><code>ExpireSnapshots.deleteWith(Consumer)</code></a></div>
 <dl>
@@ -328,9 +328,9 @@ extends <a href="Action.html" title="interface in org.apache.iceberg.actions">Ac
 <li class="blockList">
 <h4>executeDeleteWith</h4>
 <pre class="methodSignature"><a href="ExpireSnapshots.html" title="interface in org.apache.iceberg.actions">ExpireSnapshots</a>&nbsp;executeDeleteWith&#8203;(java.util.concurrent.ExecutorService&nbsp;executorService)</pre>
-<div class="block">Passes an alternative executor service that will be used for manifests and data files deletion.
+<div class="block">Passes an alternative executor service that will be used for manifests, data and delete files deletion.
  <p>
- If this method is not called, unnecessary manifests and data files will still be deleted in
+ If this method is not called, unnecessary manifests and content files will still be deleted in
  the current thread.
  <p>
  Identical to <a href="../ExpireSnapshots.html#executeDeleteWith(java.util.concurrent.ExecutorService)"><code>ExpireSnapshots.executeDeleteWith(ExecutorService)</code></a></div>

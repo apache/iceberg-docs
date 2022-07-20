@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":9,"i5":9,"i6":10,"i7":10,"i8":10,"i9":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":9,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -131,12 +131,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../../io/OutputFile.html" title="interface in org.apache.iceberg.io">OutputFile</a></code></dd>
+<dd><code><a href="../../encryption/NativelyEncryptedFile.html" title="interface in org.apache.iceberg.encryption">NativelyEncryptedFile</a></code>, <code><a href="../../io/OutputFile.html" title="interface in org.apache.iceberg.io">OutputFile</a></code></dd>
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">S3OutputFile</span>
 extends java.lang.Object
-implements <a href="../../io/OutputFile.html" title="interface in org.apache.iceberg.io">OutputFile</a></pre>
+implements <a href="../../io/OutputFile.html" title="interface in org.apache.iceberg.io">OutputFile</a>, <a href="../../encryption/NativelyEncryptedFile.html" title="interface in org.apache.iceberg.encryption">NativelyEncryptedFile</a></pre>
 </li>
 </ul>
 </div>
@@ -186,35 +186,45 @@ implements <a href="../../io/OutputFile.html" title="interface in org.apache.ice
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>static <a href="S3OutputFile.html" title="class in org.apache.iceberg.aws.s3">S3OutputFile</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fromLocation(java.lang.String,software.amazon.awssdk.services.s3.S3Client)">fromLocation</a></span>&#8203;(java.lang.String&nbsp;location,
-            software.amazon.awssdk.services.s3.S3Client&nbsp;client)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fromLocation(java.lang.String,software.amazon.awssdk.services.s3.S3Client,org.apache.iceberg.aws.AwsProperties,org.apache.iceberg.metrics.MetricsContext)">fromLocation</a></span>&#8203;(java.lang.String&nbsp;location,
+            software.amazon.awssdk.services.s3.S3Client&nbsp;client,
+            <a href="../AwsProperties.html" title="class in org.apache.iceberg.aws">AwsProperties</a>&nbsp;awsProperties,
+            <a href="../../metrics/MetricsContext.html" title="interface in org.apache.iceberg.metrics">MetricsContext</a>&nbsp;metrics)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>static <a href="S3OutputFile.html" title="class in org.apache.iceberg.aws.s3">S3OutputFile</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fromLocation(java.lang.String,software.amazon.awssdk.services.s3.S3Client,org.apache.iceberg.aws.AwsProperties)">fromLocation</a></span>&#8203;(java.lang.String&nbsp;location,
-            software.amazon.awssdk.services.s3.S3Client&nbsp;client,
-            <a href="../AwsProperties.html" title="class in org.apache.iceberg.aws">AwsProperties</a>&nbsp;awsProperties)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected software.amazon.awssdk.services.s3.model.HeadObjectResponse</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getObjectMetadata()">getObjectMetadata</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#location()">location</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>protected <a href="../../metrics/MetricsContext.html" title="interface in org.apache.iceberg.metrics">MetricsContext</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#metrics()">metrics</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
 <tr id="i8" class="altColor">
+<td class="colFirst"><code><a href="../../encryption/NativeFileCryptoParameters.html" title="class in org.apache.iceberg.encryption">NativeFileCryptoParameters</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#nativeCryptoParameters()">nativeCryptoParameters</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setNativeCryptoParameters(org.apache.iceberg.encryption.NativeFileCryptoParameters)">setNativeCryptoParameters</a></span>&#8203;(<a href="../../encryption/NativeFileCryptoParameters.html" title="class in org.apache.iceberg.encryption">NativeFileCryptoParameters</a>&nbsp;nativeCryptoParameters)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toInputFile()">toInputFile</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Return an <a href="../../io/InputFile.html" title="interface in org.apache.iceberg.io"><code>InputFile</code></a> for the location of this output file.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
@@ -250,17 +260,7 @@ implements <a href="../../io/OutputFile.html" title="interface in org.apache.ice
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="fromLocation(java.lang.String,software.amazon.awssdk.services.s3.S3Client)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>fromLocation</h4>
-<pre class="methodSignature">public static&nbsp;<a href="S3OutputFile.html" title="class in org.apache.iceberg.aws.s3">S3OutputFile</a>&nbsp;fromLocation&#8203;(java.lang.String&nbsp;location,
-                                        software.amazon.awssdk.services.s3.S3Client&nbsp;client)</pre>
-</li>
-</ul>
-<a id="fromLocation(java.lang.String,software.amazon.awssdk.services.s3.S3Client,org.apache.iceberg.aws.AwsProperties)">
+<a id="fromLocation(java.lang.String,software.amazon.awssdk.services.s3.S3Client,org.apache.iceberg.aws.AwsProperties,org.apache.iceberg.metrics.MetricsContext)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -268,7 +268,8 @@ implements <a href="../../io/OutputFile.html" title="interface in org.apache.ice
 <h4>fromLocation</h4>
 <pre class="methodSignature">public static&nbsp;<a href="S3OutputFile.html" title="class in org.apache.iceberg.aws.s3">S3OutputFile</a>&nbsp;fromLocation&#8203;(java.lang.String&nbsp;location,
                                         software.amazon.awssdk.services.s3.S3Client&nbsp;client,
-                                        <a href="../AwsProperties.html" title="class in org.apache.iceberg.aws">AwsProperties</a>&nbsp;awsProperties)</pre>
+                                        <a href="../AwsProperties.html" title="class in org.apache.iceberg.aws">AwsProperties</a>&nbsp;awsProperties,
+                                        <a href="../../metrics/MetricsContext.html" title="interface in org.apache.iceberg.metrics">MetricsContext</a>&nbsp;metrics)</pre>
 </li>
 </ul>
 <a id="create()">
@@ -324,6 +325,32 @@ implements <a href="../../io/OutputFile.html" title="interface in org.apache.ice
 </dl>
 </li>
 </ul>
+<a id="nativeCryptoParameters()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>nativeCryptoParameters</h4>
+<pre class="methodSignature">public&nbsp;<a href="../../encryption/NativeFileCryptoParameters.html" title="class in org.apache.iceberg.encryption">NativeFileCryptoParameters</a>&nbsp;nativeCryptoParameters()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../encryption/NativelyEncryptedFile.html#nativeCryptoParameters()">nativeCryptoParameters</a></code>&nbsp;in interface&nbsp;<code><a href="../../encryption/NativelyEncryptedFile.html" title="interface in org.apache.iceberg.encryption">NativelyEncryptedFile</a></code></dd>
+</dl>
+</li>
+</ul>
+<a id="setNativeCryptoParameters(org.apache.iceberg.encryption.NativeFileCryptoParameters)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setNativeCryptoParameters</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setNativeCryptoParameters&#8203;(<a href="../../encryption/NativeFileCryptoParameters.html" title="class in org.apache.iceberg.encryption">NativeFileCryptoParameters</a>&nbsp;nativeCryptoParameters)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../encryption/NativelyEncryptedFile.html#setNativeCryptoParameters(org.apache.iceberg.encryption.NativeFileCryptoParameters)">setNativeCryptoParameters</a></code>&nbsp;in interface&nbsp;<code><a href="../../encryption/NativelyEncryptedFile.html" title="interface in org.apache.iceberg.encryption">NativelyEncryptedFile</a></code></dd>
+</dl>
+</li>
+</ul>
 <a id="location()">
 <!--   -->
 </a>
@@ -340,6 +367,15 @@ implements <a href="../../io/OutputFile.html" title="interface in org.apache.ice
 <li class="blockList">
 <h4>awsProperties</h4>
 <pre class="methodSignature">public&nbsp;<a href="../AwsProperties.html" title="class in org.apache.iceberg.aws">AwsProperties</a>&nbsp;awsProperties()</pre>
+</li>
+</ul>
+<a id="metrics()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>metrics</h4>
+<pre class="methodSignature">protected&nbsp;<a href="../../metrics/MetricsContext.html" title="interface in org.apache.iceberg.metrics">MetricsContext</a>&nbsp;metrics()</pre>
 </li>
 </ul>
 <a id="exists()">

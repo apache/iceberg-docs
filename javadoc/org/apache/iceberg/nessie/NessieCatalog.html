@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -224,27 +224,22 @@ implements java.lang.AutoCloseable, <a href="../catalog/SupportsNamespaces.html"
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#createNamespace(org.apache.iceberg.catalog.Namespace,java.util.Map)">createNamespace</a></span>&#8203;(<a href="../catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace,
                java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;metadata)</code></th>
 <td class="colLast">
-<div class="block">creating namespaces in nessie is implicit, therefore this is a no-op.</div>
+<div class="block">Create a namespace in the catalog.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#currentHash()">currentHash</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#defaultWarehouseLocation(org.apache.iceberg.catalog.TableIdentifier)">defaultWarehouseLocation</a></span>&#8203;(<a href="../catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;table)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#dropNamespace(org.apache.iceberg.catalog.Namespace)">dropNamespace</a></span>&#8203;(<a href="../catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace)</code></th>
 <td class="colLast">
-<div class="block">Namespaces in Nessie are implicit and therefore cannot be dropped</div>
+<div class="block">Drop a namespace.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#dropTable(org.apache.iceberg.catalog.TableIdentifier,boolean)">dropTable</a></span>&#8203;(<a href="../catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;identifier,
          boolean&nbsp;purge)</code></th>
@@ -252,17 +247,28 @@ implements java.lang.AutoCloseable, <a href="../catalog/SupportsNamespaces.html"
 <div class="block">Drop a table; optionally delete data and metadata files.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>org.apache.hadoop.conf.Configuration</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getConf()">getConf</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#initialize(java.lang.String,java.util.Map)">initialize</a></span>&#8203;(java.lang.String&nbsp;inputName,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#initialize(java.lang.String,java.util.Map)">initialize</a></span>&#8203;(java.lang.String&nbsp;name,
           java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;options)</code></th>
 <td class="colLast">
 <div class="block">Initialize a catalog given a custom name and a map of catalog properties.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#initialize(java.lang.String,org.apache.iceberg.nessie.NessieIcebergClient,org.apache.iceberg.io.FileIO,java.util.Map)">initialize</a></span>&#8203;(java.lang.String&nbsp;name,
+          <a href="NessieIcebergClient.html" title="class in org.apache.iceberg.nessie">NessieIcebergClient</a>&nbsp;client,
+          <a href="../io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;fileIO,
+          java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;catalogOptions)</code></th>
+<td class="colLast">
+<div class="block">An alternative way to initialize the catalog using a pre-configured <a href="NessieIcebergClient.html" title="class in org.apache.iceberg.nessie"><code>NessieIcebergClient</code></a> and <a href="../io/FileIO.html" title="interface in org.apache.iceberg.io"><code>FileIO</code></a>
+ instance.</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
@@ -283,7 +289,7 @@ implements java.lang.AutoCloseable, <a href="../catalog/SupportsNamespaces.html"
 <td class="colFirst"><code>java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#loadNamespaceMetadata(org.apache.iceberg.catalog.Namespace)">loadNamespaceMetadata</a></span>&#8203;(<a href="../catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace)</code></th>
 <td class="colLast">
-<div class="block">namespace metadata is not supported in Nessie, thus we return an empty map.</div>
+<div class="block">Load the given namespace but return an empty map because namespace properties are currently not supported.</div>
 </td>
 </tr>
 <tr id="i11" class="rowColor">
@@ -299,11 +305,6 @@ implements java.lang.AutoCloseable, <a href="../catalog/SupportsNamespaces.html"
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i13" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#refresh()">refresh</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i14" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeProperties(org.apache.iceberg.catalog.Namespace,java.util.Set)">removeProperties</a></span>&#8203;(<a href="../catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace,
                 java.util.Set&lt;java.lang.String&gt;&nbsp;properties)</code></th>
@@ -311,20 +312,20 @@ implements java.lang.AutoCloseable, <a href="../catalog/SupportsNamespaces.html"
 <div class="block">Remove a set of property keys from a namespace in the catalog.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#renameTable(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.catalog.TableIdentifier)">renameTable</a></span>&#8203;(<a href="../catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;from,
-           <a href="../catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;toOriginal)</code></th>
+           <a href="../catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;to)</code></th>
 <td class="colLast">
 <div class="block">Rename a table.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setConf(org.apache.hadoop.conf.Configuration)">setConf</a></span>&#8203;(org.apache.hadoop.conf.Configuration&nbsp;conf)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setProperties(org.apache.iceberg.catalog.Namespace,java.util.Map)">setProperties</a></span>&#8203;(<a href="../catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace,
              java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;properties)</code></th>
@@ -338,7 +339,7 @@ implements java.lang.AutoCloseable, <a href="../catalog/SupportsNamespaces.html"
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.iceberg.<a href="../BaseMetastoreCatalog.html" title="class in org.apache.iceberg">BaseMetastoreCatalog</a></h3>
-<code><a href="../BaseMetastoreCatalog.html#buildTable(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.Schema)">buildTable</a>, <a href="../BaseMetastoreCatalog.html#fullTableName(java.lang.String,org.apache.iceberg.catalog.TableIdentifier)">fullTableName</a>, <a href="../BaseMetastoreCatalog.html#isValidIdentifier(org.apache.iceberg.catalog.TableIdentifier)">isValidIdentifier</a>, <a href="../BaseMetastoreCatalog.html#loadTable(org.apache.iceberg.catalog.TableIdentifier)">loadTable</a>, <a href="../BaseMetastoreCatalog.html#toString()">toString</a></code></li>
+<code><a href="../BaseMetastoreCatalog.html#buildTable(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.Schema)">buildTable</a>, <a href="../BaseMetastoreCatalog.html#fullTableName(java.lang.String,org.apache.iceberg.catalog.TableIdentifier)">fullTableName</a>, <a href="../BaseMetastoreCatalog.html#isValidIdentifier(org.apache.iceberg.catalog.TableIdentifier)">isValidIdentifier</a>, <a href="../BaseMetastoreCatalog.html#loadTable(org.apache.iceberg.catalog.TableIdentifier)">loadTable</a>, <a href="../BaseMetastoreCatalog.html#properties()">properties</a>, <a href="../BaseMetastoreCatalog.html#toString()">toString</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
@@ -402,7 +403,7 @@ implements java.lang.AutoCloseable, <a href="../catalog/SupportsNamespaces.html"
 <ul class="blockList">
 <li class="blockList">
 <h4>initialize</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;initialize&#8203;(java.lang.String&nbsp;inputName,
+<pre class="methodSignature">public&nbsp;void&nbsp;initialize&#8203;(java.lang.String&nbsp;name,
                        java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;options)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../catalog/Catalog.html#initialize(java.lang.String,java.util.Map)">Catalog</a></code></span></div>
 <div class="block">Initialize a catalog given a custom name and a map of catalog properties.
@@ -414,8 +415,29 @@ implements java.lang.AutoCloseable, <a href="../catalog/SupportsNamespaces.html"
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../catalog/Catalog.html#initialize(java.lang.String,java.util.Map)">initialize</a></code>&nbsp;in interface&nbsp;<code><a href="../catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>inputName</code> - a custom name for the catalog</dd>
+<dd><code>name</code> - a custom name for the catalog</dd>
 <dd><code>options</code> - catalog properties</dd>
+</dl>
+</li>
+</ul>
+<a id="initialize(java.lang.String,org.apache.iceberg.nessie.NessieIcebergClient,org.apache.iceberg.io.FileIO,java.util.Map)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>initialize</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;initialize&#8203;(java.lang.String&nbsp;name,
+                       <a href="NessieIcebergClient.html" title="class in org.apache.iceberg.nessie">NessieIcebergClient</a>&nbsp;client,
+                       <a href="../io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;fileIO,
+                       java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;catalogOptions)</pre>
+<div class="block">An alternative way to initialize the catalog using a pre-configured <a href="NessieIcebergClient.html" title="class in org.apache.iceberg.nessie"><code>NessieIcebergClient</code></a> and <a href="../io/FileIO.html" title="interface in org.apache.iceberg.io"><code>FileIO</code></a>
+ instance.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - The name of the catalog, defaults to "nessie" if <code>null</code></dd>
+<dd><code>client</code> - The pre-configured <a href="NessieIcebergClient.html" title="class in org.apache.iceberg.nessie"><code>NessieIcebergClient</code></a> instance to use</dd>
+<dd><code>fileIO</code> - The <a href="../io/FileIO.html" title="interface in org.apache.iceberg.io"><code>FileIO</code></a> instance to use</dd>
+<dd><code>catalogOptions</code> - The catalog options to use</dd>
 </dl>
 </li>
 </ul>
@@ -425,10 +447,13 @@ implements java.lang.AutoCloseable, <a href="../catalog/SupportsNamespaces.html"
 <ul class="blockList">
 <li class="blockList">
 <h4>close</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;close()</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;close()
+           throws java.io.IOException</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>close</code>&nbsp;in interface&nbsp;<code>java.lang.AutoCloseable</code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.io.IOException</code></dd>
 </dl>
 </li>
 </ul>
@@ -524,7 +549,7 @@ implements java.lang.AutoCloseable, <a href="../catalog/SupportsNamespaces.html"
 <li class="blockList">
 <h4>renameTable</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;renameTable&#8203;(<a href="../catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;from,
-                        <a href="../catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;toOriginal)</pre>
+                        <a href="../catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;to)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../catalog/Catalog.html#renameTable(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.catalog.TableIdentifier)">Catalog</a></code></span></div>
 <div class="block">Rename a table.</div>
 <dl>
@@ -532,7 +557,7 @@ implements java.lang.AutoCloseable, <a href="../catalog/SupportsNamespaces.html"
 <dd><code><a href="../catalog/Catalog.html#renameTable(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.catalog.TableIdentifier)">renameTable</a></code>&nbsp;in interface&nbsp;<code><a href="../catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>from</code> - identifier of the table to rename</dd>
-<dd><code>toOriginal</code> - new table name</dd>
+<dd><code>to</code> - new table name</dd>
 </dl>
 </li>
 </ul>
@@ -544,7 +569,8 @@ implements java.lang.AutoCloseable, <a href="../catalog/SupportsNamespaces.html"
 <h4>createNamespace</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;createNamespace&#8203;(<a href="../catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace,
                             java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;metadata)</pre>
-<div class="block">creating namespaces in nessie is implicit, therefore this is a no-op. Metadata is ignored.</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../catalog/SupportsNamespaces.html#createNamespace(org.apache.iceberg.catalog.Namespace,java.util.Map)">SupportsNamespaces</a></code></span></div>
+<div class="block">Create a namespace in the catalog.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../catalog/SupportsNamespaces.html#createNamespace(org.apache.iceberg.catalog.Namespace,java.util.Map)">createNamespace</a></code>&nbsp;in interface&nbsp;<code><a href="../catalog/SupportsNamespaces.html" title="interface in org.apache.iceberg.catalog">SupportsNamespaces</a></code></dd>
@@ -585,7 +611,7 @@ implements java.lang.AutoCloseable, <a href="../catalog/SupportsNamespaces.html"
 <h4>loadNamespaceMetadata</h4>
 <pre class="methodSignature">public&nbsp;java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;loadNamespaceMetadata&#8203;(<a href="../catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace)
                                                                              throws <a href="../exceptions/NoSuchNamespaceException.html" title="class in org.apache.iceberg.exceptions">NoSuchNamespaceException</a></pre>
-<div class="block">namespace metadata is not supported in Nessie, thus we return an empty map.</div>
+<div class="block">Load the given namespace but return an empty map because namespace properties are currently not supported.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../catalog/SupportsNamespaces.html#loadNamespaceMetadata(org.apache.iceberg.catalog.Namespace)">loadNamespaceMetadata</a></code>&nbsp;in interface&nbsp;<code><a href="../catalog/SupportsNamespaces.html" title="interface in org.apache.iceberg.catalog">SupportsNamespaces</a></code></dd>
@@ -594,7 +620,7 @@ implements java.lang.AutoCloseable, <a href="../catalog/SupportsNamespaces.html"
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>an empty map</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../exceptions/NoSuchNamespaceException.html" title="class in org.apache.iceberg.exceptions">NoSuchNamespaceException</a></code> - If the namespace does not exist (optional)</dd>
+<dd><code><a href="../exceptions/NoSuchNamespaceException.html" title="class in org.apache.iceberg.exceptions">NoSuchNamespaceException</a></code> - If the namespace does not exist</dd>
 </dl>
 </li>
 </ul>
@@ -604,17 +630,19 @@ implements java.lang.AutoCloseable, <a href="../catalog/SupportsNamespaces.html"
 <ul class="blockList">
 <li class="blockList">
 <h4>dropNamespace</h4>
-<pre class="methodSignature">public&nbsp;boolean&nbsp;dropNamespace&#8203;(<a href="../catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace)</pre>
-<div class="block">Namespaces in Nessie are implicit and therefore cannot be dropped</div>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;dropNamespace&#8203;(<a href="../catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace)
+                      throws <a href="../exceptions/NamespaceNotEmptyException.html" title="class in org.apache.iceberg.exceptions">NamespaceNotEmptyException</a></pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../catalog/SupportsNamespaces.html#dropNamespace(org.apache.iceberg.catalog.Namespace)">SupportsNamespaces</a></code></span></div>
+<div class="block">Drop a namespace. If the namespace exists and was dropped, this will return true.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../catalog/SupportsNamespaces.html#dropNamespace(org.apache.iceberg.catalog.Namespace)">dropNamespace</a></code>&nbsp;in interface&nbsp;<code><a href="../catalog/SupportsNamespaces.html" title="interface in org.apache.iceberg.catalog">SupportsNamespaces</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>namespace</code> - The <a href="../catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>Namespace</code></a> to drop.</dd>
+<dd><code>namespace</code> - a namespace. <a href="../catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>Namespace</code></a></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if the namespace was dropped, false otherwise.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.UnsupportedOperationException</code> - Namespaces in Nessie are implicit and thus cannot be dropped.</dd>
+<dd><code><a href="../exceptions/NamespaceNotEmptyException.html" title="class in org.apache.iceberg.exceptions">NamespaceNotEmptyException</a></code> - If the namespace is not empty</dd>
 </dl>
 </li>
 </ul>
@@ -676,7 +704,7 @@ implements java.lang.AutoCloseable, <a href="../catalog/SupportsNamespaces.html"
 <a id="getConf()">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>getConf</h4>
 <pre class="methodSignature">public&nbsp;org.apache.hadoop.conf.Configuration&nbsp;getConf()</pre>
@@ -684,29 +712,6 @@ implements java.lang.AutoCloseable, <a href="../catalog/SupportsNamespaces.html"
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>getConf</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.conf.Configurable</code></dd>
 </dl>
-</li>
-</ul>
-<a id="refresh()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>refresh</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;refresh()
-             throws org.projectnessie.error.NessieNotFoundException</pre>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>org.projectnessie.error.NessieNotFoundException</code></dd>
-</dl>
-</li>
-</ul>
-<a id="currentHash()">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>currentHash</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;currentHash()</pre>
 </li>
 </ul>
 </li>

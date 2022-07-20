@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6,"i16":6,"i17":6,"i18":6,"i19":6,"i20":6,"i21":6,"i22":6,"i23":6,"i24":6,"i25":6,"i26":6,"i27":6,"i28":6,"i29":6,"i30":6,"i31":6,"i32":6,"i33":6,"i34":6,"i35":6,"i36":6,"i37":6,"i38":6,"i39":6};
+var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6,"i16":6,"i17":6,"i18":6,"i19":6,"i20":6,"i21":6,"i22":6,"i23":6,"i24":6,"i25":6,"i26":6,"i27":6,"i28":6,"i29":6,"i30":6,"i31":6,"i32":6,"i33":6,"i34":6,"i35":6,"i36":6,"i37":6,"i38":6,"i39":6,"i40":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -385,12 +385,19 @@ extends org.antlr.v4.runtime.tree.ParseTreeVisitor&lt;T&gt;</pre>
 </tr>
 <tr id="i29" class="rowColor">
 <td class="colFirst"><code><a href="IcebergSqlExtensionsVisitor.html" title="type parameter in IcebergSqlExtensionsVisitor">T</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#visitSingleOrder(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.SingleOrderContext)">visitSingleOrder</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.SingleOrderContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.SingleOrderContext</a>&nbsp;ctx)</code></th>
+<td class="colLast">
+<div class="block">Visit a parse tree produced by <a href="IcebergSqlExtensionsParser.html#singleOrder()"><code>IcebergSqlExtensionsParser.singleOrder()</code></a>.</div>
+</td>
+</tr>
+<tr id="i30" class="altColor">
+<td class="colFirst"><code><a href="IcebergSqlExtensionsVisitor.html" title="type parameter in IcebergSqlExtensionsVisitor">T</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#visitSingleStatement(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.SingleStatementContext)">visitSingleStatement</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.SingleStatementContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.SingleStatementContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
 <div class="block">Visit a parse tree produced by <a href="IcebergSqlExtensionsParser.html#singleStatement()"><code>IcebergSqlExtensionsParser.singleStatement()</code></a>.</div>
 </td>
 </tr>
-<tr id="i30" class="altColor">
+<tr id="i31" class="rowColor">
 <td class="colFirst"><code><a href="IcebergSqlExtensionsVisitor.html" title="type parameter in IcebergSqlExtensionsVisitor">T</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#visitSmallIntLiteral(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.SmallIntLiteralContext)">visitSmallIntLiteral</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.SmallIntLiteralContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.SmallIntLiteralContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -398,7 +405,7 @@ extends org.antlr.v4.runtime.tree.ParseTreeVisitor&lt;T&gt;</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#number()"><code>IcebergSqlExtensionsParser.number()</code></a>.</div>
 </td>
 </tr>
-<tr id="i31" class="rowColor">
+<tr id="i32" class="altColor">
 <td class="colFirst"><code><a href="IcebergSqlExtensionsVisitor.html" title="type parameter in IcebergSqlExtensionsVisitor">T</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#visitStringLiteral(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.StringLiteralContext)">visitStringLiteral</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.StringLiteralContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.StringLiteralContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -406,14 +413,14 @@ extends org.antlr.v4.runtime.tree.ParseTreeVisitor&lt;T&gt;</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#constant()"><code>IcebergSqlExtensionsParser.constant()</code></a>.</div>
 </td>
 </tr>
-<tr id="i32" class="altColor">
+<tr id="i33" class="rowColor">
 <td class="colFirst"><code><a href="IcebergSqlExtensionsVisitor.html" title="type parameter in IcebergSqlExtensionsVisitor">T</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#visitStringMap(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.StringMapContext)">visitStringMap</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.StringMapContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.StringMapContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
 <div class="block">Visit a parse tree produced by <a href="IcebergSqlExtensionsParser.html#stringMap()"><code>IcebergSqlExtensionsParser.stringMap()</code></a>.</div>
 </td>
 </tr>
-<tr id="i33" class="rowColor">
+<tr id="i34" class="altColor">
 <td class="colFirst"><code><a href="IcebergSqlExtensionsVisitor.html" title="type parameter in IcebergSqlExtensionsVisitor">T</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#visitTinyIntLiteral(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.TinyIntLiteralContext)">visitTinyIntLiteral</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.TinyIntLiteralContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.TinyIntLiteralContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -421,14 +428,14 @@ extends org.antlr.v4.runtime.tree.ParseTreeVisitor&lt;T&gt;</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#number()"><code>IcebergSqlExtensionsParser.number()</code></a>.</div>
 </td>
 </tr>
-<tr id="i34" class="altColor">
+<tr id="i35" class="rowColor">
 <td class="colFirst"><code><a href="IcebergSqlExtensionsVisitor.html" title="type parameter in IcebergSqlExtensionsVisitor">T</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#visitTransformArgument(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.TransformArgumentContext)">visitTransformArgument</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.TransformArgumentContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.TransformArgumentContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
 <div class="block">Visit a parse tree produced by <a href="IcebergSqlExtensionsParser.html#transformArgument()"><code>IcebergSqlExtensionsParser.transformArgument()</code></a>.</div>
 </td>
 </tr>
-<tr id="i35" class="rowColor">
+<tr id="i36" class="altColor">
 <td class="colFirst"><code><a href="IcebergSqlExtensionsVisitor.html" title="type parameter in IcebergSqlExtensionsVisitor">T</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#visitTypeConstructor(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.TypeConstructorContext)">visitTypeConstructor</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.TypeConstructorContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.TypeConstructorContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -436,7 +443,7 @@ extends org.antlr.v4.runtime.tree.ParseTreeVisitor&lt;T&gt;</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#constant()"><code>IcebergSqlExtensionsParser.constant()</code></a>.</div>
 </td>
 </tr>
-<tr id="i36" class="altColor">
+<tr id="i37" class="rowColor">
 <td class="colFirst"><code><a href="IcebergSqlExtensionsVisitor.html" title="type parameter in IcebergSqlExtensionsVisitor">T</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#visitUnquotedIdentifier(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.UnquotedIdentifierContext)">visitUnquotedIdentifier</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.UnquotedIdentifierContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.UnquotedIdentifierContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -444,21 +451,21 @@ extends org.antlr.v4.runtime.tree.ParseTreeVisitor&lt;T&gt;</pre>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#identifier()"><code>IcebergSqlExtensionsParser.identifier()</code></a>.</div>
 </td>
 </tr>
-<tr id="i37" class="rowColor">
+<tr id="i38" class="altColor">
 <td class="colFirst"><code><a href="IcebergSqlExtensionsVisitor.html" title="type parameter in IcebergSqlExtensionsVisitor">T</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#visitWriteDistributionSpec(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.WriteDistributionSpecContext)">visitWriteDistributionSpec</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.WriteDistributionSpecContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.WriteDistributionSpecContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
 <div class="block">Visit a parse tree produced by <a href="IcebergSqlExtensionsParser.html#writeDistributionSpec()"><code>IcebergSqlExtensionsParser.writeDistributionSpec()</code></a>.</div>
 </td>
 </tr>
-<tr id="i38" class="altColor">
+<tr id="i39" class="rowColor">
 <td class="colFirst"><code><a href="IcebergSqlExtensionsVisitor.html" title="type parameter in IcebergSqlExtensionsVisitor">T</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#visitWriteOrderingSpec(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.WriteOrderingSpecContext)">visitWriteOrderingSpec</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.WriteOrderingSpecContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.WriteOrderingSpecContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
 <div class="block">Visit a parse tree produced by <a href="IcebergSqlExtensionsParser.html#writeOrderingSpec()"><code>IcebergSqlExtensionsParser.writeOrderingSpec()</code></a>.</div>
 </td>
 </tr>
-<tr id="i39" class="rowColor">
+<tr id="i40" class="altColor">
 <td class="colFirst"><code><a href="IcebergSqlExtensionsVisitor.html" title="type parameter in IcebergSqlExtensionsVisitor">T</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#visitWriteSpec(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.WriteSpecContext)">visitWriteSpec</a></span>&#8203;(<a href="IcebergSqlExtensionsParser.WriteSpecContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.WriteSpecContext</a>&nbsp;ctx)</code></th>
 <td class="colLast">
@@ -698,6 +705,22 @@ extends org.antlr.v4.runtime.tree.ParseTreeVisitor&lt;T&gt;</pre>
 <pre class="methodSignature"><a href="IcebergSqlExtensionsVisitor.html" title="type parameter in IcebergSqlExtensionsVisitor">T</a>&nbsp;visitNamedArgument&#8203;(<a href="IcebergSqlExtensionsParser.NamedArgumentContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.NamedArgumentContext</a>&nbsp;ctx)</pre>
 <div class="block">Visit a parse tree produced by the <code>namedArgument</code>
  labeled alternative in <a href="IcebergSqlExtensionsParser.html#callArgument()"><code>IcebergSqlExtensionsParser.callArgument()</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ctx</code> - the parse tree</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the visitor result</dd>
+</dl>
+</li>
+</ul>
+<a id="visitSingleOrder(org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.SingleOrderContext)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>visitSingleOrder</h4>
+<pre class="methodSignature"><a href="IcebergSqlExtensionsVisitor.html" title="type parameter in IcebergSqlExtensionsVisitor">T</a>&nbsp;visitSingleOrder&#8203;(<a href="IcebergSqlExtensionsParser.SingleOrderContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.SingleOrderContext</a>&nbsp;ctx)</pre>
+<div class="block">Visit a parse tree produced by <a href="IcebergSqlExtensionsParser.html#singleOrder()"><code>IcebergSqlExtensionsParser.singleOrder()</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>ctx</code> - the parse tree</dd>

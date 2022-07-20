@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -202,28 +202,38 @@ implements org.apache.spark.sql.sources.DataSourceRegister, org.apache.spark.sql
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>java.util.Optional&lt;java.lang.String&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#extractTimeTravelTimestamp(org.apache.spark.sql.util.CaseInsensitiveStringMap)">extractTimeTravelTimestamp</a></span>&#8203;(org.apache.spark.sql.util.CaseInsensitiveStringMap&nbsp;options)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>java.util.Optional&lt;java.lang.String&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#extractTimeTravelVersion(org.apache.spark.sql.util.CaseInsensitiveStringMap)">extractTimeTravelVersion</a></span>&#8203;(org.apache.spark.sql.util.CaseInsensitiveStringMap&nbsp;options)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>org.apache.spark.sql.connector.catalog.Table</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTable(org.apache.spark.sql.types.StructType,org.apache.spark.sql.connector.expressions.Transform%5B%5D,java.util.Map)">getTable</a></span>&#8203;(org.apache.spark.sql.types.StructType&nbsp;schema,
         org.apache.spark.sql.connector.expressions.Transform[]&nbsp;partitioning,
         java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;options)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>org.apache.spark.sql.connector.expressions.Transform[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#inferPartitioning(org.apache.spark.sql.util.CaseInsensitiveStringMap)">inferPartitioning</a></span>&#8203;(org.apache.spark.sql.util.CaseInsensitiveStringMap&nbsp;options)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>org.apache.spark.sql.types.StructType</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#inferSchema(org.apache.spark.sql.util.CaseInsensitiveStringMap)">inferSchema</a></span>&#8203;(org.apache.spark.sql.util.CaseInsensitiveStringMap&nbsp;options)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shortName()">shortName</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#supportsExternalMetadata()">supportsExternalMetadata</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
@@ -354,13 +364,39 @@ implements org.apache.spark.sql.sources.DataSourceRegister, org.apache.spark.sql
 <a id="extractCatalog(org.apache.spark.sql.util.CaseInsensitiveStringMap)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>extractCatalog</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;extractCatalog&#8203;(org.apache.spark.sql.util.CaseInsensitiveStringMap&nbsp;options)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>extractCatalog</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.catalog.SupportsCatalogOptions</code></dd>
+</dl>
+</li>
+</ul>
+<a id="extractTimeTravelVersion(org.apache.spark.sql.util.CaseInsensitiveStringMap)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>extractTimeTravelVersion</h4>
+<pre class="methodSignature">public&nbsp;java.util.Optional&lt;java.lang.String&gt;&nbsp;extractTimeTravelVersion&#8203;(org.apache.spark.sql.util.CaseInsensitiveStringMap&nbsp;options)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>extractTimeTravelVersion</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.catalog.SupportsCatalogOptions</code></dd>
+</dl>
+</li>
+</ul>
+<a id="extractTimeTravelTimestamp(org.apache.spark.sql.util.CaseInsensitiveStringMap)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>extractTimeTravelTimestamp</h4>
+<pre class="methodSignature">public&nbsp;java.util.Optional&lt;java.lang.String&gt;&nbsp;extractTimeTravelTimestamp&#8203;(org.apache.spark.sql.util.CaseInsensitiveStringMap&nbsp;options)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>extractTimeTravelTimestamp</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.catalog.SupportsCatalogOptions</code></dd>
 </dl>
 </li>
 </ul>

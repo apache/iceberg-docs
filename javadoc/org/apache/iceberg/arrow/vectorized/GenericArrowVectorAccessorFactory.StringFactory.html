@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":6,"i1":6,"i2":6};
+var data = {"i0":6,"i1":6,"i2":6,"i3":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -161,12 +161,19 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="GenericArrowVectorAccessorFactory.StringFactory.html" title="type parameter in GenericArrowVectorAccessorFactory.StringFactory">Utf8StringT</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ofByteBuffer(java.nio.ByteBuffer)">ofByteBuffer</a></span>&#8203;(java.nio.ByteBuffer&nbsp;byteBuffer)</code></th>
+<td class="colLast">
+<div class="block">Create a UTF8 String from the byte buffer.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code><a href="GenericArrowVectorAccessorFactory.StringFactory.html" title="type parameter in GenericArrowVectorAccessorFactory.StringFactory">Utf8StringT</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ofBytes(byte%5B%5D)">ofBytes</a></span>&#8203;(byte[]&nbsp;bytes)</code></th>
 <td class="colLast">
 <div class="block">Create a UTF8 String from the byte array.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="GenericArrowVectorAccessorFactory.StringFactory.html" title="type parameter in GenericArrowVectorAccessorFactory.StringFactory">Utf8StringT</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ofRow(org.apache.arrow.vector.VarCharVector,int)">ofRow</a></span>&#8203;(org.apache.arrow.vector.VarCharVector&nbsp;vector,
      int&nbsp;rowId)</code></th>
@@ -215,11 +222,21 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <a id="ofBytes(byte[])">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>ofBytes</h4>
 <pre class="methodSignature"><a href="GenericArrowVectorAccessorFactory.StringFactory.html" title="type parameter in GenericArrowVectorAccessorFactory.StringFactory">Utf8StringT</a>&nbsp;ofBytes&#8203;(byte[]&nbsp;bytes)</pre>
 <div class="block">Create a UTF8 String from the byte array.</div>
+</li>
+</ul>
+<a id="ofByteBuffer(java.nio.ByteBuffer)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>ofByteBuffer</h4>
+<pre class="methodSignature"><a href="GenericArrowVectorAccessorFactory.StringFactory.html" title="type parameter in GenericArrowVectorAccessorFactory.StringFactory">Utf8StringT</a>&nbsp;ofByteBuffer&#8203;(java.nio.ByteBuffer&nbsp;byteBuffer)</pre>
+<div class="block">Create a UTF8 String from the byte buffer.</div>
 </li>
 </ul>
 </li>

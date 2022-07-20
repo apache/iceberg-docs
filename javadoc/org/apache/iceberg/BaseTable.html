@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -275,13 +275,20 @@ implements <a href="Table.html" title="interface in org.apache.iceberg">Table</a
 </td>
 </tr>
 <tr id="i12" class="altColor">
+<td class="colFirst"><code><a href="IncrementalAppendScan.html" title="interface in org.apache.iceberg">IncrementalAppendScan</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newIncrementalAppendScan()">newIncrementalAppendScan</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Create a new <a href="IncrementalAppendScan.html" title="interface in org.apache.iceberg"><code>scan</code></a> for this table.</div>
+</td>
+</tr>
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="OverwriteFiles.html" title="interface in org.apache.iceberg">OverwriteFiles</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newOverwrite()">newOverwrite</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Create a new <a href="OverwriteFiles.html" title="interface in org.apache.iceberg"><code>overwrite API</code></a> to overwrite files by a filter expression.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="ReplacePartitions.html" title="interface in org.apache.iceberg">ReplacePartitions</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newReplacePartitions()">newReplacePartitions</a></span>()</code></th>
 <td class="colLast">
@@ -289,61 +296,61 @@ implements <a href="Table.html" title="interface in org.apache.iceberg">Table</a
  overwrite partitions in the table with new data.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code><a href="RewriteFiles.html" title="interface in org.apache.iceberg">RewriteFiles</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newRewrite()">newRewrite</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Create a new <a href="RewriteFiles.html" title="interface in org.apache.iceberg"><code>rewrite API</code></a> to replace files in this table and commit.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code><a href="RowDelta.html" title="interface in org.apache.iceberg">RowDelta</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newRowDelta()">newRowDelta</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Create a new <a href="RowDelta.html" title="interface in org.apache.iceberg"><code>row-level delta API</code></a> to remove or replace rows in existing data files.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code><a href="TableScan.html" title="interface in org.apache.iceberg">TableScan</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newScan()">newScan</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Create a new <a href="TableScan.html" title="interface in org.apache.iceberg"><code>scan</code></a> for this table.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code><a href="Transaction.html" title="interface in org.apache.iceberg">Transaction</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newTransaction()">newTransaction</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Create a new <a href="Transaction.html" title="interface in org.apache.iceberg"><code>transaction API</code></a> to commit multiple table operations at once.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code><a href="TableOperations.html" title="interface in org.apache.iceberg">TableOperations</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#operations()">operations</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#properties()">properties</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Return a map of string properties for this table.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#refresh()">refresh</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Refresh the current table metadata.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code><a href="ReplaceSortOrder.html" title="interface in org.apache.iceberg">ReplaceSortOrder</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#replaceSortOrder()">replaceSortOrder</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Create a new <a href="ReplaceSortOrder.html" title="interface in org.apache.iceberg"><code>ReplaceSortOrder</code></a> to set the table sort order and commit the change.</div>
 </td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code><a href="RewriteManifests.html" title="interface in org.apache.iceberg">RewriteManifests</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#rewriteManifests()">rewriteManifests</a></span>()</code></th>
 <td class="colLast">
@@ -351,28 +358,28 @@ implements <a href="Table.html" title="interface in org.apache.iceberg">Table</a
  table and commit.</div>
 </td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code><a href="Rollback.html" title="interface in org.apache.iceberg">Rollback</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#rollback()">rollback</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Create a new <a href="Rollback.html" title="interface in org.apache.iceberg"><code>rollback API</code></a> to roll back to a previous snapshot and commit.</div>
 </td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code><a href="Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#schema()">schema</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Return the <a href="Schema.html" title="class in org.apache.iceberg"><code>schema</code></a> for this table.</div>
 </td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.Integer,&#8203;<a href="Schema.html" title="class in org.apache.iceberg">Schema</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#schemas()">schemas</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Return a map of <a href="Schema.html" title="class in org.apache.iceberg"><code>schema</code></a> for this table.</div>
 </td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code><a href="Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#snapshot(long)">snapshot</a></span>&#8203;(long&nbsp;snapshotId)</code></th>
 <td class="colLast">
@@ -380,68 +387,68 @@ implements <a href="Table.html" title="interface in org.apache.iceberg">Table</a
  matching snapshot.</div>
 </td>
 </tr>
-<tr id="i27" class="rowColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>java.lang.Iterable&lt;<a href="Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#snapshots()">snapshots</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Get the <a href="Snapshot.html" title="interface in org.apache.iceberg"><code>snapshots</code></a> of this table.</div>
 </td>
 </tr>
-<tr id="i28" class="altColor">
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code><a href="SortOrder.html" title="class in org.apache.iceberg">SortOrder</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sortOrder()">sortOrder</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Return the <a href="SortOrder.html" title="class in org.apache.iceberg"><code>sort order</code></a> for this table.</div>
 </td>
 </tr>
-<tr id="i29" class="rowColor">
+<tr id="i30" class="altColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.Integer,&#8203;<a href="SortOrder.html" title="class in org.apache.iceberg">SortOrder</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sortOrders()">sortOrders</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Return a map of sort order IDs to <a href="SortOrder.html" title="class in org.apache.iceberg"><code>sort orders</code></a> for this table.</div>
 </td>
 </tr>
-<tr id="i30" class="altColor">
+<tr id="i31" class="rowColor">
 <td class="colFirst"><code><a href="PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#spec()">spec</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Return the <a href="PartitionSpec.html" title="class in org.apache.iceberg"><code>partition spec</code></a> for this table.</div>
 </td>
 </tr>
-<tr id="i31" class="rowColor">
+<tr id="i32" class="altColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.Integer,&#8203;<a href="PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#specs()">specs</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Return a map of <a href="PartitionSpec.html" title="class in org.apache.iceberg"><code>partition specs</code></a> for this table.</div>
 </td>
 </tr>
-<tr id="i32" class="altColor">
+<tr id="i33" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i33" class="rowColor">
+<tr id="i34" class="altColor">
 <td class="colFirst"><code><a href="UpdateLocation.html" title="interface in org.apache.iceberg">UpdateLocation</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#updateLocation()">updateLocation</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Create a new <a href="UpdateLocation.html" title="interface in org.apache.iceberg"><code>UpdateLocation</code></a> to update table location and commit the changes.</div>
 </td>
 </tr>
-<tr id="i34" class="altColor">
+<tr id="i35" class="rowColor">
 <td class="colFirst"><code><a href="UpdateProperties.html" title="interface in org.apache.iceberg">UpdateProperties</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#updateProperties()">updateProperties</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Create a new <a href="UpdateProperties.html" title="interface in org.apache.iceberg"><code>UpdateProperties</code></a> to update table properties and commit the changes.</div>
 </td>
 </tr>
-<tr id="i35" class="rowColor">
+<tr id="i36" class="altColor">
 <td class="colFirst"><code><a href="UpdateSchema.html" title="interface in org.apache.iceberg">UpdateSchema</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#updateSchema()">updateSchema</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Create a new <a href="UpdateSchema.html" title="interface in org.apache.iceberg"><code>UpdateSchema</code></a> to alter the columns of this table and commit the change.</div>
 </td>
 </tr>
-<tr id="i36" class="altColor">
+<tr id="i37" class="rowColor">
 <td class="colFirst"><code><a href="UpdatePartitionSpec.html" title="interface in org.apache.iceberg">UpdatePartitionSpec</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#updateSpec()">updateSpec</a></span>()</code></th>
 <td class="colLast">
@@ -455,6 +462,13 @@ implements <a href="Table.html" title="interface in org.apache.iceberg">Table</a
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
 <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, wait, wait, wait</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a id="methods.inherited.from.class.org.apache.iceberg.Table">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="Table.html" title="interface in org.apache.iceberg">Table</a></h3>
+<code><a href="Table.html#newIncrementalChangelogScan()">newIncrementalChangelogScan</a></code></li>
 </ul>
 </li>
 </ul>
@@ -553,6 +567,25 @@ implements <a href="Table.html" title="interface in org.apache.iceberg">Table</a
 <dd><code><a href="Table.html#newScan()">newScan</a></code>&nbsp;in interface&nbsp;<code><a href="Table.html" title="interface in org.apache.iceberg">Table</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a table scan for this table</dd>
+</dl>
+</li>
+</ul>
+<a id="newIncrementalAppendScan()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>newIncrementalAppendScan</h4>
+<pre class="methodSignature">public&nbsp;<a href="IncrementalAppendScan.html" title="interface in org.apache.iceberg">IncrementalAppendScan</a>&nbsp;newIncrementalAppendScan()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="Table.html#newIncrementalAppendScan()">Table</a></code></span></div>
+<div class="block">Create a new <a href="IncrementalAppendScan.html" title="interface in org.apache.iceberg"><code>scan</code></a> for this table.
+ <p>
+ Once a scan is created, it can be refined to project columns and filter data.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="Table.html#newIncrementalAppendScan()">newIncrementalAppendScan</a></code>&nbsp;in interface&nbsp;<code><a href="Table.html" title="interface in org.apache.iceberg">Table</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>an incremental scan for appends only snapshots</dd>
 </dl>
 </li>
 </ul>

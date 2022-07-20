@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10};
+var data = {"i0":10,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -131,12 +131,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="../io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a></code></dd>
+<dd><code><a href="../encryption/NativelyEncryptedFile.html" title="interface in org.apache.iceberg.encryption">NativelyEncryptedFile</a></code>, <code><a href="../io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a></code></dd>
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">HadoopInputFile</span>
 extends java.lang.Object
-implements <a href="../io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a></pre>
+implements <a href="../io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a>, <a href="../encryption/NativelyEncryptedFile.html" title="interface in org.apache.iceberg.encryption">NativelyEncryptedFile</a></pre>
 <div class="block"><a href="../io/InputFile.html" title="interface in org.apache.iceberg.io"><code>InputFile</code></a> implementation using the Hadoop <code>FileSystem</code> API.
  <p>
  This class is based on Parquet's HadoopInputFile.</div>
@@ -317,13 +317,23 @@ implements <a href="../io/InputFile.html" title="interface in org.apache.iceberg
 </td>
 </tr>
 <tr id="i21" class="rowColor">
+<td class="colFirst"><code><a href="../encryption/NativeFileCryptoParameters.html" title="class in org.apache.iceberg.encryption">NativeFileCryptoParameters</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#nativeCryptoParameters()">nativeCryptoParameters</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i22" class="altColor">
 <td class="colFirst"><code><a href="../io/SeekableInputStream.html" title="class in org.apache.iceberg.io">SeekableInputStream</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newStream()">newStream</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Opens a new <a href="../io/SeekableInputStream.html" title="class in org.apache.iceberg.io"><code>SeekableInputStream</code></a> for the underlying data file</div>
 </td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i23" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setNativeCryptoParameters(org.apache.iceberg.encryption.NativeFileCryptoParameters)">setNativeCryptoParameters</a></span>&#8203;(<a href="../encryption/NativeFileCryptoParameters.html" title="class in org.apache.iceberg.encryption">NativeFileCryptoParameters</a>&nbsp;nativeCryptoParameters)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
@@ -620,6 +630,32 @@ implements <a href="../io/InputFile.html" title="interface in org.apache.iceberg
 <dd><code><a href="../io/InputFile.html#exists()">exists</a></code>&nbsp;in interface&nbsp;<code><a href="../io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if the file exists, false otherwise</dd>
+</dl>
+</li>
+</ul>
+<a id="nativeCryptoParameters()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>nativeCryptoParameters</h4>
+<pre class="methodSignature">public&nbsp;<a href="../encryption/NativeFileCryptoParameters.html" title="class in org.apache.iceberg.encryption">NativeFileCryptoParameters</a>&nbsp;nativeCryptoParameters()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../encryption/NativelyEncryptedFile.html#nativeCryptoParameters()">nativeCryptoParameters</a></code>&nbsp;in interface&nbsp;<code><a href="../encryption/NativelyEncryptedFile.html" title="interface in org.apache.iceberg.encryption">NativelyEncryptedFile</a></code></dd>
+</dl>
+</li>
+</ul>
+<a id="setNativeCryptoParameters(org.apache.iceberg.encryption.NativeFileCryptoParameters)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setNativeCryptoParameters</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setNativeCryptoParameters&#8203;(<a href="../encryption/NativeFileCryptoParameters.html" title="class in org.apache.iceberg.encryption">NativeFileCryptoParameters</a>&nbsp;nativeCryptoParameters)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../encryption/NativelyEncryptedFile.html#setNativeCryptoParameters(org.apache.iceberg.encryption.NativeFileCryptoParameters)">setNativeCryptoParameters</a></code>&nbsp;in interface&nbsp;<code><a href="../encryption/NativelyEncryptedFile.html" title="interface in org.apache.iceberg.encryption">NativelyEncryptedFile</a></code></dd>
 </dl>
 </li>
 </ul>

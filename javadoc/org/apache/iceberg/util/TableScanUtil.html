@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9};
+var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -171,6 +171,19 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>static &lt;T extends <a href="../ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a>&gt;<br>java.util.List&lt;T&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#mergeTasks(java.util.List)">mergeTasks</a></span>&#8203;(java.util.List&lt;T&gt;&nbsp;tasks)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>static &lt;T extends <a href="../ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a>&gt;<br><a href="../io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../ScanTaskGroup.html" title="interface in org.apache.iceberg">ScanTaskGroup</a>&lt;T&gt;&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#planTaskGroups(org.apache.iceberg.io.CloseableIterable,long,int,long)">planTaskGroups</a></span>&#8203;(<a href="../io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&nbsp;tasks,
+              long&nbsp;splitSize,
+              int&nbsp;lookback,
+              long&nbsp;openFileCost)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>static <a href="../io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../CombinedScanTask.html" title="interface in org.apache.iceberg">CombinedScanTask</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#planTasks(org.apache.iceberg.io.CloseableIterable,long,int,long)">planTasks</a></span>&#8203;(<a href="../io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;&nbsp;splitFiles,
          long&nbsp;splitSize,
@@ -178,7 +191,7 @@ extends java.lang.Object</pre>
          long&nbsp;openFileCost)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>static <a href="../io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#splitFiles(org.apache.iceberg.io.CloseableIterable,long)">splitFiles</a></span>&#8203;(<a href="../io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;&nbsp;tasks,
           long&nbsp;splitSize)</code></th>
@@ -250,13 +263,34 @@ extends java.lang.Object</pre>
 <a id="planTasks(org.apache.iceberg.io.CloseableIterable,long,int,long)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>planTasks</h4>
 <pre class="methodSignature">public static&nbsp;<a href="../io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../CombinedScanTask.html" title="interface in org.apache.iceberg">CombinedScanTask</a>&gt;&nbsp;planTasks&#8203;(<a href="../io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;&nbsp;splitFiles,
                                                             long&nbsp;splitSize,
                                                             int&nbsp;lookback,
                                                             long&nbsp;openFileCost)</pre>
+</li>
+</ul>
+<a id="planTaskGroups(org.apache.iceberg.io.CloseableIterable,long,int,long)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>planTaskGroups</h4>
+<pre class="methodSignature">public static&nbsp;&lt;T extends <a href="../ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a>&gt;&nbsp;<a href="../io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../ScanTaskGroup.html" title="interface in org.apache.iceberg">ScanTaskGroup</a>&lt;T&gt;&gt;&nbsp;planTaskGroups&#8203;(<a href="../io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&nbsp;tasks,
+                                                                                      long&nbsp;splitSize,
+                                                                                      int&nbsp;lookback,
+                                                                                      long&nbsp;openFileCost)</pre>
+</li>
+</ul>
+<a id="mergeTasks(java.util.List)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>mergeTasks</h4>
+<pre class="methodSignature">public static&nbsp;&lt;T extends <a href="../ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a>&gt;&nbsp;java.util.List&lt;T&gt;&nbsp;mergeTasks&#8203;(java.util.List&lt;T&gt;&nbsp;tasks)</pre>
 </li>
 </ul>
 </li>

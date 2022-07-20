@@ -174,8 +174,9 @@ implements org.apache.flink.table.connector.sink.DynamicTableSink, org.apache.fl
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(org.apache.iceberg.flink.TableLoader,org.apache.flink.table.api.TableSchema)">IcebergTableSink</a></span>&#8203;(<a href="TableLoader.html" title="interface in org.apache.iceberg.flink">TableLoader</a>&nbsp;tableLoader,
-                org.apache.flink.table.api.TableSchema&nbsp;tableSchema)</code></th>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(org.apache.iceberg.flink.TableLoader,org.apache.flink.table.api.TableSchema,org.apache.flink.configuration.ReadableConfig)">IcebergTableSink</a></span>&#8203;(<a href="TableLoader.html" title="interface in org.apache.iceberg.flink">TableLoader</a>&nbsp;tableLoader,
+                org.apache.flink.table.api.TableSchema&nbsp;tableSchema,
+                org.apache.flink.configuration.ReadableConfig&nbsp;readableConfig)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -257,14 +258,15 @@ implements org.apache.flink.table.connector.sink.DynamicTableSink, org.apache.fl
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(org.apache.iceberg.flink.TableLoader,org.apache.flink.table.api.TableSchema)">
+<a id="&lt;init&gt;(org.apache.iceberg.flink.TableLoader,org.apache.flink.table.api.TableSchema,org.apache.flink.configuration.ReadableConfig)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>IcebergTableSink</h4>
 <pre>public&nbsp;IcebergTableSink&#8203;(<a href="TableLoader.html" title="interface in org.apache.iceberg.flink">TableLoader</a>&nbsp;tableLoader,
-                        org.apache.flink.table.api.TableSchema&nbsp;tableSchema)</pre>
+                        org.apache.flink.table.api.TableSchema&nbsp;tableSchema,
+                        org.apache.flink.configuration.ReadableConfig&nbsp;readableConfig)</pre>
 </li>
 </ul>
 </li>

@@ -83,7 +83,6 @@ Users should continuously upgrade their Flink version to stay up-to-date.
 | 1.12    | End of Life     | 0.12.0                  | 0.13.1                 | [iceberg-flink-runtime-1.12](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime-1.12/{{% icebergVersion %}}/iceberg-flink-runtime-1.12-{{% icebergVersion %}}.jar) [3] |
 | 1.13    | Deprecated      | 0.13.0                  | {{% icebergVersion %}} | [iceberg-flink-runtime-1.13](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime-1.13/{{% icebergVersion %}}/iceberg-flink-runtime-1.13-{{% icebergVersion %}}.jar)     |
 | 1.14    | Maintained      | 0.13.0                  | {{% icebergVersion %}} | [iceberg-flink-runtime-1.14](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime-1.14/{{% icebergVersion %}}/iceberg-flink-runtime-1.14-{{% icebergVersion %}}.jar)     |
-| 1.15    | Maintained      | 0.13.2                  | {{% icebergVersion %}} | [iceberg-flink-runtime-1.15](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime-1.15/{{% icebergVersion %}}/iceberg-flink-runtime-1.15-{{% icebergVersion %}}.jar)     |
 
 * [3] Flink 1.12 shares the same runtime jar `iceberg-flink-runtime` with Flink 1.11 before Iceberg 0.13.0
 

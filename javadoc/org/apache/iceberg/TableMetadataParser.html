@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9};
+var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -177,13 +177,18 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static <a href="TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fromJson(com.fasterxml.jackson.databind.JsonNode)">fromJson</a></span>&#8203;(com.fasterxml.jackson.databind.JsonNode&nbsp;node)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>static <a href="TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fromJson(org.apache.iceberg.io.FileIO,java.lang.String)">fromJson</a></span>&#8203;(<a href="io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io,
         java.lang.String&nbsp;json)</code></th>
 <td class="colLast">
 <div class="block">Read TableMetadata from a JSON string.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>static <a href="TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fromJson(org.apache.iceberg.io.FileIO,java.lang.String,java.lang.String)">fromJson</a></span>&#8203;(<a href="io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io,
         java.lang.String&nbsp;metadataLocation,
@@ -192,52 +197,58 @@ extends java.lang.Object</pre>
 <div class="block">Read TableMetadata from a JSON string.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFileExtension(java.lang.String)">getFileExtension</a></span>&#8203;(java.lang.String&nbsp;codecName)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFileExtension(org.apache.iceberg.TableMetadataParser.Codec)">getFileExtension</a></span>&#8203;(<a href="TableMetadataParser.Codec.html" title="enum in org.apache.iceberg">TableMetadataParser.Codec</a>&nbsp;codec)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOldFileExtension(org.apache.iceberg.TableMetadataParser.Codec)">getOldFileExtension</a></span>&#8203;(<a href="TableMetadataParser.Codec.html" title="enum in org.apache.iceberg">TableMetadataParser.Codec</a>&nbsp;codec)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#internalWrite(org.apache.iceberg.TableMetadata,org.apache.iceberg.io.OutputFile,boolean)">internalWrite</a></span>&#8203;(<a href="TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;metadata,
              <a href="io/OutputFile.html" title="interface in org.apache.iceberg.io">OutputFile</a>&nbsp;outputFile,
              boolean&nbsp;overwrite)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#overwrite(org.apache.iceberg.TableMetadata,org.apache.iceberg.io.OutputFile)">overwrite</a></span>&#8203;(<a href="TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;metadata,
          <a href="io/OutputFile.html" title="interface in org.apache.iceberg.io">OutputFile</a>&nbsp;outputFile)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>static <a href="TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#read(org.apache.iceberg.io.FileIO,java.lang.String)">read</a></span>&#8203;(<a href="io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io,
     java.lang.String&nbsp;path)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>static <a href="TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#read(org.apache.iceberg.io.FileIO,org.apache.iceberg.io.InputFile)">read</a></span>&#8203;(<a href="io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io,
     <a href="io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a>&nbsp;file)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toJson(org.apache.iceberg.TableMetadata)">toJson</a></span>&#8203;(<a href="TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;metadata)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toJson(org.apache.iceberg.TableMetadata,com.fasterxml.jackson.core.JsonGenerator)">toJson</a></span>&#8203;(<a href="TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;metadata,
+      com.fasterxml.jackson.core.JsonGenerator&nbsp;generator)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#write(org.apache.iceberg.TableMetadata,org.apache.iceberg.io.OutputFile)">write</a></span>&#8203;(<a href="TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;metadata,
      <a href="io/OutputFile.html" title="interface in org.apache.iceberg.io">OutputFile</a>&nbsp;outputFile)</code></th>
@@ -334,6 +345,21 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public static&nbsp;java.lang.String&nbsp;toJson&#8203;(<a href="TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;metadata)</pre>
 </li>
 </ul>
+<a id="toJson(org.apache.iceberg.TableMetadata,com.fasterxml.jackson.core.JsonGenerator)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>toJson</h4>
+<pre class="methodSignature">public static&nbsp;void&nbsp;toJson&#8203;(<a href="TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;metadata,
+                          com.fasterxml.jackson.core.JsonGenerator&nbsp;generator)
+                   throws java.io.IOException</pre>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.io.IOException</code></dd>
+</dl>
+</li>
+</ul>
 <a id="read(org.apache.iceberg.io.FileIO,java.lang.String)">
 <!--   -->
 </a>
@@ -377,7 +403,7 @@ extends java.lang.Object</pre>
 <a id="fromJson(org.apache.iceberg.io.FileIO,java.lang.String,java.lang.String)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>fromJson</h4>
 <pre class="methodSignature">public static&nbsp;<a href="TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;fromJson&#8203;(<a href="io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io,
@@ -392,6 +418,15 @@ extends java.lang.Object</pre>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a TableMetadata object</dd>
 </dl>
+</li>
+</ul>
+<a id="fromJson(com.fasterxml.jackson.databind.JsonNode)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>fromJson</h4>
+<pre class="methodSignature">public static&nbsp;<a href="TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;fromJson&#8203;(com.fasterxml.jackson.databind.JsonNode&nbsp;node)</pre>
 </li>
 </ul>
 </li>

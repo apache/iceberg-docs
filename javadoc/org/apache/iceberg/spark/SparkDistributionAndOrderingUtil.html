@@ -154,30 +154,29 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static org.apache.spark.sql.connector.distributions.Distribution</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildCopyOnWriteDistribution(org.apache.iceberg.Table,org.apache.spark.sql.connector.iceberg.write.RowLevelOperation.Command,org.apache.iceberg.DistributionMode)">buildCopyOnWriteDistribution</a></span>&#8203;(<a href="../Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
-                            <a href="../../spark/sql/connector/iceberg/write/RowLevelOperation.Command.html" title="enum in org.apache.spark.sql.connector.iceberg.write">RowLevelOperation.Command</a>&nbsp;command,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildCopyOnWriteDistribution(org.apache.iceberg.Table,org.apache.spark.sql.connector.write.RowLevelOperation.Command,org.apache.iceberg.DistributionMode)">buildCopyOnWriteDistribution</a></span>&#8203;(<a href="../Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
+                            org.apache.spark.sql.connector.write.RowLevelOperation.Command&nbsp;command,
                             <a href="../DistributionMode.html" title="enum in org.apache.iceberg">DistributionMode</a>&nbsp;distributionMode)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static org.apache.spark.sql.connector.expressions.SortOrder[]</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildCopyOnWriteOrdering(org.apache.iceberg.Table,org.apache.spark.sql.connector.iceberg.write.RowLevelOperation.Command,org.apache.spark.sql.connector.distributions.Distribution)">buildCopyOnWriteOrdering</a></span>&#8203;(<a href="../Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
-                        <a href="../../spark/sql/connector/iceberg/write/RowLevelOperation.Command.html" title="enum in org.apache.spark.sql.connector.iceberg.write">RowLevelOperation.Command</a>&nbsp;command,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildCopyOnWriteOrdering(org.apache.iceberg.Table,org.apache.spark.sql.connector.write.RowLevelOperation.Command,org.apache.spark.sql.connector.distributions.Distribution)">buildCopyOnWriteOrdering</a></span>&#8203;(<a href="../Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
+                        org.apache.spark.sql.connector.write.RowLevelOperation.Command&nbsp;command,
                         org.apache.spark.sql.connector.distributions.Distribution&nbsp;distribution)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>static org.apache.spark.sql.connector.distributions.Distribution</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildPositionDeltaDistribution(org.apache.iceberg.Table,org.apache.spark.sql.connector.iceberg.write.RowLevelOperation.Command,org.apache.iceberg.DistributionMode)">buildPositionDeltaDistribution</a></span>&#8203;(<a href="../Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
-                              <a href="../../spark/sql/connector/iceberg/write/RowLevelOperation.Command.html" title="enum in org.apache.spark.sql.connector.iceberg.write">RowLevelOperation.Command</a>&nbsp;command,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildPositionDeltaDistribution(org.apache.iceberg.Table,org.apache.spark.sql.connector.write.RowLevelOperation.Command,org.apache.iceberg.DistributionMode)">buildPositionDeltaDistribution</a></span>&#8203;(<a href="../Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
+                              org.apache.spark.sql.connector.write.RowLevelOperation.Command&nbsp;command,
                               <a href="../DistributionMode.html" title="enum in org.apache.iceberg">DistributionMode</a>&nbsp;distributionMode)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>static org.apache.spark.sql.connector.expressions.SortOrder[]</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildPositionDeltaOrdering(org.apache.iceberg.Table,org.apache.spark.sql.connector.iceberg.write.RowLevelOperation.Command,org.apache.spark.sql.connector.distributions.Distribution)">buildPositionDeltaOrdering</a></span>&#8203;(<a href="../Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
-                          <a href="../../spark/sql/connector/iceberg/write/RowLevelOperation.Command.html" title="enum in org.apache.spark.sql.connector.iceberg.write">RowLevelOperation.Command</a>&nbsp;command,
-                          org.apache.spark.sql.connector.distributions.Distribution&nbsp;distribution)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildPositionDeltaOrdering(org.apache.iceberg.Table,org.apache.spark.sql.connector.write.RowLevelOperation.Command)">buildPositionDeltaOrdering</a></span>&#8203;(<a href="../Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
+                          org.apache.spark.sql.connector.write.RowLevelOperation.Command&nbsp;command)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
@@ -241,48 +240,47 @@ extends java.lang.Object</pre>
                                                                                            org.apache.spark.sql.connector.distributions.Distribution&nbsp;distribution)</pre>
 </li>
 </ul>
-<a id="buildCopyOnWriteDistribution(org.apache.iceberg.Table,org.apache.spark.sql.connector.iceberg.write.RowLevelOperation.Command,org.apache.iceberg.DistributionMode)">
+<a id="buildCopyOnWriteDistribution(org.apache.iceberg.Table,org.apache.spark.sql.connector.write.RowLevelOperation.Command,org.apache.iceberg.DistributionMode)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>buildCopyOnWriteDistribution</h4>
 <pre class="methodSignature">public static&nbsp;org.apache.spark.sql.connector.distributions.Distribution&nbsp;buildCopyOnWriteDistribution&#8203;(<a href="../Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
-                                                                                                     <a href="../../spark/sql/connector/iceberg/write/RowLevelOperation.Command.html" title="enum in org.apache.spark.sql.connector.iceberg.write">RowLevelOperation.Command</a>&nbsp;command,
+                                                                                                     org.apache.spark.sql.connector.write.RowLevelOperation.Command&nbsp;command,
                                                                                                      <a href="../DistributionMode.html" title="enum in org.apache.iceberg">DistributionMode</a>&nbsp;distributionMode)</pre>
 </li>
 </ul>
-<a id="buildCopyOnWriteOrdering(org.apache.iceberg.Table,org.apache.spark.sql.connector.iceberg.write.RowLevelOperation.Command,org.apache.spark.sql.connector.distributions.Distribution)">
+<a id="buildCopyOnWriteOrdering(org.apache.iceberg.Table,org.apache.spark.sql.connector.write.RowLevelOperation.Command,org.apache.spark.sql.connector.distributions.Distribution)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>buildCopyOnWriteOrdering</h4>
 <pre class="methodSignature">public static&nbsp;org.apache.spark.sql.connector.expressions.SortOrder[]&nbsp;buildCopyOnWriteOrdering&#8203;(<a href="../Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
-                                                                                              <a href="../../spark/sql/connector/iceberg/write/RowLevelOperation.Command.html" title="enum in org.apache.spark.sql.connector.iceberg.write">RowLevelOperation.Command</a>&nbsp;command,
+                                                                                              org.apache.spark.sql.connector.write.RowLevelOperation.Command&nbsp;command,
                                                                                               org.apache.spark.sql.connector.distributions.Distribution&nbsp;distribution)</pre>
 </li>
 </ul>
-<a id="buildPositionDeltaDistribution(org.apache.iceberg.Table,org.apache.spark.sql.connector.iceberg.write.RowLevelOperation.Command,org.apache.iceberg.DistributionMode)">
+<a id="buildPositionDeltaDistribution(org.apache.iceberg.Table,org.apache.spark.sql.connector.write.RowLevelOperation.Command,org.apache.iceberg.DistributionMode)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>buildPositionDeltaDistribution</h4>
 <pre class="methodSignature">public static&nbsp;org.apache.spark.sql.connector.distributions.Distribution&nbsp;buildPositionDeltaDistribution&#8203;(<a href="../Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
-                                                                                                       <a href="../../spark/sql/connector/iceberg/write/RowLevelOperation.Command.html" title="enum in org.apache.spark.sql.connector.iceberg.write">RowLevelOperation.Command</a>&nbsp;command,
+                                                                                                       org.apache.spark.sql.connector.write.RowLevelOperation.Command&nbsp;command,
                                                                                                        <a href="../DistributionMode.html" title="enum in org.apache.iceberg">DistributionMode</a>&nbsp;distributionMode)</pre>
 </li>
 </ul>
-<a id="buildPositionDeltaOrdering(org.apache.iceberg.Table,org.apache.spark.sql.connector.iceberg.write.RowLevelOperation.Command,org.apache.spark.sql.connector.distributions.Distribution)">
+<a id="buildPositionDeltaOrdering(org.apache.iceberg.Table,org.apache.spark.sql.connector.write.RowLevelOperation.Command)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>buildPositionDeltaOrdering</h4>
 <pre class="methodSignature">public static&nbsp;org.apache.spark.sql.connector.expressions.SortOrder[]&nbsp;buildPositionDeltaOrdering&#8203;(<a href="../Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
-                                                                                                <a href="../../spark/sql/connector/iceberg/write/RowLevelOperation.Command.html" title="enum in org.apache.spark.sql.connector.iceberg.write">RowLevelOperation.Command</a>&nbsp;command,
-                                                                                                org.apache.spark.sql.connector.distributions.Distribution&nbsp;distribution)</pre>
+                                                                                                org.apache.spark.sql.connector.write.RowLevelOperation.Command&nbsp;command)</pre>
 </li>
 </ul>
 <a id="convert(org.apache.iceberg.SortOrder)">

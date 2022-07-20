@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -214,7 +214,7 @@ implements <a href="../../io/FileIO.html" title="interface in org.apache.iceberg
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#initialize(java.util.Map)">initialize</a></span>&#8203;(java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;properties)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#initialize(java.util.Map)">initialize</a></span>&#8203;(java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;props)</code></th>
 <td class="colLast">
 <div class="block">Initialize File IO from catalog properties.</div>
 </td>
@@ -227,10 +227,25 @@ implements <a href="../../io/FileIO.html" title="interface in org.apache.iceberg
 </td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="../../io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newInputFile(java.lang.String,long)">newInputFile</a></span>&#8203;(java.lang.String&nbsp;path,
+            long&nbsp;length)</code></th>
+<td class="colLast">
+<div class="block">Get a <a href="../../io/InputFile.html" title="interface in org.apache.iceberg.io"><code>InputFile</code></a> instance to read bytes from the file at the given path, with a known file length.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../io/OutputFile.html" title="interface in org.apache.iceberg.io">OutputFile</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newOutputFile(java.lang.String)">newOutputFile</a></span>&#8203;(java.lang.String&nbsp;path)</code></th>
 <td class="colLast">
 <div class="block">Get a <a href="../../io/OutputFile.html" title="interface in org.apache.iceberg.io"><code>OutputFile</code></a> instance to write bytes to the file at the given path.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#properties()">properties</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the property map used to configure this FileIO</div>
 </td>
 </tr>
 </table>
@@ -319,6 +334,22 @@ implements <a href="../../io/FileIO.html" title="interface in org.apache.iceberg
 </dl>
 </li>
 </ul>
+<a id="newInputFile(java.lang.String,long)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>newInputFile</h4>
+<pre class="methodSignature">public&nbsp;<a href="../../io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a>&nbsp;newInputFile&#8203;(java.lang.String&nbsp;path,
+                              long&nbsp;length)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../io/FileIO.html#newInputFile(java.lang.String,long)">FileIO</a></code></span></div>
+<div class="block">Get a <a href="../../io/InputFile.html" title="interface in org.apache.iceberg.io"><code>InputFile</code></a> instance to read bytes from the file at the given path, with a known file length.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../io/FileIO.html#newInputFile(java.lang.String,long)">newInputFile</a></code>&nbsp;in interface&nbsp;<code><a href="../../io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a></code></dd>
+</dl>
+</li>
+</ul>
 <a id="newOutputFile(java.lang.String)">
 <!--   -->
 </a>
@@ -349,20 +380,35 @@ implements <a href="../../io/FileIO.html" title="interface in org.apache.iceberg
 </dl>
 </li>
 </ul>
+<a id="properties()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>properties</h4>
+<pre class="methodSignature">public&nbsp;java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;properties()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../io/FileIO.html#properties()">FileIO</a></code></span></div>
+<div class="block">Returns the property map used to configure this FileIO</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../io/FileIO.html#properties()">properties</a></code>&nbsp;in interface&nbsp;<code><a href="../../io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a></code></dd>
+</dl>
+</li>
+</ul>
 <a id="initialize(java.util.Map)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>initialize</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;initialize&#8203;(java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;properties)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;initialize&#8203;(java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;props)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../io/FileIO.html#initialize(java.util.Map)">FileIO</a></code></span></div>
 <div class="block">Initialize File IO from catalog properties.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../io/FileIO.html#initialize(java.util.Map)">initialize</a></code>&nbsp;in interface&nbsp;<code><a href="../../io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>properties</code> - catalog properties</dd>
+<dd><code>props</code> - catalog properties</dd>
 </dl>
 </li>
 </ul>

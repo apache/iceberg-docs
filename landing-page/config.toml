@@ -8,7 +8,7 @@ sectionPagesMenu = "main"
   siteType = "landing-page"
   search = true
   description = "The open table format for analytic datasets."
-  latestVersions.iceberg = "0.13.2"
+  latestVersions.iceberg = "0.14.0"
   docsBaseURL = ""
 
 [[params.social]]
@@ -34,18 +34,16 @@ home = [ "HTML", "RSS", "SearchIndex" ]
 [menu]
   versions = [
     { name = "latest", url = "/docs/latest", weight = 1 },
+    { name = "0.14.0", url = "/docs/0.14.0", weight = 996 },
     { name = "0.13.2", url = "/docs/0.13.2", weight = 997 },
     { name = "0.13.1", url = "/docs/0.13.1", weight = 998 },
     { name = "0.13.0", url = "/docs/0.13.0", weight = 999 },
     { name = "0.12.1", url = "/docs/0.12.1", weight = 1000 }
   ]
   topnav = [
-    { name = "Docs", url = "/docs/latest", weight = 100 },
+    { name = "Quickstart", url = "/spark-quickstart", weight = 100 },
+    { name = "Docs", url = "/docs/latest", weight = 200 },
     { name = "Releases", url = "/releases", weight = 600 },
-    { name = "Spark", url = "/docs/latest/getting-started", weight = 200 },
-    { name = "Flink", url = "/docs/latest/flink", weight = 300 },
-    { name = "Trino", identifier = "_trino", url = "https://trino.io/docs/current/connector/iceberg.html", weight = 400 },
-    { name = "Presto", identifier = "_presto", url = "https://prestodb.io/docs/current/connector/iceberg.html", weight = 500 },
     { name = "Blogs", url = "/blogs", weight = 998 },
     { name = "Talks", url = "/talks", weight = 999 },
     { name = "Roadmap", url = "/roadmap", weight = 997 },
@@ -62,6 +60,9 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     { name = "Sponsors", identifier = "_sponsors", parent = "ASF", url = "https://www.apache.org/foundation/thanks.html" },
     { name = "Donate", identifier = "_donate", parent = "ASF", url = "https://www.apache.org/foundation/sponsorship.html" },
     { name = "Events", identifier = "_events", parent = "ASF", url = "https://www.apache.org/events/current-event.html" },
+  ]
+  quickstarts = [
+    { name = "Spark and Iceberg Quickstart", weight = 100, url = "spark-quickstart", post = "This quickstart will get you up and running with an Iceberg and Spark environment, including sample notebooks." }
   ]
 
 [markup.goldmark.renderer]

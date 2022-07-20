@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":18,"i1":6,"i2":18,"i3":18,"i4":18,"i5":6,"i6":6};
+var data = {"i0":18,"i1":6,"i2":18,"i3":18,"i4":18,"i5":6,"i6":18,"i7":6,"i8":18};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -127,7 +127,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><code><a href="../gcp/gcs/GCSFileIO.html" title="class in org.apache.iceberg.gcp.gcs">GCSFileIO</a></code>, <code><a href="../hadoop/HadoopFileIO.html" title="class in org.apache.iceberg.hadoop">HadoopFileIO</a></code>, <code><a href="../aliyun/oss/OSSFileIO.html" title="class in org.apache.iceberg.aliyun.oss">OSSFileIO</a></code>, <code><a href="ResolvingFileIO.html" title="class in org.apache.iceberg.io">ResolvingFileIO</a></code>, <code><a href="../aws/s3/S3FileIO.html" title="class in org.apache.iceberg.aws.s3">S3FileIO</a></code></dd>
+<dd><code><a href="../dell/ecs/EcsFileIO.html" title="class in org.apache.iceberg.dell.ecs">EcsFileIO</a></code>, <code><a href="../gcp/gcs/GCSFileIO.html" title="class in org.apache.iceberg.gcp.gcs">GCSFileIO</a></code>, <code><a href="../hadoop/HadoopFileIO.html" title="class in org.apache.iceberg.hadoop">HadoopFileIO</a></code>, <code><a href="../aliyun/oss/OSSFileIO.html" title="class in org.apache.iceberg.aliyun.oss">OSSFileIO</a></code>, <code><a href="ResolvingFileIO.html" title="class in org.apache.iceberg.io">ResolvingFileIO</a></code>, <code><a href="../aws/s3/S3FileIO.html" title="class in org.apache.iceberg.aws.s3">S3FileIO</a></code></dd>
 </dl>
 <hr>
 <pre>public interface <span class="typeNameLabel">FileIO</span>
@@ -200,10 +200,25 @@ extends java.io.Serializable, java.io.Closeable</pre>
 </td>
 </tr>
 <tr id="i6" class="altColor">
+<td class="colFirst"><code>default <a href="InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newInputFile(java.lang.String,long)">newInputFile</a></span>&#8203;(java.lang.String&nbsp;path,
+            long&nbsp;length)</code></th>
+<td class="colLast">
+<div class="block">Get a <a href="InputFile.html" title="interface in org.apache.iceberg.io"><code>InputFile</code></a> instance to read bytes from the file at the given path, with a known file length.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="OutputFile.html" title="interface in org.apache.iceberg.io">OutputFile</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#newOutputFile(java.lang.String)">newOutputFile</a></span>&#8203;(java.lang.String&nbsp;path)</code></th>
 <td class="colLast">
 <div class="block">Get a <a href="OutputFile.html" title="interface in org.apache.iceberg.io"><code>OutputFile</code></a> instance to write bytes to the file at the given path.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>default java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#properties()">properties</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the property map used to configure this FileIO</div>
 </td>
 </tr>
 </table>
@@ -231,6 +246,17 @@ extends java.io.Serializable, java.io.Closeable</pre>
 <h4>newInputFile</h4>
 <pre class="methodSignature"><a href="InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a>&nbsp;newInputFile&#8203;(java.lang.String&nbsp;path)</pre>
 <div class="block">Get a <a href="InputFile.html" title="interface in org.apache.iceberg.io"><code>InputFile</code></a> instance to read bytes from the file at the given path.</div>
+</li>
+</ul>
+<a id="newInputFile(java.lang.String,long)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>newInputFile</h4>
+<pre class="methodSignature">default&nbsp;<a href="InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a>&nbsp;newInputFile&#8203;(java.lang.String&nbsp;path,
+                               long&nbsp;length)</pre>
+<div class="block">Get a <a href="InputFile.html" title="interface in org.apache.iceberg.io"><code>InputFile</code></a> instance to read bytes from the file at the given path, with a known file length.</div>
 </li>
 </ul>
 <a id="newOutputFile(java.lang.String)">
@@ -271,6 +297,20 @@ extends java.io.Serializable, java.io.Closeable</pre>
 <h4>deleteFile</h4>
 <pre class="methodSignature">default&nbsp;void&nbsp;deleteFile&#8203;(<a href="OutputFile.html" title="interface in org.apache.iceberg.io">OutputFile</a>&nbsp;file)</pre>
 <div class="block">Convenience method to <a href="#deleteFile(java.lang.String)"><code>delete</code></a> an <a href="OutputFile.html" title="interface in org.apache.iceberg.io"><code>OutputFile</code></a>.</div>
+</li>
+</ul>
+<a id="properties()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>properties</h4>
+<pre class="methodSignature">default&nbsp;java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;properties()</pre>
+<div class="block">Returns the property map used to configure this FileIO</div>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.UnsupportedOperationException</code> - if this FileIO does not expose its configuration properties</dd>
+</dl>
 </li>
 </ul>
 <a id="initialize(java.util.Map)">

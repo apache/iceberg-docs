@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -240,37 +240,42 @@ implements <a href="io/CloseableIterable.html" title="interface in org.apache.ic
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="ManifestReader.html" title="class in org.apache.iceberg">ManifestReader</a>&lt;<a href="ManifestReader.html" title="type parameter in ManifestReader">F</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#filterRows(org.apache.iceberg.expressions.Expression)">filterRows</a></span>&#8203;(<a href="expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#filterPartitions(org.apache.iceberg.util.PartitionSet)">filterPartitions</a></span>&#8203;(<a href="util/PartitionSet.html" title="class in org.apache.iceberg.util">PartitionSet</a>&nbsp;partitions)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="ManifestReader.html" title="class in org.apache.iceberg">ManifestReader</a>&lt;<a href="ManifestReader.html" title="type parameter in ManifestReader">F</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#filterRows(org.apache.iceberg.expressions.Expression)">filterRows</a></span>&#8203;(<a href="expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isDeleteManifestReader()">isDeleteManifestReader</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="io/CloseableIterator.html" title="interface in org.apache.iceberg.io">CloseableIterator</a>&lt;<a href="ManifestReader.html" title="type parameter in ManifestReader">F</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#iterator()">iterator</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns an closeable iterator over elements of type <code>T</code>.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="ManifestReader.html" title="class in org.apache.iceberg">ManifestReader</a>&lt;<a href="ManifestReader.html" title="type parameter in ManifestReader">F</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#project(org.apache.iceberg.Schema)">project</a></span>&#8203;(<a href="Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;newFileProjection)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#schema()">schema</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="ManifestReader.html" title="class in org.apache.iceberg">ManifestReader</a>&lt;<a href="ManifestReader.html" title="type parameter in ManifestReader">F</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#select(java.util.Collection)">select</a></span>&#8203;(java.util.Collection&lt;java.lang.String&gt;&nbsp;newColumns)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#spec()">spec</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
@@ -403,6 +408,15 @@ implements <a href="io/CloseableIterable.html" title="interface in org.apache.ic
 <li class="blockList">
 <h4>filterPartitions</h4>
 <pre class="methodSignature">public&nbsp;<a href="ManifestReader.html" title="class in org.apache.iceberg">ManifestReader</a>&lt;<a href="ManifestReader.html" title="type parameter in ManifestReader">F</a>&gt;&nbsp;filterPartitions&#8203;(<a href="expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr)</pre>
+</li>
+</ul>
+<a id="filterPartitions(org.apache.iceberg.util.PartitionSet)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>filterPartitions</h4>
+<pre class="methodSignature">public&nbsp;<a href="ManifestReader.html" title="class in org.apache.iceberg">ManifestReader</a>&lt;<a href="ManifestReader.html" title="type parameter in ManifestReader">F</a>&gt;&nbsp;filterPartitions&#8203;(<a href="util/PartitionSet.html" title="class in org.apache.iceberg.util">PartitionSet</a>&nbsp;partitions)</pre>
 </li>
 </ul>
 <a id="filterRows(org.apache.iceberg.expressions.Expression)">

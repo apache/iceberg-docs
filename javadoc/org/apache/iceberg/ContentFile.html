@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":18,"i16":6,"i17":6,"i18":6,"i19":6};
+var data = {"i0":6,"i1":6,"i2":6,"i3":18,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6,"i16":18,"i17":6,"i18":6,"i19":6,"i20":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -178,118 +178,125 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>default <a href="ContentFile.html" title="type parameter in ContentFile">F</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#copy(boolean)">copy</a></span>&#8203;(boolean&nbsp;withStats)</code></th>
+<td class="colLast">
+<div class="block">Copies this file (potentially without file stats).</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="ContentFile.html" title="type parameter in ContentFile">F</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#copyWithoutStats()">copyWithoutStats</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Copies this file without file stats.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.util.List&lt;java.lang.Integer&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#equalityFieldIds()">equalityFieldIds</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the set of field IDs used for equality comparison, in equality delete files.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>long</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fileSizeInBytes()">fileSizeInBytes</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the file size in bytes.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="FileFormat.html" title="enum in org.apache.iceberg">FileFormat</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#format()">format</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns format of the file.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.nio.ByteBuffer</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#keyMetadata()">keyMetadata</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns metadata about how this file is encrypted, or null if the file is stored in plain text.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.Integer,&#8203;java.nio.ByteBuffer&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#lowerBounds()">lowerBounds</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns if collected, map from column ID to value lower bounds, null otherwise.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.Integer,&#8203;java.lang.Long&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#nanValueCounts()">nanValueCounts</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns if collected, map from column ID to its NaN value count, null otherwise.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.Integer,&#8203;java.lang.Long&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#nullValueCounts()">nullValueCounts</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns if collected, map from column ID to its null value count, null otherwise.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="StructLike.html" title="interface in org.apache.iceberg">StructLike</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#partition()">partition</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns partition for this file as a <a href="StructLike.html" title="interface in org.apache.iceberg"><code>StructLike</code></a>.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>java.lang.CharSequence</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#path()">path</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns fully qualified path to the file, suitable for constructing a Hadoop Path.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>java.lang.Long</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#pos()">pos</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the ordinal position of the file in a manifest, or null if it was not read from a manifest.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#recordCount()">recordCount</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the number of top-level records in the file.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>default java.lang.Integer</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sortOrderId()">sortOrderId</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the sort order id of this file, which describes how the file is ordered.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#specId()">specId</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns id of the partition spec used for partition metadata.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;java.lang.Long&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#splitOffsets()">splitOffsets</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns list of recommended split locations, if applicable, null otherwise.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.Integer,&#8203;java.nio.ByteBuffer&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#upperBounds()">upperBounds</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns if collected, map from column ID to value upper bounds, null otherwise.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.Integer,&#8203;java.lang.Long&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#valueCounts()">valueCounts</a></span>()</code></th>
 <td class="colLast">
@@ -525,7 +532,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <a id="copyWithoutStats()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>copyWithoutStats</h4>
 <pre class="methodSignature"><a href="ContentFile.html" title="type parameter in ContentFile">F</a>&nbsp;copyWithoutStats()</pre>
@@ -535,6 +542,25 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a copy of this data file, without lower bounds, upper bounds, value counts,
          null value counts, or nan value counts</dd>
+</dl>
+</li>
+</ul>
+<a id="copy(boolean)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>copy</h4>
+<pre class="methodSignature">default&nbsp;<a href="ContentFile.html" title="type parameter in ContentFile">F</a>&nbsp;copy&#8203;(boolean&nbsp;withStats)</pre>
+<div class="block">Copies this file (potentially without file stats). Manifest readers can reuse file instances; use
+ this method to copy data when collecting files from tasks.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>withStats</code> - Will copy this file without file stats if set to <code>false</code>.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a copy of this data file. If <code>withStats</code> is set to <code>false</code> the
+     file will not contain lower bounds, upper bounds, value counts, null value counts, or nan
+     value counts</dd>
 </dl>
 </li>
 </ul>

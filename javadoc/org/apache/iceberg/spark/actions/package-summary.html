@@ -105,47 +105,24 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </tr>
 <tbody>
 <tr class="altColor">
-<th class="colFirst" scope="row"><a href="BaseDeleteOrphanFilesSparkAction.html" title="class in org.apache.iceberg.spark.actions">BaseDeleteOrphanFilesSparkAction</a></th>
+<th class="colFirst" scope="row"><a href="DeleteOrphanFilesSparkAction.html" title="class in org.apache.iceberg.spark.actions">DeleteOrphanFilesSparkAction</a></th>
 <td class="colLast">
-<div class="block">An action that removes orphan metadata and data files by listing a given location and comparing
- the actual files in that location with data and metadata files referenced by all valid snapshots.</div>
+<div class="block">An action that removes orphan metadata, data and delete files by listing a given location and comparing
+ the actual files in that location with content and metadata files referenced by all valid snapshots.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<th class="colFirst" scope="row"><a href="BaseDeleteReachableFilesSparkAction.html" title="class in org.apache.iceberg.spark.actions">BaseDeleteReachableFilesSparkAction</a></th>
+<th class="colFirst" scope="row"><a href="DeleteReachableFilesSparkAction.html" title="class in org.apache.iceberg.spark.actions">DeleteReachableFilesSparkAction</a></th>
 <td class="colLast">
 <div class="block">An implementation of <a href="../../actions/DeleteReachableFiles.html" title="interface in org.apache.iceberg.actions"><code>DeleteReachableFiles</code></a> that uses metadata tables in Spark
  to determine which files should be deleted.</div>
 </td>
 </tr>
 <tr class="altColor">
-<th class="colFirst" scope="row"><a href="BaseExpireSnapshotsSparkAction.html" title="class in org.apache.iceberg.spark.actions">BaseExpireSnapshotsSparkAction</a></th>
+<th class="colFirst" scope="row"><a href="ExpireSnapshotsSparkAction.html" title="class in org.apache.iceberg.spark.actions">ExpireSnapshotsSparkAction</a></th>
 <td class="colLast">
 <div class="block">An action that performs the same operation as <a href="../../ExpireSnapshots.html" title="interface in org.apache.iceberg"><code>ExpireSnapshots</code></a> but uses Spark
  to determine the delta in files between the pre and post-expiration table metadata.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<th class="colFirst" scope="row"><a href="BaseMigrateTableSparkAction.html" title="class in org.apache.iceberg.spark.actions">BaseMigrateTableSparkAction</a></th>
-<td class="colLast">
-<div class="block">Takes a Spark table in the source catalog and attempts to transform it into an Iceberg
- table in the same location with the same identifier.</div>
-</td>
-</tr>
-<tr class="altColor">
-<th class="colFirst" scope="row"><a href="BaseRewriteDataFilesSpark3Action.html" title="class in org.apache.iceberg.spark.actions">BaseRewriteDataFilesSpark3Action</a></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<th class="colFirst" scope="row"><a href="BaseRewriteManifestsSparkAction.html" title="class in org.apache.iceberg.spark.actions">BaseRewriteManifestsSparkAction</a></th>
-<td class="colLast">
-<div class="block">An action that rewrites manifests in a distributed manner and co-locates metadata for partitions.</div>
-</td>
-</tr>
-<tr class="altColor">
-<th class="colFirst" scope="row"><a href="BaseSnapshotTableSparkAction.html" title="class in org.apache.iceberg.spark.actions">BaseSnapshotTableSparkAction</a></th>
-<td class="colLast">
-<div class="block">Creates a new Iceberg table based on a source Spark table.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -153,18 +130,45 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
-<th class="colFirst" scope="row"><a href="Spark3BinPackStrategy.html" title="class in org.apache.iceberg.spark.actions">Spark3BinPackStrategy</a></th>
-<td class="colLast">&nbsp;</td>
+<th class="colFirst" scope="row"><a href="MigrateTableSparkAction.html" title="class in org.apache.iceberg.spark.actions">MigrateTableSparkAction</a></th>
+<td class="colLast">
+<div class="block">Takes a Spark table in the source catalog and attempts to transform it into an Iceberg
+ table in the same location with the same identifier.</div>
+</td>
 </tr>
 <tr class="rowColor">
-<th class="colFirst" scope="row"><a href="Spark3SortStrategy.html" title="class in org.apache.iceberg.spark.actions">Spark3SortStrategy</a></th>
+<th class="colFirst" scope="row"><a href="RewriteDataFilesSparkAction.html" title="class in org.apache.iceberg.spark.actions">RewriteDataFilesSparkAction</a></th>
 <td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="RewriteManifestsSparkAction.html" title="class in org.apache.iceberg.spark.actions">RewriteManifestsSparkAction</a></th>
+<td class="colLast">
+<div class="block">An action that rewrites manifests in a distributed manner and co-locates metadata for partitions.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="SnapshotTableSparkAction.html" title="class in org.apache.iceberg.spark.actions">SnapshotTableSparkAction</a></th>
+<td class="colLast">
+<div class="block">Creates a new Iceberg table based on a source Spark table.</div>
+</td>
 </tr>
 <tr class="altColor">
 <th class="colFirst" scope="row"><a href="SparkActions.html" title="class in org.apache.iceberg.spark.actions">SparkActions</a></th>
 <td class="colLast">
 <div class="block">An implementation of <a href="../../actions/ActionsProvider.html" title="interface in org.apache.iceberg.actions"><code>ActionsProvider</code></a> for Spark.</div>
 </td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="SparkBinPackStrategy.html" title="class in org.apache.iceberg.spark.actions">SparkBinPackStrategy</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="SparkSortStrategy.html" title="class in org.apache.iceberg.spark.actions">SparkSortStrategy</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="SparkZOrderStrategy.html" title="class in org.apache.iceberg.spark.actions">SparkZOrderStrategy</a></th>
+<td class="colLast">&nbsp;</td>
 </tr>
 </tbody>
 </table>

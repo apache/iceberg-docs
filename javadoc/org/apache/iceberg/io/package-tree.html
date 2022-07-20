@@ -129,12 +129,19 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="circle">org.apache.iceberg.io.<a href="DeleteSchemaUtil.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">DeleteSchemaUtil</span></a></li>
 <li class="circle">org.apache.iceberg.io.<a href="DeleteWriteResult.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">DeleteWriteResult</span></a></li>
 <li class="circle">org.apache.iceberg.io.<a href="FanoutDataWriter.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">FanoutDataWriter</span></a>&lt;T&gt;</li>
+<li class="circle">org.apache.iceberg.io.<a href="FileInfo.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">FileInfo</span></a></li>
+<li class="circle">org.apache.iceberg.io.<a href="FileIOParser.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">FileIOParser</span></a></li>
 <li class="circle">org.apache.iceberg.io.<a href="FilterIterator.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">FilterIterator</span></a>&lt;T&gt; (implements org.apache.iceberg.io.<a href="CloseableIterator.html" title="interface in org.apache.iceberg.io">CloseableIterator</a>&lt;T&gt;)</li>
 <li class="circle">java.io.InputStream (implements java.io.Closeable)
 <ul>
-<li class="circle">org.apache.iceberg.io.<a href="SeekableInputStream.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">SeekableInputStream</span></a></li>
+<li class="circle">org.apache.iceberg.io.<a href="SeekableInputStream.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">SeekableInputStream</span></a>
+<ul>
+<li class="circle">org.apache.iceberg.io.<a href="ByteBufferInputStream.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">ByteBufferInputStream</span></a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="circle">org.apache.iceberg.io.<a href="IOUtil.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">IOUtil</span></a></li>
 <li class="circle">org.apache.iceberg.io.<a href="OutputFileFactory.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">OutputFileFactory</span></a></li>
 <li class="circle">org.apache.iceberg.io.<a href="OutputFileFactory.Builder.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">OutputFileFactory.Builder</span></a></li>
 <li class="circle">java.io.OutputStream (implements java.io.Closeable, java.io.Flushable)
@@ -146,6 +153,19 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="circle">org.apache.iceberg.io.<a href="RollingDataWriter.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">RollingDataWriter</span></a>&lt;T&gt;</li>
 <li class="circle">org.apache.iceberg.io.<a href="RollingEqualityDeleteWriter.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">RollingEqualityDeleteWriter</span></a>&lt;T&gt;</li>
 <li class="circle">org.apache.iceberg.io.<a href="RollingPositionDeleteWriter.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">RollingPositionDeleteWriter</span></a>&lt;T&gt;</li>
+<li class="circle">java.lang.Throwable (implements java.io.Serializable)
+<ul>
+<li class="circle">java.lang.Exception
+<ul>
+<li class="circle">java.lang.RuntimeException
+<ul>
+<li class="circle">org.apache.iceberg.io.<a href="BulkDeletionFailureException.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">BulkDeletionFailureException</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="circle">org.apache.iceberg.io.<a href="WriteResult.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">WriteResult</span></a> (implements java.io.Serializable)</li>
 <li class="circle">org.apache.iceberg.io.<a href="WriteResult.Builder.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">WriteResult.Builder</span></a></li>
 </ul>
@@ -167,11 +187,13 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="circle">org.apache.iceberg.io.<a href="FileWriter.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">FileWriter</span></a>&lt;T,&#8203;R&gt;</li>
 <li class="circle">org.apache.iceberg.io.<a href="PartitioningWriter.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">PartitioningWriter</span></a>&lt;T,&#8203;R&gt;</li>
 <li class="circle">org.apache.iceberg.io.<a href="PositionDeltaWriter.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">PositionDeltaWriter</span></a>&lt;T&gt;</li>
+<li class="circle">org.apache.iceberg.io.<a href="RangeReadable.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">RangeReadable</span></a></li>
 <li class="circle">org.apache.iceberg.io.<a href="TaskWriter.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">TaskWriter</span></a>&lt;T&gt;</li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="circle">org.apache.iceberg.io.<a href="CredentialSupplier.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">CredentialSupplier</span></a></li>
 <li class="circle">org.apache.iceberg.io.<a href="DelegatingInputStream.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">DelegatingInputStream</span></a></li>
 <li class="circle">org.apache.iceberg.io.<a href="DelegatingOutputStream.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">DelegatingOutputStream</span></a></li>
 <li class="circle">org.apache.iceberg.io.<a href="FileAppenderFactory.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">FileAppenderFactory</span></a>&lt;T&gt;</li>
@@ -192,8 +214,15 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul>
 <li class="circle">org.apache.iceberg.io.<a href="FileIO.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">FileIO</span></a> (also extends java.io.Closeable)</li>
 <li class="circle">org.apache.iceberg.io.<a href="LocationProvider.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">LocationProvider</span></a></li>
+<li class="circle">org.apache.iceberg.metrics.<a href="../metrics/MetricsContext.html" title="interface in org.apache.iceberg.metrics"><span class="typeNameLink">MetricsContext</span></a>
+<ul>
+<li class="circle">org.apache.iceberg.io.<a href="FileIOMetricsContext.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">FileIOMetricsContext</span></a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="circle">org.apache.iceberg.io.<a href="SupportsBulkOperations.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">SupportsBulkOperations</span></a></li>
+<li class="circle">org.apache.iceberg.io.<a href="SupportsPrefixOperations.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">SupportsPrefixOperations</span></a></li>
 </ul>
 </section>
 </div>

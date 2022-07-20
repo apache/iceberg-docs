@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":18,"i1":6,"i2":18,"i3":18};
+var data = {"i0":18,"i1":6,"i2":18,"i3":18,"i4":18};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -127,7 +127,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><code><a href="../spark/actions/BaseRewriteDataFilesSpark3Action.html" title="class in org.apache.iceberg.spark.actions">BaseRewriteDataFilesSpark3Action</a></code></dd>
+<dd><code><a href="../spark/actions/RewriteDataFilesSparkAction.html" title="class in org.apache.iceberg.spark.actions">RewriteDataFilesSparkAction</a></code></dd>
 </dl>
 <hr>
 <pre>public interface <span class="typeNameLabel">RewriteDataFiles</span>
@@ -245,6 +245,18 @@ extends <a href="SnapshotUpdate.html" title="interface in org.apache.iceberg.act
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#REWRITE_JOB_ORDER">REWRITE_JOB_ORDER</a></span></code></th>
+<td class="colLast">
+<div class="block">Forces the rewrite job order based on the value.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#REWRITE_JOB_ORDER_DEFAULT">REWRITE_JOB_ORDER_DEFAULT</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#TARGET_FILE_SIZE_BYTES">TARGET_FILE_SIZE_BYTES</a></span></code></th>
 <td class="colLast">
 <div class="block">The output file size that this rewrite strategy will attempt to generate when rewriting files.</div>
@@ -307,6 +319,13 @@ extends <a href="SnapshotUpdate.html" title="interface in org.apache.iceberg.act
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sort(org.apache.iceberg.SortOrder)">sort</a></span>&#8203;(<a href="../SortOrder.html" title="class in org.apache.iceberg">SortOrder</a>&nbsp;sortOrder)</code></th>
 <td class="colLast">
 <div class="block">Choose SORT as a strategy for this rewrite operation and manually specify the sortOrder to use</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>default <a href="RewriteDataFiles.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#zOrder(java.lang.String...)">zOrder</a></span>&#8203;(java.lang.String...&nbsp;columns)</code></th>
+<td class="colLast">
+<div class="block">Choose Z-ORDER as a strategy for this rewrite operation with a specified list of columns to use</div>
 </td>
 </tr>
 </table>
@@ -502,7 +521,7 @@ extends <a href="SnapshotUpdate.html" title="interface in org.apache.iceberg.act
 <a id="USE_STARTING_SEQUENCE_NUMBER_DEFAULT">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>USE_STARTING_SEQUENCE_NUMBER_DEFAULT</h4>
 <pre>static final&nbsp;boolean USE_STARTING_SEQUENCE_NUMBER_DEFAULT</pre>
@@ -510,6 +529,38 @@ extends <a href="SnapshotUpdate.html" title="interface in org.apache.iceberg.act
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.RewriteDataFiles.USE_STARTING_SEQUENCE_NUMBER_DEFAULT">Constant Field Values</a></dd>
 </dl>
+</li>
+</ul>
+<a id="REWRITE_JOB_ORDER">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>REWRITE_JOB_ORDER</h4>
+<pre>static final&nbsp;java.lang.String REWRITE_JOB_ORDER</pre>
+<div class="block">Forces the rewrite job order based on the value.
+ <p><ul>
+ <li> If rewrite-job-order=bytes-asc, then rewrite the smallest job groups first.
+ <li> If rewrite-job-order=bytes-desc, then rewrite the largest job groups first.
+ <li> If rewrite-job-order=files-asc, then rewrite the job groups with the least files first.
+ <li> If rewrite-job-order=files-desc, then rewrite the job groups with the most files first.
+ <li> If rewrite-job-order=none, then rewrite job groups in the order they were planned (no
+ specific ordering).
+ </ul><p>
+ Defaults to none.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.RewriteDataFiles.REWRITE_JOB_ORDER">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a id="REWRITE_JOB_ORDER_DEFAULT">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>REWRITE_JOB_ORDER_DEFAULT</h4>
+<pre>static final&nbsp;java.lang.String REWRITE_JOB_ORDER_DEFAULT</pre>
 </li>
 </ul>
 </li>
@@ -561,6 +612,22 @@ extends <a href="SnapshotUpdate.html" title="interface in org.apache.iceberg.act
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>sortOrder</code> - user defined sortOrder</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a id="zOrder(java.lang.String...)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>zOrder</h4>
+<pre class="methodSignature">default&nbsp;<a href="RewriteDataFiles.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles</a>&nbsp;zOrder&#8203;(java.lang.String...&nbsp;columns)</pre>
+<div class="block">Choose Z-ORDER as a strategy for this rewrite operation with a specified list of columns to use</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>columns</code> - Columns to be used to generate Z-Values</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>
 </dl>
