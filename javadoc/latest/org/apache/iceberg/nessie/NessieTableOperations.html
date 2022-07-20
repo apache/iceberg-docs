@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -94,7 +94,7 @@ loadScripts(document, 'script');</script>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -172,6 +172,22 @@ extends <a href="../BaseMetastoreTableOperations.html" title="class in org.apach
 <!--   -->
 </a>
 <h3>Field Summary</h3>
+<table class="memberSummary">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#NESSIE_COMMIT_ID_PROPERTY">NESSIE_COMMIT_ID_PROPERTY</a></span></code></th>
+<td class="colLast">
+<div class="block">Name of the `<a href="../TableMetadata.html" title="class in org.apache.iceberg"><code>TableMetadata</code></a> property that holds the Nessie commit-ID from which the
+ metadata has been loaded.</div>
+</td>
+</tr>
+</table>
 <ul class="blockList">
 <li class="blockList"><a id="fields.inherited.from.class.org.apache.iceberg.BaseMetastoreTableOperations">
 <!--   -->
@@ -215,13 +231,6 @@ extends <a href="../BaseMetastoreTableOperations.html" title="class in org.apach
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#refreshFromMetadataLocation(java.lang.String,java.util.function.Predicate,int)">refreshFromMetadataLocation</a></span>&#8203;(java.lang.String&nbsp;newLocation,
-                           java.util.function.Predicate&lt;java.lang.Exception&gt;&nbsp;shouldRetry,
-                           int&nbsp;numRetries)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#tableName()">tableName</a></span>()</code></th>
 <td class="colLast">
@@ -234,7 +243,7 @@ extends <a href="../BaseMetastoreTableOperations.html" title="class in org.apach
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.iceberg.<a href="../BaseMetastoreTableOperations.html" title="class in org.apache.iceberg">BaseMetastoreTableOperations</a></h3>
-<code><a href="../BaseMetastoreTableOperations.html#checkCommitStatus(java.lang.String,org.apache.iceberg.TableMetadata)">checkCommitStatus</a>, <a href="../BaseMetastoreTableOperations.html#commit(org.apache.iceberg.TableMetadata,org.apache.iceberg.TableMetadata)">commit</a>, <a href="../BaseMetastoreTableOperations.html#current()">current</a>, <a href="../BaseMetastoreTableOperations.html#currentMetadataLocation()">currentMetadataLocation</a>, <a href="../BaseMetastoreTableOperations.html#currentVersion()">currentVersion</a>, <a href="../BaseMetastoreTableOperations.html#disableRefresh()">disableRefresh</a>, <a href="../BaseMetastoreTableOperations.html#locationProvider()">locationProvider</a>, <a href="../BaseMetastoreTableOperations.html#metadataFileLocation(java.lang.String)">metadataFileLocation</a>, <a href="../BaseMetastoreTableOperations.html#refresh()">refresh</a>, <a href="../BaseMetastoreTableOperations.html#refreshFromMetadataLocation(java.lang.String)">refreshFromMetadataLocation</a>, <a href="../BaseMetastoreTableOperations.html#refreshFromMetadataLocation(java.lang.String,int)">refreshFromMetadataLocation</a>, <a href="../BaseMetastoreTableOperations.html#refreshFromMetadataLocation(java.lang.String,java.util.function.Predicate,int,java.util.function.Function)">refreshFromMetadataLocation</a>, <a href="../BaseMetastoreTableOperations.html#requestRefresh()">requestRefresh</a>, <a href="../BaseMetastoreTableOperations.html#temp(org.apache.iceberg.TableMetadata)">temp</a>, <a href="../BaseMetastoreTableOperations.html#writeNewMetadata(org.apache.iceberg.TableMetadata,int)">writeNewMetadata</a></code></li>
+<code><a href="../BaseMetastoreTableOperations.html#checkCommitStatus(java.lang.String,org.apache.iceberg.TableMetadata)">checkCommitStatus</a>, <a href="../BaseMetastoreTableOperations.html#commit(org.apache.iceberg.TableMetadata,org.apache.iceberg.TableMetadata)">commit</a>, <a href="../BaseMetastoreTableOperations.html#current()">current</a>, <a href="../BaseMetastoreTableOperations.html#currentMetadataLocation()">currentMetadataLocation</a>, <a href="../BaseMetastoreTableOperations.html#currentVersion()">currentVersion</a>, <a href="../BaseMetastoreTableOperations.html#disableRefresh()">disableRefresh</a>, <a href="../BaseMetastoreTableOperations.html#locationProvider()">locationProvider</a>, <a href="../BaseMetastoreTableOperations.html#metadataFileLocation(java.lang.String)">metadataFileLocation</a>, <a href="../BaseMetastoreTableOperations.html#refresh()">refresh</a>, <a href="../BaseMetastoreTableOperations.html#refreshFromMetadataLocation(java.lang.String)">refreshFromMetadataLocation</a>, <a href="../BaseMetastoreTableOperations.html#refreshFromMetadataLocation(java.lang.String,int)">refreshFromMetadataLocation</a>, <a href="../BaseMetastoreTableOperations.html#refreshFromMetadataLocation(java.lang.String,java.util.function.Predicate,int)">refreshFromMetadataLocation</a>, <a href="../BaseMetastoreTableOperations.html#refreshFromMetadataLocation(java.lang.String,java.util.function.Predicate,int,java.util.function.Function)">refreshFromMetadataLocation</a>, <a href="../BaseMetastoreTableOperations.html#requestRefresh()">requestRefresh</a>, <a href="../BaseMetastoreTableOperations.html#temp(org.apache.iceberg.TableMetadata)">temp</a>, <a href="../BaseMetastoreTableOperations.html#writeNewMetadata(org.apache.iceberg.TableMetadata,int)">writeNewMetadata</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
@@ -259,6 +268,31 @@ extends <a href="../BaseMetastoreTableOperations.html" title="class in org.apach
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<section role="region">
+<ul class="blockList">
+<li class="blockList"><a id="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a id="NESSIE_COMMIT_ID_PROPERTY">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>NESSIE_COMMIT_ID_PROPERTY</h4>
+<pre>public static final&nbsp;java.lang.String NESSIE_COMMIT_ID_PROPERTY</pre>
+<div class="block">Name of the `<a href="../TableMetadata.html" title="class in org.apache.iceberg"><code>TableMetadata</code></a> property that holds the Nessie commit-ID from which the
+ metadata has been loaded.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.nessie.NessieTableOperations.NESSIE_COMMIT_ID_PROPERTY">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+</section>
 <!-- ============ METHOD DETAIL ========== -->
 <section role="region">
 <ul class="blockList">
@@ -281,21 +315,6 @@ extends <a href="../BaseMetastoreTableOperations.html" title="class in org.apach
 <dd><code><a href="../BaseMetastoreTableOperations.html#tableName()">tableName</a></code>&nbsp;in class&nbsp;<code><a href="../BaseMetastoreTableOperations.html" title="class in org.apache.iceberg">BaseMetastoreTableOperations</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The full name</dd>
-</dl>
-</li>
-</ul>
-<a id="refreshFromMetadataLocation(java.lang.String,java.util.function.Predicate,int)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>refreshFromMetadataLocation</h4>
-<pre class="methodSignature">protected&nbsp;void&nbsp;refreshFromMetadataLocation&#8203;(java.lang.String&nbsp;newLocation,
-                                           java.util.function.Predicate&lt;java.lang.Exception&gt;&nbsp;shouldRetry,
-                                           int&nbsp;numRetries)</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../BaseMetastoreTableOperations.html#refreshFromMetadataLocation(java.lang.String,java.util.function.Predicate,int)">refreshFromMetadataLocation</a></code>&nbsp;in class&nbsp;<code><a href="../BaseMetastoreTableOperations.html" title="class in org.apache.iceberg">BaseMetastoreTableOperations</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -395,7 +414,7 @@ extends <a href="../BaseMetastoreTableOperations.html" title="class in org.apach
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

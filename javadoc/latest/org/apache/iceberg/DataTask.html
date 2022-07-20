@@ -123,7 +123,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Superinterfaces:</dt>
-<dd><code><a href="FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a></code>, <code><a href="ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a></code>, <code>java.io.Serializable</code></dd>
+<dd><code><a href="ContentScanTask.html" title="interface in org.apache.iceberg">ContentScanTask</a>&lt;<a href="DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;</code>, <code><a href="FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a></code>, <code><a href="ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a></code>, <code>java.io.Serializable</code>, <code><a href="SplittableScanTask.html" title="interface in org.apache.iceberg">SplittableScanTask</a>&lt;<a href="FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;</code></dd>
 </dl>
 <hr>
 <pre>public interface <span class="typeNameLabel">DataTask</span>
@@ -172,11 +172,18 @@ extends <a href="FileScanTask.html" title="interface in org.apache.iceberg">File
 </tr>
 </table>
 <ul class="blockList">
+<li class="blockList"><a id="methods.inherited.from.class.org.apache.iceberg.ContentScanTask">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="ContentScanTask.html" title="interface in org.apache.iceberg">ContentScanTask</a></h3>
+<code><a href="ContentScanTask.html#file()">file</a>, <a href="ContentScanTask.html#length()">length</a>, <a href="ContentScanTask.html#residual()">residual</a>, <a href="ContentScanTask.html#spec()">spec</a>, <a href="ContentScanTask.html#start()">start</a></code></li>
+</ul>
+<ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.org.apache.iceberg.FileScanTask">
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a></h3>
-<code><a href="FileScanTask.html#asFileScanTask()">asFileScanTask</a>, <a href="FileScanTask.html#deletes()">deletes</a>, <a href="FileScanTask.html#file()">file</a>, <a href="FileScanTask.html#isFileScanTask()">isFileScanTask</a>, <a href="FileScanTask.html#length()">length</a>, <a href="FileScanTask.html#residual()">residual</a>, <a href="FileScanTask.html#spec()">spec</a>, <a href="FileScanTask.html#split(long)">split</a>, <a href="FileScanTask.html#start()">start</a></code></li>
+<code><a href="FileScanTask.html#asFileScanTask()">asFileScanTask</a>, <a href="FileScanTask.html#deletes()">deletes</a>, <a href="FileScanTask.html#filesCount()">filesCount</a>, <a href="FileScanTask.html#isFileScanTask()">isFileScanTask</a>, <a href="FileScanTask.html#sizeBytes()">sizeBytes</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.org.apache.iceberg.ScanTask">
@@ -184,6 +191,13 @@ extends <a href="FileScanTask.html" title="interface in org.apache.iceberg">File
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a></h3>
 <code><a href="ScanTask.html#asCombinedScanTask()">asCombinedScanTask</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a id="methods.inherited.from.class.org.apache.iceberg.SplittableScanTask">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="SplittableScanTask.html" title="interface in org.apache.iceberg">SplittableScanTask</a></h3>
+<code><a href="SplittableScanTask.html#split(long)">split</a></code></li>
 </ul>
 </li>
 </ul>

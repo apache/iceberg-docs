@@ -113,33 +113,46 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
+<th class="colFirst" scope="row"><a href="CredentialSupplier.html" title="interface in org.apache.iceberg.io">CredentialSupplier</a></th>
+<td class="colLast">
+<div class="block">Interface used to expose credentials held by a FileIO instance.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <th class="colFirst" scope="row"><a href="DelegatingInputStream.html" title="interface in org.apache.iceberg.io">DelegatingInputStream</a></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <th class="colFirst" scope="row"><a href="DelegatingOutputStream.html" title="interface in org.apache.iceberg.io">DelegatingOutputStream</a></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <th class="colFirst" scope="row"><a href="EqualityDeltaWriter.html" title="interface in org.apache.iceberg.io">EqualityDeltaWriter</a>&lt;T&gt;</th>
 <td class="colLast">
 <div class="block">A writer capable of writing data and equality deletes that may belong to different specs and partitions.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <th class="colFirst" scope="row"><a href="FileAppender.html" title="interface in org.apache.iceberg.io">FileAppender</a>&lt;D&gt;</th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <th class="colFirst" scope="row"><a href="FileAppenderFactory.html" title="interface in org.apache.iceberg.io">FileAppenderFactory</a>&lt;T&gt;</th>
 <td class="colLast">
 <div class="block">Factory to create a new <a href="FileAppender.html" title="interface in org.apache.iceberg.io"><code>FileAppender</code></a> to write records.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <th class="colFirst" scope="row"><a href="FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a></th>
 <td class="colLast">
 <div class="block">Pluggable module for reading, writing, and deleting files.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="FileIOMetricsContext.html" title="interface in org.apache.iceberg.io">FileIOMetricsContext</a></th>
+<td class="colLast">
+<div class="block">Extension of MetricsContext for use with FileIO to define standard metrics
+ that should be reported.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -185,6 +198,26 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </td>
 </tr>
 <tr class="rowColor">
+<th class="colFirst" scope="row"><a href="RangeReadable.html" title="interface in org.apache.iceberg.io">RangeReadable</a></th>
+<td class="colLast">
+<div class="block"><code>RangeReadable</code> is an interface that allows for implementations
+ of <a href="InputFile.html" title="interface in org.apache.iceberg.io"><code>InputFile</code></a> streams to perform positional, range-based reads, which
+ are more efficient than unbounded reads in many cloud provider object stores.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="SupportsBulkOperations.html" title="interface in org.apache.iceberg.io">SupportsBulkOperations</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="SupportsPrefixOperations.html" title="interface in org.apache.iceberg.io">SupportsPrefixOperations</a></th>
+<td class="colLast">
+<div class="block">This interface is intended as an extension for FileIO implementations
+ to provide additional prefix based operations that may be useful in
+ performing supporting operations.</div>
+</td>
+</tr>
+<tr class="altColor">
 <th class="colFirst" scope="row"><a href="TaskWriter.html" title="interface in org.apache.iceberg.io">TaskWriter</a>&lt;T&gt;</th>
 <td class="colLast">
 <div class="block">The writer interface could accept records and provide the generated data files.</div>
@@ -210,75 +243,91 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
+<th class="colFirst" scope="row"><a href="ByteBufferInputStream.html" title="class in org.apache.iceberg.io">ByteBufferInputStream</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <th class="colFirst" scope="row"><a href="CloseableGroup.html" title="class in org.apache.iceberg.io">CloseableGroup</a></th>
 <td class="colLast">
 <div class="block">This class acts as a helper for handling the closure of multiple resource.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <th class="colFirst" scope="row"><a href="CloseableIterable.ConcatCloseableIterable.html" title="class in org.apache.iceberg.io">CloseableIterable.ConcatCloseableIterable</a>&lt;E&gt;</th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <th class="colFirst" scope="row"><a href="ClosingIterator.html" title="class in org.apache.iceberg.io">ClosingIterator</a>&lt;T&gt;</th>
 <td class="colLast">
 <div class="block">A convenience wrapper around <a href="CloseableIterator.html" title="interface in org.apache.iceberg.io"><code>CloseableIterator</code></a>, providing auto-close
  functionality when all of the elements in the iterator are consumed.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <th class="colFirst" scope="row"><a href="ClusteredDataWriter.html" title="class in org.apache.iceberg.io">ClusteredDataWriter</a>&lt;T&gt;</th>
 <td class="colLast">
 <div class="block">A data writer capable of writing to multiple specs and partitions that requires the incoming records
  to be properly clustered by partition spec and by partition within each spec.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <th class="colFirst" scope="row"><a href="ClusteredEqualityDeleteWriter.html" title="class in org.apache.iceberg.io">ClusteredEqualityDeleteWriter</a>&lt;T&gt;</th>
 <td class="colLast">
 <div class="block">An equality delete writer capable of writing to multiple specs and partitions that requires
  the incoming delete records to be properly clustered by partition spec and by partition within each spec.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <th class="colFirst" scope="row"><a href="ClusteredPositionDeleteWriter.html" title="class in org.apache.iceberg.io">ClusteredPositionDeleteWriter</a>&lt;T&gt;</th>
 <td class="colLast">
 <div class="block">A position delete writer capable of writing to multiple specs and partitions that requires
  the incoming delete records to be properly clustered by partition spec and by partition within each spec.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <th class="colFirst" scope="row"><a href="DataWriter.html" title="class in org.apache.iceberg.io">DataWriter</a>&lt;T&gt;</th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <th class="colFirst" scope="row"><a href="DataWriteResult.html" title="class in org.apache.iceberg.io">DataWriteResult</a></th>
 <td class="colLast">
 <div class="block">A result of writing data files.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <th class="colFirst" scope="row"><a href="DeleteSchemaUtil.html" title="class in org.apache.iceberg.io">DeleteSchemaUtil</a></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <th class="colFirst" scope="row"><a href="DeleteWriteResult.html" title="class in org.apache.iceberg.io">DeleteWriteResult</a></th>
 <td class="colLast">
 <div class="block">A result of writing delete files.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <th class="colFirst" scope="row"><a href="FanoutDataWriter.html" title="class in org.apache.iceberg.io">FanoutDataWriter</a>&lt;T&gt;</th>
 <td class="colLast">
 <div class="block">A data writer capable of writing to multiple specs and partitions that keeps data writers for each
  seen spec/partition pair open until this writer is closed.</div>
 </td>
 </tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="FileInfo.html" title="class in org.apache.iceberg.io">FileInfo</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
 <tr class="rowColor">
+<th class="colFirst" scope="row"><a href="FileIOParser.html" title="class in org.apache.iceberg.io">FileIOParser</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
 <th class="colFirst" scope="row"><a href="FilterIterator.html" title="class in org.apache.iceberg.io">FilterIterator</a>&lt;T&gt;</th>
 <td class="colLast">
 <div class="block">An Iterator that filters another Iterator.</div>
 </td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="IOUtil.html" title="class in org.apache.iceberg.io">IOUtil</a></th>
+<td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
 <th class="colFirst" scope="row"><a href="OutputFileFactory.html" title="class in org.apache.iceberg.io">OutputFileFactory</a></th>
@@ -346,6 +395,21 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </tr>
 <tr class="altColor">
 <th class="colFirst" scope="row"><a href="WriteResult.Builder.html" title="class in org.apache.iceberg.io">WriteResult.Builder</a></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li class="blockList">
+<table class="typeSummary">
+<caption><span>Exception Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Exception</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="BulkDeletionFailureException.html" title="class in org.apache.iceberg.io">BulkDeletionFailureException</a></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </tbody>

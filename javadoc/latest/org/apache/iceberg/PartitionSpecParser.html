@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9};
+var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -153,31 +153,53 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>static <a href="UnboundPartitionSpec.html" title="class in org.apache.iceberg">UnboundPartitionSpec</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fromJson(com.fasterxml.jackson.databind.JsonNode)">fromJson</a></span>&#8203;(com.fasterxml.jackson.databind.JsonNode&nbsp;json)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>static <a href="PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fromJson(org.apache.iceberg.Schema,com.fasterxml.jackson.databind.JsonNode)">fromJson</a></span>&#8203;(<a href="Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema,
         com.fasterxml.jackson.databind.JsonNode&nbsp;json)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>static <a href="PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fromJson(org.apache.iceberg.Schema,java.lang.String)">fromJson</a></span>&#8203;(<a href="Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema,
         java.lang.String&nbsp;json)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toJson(org.apache.iceberg.PartitionSpec)">toJson</a></span>&#8203;(<a href="PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toJson(org.apache.iceberg.PartitionSpec,boolean)">toJson</a></span>&#8203;(<a href="PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec,
       boolean&nbsp;pretty)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toJson(org.apache.iceberg.PartitionSpec,com.fasterxml.jackson.core.JsonGenerator)">toJson</a></span>&#8203;(<a href="PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec,
+      com.fasterxml.jackson.core.JsonGenerator&nbsp;generator)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toJson(org.apache.iceberg.UnboundPartitionSpec)">toJson</a></span>&#8203;(<a href="UnboundPartitionSpec.html" title="class in org.apache.iceberg">UnboundPartitionSpec</a>&nbsp;spec)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toJson(org.apache.iceberg.UnboundPartitionSpec,boolean)">toJson</a></span>&#8203;(<a href="UnboundPartitionSpec.html" title="class in org.apache.iceberg">UnboundPartitionSpec</a>&nbsp;spec,
+      boolean&nbsp;pretty)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toJson(org.apache.iceberg.UnboundPartitionSpec,com.fasterxml.jackson.core.JsonGenerator)">toJson</a></span>&#8203;(<a href="UnboundPartitionSpec.html" title="class in org.apache.iceberg">UnboundPartitionSpec</a>&nbsp;spec,
       com.fasterxml.jackson.core.JsonGenerator&nbsp;generator)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -239,6 +261,40 @@ extends java.lang.Object</pre>
                                       boolean&nbsp;pretty)</pre>
 </li>
 </ul>
+<a id="toJson(org.apache.iceberg.UnboundPartitionSpec,com.fasterxml.jackson.core.JsonGenerator)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>toJson</h4>
+<pre class="methodSignature">public static&nbsp;void&nbsp;toJson&#8203;(<a href="UnboundPartitionSpec.html" title="class in org.apache.iceberg">UnboundPartitionSpec</a>&nbsp;spec,
+                          com.fasterxml.jackson.core.JsonGenerator&nbsp;generator)
+                   throws java.io.IOException</pre>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.io.IOException</code></dd>
+</dl>
+</li>
+</ul>
+<a id="toJson(org.apache.iceberg.UnboundPartitionSpec)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>toJson</h4>
+<pre class="methodSignature">public static&nbsp;java.lang.String&nbsp;toJson&#8203;(<a href="UnboundPartitionSpec.html" title="class in org.apache.iceberg">UnboundPartitionSpec</a>&nbsp;spec)</pre>
+</li>
+</ul>
+<a id="toJson(org.apache.iceberg.UnboundPartitionSpec,boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>toJson</h4>
+<pre class="methodSignature">public static&nbsp;java.lang.String&nbsp;toJson&#8203;(<a href="UnboundPartitionSpec.html" title="class in org.apache.iceberg">UnboundPartitionSpec</a>&nbsp;spec,
+                                      boolean&nbsp;pretty)</pre>
+</li>
+</ul>
 <a id="fromJson(org.apache.iceberg.Schema,com.fasterxml.jackson.databind.JsonNode)">
 <!--   -->
 </a>
@@ -247,6 +303,15 @@ extends java.lang.Object</pre>
 <h4>fromJson</h4>
 <pre class="methodSignature">public static&nbsp;<a href="PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;fromJson&#8203;(<a href="Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema,
                                      com.fasterxml.jackson.databind.JsonNode&nbsp;json)</pre>
+</li>
+</ul>
+<a id="fromJson(com.fasterxml.jackson.databind.JsonNode)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>fromJson</h4>
+<pre class="methodSignature">public static&nbsp;<a href="UnboundPartitionSpec.html" title="class in org.apache.iceberg">UnboundPartitionSpec</a>&nbsp;fromJson&#8203;(com.fasterxml.jackson.databind.JsonNode&nbsp;json)</pre>
 </li>
 </ul>
 <a id="fromJson(org.apache.iceberg.Schema,java.lang.String)">

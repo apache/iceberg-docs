@@ -26,8 +26,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":42,"i1":42,"i2":42,"i3":42,"i4":42,"i5":42};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -144,8 +144,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd><code>java.io.Closeable</code>, <code>java.lang.AutoCloseable</code></dd>
 </dl>
 <hr>
-<pre>public class <span class="typeNameLabel">OSSInputStream</span>
+<pre>@Deprecated
+public class <span class="typeNameLabel">OSSInputStream</span>
 extends <a href="../../io/SeekableInputStream.html" title="class in org.apache.iceberg.io">SeekableInputStream</a></pre>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">moving to package-private in 0.15.0</div>
+</div>
 </li>
 </ul>
 </div>
@@ -168,7 +172,11 @@ extends <a href="../../io/SeekableInputStream.html" title="class in org.apache.i
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(com.aliyun.oss.OSS,org.apache.iceberg.aliyun.oss.OSSURI)">OSSInputStream</a></span>&#8203;(com.aliyun.oss.OSS&nbsp;client,
               <a href="OSSURI.html" title="class in org.apache.iceberg.aliyun.oss">OSSURI</a>&nbsp;uri)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">moving to package-private in 0.15.0</div>
+</div>
+</td>
 </tr>
 </table>
 </li>
@@ -182,7 +190,7 @@ extends <a href="../../io/SeekableInputStream.html" title="class in org.apache.i
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
@@ -191,36 +199,46 @@ extends <a href="../../io/SeekableInputStream.html" title="class in org.apache.i
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#close()">close</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#finalize()">finalize</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>long</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPos()">getPos</a></span>()</code></th>
 <td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
 <div class="block">Return the current position in the InputStream.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#read()">read</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#read(byte%5B%5D,int,int)">read</a></span>&#8203;(byte[]&nbsp;b,
     int&nbsp;off,
     int&nbsp;len)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#seek(long)">seek</a></span>&#8203;(long&nbsp;newPos)</code></th>
 <td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
 <div class="block">Seek to a new position in the InputStream.</div>
 </td>
 </tr>
@@ -261,8 +279,12 @@ extends <a href="../../io/SeekableInputStream.html" title="class in org.apache.i
 <ul class="blockListLast">
 <li class="blockList">
 <h4>OSSInputStream</h4>
-<pre>public&nbsp;OSSInputStream&#8203;(com.aliyun.oss.OSS&nbsp;client,
+<pre>@Deprecated
+public&nbsp;OSSInputStream&#8203;(com.aliyun.oss.OSS&nbsp;client,
                       <a href="OSSURI.html" title="class in org.apache.iceberg.aliyun.oss">OSSURI</a>&nbsp;uri)</pre>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
+<div class="deprecationComment">moving to package-private in 0.15.0</div>
+</div>
 </li>
 </ul>
 </li>
@@ -282,6 +304,7 @@ extends <a href="../../io/SeekableInputStream.html" title="class in org.apache.i
 <li class="blockList">
 <h4>getPos</h4>
 <pre class="methodSignature">public&nbsp;long&nbsp;getPos()</pre>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
 <div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../io/SeekableInputStream.html#getPos()">SeekableInputStream</a></code></span></div>
 <div class="block">Return the current position in the InputStream.</div>
 <dl>
@@ -299,6 +322,7 @@ extends <a href="../../io/SeekableInputStream.html" title="class in org.apache.i
 <li class="blockList">
 <h4>seek</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;seek&#8203;(long&nbsp;newPos)</pre>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
 <div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../io/SeekableInputStream.html#seek(long)">SeekableInputStream</a></code></span></div>
 <div class="block">Seek to a new position in the InputStream.</div>
 <dl>
@@ -317,6 +341,7 @@ extends <a href="../../io/SeekableInputStream.html" title="class in org.apache.i
 <h4>read</h4>
 <pre class="methodSignature">public&nbsp;int&nbsp;read()
          throws java.io.IOException</pre>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>read</code>&nbsp;in class&nbsp;<code>java.io.InputStream</code></dd>
@@ -335,6 +360,7 @@ extends <a href="../../io/SeekableInputStream.html" title="class in org.apache.i
                 int&nbsp;off,
                 int&nbsp;len)
          throws java.io.IOException</pre>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>read</code>&nbsp;in class&nbsp;<code>java.io.InputStream</code></dd>
@@ -351,6 +377,7 @@ extends <a href="../../io/SeekableInputStream.html" title="class in org.apache.i
 <h4>close</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;close()
            throws java.io.IOException</pre>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>close</code>&nbsp;in interface&nbsp;<code>java.lang.AutoCloseable</code></dd>
@@ -371,6 +398,7 @@ extends <a href="../../io/SeekableInputStream.html" title="class in org.apache.i
 <h4>finalize</h4>
 <pre class="methodSignature">protected&nbsp;void&nbsp;finalize()
                  throws java.lang.Throwable</pre>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>finalize</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>

@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":18,"i1":6};
+var data = {"i0":18,"i1":18,"i2":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -177,13 +177,20 @@ extends java.io.Serializable</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>default boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isEquivalentTo(org.apache.iceberg.expressions.Expression)">isEquivalentTo</a></span>&#8203;(<a href="Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;other)</code></th>
+<td class="colLast">
+<div class="block">Returns whether this expression will accept the same values as another.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>default <a href="Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#negate()">negate</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the negation of this expression, equivalent to not(this).</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="Expression.Operation.html" title="enum in org.apache.iceberg.expressions">Expression.Operation</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#op()">op</a></span>()</code></th>
 <td class="colLast">
@@ -220,11 +227,33 @@ extends java.io.Serializable</pre>
 <a id="negate()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>negate</h4>
 <pre class="methodSignature">default&nbsp;<a href="Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;negate()</pre>
 <div class="block">Returns the negation of this expression, equivalent to not(this).</div>
+</li>
+</ul>
+<a id="isEquivalentTo(org.apache.iceberg.expressions.Expression)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>isEquivalentTo</h4>
+<pre class="methodSignature">default&nbsp;boolean&nbsp;isEquivalentTo&#8203;(<a href="Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;other)</pre>
+<div class="block">Returns whether this expression will accept the same values as another.
+ <p>
+ If this returns true, the expressions are guaranteed to return the same evaluation for the same input. However, if
+ this returns false the expressions may return the same evaluation for the same input. That is, expressions may
+ be equivalent even if this returns false.
+ <p>
+ For best results, rewrite not and bind expressions before calling this method.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>other</code> - another expression</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the expressions are equivalent</dd>
+</dl>
 </li>
 </ul>
 </li>

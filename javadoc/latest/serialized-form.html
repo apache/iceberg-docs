@@ -451,17 +451,27 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList"><a id="org.apache.iceberg.AllDataFilesTable">
 <!--   -->
 </a>
-<h3>Class <a href="org/apache/iceberg/AllDataFilesTable.html" title="class in org.apache.iceberg">org.apache.iceberg.AllDataFilesTable</a> extends org.apache.iceberg.BaseMetadataTable implements Serializable</h3>
+<h3>Class <a href="org/apache/iceberg/AllDataFilesTable.html" title="class in org.apache.iceberg">org.apache.iceberg.AllDataFilesTable</a> extends org.apache.iceberg.BaseFilesTable implements Serializable</h3>
+</li>
+<li class="blockList"><a id="org.apache.iceberg.AllDeleteFilesTable">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/AllDeleteFilesTable.html" title="class in org.apache.iceberg">org.apache.iceberg.AllDeleteFilesTable</a> extends org.apache.iceberg.BaseFilesTable implements Serializable</h3>
 </li>
 <li class="blockList"><a id="org.apache.iceberg.AllEntriesTable">
 <!--   -->
 </a>
-<h3>Class <a href="org/apache/iceberg/AllEntriesTable.html" title="class in org.apache.iceberg">org.apache.iceberg.AllEntriesTable</a> extends org.apache.iceberg.BaseMetadataTable implements Serializable</h3>
+<h3>Class <a href="org/apache/iceberg/AllEntriesTable.html" title="class in org.apache.iceberg">org.apache.iceberg.AllEntriesTable</a> extends <a href="org/apache/iceberg/BaseMetadataTable.html" title="class in org.apache.iceberg">BaseMetadataTable</a> implements Serializable</h3>
+</li>
+<li class="blockList"><a id="org.apache.iceberg.AllFilesTable">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/AllFilesTable.html" title="class in org.apache.iceberg">org.apache.iceberg.AllFilesTable</a> extends org.apache.iceberg.BaseFilesTable implements Serializable</h3>
 </li>
 <li class="blockList"><a id="org.apache.iceberg.AllManifestsTable">
 <!--   -->
 </a>
-<h3>Class <a href="org/apache/iceberg/AllManifestsTable.html" title="class in org.apache.iceberg">org.apache.iceberg.AllManifestsTable</a> extends org.apache.iceberg.BaseMetadataTable implements Serializable</h3>
+<h3>Class <a href="org/apache/iceberg/AllManifestsTable.html" title="class in org.apache.iceberg">org.apache.iceberg.AllManifestsTable</a> extends <a href="org/apache/iceberg/BaseMetadataTable.html" title="class in org.apache.iceberg">BaseMetadataTable</a> implements Serializable</h3>
 </li>
 <li class="blockList"><a id="org.apache.iceberg.BaseCombinedScanTask">
 <!--   -->
@@ -474,6 +484,95 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockListLast">
 <h4>tasks</h4>
 <pre><a href="org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>[] tasks</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.iceberg.BaseFileScanTask">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/BaseFileScanTask.html" title="class in org.apache.iceberg">org.apache.iceberg.BaseFileScanTask</a> extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>deletes</h4>
+<pre><a href="org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg">DeleteFile</a>[] deletes</pre>
+</li>
+<li class="blockList">
+<h4>file</h4>
+<pre><a href="org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a> file</pre>
+</li>
+<li class="blockList">
+<h4>residuals</h4>
+<pre><a href="org/apache/iceberg/expressions/ResidualEvaluator.html" title="class in org.apache.iceberg.expressions">ResidualEvaluator</a> residuals</pre>
+</li>
+<li class="blockList">
+<h4>schemaString</h4>
+<pre>java.lang.String schemaString</pre>
+</li>
+<li class="blockListLast">
+<h4>specString</h4>
+<pre>java.lang.String specString</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.iceberg.BaseMetadataTable">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/BaseMetadataTable.html" title="class in org.apache.iceberg">org.apache.iceberg.BaseMetadataTable</a> extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>writeReplace</h4>
+<pre class="methodSignature">final&nbsp;java.lang.Object&nbsp;writeReplace()</pre>
+</li>
+</ul>
+</li>
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>name</h4>
+<pre>java.lang.String name</pre>
+</li>
+<li class="blockList">
+<h4>ops</h4>
+<pre><a href="org/apache/iceberg/TableOperations.html" title="interface in org.apache.iceberg">TableOperations</a> ops</pre>
+</li>
+<li class="blockList">
+<h4>sortOrder</h4>
+<pre><a href="org/apache/iceberg/SortOrder.html" title="class in org.apache.iceberg">SortOrder</a> sortOrder</pre>
+</li>
+<li class="blockList">
+<h4>spec</h4>
+<pre><a href="org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a> spec</pre>
+</li>
+<li class="blockListLast">
+<h4>table</h4>
+<pre><a href="org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a> table</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.iceberg.BaseScanTaskGroup">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/BaseScanTaskGroup.html" title="class in org.apache.iceberg">org.apache.iceberg.BaseScanTaskGroup</a> extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>tasks</h4>
+<pre>java.lang.Object[] tasks</pre>
 </li>
 </ul>
 </li>
@@ -511,7 +610,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList"><a id="org.apache.iceberg.BaseTransaction.TransactionTable">
 <!--   -->
 </a>
-<h3>Class org.apache.iceberg.BaseTransaction.TransactionTable extends java.lang.Object implements Serializable</h3>
+<h3>Class <a href="org/apache/iceberg/BaseTransaction.TransactionTable.html" title="class in org.apache.iceberg">org.apache.iceberg.BaseTransaction.TransactionTable</a> extends java.lang.Object implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialization Methods</h3>
@@ -527,7 +626,17 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList"><a id="org.apache.iceberg.DataFilesTable">
 <!--   -->
 </a>
-<h3>Class <a href="org/apache/iceberg/DataFilesTable.html" title="class in org.apache.iceberg">org.apache.iceberg.DataFilesTable</a> extends org.apache.iceberg.BaseMetadataTable implements Serializable</h3>
+<h3>Class <a href="org/apache/iceberg/DataFilesTable.html" title="class in org.apache.iceberg">org.apache.iceberg.DataFilesTable</a> extends org.apache.iceberg.BaseFilesTable implements Serializable</h3>
+</li>
+<li class="blockList"><a id="org.apache.iceberg.DeleteFilesTable">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/DeleteFilesTable.html" title="class in org.apache.iceberg">org.apache.iceberg.DeleteFilesTable</a> extends org.apache.iceberg.BaseFilesTable implements Serializable</h3>
+</li>
+<li class="blockList"><a id="org.apache.iceberg.FilesTable">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/FilesTable.html" title="class in org.apache.iceberg">org.apache.iceberg.FilesTable</a> extends org.apache.iceberg.BaseFilesTable implements Serializable</h3>
 </li>
 <li class="blockList"><a id="org.apache.iceberg.GenericManifestFile">
 <!--   -->
@@ -644,12 +753,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList"><a id="org.apache.iceberg.HistoryTable">
 <!--   -->
 </a>
-<h3>Class <a href="org/apache/iceberg/HistoryTable.html" title="class in org.apache.iceberg">org.apache.iceberg.HistoryTable</a> extends org.apache.iceberg.BaseMetadataTable implements Serializable</h3>
+<h3>Class <a href="org/apache/iceberg/HistoryTable.html" title="class in org.apache.iceberg">org.apache.iceberg.HistoryTable</a> extends <a href="org/apache/iceberg/BaseMetadataTable.html" title="class in org.apache.iceberg">BaseMetadataTable</a> implements Serializable</h3>
 </li>
 <li class="blockList"><a id="org.apache.iceberg.ManifestEntriesTable">
 <!--   -->
 </a>
-<h3>Class <a href="org/apache/iceberg/ManifestEntriesTable.html" title="class in org.apache.iceberg">org.apache.iceberg.ManifestEntriesTable</a> extends org.apache.iceberg.BaseMetadataTable implements Serializable</h3>
+<h3>Class <a href="org/apache/iceberg/ManifestEntriesTable.html" title="class in org.apache.iceberg">org.apache.iceberg.ManifestEntriesTable</a> extends <a href="org/apache/iceberg/BaseMetadataTable.html" title="class in org.apache.iceberg">BaseMetadataTable</a> implements Serializable</h3>
 </li>
 <li class="blockList"><a id="org.apache.iceberg.ManifestFilterManager.DeleteException">
 <!--   -->
@@ -670,7 +779,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList"><a id="org.apache.iceberg.ManifestsTable">
 <!--   -->
 </a>
-<h3>Class <a href="org/apache/iceberg/ManifestsTable.html" title="class in org.apache.iceberg">org.apache.iceberg.ManifestsTable</a> extends org.apache.iceberg.BaseMetadataTable implements Serializable</h3>
+<h3>Class <a href="org/apache/iceberg/ManifestsTable.html" title="class in org.apache.iceberg">org.apache.iceberg.ManifestsTable</a> extends <a href="org/apache/iceberg/BaseMetadataTable.html" title="class in org.apache.iceberg">BaseMetadataTable</a> implements Serializable</h3>
 </li>
 <li class="blockList"><a id="org.apache.iceberg.MetadataUpdate.AddPartitionSpec">
 <!--   -->
@@ -682,7 +791,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockListLast">
 <h4>spec</h4>
-<pre><a href="org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a> spec</pre>
+<pre><a href="org/apache/iceberg/UnboundPartitionSpec.html" title="class in org.apache.iceberg">UnboundPartitionSpec</a> spec</pre>
 </li>
 </ul>
 </li>
@@ -734,7 +843,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockListLast">
 <h4>sortOrder</h4>
-<pre><a href="org/apache/iceberg/SortOrder.html" title="class in org.apache.iceberg">SortOrder</a> sortOrder</pre>
+<pre><a href="org/apache/iceberg/UnboundSortOrder.html" title="class in org.apache.iceberg">UnboundSortOrder</a> sortOrder</pre>
 </li>
 </ul>
 </li>
@@ -788,6 +897,22 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </li>
 </ul>
 </li>
+<li class="blockList"><a id="org.apache.iceberg.MetadataUpdate.RemoveSnapshotRef">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/MetadataUpdate.RemoveSnapshotRef.html" title="class in org.apache.iceberg">org.apache.iceberg.MetadataUpdate.RemoveSnapshotRef</a> extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>refName</h4>
+<pre>java.lang.String refName</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="blockList"><a id="org.apache.iceberg.MetadataUpdate.SetCurrentSchema">
 <!--   -->
 </a>
@@ -799,22 +924,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockListLast">
 <h4>schemaId</h4>
 <pre>int schemaId</pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="blockList"><a id="org.apache.iceberg.MetadataUpdate.SetCurrentSnapshot">
-<!--   -->
-</a>
-<h3>Class <a href="org/apache/iceberg/MetadataUpdate.SetCurrentSnapshot.html" title="class in org.apache.iceberg">org.apache.iceberg.MetadataUpdate.SetCurrentSnapshot</a> extends java.lang.Object implements Serializable</h3>
-<ul class="blockList">
-<li class="blockList">
-<h3>Serialized Fields</h3>
-<ul class="blockList">
-<li class="blockListLast">
-<h4>snapshotId</h4>
-<pre>java.lang.Long snapshotId</pre>
 </li>
 </ul>
 </li>
@@ -879,6 +988,42 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockListLast">
 <h4>updated</h4>
 <pre>java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt; updated</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.iceberg.MetadataUpdate.SetSnapshotRef">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/MetadataUpdate.SetSnapshotRef.html" title="class in org.apache.iceberg">org.apache.iceberg.MetadataUpdate.SetSnapshotRef</a> extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>maxRefAgeMs</h4>
+<pre>java.lang.Long maxRefAgeMs</pre>
+</li>
+<li class="blockList">
+<h4>maxSnapshotAgeMs</h4>
+<pre>java.lang.Long maxSnapshotAgeMs</pre>
+</li>
+<li class="blockList">
+<h4>minSnapshotsToKeep</h4>
+<pre>java.lang.Integer minSnapshotsToKeep</pre>
+</li>
+<li class="blockList">
+<h4>refName</h4>
+<pre>java.lang.String refName</pre>
+</li>
+<li class="blockList">
+<h4>snapshotId</h4>
+<pre>java.lang.Long snapshotId</pre>
+</li>
+<li class="blockListLast">
+<h4>type</h4>
+<pre>org.apache.iceberg.SnapshotRefType type</pre>
 </li>
 </ul>
 </li>
@@ -1109,7 +1254,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList"><a id="org.apache.iceberg.PartitionsTable">
 <!--   -->
 </a>
-<h3>Class <a href="org/apache/iceberg/PartitionsTable.html" title="class in org.apache.iceberg">org.apache.iceberg.PartitionsTable</a> extends org.apache.iceberg.BaseMetadataTable implements Serializable</h3>
+<h3>Class <a href="org/apache/iceberg/PartitionsTable.html" title="class in org.apache.iceberg">org.apache.iceberg.PartitionsTable</a> extends <a href="org/apache/iceberg/BaseMetadataTable.html" title="class in org.apache.iceberg">BaseMetadataTable</a> implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialized Fields</h3>
@@ -1130,6 +1275,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <h3>Serialized Fields</h3>
 <ul class="blockList">
+<li class="blockList">
+<h4>highestFieldId</h4>
+<pre>int highestFieldId</pre>
+</li>
 <li class="blockList">
 <h4>identifierFieldIds</h4>
 <pre>int[] identifierFieldIds</pre>
@@ -1202,10 +1351,62 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </li>
 </ul>
 </li>
+<li class="blockList"><a id="org.apache.iceberg.SerializableTable.SerializableMetadataTable">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/SerializableTable.SerializableMetadataTable.html" title="class in org.apache.iceberg">org.apache.iceberg.SerializableTable.SerializableMetadataTable</a> extends <a href="org/apache/iceberg/SerializableTable.html" title="class in org.apache.iceberg">SerializableTable</a> implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>baseTableName</h4>
+<pre>java.lang.String baseTableName</pre>
+</li>
+<li class="blockListLast">
+<h4>type</h4>
+<pre><a href="org/apache/iceberg/MetadataTableType.html" title="enum in org.apache.iceberg">MetadataTableType</a> type</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.iceberg.SnapshotRef">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/SnapshotRef.html" title="class in org.apache.iceberg">org.apache.iceberg.SnapshotRef</a> extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>maxRefAgeMs</h4>
+<pre>java.lang.Long maxRefAgeMs</pre>
+</li>
+<li class="blockList">
+<h4>maxSnapshotAgeMs</h4>
+<pre>java.lang.Long maxSnapshotAgeMs</pre>
+</li>
+<li class="blockList">
+<h4>minSnapshotsToKeep</h4>
+<pre>java.lang.Integer minSnapshotsToKeep</pre>
+</li>
+<li class="blockList">
+<h4>snapshotId</h4>
+<pre>long snapshotId</pre>
+</li>
+<li class="blockListLast">
+<h4>type</h4>
+<pre>org.apache.iceberg.SnapshotRefType type</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="blockList"><a id="org.apache.iceberg.SnapshotsTable">
 <!--   -->
 </a>
-<h3>Class <a href="org/apache/iceberg/SnapshotsTable.html" title="class in org.apache.iceberg">org.apache.iceberg.SnapshotsTable</a> extends org.apache.iceberg.BaseMetadataTable implements Serializable</h3>
+<h3>Class <a href="org/apache/iceberg/SnapshotsTable.html" title="class in org.apache.iceberg">org.apache.iceberg.SnapshotsTable</a> extends <a href="org/apache/iceberg/BaseMetadataTable.html" title="class in org.apache.iceberg">BaseMetadataTable</a> implements Serializable</h3>
 </li>
 <li class="blockList"><a id="org.apache.iceberg.SortField">
 <!--   -->
@@ -1324,6 +1525,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt; properties</pre>
 </li>
 <li class="blockList">
+<h4>refs</h4>
+<pre>java.util.Map&lt;java.lang.String,&#8203;<a href="org/apache/iceberg/SnapshotRef.html" title="class in org.apache.iceberg">SnapshotRef</a>&gt; refs</pre>
+</li>
+<li class="blockList">
 <h4>schemas</h4>
 <pre>java.util.List&lt;<a href="org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&gt; schemas</pre>
 </li>
@@ -1422,6 +1627,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <h4>minInputFiles</h4>
 <pre>int minInputFiles</pre>
 </li>
+<li class="blockList">
+<h4>rewriteAll</h4>
+<pre>boolean rewriteAll</pre>
+</li>
 <li class="blockListLast">
 <h4>targetFileSize</h4>
 <pre>long targetFileSize</pre>
@@ -1438,10 +1647,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <h3>Serialized Fields</h3>
 <ul class="blockList">
-<li class="blockList">
-<h4>rewriteAll</h4>
-<pre>boolean rewriteAll</pre>
-</li>
 <li class="blockListLast">
 <h4>sortOrder</h4>
 <pre><a href="org/apache/iceberg/SortOrder.html" title="class in org.apache.iceberg">SortOrder</a> sortOrder</pre>
@@ -1508,6 +1713,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <h4>isResourceClosed</h4>
 <pre>java.util.concurrent.atomic.AtomicBoolean isResourceClosed</pre>
 </li>
+<li class="blockList">
+<h4>metrics</h4>
+<pre><a href="org/apache/iceberg/metrics/MetricsContext.html" title="interface in org.apache.iceberg.metrics">MetricsContext</a> metrics</pre>
+</li>
 <li class="blockListLast">
 <h4>oss</h4>
 <pre><a href="org/apache/iceberg/util/SerializableSupplier.html" title="interface in org.apache.iceberg.util">SerializableSupplier</a>&lt;com.aliyun.oss.OSS&gt; oss</pre>
@@ -1532,8 +1741,16 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <h3>Serialized Fields</h3>
 <ul class="blockList">
 <li class="blockList">
+<h4>dynamoDbEndpoint</h4>
+<pre>java.lang.String dynamoDbEndpoint</pre>
+</li>
+<li class="blockList">
 <h4>externalId</h4>
 <pre>java.lang.String externalId</pre>
+</li>
+<li class="blockList">
+<h4>httpClientType</h4>
+<pre>java.lang.String httpClientType</pre>
 </li>
 <li class="blockList">
 <h4>region</h4>
@@ -1546,6 +1763,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <h4>s3Endpoint</h4>
 <pre>java.lang.String s3Endpoint</pre>
+</li>
+<li class="blockList">
+<h4>s3UseArnRegionEnabled</h4>
+<pre>boolean s3UseArnRegionEnabled</pre>
+</li>
+<li class="blockList">
+<h4>tags</h4>
+<pre>java.util.Set&lt;software.amazon.awssdk.services.sts.model.Tag&gt; tags</pre>
 </li>
 <li class="blockListLast">
 <h4>timeout</h4>
@@ -1576,12 +1801,40 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>boolean glueCatalogSkipArchive</pre>
 </li>
 <li class="blockList">
+<h4>glueCatalogSkipNameValidation</h4>
+<pre>boolean glueCatalogSkipNameValidation</pre>
+</li>
+<li class="blockList">
+<h4>glueLakeFormationEnabled</h4>
+<pre>boolean glueLakeFormationEnabled</pre>
+</li>
+<li class="blockList">
 <h4>isS3ChecksumEnabled</h4>
 <pre>boolean isS3ChecksumEnabled</pre>
 </li>
 <li class="blockList">
+<h4>isS3DeleteEnabled</h4>
+<pre>boolean isS3DeleteEnabled</pre>
+</li>
+<li class="blockList">
+<h4>s3BucketToAccessPointMapping</h4>
+<pre>java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt; s3BucketToAccessPointMapping</pre>
+</li>
+<li class="blockList">
+<h4>s3DeleteTags</h4>
+<pre>java.util.Set&lt;software.amazon.awssdk.services.s3.model.Tag&gt; s3DeleteTags</pre>
+</li>
+<li class="blockList">
 <h4>s3FileIoAcl</h4>
 <pre>software.amazon.awssdk.services.s3.model.ObjectCannedACL s3FileIoAcl</pre>
+</li>
+<li class="blockList">
+<h4>s3FileIoDeleteBatchSize</h4>
+<pre>int s3FileIoDeleteBatchSize</pre>
+</li>
+<li class="blockList">
+<h4>s3FileIoDeleteThreads</h4>
+<pre>int s3FileIoDeleteThreads</pre>
 </li>
 <li class="blockList">
 <h4>s3FileIoMultiPartSize</h4>
@@ -1607,9 +1860,48 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <h4>s3FileIoSseType</h4>
 <pre>java.lang.String s3FileIoSseType</pre>
 </li>
-<li class="blockListLast">
+<li class="blockList">
 <h4>s3fileIoStagingDirectory</h4>
 <pre>java.lang.String s3fileIoStagingDirectory</pre>
+</li>
+<li class="blockListLast">
+<h4>s3WriteTags</h4>
+<pre>java.util.Set&lt;software.amazon.awssdk.services.s3.model.Tag&gt; s3WriteTags</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section role="region">
+<h2 title="Package">Package&nbsp;org.apache.iceberg.aws.lakeformation</h2>
+<ul class="blockList">
+<li class="blockList"><a id="org.apache.iceberg.aws.lakeformation.LakeFormationAwsClientFactory">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/aws/lakeformation/LakeFormationAwsClientFactory.html" title="class in org.apache.iceberg.aws.lakeformation">org.apache.iceberg.aws.lakeformation.LakeFormationAwsClientFactory</a> extends <a href="org/apache/iceberg/aws/AssumeRoleAwsClientFactory.html" title="class in org.apache.iceberg.aws">AssumeRoleAwsClientFactory</a> implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>dbName</h4>
+<pre>java.lang.String dbName</pre>
+</li>
+<li class="blockList">
+<h4>glueAccountId</h4>
+<pre>java.lang.String glueAccountId</pre>
+</li>
+<li class="blockList">
+<h4>glueCatalogId</h4>
+<pre>java.lang.String glueCatalogId</pre>
+</li>
+<li class="blockListLast">
+<h4>tableName</h4>
+<pre>java.lang.String tableName</pre>
 </li>
 </ul>
 </li>
@@ -1631,20 +1923,98 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <h3>Serialized Fields</h3>
 <ul class="blockList">
 <li class="blockList">
-<h4>awsClientFactory</h4>
-<pre><a href="org/apache/iceberg/aws/AwsClientFactory.html" title="interface in org.apache.iceberg.aws">AwsClientFactory</a> awsClientFactory</pre>
-</li>
-<li class="blockList">
 <h4>awsProperties</h4>
 <pre><a href="org/apache/iceberg/aws/AwsProperties.html" title="class in org.apache.iceberg.aws">AwsProperties</a> awsProperties</pre>
+</li>
+<li class="blockList">
+<h4>credential</h4>
+<pre>java.lang.String credential</pre>
 </li>
 <li class="blockList">
 <h4>isResourceClosed</h4>
 <pre>java.util.concurrent.atomic.AtomicBoolean isResourceClosed</pre>
 </li>
+<li class="blockList">
+<h4>metrics</h4>
+<pre><a href="org/apache/iceberg/metrics/MetricsContext.html" title="interface in org.apache.iceberg.metrics">MetricsContext</a> metrics</pre>
+</li>
+<li class="blockList">
+<h4>properties</h4>
+<pre>java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt; properties</pre>
+</li>
 <li class="blockListLast">
 <h4>s3</h4>
 <pre><a href="org/apache/iceberg/util/SerializableSupplier.html" title="interface in org.apache.iceberg.util">SerializableSupplier</a>&lt;software.amazon.awssdk.services.s3.S3Client&gt; s3</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section role="region">
+<h2 title="Package">Package&nbsp;org.apache.iceberg.dell</h2>
+<ul class="blockList">
+<li class="blockList"><a id="org.apache.iceberg.dell.DellProperties">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/dell/DellProperties.html" title="class in org.apache.iceberg.dell">org.apache.iceberg.dell.DellProperties</a> extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>ecsS3AccessKeyId</h4>
+<pre>java.lang.String ecsS3AccessKeyId</pre>
+</li>
+<li class="blockList">
+<h4>ecsS3Endpoint</h4>
+<pre>java.lang.String ecsS3Endpoint</pre>
+</li>
+<li class="blockListLast">
+<h4>ecsS3SecretAccessKey</h4>
+<pre>java.lang.String ecsS3SecretAccessKey</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section role="region">
+<h2 title="Package">Package&nbsp;org.apache.iceberg.dell.ecs</h2>
+<ul class="blockList">
+<li class="blockList"><a id="org.apache.iceberg.dell.ecs.EcsFileIO">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/dell/ecs/EcsFileIO.html" title="class in org.apache.iceberg.dell.ecs">org.apache.iceberg.dell.ecs.EcsFileIO</a> extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>dellClientFactory</h4>
+<pre><a href="org/apache/iceberg/dell/DellClientFactory.html" title="interface in org.apache.iceberg.dell">DellClientFactory</a> dellClientFactory</pre>
+</li>
+<li class="blockList">
+<h4>dellProperties</h4>
+<pre><a href="org/apache/iceberg/dell/DellProperties.html" title="class in org.apache.iceberg.dell">DellProperties</a> dellProperties</pre>
+</li>
+<li class="blockList">
+<h4>isResourceClosed</h4>
+<pre>java.util.concurrent.atomic.AtomicBoolean isResourceClosed</pre>
+</li>
+<li class="blockList">
+<h4>metrics</h4>
+<pre><a href="org/apache/iceberg/metrics/MetricsContext.html" title="interface in org.apache.iceberg.metrics">MetricsContext</a> metrics</pre>
+</li>
+<li class="blockListLast">
+<h4>s3</h4>
+<pre><a href="org/apache/iceberg/util/SerializableSupplier.html" title="interface in org.apache.iceberg.util">SerializableSupplier</a>&lt;com.emc.object.s3.S3Client&gt; s3</pre>
 </li>
 </ul>
 </li>
@@ -1674,6 +2044,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </a>
 <h3>Class <a href="org/apache/iceberg/exceptions/AlreadyExistsException.html" title="class in org.apache.iceberg.exceptions">org.apache.iceberg.exceptions.AlreadyExistsException</a> extends java.lang.RuntimeException implements Serializable</h3>
 </li>
+<li class="blockList"><a id="org.apache.iceberg.exceptions.BadRequestException">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/exceptions/BadRequestException.html" title="class in org.apache.iceberg.exceptions">org.apache.iceberg.exceptions.BadRequestException</a> extends java.lang.RuntimeException implements Serializable</h3>
+</li>
 <li class="blockList"><a id="org.apache.iceberg.exceptions.CherrypickAncestorCommitException">
 <!--   -->
 </a>
@@ -1693,6 +2068,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!--   -->
 </a>
 <h3>Class <a href="org/apache/iceberg/exceptions/DuplicateWAPCommitException.html" title="class in org.apache.iceberg.exceptions">org.apache.iceberg.exceptions.DuplicateWAPCommitException</a> extends <a href="org/apache/iceberg/exceptions/ValidationException.html" title="class in org.apache.iceberg.exceptions">ValidationException</a> implements Serializable</h3>
+</li>
+<li class="blockList"><a id="org.apache.iceberg.exceptions.ForbiddenException">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/exceptions/ForbiddenException.html" title="class in org.apache.iceberg.exceptions">org.apache.iceberg.exceptions.ForbiddenException</a> extends java.lang.RuntimeException implements Serializable</h3>
 </li>
 <li class="blockList"><a id="org.apache.iceberg.exceptions.NamespaceNotEmptyException">
 <!--   -->
@@ -1714,15 +2094,35 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </a>
 <h3>Class <a href="org/apache/iceberg/exceptions/NoSuchTableException.html" title="class in org.apache.iceberg.exceptions">org.apache.iceberg.exceptions.NoSuchTableException</a> extends java.lang.RuntimeException implements Serializable</h3>
 </li>
+<li class="blockList"><a id="org.apache.iceberg.exceptions.NotAuthorizedException">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/exceptions/NotAuthorizedException.html" title="class in org.apache.iceberg.exceptions">org.apache.iceberg.exceptions.NotAuthorizedException</a> extends <a href="org/apache/iceberg/exceptions/RESTException.html" title="class in org.apache.iceberg.exceptions">RESTException</a> implements Serializable</h3>
+</li>
 <li class="blockList"><a id="org.apache.iceberg.exceptions.NotFoundException">
 <!--   -->
 </a>
 <h3>Class <a href="org/apache/iceberg/exceptions/NotFoundException.html" title="class in org.apache.iceberg.exceptions">org.apache.iceberg.exceptions.NotFoundException</a> extends java.lang.RuntimeException implements Serializable</h3>
 </li>
+<li class="blockList"><a id="org.apache.iceberg.exceptions.RESTException">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/exceptions/RESTException.html" title="class in org.apache.iceberg.exceptions">org.apache.iceberg.exceptions.RESTException</a> extends java.lang.RuntimeException implements Serializable</h3>
+</li>
 <li class="blockList"><a id="org.apache.iceberg.exceptions.RuntimeIOException">
 <!--   -->
 </a>
 <h3>Class <a href="org/apache/iceberg/exceptions/RuntimeIOException.html" title="class in org.apache.iceberg.exceptions">org.apache.iceberg.exceptions.RuntimeIOException</a> extends java.io.UncheckedIOException implements Serializable</h3>
+</li>
+<li class="blockList"><a id="org.apache.iceberg.exceptions.ServiceFailureException">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/exceptions/ServiceFailureException.html" title="class in org.apache.iceberg.exceptions">org.apache.iceberg.exceptions.ServiceFailureException</a> extends java.lang.RuntimeException implements Serializable</h3>
+</li>
+<li class="blockList"><a id="org.apache.iceberg.exceptions.UnprocessableEntityException">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/exceptions/UnprocessableEntityException.html" title="class in org.apache.iceberg.exceptions">org.apache.iceberg.exceptions.UnprocessableEntityException</a> extends <a href="org/apache/iceberg/exceptions/RESTException.html" title="class in org.apache.iceberg.exceptions">RESTException</a> implements Serializable</h3>
 </li>
 <li class="blockList"><a id="org.apache.iceberg.exceptions.ValidationException">
 <!--   -->
@@ -2028,6 +2428,22 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </li>
 </ul>
 </li>
+<li class="blockList"><a id="org.apache.iceberg.expressions.Zorder">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/expressions/Zorder.html" title="class in org.apache.iceberg.expressions">org.apache.iceberg.expressions.Zorder</a> extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>refs</h4>
+<pre><a href="org/apache/iceberg/expressions/NamedReference.html" title="class in org.apache.iceberg.expressions">NamedReference</a>&lt;?&gt;[] refs</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </section>
 </li>
@@ -2303,7 +2719,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>context</h4>
-<pre>org.apache.iceberg.flink.source.ScanContext context</pre>
+<pre><a href="org/apache/iceberg/flink/source/ScanContext.html" title="class in org.apache.iceberg.flink.source">ScanContext</a> context</pre>
 </li>
 <li class="blockList">
 <h4>encryption</h4>
@@ -2328,18 +2744,42 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList"><a id="org.apache.iceberg.flink.source.FlinkInputSplit">
 <!--   -->
 </a>
-<h3>Class <a href="org/apache/iceberg/flink/source/FlinkInputSplit.html" title="class in org.apache.iceberg.flink.source">org.apache.iceberg.flink.source.FlinkInputSplit</a> extends java.lang.Object implements Serializable</h3>
+<h3>Class <a href="org/apache/iceberg/flink/source/FlinkInputSplit.html" title="class in org.apache.iceberg.flink.source">org.apache.iceberg.flink.source.FlinkInputSplit</a> extends org.apache.flink.core.io.LocatableInputSplit implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>task</h4>
+<pre><a href="org/apache/iceberg/CombinedScanTask.html" title="interface in org.apache.iceberg">CombinedScanTask</a> task</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.iceberg.flink.source.IcebergSource">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/flink/source/IcebergSource.html" title="class in org.apache.iceberg.flink.source">org.apache.iceberg.flink.source.IcebergSource</a> extends java.lang.Object implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialized Fields</h3>
 <ul class="blockList">
 <li class="blockList">
-<h4>splitNumber</h4>
-<pre>int splitNumber</pre>
+<h4>assignerFactory</h4>
+<pre><a href="org/apache/iceberg/flink/source/assigner/SplitAssignerFactory.html" title="interface in org.apache.iceberg.flink.source.assigner">SplitAssignerFactory</a> assignerFactory</pre>
+</li>
+<li class="blockList">
+<h4>readerFunction</h4>
+<pre><a href="org/apache/iceberg/flink/source/reader/ReaderFunction.html" title="interface in org.apache.iceberg.flink.source.reader">ReaderFunction</a>&lt;<a href="org/apache/iceberg/flink/source/IcebergSource.html" title="type parameter in IcebergSource">T</a>&gt; readerFunction</pre>
+</li>
+<li class="blockList">
+<h4>scanContext</h4>
+<pre><a href="org/apache/iceberg/flink/source/ScanContext.html" title="class in org.apache.iceberg.flink.source">ScanContext</a> scanContext</pre>
 </li>
 <li class="blockListLast">
-<h4>task</h4>
-<pre><a href="org/apache/iceberg/CombinedScanTask.html" title="interface in org.apache.iceberg">CombinedScanTask</a> task</pre>
+<h4>tableLoader</h4>
+<pre><a href="org/apache/iceberg/flink/TableLoader.html" title="interface in org.apache.iceberg.flink">TableLoader</a> tableLoader</pre>
 </li>
 </ul>
 </li>
@@ -2425,6 +2865,102 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </li>
 </ul>
 </li>
+<li class="blockList"><a id="org.apache.iceberg.flink.source.ScanContext">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/flink/source/ScanContext.html" title="class in org.apache.iceberg.flink.source">org.apache.iceberg.flink.source.ScanContext</a> extends java.lang.Object implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>asOfTimestamp</h4>
+<pre>java.lang.Long asOfTimestamp</pre>
+</li>
+<li class="blockList">
+<h4>caseSensitive</h4>
+<pre>boolean caseSensitive</pre>
+</li>
+<li class="blockList">
+<h4>endSnapshotId</h4>
+<pre>java.lang.Long endSnapshotId</pre>
+</li>
+<li class="blockList">
+<h4>exposeLocality</h4>
+<pre>boolean exposeLocality</pre>
+</li>
+<li class="blockList">
+<h4>filters</h4>
+<pre>java.util.List&lt;<a href="org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&gt; filters</pre>
+</li>
+<li class="blockList">
+<h4>includeColumnStats</h4>
+<pre>boolean includeColumnStats</pre>
+</li>
+<li class="blockList">
+<h4>isStreaming</h4>
+<pre>boolean isStreaming</pre>
+</li>
+<li class="blockList">
+<h4>limit</h4>
+<pre>long limit</pre>
+</li>
+<li class="blockList">
+<h4>maxPlanningSnapshotCount</h4>
+<pre>int maxPlanningSnapshotCount</pre>
+</li>
+<li class="blockList">
+<h4>monitorInterval</h4>
+<pre>java.time.Duration monitorInterval</pre>
+</li>
+<li class="blockList">
+<h4>nameMapping</h4>
+<pre>java.lang.String nameMapping</pre>
+</li>
+<li class="blockList">
+<h4>planParallelism</h4>
+<pre>java.lang.Integer planParallelism</pre>
+</li>
+<li class="blockList">
+<h4>schema</h4>
+<pre><a href="org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a> schema</pre>
+</li>
+<li class="blockList">
+<h4>snapshotId</h4>
+<pre>java.lang.Long snapshotId</pre>
+</li>
+<li class="blockList">
+<h4>splitLookback</h4>
+<pre>java.lang.Integer splitLookback</pre>
+</li>
+<li class="blockList">
+<h4>splitOpenFileCost</h4>
+<pre>java.lang.Long splitOpenFileCost</pre>
+</li>
+<li class="blockList">
+<h4>splitSize</h4>
+<pre>java.lang.Long splitSize</pre>
+</li>
+<li class="blockList">
+<h4>startingStrategy</h4>
+<pre><a href="org/apache/iceberg/flink/source/StreamingStartingStrategy.html" title="enum in org.apache.iceberg.flink.source">StreamingStartingStrategy</a> startingStrategy</pre>
+</li>
+<li class="blockList">
+<h4>startSnapshotId</h4>
+<pre>java.lang.Long startSnapshotId</pre>
+</li>
+<li class="blockListLast">
+<h4>startSnapshotTimestamp</h4>
+<pre>java.lang.Long startSnapshotTimestamp</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="blockList"><a id="org.apache.iceberg.flink.source.StreamingMonitorFunction">
 <!--   -->
 </a>
@@ -2443,7 +2979,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </li>
 <li class="blockList">
 <h4>scanContext</h4>
-<pre>org.apache.iceberg.flink.source.ScanContext scanContext</pre>
+<pre><a href="org/apache/iceberg/flink/source/ScanContext.html" title="class in org.apache.iceberg.flink.source">ScanContext</a> scanContext</pre>
 </li>
 <li class="blockListLast">
 <h4>tableLoader</h4>
@@ -2468,6 +3004,136 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockListLast">
 <h4>format</h4>
 <pre><a href="org/apache/iceberg/flink/source/FlinkInputFormat.html" title="class in org.apache.iceberg.flink.source">FlinkInputFormat</a> format</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section role="region">
+<h2 title="Package">Package&nbsp;org.apache.iceberg.flink.source.assigner</h2>
+<ul class="blockList">
+<li class="blockList"><a id="org.apache.iceberg.flink.source.assigner.SimpleSplitAssignerFactory">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/flink/source/assigner/SimpleSplitAssignerFactory.html" title="class in org.apache.iceberg.flink.source.assigner">org.apache.iceberg.flink.source.assigner.SimpleSplitAssignerFactory</a> extends java.lang.Object implements Serializable</h3>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section role="region">
+<h2 title="Package">Package&nbsp;org.apache.iceberg.flink.source.enumerator</h2>
+<ul class="blockList">
+<li class="blockList"><a id="org.apache.iceberg.flink.source.enumerator.IcebergEnumeratorState">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/flink/source/enumerator/IcebergEnumeratorState.html" title="class in org.apache.iceberg.flink.source.enumerator">org.apache.iceberg.flink.source.enumerator.IcebergEnumeratorState</a> extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>lastEnumeratedPosition</h4>
+<pre>org.apache.iceberg.flink.source.enumerator.IcebergEnumeratorPosition lastEnumeratedPosition</pre>
+</li>
+<li class="blockListLast">
+<h4>pendingSplits</h4>
+<pre>java.util.Collection&lt;<a href="org/apache/iceberg/flink/source/split/IcebergSourceSplitState.html" title="class in org.apache.iceberg.flink.source.split">IcebergSourceSplitState</a>&gt; pendingSplits</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section role="region">
+<h2 title="Package">Package&nbsp;org.apache.iceberg.flink.source.reader</h2>
+<ul class="blockList">
+<li class="blockList"><a id="org.apache.iceberg.flink.source.reader.DataIteratorReaderFunction">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/flink/source/reader/DataIteratorReaderFunction.html" title="class in org.apache.iceberg.flink.source.reader">org.apache.iceberg.flink.source.reader.DataIteratorReaderFunction</a> extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>batcher</h4>
+<pre><a href="org/apache/iceberg/flink/source/reader/DataIteratorBatcher.html" title="interface in org.apache.iceberg.flink.source.reader">DataIteratorBatcher</a>&lt;<a href="org/apache/iceberg/flink/source/reader/DataIteratorReaderFunction.html" title="type parameter in DataIteratorReaderFunction">T</a>&gt; batcher</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.iceberg.flink.source.reader.ReaderMetricsContext">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/flink/source/reader/ReaderMetricsContext.html" title="class in org.apache.iceberg.flink.source.reader">org.apache.iceberg.flink.source.reader.ReaderMetricsContext</a> extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>assignedBytes</h4>
+<pre>java.util.concurrent.atomic.AtomicLong assignedBytes</pre>
+</li>
+<li class="blockList">
+<h4>assignedSplits</h4>
+<pre>java.util.concurrent.atomic.AtomicLong assignedSplits</pre>
+</li>
+<li class="blockList">
+<h4>finishedBytes</h4>
+<pre>java.util.concurrent.atomic.AtomicLong finishedBytes</pre>
+</li>
+<li class="blockList">
+<h4>finishedSplits</h4>
+<pre>java.util.concurrent.atomic.AtomicLong finishedSplits</pre>
+</li>
+<li class="blockListLast">
+<h4>splitReaderFetchCalls</h4>
+<pre>java.util.concurrent.atomic.AtomicLong splitReaderFetchCalls</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.iceberg.flink.source.reader.RowDataReaderFunction">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/flink/source/reader/RowDataReaderFunction.html" title="class in org.apache.iceberg.flink.source.reader">org.apache.iceberg.flink.source.reader.RowDataReaderFunction</a> extends <a href="org/apache/iceberg/flink/source/reader/DataIteratorReaderFunction.html" title="class in org.apache.iceberg.flink.source.reader">DataIteratorReaderFunction</a>&lt;org.apache.flink.table.data.RowData&gt; implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>caseSensitive</h4>
+<pre>boolean caseSensitive</pre>
+</li>
+<li class="blockList">
+<h4>encryption</h4>
+<pre><a href="org/apache/iceberg/encryption/EncryptionManager.html" title="interface in org.apache.iceberg.encryption">EncryptionManager</a> encryption</pre>
+</li>
+<li class="blockList">
+<h4>io</h4>
+<pre><a href="org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a> io</pre>
+</li>
+<li class="blockList">
+<h4>nameMapping</h4>
+<pre>java.lang.String nameMapping</pre>
+</li>
+<li class="blockList">
+<h4>readSchema</h4>
+<pre><a href="org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a> readSchema</pre>
+</li>
+<li class="blockListLast">
+<h4>tableSchema</h4>
+<pre><a href="org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a> tableSchema</pre>
 </li>
 </ul>
 </li>
@@ -2503,6 +3169,30 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockListLast">
 <h4>task</h4>
 <pre><a href="org/apache/iceberg/CombinedScanTask.html" title="interface in org.apache.iceberg">CombinedScanTask</a> task</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.iceberg.flink.source.split.SplitRequestEvent">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/flink/source/split/SplitRequestEvent.html" title="class in org.apache.iceberg.flink.source.split">org.apache.iceberg.flink.source.split.SplitRequestEvent</a> extends java.lang.Object implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>finishedSplitIds</h4>
+<pre>java.util.Collection&lt;java.lang.String&gt; finishedSplitIds</pre>
+</li>
+<li class="blockListLast">
+<h4>requesterHostname</h4>
+<pre>java.lang.String requesterHostname</pre>
 </li>
 </ul>
 </li>
@@ -2582,6 +3272,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <h4>isResourceClosed</h4>
 <pre>java.util.concurrent.atomic.AtomicBoolean isResourceClosed</pre>
 </li>
+<li class="blockList">
+<h4>metrics</h4>
+<pre><a href="org/apache/iceberg/metrics/MetricsContext.html" title="interface in org.apache.iceberg.metrics">MetricsContext</a> metrics</pre>
+</li>
+<li class="blockList">
+<h4>properties</h4>
+<pre>java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt; properties</pre>
+</li>
 <li class="blockListLast">
 <h4>storageSupplier</h4>
 <pre><a href="org/apache/iceberg/util/SerializableSupplier.html" title="interface in org.apache.iceberg.util">SerializableSupplier</a>&lt;com.google.cloud.storage.Storage&gt; storageSupplier</pre>
@@ -2612,6 +3310,27 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </ul>
 </li>
 </ul>
+</li>
+<li class="blockList"><a id="org.apache.iceberg.hadoop.HadoopMetricsContext">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/hadoop/HadoopMetricsContext.html" title="class in org.apache.iceberg.hadoop">org.apache.iceberg.hadoop.HadoopMetricsContext</a> extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>scheme</h4>
+<pre>java.lang.String scheme</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.iceberg.hadoop.HiddenPathFilter">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/hadoop/HiddenPathFilter.html" title="class in org.apache.iceberg.hadoop">org.apache.iceberg.hadoop.HiddenPathFilter</a> extends java.lang.Object implements Serializable</h3>
 </li>
 <li class="blockList"><a id="org.apache.iceberg.hadoop.SerializableConfiguration">
 <!--   -->
@@ -2664,6 +3383,22 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <section role="region">
 <h2 title="Package">Package&nbsp;org.apache.iceberg.io</h2>
 <ul class="blockList">
+<li class="blockList"><a id="org.apache.iceberg.io.BulkDeletionFailureException">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/io/BulkDeletionFailureException.html" title="class in org.apache.iceberg.io">org.apache.iceberg.io.BulkDeletionFailureException</a> extends java.lang.RuntimeException implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>numberFailedObjects</h4>
+<pre>int numberFailedObjects</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="blockList"><a id="org.apache.iceberg.io.ResolvingFileIO">
 <!--   -->
 </a>
@@ -2797,6 +3532,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </li>
 <li class="blockList">
 <section role="region">
+<h2 title="Package">Package&nbsp;org.apache.iceberg.metrics</h2>
+</section>
+</li>
+<li class="blockList">
+<section role="region">
 <h2 title="Package">Package&nbsp;org.apache.iceberg.spark</h2>
 <ul class="blockList">
 <li class="blockList"><a id="org.apache.iceberg.spark.SparkTableUtil.SparkPartition">
@@ -2830,10 +3570,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <section role="region">
 <h2 title="Package">Package&nbsp;org.apache.iceberg.spark.actions</h2>
 <ul class="blockList">
-<li class="blockList"><a id="org.apache.iceberg.spark.actions.Spark3BinPackStrategy">
+<li class="blockList"><a id="org.apache.iceberg.spark.actions.SparkBinPackStrategy">
 <!--   -->
 </a>
-<h3>Class <a href="org/apache/iceberg/spark/actions/Spark3BinPackStrategy.html" title="class in org.apache.iceberg.spark.actions">org.apache.iceberg.spark.actions.Spark3BinPackStrategy</a> extends <a href="org/apache/iceberg/actions/BinPackStrategy.html" title="class in org.apache.iceberg.actions">BinPackStrategy</a> implements Serializable</h3>
+<h3>Class <a href="org/apache/iceberg/spark/actions/SparkBinPackStrategy.html" title="class in org.apache.iceberg.spark.actions">org.apache.iceberg.spark.actions.SparkBinPackStrategy</a> extends <a href="org/apache/iceberg/actions/BinPackStrategy.html" title="class in org.apache.iceberg.actions">BinPackStrategy</a> implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialized Fields</h3>
@@ -2850,18 +3590,22 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <h4>spark</h4>
 <pre>org.apache.spark.sql.SparkSession spark</pre>
 </li>
-<li class="blockListLast">
+<li class="blockList">
 <h4>table</h4>
 <pre><a href="org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a> table</pre>
 </li>
-</ul>
+<li class="blockListLast">
+<h4>tableCache</h4>
+<pre><a href="org/apache/iceberg/spark/SparkTableCache.html" title="class in org.apache.iceberg.spark">SparkTableCache</a> tableCache</pre>
 </li>
 </ul>
 </li>
-<li class="blockList"><a id="org.apache.iceberg.spark.actions.Spark3SortStrategy">
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.iceberg.spark.actions.SparkSortStrategy">
 <!--   -->
 </a>
-<h3>Class <a href="org/apache/iceberg/spark/actions/Spark3SortStrategy.html" title="class in org.apache.iceberg.spark.actions">org.apache.iceberg.spark.actions.Spark3SortStrategy</a> extends <a href="org/apache/iceberg/actions/SortStrategy.html" title="class in org.apache.iceberg.actions">SortStrategy</a> implements Serializable</h3>
+<h3>Class <a href="org/apache/iceberg/spark/actions/SparkSortStrategy.html" title="class in org.apache.iceberg.spark.actions">org.apache.iceberg.spark.actions.SparkSortStrategy</a> extends <a href="org/apache/iceberg/actions/SortStrategy.html" title="class in org.apache.iceberg.actions">SortStrategy</a> implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialized Fields</h3>
@@ -2882,9 +3626,37 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <h4>spark</h4>
 <pre>org.apache.spark.sql.SparkSession spark</pre>
 </li>
-<li class="blockListLast">
+<li class="blockList">
 <h4>table</h4>
 <pre><a href="org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a> table</pre>
+</li>
+<li class="blockListLast">
+<h4>tableCache</h4>
+<pre><a href="org/apache/iceberg/spark/SparkTableCache.html" title="class in org.apache.iceberg.spark">SparkTableCache</a> tableCache</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.iceberg.spark.actions.SparkZOrderStrategy">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/spark/actions/SparkZOrderStrategy.html" title="class in org.apache.iceberg.spark.actions">org.apache.iceberg.spark.actions.SparkZOrderStrategy</a> extends <a href="org/apache/iceberg/spark/actions/SparkSortStrategy.html" title="class in org.apache.iceberg.spark.actions">SparkSortStrategy</a> implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>maxOutputSize</h4>
+<pre>int maxOutputSize</pre>
+</li>
+<li class="blockList">
+<h4>varLengthContribution</h4>
+<pre>int varLengthContribution</pre>
+</li>
+<li class="blockListLast">
+<h4>zOrderColNames</h4>
+<pre>java.util.List&lt;java.lang.String&gt; zOrderColNames</pre>
 </li>
 </ul>
 </li>
@@ -2924,6 +3696,16 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </ul>
 </li>
 </ul>
+</li>
+<li class="blockList"><a id="org.apache.iceberg.spark.source.SerializableTableWithSize">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/spark/source/SerializableTableWithSize.html" title="class in org.apache.iceberg.spark.source">org.apache.iceberg.spark.source.SerializableTableWithSize</a> extends <a href="org/apache/iceberg/SerializableTable.html" title="class in org.apache.iceberg">SerializableTable</a> implements Serializable</h3>
+</li>
+<li class="blockList"><a id="org.apache.iceberg.spark.source.SerializableTableWithSize.SerializableMetadataTableWithSize">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/spark/source/SerializableTableWithSize.SerializableMetadataTableWithSize.html" title="class in org.apache.iceberg.spark.source">org.apache.iceberg.spark.source.SerializableTableWithSize.SerializableMetadataTableWithSize</a> extends <a href="org/apache/iceberg/SerializableTable.SerializableMetadataTable.html" title="class in org.apache.iceberg">SerializableTable.SerializableMetadataTable</a> implements Serializable</h3>
 </li>
 <li class="blockList"><a id="org.apache.iceberg.spark.source.SparkPositionDeltaWrite.DeltaTaskCommit">
 <!--   -->
@@ -3328,7 +4110,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </li>
 <li class="blockList">
 <h4>referredTempFunctionNames</h4>
-<pre>scala.collection.Seq&lt;java.lang.String&gt; referredTempFunctionNames</pre>
+<pre>scala.collection.mutable.Set&lt;java.lang.String&gt; referredTempFunctionNames</pre>
 </li>
 <li class="blockList">
 <h4>referredTempViewNames</h4>
@@ -3376,10 +4158,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <h3>Serialized Fields</h3>
 <ul class="blockList">
 <li class="blockList">
-<h4>AsFunctionIdentifier$module</h4>
-<pre>org.apache.spark.sql.connector.catalog.LookupCatalog.AsFunctionIdentifier$ AsFunctionIdentifier$module</pre>
-</li>
-<li class="blockList">
 <h4>AsTableIdentifier$module</h4>
 <pre>org.apache.spark.sql.connector.catalog.LookupCatalog.AsTableIdentifier$ AsTableIdentifier$module</pre>
 </li>
@@ -3415,6 +4193,70 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!--   -->
 </a>
 <h3>Class org.apache.spark.sql.catalyst.analysis.Analyzer$ResolveNamespace$ extends scala.runtime.AbstractFunction1&lt;org.apache.spark.sql.connector.catalog.CatalogManager,&#8203;org.apache.spark.sql.catalyst.analysis.Analyzer.ResolveNamespace&gt; implements Serializable</h3>
+</li>
+<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.AsOfTimestamp">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.AsOfTimestamp extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>timestamp</h4>
+<pre>long timestamp</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.AsOfTimestamp$">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.AsOfTimestamp$ extends scala.runtime.AbstractFunction1&lt;java.lang.Object,&#8203;org.apache.spark.sql.catalyst.analysis.AsOfTimestamp&gt; implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>readResolve</h4>
+<pre class="methodSignature">private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.AsOfVersion">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.AsOfVersion extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>version</h4>
+<pre>java.lang.String version</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.AsOfVersion$">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.AsOfVersion$ extends scala.runtime.AbstractFunction1&lt;java.lang.String,&#8203;org.apache.spark.sql.catalyst.analysis.AsOfVersion&gt; implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>readResolve</h4>
+<pre class="methodSignature">private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
+</li>
+</ul>
+</li>
+</ul>
 </li>
 <li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.CannotReplaceMissingTableException">
 <!--   -->
@@ -3547,6 +4389,27 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </li>
 </ul>
 </li>
+<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.IndexAlreadyExistsException">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.IndexAlreadyExistsException extends org.apache.spark.sql.AnalysisException implements Serializable</h3>
+</li>
+<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.IndexAlreadyExistsException$">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.IndexAlreadyExistsException$ extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>readResolve</h4>
+<pre class="methodSignature">private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.MultiAlias">
 <!--   -->
 </a>
@@ -3600,10 +4463,46 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </a>
 <h3>Class org.apache.spark.sql.catalyst.analysis.NamespaceAlreadyExistsException extends org.apache.spark.sql.AnalysisException implements Serializable</h3>
 </li>
+<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.NonEmptyNamespaceException">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.NonEmptyNamespaceException extends org.apache.spark.sql.AnalysisException implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>cause</h4>
+<pre>scala.Option&lt;java.lang.Throwable&gt; cause</pre>
+</li>
+<li class="blockListLast">
+<h4>message</h4>
+<pre>java.lang.String message</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.NonEmptyNamespaceException$">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.NonEmptyNamespaceException$ extends scala.runtime.AbstractFunction2&lt;java.lang.String,&#8203;scala.Option&lt;java.lang.Throwable&gt;,&#8203;org.apache.spark.sql.catalyst.analysis.NonEmptyNamespaceException&gt; implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>readResolve</h4>
+<pre class="methodSignature">private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.NoSuchDatabaseException">
 <!--   -->
 </a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchDatabaseException extends org.apache.spark.sql.catalyst.analysis.NoSuchNamespaceException implements Serializable</h3>
+<h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchDatabaseException extends org.apache.spark.sql.AnalysisException implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialized Fields</h3>
@@ -3616,15 +4515,67 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </li>
 </ul>
 </li>
+<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.NoSuchDatabaseException$">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchDatabaseException$ extends scala.runtime.AbstractFunction1&lt;java.lang.String,&#8203;org.apache.spark.sql.catalyst.analysis.NoSuchDatabaseException&gt; implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>readResolve</h4>
+<pre class="methodSignature">private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.NoSuchFunctionException">
 <!--   -->
 </a>
 <h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchFunctionException extends org.apache.spark.sql.AnalysisException implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>cause</h4>
+<pre>scala.Option&lt;java.lang.Throwable&gt; cause</pre>
+</li>
+<li class="blockListLast">
+<h4>message</h4>
+<pre>java.lang.String message</pre>
+</li>
+</ul>
+</li>
+</ul>
 </li>
 <li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.NoSuchFunctionException$">
 <!--   -->
 </a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchFunctionException$ extends java.lang.Object implements Serializable</h3>
+<h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchFunctionException$ extends scala.runtime.AbstractFunction2&lt;java.lang.String,&#8203;scala.Option&lt;java.lang.Throwable&gt;,&#8203;org.apache.spark.sql.catalyst.analysis.NoSuchFunctionException&gt; implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>readResolve</h4>
+<pre class="methodSignature">private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.NoSuchIndexException">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchIndexException extends org.apache.spark.sql.AnalysisException implements Serializable</h3>
+</li>
+<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.NoSuchIndexException$">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchIndexException$ extends java.lang.Object implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialization Methods</h3>
@@ -3641,11 +4592,26 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!--   -->
 </a>
 <h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchNamespaceException extends org.apache.spark.sql.AnalysisException implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>cause</h4>
+<pre>scala.Option&lt;java.lang.Throwable&gt; cause</pre>
+</li>
+<li class="blockListLast">
+<h4>message</h4>
+<pre>java.lang.String message</pre>
+</li>
+</ul>
+</li>
+</ul>
 </li>
 <li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.NoSuchNamespaceException$">
 <!--   -->
 </a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchNamespaceException$ extends java.lang.Object implements Serializable</h3>
+<h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchNamespaceException$ extends scala.runtime.AbstractFunction2&lt;java.lang.String,&#8203;scala.Option&lt;java.lang.Throwable&gt;,&#8203;org.apache.spark.sql.catalyst.analysis.NoSuchNamespaceException&gt; implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialization Methods</h3>
@@ -3663,15 +4629,78 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </a>
 <h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchPartitionException extends org.apache.spark.sql.AnalysisException implements Serializable</h3>
 </li>
+<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.NoSuchPartitionException$">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchPartitionException$ extends scala.runtime.AbstractFunction1&lt;java.lang.String,&#8203;org.apache.spark.sql.catalyst.analysis.NoSuchPartitionException&gt; implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>readResolve</h4>
+<pre class="methodSignature">private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.NoSuchPartitionsException">
 <!--   -->
 </a>
 <h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchPartitionsException extends org.apache.spark.sql.AnalysisException implements Serializable</h3>
 </li>
+<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.NoSuchPartitionsException$">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchPartitionsException$ extends scala.runtime.AbstractFunction1&lt;java.lang.String,&#8203;org.apache.spark.sql.catalyst.analysis.NoSuchPartitionsException&gt; implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>readResolve</h4>
+<pre class="methodSignature">private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.NoSuchPermanentFunctionException">
 <!--   -->
 </a>
 <h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchPermanentFunctionException extends org.apache.spark.sql.AnalysisException implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>db</h4>
+<pre>java.lang.String db</pre>
+</li>
+<li class="blockListLast">
+<h4>func</h4>
+<pre>java.lang.String func</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.NoSuchPermanentFunctionException$">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchPermanentFunctionException$ extends scala.runtime.AbstractFunction2&lt;java.lang.String,&#8203;java.lang.String,&#8203;org.apache.spark.sql.catalyst.analysis.NoSuchPermanentFunctionException&gt; implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>readResolve</h4>
+<pre class="methodSignature">private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
+</li>
+</ul>
+</li>
+</ul>
 </li>
 <li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.NoSuchProcedureException">
 <!--   -->
@@ -3682,11 +4711,26 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!--   -->
 </a>
 <h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchTableException extends org.apache.spark.sql.AnalysisException implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>cause</h4>
+<pre>scala.Option&lt;java.lang.Throwable&gt; cause</pre>
+</li>
+<li class="blockListLast">
+<h4>message</h4>
+<pre>java.lang.String message</pre>
+</li>
+</ul>
+</li>
+</ul>
 </li>
 <li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.NoSuchTableException$">
 <!--   -->
 </a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchTableException$ extends java.lang.Object implements Serializable</h3>
+<h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchTableException$ extends scala.runtime.AbstractFunction2&lt;java.lang.String,&#8203;scala.Option&lt;java.lang.Throwable&gt;,&#8203;org.apache.spark.sql.catalyst.analysis.NoSuchTableException&gt; implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialization Methods</h3>
@@ -3703,6 +4747,33 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!--   -->
 </a>
 <h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchTempFunctionException extends org.apache.spark.sql.AnalysisException implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>func</h4>
+<pre>java.lang.String func</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.NoSuchTempFunctionException$">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchTempFunctionException$ extends scala.runtime.AbstractFunction1&lt;java.lang.String,&#8203;org.apache.spark.sql.catalyst.analysis.NoSuchTempFunctionException&gt; implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>readResolve</h4>
+<pre class="methodSignature">private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
+</li>
+</ul>
+</li>
+</ul>
 </li>
 <li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.PartitionAlreadyExistsException">
 <!--   -->
@@ -3738,6 +4809,94 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!--   -->
 </a>
 <h3>Class org.apache.spark.sql.catalyst.analysis.ReferenceEqualPlanWrapper$ extends scala.runtime.AbstractFunction1&lt;org.apache.spark.sql.catalyst.plans.logical.LogicalPlan,&#8203;org.apache.spark.sql.catalyst.analysis.ReferenceEqualPlanWrapper&gt; implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>readResolve</h4>
+<pre class="methodSignature">private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.RelationTimeTravel">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.RelationTimeTravel extends org.apache.spark.sql.catalyst.plans.logical.LogicalPlan implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>bitmap$0</h4>
+<pre>boolean bitmap$0</pre>
+</li>
+<li class="blockList">
+<h4>nodePatterns</h4>
+<pre>scala.collection.Seq&lt;scala.Enumeration.Value&gt; nodePatterns</pre>
+</li>
+<li class="blockList">
+<h4>relation</h4>
+<pre>org.apache.spark.sql.catalyst.plans.logical.LogicalPlan relation</pre>
+</li>
+<li class="blockList">
+<h4>resolved</h4>
+<pre>boolean resolved</pre>
+</li>
+<li class="blockList">
+<h4>timestamp</h4>
+<pre>scala.Option&lt;org.apache.spark.sql.catalyst.expressions.Expression&gt; timestamp</pre>
+</li>
+<li class="blockListLast">
+<h4>version</h4>
+<pre>scala.Option&lt;java.lang.String&gt; version</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.RelationTimeTravel$">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.RelationTimeTravel$ extends scala.runtime.AbstractFunction3&lt;org.apache.spark.sql.catalyst.plans.logical.LogicalPlan,&#8203;scala.Option&lt;org.apache.spark.sql.catalyst.expressions.Expression&gt;,&#8203;scala.Option&lt;java.lang.String&gt;,&#8203;org.apache.spark.sql.catalyst.analysis.RelationTimeTravel&gt; implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>readResolve</h4>
+<pre class="methodSignature">private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.ResolvedDBObjectName">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.ResolvedDBObjectName extends org.apache.spark.sql.catalyst.plans.logical.LogicalPlan implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>catalog</h4>
+<pre>org.apache.spark.sql.connector.catalog.CatalogPlugin catalog</pre>
+</li>
+<li class="blockListLast">
+<h4>nameParts</h4>
+<pre>scala.collection.Seq&lt;java.lang.String&gt; nameParts</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.ResolvedDBObjectName$">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.ResolvedDBObjectName$ extends scala.runtime.AbstractFunction2&lt;org.apache.spark.sql.connector.catalog.CatalogPlugin,&#8203;scala.collection.Seq&lt;java.lang.String&gt;,&#8203;org.apache.spark.sql.catalyst.analysis.ResolvedDBObjectName&gt; implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialization Methods</h3>
@@ -3818,38 +4977,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </li>
 </ul>
 </li>
-<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.ResolvedFunc">
-<!--   -->
-</a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.ResolvedFunc extends org.apache.spark.sql.catalyst.plans.logical.LogicalPlan implements Serializable</h3>
-<ul class="blockList">
-<li class="blockList">
-<h3>Serialized Fields</h3>
-<ul class="blockList">
-<li class="blockListLast">
-<h4>identifier</h4>
-<pre>org.apache.spark.sql.connector.catalog.Identifier identifier</pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.ResolvedFunc$">
-<!--   -->
-</a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.ResolvedFunc$ extends scala.runtime.AbstractFunction1&lt;org.apache.spark.sql.connector.catalog.Identifier,&#8203;org.apache.spark.sql.catalyst.analysis.ResolvedFunc&gt; implements Serializable</h3>
-<ul class="blockList">
-<li class="blockList">
-<h3>Serialization Methods</h3>
-<ul class="blockList">
-<li class="blockListLast">
-<h4>readResolve</h4>
-<pre class="methodSignature">private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.ResolvedNamespace">
 <!--   -->
 </a>
@@ -3874,6 +5001,42 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!--   -->
 </a>
 <h3>Class org.apache.spark.sql.catalyst.analysis.ResolvedNamespace$ extends scala.runtime.AbstractFunction2&lt;org.apache.spark.sql.connector.catalog.CatalogPlugin,&#8203;scala.collection.Seq&lt;java.lang.String&gt;,&#8203;org.apache.spark.sql.catalyst.analysis.ResolvedNamespace&gt; implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>readResolve</h4>
+<pre class="methodSignature">private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.ResolvedNonPersistentFunc">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.ResolvedNonPersistentFunc extends org.apache.spark.sql.catalyst.plans.logical.LogicalPlan implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>func</h4>
+<pre>org.apache.spark.sql.connector.catalog.functions.UnboundFunction func</pre>
+</li>
+<li class="blockListLast">
+<h4>name</h4>
+<pre>java.lang.String name</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.ResolvedNonPersistentFunc$">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.ResolvedNonPersistentFunc$ extends scala.runtime.AbstractFunction2&lt;java.lang.String,&#8203;org.apache.spark.sql.connector.catalog.functions.UnboundFunction,&#8203;org.apache.spark.sql.catalyst.analysis.ResolvedNonPersistentFunc&gt; implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialization Methods</h3>
@@ -3914,6 +5077,46 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!--   -->
 </a>
 <h3>Class org.apache.spark.sql.catalyst.analysis.ResolvedPartitionSpec$ extends scala.runtime.AbstractFunction3&lt;scala.collection.Seq&lt;java.lang.String&gt;,&#8203;org.apache.spark.sql.catalyst.InternalRow,&#8203;scala.Option&lt;java.lang.String&gt;,&#8203;org.apache.spark.sql.catalyst.analysis.ResolvedPartitionSpec&gt; implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>readResolve</h4>
+<pre class="methodSignature">private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.ResolvedPersistentFunc">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.ResolvedPersistentFunc extends org.apache.spark.sql.catalyst.plans.logical.LogicalPlan implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>catalog</h4>
+<pre>org.apache.spark.sql.connector.catalog.FunctionCatalog catalog</pre>
+</li>
+<li class="blockList">
+<h4>func</h4>
+<pre>org.apache.spark.sql.connector.catalog.functions.UnboundFunction func</pre>
+</li>
+<li class="blockListLast">
+<h4>identifier</h4>
+<pre>org.apache.spark.sql.connector.catalog.Identifier identifier</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.ResolvedPersistentFunc$">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.ResolvedPersistentFunc$ extends scala.runtime.AbstractFunction3&lt;org.apache.spark.sql.connector.catalog.FunctionCatalog,&#8203;org.apache.spark.sql.connector.catalog.Identifier,&#8203;org.apache.spark.sql.connector.catalog.functions.UnboundFunction,&#8203;org.apache.spark.sql.catalyst.analysis.ResolvedPersistentFunc&gt; implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialization Methods</h3>
@@ -4038,66 +5241,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </li>
 </ul>
 </li>
-<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.ResolveHigherOrderFunctions">
-<!--   -->
-</a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.ResolveHigherOrderFunctions extends org.apache.spark.sql.catalyst.rules.Rule&lt;org.apache.spark.sql.catalyst.plans.logical.LogicalPlan&gt; implements Serializable</h3>
-<ul class="blockList">
-<li class="blockList">
-<h3>Serialized Fields</h3>
-<ul class="blockList">
-<li class="blockList">
-<h4>AsFunctionIdentifier$module</h4>
-<pre>org.apache.spark.sql.connector.catalog.LookupCatalog.AsFunctionIdentifier$ AsFunctionIdentifier$module</pre>
-</li>
-<li class="blockList">
-<h4>AsTableIdentifier$module</h4>
-<pre>org.apache.spark.sql.connector.catalog.LookupCatalog.AsTableIdentifier$ AsTableIdentifier$module</pre>
-</li>
-<li class="blockList">
-<h4>CatalogAndIdentifier$module</h4>
-<pre>org.apache.spark.sql.connector.catalog.LookupCatalog.CatalogAndIdentifier$ CatalogAndIdentifier$module</pre>
-</li>
-<li class="blockList">
-<h4>CatalogAndMultipartIdentifier$module</h4>
-<pre>org.apache.spark.sql.connector.catalog.LookupCatalog.CatalogAndMultipartIdentifier$ CatalogAndMultipartIdentifier$module</pre>
-</li>
-<li class="blockList">
-<h4>CatalogAndNamespace$module</h4>
-<pre>org.apache.spark.sql.connector.catalog.LookupCatalog.CatalogAndNamespace$ CatalogAndNamespace$module</pre>
-</li>
-<li class="blockList">
-<h4>catalogManager</h4>
-<pre>org.apache.spark.sql.connector.catalog.CatalogManager catalogManager</pre>
-</li>
-<li class="blockList">
-<h4>NonSessionCatalogAndIdentifier$module</h4>
-<pre>org.apache.spark.sql.connector.catalog.LookupCatalog.NonSessionCatalogAndIdentifier$ NonSessionCatalogAndIdentifier$module</pre>
-</li>
-<li class="blockListLast">
-<h4>SessionCatalogAndIdentifier$module</h4>
-<pre>org.apache.spark.sql.connector.catalog.LookupCatalog.SessionCatalogAndIdentifier$ SessionCatalogAndIdentifier$module</pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.ResolveHigherOrderFunctions$">
-<!--   -->
-</a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.ResolveHigherOrderFunctions$ extends scala.runtime.AbstractFunction1&lt;org.apache.spark.sql.connector.catalog.CatalogManager,&#8203;org.apache.spark.sql.catalyst.analysis.ResolveHigherOrderFunctions&gt; implements Serializable</h3>
-<ul class="blockList">
-<li class="blockList">
-<h3>Serialization Methods</h3>
-<ul class="blockList">
-<li class="blockListLast">
-<h4>readResolve</h4>
-<pre class="methodSignature">private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.ResolveMergeIntoTableReferences">
 <!--   -->
 </a>
@@ -4146,10 +5289,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <h3>Serialized Fields</h3>
 <ul class="blockList">
-<li class="blockList">
-<h4>AsFunctionIdentifier$module</h4>
-<pre>org.apache.spark.sql.connector.catalog.LookupCatalog.AsFunctionIdentifier$ AsFunctionIdentifier$module</pre>
-</li>
 <li class="blockList">
 <h4>AsTableIdentifier$module</h4>
 <pre>org.apache.spark.sql.connector.catalog.LookupCatalog.AsTableIdentifier$ AsTableIdentifier$module</pre>
@@ -4272,16 +5411,16 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>boolean bitmap$0</pre>
 </li>
 <li class="blockList">
-<h4>canonicalized</h4>
-<pre>org.apache.spark.sql.catalyst.expressions.Expression canonicalized</pre>
-</li>
-<li class="blockList">
 <h4>child</h4>
 <pre>org.apache.spark.sql.catalyst.expressions.Expression child</pre>
 </li>
-<li class="blockListLast">
+<li class="blockList">
 <h4>nameParts</h4>
 <pre>scala.collection.Seq&lt;java.lang.String&gt; nameParts</pre>
+</li>
+<li class="blockListLast">
+<h4>preCanonicalized</h4>
+<pre>org.apache.spark.sql.catalyst.expressions.Expression preCanonicalized</pre>
 </li>
 </ul>
 </li>
@@ -4339,27 +5478,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </ul>
 </li>
 </ul>
-</li>
-<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.TypeCoercionBase.CombinedTypeCoercionRule">
-<!--   -->
-</a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.TypeCoercionBase.CombinedTypeCoercionRule extends org.apache.spark.sql.catalyst.rules.Rule&lt;org.apache.spark.sql.catalyst.plans.logical.LogicalPlan&gt; implements Serializable</h3>
-<ul class="blockList">
-<li class="blockList">
-<h3>Serialized Fields</h3>
-<ul class="blockList">
-<li class="blockListLast">
-<h4>rules</h4>
-<pre>scala.collection.Seq&lt;org.apache.spark.sql.catalyst.analysis.TypeCoercionRule&gt; rules</pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.TypeCoercionBase$CombinedTypeCoercionRule$">
-<!--   -->
-</a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.TypeCoercionBase$CombinedTypeCoercionRule$ extends scala.runtime.AbstractFunction1&lt;scala.collection.Seq&lt;org.apache.spark.sql.catalyst.analysis.TypeCoercionRule&gt;,&#8203;org.apache.spark.sql.catalyst.analysis.TypeCoercionBase.CombinedTypeCoercionRule&gt; implements Serializable</h3>
 </li>
 <li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.UnresolvedAlias">
 <!--   -->
@@ -4441,6 +5559,50 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!--   -->
 </a>
 <h3>Class org.apache.spark.sql.catalyst.analysis.UnresolvedAttribute$ extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>readResolve</h4>
+<pre class="methodSignature">private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.UnresolvedDBObjectName">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.UnresolvedDBObjectName extends org.apache.spark.sql.catalyst.plans.logical.LogicalPlan implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>bitmap$0</h4>
+<pre>boolean bitmap$0</pre>
+</li>
+<li class="blockList">
+<h4>isNamespace</h4>
+<pre>boolean isNamespace</pre>
+</li>
+<li class="blockList">
+<h4>nameParts</h4>
+<pre>scala.collection.Seq&lt;java.lang.String&gt; nameParts</pre>
+</li>
+<li class="blockListLast">
+<h4>resolved</h4>
+<pre>boolean resolved</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.UnresolvedDBObjectName$">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.UnresolvedDBObjectName$ extends scala.runtime.AbstractFunction2&lt;scala.collection.Seq&lt;java.lang.String&gt;,&#8203;java.lang.Object,&#8203;org.apache.spark.sql.catalyst.analysis.UnresolvedDBObjectName&gt; implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialization Methods</h3>
@@ -4643,12 +5805,28 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>boolean bitmap$0</pre>
 </li>
 <li class="blockList">
+<h4>commandName</h4>
+<pre>java.lang.String commandName</pre>
+</li>
+<li class="blockList">
+<h4>funcTypeMismatchHint</h4>
+<pre>scala.Option&lt;java.lang.String&gt; funcTypeMismatchHint</pre>
+</li>
+<li class="blockList">
 <h4>multipartIdentifier</h4>
 <pre>scala.collection.Seq&lt;java.lang.String&gt; multipartIdentifier</pre>
 </li>
 <li class="blockList">
 <h4>nodePatterns</h4>
 <pre>scala.collection.Seq&lt;scala.Enumeration.Value&gt; nodePatterns</pre>
+</li>
+<li class="blockList">
+<h4>possibleQualifiedName</h4>
+<pre>scala.Option&lt;scala.collection.Seq&lt;java.lang.String&gt;&gt; possibleQualifiedName</pre>
+</li>
+<li class="blockList">
+<h4>requirePersistent</h4>
+<pre>boolean requirePersistent</pre>
 </li>
 <li class="blockListLast">
 <h4>resolved</h4>
@@ -4661,7 +5839,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.UnresolvedFunc$">
 <!--   -->
 </a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.UnresolvedFunc$ extends scala.runtime.AbstractFunction1&lt;scala.collection.Seq&lt;java.lang.String&gt;,&#8203;org.apache.spark.sql.catalyst.analysis.UnresolvedFunc&gt; implements Serializable</h3>
+<h3>Class org.apache.spark.sql.catalyst.analysis.UnresolvedFunc$ extends scala.runtime.AbstractFunction5&lt;scala.collection.Seq&lt;java.lang.String&gt;,&#8203;java.lang.String,&#8203;java.lang.Object,&#8203;scala.Option&lt;java.lang.String&gt;,&#8203;scala.Option&lt;scala.collection.Seq&lt;java.lang.String&gt;&gt;,&#8203;org.apache.spark.sql.catalyst.analysis.UnresolvedFunc&gt; implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialization Methods</h3>
@@ -5343,54 +6521,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!--   -->
 </a>
 <h3>Class org.apache.spark.sql.catalyst.analysis.UnresolvedTableValuedFunction$ extends java.lang.Object implements Serializable</h3>
-<ul class="blockList">
-<li class="blockList">
-<h3>Serialization Methods</h3>
-<ul class="blockList">
-<li class="blockListLast">
-<h4>readResolve</h4>
-<pre class="methodSignature">private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.UnresolvedV2Relation">
-<!--   -->
-</a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.UnresolvedV2Relation extends org.apache.spark.sql.catalyst.plans.logical.LogicalPlan implements Serializable</h3>
-<ul class="blockList">
-<li class="blockList">
-<h3>Serialized Fields</h3>
-<ul class="blockList">
-<li class="blockList">
-<h4>bitmap$0</h4>
-<pre>boolean bitmap$0</pre>
-</li>
-<li class="blockList">
-<h4>catalog</h4>
-<pre>org.apache.spark.sql.connector.catalog.TableCatalog catalog</pre>
-</li>
-<li class="blockList">
-<h4>originalNameParts</h4>
-<pre>scala.collection.Seq&lt;java.lang.String&gt; originalNameParts</pre>
-</li>
-<li class="blockList">
-<h4>resolved</h4>
-<pre>boolean resolved</pre>
-</li>
-<li class="blockListLast">
-<h4>tableName</h4>
-<pre>org.apache.spark.sql.connector.catalog.Identifier tableName</pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="blockList"><a id="org.apache.spark.sql.catalyst.analysis.UnresolvedV2Relation$">
-<!--   -->
-</a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.UnresolvedV2Relation$ extends scala.runtime.AbstractFunction3&lt;scala.collection.Seq&lt;java.lang.String&gt;,&#8203;org.apache.spark.sql.connector.catalog.TableCatalog,&#8203;org.apache.spark.sql.connector.catalog.Identifier,&#8203;org.apache.spark.sql.catalyst.analysis.UnresolvedV2Relation&gt; implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialization Methods</h3>

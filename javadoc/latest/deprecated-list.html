@@ -99,6 +99,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li><a href="#exception">Exceptions</a></li>
 <li><a href="#field">Fields</a></li>
 <li><a href="#method">Methods</a></li>
+<li><a href="#constructor">Constructors</a></li>
 </ul>
 </div>
 <div class="contentContainer"><a id="class">
@@ -113,6 +114,18 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tbody>
+<tr class="altColor">
+<th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/aliyun/oss/OSSInputFile.html" title="class in org.apache.iceberg.aliyun.oss">org.apache.iceberg.aliyun.oss.OSSInputFile</a></th>
+<td class="colLast">
+<div class="deprecationComment">moving to package-private in 0.15.0; use OSSFileIO to create InputFile instances</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/aliyun/oss/OSSInputStream.html" title="class in org.apache.iceberg.aliyun.oss">org.apache.iceberg.aliyun.oss.OSSInputStream</a></th>
+<td class="colLast">
+<div class="deprecationComment">moving to package-private in 0.15.0</div>
+</td>
+</tr>
 <tr class="altColor">
 <th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/parquet/ParquetWriteAdapter.html" title="class in org.apache.iceberg.parquet">org.apache.iceberg.parquet.ParquetWriteAdapter</a></th>
 <td class="colLast">
@@ -160,13 +173,19 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </tr>
 <tbody>
 <tr class="altColor">
+<th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/aws/AwsProperties.html#CLIENT_ENABLE_ETAG_CHECK_DEFAULT">org.apache.iceberg.aws.AwsProperties.CLIENT_ENABLE_ETAG_CHECK_DEFAULT</a></th>
+<td class="colLast">
+<div class="deprecationComment">will be removed at 0.15.0, please use <a href="org/apache/iceberg/aws/AwsProperties.html#S3_CHECKSUM_ENABLED_DEFAULT"><code>AwsProperties.S3_CHECKSUM_ENABLED_DEFAULT</code></a> instead</div>
+</td>
+</tr>
+<tr class="rowColor">
 <th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/mr/InputFormatConfig.html#CATALOG">org.apache.iceberg.mr.InputFormatConfig.CATALOG</a></th>
 <td class="colLast">
 <div class="deprecationComment">please use <a href="org/apache/iceberg/mr/InputFormatConfig.html#catalogPropertyConfigKey(java.lang.String,java.lang.String)"><code>InputFormatConfig.catalogPropertyConfigKey(String, String)</code></a>
  with config key <a href="org/apache/iceberg/CatalogUtil.html#ICEBERG_CATALOG_TYPE"><code>CatalogUtil.ICEBERG_CATALOG_TYPE</code></a> to specify the type of a catalog.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/mr/InputFormatConfig.html#CATALOG_LOADER_CLASS">org.apache.iceberg.mr.InputFormatConfig.CATALOG_LOADER_CLASS</a></th>
 <td class="colLast">
 <div class="deprecationComment">please use <a href="org/apache/iceberg/mr/InputFormatConfig.html#catalogPropertyConfigKey(java.lang.String,java.lang.String)"><code>InputFormatConfig.catalogPropertyConfigKey(String, String)</code></a>
@@ -174,7 +193,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
  to specify the implementation of a catalog.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/mr/InputFormatConfig.html#HADOOP_CATALOG_WAREHOUSE_LOCATION">org.apache.iceberg.mr.InputFormatConfig.HADOOP_CATALOG_WAREHOUSE_LOCATION</a></th>
 <td class="colLast">
 <div class="deprecationComment">please use <a href="org/apache/iceberg/mr/InputFormatConfig.html#catalogPropertyConfigKey(java.lang.String,java.lang.String)"><code>InputFormatConfig.catalogPropertyConfigKey(String, String)</code></a>
@@ -182,28 +201,22 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
  to specify the warehouse location of a catalog.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/TableProperties.html#MERGE_CARDINALITY_CHECK_ENABLED">org.apache.iceberg.TableProperties.MERGE_CARDINALITY_CHECK_ENABLED</a></th>
 <td class="colLast">
 <div class="deprecationComment">will be removed in 0.14.0, the cardinality check is always performed starting from 0.13.0.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/TableProperties.html#MERGE_CARDINALITY_CHECK_ENABLED_DEFAULT">org.apache.iceberg.TableProperties.MERGE_CARDINALITY_CHECK_ENABLED_DEFAULT</a></th>
 <td class="colLast">
 <div class="deprecationComment">will be removed in 0.14.0, the cardinality check is always performed starting from 0.13.0.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/TableProperties.html#OBJECT_STORE_PATH">org.apache.iceberg.TableProperties.OBJECT_STORE_PATH</a></th>
 <td class="colLast">
 <div class="deprecationComment">Use <a href="org/apache/iceberg/TableProperties.html#WRITE_DATA_LOCATION"><code>TableProperties.WRITE_DATA_LOCATION</code></a> instead.</div>
-</td>
-</tr>
-<tr class="altColor">
-<th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/TableProperties.html#WRITE_DISTRIBUTION_MODE_DEFAULT">org.apache.iceberg.TableProperties.WRITE_DISTRIBUTION_MODE_DEFAULT</a></th>
-<td class="colLast">
-<div class="deprecationComment">will be removed in 0.14.0, use specific modes instead</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -213,18 +226,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </td>
 </tr>
 <tr class="altColor">
-<th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/TableProperties.html#WRITE_NEW_DATA_LOCATION">org.apache.iceberg.TableProperties.WRITE_NEW_DATA_LOCATION</a></th>
-<td class="colLast">
-<div class="deprecationComment">will be removed in 0.14.0, use <a href="org/apache/iceberg/TableProperties.html#WRITE_DATA_LOCATION"><code>TableProperties.WRITE_DATA_LOCATION</code></a> instead</div>
-</td>
-</tr>
-<tr class="rowColor">
 <th class="colDeprecatedItemName" scope="row"><a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsLexer.html#tokenNames">org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsLexer.tokenNames</a></th>
 <td class="colLast">
 <div class="deprecationComment">Use <a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsLexer.html#VOCABULARY"><code>IcebergSqlExtensionsLexer.VOCABULARY</code></a> instead.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <th class="colDeprecatedItemName" scope="row"><a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsParser.html#tokenNames">org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.tokenNames</a></th>
 <td class="colLast">
 <div class="deprecationComment">Use <a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsParser.html#VOCABULARY"><code>IcebergSqlExtensionsParser.VOCABULARY</code></a> instead.</div>
@@ -265,54 +272,77 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </td>
 </tr>
 <tr class="rowColor">
-<th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/flink/sink/FlinkSink.Builder.html#build()">org.apache.iceberg.flink.sink.FlinkSink.Builder.build()</a></th>
-<td class="colLast">
-<div class="deprecationComment">this will be removed in 0.14.0; use <a href="org/apache/iceberg/flink/sink/FlinkSink.Builder.html#append()"><code>FlinkSink.Builder.append()</code></a> because its returned <code>DataStreamSink</code>
- has a more correct data type.</div>
-</td>
-</tr>
-<tr class="altColor">
 <th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/io/DataWriter.html#add(T)">org.apache.iceberg.io.DataWriter.add&#8203;(T)</a></th>
 <td class="colLast">
 <div class="deprecationComment">since 0.13.0, will be removed in 0.14.0; use <a href="org/apache/iceberg/io/DataWriter.html#write(T)"><code>DataWriter.write(Object)</code></a> instead.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/MetricsConfig.html#fromProperties(java.util.Map)">org.apache.iceberg.MetricsConfig.fromProperties&#8203;(Map&lt;String, String&gt;)</a></th>
 <td class="colLast">
 <div class="deprecationComment">use <a href="org/apache/iceberg/MetricsConfig.html#forTable(org.apache.iceberg.Table)"><code>MetricsConfig.forTable(Table)</code></a></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/orc/ORC.WriteBuilder.html#config(java.lang.String,java.lang.String)">org.apache.iceberg.orc.ORC.WriteBuilder.config&#8203;(String, String)</a></th>
 <td class="colLast">
 <div class="deprecationComment">Please use #set(String, String) instead</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/OverwriteFiles.html#validateNoConflictingAppends(org.apache.iceberg.expressions.Expression)">org.apache.iceberg.OverwriteFiles.validateNoConflictingAppends&#8203;(Expression)</a></th>
 <td class="colLast">
 <div class="deprecationComment">since 0.13.0, will be removed in 0.14.0; use <a href="org/apache/iceberg/OverwriteFiles.html#conflictDetectionFilter(org.apache.iceberg.expressions.Expression)"><code>OverwriteFiles.conflictDetectionFilter(Expression)</code></a> and
              <a href="org/apache/iceberg/OverwriteFiles.html#validateNoConflictingData()"><code>OverwriteFiles.validateNoConflictingData()</code></a> instead.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/Rollback.html#toSnapshotAtTime(long)">org.apache.iceberg.Rollback.toSnapshotAtTime&#8203;(long)</a></th>
 <td class="colLast">
 <div class="deprecationComment">Replaced by <a href="org/apache/iceberg/ManageSnapshots.html#rollbackToTime(long)"><code>ManageSnapshots.rollbackToTime(long)</code></a></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/Rollback.html#toSnapshotId(long)">org.apache.iceberg.Rollback.toSnapshotId&#8203;(long)</a></th>
 <td class="colLast">
 <div class="deprecationComment">Replaced by <a href="org/apache/iceberg/ManageSnapshots.html#setCurrentSnapshot(long)"><code>ManageSnapshots.setCurrentSnapshot(long)</code></a></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/RowDelta.html#validateNoConflictingAppends(org.apache.iceberg.expressions.Expression)">org.apache.iceberg.RowDelta.validateNoConflictingAppends&#8203;(Expression)</a></th>
 <td class="colLast">
 <div class="deprecationComment">since 0.13.0, will be removed in 0.14.0; use <a href="org/apache/iceberg/RowDelta.html#conflictDetectionFilter(org.apache.iceberg.expressions.Expression)"><code>RowDelta.conflictDetectionFilter(Expression)</code></a> and
              <a href="org/apache/iceberg/RowDelta.html#validateNoConflictingDataFiles()"><code>RowDelta.validateNoConflictingDataFiles()</code></a> instead.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/Snapshot.html#addedFiles()">org.apache.iceberg.Snapshot.addedFiles()</a></th>
+<td class="colLast">
+<div class="deprecationComment">since 0.14.0, will be removed in 1.0.0; Use <a href="org/apache/iceberg/Snapshot.html#addedDataFiles(org.apache.iceberg.io.FileIO)"><code>Snapshot.addedDataFiles(FileIO)</code></a> instead.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/Snapshot.html#allManifests()">org.apache.iceberg.Snapshot.allManifests()</a></th>
+<td class="colLast">
+<div class="deprecationComment">since 0.14.0, will be removed in 1.0.0; Use <a href="org/apache/iceberg/Snapshot.html#allManifests(org.apache.iceberg.io.FileIO)"><code>Snapshot.allManifests(FileIO)</code></a> instead.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/Snapshot.html#dataManifests()">org.apache.iceberg.Snapshot.dataManifests()</a></th>
+<td class="colLast">
+<div class="deprecationComment">since 0.14.0, will be removed in 1.0.0; Use <a href="org/apache/iceberg/Snapshot.html#dataManifests(org.apache.iceberg.io.FileIO)"><code>Snapshot.dataManifests(FileIO)</code></a> instead.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/Snapshot.html#deletedFiles()">org.apache.iceberg.Snapshot.deletedFiles()</a></th>
+<td class="colLast">
+<div class="deprecationComment">since 0.14.0, will be removed in 1.0.0; Use <a href="org/apache/iceberg/Snapshot.html#removedDataFiles(org.apache.iceberg.io.FileIO)"><code>Snapshot.removedDataFiles(FileIO)</code></a> instead.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/Snapshot.html#deleteManifests()">org.apache.iceberg.Snapshot.deleteManifests()</a></th>
+<td class="colLast">
+<div class="deprecationComment">since 0.14.0, will be removed in 1.0.0; Use <a href="org/apache/iceberg/Snapshot.html#deleteManifests(org.apache.iceberg.io.FileIO)"><code>Snapshot.deleteManifests(FileIO)</code></a> instead.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -323,9 +353,22 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </td>
 </tr>
 <tr class="altColor">
+<th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/spark/SparkTableUtil.html#loadCatalogMetadataTable(org.apache.spark.sql.SparkSession,org.apache.iceberg.Table,org.apache.iceberg.MetadataTableType)">org.apache.iceberg.spark.SparkTableUtil.loadCatalogMetadataTable&#8203;(SparkSession, Table, MetadataTableType)</a></th>
+<td class="colLast">
+<div class="deprecationComment">since 0.14.0, will be removed in 0.15.0;
+             use <a href="org/apache/iceberg/spark/SparkTableUtil.html#loadMetadataTable(org.apache.spark.sql.SparkSession,org.apache.iceberg.Table,org.apache.iceberg.MetadataTableType)"><code>SparkTableUtil.loadMetadataTable(SparkSession, Table, MetadataTableType)</code></a>.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/Table.html#rollback()">org.apache.iceberg.Table.rollback()</a></th>
 <td class="colLast">
 <div class="deprecationComment">Replaced by <a href="org/apache/iceberg/Table.html#manageSnapshots()"><code>Table.manageSnapshots()</code></a></div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/TableMetadata.Builder.html#removeBranch(java.lang.String)">org.apache.iceberg.TableMetadata.Builder.removeBranch&#8203;(String)</a></th>
+<td class="colLast">
+<div class="deprecationComment">will be removed in 0.15.0. Use removeRef instead.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -335,6 +378,28 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <tr class="altColor">
 <th class="colDeprecatedItemName" scope="row"><a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsParser.html#getTokenNames()">org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.getTokenNames()</a></th>
 <td class="colLast"></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<a id="constructor">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<table class="deprecatedSummary">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<th class="colDeprecatedItemName" scope="row"><a href="org/apache/iceberg/aliyun/oss/OSSInputStream.html#%3Cinit%3E(com.aliyun.oss.OSS,org.apache.iceberg.aliyun.oss.OSSURI)">org.apache.iceberg.aliyun.oss.OSSInputStream&#8203;(OSS, OSSURI)</a></th>
+<td class="colLast">
+<div class="deprecationComment">moving to package-private in 0.15.0</div>
+</td>
 </tr>
 </tbody>
 </table>

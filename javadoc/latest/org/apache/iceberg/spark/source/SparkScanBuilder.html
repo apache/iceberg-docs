@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -131,12 +131,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code>org.apache.spark.sql.connector.read.ScanBuilder</code>, <code>org.apache.spark.sql.connector.read.SupportsPushDownFilters</code>, <code>org.apache.spark.sql.connector.read.SupportsPushDownRequiredColumns</code></dd>
+<dd><code>org.apache.spark.sql.connector.read.Scan</code>, <code>org.apache.spark.sql.connector.read.ScanBuilder</code>, <code>org.apache.spark.sql.connector.read.SupportsPushDownFilters</code>, <code>org.apache.spark.sql.connector.read.SupportsPushDownRequiredColumns</code>, <code>org.apache.spark.sql.connector.read.SupportsReportStatistics</code></dd>
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">SparkScanBuilder</span>
 extends java.lang.Object
-implements org.apache.spark.sql.connector.read.ScanBuilder, org.apache.spark.sql.connector.read.SupportsPushDownFilters, org.apache.spark.sql.connector.read.SupportsPushDownRequiredColumns</pre>
+implements org.apache.spark.sql.connector.read.ScanBuilder, org.apache.spark.sql.connector.read.SupportsPushDownFilters, org.apache.spark.sql.connector.read.SupportsPushDownRequiredColumns, org.apache.spark.sql.connector.read.SupportsReportStatistics</pre>
 </li>
 </ul>
 </div>
@@ -178,23 +178,28 @@ implements org.apache.spark.sql.connector.read.ScanBuilder, org.apache.spark.sql
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code>org.apache.spark.sql.connector.read.Statistics</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#estimateStatistics()">estimateStatistics</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#pruneColumns(org.apache.spark.sql.types.StructType)">pruneColumns</a></span>&#8203;(org.apache.spark.sql.types.StructType&nbsp;requestedSchema)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>org.apache.spark.sql.sources.Filter[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#pushedFilters()">pushedFilters</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>org.apache.spark.sql.sources.Filter[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#pushFilters(org.apache.spark.sql.sources.Filter%5B%5D)">pushFilters</a></span>&#8203;(org.apache.spark.sql.sources.Filter[]&nbsp;filters)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
-<td class="colFirst"><code><a href="SparkScanBuilder.html" title="class in org.apache.iceberg.spark.source">SparkScanBuilder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#withMetadataColumns(java.lang.String...)">withMetadataColumns</a></span>&#8203;(java.lang.String...&nbsp;metadataColumns)</code></th>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>org.apache.spark.sql.types.StructType</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readSchema()">readSchema</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -204,6 +209,13 @@ implements org.apache.spark.sql.connector.read.ScanBuilder, org.apache.spark.sql
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
 <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a id="methods.inherited.from.class.org.apache.spark.sql.connector.read.Scan">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;org.apache.spark.sql.connector.read.Scan</h3>
+<code>description, supportedCustomMetrics, toBatch, toContinuousStream, toMicroBatchStream</code></li>
 </ul>
 </li>
 </ul>
@@ -221,15 +233,6 @@ implements org.apache.spark.sql.connector.read.ScanBuilder, org.apache.spark.sql
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="withMetadataColumns(java.lang.String...)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>withMetadataColumns</h4>
-<pre class="methodSignature">public&nbsp;<a href="SparkScanBuilder.html" title="class in org.apache.iceberg.spark.source">SparkScanBuilder</a>&nbsp;withMetadataColumns&#8203;(java.lang.String...&nbsp;metadataColumns)</pre>
-</li>
-</ul>
 <a id="caseSensitive(boolean)">
 <!--   -->
 </a>
@@ -303,10 +306,36 @@ implements org.apache.spark.sql.connector.read.ScanBuilder, org.apache.spark.sql
 <a id="buildCopyOnWriteScan()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>buildCopyOnWriteScan</h4>
 <pre class="methodSignature">public&nbsp;org.apache.spark.sql.connector.read.Scan&nbsp;buildCopyOnWriteScan()</pre>
+</li>
+</ul>
+<a id="estimateStatistics()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>estimateStatistics</h4>
+<pre class="methodSignature">public&nbsp;org.apache.spark.sql.connector.read.Statistics&nbsp;estimateStatistics()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>estimateStatistics</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.read.SupportsReportStatistics</code></dd>
+</dl>
+</li>
+</ul>
+<a id="readSchema()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>readSchema</h4>
+<pre class="methodSignature">public&nbsp;org.apache.spark.sql.types.StructType&nbsp;readSchema()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>readSchema</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.read.Scan</code></dd>
+</dl>
 </li>
 </ul>
 </li>

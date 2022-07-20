@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":18,"i1":6,"i2":6,"i3":6};
+var data = {"i0":18,"i1":6,"i2":6,"i3":6,"i4":18};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -194,6 +194,15 @@ extends java.io.Closeable</pre>
 <div class="block">Returns a result that contains information about written <a href="../DataFile.html" title="interface in org.apache.iceberg"><code>DataFile</code></a>s or <a href="../DeleteFile.html" title="interface in org.apache.iceberg"><code>DeleteFile</code></a>s.</div>
 </td>
 </tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>default void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#update(T,org.apache.iceberg.PartitionSpec,org.apache.iceberg.StructLike)">update</a></span>&#8203;(<a href="PositionDeltaWriter.html" title="type parameter in PositionDeltaWriter">T</a>&nbsp;row,
+      <a href="../PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec,
+      <a href="../StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&nbsp;partition)</code></th>
+<td class="colLast">
+<div class="block">Inserts a new version of an existing row to the provided spec/partition.</div>
+</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.java.io.Closeable">
@@ -235,6 +244,30 @@ extends java.io.Closeable</pre>
 <dd><code>row</code> - a data record</dd>
 <dd><code>spec</code> - a partition spec</dd>
 <dd><code>partition</code> - a partition or null if the spec is unpartitioned</dd>
+</dl>
+</li>
+</ul>
+<a id="update(java.lang.Object,org.apache.iceberg.PartitionSpec,org.apache.iceberg.StructLike)">
+<!--   -->
+</a><a id="update(T,org.apache.iceberg.PartitionSpec,org.apache.iceberg.StructLike)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>update</h4>
+<pre class="methodSignature">default&nbsp;void&nbsp;update&#8203;(<a href="PositionDeltaWriter.html" title="type parameter in PositionDeltaWriter">T</a>&nbsp;row,
+                    <a href="../PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec,
+                    <a href="../StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&nbsp;partition)</pre>
+<div class="block">Inserts a new version of an existing row to the provided spec/partition.
+ <p>
+ This method allows writers to distinguish new and updated records. The caller must separately
+ invoke <a href="#delete(java.lang.CharSequence,long,org.apache.iceberg.PartitionSpec,org.apache.iceberg.StructLike)"><code>delete(CharSequence, long, PartitionSpec, StructLike)</code></a> for the original
+ row position that is being updated.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>row</code> - a new version of an existing row</dd>
+<dd><code>spec</code> - a new partition spec</dd>
+<dd><code>partition</code> - a new partition or null if the spec is unpartitioned</dd>
 </dl>
 </li>
 </ul>

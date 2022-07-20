@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9,"i1":9};
+var data = {"i0":9,"i1":9,"i2":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -170,6 +170,13 @@ extends java.lang.Object</pre>
                boolean&nbsp;caseSensitive)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>static boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isBound(org.apache.iceberg.expressions.Expression)">isBound</a></span>&#8203;(<a href="Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr)</code></th>
+<td class="colLast">
+<div class="block">Returns whether an expression is bound.</div>
+</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
@@ -230,12 +237,32 @@ extends java.lang.Object</pre>
 <a id="boundReferences(org.apache.iceberg.types.Types.StructType,java.util.List,boolean)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>boundReferences</h4>
 <pre class="methodSignature">public static&nbsp;java.util.Set&lt;java.lang.Integer&gt;&nbsp;boundReferences&#8203;(<a href="../types/Types.StructType.html" title="class in org.apache.iceberg.types">Types.StructType</a>&nbsp;struct,
                                                                java.util.List&lt;<a href="Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&gt;&nbsp;exprs,
                                                                boolean&nbsp;caseSensitive)</pre>
+</li>
+</ul>
+<a id="isBound(org.apache.iceberg.expressions.Expression)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>isBound</h4>
+<pre class="methodSignature">public static&nbsp;boolean&nbsp;isBound&#8203;(<a href="Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr)</pre>
+<div class="block">Returns whether an expression is bound.
+ <p>
+ An expression is bound if all of its predicates are bound.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>expr</code> - an <a href="Expression.html" title="interface in org.apache.iceberg.expressions"><code>Expression</code></a></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the expression is bound</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.IllegalArgumentException</code> - if the expression has both bound and unbound predicates.</dd>
+</dl>
 </li>
 </ul>
 </li>

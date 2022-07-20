@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9,"i1":9};
+var data = {"i0":9,"i1":9,"i2":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -163,6 +163,12 @@ extends java.lang.Object</pre>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toJson(org.apache.iceberg.Snapshot)">toJson</a></span>&#8203;(<a href="Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;snapshot)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toJson(org.apache.iceberg.Snapshot,boolean)">toJson</a></span>&#8203;(<a href="Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;snapshot,
+      boolean&nbsp;pretty)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
@@ -194,6 +200,16 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>toJson</h4>
 <pre class="methodSignature">public static&nbsp;java.lang.String&nbsp;toJson&#8203;(<a href="Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;snapshot)</pre>
+</li>
+</ul>
+<a id="toJson(org.apache.iceberg.Snapshot,boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>toJson</h4>
+<pre class="methodSignature">public static&nbsp;java.lang.String&nbsp;toJson&#8203;(<a href="Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;snapshot,
+                                      boolean&nbsp;pretty)</pre>
 </li>
 </ul>
 <a id="fromJson(org.apache.iceberg.io.FileIO,java.lang.String)">

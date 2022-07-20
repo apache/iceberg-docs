@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -315,6 +315,11 @@ implements <a href="../catalog/SupportsNamespaces.html" title="interface in org.
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i12" class="altColor">
+<td class="colFirst"><code>protected java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#properties()">properties</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="../Table.html" title="interface in org.apache.iceberg">Table</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#registerTable(org.apache.iceberg.catalog.TableIdentifier,java.lang.String)">registerTable</a></span>&#8203;(<a href="../catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;identifier,
              java.lang.String&nbsp;metadataFileLocation)</code></th>
@@ -322,7 +327,7 @@ implements <a href="../catalog/SupportsNamespaces.html" title="interface in org.
 <div class="block">Register a table with the catalog if it does not exist.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeProperties(org.apache.iceberg.catalog.Namespace,java.util.Set)">removeProperties</a></span>&#8203;(<a href="../catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace,
                 java.util.Set&lt;java.lang.String&gt;&nbsp;properties)</code></th>
@@ -330,7 +335,7 @@ implements <a href="../catalog/SupportsNamespaces.html" title="interface in org.
 <div class="block">Remove a set of property keys from a namespace in the catalog.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#renameTable(org.apache.iceberg.catalog.TableIdentifier,org.apache.iceberg.catalog.TableIdentifier)">renameTable</a></span>&#8203;(<a href="../catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;from,
            <a href="../catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;originalTo)</code></th>
@@ -338,12 +343,12 @@ implements <a href="../catalog/SupportsNamespaces.html" title="interface in org.
 <div class="block">Rename a table.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setConf(org.apache.hadoop.conf.Configuration)">setConf</a></span>&#8203;(org.apache.hadoop.conf.Configuration&nbsp;conf)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setProperties(org.apache.iceberg.catalog.Namespace,java.util.Map)">setProperties</a></span>&#8203;(<a href="../catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace,
              java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;properties)</code></th>
@@ -351,7 +356,7 @@ implements <a href="../catalog/SupportsNamespaces.html" title="interface in org.
 <div class="block">Set a collection of properties on a namespace in the catalog.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
@@ -765,13 +770,26 @@ implements <a href="../catalog/SupportsNamespaces.html" title="interface in org.
 <a id="getConf()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getConf</h4>
 <pre class="methodSignature">public&nbsp;org.apache.hadoop.conf.Configuration&nbsp;getConf()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>getConf</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.conf.Configurable</code></dd>
+</dl>
+</li>
+</ul>
+<a id="properties()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>properties</h4>
+<pre class="methodSignature">protected&nbsp;java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;properties()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../BaseMetastoreCatalog.html#properties()">properties</a></code>&nbsp;in class&nbsp;<code><a href="../BaseMetastoreCatalog.html" title="class in org.apache.iceberg">BaseMetastoreCatalog</a></code></dd>
 </dl>
 </li>
 </ul>

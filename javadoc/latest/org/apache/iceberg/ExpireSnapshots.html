@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6};
+var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -198,6 +198,13 @@ extends <a href="PendingUpdate.html" title="interface in org.apache.iceberg">Pen
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="ExpireSnapshots.html" title="interface in org.apache.iceberg">ExpireSnapshots</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#planWith(java.util.concurrent.ExecutorService)">planWith</a></span>&#8203;(java.util.concurrent.ExecutorService&nbsp;executorService)</code></th>
+<td class="colLast">
+<div class="block">Passes an alternative executor service that will be used for planning.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code><a href="ExpireSnapshots.html" title="interface in org.apache.iceberg">ExpireSnapshots</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#retainLast(int)">retainLast</a></span>&#8203;(int&nbsp;numSnapshots)</code></th>
 <td class="colLast">
 <div class="block">Retains the most recent ancestors of the current snapshot.</div>
@@ -320,6 +327,23 @@ extends <a href="PendingUpdate.html" title="interface in org.apache.iceberg">Pen
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>executorService</code> - an executor service to parallelize tasks to delete manifests and data files</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a id="planWith(java.util.concurrent.ExecutorService)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>planWith</h4>
+<pre class="methodSignature"><a href="ExpireSnapshots.html" title="interface in org.apache.iceberg">ExpireSnapshots</a>&nbsp;planWith&#8203;(java.util.concurrent.ExecutorService&nbsp;executorService)</pre>
+<div class="block">Passes an alternative executor service that will be used for planning.
+ If this method is not called, the default worker pool will be used.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>executorService</code> - an executor service to plan</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>
 </dl>

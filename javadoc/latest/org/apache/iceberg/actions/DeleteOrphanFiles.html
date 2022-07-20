@@ -127,14 +127,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><code><a href="../spark/actions/BaseDeleteOrphanFilesSparkAction.html" title="class in org.apache.iceberg.spark.actions">BaseDeleteOrphanFilesSparkAction</a></code></dd>
+<dd><code><a href="../spark/actions/DeleteOrphanFilesSparkAction.html" title="class in org.apache.iceberg.spark.actions">DeleteOrphanFilesSparkAction</a></code></dd>
 </dl>
 <hr>
 <pre>public interface <span class="typeNameLabel">DeleteOrphanFiles</span>
 extends <a href="Action.html" title="interface in org.apache.iceberg.actions">Action</a>&lt;<a href="DeleteOrphanFiles.html" title="interface in org.apache.iceberg.actions">DeleteOrphanFiles</a>,&#8203;<a href="DeleteOrphanFiles.Result.html" title="interface in org.apache.iceberg.actions">DeleteOrphanFiles.Result</a>&gt;</pre>
-<div class="block">An action that deletes orphan files in a table.
+<div class="block">An action that deletes orphan metadata, data and delete files in a table.
  <p>
- A metadata or data file is considered orphan if it is not reachable by any valid snapshot.
+ A file is considered orphan if it is not reachable by any valid snapshot.
  The set of actual files is built by listing the underlying storage which makes this operation
  expensive.</div>
 </li>

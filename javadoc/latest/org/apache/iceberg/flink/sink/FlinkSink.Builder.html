@@ -26,8 +26,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":42,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -150,7 +150,7 @@ extends java.lang.Object</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
@@ -164,28 +164,23 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>org.apache.flink.streaming.api.datastream.DataStreamSink&lt;org.apache.flink.table.data.RowData&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#build()">build</a></span>()</code></th>
-<td class="colLast">
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>
-<div class="deprecationComment">this will be removed in 0.14.0; use <a href="#append()"><code>append()</code></a> because its returned <code>DataStreamSink</code>
- has a more correct data type.</div>
-</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#distributionMode(org.apache.iceberg.DistributionMode)">distributionMode</a></span>&#8203;(<a href="../../DistributionMode.html" title="enum in org.apache.iceberg">DistributionMode</a>&nbsp;mode)</code></th>
 <td class="colLast">
 <div class="block">Configure the write <a href="../../DistributionMode.html" title="enum in org.apache.iceberg"><code>DistributionMode</code></a> that the flink sink will use.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#equalityFieldColumns(java.util.List)">equalityFieldColumns</a></span>&#8203;(java.util.List&lt;java.lang.String&gt;&nbsp;columns)</code></th>
 <td class="colLast">
 <div class="block">Configuring the equality field columns for iceberg table that accept CDC or UPSERT events.</div>
 </td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code><a href="FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#flinkConf(org.apache.flink.configuration.ReadableConfig)">flinkConf</a></span>&#8203;(org.apache.flink.configuration.ReadableConfig&nbsp;config)</code></th>
+<td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
@@ -194,13 +189,39 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#set(java.lang.String,java.lang.String)">set</a></span>&#8203;(java.lang.String&nbsp;property,
+   java.lang.String&nbsp;value)</code></th>
+<td class="colLast">
+<div class="block">Set the write properties for Flink sink.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code><a href="FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setAll(java.util.Map)">setAll</a></span>&#8203;(java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;properties)</code></th>
+<td class="colLast">
+<div class="block">Set the write properties for Flink sink.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code><a href="FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSnapshotProperties(java.util.Map)">setSnapshotProperties</a></span>&#8203;(java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;properties)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code><a href="FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSnapshotProperty(java.lang.String,java.lang.String)">setSnapshotProperty</a></span>&#8203;(java.lang.String&nbsp;property,
+                   java.lang.String&nbsp;value)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code><a href="FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#table(org.apache.iceberg.Table)">table</a></span>&#8203;(<a href="../../Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;newTable)</code></th>
 <td class="colLast">
 <div class="block">This iceberg <a href="../../Table.html" title="interface in org.apache.iceberg"><code>Table</code></a> instance is used for initializing <code>IcebergStreamWriter</code> which will write all
  the records into <a href="../../DataFile.html" title="interface in org.apache.iceberg"><code>DataFile</code></a>s and emit them to downstream operator.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#tableLoader(org.apache.iceberg.flink.TableLoader)">tableLoader</a></span>&#8203;(<a href="../TableLoader.html" title="interface in org.apache.iceberg.flink">TableLoader</a>&nbsp;newTableLoader)</code></th>
 <td class="colLast">
@@ -209,19 +230,19 @@ extends java.lang.Object</pre>
  manager.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#tableSchema(org.apache.flink.table.api.TableSchema)">tableSchema</a></span>&#8203;(org.apache.flink.table.api.TableSchema&nbsp;newTableSchema)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#uidPrefix(java.lang.String)">uidPrefix</a></span>&#8203;(java.lang.String&nbsp;newPrefix)</code></th>
 <td class="colLast">
 <div class="block">Set the uid prefix for FlinkSink operators.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#upsert(boolean)">upsert</a></span>&#8203;(boolean&nbsp;enabled)</code></th>
 <td class="colLast">
@@ -229,7 +250,7 @@ extends java.lang.Object</pre>
  DELETE the old records and then INSERT the new records.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeParallelism(int)">writeParallelism</a></span>&#8203;(int&nbsp;newWriteParallelism)</code></th>
 <td class="colLast">
@@ -296,6 +317,29 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
+<a id="set(java.lang.String,java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>set</h4>
+<pre class="methodSignature">public&nbsp;<a href="FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a>&nbsp;set&#8203;(java.lang.String&nbsp;property,
+                             java.lang.String&nbsp;value)</pre>
+<div class="block">Set the write properties for Flink sink.
+ View the supported properties in <a href="../FlinkWriteOptions.html" title="class in org.apache.iceberg.flink"><code>FlinkWriteOptions</code></a></div>
+</li>
+</ul>
+<a id="setAll(java.util.Map)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setAll</h4>
+<pre class="methodSignature">public&nbsp;<a href="FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a>&nbsp;setAll&#8203;(java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;properties)</pre>
+<div class="block">Set the write properties for Flink sink.
+ View the supported properties in <a href="../FlinkWriteOptions.html" title="class in org.apache.iceberg.flink"><code>FlinkWriteOptions</code></a></div>
+</li>
+</ul>
 <a id="tableSchema(org.apache.flink.table.api.TableSchema)">
 <!--   -->
 </a>
@@ -312,6 +356,15 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>overwrite</h4>
 <pre class="methodSignature">public&nbsp;<a href="FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a>&nbsp;overwrite&#8203;(boolean&nbsp;newOverwrite)</pre>
+</li>
+</ul>
+<a id="flinkConf(org.apache.flink.configuration.ReadableConfig)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>flinkConf</h4>
+<pre class="methodSignature">public&nbsp;<a href="FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a>&nbsp;flinkConf&#8203;(org.apache.flink.configuration.ReadableConfig&nbsp;config)</pre>
 </li>
 </ul>
 <a id="distributionMode(org.apache.iceberg.DistributionMode)">
@@ -413,23 +466,23 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="build()">
+<a id="setSnapshotProperties(java.util.Map)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>build</h4>
-<pre class="methodSignature">@Deprecated
-public&nbsp;org.apache.flink.streaming.api.datastream.DataStreamSink&lt;org.apache.flink.table.data.RowData&gt;&nbsp;build()</pre>
-<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span>
-<div class="deprecationComment">this will be removed in 0.14.0; use <a href="#append()"><code>append()</code></a> because its returned <code>DataStreamSink</code>
- has a more correct data type.</div>
-</div>
-<div class="block">Append the iceberg sink operators to write records to iceberg table.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd><code>DataStreamSink</code> for sink.</dd>
-</dl>
+<h4>setSnapshotProperties</h4>
+<pre class="methodSignature">public&nbsp;<a href="FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a>&nbsp;setSnapshotProperties&#8203;(java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt;&nbsp;properties)</pre>
+</li>
+</ul>
+<a id="setSnapshotProperty(java.lang.String,java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setSnapshotProperty</h4>
+<pre class="methodSignature">public&nbsp;<a href="FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a>&nbsp;setSnapshotProperty&#8203;(java.lang.String&nbsp;property,
+                                             java.lang.String&nbsp;value)</pre>
 </li>
 </ul>
 <a id="append()">
