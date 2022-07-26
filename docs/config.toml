@@ -36,6 +36,7 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     { name = "Releases", pre = "relative", url = "../../releases", weight = 600 },
     { name = "Blogs", pre = "relative", url = "../../blogs", weight = 998 },
     { name = "Talks", pre = "relative", url = "../../talks", weight = 999 },
+    { name = "Vendors", url = "/vendors", weight = 1000 },
     { name = "Roadmap", pre = "relative", url = "../../roadmap", weight = 997 },
     { name = "Project", weight = 1100 },
     { name = "Community", parent = "Project", pre = "relative", url = "../../community", weight = 100 },
