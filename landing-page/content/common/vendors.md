@@ -20,9 +20,9 @@ disableSidebar: true
  - limitations under the License.
  -->
 
-## Vendors shipping Apache Iceberg
+## Vendors Supporting Iceberg Tables
 
-This page contains some of the vendors who are shipping Apache Iceberg in their products
+This page contains some of the vendors who are shipping and supporting Apache Iceberg in their products
 
 
 ### [Cloudera](http://clouera.com)
