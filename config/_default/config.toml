@@ -1,0 +1,70 @@
+baseURL = ""  # This is populated by the github deploy workflow and is equal to "<domainName>/docs/<version|latest>"
+canonifyURLs = "true"
+relativeURLs = "true"
+languageCode = "en-us"
+title = "Apache Iceberg"
+theme= "iceberg-theme"
+
+[params]
+  siteType = "docs"
+  search = true
+  versions.iceberg = "" # This is populated by the github deploy workflow and is equal to the branch name
+  versions.nessie = "0.18.0"
+  latestVersions.iceberg = "0.14.0"  # This is used for the version badge on the "latest" site version
+  BookSection='docs' # This determines which directory will inform the left navigation menu
+  disableHome=true
+
+[outputFormats.SearchIndex]
+baseName = "search"
+mediaType = "application/json"
+
+[outputs]
+home = [ "HTML", "RSS", "SearchIndex" ]
+
+[menu]
+  versions = [
+    { name = "latest", pre = "relative", url = "../latest", weight = 1 },
+    { name = "0.14.0", pre = "relative", url = "../0.14.0", weight = 996 },
+    { name = "0.13.2", pre = "relative", url = "../0.13.2", weight = 997 },
+    { name = "0.13.1", pre = "relative", url = "../0.13.1", weight = 998 },
+    { name = "0.13.0", pre = "relative", url = "../0.13.0", weight = 999 },
+    { name = "0.12.1", pre = "relative", url = "../0.12.1", weight = 1000 }
+  ]
+  topnav = [
+    { name = "Quickstart", url = "/spark-quickstart", weight = 100 },
+    { name = "Docs", url = "/docs/latest", weight = 200 },
+    { name = "Releases", pre = "relative", url = "../../releases", weight = 600 },
+    { name = "Blogs", pre = "relative", url = "../../blogs", weight = 998 },
+    { name = "Talks", pre = "relative", url = "../../talks", weight = 999 },
+    { name = "Roadmap", pre = "relative", url = "../../roadmap", weight = 997 },
+    { name = "Project", weight = 1100 },
+    { name = "Community", parent = "Project", pre = "relative", url = "../../community", weight = 100 },
+    { name = "Spec", parent = "Project", pre = "relative", url = "../../spec", weight = 200 },
+    { name = "View Spec", parent = "Project", pre = "relative", url = "../../view-spec", weight = 300 },
+    { name = "Puffin Spec", parent = "Project", pre = "relative", url = "../../puffin-spec", weight = 400 },
+    { name = "How To Release", parent = "Project", pre = "relative", url = "../../how-to-release", weight = 500 },
+    { name = "Terms", parent = "Project", pre = "relative", url = "../../terms", weight = 600 },
+    { name = "ASF", weight = 1200 },
+    { name = "License", identifier = "_license", parent = "ASF", url = "https://www.apache.org/licenses/" },
+    { name = "Security", identifier = "_security", parent = "ASF", url = "https://www.apache.org/security/" },
+    { name = "Sponsors", identifier = "_sponsors", parent = "ASF", url = "https://www.apache.org/foundation/thanks.html" },
+    { name = "Donate", identifier = "_donate", parent = "ASF", url = "https://www.apache.org/foundation/sponsorship.html" },
+    { name = "Events", identifier = "_events", parent = "ASF", url = "https://www.apache.org/events/current-event.html" },
+  ]
+  main = [ # Main menu, docs site left nav
+    { name = "Introduction", url = "/", weight = 1},
+    { name = "Tables", weight = 100 },
+    { name = "Spark", weight = 200},
+    { name = "Flink", weight = 300},
+    { name = "Trino", identifier = "_trino", weight = 500, url = "https://trino.io/docs/current/connector/iceberg.html" },
+    { name = "Presto", identifier = "_presto", weight = 600, url = "https://prestodb.io/docs/current/connector/iceberg.html" },
+    { name = "Dremio", identifier = "_dremio", weight = 700, url = "https://docs.dremio.com/data-formats/apache-iceberg/" },
+    { name = "StarRocks", identifier = "_starrocks", weight = 701, url = "https://docs.starrocks.com/en-us/main/using_starrocks/External_table#apache-iceberg-external-table" },
+    { name = "Amazon Athena", identifier = "_athena", weight = 800, url = "https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html" },
+    { name = "Amazon EMR", identifier = "_emr", weight = 900, url = "https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-create-cluster.html" },
+    { name = "Impala", identifier = "_impala", weight = 1000, url = "https://impala.apache.org/docs/build/html/topics/impala_iceberg.html" },
+    { name = "Doris", identifier = "_doris", weight = 1001, url = "https://doris.apache.org/docs/ecosystem/external-table/iceberg-of-doris.html" },
+    { name = "Integrations", weight = 1100 },
+    { name = "API", weight = 1200},
+    { name = "Javadoc", pre = "relative", url = "../../javadoc/latest", weight = 1300} # `url` is populated by the github deploy workflow and is equal to "../../javadoc/<branch name>"
+  ]

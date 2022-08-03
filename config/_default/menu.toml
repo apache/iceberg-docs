@@ -1,0 +1,29 @@
+versions = [
+  { name = "latest", pre = "relative", url = "../latest", weight = 1 },
+  { name = "0.14.0", pre = "relative", url = "../0.14.0", weight = 996 },
+  { name = "0.13.2", pre = "relative", url = "../0.13.2", weight = 997 },
+  { name = "0.13.1", pre = "relative", url = "../0.13.1", weight = 998 },
+  { name = "0.13.0", pre = "relative", url = "../0.13.0", weight = 999 },
+  { name = "0.12.1", pre = "relative", url = "../0.12.1", weight = 1000 }
+]
+topnav = [
+  { name = "Quickstart", url = "/spark-quickstart", weight = 100 },
+  { name = "Docs", url = "/docs/latest", weight = 200 },
+  { name = "Releases", pre = "relative", url = "../../releases", weight = 600 },
+  { name = "Blogs", pre = "relative", url = "../../blogs", weight = 998 },
+  { name = "Talks", pre = "relative", url = "../../talks", weight = 999 },
+  { name = "Roadmap", pre = "relative", url = "../../roadmap", weight = 997 },
+  { name = "Project", weight = 1100 },
+  { name = "Community", parent = "Project", pre = "relative", url = "../../community", weight = 100 },
+  { name = "Spec", parent = "Project", pre = "relative", url = "../../spec", weight = 200 },
+  { name = "View Spec", parent = "Project", pre = "relative", url = "../../view-spec", weight = 300 },
+  { name = "Puffin Spec", parent = "Project", pre = "relative", url = "../../puffin-spec", weight = 400 },
+  { name = "How To Release", parent = "Project", pre = "relative", url = "../../how-to-release", weight = 500 },
+  { name = "Terms", parent = "Project", pre = "relative", url = "../../terms", weight = 600 },
+  { name = "ASF", weight = 1200 },
+  { name = "License", identifier = "_license", parent = "ASF", url = "https://www.apache.org/licenses/" },
+  { name = "Security", identifier = "_security", parent = "ASF", url = "https://www.apache.org/security/" },
+  { name = "Sponsors", identifier = "_sponsors", parent = "ASF", url = "https://www.apache.org/foundation/thanks.html" },
+  { name = "Donate", identifier = "_donate", parent = "ASF", url = "https://www.apache.org/foundation/sponsorship.html" },
+  { name = "Events", identifier = "_events", parent = "ASF", url = "https://www.apache.org/events/current-event.html" },
+]
