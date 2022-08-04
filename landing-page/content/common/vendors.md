@@ -25,7 +25,7 @@ disableSidebar: true
 This page contains some of the vendors who are shipping and supporting Apache Iceberg in their products
 
 
-### [Cloudera](http://clouera.com)
+### [Cloudera](http://cloudera.com)
 
 Cloudera Data Platform integrates Apache Iceberg to the following components:
 * Apache Hive, Apache Impala, and Apache Spark to query Apache Iceberg tables
