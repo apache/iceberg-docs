@@ -25,9 +25,11 @@ excludeFromSearch: true
  -->
  <div class="termynal-container">
     <div id="termynal-time-travel" data-termynal data-ty-startDelay="6000" data-ty-typeDelay="20" data-ty-lineDelay="500">
-        <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="sql>">select count(*) from nyc.taxis</span>
+        <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="sql>">SELECT count(*) FROM  nyc.taxis</span>
         <span data-ty>2,853,020</span>
-        <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="sql>">select count(*) from nyc.taxis for version as of 2188465307835585443</span>
+        <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="sql>">SELECT count(*) FROM  nyc.taxis FOR VERSION AS OF 2188465307835585443</span>
+        <span data-ty>2,798,371</span>
+        <span data-ty="input" data-ty-cursor="▋" data-ty-prompt="sql>">SELECT count(*) FROM nyc.taxis FOR TIMESTAMP AS OF TIMESTAMP '2022-01-01 00:00:00.000000 Z'</span>
         <span data-ty>2,798,371</span>
     </div>
 </div>
