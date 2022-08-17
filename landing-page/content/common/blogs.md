@@ -24,6 +24,11 @@ disableSidebar: true
 
 Here is a list of company blogs that talk about Iceberg. The blogs are ordered from most recent to oldest.
 
+### [Near Real-Time Ingestion For Trino](https://www.starburst.io/blog/near-real-time-ingestion-for-trino/)
+**Date**: August 4th, 2022, **Company**: Starburst
+
+**Authors**: [Eric Hwang](https://www.linkedin.com/in/ericwhwang), [Monica Miller](https://www.linkedin.com/in/monica-d-miller), [Brian Zhan](https://www.linkedin.com/in/bzhan)
+
 ### [Migrating a Hive Table to an Iceberg Table Hands-on Tutorial](https://www.dremio.com/subsurface/migrating-a-hive-table-to-an-iceberg-table-hands-on-tutorial/)
 **Date**: June 6th, 2022, **Company**: Dremio
 
