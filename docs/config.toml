@@ -32,7 +32,7 @@ home = [ "HTML", "RSS", "SearchIndex" ]
   ]
   topnav = [
     { name = "Quickstart", pre = "relative", url = "../../spark-quickstart", weight = 100 },
-    { name = "Docs", url = "/docs/latest", weight = 200 },
+    { name = "Docs", pre = "relative", url = "../../docs/latest", weight = 200 },
     { name = "Releases", pre = "relative", url = "../../releases", weight = 600 },
     { name = "Blogs", pre = "relative", url = "../../blogs", weight = 998 },
     { name = "Talks", pre = "relative", url = "../../talks", weight = 999 },
