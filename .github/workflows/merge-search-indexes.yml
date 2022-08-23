@@ -1,0 +1,29 @@
+name: Merge Landing-Page and Latest Docs Site Search Indexes
+
+on: workflow_dispatch
+
+jobs:
+  merge-search-indexes:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Clone the asf-site branch
+        uses: actions/checkout@v3
+        with:
+          ref: asf-site
+
+      - name: Setup Python 3.10
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Merge landing-page and docs site search indexes
+        run: python -c "import os; import json; combined = json.load(open('landingpagesearch.json')) + json.load(open('docs/latest/docssearch.json')); os.mkdir('out'); json.dump(combined, open('out/search.json', 'w'));"
+
+      - name: Deploy combined search index to asf-site branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          publish_branch: asf-site
+          destination_dir: ./
+          keep_files: true

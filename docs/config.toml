@@ -15,7 +15,7 @@ theme= "iceberg-theme"
   disableHome=true
 
 [outputFormats.SearchIndex]
-baseName = "search"
+baseName = "docssearch"
 mediaType = "application/json"
 
 [outputs]
