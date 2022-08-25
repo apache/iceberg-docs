@@ -25,7 +25,7 @@ sectionPagesMenu = "main"
   url = "https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg"  
 
 [outputFormats.SearchIndex]
-baseName = "search"
+baseName = "landingpagesearch"
 mediaType = "application/json"
 
 [outputs]
