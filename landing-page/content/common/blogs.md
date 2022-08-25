@@ -29,6 +29,11 @@ Here is a list of company blogs that talk about Iceberg. The blogs are ordered f
 
 **Authors**: [Eric Hwang](https://www.linkedin.com/in/ericwhwang), [Monica Miller](https://www.linkedin.com/in/monica-d-miller), [Brian Zhan](https://www.linkedin.com/in/bzhan)
 
+### [How to implement Apache Iceberg in AWS Athena](https://big-data-demystified.ninja/2022/07/28/how-to-implement-apache-iceberg-in-aws-athena/)
+**Date**: July 28th, 2022
+
+**Author**: [Shneior Dicastro]
+
 ### [Supercharge your Data Lakehouse with Apache Iceberg in Cloudera Data Platform](https://blog.cloudera.com/supercharge-your-data-lakehouse-with-apache-iceberg-in-cloudera-data-platform/)
 **Date**: June 30th, 2022, **Company**: Cloudera
 
