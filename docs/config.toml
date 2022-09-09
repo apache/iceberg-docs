@@ -9,7 +9,7 @@ theme= "iceberg-theme"
   siteType = "docs"
   search = true
   versions.iceberg = "" # This is populated by the github deploy workflow and is equal to the branch name
-  versions.nessie = "0.18.0"
+  versions.nessie = "0.20.0"
   latestVersions.iceberg = "0.14.0"  # This is used for the version badge on the "latest" site version
   BookSection='docs' # This determines which directory will inform the left navigation menu
   disableHome=true
@@ -31,13 +31,12 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     { name = "0.12.1", pre = "relative", url = "../0.12.1", weight = 1000 }
   ]
   topnav = [
-    { name = "Quickstart", url = "/spark-quickstart", weight = 100 },
-    { name = "Docs", url = "/docs/latest", weight = 200 },
+    { name = "Quickstart", pre = "relative", url = "../../spark-quickstart", weight = 100 },
+    { name = "Docs", pre = "relative", url = "../../docs/latest", weight = 200 },
     { name = "Releases", pre = "relative", url = "../../releases", weight = 600 },
-    { name = "Roadmap", pre = "relative", url = "../../roadmap", weight = 997 },
     { name = "Blogs", pre = "relative", url = "../../blogs", weight = 998 },
     { name = "Talks", pre = "relative", url = "../../talks", weight = 999 },
-    { name = "Vendors", pre = "relative", url = "../../vendors", weight = 1000 },
+    { name = "Roadmap", pre = "relative", url = "../../roadmap", weight = 997 },
     { name = "Project", weight = 1100 },
     { name = "Community", parent = "Project", pre = "relative", url = "../../community", weight = 100 },
     { name = "Spec", parent = "Project", pre = "relative", url = "../../spec", weight = 200 },
@@ -60,7 +59,7 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     { name = "Trino", identifier = "_trino", weight = 500, url = "https://trino.io/docs/current/connector/iceberg.html" },
     { name = "Presto", identifier = "_presto", weight = 600, url = "https://prestodb.io/docs/current/connector/iceberg.html" },
     { name = "Dremio", identifier = "_dremio", weight = 700, url = "https://docs.dremio.com/data-formats/apache-iceberg/" },
-    { name = "StarRocks", identifier = "_starrocks", weight = 701, url = "https://docs.starrocks.com/en-us/latest/using_starrocks/External_table#apache-iceberg-external-table" },
+    { name = "StarRocks", identifier = "_starrocks", weight = 701, url = "https://docs.starrocks.com/en-us/main/using_starrocks/External_table#apache-iceberg-external-table" },
     { name = "Amazon Athena", identifier = "_athena", weight = 800, url = "https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html" },
     { name = "Amazon EMR", identifier = "_emr", weight = 900, url = "https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-use-cluster.html" },
     { name = "Impala", identifier = "_impala", weight = 1000, url = "https://impala.apache.org/docs/build/html/topics/impala_iceberg.html" },
