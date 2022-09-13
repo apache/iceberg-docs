@@ -24,6 +24,16 @@ disableSidebar: true
 
 Here is a list of company blogs that talk about Iceberg. The blogs are ordered from most recent to oldest.
 
+### [How Z-Ordering in Apache Iceberg Helps Improve Performance](https://www.dremio.com/subsurface/how-z-ordering-in-apache-iceberg-helps-improve-performance/)
+**Date**: September 13th, 2022, **Company**: Dremio
+
+**Author**: [Dipankar Mazumdar](https://www.linkedin.com/in/dipankar-mazumdar/)
+
+### [Apache Iceberg 101 – Your Guide to Learning Apache Iceberg Concepts and Practices](https://www.dremio.com/subsurface/apache-iceberg-101-your-guide-to-learning-apache-iceberg-concepts-and-practices/)
+**Date**: September 13th, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
+
 ### [Near Real-Time Ingestion For Trino](https://www.starburst.io/blog/near-real-time-ingestion-for-trino/)
 **Date**: August 4th, 2022, **Company**: Starburst
 
