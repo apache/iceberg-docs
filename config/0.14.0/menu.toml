@@ -13,5 +13,5 @@ main = [ # Main menu, docs site left nav
   { name = "Doris", identifier = "_doris", weight = 1001, url = "https://doris.apache.org/docs/ecosystem/external-table/iceberg-of-doris.html" },
   { name = "Integrations", weight = 1100 },
   { name = "API", weight = 1200},
-  { name = "Javadoc", pre = "relative", url = "../../javadoc/latest", weight = 1300} # `url` is populated by the github deploy workflow and is equal to "../../javadoc/<branch name>"
+  { name = "Javadoc", pre = "relative", url = "../../javadoc/0.14.0", weight = 1300}
 ]
