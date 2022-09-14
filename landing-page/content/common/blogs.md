@@ -30,7 +30,7 @@ Here is a list of company blogs that talk about Iceberg. The blogs are ordered f
 **Author**: [Dipankar Mazumdar](https://www.linkedin.com/in/dipankar-mazumdar/)
 
 ### [Apache Iceberg 101 – Your Guide to Learning Apache Iceberg Concepts and Practices](https://www.dremio.com/subsurface/apache-iceberg-101-your-guide-to-learning-apache-iceberg-concepts-and-practices/)
-**Date**: September 13th, 2022, **Company**: Dremio
+**Date**: September 12th, 2022, **Company**: Dremio
 
 **Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
 
