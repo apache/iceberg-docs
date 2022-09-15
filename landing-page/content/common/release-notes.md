@@ -69,6 +69,31 @@ To add a dependency on Iceberg in Maven, add the following to your `pom.xml`:
 ```
 
 
+## 0.14.1 release
+
+This release includes all bug fixes from the 0.14.x patch releases.
+
+### Notable bug fixes
+
+* Core
+  - API: Fix ID assignment in schema merging ([#5395](https://github.com/apache/iceberg/pull/5395))
+  - AWS: S3OutputStream - failure to close should persist on subsequent close calls ([#5311](https://github.com/apache/iceberg/pull/5395))
+  - Core: Fix snapshot log with intermediate transaction snapshots ([#5568](https://github.com/apache/iceberg/pull/5395))
+  - Core: Fix exception handling in BaseTaskWriter ([#5683](https://github.com/apache/iceberg/pull/5395))
+  - Core: Support deleting tables without metadata files ([#5510](https://github.com/apache/iceberg/pull/5395))
+  - Core, AWS: Fix Kryo serialization failure for FileIO ([#5437](https://github.com/apache/iceberg/pull/5395))
+  - Core: Add CommitStateUnknownException handling to REST ([#5694](https://github.com/apache/iceberg/pull/5395))
+  - AWS: Ignore flaky test; backport from ([#5379](https://github.com/apache/iceberg/pull/5395))
+  - Build: Exclude unnecessary git properties from iceberg-build.properties ([#5277](https://github.com/apache/iceberg/pull/5395))
+  - Build: Fix Scala 2.13 builds in stage-binaries.sh. ([#5270](https://github.com/apache/iceberg/pull/5395))
+  - Build: Add iceberg-build.properties to RAT excludes. ([#5262](https://github.com/apache/iceberg/pull/5395))
+* Spark
+  - Spark: Fix stats in rewrite metadata action ([#5691](https://github.com/apache/iceberg/pull/5395))
+* File Formats
+  - Parquet: Close zstd input stream early to avoid memory pressure ([#5681](https://github.com/apache/iceberg/pull/5395))
+
+## Past releases
+
 ## 0.14.0 release
 
 Apache Iceberg 0.14.0 was released on 16 July 2022.
@@ -203,9 +228,6 @@ This release includes all bug fixes from the 0.13.x patch releases.
 * Updated AWS SDK to 2.17.131 (previously 2.15.7)
 * Updated Nessie to 0.30.0 (previously 0.18.0)
 * Updated Caffeine to 2.9.3 (previously 2.8.4)
-
-
-## Past releases
 
 ### 0.13.2
 
