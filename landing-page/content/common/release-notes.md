@@ -75,6 +75,8 @@ This release includes all bug fixes from the 0.14.x patch releases.
 
 ### Notable bug fixes
 
+* API
+  - API: Fix ID assignment in schema merging ([#5395](https://github.com/apache/iceberg/pull/5395))
 * Core
   - Core: Fix snapshot log with intermediate transaction snapshots ([#5568](https://github.com/apache/iceberg/pull/5568))
   - Core: Fix exception handling in BaseTaskWriter ([#5683](https://github.com/apache/iceberg/pull/5683))
@@ -84,8 +86,6 @@ This release includes all bug fixes from the 0.14.x patch releases.
   - Spark: Fix stats in rewrite metadata action ([#5691](https://github.com/apache/iceberg/pull/5691))
 * File Formats
   - Parquet: Close zstd input stream early to avoid memory pressure ([#5681](https://github.com/apache/iceberg/pull/5681))
-* API
-  - API: Fix ID assignment in schema merging ([#5395](https://github.com/apache/iceberg/pull/5395))
 * Vendor Integrations
   - Core, AWS: Fix Kryo serialization failure for FileIO ([#5437](https://github.com/apache/iceberg/pull/5437))
   - AWS: S3OutputStream - failure to close should persist on subsequent close calls ([#5311](https://github.com/apache/iceberg/pull/5311))
