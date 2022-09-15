@@ -3754,6 +3754,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Sets file-level <a href="org/apache/iceberg/puffin/StandardPuffinProperties.html#CREATED_BY_PROPERTY">"created-by"</a> property.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="org/apache/iceberg/parquet/ParquetCodecFactory.html#createDecompressor(org.apache.parquet.hadoop.metadata.CompressionCodecName)">createDecompressor(CompressionCodecName)</a></span> - Method in class org.apache.iceberg.parquet.<a href="org/apache/iceberg/parquet/ParquetCodecFactory.html" title="class in org.apache.iceberg.parquet">ParquetCodecFactory</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="org/apache/iceberg/flink/FlinkDynamicTableFactory.html#createDynamicTableSink(org.apache.flink.table.factories.DynamicTableFactory.Context)">createDynamicTableSink(DynamicTableFactory.Context)</a></span> - Method in class org.apache.iceberg.flink.<a href="org/apache/iceberg/flink/FlinkDynamicTableFactory.html" title="class in org.apache.iceberg.flink">FlinkDynamicTableFactory</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="org/apache/iceberg/flink/FlinkDynamicTableFactory.html#createDynamicTableSource(org.apache.flink.table.factories.DynamicTableFactory.Context)">createDynamicTableSource(DynamicTableFactory.Context)</a></span> - Method in class org.apache.iceberg.flink.<a href="org/apache/iceberg/flink/FlinkDynamicTableFactory.html" title="class in org.apache.iceberg.flink">FlinkDynamicTableFactory</a></dt>
@@ -6837,9 +6839,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">The action result that contains a summary of the execution.</div>
 </dd>
-<dt><a href="org/apache/iceberg/spark/procedures/ExpireSnapshotsProcedure.html" title="class in org.apache.iceberg.spark.procedures"><span class="typeNameLink">ExpireSnapshotsProcedure</span></a> - Class in <a href="org/apache/iceberg/spark/procedures/package-summary.html">org.apache.iceberg.spark.procedures</a></dt>
+<dt><a href="org/apache/iceberg/spark/actions/ExpireSnapshotsSparkAction.html" title="class in org.apache.iceberg.spark.actions"><span class="typeNameLink">ExpireSnapshotsSparkAction</span></a> - Class in <a href="org/apache/iceberg/spark/actions/package-summary.html">org.apache.iceberg.spark.actions</a></dt>
 <dd>
-<div class="block">A procedure that expires snapshots in a table.</div>
+<div class="block">An action that performs the same operation as <a href="org/apache/iceberg/ExpireSnapshots.html" title="interface in org.apache.iceberg"><code>ExpireSnapshots</code></a> but uses Spark
+ to determine the delta in files between the pre and post-expiration table metadata.</div>
 </dd>
 <dt><a href="org/apache/iceberg/spark/actions/ExpireSnapshotsSparkAction.html" title="class in org.apache.iceberg.spark.actions"><span class="typeNameLink">ExpireSnapshotsSparkAction</span></a> - Class in <a href="org/apache/iceberg/spark/actions/package-summary.html">org.apache.iceberg.spark.actions</a></dt>
 <dd>
@@ -7021,7 +7024,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsLexer.html#FIELD">FIELD</a></span> - Static variable in class org.apache.spark.sql.catalyst.parser.extensions.<a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsLexer.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsLexer</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsParser.html#FIELD">FIELD</a></span> - Static variable in class org.apache.spark.sql.catalyst.parser.extensions.<a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsParser.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser</a></dt>
+<dt><span class="memberNameLink"><a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsParser.DropPartitionFieldContext.html#FIELD()">FIELD()</a></span> - Method in class org.apache.spark.sql.catalyst.parser.extensions.<a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsParser.DropPartitionFieldContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.DropPartitionFieldContext</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsParser.AddPartitionFieldContext.html#FIELD()">FIELD()</a></span> - Method in class org.apache.spark.sql.catalyst.parser.extensions.<a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsParser.AddPartitionFieldContext.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser.AddPartitionFieldContext</a></dt>
 <dd>&nbsp;</dd>
@@ -12396,6 +12399,52 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="org/apache/hadoop/hive/ql/exec/vector/VectorizedSupport.Support.html#nameToSupportMap">nameToSupportMap</a></span> - Static variable in enum org.apache.hadoop.hive.ql.exec.vector.<a href="org/apache/hadoop/hive/ql/exec/vector/VectorizedSupport.Support.html" title="enum in org.apache.hadoop.hive.ql.exec.vector">VectorizedSupport.Support</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><span class="typeNameLink">Namespace</span></a> - Class in <a href="org/apache/iceberg/catalog/package-summary.html">org.apache.iceberg.catalog</a></dt>
+<dd>
+<div class="block">A namespace in a <a href="org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog"><code>Catalog</code></a>.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="org/apache/iceberg/rest/RESTUtil.html#NAMESPACE_JOINER">NAMESPACE_JOINER</a></span> - Static variable in class org.apache.iceberg.rest.<a href="org/apache/iceberg/rest/RESTUtil.html" title="class in org.apache.iceberg.rest">RESTUtil</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="org/apache/iceberg/rest/RESTUtil.html#NAMESPACE_SPLITTER">NAMESPACE_SPLITTER</a></span> - Static variable in class org.apache.iceberg.rest.<a href="org/apache/iceberg/rest/RESTUtil.html" title="class in org.apache.iceberg.rest">RESTUtil</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="org/apache/iceberg/rest/RESTSerializers.NamespaceDeserializer.html#%3Cinit%3E()">NamespaceDeserializer()</a></span> - Constructor for class org.apache.iceberg.rest.<a href="org/apache/iceberg/rest/RESTSerializers.NamespaceDeserializer.html" title="class in org.apache.iceberg.rest">RESTSerializers.NamespaceDeserializer</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="org/apache/iceberg/rest/ErrorHandlers.html#namespaceErrorHandler()">namespaceErrorHandler()</a></span> - Static method in class org.apache.iceberg.rest.<a href="org/apache/iceberg/rest/ErrorHandlers.html" title="class in org.apache.iceberg.rest">ErrorHandlers</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="org/apache/iceberg/spark/SparkSessionCatalog.html#namespaceExists(java.lang.String%5B%5D)">namespaceExists(String[])</a></span> - Method in class org.apache.iceberg.spark.<a href="org/apache/iceberg/spark/SparkSessionCatalog.html" title="class in org.apache.iceberg.spark">SparkSessionCatalog</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="org/apache/iceberg/catalog/BaseSessionCatalog.AsCatalog.html#namespaceExists(org.apache.iceberg.catalog.Namespace)">namespaceExists(Namespace)</a></span> - Method in class org.apache.iceberg.catalog.<a href="org/apache/iceberg/catalog/BaseSessionCatalog.AsCatalog.html" title="class in org.apache.iceberg.catalog">BaseSessionCatalog.AsCatalog</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="org/apache/iceberg/catalog/SupportsNamespaces.html#namespaceExists(org.apache.iceberg.catalog.Namespace)">namespaceExists(Namespace)</a></span> - Method in interface org.apache.iceberg.catalog.<a href="org/apache/iceberg/catalog/SupportsNamespaces.html" title="interface in org.apache.iceberg.catalog">SupportsNamespaces</a></dt>
+<dd>
+<div class="block">Checks whether the Namespace exists.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="org/apache/iceberg/dell/ecs/EcsCatalog.html#namespaceExists(org.apache.iceberg.catalog.Namespace)">namespaceExists(Namespace)</a></span> - Method in class org.apache.iceberg.dell.ecs.<a href="org/apache/iceberg/dell/ecs/EcsCatalog.html" title="class in org.apache.iceberg.dell.ecs">EcsCatalog</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="org/apache/iceberg/jdbc/JdbcCatalog.html#namespaceExists(org.apache.iceberg.catalog.Namespace)">namespaceExists(Namespace)</a></span> - Method in class org.apache.iceberg.jdbc.<a href="org/apache/iceberg/jdbc/JdbcCatalog.html" title="class in org.apache.iceberg.jdbc">JdbcCatalog</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="org/apache/iceberg/catalog/SessionCatalog.html#namespaceExists(org.apache.iceberg.catalog.SessionCatalog.SessionContext,org.apache.iceberg.catalog.Namespace)">namespaceExists(SessionCatalog.SessionContext, Namespace)</a></span> - Method in interface org.apache.iceberg.catalog.<a href="org/apache/iceberg/catalog/SessionCatalog.html" title="interface in org.apache.iceberg.catalog">SessionCatalog</a></dt>
+<dd>
+<div class="block">Checks whether the Namespace exists.</div>
+</dd>
+<dt><a href="org/apache/iceberg/exceptions/NamespaceNotEmptyException.html" title="class in org.apache.iceberg.exceptions"><span class="typeNameLink">NamespaceNotEmptyException</span></a> - Exception in <a href="org/apache/iceberg/exceptions/package-summary.html">org.apache.iceberg.exceptions</a></dt>
+<dd>
+<div class="block">Exception raised when attempting to drop a namespace that is not empty.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="org/apache/iceberg/exceptions/NamespaceNotEmptyException.html#%3Cinit%3E(java.lang.String,java.lang.Object...)">NamespaceNotEmptyException(String, Object...)</a></span> - Constructor for exception org.apache.iceberg.exceptions.<a href="org/apache/iceberg/exceptions/NamespaceNotEmptyException.html" title="class in org.apache.iceberg.exceptions">NamespaceNotEmptyException</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="org/apache/iceberg/exceptions/NamespaceNotEmptyException.html#%3Cinit%3E(java.lang.Throwable,java.lang.String,java.lang.Object...)">NamespaceNotEmptyException(Throwable, String, Object...)</a></span> - Constructor for exception org.apache.iceberg.exceptions.<a href="org/apache/iceberg/exceptions/NamespaceNotEmptyException.html" title="class in org.apache.iceberg.exceptions">NamespaceNotEmptyException</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="org/apache/iceberg/rest/ResourcePaths.html#namespaceProperties(org.apache.iceberg.catalog.Namespace)">namespaceProperties(Namespace)</a></span> - Method in class org.apache.iceberg.rest.<a href="org/apache/iceberg/rest/ResourcePaths.html" title="class in org.apache.iceberg.rest">ResourcePaths</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="org/apache/iceberg/rest/ResourcePaths.html#namespaces()">namespaces()</a></span> - Method in class org.apache.iceberg.rest.<a href="org/apache/iceberg/rest/ResourcePaths.html" title="class in org.apache.iceberg.rest">ResourcePaths</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="org/apache/iceberg/rest/responses/ListNamespacesResponse.html#namespaces()">namespaces()</a></span> - Method in class org.apache.iceberg.rest.responses.<a href="org/apache/iceberg/rest/responses/ListNamespacesResponse.html" title="class in org.apache.iceberg.rest.responses">ListNamespacesResponse</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="org/apache/iceberg/rest/RESTSerializers.NamespaceSerializer.html#%3Cinit%3E()">NamespaceSerializer()</a></span> - Constructor for class org.apache.iceberg.rest.<a href="org/apache/iceberg/rest/RESTSerializers.NamespaceSerializer.html" title="class in org.apache.iceberg.rest">RESTSerializers.NamespaceSerializer</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="org/apache/hadoop/hive/ql/exec/vector/VectorizedSupport.Support.html#nameToSupportMap">nameToSupportMap</a></span> - Static variable in enum org.apache.hadoop.hive.ql.exec.vector.<a href="org/apache/hadoop/hive/ql/exec/vector/VectorizedSupport.Support.html" title="enum in org.apache.hadoop.hive.ql.exec.vector">VectorizedSupport.Support</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="org/apache/iceberg/DataFile.html#NAN_VALUE_COUNTS">NAN_VALUE_COUNTS</a></span> - Static variable in interface org.apache.iceberg.<a href="org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/apache/iceberg/util/NaNUtil.html" title="class in org.apache.iceberg.util"><span class="typeNameLink">NaNUtil</span></a> - Class in <a href="org/apache/iceberg/util/package-summary.html">org.apache.iceberg.util</a></dt>
@@ -13203,7 +13252,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="org/apache/iceberg/parquet/ParquetValueReaders.html#nulls()">nulls()</a></span> - Static method in class org.apache.iceberg.parquet.<a href="org/apache/iceberg/parquet/ParquetValueReaders.html" title="class in org.apache.iceberg.parquet">ParquetValueReaders</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsLexer.html#NULLS">NULLS</a></span> - Static variable in class org.apache.spark.sql.catalyst.parser.extensions.<a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsLexer.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsLexer</a></dt>
+<dt><span class="memberNameLink"><a href="org/apache/iceberg/parquet/ParquetValueReaders.html#nulls()">nulls()</a></span> - Static method in class org.apache.iceberg.parquet.<a href="org/apache/iceberg/parquet/ParquetValueReaders.html" title="class in org.apache.iceberg.parquet">ParquetValueReaders</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsParser.html#NULLS">NULLS</a></span> - Static variable in class org.apache.spark.sql.catalyst.parser.extensions.<a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsParser.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser</a></dt>
 <dd>&nbsp;</dd>
@@ -14168,6 +14217,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="org/apache/iceberg/parquet/ParquetBloomRowGroupFilter.html#%3Cinit%3E(org.apache.iceberg.Schema,org.apache.iceberg.expressions.Expression)">ParquetBloomRowGroupFilter(Schema, Expression)</a></span> - Constructor for class org.apache.iceberg.parquet.<a href="org/apache/iceberg/parquet/ParquetBloomRowGroupFilter.html" title="class in org.apache.iceberg.parquet">ParquetBloomRowGroupFilter</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="org/apache/iceberg/parquet/ParquetBloomRowGroupFilter.html#%3Cinit%3E(org.apache.iceberg.Schema,org.apache.iceberg.expressions.Expression,boolean)">ParquetBloomRowGroupFilter(Schema, Expression, boolean)</a></span> - Constructor for class org.apache.iceberg.parquet.<a href="org/apache/iceberg/parquet/ParquetBloomRowGroupFilter.html" title="class in org.apache.iceberg.parquet">ParquetBloomRowGroupFilter</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="org/apache/iceberg/parquet/ParquetCodecFactory.html" title="class in org.apache.iceberg.parquet"><span class="typeNameLink">ParquetCodecFactory</span></a> - Class in <a href="org/apache/iceberg/parquet/package-summary.html">org.apache.iceberg.parquet</a></dt>
+<dd>
+<div class="block">This class implements a codec factory that is used when reading from Parquet.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="org/apache/iceberg/parquet/ParquetCodecFactory.html#%3Cinit%3E(org.apache.hadoop.conf.Configuration,int)">ParquetCodecFactory(Configuration, int)</a></span> - Constructor for class org.apache.iceberg.parquet.<a href="org/apache/iceberg/parquet/ParquetCodecFactory.html" title="class in org.apache.iceberg.parquet">ParquetCodecFactory</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/apache/iceberg/parquet/ParquetDictionaryRowGroupFilter.html" title="class in org.apache.iceberg.parquet"><span class="typeNameLink">ParquetDictionaryRowGroupFilter</span></a> - Class in <a href="org/apache/iceberg/parquet/package-summary.html">org.apache.iceberg.parquet</a></dt>
 <dd>&nbsp;</dd>
@@ -17102,6 +17157,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="org/apache/iceberg/gcp/GCPProperties.html#serviceHost()">serviceHost()</a></span> - Method in class org.apache.iceberg.gcp.<a href="org/apache/iceberg/gcp/GCPProperties.html" title="class in org.apache.iceberg.gcp">GCPProperties</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="org/apache/iceberg/exceptions/ServiceUnavailableException.html" title="class in org.apache.iceberg.exceptions"><span class="typeNameLink">ServiceUnavailableException</span></a> - Exception in <a href="org/apache/iceberg/exceptions/package-summary.html">org.apache.iceberg.exceptions</a></dt>
+<dd>
+<div class="block">Exception thrown on HTTP 503: service is unavailable</div>
+</dd>
+<dt><span class="memberNameLink"><a href="org/apache/iceberg/exceptions/ServiceUnavailableException.html#%3Cinit%3E(java.lang.String,java.lang.Object...)">ServiceUnavailableException(String, Object...)</a></span> - Constructor for exception org.apache.iceberg.exceptions.<a href="org/apache/iceberg/exceptions/ServiceUnavailableException.html" title="class in org.apache.iceberg.exceptions">ServiceUnavailableException</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="org/apache/iceberg/exceptions/ServiceUnavailableException.html#%3Cinit%3E(java.lang.Throwable,java.lang.String,java.lang.Object...)">ServiceUnavailableException(Throwable, String, Object...)</a></span> - Constructor for exception org.apache.iceberg.exceptions.<a href="org/apache/iceberg/exceptions/ServiceUnavailableException.html" title="class in org.apache.iceberg.exceptions">ServiceUnavailableException</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="org/apache/iceberg/catalog/SessionCatalog.html" title="interface in org.apache.iceberg.catalog"><span class="typeNameLink">SessionCatalog</span></a> - Interface in <a href="org/apache/iceberg/catalog/package-summary.html">org.apache.iceberg.catalog</a></dt>
 <dd>
 <div class="block">A Catalog API for table and namespace operations that includes session context.</div>
@@ -17188,7 +17251,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dd>
 <dt><span class="memberNameLink"><a href="org/apache/iceberg/UpdateProperties.html#set(java.lang.String,java.lang.String)">set(String, String)</a></span> - Method in interface org.apache.iceberg.<a href="org/apache/iceberg/UpdateProperties.html" title="interface in org.apache.iceberg">UpdateProperties</a></dt>
 <dd>
-<div class="block">Add a key/value property to the table.</div>
+<div class="block">Updates the record and position in this object.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/apache/iceberg/parquet/ParquetValueReaders.ReusableEntry.html#set(K,V)">set(K, V)</a></span> - Method in class org.apache.iceberg.parquet.<a href="org/apache/iceberg/parquet/ParquetValueReaders.ReusableEntry.html" title="class in org.apache.iceberg.parquet">ParquetValueReaders.ReusableEntry</a></dt>
 <dd>&nbsp;</dd>
@@ -17208,7 +17271,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dd>
 <dt><span class="memberNameLink"><a href="org/apache/iceberg/orc/OrcValueReaders.StructReader.html#set(T,int,java.lang.Object)">set(T, int, Object)</a></span> - Method in class org.apache.iceberg.orc.<a href="org/apache/iceberg/orc/OrcValueReaders.StructReader.html" title="class in org.apache.iceberg.orc">OrcValueReaders.StructReader</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsLexer.html#SET">SET</a></span> - Static variable in class org.apache.spark.sql.catalyst.parser.extensions.<a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsLexer.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsLexer</a></dt>
+<dt><span class="memberNameLink"><a href="org/apache/iceberg/avro/Avro.DeleteWriteBuilder.html#setAll(java.util.Map)">setAll(Map&lt;String, String&gt;)</a></span> - Method in class org.apache.iceberg.avro.<a href="org/apache/iceberg/avro/Avro.DeleteWriteBuilder.html" title="class in org.apache.iceberg.avro">Avro.DeleteWriteBuilder</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsParser.html#SET">SET</a></span> - Static variable in class org.apache.spark.sql.catalyst.parser.extensions.<a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsParser.html" title="class in org.apache.spark.sql.catalyst.parser.extensions">IcebergSqlExtensionsParser</a></dt>
 <dd>&nbsp;</dd>
@@ -17363,6 +17426,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="org/apache/iceberg/dell/DellProperties.html#setEcsS3SecretAccessKey(java.lang.String)">setEcsS3SecretAccessKey(String)</a></span> - Method in class org.apache.iceberg.dell.<a href="org/apache/iceberg/dell/DellProperties.html" title="class in org.apache.iceberg.dell">DellProperties</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="org/apache/iceberg/rest/responses/OAuthTokenResponse.Builder.html#setExpirationInSeconds(int)">setExpirationInSeconds(int)</a></span> - Method in class org.apache.iceberg.rest.responses.<a href="org/apache/iceberg/rest/responses/OAuthTokenResponse.Builder.html" title="class in org.apache.iceberg.rest.responses">OAuthTokenResponse.Builder</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="org/apache/iceberg/io/BaseTaskWriter.html#setFailure(java.lang.Throwable)">setFailure(Throwable)</a></span> - Method in class org.apache.iceberg.io.<a href="org/apache/iceberg/io/BaseTaskWriter.html" title="class in org.apache.iceberg.io">BaseTaskWriter</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="org/apache/iceberg/data/GenericRecord.html#setField(java.lang.String,java.lang.Object)">setField(String, Object)</a></span> - Method in class org.apache.iceberg.data.<a href="org/apache/iceberg/data/GenericRecord.html" title="class in org.apache.iceberg.data">GenericRecord</a></dt>
 <dd>&nbsp;</dd>
@@ -18115,6 +18180,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="org/apache/iceberg/spark/SparkCatalog.html#%3Cinit%3E()">SparkCatalog()</a></span> - Constructor for class org.apache.iceberg.spark.<a href="org/apache/iceberg/spark/SparkCatalog.html" title="class in org.apache.iceberg.spark">SparkCatalog</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/apache/iceberg/spark/SparkDataFile.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">SparkDataFile</span></a> - Class in <a href="org/apache/iceberg/spark/package-summary.html">org.apache.iceberg.spark</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="org/apache/iceberg/spark/SparkDataFile.html#%3Cinit%3E(org.apache.iceberg.types.Types.StructType,org.apache.iceberg.types.Types.StructType,org.apache.spark.sql.types.StructType)">SparkDataFile(Types.StructType, Types.StructType, StructType)</a></span> - Constructor for class org.apache.iceberg.spark.<a href="org/apache/iceberg/spark/SparkDataFile.html" title="class in org.apache.iceberg.spark">SparkDataFile</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="org/apache/iceberg/spark/SparkDataFile.html#%3Cinit%3E(org.apache.iceberg.types.Types.StructType,org.apache.spark.sql.types.StructType)">SparkDataFile(Types.StructType, StructType)</a></span> - Constructor for class org.apache.iceberg.spark.<a href="org/apache/iceberg/spark/SparkDataFile.html" title="class in org.apache.iceberg.spark">SparkDataFile</a></dt>
 <dd>&nbsp;</dd>
