@@ -92,7 +92,7 @@ This release includes all bug fixes from the 0.14.x patch releases.
 
 ## Past releases
 
-## 0.14.0 release
+### 0.14.0 release
 
 Apache Iceberg 0.14.0 was released on 16 July 2022.
 
