@@ -1940,7 +1940,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </li>
 <li class="blockList">
 <h4>properties</h4>
-<pre>java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt; properties</pre>
+<pre><a href="org/apache/iceberg/util/SerializableMap.html" title="class in org.apache.iceberg.util">SerializableMap</a>&lt;java.lang.String,&#8203;java.lang.String&gt; properties</pre>
 </li>
 <li class="blockListLast">
 <h4>s3</h4>
@@ -2117,7 +2117,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList"><a id="org.apache.iceberg.exceptions.ServiceFailureException">
 <!--   -->
 </a>
-<h3>Class <a href="org/apache/iceberg/exceptions/ServiceFailureException.html" title="class in org.apache.iceberg.exceptions">org.apache.iceberg.exceptions.ServiceFailureException</a> extends java.lang.RuntimeException implements Serializable</h3>
+<h3>Class <a href="org/apache/iceberg/exceptions/ServiceFailureException.html" title="class in org.apache.iceberg.exceptions">org.apache.iceberg.exceptions.ServiceFailureException</a> extends <a href="org/apache/iceberg/exceptions/RESTException.html" title="class in org.apache.iceberg.exceptions">RESTException</a> implements Serializable</h3>
+</li>
+<li class="blockList"><a id="org.apache.iceberg.exceptions.ServiceUnavailableException">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/exceptions/ServiceUnavailableException.html" title="class in org.apache.iceberg.exceptions">org.apache.iceberg.exceptions.ServiceUnavailableException</a> extends <a href="org/apache/iceberg/exceptions/RESTException.html" title="class in org.apache.iceberg.exceptions">RESTException</a> implements Serializable</h3>
 </li>
 <li class="blockList"><a id="org.apache.iceberg.exceptions.UnprocessableEntityException">
 <!--   -->
@@ -2970,6 +2975,70 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <h3>Serialized Fields</h3>
 <ul class="blockList">
 <li class="blockList">
+<h4>limit</h4>
+<pre>long limit</pre>
+</li>
+<li class="blockList">
+<h4>maxPlanningSnapshotCount</h4>
+<pre>int maxPlanningSnapshotCount</pre>
+</li>
+<li class="blockList">
+<h4>monitorInterval</h4>
+<pre>java.time.Duration monitorInterval</pre>
+</li>
+<li class="blockList">
+<h4>nameMapping</h4>
+<pre>java.lang.String nameMapping</pre>
+</li>
+<li class="blockList">
+<h4>planParallelism</h4>
+<pre>java.lang.Integer planParallelism</pre>
+</li>
+<li class="blockList">
+<h4>schema</h4>
+<pre><a href="org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a> schema</pre>
+</li>
+<li class="blockList">
+<h4>snapshotId</h4>
+<pre>java.lang.Long snapshotId</pre>
+</li>
+<li class="blockList">
+<h4>splitLookback</h4>
+<pre>java.lang.Integer splitLookback</pre>
+</li>
+<li class="blockList">
+<h4>splitOpenFileCost</h4>
+<pre>java.lang.Long splitOpenFileCost</pre>
+</li>
+<li class="blockList">
+<h4>splitSize</h4>
+<pre>java.lang.Long splitSize</pre>
+</li>
+<li class="blockList">
+<h4>startingStrategy</h4>
+<pre><a href="org/apache/iceberg/flink/source/StreamingStartingStrategy.html" title="enum in org.apache.iceberg.flink.source">StreamingStartingStrategy</a> startingStrategy</pre>
+</li>
+<li class="blockList">
+<h4>startSnapshotId</h4>
+<pre>java.lang.Long startSnapshotId</pre>
+</li>
+<li class="blockListLast">
+<h4>startSnapshotTimestamp</h4>
+<pre>java.lang.Long startSnapshotTimestamp</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a id="org.apache.iceberg.flink.source.StreamingMonitorFunction">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/flink/source/StreamingMonitorFunction.html" title="class in org.apache.iceberg.flink.source">org.apache.iceberg.flink.source.StreamingMonitorFunction</a> extends org.apache.flink.streaming.api.functions.source.RichSourceFunction&lt;<a href="org/apache/iceberg/flink/source/FlinkInputSplit.html" title="class in org.apache.iceberg.flink.source">FlinkInputSplit</a>&gt; implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
 <h4>isRunning</h4>
 <pre>boolean isRunning</pre>
 </li>
@@ -3034,7 +3103,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <h3>Class <a href="org/apache/iceberg/flink/source/enumerator/IcebergEnumeratorState.html" title="class in org.apache.iceberg.flink.source.enumerator">org.apache.iceberg.flink.source.enumerator.IcebergEnumeratorState</a> extends java.lang.Object implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
-<h3>Serialized Fields</h3>
+<section role="region">
+<h2 title="Package">Package&nbsp;org.apache.iceberg.flink.source.enumerator</h2>
 <ul class="blockList">
 <li class="blockList">
 <h4>lastEnumeratedPosition</h4>
@@ -3142,6 +3212,22 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </ul>
 </section>
 </li>
+<li class="blockList">
+<section role="region">
+<h2 title="Package">Package&nbsp;org.apache.iceberg.flink.source.split</h2>
+<ul class="blockList">
+<li class="blockList"><a id="org.apache.iceberg.flink.source.split.IcebergSourceSplit">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/flink/source/split/IcebergSourceSplit.html" title="class in org.apache.iceberg.flink.source.split">org.apache.iceberg.flink.source.split.IcebergSourceSplit</a> extends java.lang.Object implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
 <li class="blockList">
 <section role="region">
 <h2 title="Package">Package&nbsp;org.apache.iceberg.flink.source.split</h2>
@@ -3278,7 +3364,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </li>
 <li class="blockList">
 <h4>properties</h4>
-<pre>java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt; properties</pre>
+<pre><a href="org/apache/iceberg/util/SerializableMap.html" title="class in org.apache.iceberg.util">SerializableMap</a>&lt;java.lang.String,&#8203;java.lang.String&gt; properties</pre>
 </li>
 <li class="blockListLast">
 <h4>storageSupplier</h4>
@@ -3417,7 +3503,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </li>
 <li class="blockListLast">
 <h4>properties</h4>
-<pre>java.util.Map&lt;java.lang.String,&#8203;java.lang.String&gt; properties</pre>
+<pre><a href="org/apache/iceberg/util/SerializableMap.html" title="class in org.apache.iceberg.util">SerializableMap</a>&lt;java.lang.String,&#8203;java.lang.String&gt; properties</pre>
 </li>
 </ul>
 </li>

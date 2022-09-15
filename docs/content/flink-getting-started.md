@@ -213,7 +213,7 @@ The following properties can be set globally and are not limited to a specific c
 
 * `type`: Must be `iceberg`. (required)
 * `catalog-type`: `hive` or `hadoop` for built-in catalogs, or left unset for custom catalog implementations using catalog-impl. (Optional)
-* `catalog-impl`: The fully-qualified class name custom catalog implementation, must be set if `catalog-type` is unset. (Optional)
+* `catalog-impl`: The fully-qualified class name of a custom catalog implementation. Must be set if `catalog-type` is unset. (Optional)
 * `property-version`: Version number to describe the property version. This property can be used for backwards compatibility in case the property format changes. The current property version is `1`. (Optional)
 * `cache-enabled`: Whether to enable catalog cache, default value is `true`
 
@@ -428,6 +428,17 @@ Those are the options that could be set in flink SQL hint options for streaming 
 * monitor-interval: time interval for consecutively monitoring newly committed data files (default value: '10s').
 * start-snapshot-id: the snapshot id that streaming job starts from.
 
+### FLIP-27 source for SQL
+
+Here are the SQL settings for the FLIP-27 source, which is only available
+for Flink 1.14 or above.  All other SQL settings and options
+documented above are applicable to the FLIP-27 source.
+
+```sql
+-- Opt in the FLIP-27 source. Default is false.
+SET table.exec.iceberg.use-flip27-source = true;
+```
+
 ## Writing with SQL
 
 Iceberg support both `INSERT INTO` and `INSERT OVERWRITE` in flink 1.11 now.
@@ -459,6 +470,31 @@ INSERT OVERWRITE `hive_catalog`.`default`.`sample` PARTITION(data='a') SELECT 6;
 
 For a partitioned iceberg table, when all the partition columns are set a value in `PARTITION` clause, it is inserting into a static partition, otherwise if partial partition columns (prefix part of all partition columns) are set a value in `PARTITION` clause, it is writing the query result into a dynamic partition.
 For an unpartitioned iceberg table, its data will be completely overwritten by `INSERT OVERWRITE`.
+
+### `UPSERT` 
+
+Iceberg supports `UPSERT` based on the primary key when writing data into v2 table format. There are two ways to enable upsert.
+
+1. Enable the `UPSERT` mode as table-level property `write.upsert.enabled`. Here is an example SQL statement to set the table property when creating a table. It would be applied for all write paths to this table (batch or streaming) unless overwritten by write options as described later.
+
+```
+CREATE TABLE `hive_catalog`.`default`.`sample` (
+  `id`  INT UNIQUE COMMENT 'unique id',
+  `data` STRING NOT NULL,
+ PRIMARY KEY(`id`) NOT ENFORCED
+) with ('format-version'='2', 'write.upsert.enabled'='true');
+```
+
+2. Enabling `UPSERT` mode using `upsert-enabled` in the [write options](#Write options) provides more flexibility than a table level config. Note that you still need to use v2 table format and specify the primary key when creating the table.
+
+```
+INSERT INTO tableName /*+ OPTIONS('upsert-enabled'='true') */
+...
+```
+
+{{< hint info >}}
+OVERWRITE and UPSERT can't be set together. In UPSERT mode, if the table is partitioned, the partition fields should be included in equality fields.
+{{< /hint >}}
 
 ## Reading with DataStream
 
@@ -507,6 +543,78 @@ env.execute("Test Iceberg Streaming Read");
 
 There are other options that we could set by Java API, please see the [FlinkSource#Builder](../../../javadoc/{{% icebergVersion %}}/org/apache/iceberg/flink/source/FlinkSource.html).
 
+## Reading with DataStream (FLIP-27 source)
+
+[FLIP-27 source interface](https://cwiki.apache.org/confluence/display/FLINK/FLIP-27%3A+Refactor+Source+Interface)
+was introduced in Flink 1.12. It aims to solve several shortcomings of the old `SourceFunction`
+streaming source interface. It also unifies the source interfaces for both batch and streaming executions.
+Most source connectors (like Kafka, file) in Flink repo have  migrated to the FLIP-27 interface.
+Flink is planning to deprecate the old `SourceFunction` interface in the near future.
+
+A FLIP-27 based Flink `IcebergSource` is added in `iceberg-flink` module for Flink 1.14 or above.
+The FLIP-27 `IcebergSource` is currently an experimental feature.
+
+### Batch Read
+
+This example will read all records from iceberg table and then print to the stdout console in flink batch job:
+
+```java
+StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironment();
+TableLoader tableLoader = TableLoader.fromHadoopTable("hdfs://nn:8020/warehouse/path");
+
+IcebergSource<RowData> source = IcebergSource.forRowData()
+    .tableLoader(tableLoader)
+    .assignerFactory(new SimpleSplitAssignerFactory())
+    .build();
+
+DataStream<RowData> batch = env.fromSource(
+    source,
+    WatermarkStrategy.noWatermarks(),
+    "My Iceberg Source",
+    TypeInformation.of(RowData.class));
+
+// Print all records to stdout.
+batch.print();
+
+// Submit and execute this batch read job.
+env.execute("Test Iceberg Batch Read");
+```
+
+### Streaming read
+
+This example will start the streaming read from the latest table snapshot (inclusive).
+Every 60s, it polls Iceberg table to discover new append-only snapshots.
+CDC read is not supported yet.
+
+```java
+StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironment();
+TableLoader tableLoader = TableLoader.fromHadoopTable("hdfs://nn:8020/warehouse/path");
+
+IcebergSource source = IcebergSource.forRowData()
+    .tableLoader(tableLoader)
+    .assignerFactory(new SimpleSplitAssignerFactory())
+    .streaming(true)
+    .streamingStartingStrategy(StreamingStartingStrategy.INCREMENTAL_FROM_LATEST_SNAPSHOT)
+    .monitorInterval(Duration.ofSeconds(60))
+    .build()
+
+DataStream<RowData> stream = env.fromSource(
+    source,
+    WatermarkStrategy.noWatermarks(),
+    "My Iceberg Source",
+    TypeInformation.of(RowData.class));
+
+// Print all records to stdout.
+stream.print();
+
+// Submit and execute this streaming read job.
+env.execute("Test Iceberg Streaming Read");
+```
+
+There are other options that we could set by Java API, please see the 
+[IcebergSource#Builder](../../../javadoc/{{% icebergVersion %}}/org/apache/iceberg/flink/source/IcebergSource.html).
+
+
 ## Writing with DataStream
 
 Iceberg support writing to iceberg table from different DataStream input.
@@ -530,7 +638,7 @@ FlinkSink.forRowData(input)
 env.execute("Test Iceberg DataStream");
 ```
 
-The iceberg API also allows users to write generic `DataStream<T>` to iceberg table, more example could be found in this [unit test](https://github.com/apache/iceberg/blob/master/flink/src/test/java/org/apache/iceberg/flink/sink/TestFlinkIcebergSink.java).
+The iceberg API also allows users to write generic `DataStream<T>` to iceberg table, more example could be found in this [unit test](https://github.com/apache/iceberg/blob/master/flink/v1.15/flink/src/test/java/org/apache/iceberg/flink/sink/TestFlinkIcebergSink.java).
 
 ### Overwrite data
 
@@ -551,6 +659,29 @@ FlinkSink.forRowData(input)
 env.execute("Test Iceberg DataStream");
 ```
 
+### Upsert data
+
+To upsert the data in existing iceberg table, we could set the `upsert` flag in FlinkSink builder. The table must use v2 table format and have a primary key.
+
+```java
+StreamExecutionEnvironment env = ...;
+
+DataStream<RowData> input = ... ;
+Configuration hadoopConf = new Configuration();
+TableLoader tableLoader = TableLoader.fromHadoopTable("hdfs://nn:8020/warehouse/path", hadoopConf);
+
+FlinkSink.forRowData(input)
+    .tableLoader(tableLoader)
+    .upsert(true)
+    .build();
+
+env.execute("Test Iceberg DataStream");
+```
+
+{{< hint info >}}
+OVERWRITE and UPSERT can't be set together. In UPSERT mode, if the table is partitioned, the partition fields should be included in equality fields.
+{{< /hint >}}
+
 ## Write options
 
 Flink write options are passed when configuring the FlinkSink, like this:
@@ -561,6 +692,11 @@ FlinkSink.Builder builder = FlinkSink.forRow(dataStream, SimpleDataUtil.FLINK_SC
     .tableLoader(tableLoader)
     .set("write-format", "orc")
     .set(FlinkWriteOptions.OVERWRITE_MODE, "true");
+```
+For Flink SQL, write options can be passed in via SQL hints like this:
+```
+INSERT INTO tableName /*+ OPTIONS('upsert-enabled'='true') */
+...
 ```
 
 | Flink option           | Default                    | Description                                                                                                |
