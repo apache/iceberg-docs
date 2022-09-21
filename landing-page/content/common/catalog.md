@@ -34,6 +34,7 @@ A catalog is almost always configured through the processing engine which passes
 
 Iceberg catalogs are flexible and can be implemented using almost any backend system. They can be plugged into any Iceberg runtime, and allow any processing engine that supports Iceberg to load the tracked Iceberg tables. Iceberg also comes with a number of catalog implementations that are ready to use out of the box.
 
+This includes:
 - REST - a server-side catalog that’s exposed through a REST API
 - Hive Metastore - tracks namespaces and tables using a Hive metastore
 - JDBC - tracks namespaces and tables in a simple JDBC database
@@ -41,3 +42,6 @@ Iceberg catalogs are flexible and can be implemented using almost any backend sy
 ## Decoupling Using the REST Catalog
 
 The REST catalog was introduced in the Iceberg 0.14.0 release and provides greater control over how Iceberg catalogs are implemented. Instead of using technology-specific logic contained in the catalog clients, the implementation details of a REST catalog lives on the catalog server. If you’re familiar with Hive, this is somewhat similar to the Hive thrift service that allows access to a hive server over a single port. The server-side logic can be written in any language and use any custom technology, as long as the API follows the [Iceberg REST Open API specification](https://github.com/apache/iceberg/blob/master/open-api/rest-catalog-open-api.yaml).
+
+A great benefit of the REST catalog is that it allows you to use a single client to talk to any catalog back-end. This increased flexibility makes
+it easier to make custom catalogs compatible with engines like Athena or Starburst without requiring the inclusion of a Jar into the classpath.
