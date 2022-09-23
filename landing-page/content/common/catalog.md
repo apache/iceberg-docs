@@ -39,7 +39,7 @@ This includes:
 - Hive Metastore - tracks namespaces and tables using a Hive metastore
 - JDBC - tracks namespaces and tables in a simple JDBC database
 
-There are more catalogs in addition to the ones listed here as well as custom catalogs that are developed to include specialized functionality.
+There are more catalog types in addition to the ones listed here as well as custom catalogs that are developed to include specialized functionality.
 
 ## Decoupling Using the REST Catalog
 
