@@ -8,7 +8,7 @@ sectionPagesMenu = "main"
   siteType = "landing-page"
   search = true
   description = "The open table format for analytic datasets."
-  latestVersions.iceberg = "0.14.0"
+  latestVersions.iceberg = "0.14.1"
   docsBaseURL = ""
 
 [[params.social]]
@@ -34,6 +34,7 @@ home = [ "HTML", "RSS", "SearchIndex" ]
 [menu]
   versions = [
     { name = "latest", url = "/docs/latest", weight = 1 },
+    { name = "0.14.1", url = "/docs/0.14.1", weight = 995 },
     { name = "0.14.0", url = "/docs/0.14.0", weight = 996 },
     { name = "0.13.2", url = "/docs/0.13.2", weight = 997 },
     { name = "0.13.1", url = "/docs/0.13.1", weight = 998 },
@@ -44,9 +45,10 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     { name = "Quickstart", url = "/spark-quickstart", weight = 100 },
     { name = "Docs", url = "/docs/latest", weight = 200 },
     { name = "Releases", url = "/releases", weight = 600 },
+    { name = "Roadmap", url = "/roadmap", weight = 997 },
     { name = "Blogs", url = "/blogs", weight = 998 },
     { name = "Talks", url = "/talks", weight = 999 },
-    { name = "Roadmap", url = "/roadmap", weight = 997 },
+    { name = "Vendors", url = "/vendors", weight = 1000 },
     { name = "Project", weight = 1100 },
     { name = "Join", parent = "Project", url = "/community", weight = 100 },
     { name = "Spec", url = "/spec", parent = "Project", weight = 200 },
