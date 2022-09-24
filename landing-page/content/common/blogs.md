@@ -24,6 +24,14 @@ disableSidebar: true
 
 Here is a list of company blogs that talk about Iceberg. The blogs are ordered from most recent to oldest.
 
+### [Ensuring High Performance at Any Scale with Apache Iceberg’s Object Store File Layout](https://www.dremio.com/subsurface/ensuring-high-performance-at-any-scale-with-apache-icebergs-object-store-file-layout/)
+**Date**: September 20, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
+### [Introduction to Apache Iceberg Using Spark](https://www.dremio.com/subsurface/introduction-to-apache-iceberg-using-spark/)
+**Date**: September 15, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
 ### [A Hands-On Look at the Structure of an Apache Iceberg Table](https://www.dremio.com/subsurface/a-hands-on-look-at-the-structure-of-an-apache-iceberg-table/)
 **Date**: August 24, 2022, **Company**: Dremio
 
@@ -31,6 +39,8 @@ Here is a list of company blogs that talk about Iceberg. The blogs are ordered f
 
 ### [Future-Proof Partitioning and Fewer Table Rewrites with Apache Iceberg](https://www.dremio.com/subsurface/future-proof-partitioning-and-fewer-table-rewrites-with-apache-iceberg/)
 **Date**: August 18, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
 
 ### [How Z-Ordering in Apache Iceberg Helps Improve Performance](https://www.dremio.com/subsurface/how-z-ordering-in-apache-iceberg-helps-improve-performance/)
 **Date**: September 13th, 2022, **Company**: Dremio
