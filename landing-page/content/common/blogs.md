@@ -53,6 +53,11 @@ Here is a list of company blogs that talk about Iceberg. The blogs are ordered f
 
 **Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
 
+### [How to use Apache Iceberg in CDP's Open Lakehouse](https://blog.cloudera.com/how-to-use-apache-iceberg-in-cdps-open-lakehouse/)
+**Date**: August 8th, 2022, **Company**: Cloudera
+
+**Authors**: [Bill Zhang](https://www.linkedin.com/in/billzhang01/), [Peter Ableda](https://www.linkedin.com/in/peterableda), [Shaun Ahmadian](https://www.linkedin.com/in/ssahmadian/), [Manish Maheshwari](https://www.linkedin.com/in/mmaheshwari/)
+
 ### [Near Real-Time Ingestion For Trino](https://www.starburst.io/blog/near-real-time-ingestion-for-trino/)
 **Date**: August 4th, 2022, **Company**: Starburst
 

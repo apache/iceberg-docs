@@ -28,7 +28,7 @@ experience as possible.
 If you are thinking of contributing but first would like to discuss the change you wish to make, we welcome you to
 head over to the [Community](https://iceberg.apache.org/community/) page on the official Iceberg documentation site
 to find a number of ways to connect with the community, including slack and our mailing lists. Of course, always feel
-free to just open a [new issue](https://github.com/apache/iceberg/issues/new) in the GitHub repo.
+free to just open a [new issue](https://github.com/apache/iceberg/issues/new) in the GitHub repo. You can also check the following for a [good first issue](https://github.com/apache/iceberg/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22).
 
 The Iceberg Project is hosted on GitHub at <https://github.com/apache/iceberg>.
 
