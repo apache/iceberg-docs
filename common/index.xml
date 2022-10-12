@@ -6,7 +6,7 @@ How Z-Ordering in Apache Iceberg Helps Improve Performance Date: September 13th,
 Author: Dipankar Mazumdar
 Apache Iceberg 101 – Your Guide to Learning Apache Iceberg Concepts and Practices Date: September 12th, 2022, Company: Dremio
 Author: Alex Merced
-Near Real-Time Ingestion For Trino Date: August 4th, 2022, Company: Starburst</description></item><item><title>Community</title><link>https://iceberg.apache.org/community/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://iceberg.apache.org/community/</guid><description>Welcome! Apache Iceberg tracks issues in GitHub and prefers to receive contributions as pull requests.
+How to use Apache Iceberg in CDP&amp;rsquo;s Open Lakehouse Date: August 8th, 2022, Company: Cloudera</description></item><item><title>Community</title><link>https://iceberg.apache.org/community/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://iceberg.apache.org/community/</guid><description>Welcome! Apache Iceberg tracks issues in GitHub and prefers to receive contributions as pull requests.
 Community discussions happen primarily on the dev mailing list, on apache-iceberg Slack workspace, and on specific GitHub issues.
 Contribute See Contributing for more details on how to contribute to Iceberg.
 Issues Issues are tracked in GitHub:
