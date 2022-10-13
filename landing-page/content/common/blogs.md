@@ -24,10 +24,21 @@ disableSidebar: true
 
 Here is a list of company blogs that talk about Iceberg. The blogs are ordered from most recent to oldest.
 
+### [Iceberg Flink Sink: Stream Directly into your Data Warehouse Tables](https://tabular.io/blog/flink-sink/)
+**Date**: October 12, 2022, **Company**: Tabular
+
+**Author**: [Sam Redai](https://www.linkedin.com/in/sredai/)
+
+### [Partitioning for Correctness (and Performance)](https://tabular.io/blog/partitioning/)
+**Date**: September 28, 2022, **Company**: Tabular
+
+**Author**: [Jason Reid](https://www.linkedin.com/in/jasonreid/)
+
 ### [Ensuring High Performance at Any Scale with Apache Iceberg’s Object Store File Layout](https://www.dremio.com/subsurface/ensuring-high-performance-at-any-scale-with-apache-icebergs-object-store-file-layout/)
 **Date**: September 20, 2022, **Company**: Dremio
 
 **Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
+
 ### [Introduction to Apache Iceberg Using Spark](https://www.dremio.com/subsurface/introduction-to-apache-iceberg-using-spark/)
 **Date**: September 15, 2022, **Company**: Dremio
 
