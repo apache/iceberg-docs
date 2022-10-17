@@ -78,7 +78,7 @@ This release is based on the latest 0.14.1 release. It includes changes to remov
 
 ## Past releases
 
-## 0.14.1 release
+### 0.14.1 release
 
 This release includes all bug fixes from the 0.14.x patch releases.
 
