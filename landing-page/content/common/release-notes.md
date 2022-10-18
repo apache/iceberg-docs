@@ -91,8 +91,38 @@ A more exhaustive list of changes is available under the [0.13.2 release milesto
 
 ## Past releases
 
+## 1.0.0 release
 
-## 0.14.0 release
+This release is based on the latest 0.14.1 release. It includes changes to remove deprecated APIs and the following additional bug fixes:
+* Increase metrics limit to 100 columns ([#5933](https://github.com/apache/iceberg/pull/5933))
+* Bump Spark patch versions for CVE-2022-33891 ([#5292](https://github.com/apache/iceberg/pull/5292))
+* Exclude Scala from Spark runtime Jars ([#5884](https://github.com/apache/iceberg/pull/5884))
+
+
+## Past releases
+
+### 0.14.1 release
+
+This release includes all bug fixes from the 0.14.x patch releases.
+
+### Notable bug fixes
+
+* API
+  - API: Fix ID assignment in schema merging ([#5395](https://github.com/apache/iceberg/pull/5395))
+* Core
+  - Core: Fix snapshot log with intermediate transaction snapshots ([#5568](https://github.com/apache/iceberg/pull/5568))
+  - Core: Fix exception handling in BaseTaskWriter ([#5683](https://github.com/apache/iceberg/pull/5683))
+  - Core: Support deleting tables without metadata files ([#5510](https://github.com/apache/iceberg/pull/5510))
+  - Core: Add CommitStateUnknownException handling to REST ([#5694](https://github.com/apache/iceberg/pull/5694))
+* Spark
+  - Spark: Fix stats in rewrite metadata action ([#5691](https://github.com/apache/iceberg/pull/5691))
+* File Formats
+  - Parquet: Close zstd input stream early to avoid memory pressure ([#5681](https://github.com/apache/iceberg/pull/5681))
+* Vendor Integrations
+  - Core, AWS: Fix Kryo serialization failure for FileIO ([#5437](https://github.com/apache/iceberg/pull/5437))
+  - AWS: S3OutputStream - failure to close should persist on subsequent close calls ([#5311](https://github.com/apache/iceberg/pull/5311))
+
+### 0.14.0 release
 
 Apache Iceberg 0.14.0 was released on 16 July 2022.
 
@@ -226,9 +256,6 @@ This release includes all bug fixes from the 0.13.x patch releases.
 * Updated AWS SDK to 2.17.131 (previously 2.15.7)
 * Updated Nessie to 0.30.0 (previously 0.18.0)
 * Updated Caffeine to 2.9.3 (previously 2.8.4)
-
-
-## Past releases
 
 ### 0.13.2
 

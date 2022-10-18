@@ -24,6 +24,51 @@ disableSidebar: true
 
 Here is a list of company blogs that talk about Iceberg. The blogs are ordered from most recent to oldest.
 
+### [Iceberg Flink Sink: Stream Directly into your Data Warehouse Tables](https://tabular.io/blog/flink-sink/)
+**Date**: October 12, 2022, **Company**: Tabular
+
+**Author**: [Sam Redai](https://www.linkedin.com/in/sredai/)
+
+### [Partitioning for Correctness (and Performance)](https://tabular.io/blog/partitioning/)
+**Date**: September 28, 2022, **Company**: Tabular
+
+**Author**: [Jason Reid](https://www.linkedin.com/in/jasonreid/)
+
+### [Ensuring High Performance at Any Scale with Apache Iceberg’s Object Store File Layout](https://www.dremio.com/subsurface/ensuring-high-performance-at-any-scale-with-apache-icebergs-object-store-file-layout/)
+**Date**: September 20, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
+
+### [Introduction to Apache Iceberg Using Spark](https://www.dremio.com/subsurface/introduction-to-apache-iceberg-using-spark/)
+**Date**: September 15, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
+
+### [How Z-Ordering in Apache Iceberg Helps Improve Performance](https://www.dremio.com/subsurface/how-z-ordering-in-apache-iceberg-helps-improve-performance/)
+**Date**: September 13th, 2022, **Company**: Dremio
+
+**Author**: [Dipankar Mazumdar](https://www.linkedin.com/in/dipankar-mazumdar/)
+
+### [Apache Iceberg 101 – Your Guide to Learning Apache Iceberg Concepts and Practices](https://www.dremio.com/subsurface/apache-iceberg-101-your-guide-to-learning-apache-iceberg-concepts-and-practices/)
+**Date**: September 12th, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
+
+### [A Hands-On Look at the Structure of an Apache Iceberg Table](https://www.dremio.com/subsurface/a-hands-on-look-at-the-structure-of-an-apache-iceberg-table/)
+**Date**: August 24, 2022, **Company**: Dremio
+
+**Author**: [Dipankar Mazumdar](https://www.linkedin.com/in/dipankar-mazumdar/)
+
+### [Future-Proof Partitioning and Fewer Table Rewrites with Apache Iceberg](https://www.dremio.com/subsurface/future-proof-partitioning-and-fewer-table-rewrites-with-apache-iceberg/)
+**Date**: August 18, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
+
+### [How to use Apache Iceberg in CDP's Open Lakehouse](https://blog.cloudera.com/how-to-use-apache-iceberg-in-cdps-open-lakehouse/)
+**Date**: August 8th, 2022, **Company**: Cloudera
+
+**Authors**: [Bill Zhang](https://www.linkedin.com/in/billzhang01/), [Peter Ableda](https://www.linkedin.com/in/peterableda), [Shaun Ahmadian](https://www.linkedin.com/in/ssahmadian/), [Manish Maheshwari](https://www.linkedin.com/in/mmaheshwari/)
+
 ### [Near Real-Time Ingestion For Trino](https://www.starburst.io/blog/near-real-time-ingestion-for-trino/)
 **Date**: August 4th, 2022, **Company**: Starburst
 

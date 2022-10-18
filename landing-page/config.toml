@@ -8,7 +8,7 @@ sectionPagesMenu = "main"
   siteType = "landing-page"
   search = true
   description = "The open table format for analytic datasets."
-  latestVersions.iceberg = "0.14.0"
+  latestVersions.iceberg = "1.0.0"
   docsBaseURL = ""
 
 [[params.social]]
@@ -22,7 +22,7 @@ sectionPagesMenu = "main"
 [[params.social]]
   title = "slack"
   icon = "slack"
-  url = "https://join.slack.com/t/apache-iceberg/shared_invite/zt-1htq2z3jn-8aBes6j0aZlfWpbT3~rwrw"
+  url = "https://join.slack.com/t/apache-iceberg/shared_invite/zt-1htq2z3jn-8aBes6j0aZlfWpbT3~rwrw"  
 
 [outputFormats.SearchIndex]
 baseName = "landingpagesearch"
@@ -34,6 +34,8 @@ home = [ "HTML", "RSS", "SearchIndex" ]
 [menu]
   versions = [
     { name = "latest", url = "/docs/latest", weight = 1 },
+    { name = "1.0.0", url = "/docs/1.0.0", weight = 994 },
+    { name = "0.14.1", url = "/docs/0.14.1", weight = 995 },
     { name = "0.14.0", url = "/docs/0.14.0", weight = 996 },
     { name = "0.13.2", url = "/docs/0.13.2", weight = 997 },
     { name = "0.13.1", url = "/docs/0.13.1", weight = 998 },

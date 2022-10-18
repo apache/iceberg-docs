@@ -1,5 +1,5 @@
 ---
-title: "Spark Configuration"
+title: "Configuration"
 url: spark-configuration
 aliases:
     - "spark/spark-configuration"

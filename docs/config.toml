@@ -10,7 +10,7 @@ theme= "iceberg-theme"
   search = true
   versions.iceberg = "" # This is populated by the github deploy workflow and is equal to the branch name
   versions.nessie = "0.20.0"
-  latestVersions.iceberg = "0.14.1"  # This is used for the version badge on the "latest" site version
+  latestVersions.iceberg = "1.0.0"  # This is used for the version badge on the "latest" site version
   BookSection='docs' # This determines which directory will inform the left navigation menu
   disableHome=true
 
@@ -24,6 +24,7 @@ home = [ "HTML", "RSS", "SearchIndex" ]
 [menu]
   versions = [
     { name = "latest", pre = "relative", url = "../latest", weight = 1 },
+    { name = "1.0.0", pre = "relative", url = "../1.0.0", weight = 994 },
     { name = "0.14.1", pre = "relative", url = "../0.14.1", weight = 995 },
     { name = "0.14.0", pre = "relative", url = "../0.14.0", weight = 996 },
     { name = "0.13.2", pre = "relative", url = "../0.13.2", weight = 997 },
