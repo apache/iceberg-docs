@@ -68,8 +68,17 @@ To add a dependency on Iceberg in Maven, add the following to your `pom.xml`:
 </dependencies>
 ```
 
+## 1.0.0 release
 
-## 0.14.1 release
+This release is based on the latest 0.14.1 release. It includes changes to remove deprecated APIs and the following additional bug fixes:
+* Increase metrics limit to 100 columns ([#5933](https://github.com/apache/iceberg/pull/5933))
+* Bump Spark patch versions for CVE-2022-33891 ([#5292](https://github.com/apache/iceberg/pull/5292))
+* Exclude Scala from Spark runtime Jars ([#5884](https://github.com/apache/iceberg/pull/5884))
+
+
+## Past releases
+
+### 0.14.1 release
 
 This release includes all bug fixes from the 0.14.x patch releases.
 
@@ -89,8 +98,6 @@ This release includes all bug fixes from the 0.14.x patch releases.
 * Vendor Integrations
   - Core, AWS: Fix Kryo serialization failure for FileIO ([#5437](https://github.com/apache/iceberg/pull/5437))
   - AWS: S3OutputStream - failure to close should persist on subsequent close calls ([#5311](https://github.com/apache/iceberg/pull/5311))
-
-## Past releases
 
 ### 0.14.0 release
 
