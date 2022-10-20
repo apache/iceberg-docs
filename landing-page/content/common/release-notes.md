@@ -70,7 +70,12 @@ To add a dependency on Iceberg in Maven, add the following to your `pom.xml`:
 
 ## 1.0.0 release
 
-This release is based on the latest 0.14.1 release. It includes changes to remove deprecated APIs and the following additional bug fixes:
+The 1.0.0 release officially guarantees the stability of the Iceberg API.
+
+Iceberg's API has been largely stable since very early releases and has been integrated with many processing engines, but was still released under a 0.y.z version number indicating that breaking changes may happen. From 1.0.0 forward, the project will follow semver in the public API module, iceberg-api.
+
+This release removes deprecated APIs that are no longer part of the API. To make transitioning to the new release easier, it is based on the 0.14.1 release with only important bug fixes:
+
 * Increase metrics limit to 100 columns ([#5933](https://github.com/apache/iceberg/pull/5933))
 * Bump Spark patch versions for CVE-2022-33891 ([#5292](https://github.com/apache/iceberg/pull/5292))
 * Exclude Scala from Spark runtime Jars ([#5884](https://github.com/apache/iceberg/pull/5884))
@@ -82,7 +87,7 @@ This release is based on the latest 0.14.1 release. It includes changes to remov
 
 This release includes all bug fixes from the 0.14.x patch releases.
 
-### Notable bug fixes
+#### Notable bug fixes
 
 * API
   - API: Fix ID assignment in schema merging ([#5395](https://github.com/apache/iceberg/pull/5395))
@@ -103,7 +108,7 @@ This release includes all bug fixes from the 0.14.x patch releases.
 
 Apache Iceberg 0.14.0 was released on 16 July 2022.
 
-### Highlights
+#### Highlights
 
 * Added several [performance improvements](#performance-improvements) for scan planning and Spark queries
 * Added a common REST catalog client that uses change-based commits to resolve commit conflicts on the service side
@@ -117,7 +122,7 @@ Apache Iceberg 0.14.0 was released on 16 July 2022.
 * Added support for bulk operations and ranged reads to FileIO interfaces
 * Added more metadata tables to show delete files in the metadata tree
 
-### High-level features
+#### High-level features
 
 * API
   - Added IcebergBuild to expose Iceberg version and build information
@@ -181,7 +186,7 @@ Apache Iceberg 0.14.0 was released on 16 July 2022.
   - Support file rolling at a target file size ([#4419](https://github.com/apache/iceberg/pull/4419))
   - Support table compression settings, `write.orc.compression-codec` and `write.orc.compression-strategy` ([#4273](https://github.com/apache/iceberg/pull/4273))
 
-### Performance improvements
+#### Performance improvements
 
 * Core
   - Fixed manifest file handling in scan planning to open manifests in the planning threadpool ([#5206](https://github.com/apache/iceberg/pull/5206))
@@ -205,7 +210,7 @@ Apache Iceberg 0.14.0 was released on 16 July 2022.
   - Added vectorized Parquet reads for Hive 3 ([#3980](https://github.com/apache/iceberg/pull/3980))
   - Improved generic reader performance using copy instead of create ([#4218](https://github.com/apache/iceberg/pull/4218))
 
-### Notable bug fixes
+#### Notable bug fixes
 
 This release includes all bug fixes from the 0.13.x patch releases.
 
@@ -224,7 +229,7 @@ This release includes all bug fixes from the 0.13.x patch releases.
 * Integrations
   - JDBC catalog behavior has been updated to pass common catalog tests ([#4220](https://github.com/apache/iceberg/pull/4220), [#4231](https://github.com/apache/iceberg/pull/4231))
 
-### Dependency changes
+#### Dependency changes
 
 * Updated Apache Avro to 1.10.2 (previously 1.10.1)
 * Updated Apache Parquet to 1.12.3 (previously 1.12.2)
