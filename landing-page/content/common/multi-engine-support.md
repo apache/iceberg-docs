@@ -64,14 +64,13 @@ Each engine version undergoes the following lifecycle stages:
 
 | Version    | Lifecycle Stage    | Initial Iceberg Support | Latest Iceberg Support | Latest Runtime Jar |
 | ---------- | ------------------ | ----------------------- | ---------------------- | ------------------ |
-| 2.4        | Deprecated         | 0.7.0-incubating        | {{% icebergVersion %}} | [iceberg-spark-runtime](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime/{{% icebergVersion %}}/iceberg-spark-runtime-{{% icebergVersion %}}.jar) |
-| 3.0        | Maintained         | 0.9.0                   | {{% icebergVersion %}} | [iceberg-spark3-runtime](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark3-runtime/{{% icebergVersion %}}/iceberg-spark3-runtime-{{% icebergVersion %}}.jar) [1] |
-| 3.1        | Maintained         | 0.12.0                  | {{% icebergVersion %}} | [iceberg-spark-runtime-3.1_2.12](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime-3.1_2.12/{{% icebergVersion %}}/iceberg-spark-runtime-3.1_2.12-{{% icebergVersion %}}.jar) [2] |
+| 2.4        | Deprecated         | 0.7.0-incubating        | {{% icebergVersion %}} | [iceberg-spark-runtime-2.4](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime-2.4/{{% icebergVersion %}}/iceberg-spark-runtime-2.4-{{% icebergVersion %}}.jar) |
+| 3.0        | Maintained         | 0.9.0                   | {{% icebergVersion %}} | [iceberg-spark-runtime-3.0_2.12](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime-3.0_2.12/{{% icebergVersion %}}/iceberg-spark-runtime-3.0_2.12-{{% icebergVersion %}}.jar) |
+| 3.1        | Maintained         | 0.12.0                  | {{% icebergVersion %}} | [iceberg-spark-runtime-3.1_2.12](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime-3.1_2.12/{{% icebergVersion %}}/iceberg-spark-runtime-3.1_2.12-{{% icebergVersion %}}.jar) [1] |
 | 3.2        | Maintained         | 0.13.0                  | {{% icebergVersion %}} | [iceberg-spark-runtime-3.2_2.12](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime-3.2_2.12/{{% icebergVersion %}}/iceberg-spark-runtime-3.2_2.12-{{% icebergVersion %}}.jar) |
 | 3.3        | Maintained         | 0.14.0                  | {{% icebergVersion %}} | [iceberg-spark-runtime-3.3_2.12](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime-3.3_2.12/{{% icebergVersion %}}/iceberg-spark-runtime-3.3_2.12-{{% icebergVersion %}}.jar) |
 
-* [1] Spark 2.4 and 3.0 jar names do not follow the naming convention of newer versions for backwards compatibility
-* [2] Spark 3.1 shares the same runtime jar `iceberg-spark3-runtime` with Spark 3.0 before Iceberg 0.13.0
+* [1] Spark 3.1 shares the same runtime jar `iceberg-spark3-runtime` with Spark 3.0 before Iceberg 0.13.0
 
 ### Apache Flink
 
