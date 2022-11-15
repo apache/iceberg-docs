@@ -24,6 +24,31 @@ disableSidebar: true
 
 Here is a list of company blogs that talk about Iceberg. The blogs are ordered from most recent to oldest.
 
+### [Compaction in Apache Iceberg: Fine-Tuning Your Iceberg Table's Data Files](https://www.dremio.com/subsurface/compaction-in-apache-iceberg-fine-tuning-your-iceberg-tables-data-files/)
+**Date**: November 9th, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
+
+### [The Life of a Read Query for Apache Iceberg Tables](https://www.dremio.com/subsurface/the-life-of-a-read-query-for-apache-iceberg-tables/)
+**Date**: October 31st, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
+
+### [Puffins and Icebergs: Additional Stats for Apache Iceberg Tables](https://www.dremio.com/subsurface/puffins-and-icebergs-additional-stats-for-apache-iceberg-tables/)
+**Date**: October 17th, 2022, **Company**: Dremio
+
+**Author**: [Dipankar Mazumdar](https://www.linkedin.com/in/dipankar-mazumdar/)
+
+### [Apache Iceberg and the Right to be Forgotten](https://www.dremio.com/subsurface/apache-iceberg-and-the-right-to-be-forgotten/)
+**Date**: September 30th, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
+
+### [Streaming Data into Apache Iceberg tables using AWS Kinesis and AWS Glue](https://www.dremio.com/subsurface/streaming-data-into-apache-iceberg-tables-using-aws-kinesis-and-aws-glue/)
+**Date**: September 26th, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
+
 ### [How Z-Ordering in Apache Iceberg Helps Improve Performance](https://www.dremio.com/subsurface/how-z-ordering-in-apache-iceberg-helps-improve-performance/)
 **Date**: September 13th, 2022, **Company**: Dremio
 
