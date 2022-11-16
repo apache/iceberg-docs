@@ -29,8 +29,8 @@ The latest version of Iceberg is [{{% icebergVersion %}}](https://github.com/apa
 * [{{% icebergVersion %}} Spark 3.3\_2.12 runtime Jar](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime-3.3_2.12/{{% icebergVersion %}}/iceberg-spark-runtime-3.3_2.12-{{% icebergVersion %}}.jar) -- [3.3\_2.13](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime-3.3_2.13/{{% icebergVersion %}}/iceberg-spark-runtime-3.3_2.13-{{% icebergVersion %}}.jar)
 * [{{% icebergVersion %}} Spark 3.2\_2.12 runtime Jar](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime-3.2_2.12/{{% icebergVersion %}}/iceberg-spark-runtime-3.2_2.12-{{% icebergVersion %}}.jar) -- [3.2\_2.13](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime-3.2_2.13/{{% icebergVersion %}}/iceberg-spark-runtime-3.2_2.13-{{% icebergVersion %}}.jar)
 * [{{% icebergVersion %}} Spark 3.1 runtime Jar](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime-3.1_2.12/{{% icebergVersion %}}/iceberg-spark-runtime-3.1_2.12-{{% icebergVersion %}}.jar)
-* [{{% icebergVersion %}} Spark 3.0 runtime Jar](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark3-runtime/{{% icebergVersion %}}/iceberg-spark3-runtime-{{% icebergVersion %}}.jar)
-* [{{% icebergVersion %}} Spark 2.4 runtime Jar](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime/{{% icebergVersion %}}/iceberg-spark-runtime-{{% icebergVersion %}}.jar)
+* [{{% icebergVersion %}} Spark 3.0 runtime Jar](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime-3.0_2.12/{{% icebergVersion %}}/iceberg-spark-runtime-3.0_2.12-{{% icebergVersion %}}.jar)
+* [{{% icebergVersion %}} Spark 2.4 runtime Jar](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-spark-runtime-2.4/{{% icebergVersion %}}/iceberg-spark-runtime-2.4-{{% icebergVersion %}}.jar)
 * [{{% icebergVersion %}} Flink 1.15 runtime Jar](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime-1.15/{{% icebergVersion %}}/iceberg-flink-runtime-1.15-{{% icebergVersion %}}.jar)
 * [{{% icebergVersion %}} Flink 1.14 runtime Jar](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime-1.14/{{% icebergVersion %}}/iceberg-flink-runtime-1.14-{{% icebergVersion %}}.jar)
 * [{{% icebergVersion %}} Flink 1.13 runtime Jar](https://search.maven.org/remotecontent?filepath=org/apache/iceberg/iceberg-flink-runtime-1.13/{{% icebergVersion %}}/iceberg-flink-runtime-1.13-{{% icebergVersion %}}.jar)
@@ -68,12 +68,47 @@ To add a dependency on Iceberg in Maven, add the following to your `pom.xml`:
 </dependencies>
 ```
 
+## 1.0.0 release
 
-## 0.14.0 release
+The 1.0.0 release officially guarantees the stability of the Iceberg API.
+
+Iceberg's API has been largely stable since very early releases and has been integrated with many processing engines, but was still released under a 0.y.z version number indicating that breaking changes may happen. From 1.0.0 forward, the project will follow semver in the public API module, iceberg-api.
+
+This release removes deprecated APIs that are no longer part of the API. To make transitioning to the new release easier, it is based on the 0.14.1 release with only important bug fixes:
+
+* Increase metrics limit to 100 columns ([#5933](https://github.com/apache/iceberg/pull/5933))
+* Bump Spark patch versions for CVE-2022-33891 ([#5292](https://github.com/apache/iceberg/pull/5292))
+* Exclude Scala from Spark runtime Jars ([#5884](https://github.com/apache/iceberg/pull/5884))
+
+
+## Past releases
+
+### 0.14.1 release
+
+This release includes all bug fixes from the 0.14.x patch releases.
+
+#### Notable bug fixes
+
+* API
+  - API: Fix ID assignment in schema merging ([#5395](https://github.com/apache/iceberg/pull/5395))
+* Core
+  - Core: Fix snapshot log with intermediate transaction snapshots ([#5568](https://github.com/apache/iceberg/pull/5568))
+  - Core: Fix exception handling in BaseTaskWriter ([#5683](https://github.com/apache/iceberg/pull/5683))
+  - Core: Support deleting tables without metadata files ([#5510](https://github.com/apache/iceberg/pull/5510))
+  - Core: Add CommitStateUnknownException handling to REST ([#5694](https://github.com/apache/iceberg/pull/5694))
+* Spark
+  - Spark: Fix stats in rewrite metadata action ([#5691](https://github.com/apache/iceberg/pull/5691))
+* File Formats
+  - Parquet: Close zstd input stream early to avoid memory pressure ([#5681](https://github.com/apache/iceberg/pull/5681))
+* Vendor Integrations
+  - Core, AWS: Fix Kryo serialization failure for FileIO ([#5437](https://github.com/apache/iceberg/pull/5437))
+  - AWS: S3OutputStream - failure to close should persist on subsequent close calls ([#5311](https://github.com/apache/iceberg/pull/5311))
+
+### 0.14.0 release
 
 Apache Iceberg 0.14.0 was released on 16 July 2022.
 
-### Highlights
+#### Highlights
 
 * Added several [performance improvements](#performance-improvements) for scan planning and Spark queries
 * Added a common REST catalog client that uses change-based commits to resolve commit conflicts on the service side
@@ -87,7 +122,7 @@ Apache Iceberg 0.14.0 was released on 16 July 2022.
 * Added support for bulk operations and ranged reads to FileIO interfaces
 * Added more metadata tables to show delete files in the metadata tree
 
-### High-level features
+#### High-level features
 
 * API
   - Added IcebergBuild to expose Iceberg version and build information
@@ -151,7 +186,7 @@ Apache Iceberg 0.14.0 was released on 16 July 2022.
   - Support file rolling at a target file size ([#4419](https://github.com/apache/iceberg/pull/4419))
   - Support table compression settings, `write.orc.compression-codec` and `write.orc.compression-strategy` ([#4273](https://github.com/apache/iceberg/pull/4273))
 
-### Performance improvements
+#### Performance improvements
 
 * Core
   - Fixed manifest file handling in scan planning to open manifests in the planning threadpool ([#5206](https://github.com/apache/iceberg/pull/5206))
@@ -175,7 +210,7 @@ Apache Iceberg 0.14.0 was released on 16 July 2022.
   - Added vectorized Parquet reads for Hive 3 ([#3980](https://github.com/apache/iceberg/pull/3980))
   - Improved generic reader performance using copy instead of create ([#4218](https://github.com/apache/iceberg/pull/4218))
 
-### Notable bug fixes
+#### Notable bug fixes
 
 This release includes all bug fixes from the 0.13.x patch releases.
 
@@ -194,7 +229,7 @@ This release includes all bug fixes from the 0.13.x patch releases.
 * Integrations
   - JDBC catalog behavior has been updated to pass common catalog tests ([#4220](https://github.com/apache/iceberg/pull/4220), [#4231](https://github.com/apache/iceberg/pull/4231))
 
-### Dependency changes
+#### Dependency changes
 
 * Updated Apache Avro to 1.10.2 (previously 1.10.1)
 * Updated Apache Parquet to 1.12.3 (previously 1.12.2)
@@ -203,9 +238,6 @@ This release includes all bug fixes from the 0.13.x patch releases.
 * Updated AWS SDK to 2.17.131 (previously 2.15.7)
 * Updated Nessie to 0.30.0 (previously 0.18.0)
 * Updated Caffeine to 2.9.3 (previously 2.8.4)
-
-
-## Past releases
 
 ### 0.13.2
 
