@@ -10,29 +10,62 @@ which contains a local Spark cluster with a configured Iceberg catalog. To use t
 </span></span><span style=display:flex><span><span style=color:#f92672>services</span>:
 </span></span><span style=display:flex><span>  <span style=color:#f92672>spark-iceberg</span>:
 </span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>tabulario/spark-iceberg</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>depends_on</span>:
-</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>postgres</span>
 </span></span><span style=display:flex><span>    <span style=color:#f92672>container_name</span>: <span style=color:#ae81ff>spark-iceberg</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
-</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>SPARK_HOME=/opt/spark</span>
-</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>PYSPARK_PYTON=/usr/bin/python3.9</span>
-</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/spark/bin</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>build</span>: <span style=color:#ae81ff>spark/</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>depends_on</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>rest</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>minio</span>
 </span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
 </span></span><span style=display:flex><span>      - <span style=color:#ae81ff>./warehouse:/home/iceberg/warehouse</span>
 </span></span><span style=display:flex><span>      - <span style=color:#ae81ff>./notebooks:/home/iceberg/notebooks/notebooks</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>AWS_ACCESS_KEY_ID=admin</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>AWS_SECRET_ACCESS_KEY=password</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>AWS_REGION=us-east-1</span>
 </span></span><span style=display:flex><span>    <span style=color:#f92672>ports</span>:
 </span></span><span style=display:flex><span>      - <span style=color:#ae81ff>8888</span>:<span style=color:#ae81ff>8888</span>
 </span></span><span style=display:flex><span>      - <span style=color:#ae81ff>8080</span>:<span style=color:#ae81ff>8080</span>
-</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>18080</span>:<span style=color:#ae81ff>18080</span>
-</span></span><span style=display:flex><span>  <span style=color:#f92672>postgres</span>:
-</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>postgres:13.4-bullseye</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>container_name</span>: <span style=color:#ae81ff>postgres</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>links</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>rest:rest</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>minio:minio</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>rest</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>tabulario/iceberg-rest:0.1.0</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ports</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>8181</span>:<span style=color:#ae81ff>8181</span>
 </span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
-</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>POSTGRES_USER=admin</span>
-</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>POSTGRES_PASSWORD=password</span>
-</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>POSTGRES_DB=demo_catalog</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
-</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>./postgres/data:/var/lib/postgresql/data</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>AWS_ACCESS_KEY_ID=admin</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>AWS_SECRET_ACCESS_KEY=password</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>AWS_REGION=us-east-1</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>CATALOG_WAREHOUSE=s3a://warehouse/wh/</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>CATALOG_IO__IMPL=org.apache.iceberg.aws.s3.S3FileIO</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>CATALOG_S3_ENDPOINT=http://minio:9000</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>minio</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>minio/minio</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>container_name</span>: <span style=color:#ae81ff>minio</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>MINIO_ROOT_USER=admin</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>MINIO_ROOT_PASSWORD=password</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ports</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>9001</span>:<span style=color:#ae81ff>9001</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>9000</span>:<span style=color:#ae81ff>9000</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>command</span>: [<span style=color:#e6db74>&#34;server&#34;</span>, <span style=color:#e6db74>&#34;/data&#34;</span>, <span style=color:#e6db74>&#34;--console-address&#34;</span>, <span style=color:#e6db74>&#34;:9001&#34;</span>]
+</span></span><span style=display:flex><span>  <span style=color:#f92672>mc</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>depends_on</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>minio</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>minio/mc</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>container_name</span>: <span style=color:#ae81ff>mc</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>AWS_ACCESS_KEY_ID=admin</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>AWS_SECRET_ACCESS_KEY=password</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>AWS_REGION=us-east-1</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>entrypoint</span>: &gt;<span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      /bin/sh -c &#34;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      until (/usr/bin/mc config host add minio http://minio:9000 admin password) do echo &#39;...waiting...&#39; &amp;&amp; sleep 1; done;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      /usr/bin/mc rm -r --force minio/warehouse;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      /usr/bin/mc mb minio/warehouse;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      /usr/bin/mc policy set public minio/warehouse;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      exit 0;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      &#34;</span>      
 </span></span></code></pre></div><p>Next, start up the docker containers with this command:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>docker-compose up
 </span></span></code></pre></div><p>You can then run any of the following commands to start a Spark session.</p><div class=codetabs><input id=spark-sql type=radio name=LaunchSparkClient onclick='selectExampleLanguage("spark-queries","spark-sql")'>
 <label for=spark-sql>SparkSQL</label>
@@ -76,8 +109,8 @@ using <code>demo.nyc.taxis</code> where <code>demo</code> is the catalog name, <
 </span></span><span style=display:flex><span>  StructField(<span style=color:#e6db74>&#34;vendor_id&#34;</span>, LongType(), <span style=color:#66d9ef>True</span>),
 </span></span><span style=display:flex><span>  StructField(<span style=color:#e6db74>&#34;trip_id&#34;</span>, LongType(), <span style=color:#66d9ef>True</span>),
 </span></span><span style=display:flex><span>  StructField(<span style=color:#e6db74>&#34;trip_distance&#34;</span>, FloatType(), <span style=color:#66d9ef>True</span>),
-</span></span><span style=display:flex><span>  StructField(<span style=color:#e6db74>&#34;fare_amount&#39;, DoubleType(), True),</span>
-</span></span><span style=display:flex><span>  StructField(<span style=color:#e6db74>&#34;store_and_fwd_flag&#39;, StringType(), True)</span>
+</span></span><span style=display:flex><span>  StructField(<span style=color:#e6db74>&#34;fare_amount&#34;</span>, DoubleType(), <span style=color:#66d9ef>True</span>),
+</span></span><span style=display:flex><span>  StructField(<span style=color:#e6db74>&#34;store_and_fwd_flag&#34;</span>, StringType(), <span style=color:#66d9ef>True</span>)
 </span></span><span style=display:flex><span>])
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>df <span style=color:#f92672>=</span> spark<span style=color:#f92672>.</span>createDataFrame([], schema)
