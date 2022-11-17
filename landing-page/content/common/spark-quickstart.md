@@ -53,29 +53,62 @@ version: "3"
 services:
   spark-iceberg:
     image: tabulario/spark-iceberg
-    depends_on:
-      - postgres
     container_name: spark-iceberg
-    environment:
-      - SPARK_HOME=/opt/spark
-      - PYSPARK_PYTON=/usr/bin/python3.9
-      - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/spark/bin
+    build: spark/
+    depends_on:
+      - rest
+      - minio
     volumes:
       - ./warehouse:/home/iceberg/warehouse
       - ./notebooks:/home/iceberg/notebooks/notebooks
+    environment:
+      - AWS_ACCESS_KEY_ID=admin
+      - AWS_SECRET_ACCESS_KEY=password
+      - AWS_REGION=us-east-1
     ports:
       - 8888:8888
       - 8080:8080
-      - 18080:18080
-  postgres:
-    image: postgres:13.4-bullseye
-    container_name: postgres
+    links:
+      - rest:rest
+      - minio:minio
+  rest:
+    image: tabulario/iceberg-rest:0.1.0
+    ports:
+      - 8181:8181
     environment:
-      - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=demo_catalog
-    volumes:
-      - ./postgres/data:/var/lib/postgresql/data
+      - AWS_ACCESS_KEY_ID=admin
+      - AWS_SECRET_ACCESS_KEY=password
+      - AWS_REGION=us-east-1
+      - CATALOG_WAREHOUSE=s3a://warehouse/wh/
+      - CATALOG_IO__IMPL=org.apache.iceberg.aws.s3.S3FileIO
+      - CATALOG_S3_ENDPOINT=http://minio:9000
+  minio:
+    image: minio/minio
+    container_name: minio
+    environment:
+      - MINIO_ROOT_USER=admin
+      - MINIO_ROOT_PASSWORD=password
+    ports:
+      - 9001:9001
+      - 9000:9000
+    command: ["server", "/data", "--console-address", ":9001"]
+  mc:
+    depends_on:
+      - minio
+    image: minio/mc
+    container_name: mc
+    environment:
+      - AWS_ACCESS_KEY_ID=admin
+      - AWS_SECRET_ACCESS_KEY=password
+      - AWS_REGION=us-east-1
+    entrypoint: >
+      /bin/sh -c "
+      until (/usr/bin/mc config host add minio http://minio:9000 admin password) do echo '...waiting...' && sleep 1; done;
+      /usr/bin/mc rm -r --force minio/warehouse;
+      /usr/bin/mc mb minio/warehouse;
+      /usr/bin/mc policy set public minio/warehouse;
+      exit 0;
+      "
 ```
 
 Next, start up the docker containers with this command:
@@ -155,8 +188,8 @@ schema = StructType([
   StructField("vendor_id", LongType(), True),
   StructField("trip_id", LongType(), True),
   StructField("trip_distance", FloatType(), True),
-  StructField("fare_amount', DoubleType(), True),
-  StructField("store_and_fwd_flag', StringType(), True)
+  StructField("fare_amount", DoubleType(), True),
+  StructField("store_and_fwd_flag", StringType(), True)
 ])
 
 df = spark.createDataFrame([], schema)
