@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -109,6 +109,10 @@ var activeTableTab = "activeTableTab";
 <dt>All Implemented Interfaces:</dt>
 <dd>java.io.Serializable, <a href="../../../../org/apache/iceberg/aws/AwsClientFactory.html" title="interface in org.apache.iceberg.aws">AwsClientFactory</a></dd>
 </dl>
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><a href="../../../../org/apache/iceberg/aws/lakeformation/LakeFormationAwsClientFactory.html" title="class in org.apache.iceberg.aws.lakeformation">LakeFormationAwsClientFactory</a></dd>
+</dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">AssumeRoleAwsClientFactory</span>
@@ -154,30 +158,42 @@ implements <a href="../../../../org/apache/iceberg/aws/AwsClientFactory.html" ti
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>protected &lt;T extends software.amazon.awssdk.awscore.client.builder.AwsClientBuilder &amp; software.amazon.awssdk.awscore.client.builder.AwsSyncClientBuilder&gt;<br>T</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/aws/AssumeRoleAwsClientFactory.html#applyAssumeRoleConfigurations-T-">applyAssumeRoleConfigurations</a></span>(T&nbsp;clientBuilder)</code>&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../../org/apache/iceberg/aws/AwsProperties.html" title="class in org.apache.iceberg.aws">AwsProperties</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/aws/AssumeRoleAwsClientFactory.html#awsProperties--">awsProperties</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>software.amazon.awssdk.services.dynamodb.DynamoDbClient</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/aws/AssumeRoleAwsClientFactory.html#dynamo--">dynamo</a></span>()</code>
 <div class="block">Create a Amazon DynamoDB client</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>software.amazon.awssdk.services.glue.GlueClient</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/aws/AssumeRoleAwsClientFactory.html#glue--">glue</a></span>()</code>
 <div class="block">create a AWS Glue client</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/aws/AssumeRoleAwsClientFactory.html#initialize-java.util.Map-">initialize</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</code>
 <div class="block">Initialize AWS client factory from catalog properties.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>software.amazon.awssdk.services.kms.KmsClient</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/aws/AssumeRoleAwsClientFactory.html#kms--">kms</a></span>()</code>
 <div class="block">Create a AWS KMS client</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>protected java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/aws/AssumeRoleAwsClientFactory.html#region--">region</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>software.amazon.awssdk.services.s3.S3Client</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/aws/AssumeRoleAwsClientFactory.html#s3--">s3</a></span>()</code>
 <div class="block">create a Amazon S3 client</div>
@@ -293,7 +309,7 @@ implements <a href="../../../../org/apache/iceberg/aws/AwsClientFactory.html" ti
 <a name="initialize-java.util.Map-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>initialize</h4>
 <pre>public&nbsp;void&nbsp;initialize(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</pre>
@@ -305,6 +321,35 @@ implements <a href="../../../../org/apache/iceberg/aws/AwsClientFactory.html" ti
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>properties</code> - catalog properties</dd>
 </dl>
+</li>
+</ul>
+<a name="applyAssumeRoleConfigurations-software.amazon.awssdk.awscore.client.builder.AwsClientBuilder-">
+<!--   -->
+</a><a name="applyAssumeRoleConfigurations-T-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>applyAssumeRoleConfigurations</h4>
+<pre>protected&nbsp;&lt;T extends software.amazon.awssdk.awscore.client.builder.AwsClientBuilder &amp; software.amazon.awssdk.awscore.client.builder.AwsSyncClientBuilder&gt;&nbsp;T&nbsp;applyAssumeRoleConfigurations(T&nbsp;clientBuilder)</pre>
+</li>
+</ul>
+<a name="region--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>region</h4>
+<pre>protected&nbsp;java.lang.String&nbsp;region()</pre>
+</li>
+</ul>
+<a name="awsProperties--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>awsProperties</h4>
+<pre>protected&nbsp;<a href="../../../../org/apache/iceberg/aws/AwsProperties.html" title="class in org.apache.iceberg.aws">AwsProperties</a>&nbsp;awsProperties()</pre>
 </li>
 </ul>
 </li>

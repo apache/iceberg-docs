@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
+<li><a href="../../../../org/apache/iceberg/catalog/BaseSessionCatalog.AsCatalog.html" title="class in org.apache.iceberg.catalog"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/catalog/Catalog.TableBuilder.html" title="interface in org.apache.iceberg.catalog"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -99,7 +99,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../org/apache/iceberg/BaseMetastoreCatalog.html" title="class in org.apache.iceberg">BaseMetastoreCatalog</a>, <a href="../../../../org/apache/iceberg/CachingCatalog.html" title="class in org.apache.iceberg">CachingCatalog</a>, <a href="../../../../org/apache/iceberg/aws/dynamodb/DynamoDbCatalog.html" title="class in org.apache.iceberg.aws.dynamodb">DynamoDbCatalog</a>, <a href="../../../../org/apache/iceberg/aws/glue/GlueCatalog.html" title="class in org.apache.iceberg.aws.glue">GlueCatalog</a>, <a href="../../../../org/apache/iceberg/hadoop/HadoopCatalog.html" title="class in org.apache.iceberg.hadoop">HadoopCatalog</a>, <a href="../../../../org/apache/iceberg/hive/HiveCatalog.html" title="class in org.apache.iceberg.hive">HiveCatalog</a>, <a href="../../../../org/apache/iceberg/jdbc/JdbcCatalog.html" title="class in org.apache.iceberg.jdbc">JdbcCatalog</a>, <a href="../../../../org/apache/iceberg/nessie/NessieCatalog.html" title="class in org.apache.iceberg.nessie">NessieCatalog</a></dd>
+<dd><a href="../../../../org/apache/iceberg/BaseMetastoreCatalog.html" title="class in org.apache.iceberg">BaseMetastoreCatalog</a>, <a href="../../../../org/apache/iceberg/catalog/BaseSessionCatalog.AsCatalog.html" title="class in org.apache.iceberg.catalog">BaseSessionCatalog.AsCatalog</a>, <a href="../../../../org/apache/iceberg/CachingCatalog.html" title="class in org.apache.iceberg">CachingCatalog</a>, <a href="../../../../org/apache/iceberg/aws/dynamodb/DynamoDbCatalog.html" title="class in org.apache.iceberg.aws.dynamodb">DynamoDbCatalog</a>, <a href="../../../../org/apache/iceberg/dell/ecs/EcsCatalog.html" title="class in org.apache.iceberg.dell.ecs">EcsCatalog</a>, <a href="../../../../org/apache/iceberg/aws/glue/GlueCatalog.html" title="class in org.apache.iceberg.aws.glue">GlueCatalog</a>, <a href="../../../../org/apache/iceberg/hadoop/HadoopCatalog.html" title="class in org.apache.iceberg.hadoop">HadoopCatalog</a>, <a href="../../../../org/apache/iceberg/hive/HiveCatalog.html" title="class in org.apache.iceberg.hive">HiveCatalog</a>, <a href="../../../../org/apache/iceberg/jdbc/JdbcCatalog.html" title="class in org.apache.iceberg.jdbc">JdbcCatalog</a>, <a href="../../../../org/apache/iceberg/nessie/NessieCatalog.html" title="class in org.apache.iceberg.nessie">NessieCatalog</a>, <a href="../../../../org/apache/iceberg/rest/RESTCatalog.html" title="class in org.apache.iceberg.rest">RESTCatalog</a></dd>
 </dl>
 <hr>
 <br>
@@ -148,8 +148,7 @@ var activeTableTab = "activeTableTab";
 <td class="colFirst"><code>default <a href="../../../../org/apache/iceberg/catalog/Catalog.TableBuilder.html" title="interface in org.apache.iceberg.catalog">Catalog.TableBuilder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/catalog/Catalog.html#buildTable-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-">buildTable</a></span>(<a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;identifier,
           <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema)</code>
-<div class="block">/**
- Instantiate a builder to either create a table or start a create/replace transaction.</div>
+<div class="block">/** Instantiate a builder to either create a table or start a create/replace transaction.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -694,8 +693,8 @@ var activeTableTab = "activeTableTab";
 <pre>boolean&nbsp;dropTable(<a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;identifier,
                   boolean&nbsp;purge)</pre>
 <div class="block">Drop a table; optionally delete data and metadata files.
- <p>
- If purge is set to true the implementation should delete all data and metadata files.</div>
+
+ <p>If purge is set to true the implementation should delete all data and metadata files.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>identifier</code> - a table identifier</dd>
@@ -750,9 +749,9 @@ var activeTableTab = "activeTableTab";
 <h4>invalidateTable</h4>
 <pre>default&nbsp;void&nbsp;invalidateTable(<a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;identifier)</pre>
 <div class="block">Invalidate cached table metadata from current catalog.
- <p>
- If the table is already loaded or cached, drop cached data. If the table does not exist or is
- not cached, do nothing.</div>
+
+ <p>If the table is already loaded or cached, drop cached data. If the table does not exist or
+ is not cached, do nothing.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>identifier</code> - a table identifier</dd>
@@ -787,8 +786,7 @@ var activeTableTab = "activeTableTab";
 <h4>buildTable</h4>
 <pre>default&nbsp;<a href="../../../../org/apache/iceberg/catalog/Catalog.TableBuilder.html" title="interface in org.apache.iceberg.catalog">Catalog.TableBuilder</a>&nbsp;buildTable(<a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;identifier,
                                         <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema)</pre>
-<div class="block">/**
- Instantiate a builder to either create a table or start a create/replace transaction.</div>
+<div class="block">/** Instantiate a builder to either create a table or start a create/replace transaction.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>identifier</code> - a table identifier</dd>
@@ -807,10 +805,10 @@ var activeTableTab = "activeTableTab";
 <pre>default&nbsp;void&nbsp;initialize(java.lang.String&nbsp;name,
                         java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</pre>
 <div class="block">Initialize a catalog given a custom name and a map of catalog properties.
- <p>
- A custom Catalog implementation must have a no-arg constructor.
- A compute engine like Spark or Flink will first initialize the catalog without any arguments,
- and then call this method to complete catalog initialization with properties passed into the engine.</div>
+
+ <p>A custom Catalog implementation must have a no-arg constructor. A compute engine like Spark
+ or Flink will first initialize the catalog without any arguments, and then call this method to
+ complete catalog initialization with properties passed into the engine.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - a custom name for the catalog</dd>
@@ -845,7 +843,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
+<li><a href="../../../../org/apache/iceberg/catalog/BaseSessionCatalog.AsCatalog.html" title="class in org.apache.iceberg.catalog"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/catalog/Catalog.TableBuilder.html" title="interface in org.apache.iceberg.catalog"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

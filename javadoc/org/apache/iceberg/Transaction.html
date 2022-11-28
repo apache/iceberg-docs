@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":18,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":18,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6,"i16":18};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -97,6 +97,10 @@ var activeTableTab = "activeTableTab";
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
+<dl>
+<dt>All Known Implementing Classes:</dt>
+<dd><a href="../../../org/apache/iceberg/BaseTransaction.html" title="class in org.apache.iceberg">BaseTransaction</a></dd>
+</dl>
 <hr>
 <br>
 <pre>public interface <span class="typeNameLabel">Transaction</span></pre>
@@ -171,7 +175,8 @@ var activeTableTab = "activeTableTab";
 <tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg">RowDelta</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Transaction.html#newRowDelta--">newRowDelta</a></span>()</code>
-<div class="block">Create a new <a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg"><code>row-level delta API</code></a> to remove or replace rows in existing data files.</div>
+<div class="block">Create a new <a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg"><code>row-level delta API</code></a> to remove or replace rows in existing data
+ files.</div>
 </td>
 </tr>
 <tr id="i9" class="rowColor">
@@ -183,7 +188,8 @@ var activeTableTab = "activeTableTab";
 <tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/RewriteManifests.html" title="interface in org.apache.iceberg">RewriteManifests</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Transaction.html#rewriteManifests--">rewriteManifests</a></span>()</code>
-<div class="block">Create a new <a href="../../../org/apache/iceberg/RewriteManifests.html" title="interface in org.apache.iceberg"><code>rewrite manifests API</code></a> to replace manifests for this table.</div>
+<div class="block">Create a new <a href="../../../org/apache/iceberg/RewriteManifests.html" title="interface in org.apache.iceberg"><code>rewrite manifests API</code></a> to replace manifests for this
+ table.</div>
 </td>
 </tr>
 <tr id="i11" class="rowColor">
@@ -214,6 +220,13 @@ var activeTableTab = "activeTableTab";
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/UpdatePartitionSpec.html" title="interface in org.apache.iceberg">UpdatePartitionSpec</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Transaction.html#updateSpec--">updateSpec</a></span>()</code>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/UpdatePartitionSpec.html" title="interface in org.apache.iceberg"><code>UpdatePartitionSpec</code></a> to alter the partition spec of this table.</div>
+</td>
+</tr>
+<tr id="i16" class="altColor">
+<td class="colFirst"><code>default <a href="../../../org/apache/iceberg/UpdateStatistics.html" title="interface in org.apache.iceberg">UpdateStatistics</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Transaction.html#updateStatistics--">updateStatistics</a></span>()</code>
+<div class="block">Create a new <a href="../../../org/apache/iceberg/UpdateStatistics.html" title="interface in org.apache.iceberg"><code>update table statistics API</code></a> to add or remove statistics
+ files in this table.</div>
 </td>
 </tr>
 </table>
@@ -337,13 +350,13 @@ var activeTableTab = "activeTableTab";
 <h4>newFastAppend</h4>
 <pre>default&nbsp;<a href="../../../org/apache/iceberg/AppendFiles.html" title="interface in org.apache.iceberg">AppendFiles</a>&nbsp;newFastAppend()</pre>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/AppendFiles.html" title="interface in org.apache.iceberg"><code>append API</code></a> to add files to this table.
- <p>
- Using this method signals to the underlying implementation that the append should not perform
- extra work in order to commit quickly. Fast appends are not recommended for normal writes
- because the fast commit may cause split planning to slow down over time.
- <p>
- Implementations may not support fast appends, in which case this will return the same appender
- as <a href="../../../org/apache/iceberg/Transaction.html#newAppend--"><code>newAppend()</code></a>.</div>
+
+ <p>Using this method signals to the underlying implementation that the append should not
+ perform extra work in order to commit quickly. Fast appends are not recommended for normal
+ writes because the fast commit may cause split planning to slow down over time.
+
+ <p>Implementations may not support fast appends, in which case this will return the same
+ appender as <a href="../../../org/apache/iceberg/Transaction.html#newAppend--"><code>newAppend()</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a new <a href="../../../org/apache/iceberg/AppendFiles.html" title="interface in org.apache.iceberg"><code>AppendFiles</code></a></dd>
@@ -371,7 +384,8 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>rewriteManifests</h4>
 <pre><a href="../../../org/apache/iceberg/RewriteManifests.html" title="interface in org.apache.iceberg">RewriteManifests</a>&nbsp;rewriteManifests()</pre>
-<div class="block">Create a new <a href="../../../org/apache/iceberg/RewriteManifests.html" title="interface in org.apache.iceberg"><code>rewrite manifests API</code></a> to replace manifests for this table.</div>
+<div class="block">Create a new <a href="../../../org/apache/iceberg/RewriteManifests.html" title="interface in org.apache.iceberg"><code>rewrite manifests API</code></a> to replace manifests for this
+ table.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a new <a href="../../../org/apache/iceberg/RewriteManifests.html" title="interface in org.apache.iceberg"><code>RewriteManifests</code></a></dd>
@@ -399,7 +413,8 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>newRowDelta</h4>
 <pre><a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg">RowDelta</a>&nbsp;newRowDelta()</pre>
-<div class="block">Create a new <a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg"><code>row-level delta API</code></a> to remove or replace rows in existing data files.</div>
+<div class="block">Create a new <a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg"><code>row-level delta API</code></a> to remove or replace rows in existing data
+ files.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a new <a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg"><code>RowDelta</code></a></dd>
@@ -415,9 +430,10 @@ var activeTableTab = "activeTableTab";
 <pre><a href="../../../org/apache/iceberg/ReplacePartitions.html" title="interface in org.apache.iceberg">ReplacePartitions</a>&nbsp;newReplacePartitions()</pre>
 <div class="block">Not recommended: Create a new <a href="../../../org/apache/iceberg/ReplacePartitions.html" title="interface in org.apache.iceberg"><code>replace partitions API</code></a> to dynamically
  overwrite partitions in the table with new data.
- <p>
- This is provided to implement SQL compatible with Hive table operations but is not recommended.
- Instead, use the <a href="../../../org/apache/iceberg/OverwriteFiles.html" title="interface in org.apache.iceberg"><code>overwrite API</code></a> to explicitly overwrite data.</div>
+
+ <p>This is provided to implement SQL compatible with Hive table operations but is not
+ recommended. Instead, use the <a href="../../../org/apache/iceberg/OverwriteFiles.html" title="interface in org.apache.iceberg"><code>overwrite API</code></a> to explicitly overwrite
+ data.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a new <a href="../../../org/apache/iceberg/ReplacePartitions.html" title="interface in org.apache.iceberg"><code>ReplacePartitions</code></a></dd>
@@ -435,6 +451,21 @@ var activeTableTab = "activeTableTab";
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a new <a href="../../../org/apache/iceberg/DeleteFiles.html" title="interface in org.apache.iceberg"><code>DeleteFiles</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="updateStatistics--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>updateStatistics</h4>
+<pre>default&nbsp;<a href="../../../org/apache/iceberg/UpdateStatistics.html" title="interface in org.apache.iceberg">UpdateStatistics</a>&nbsp;updateStatistics()</pre>
+<div class="block">Create a new <a href="../../../org/apache/iceberg/UpdateStatistics.html" title="interface in org.apache.iceberg"><code>update table statistics API</code></a> to add or remove statistics
+ files in this table.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a new <a href="../../../org/apache/iceberg/UpdateStatistics.html" title="interface in org.apache.iceberg"><code>UpdateStatistics</code></a></dd>
 </dl>
 </li>
 </ul>

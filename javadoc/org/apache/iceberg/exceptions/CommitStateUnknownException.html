@@ -122,8 +122,8 @@
 <br>
 <pre>public class <span class="typeNameLabel">CommitStateUnknownException</span>
 extends java.lang.RuntimeException</pre>
-<div class="block">Exception for a failure to confirm either affirmatively or negatively that a commit was applied. The client
- cannot take any further action without possibly corrupting the table.</div>
+<div class="block">Exception for a failure to confirm either affirmatively or negatively that a commit was applied.
+ The client cannot take any further action without possibly corrupting the table.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../serialized-form.html#org.apache.iceberg.exceptions.CommitStateUnknownException">Serialized Form</a></dd>
@@ -146,6 +146,10 @@ extends java.lang.RuntimeException</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/exceptions/CommitStateUnknownException.html#CommitStateUnknownException-java.lang.String-java.lang.Throwable-">CommitStateUnknownException</a></span>(java.lang.String&nbsp;message,
+                           java.lang.Throwable&nbsp;cause)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/exceptions/CommitStateUnknownException.html#CommitStateUnknownException-java.lang.Throwable-">CommitStateUnknownException</a></span>(java.lang.Throwable&nbsp;cause)</code>&nbsp;</td>
 </tr>
 </table>
@@ -188,10 +192,20 @@ extends java.lang.RuntimeException</pre>
 <a name="CommitStateUnknownException-java.lang.Throwable-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>CommitStateUnknownException</h4>
 <pre>public&nbsp;CommitStateUnknownException(java.lang.Throwable&nbsp;cause)</pre>
+</li>
+</ul>
+<a name="CommitStateUnknownException-java.lang.String-java.lang.Throwable-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>CommitStateUnknownException</h4>
+<pre>public&nbsp;CommitStateUnknownException(java.lang.String&nbsp;message,
+                                   java.lang.Throwable&nbsp;cause)</pre>
 </li>
 </ul>
 </li>

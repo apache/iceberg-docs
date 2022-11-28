@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/util/ThreadPools.html" title="class in org.apache.iceberg.util"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/util/TruncateUtil.html" title="class in org.apache.iceberg.util"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/util/UUIDUtil.html" title="class in org.apache.iceberg.util"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -138,23 +138,24 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/UnicodeUtil.html#truncateString-java.lang.CharSequence-int-">truncateString</a></span>(java.lang.CharSequence&nbsp;input,
               int&nbsp;length)</code>
 <div class="block">Truncates the input charSequence such that the truncated charSequence is a valid unicode string
- and the number of unicode characters in the truncated charSequence is lesser than or equal to length</div>
+ and the number of unicode characters in the truncated charSequence is lesser than or equal to
+ length</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/expressions/Literal.html" title="interface in org.apache.iceberg.expressions">Literal</a>&lt;java.lang.CharSequence&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/UnicodeUtil.html#truncateStringMax-org.apache.iceberg.expressions.Literal-int-">truncateStringMax</a></span>(<a href="../../../../org/apache/iceberg/expressions/Literal.html" title="interface in org.apache.iceberg.expressions">Literal</a>&lt;java.lang.CharSequence&gt;&nbsp;input,
                  int&nbsp;length)</code>
-<div class="block">Returns a valid unicode charsequence that is greater than the given input such that the
- number of unicode characters in the truncated charSequence is lesser than or equal to length</div>
+<div class="block">Returns a valid unicode charsequence that is greater than the given input such that the number
+ of unicode characters in the truncated charSequence is lesser than or equal to length</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/expressions/Literal.html" title="interface in org.apache.iceberg.expressions">Literal</a>&lt;java.lang.CharSequence&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/UnicodeUtil.html#truncateStringMin-org.apache.iceberg.expressions.Literal-int-">truncateStringMin</a></span>(<a href="../../../../org/apache/iceberg/expressions/Literal.html" title="interface in org.apache.iceberg.expressions">Literal</a>&lt;java.lang.CharSequence&gt;&nbsp;input,
                  int&nbsp;length)</code>
-<div class="block">Returns a valid unicode charsequence that is lower than the given input such that the
- number of unicode characters in the truncated charSequence is lesser than or equal to length</div>
+<div class="block">Returns a valid unicode charsequence that is lower than the given input such that the number of
+ unicode characters in the truncated charSequence is lesser than or equal to length</div>
 </td>
 </tr>
 </table>
@@ -186,8 +187,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>isCharHighSurrogate</h4>
 <pre>public static&nbsp;boolean&nbsp;isCharHighSurrogate(char&nbsp;ch)</pre>
-<div class="block">Determines if the given character value is a unicode high-surrogate code unit.
- The range of high-surrogates is 0xD800 - 0xDBFF.</div>
+<div class="block">Determines if the given character value is a unicode high-surrogate code unit. The range of
+ high-surrogates is 0xD800 - 0xDBFF.</div>
 </li>
 </ul>
 <a name="truncateString-java.lang.CharSequence-int-">
@@ -199,7 +200,8 @@ extends java.lang.Object</pre>
 <pre>public static&nbsp;java.lang.CharSequence&nbsp;truncateString(java.lang.CharSequence&nbsp;input,
                                                     int&nbsp;length)</pre>
 <div class="block">Truncates the input charSequence such that the truncated charSequence is a valid unicode string
- and the number of unicode characters in the truncated charSequence is lesser than or equal to length</div>
+ and the number of unicode characters in the truncated charSequence is lesser than or equal to
+ length</div>
 </li>
 </ul>
 <a name="truncateStringMin-org.apache.iceberg.expressions.Literal-int-">
@@ -210,8 +212,8 @@ extends java.lang.Object</pre>
 <h4>truncateStringMin</h4>
 <pre>public static&nbsp;<a href="../../../../org/apache/iceberg/expressions/Literal.html" title="interface in org.apache.iceberg.expressions">Literal</a>&lt;java.lang.CharSequence&gt;&nbsp;truncateStringMin(<a href="../../../../org/apache/iceberg/expressions/Literal.html" title="interface in org.apache.iceberg.expressions">Literal</a>&lt;java.lang.CharSequence&gt;&nbsp;input,
                                                                 int&nbsp;length)</pre>
-<div class="block">Returns a valid unicode charsequence that is lower than the given input such that the
- number of unicode characters in the truncated charSequence is lesser than or equal to length</div>
+<div class="block">Returns a valid unicode charsequence that is lower than the given input such that the number of
+ unicode characters in the truncated charSequence is lesser than or equal to length</div>
 </li>
 </ul>
 <a name="truncateStringMax-org.apache.iceberg.expressions.Literal-int-">
@@ -222,8 +224,8 @@ extends java.lang.Object</pre>
 <h4>truncateStringMax</h4>
 <pre>public static&nbsp;<a href="../../../../org/apache/iceberg/expressions/Literal.html" title="interface in org.apache.iceberg.expressions">Literal</a>&lt;java.lang.CharSequence&gt;&nbsp;truncateStringMax(<a href="../../../../org/apache/iceberg/expressions/Literal.html" title="interface in org.apache.iceberg.expressions">Literal</a>&lt;java.lang.CharSequence&gt;&nbsp;input,
                                                                 int&nbsp;length)</pre>
-<div class="block">Returns a valid unicode charsequence that is greater than the given input such that the
- number of unicode characters in the truncated charSequence is lesser than or equal to length</div>
+<div class="block">Returns a valid unicode charsequence that is greater than the given input such that the number
+ of unicode characters in the truncated charSequence is lesser than or equal to length</div>
 </li>
 </ul>
 </li>
@@ -253,7 +255,7 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/util/ThreadPools.html" title="class in org.apache.iceberg.util"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/util/TruncateUtil.html" title="class in org.apache.iceberg.util"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/util/UUIDUtil.html" title="class in org.apache.iceberg.util"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

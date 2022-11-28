@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../org/apache/iceberg/flink/source/StreamingMonitorFunction.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li>Next&nbsp;Class</li>
+<li><a href="../../../../../org/apache/iceberg/flink/source/StreamingStartingStrategy.html" title="enum in org.apache.iceberg.flink.source"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/iceberg/flink/source/StreamingReaderOperator.html" target="_top">Frames</a></li>
@@ -119,12 +119,12 @@ var activeTableTab = "activeTableTab";
 <pre>public class <span class="typeNameLabel">StreamingReaderOperator</span>
 extends org.apache.flink.streaming.api.operators.AbstractStreamOperator&lt;org.apache.flink.table.data.RowData&gt;
 implements org.apache.flink.streaming.api.operators.OneInputStreamOperator&lt;<a href="../../../../../org/apache/iceberg/flink/source/FlinkInputSplit.html" title="class in org.apache.iceberg.flink.source">FlinkInputSplit</a>,org.apache.flink.table.data.RowData&gt;</pre>
-<div class="block">The operator that reads the <a href="../../../../../org/apache/iceberg/flink/source/FlinkInputSplit.html" title="class in org.apache.iceberg.flink.source"><code>splits</code></a> received from the preceding <a href="../../../../../org/apache/iceberg/flink/source/StreamingMonitorFunction.html" title="class in org.apache.iceberg.flink.source"><code>StreamingMonitorFunction</code></a>. Contrary to the <a href="../../../../../org/apache/iceberg/flink/source/StreamingMonitorFunction.html" title="class in org.apache.iceberg.flink.source"><code>StreamingMonitorFunction</code></a> which has a parallelism of 1,
- this operator can have multiple parallelism.
+<div class="block">The operator that reads the <a href="../../../../../org/apache/iceberg/flink/source/FlinkInputSplit.html" title="class in org.apache.iceberg.flink.source"><code>splits</code></a> received from the preceding <a href="../../../../../org/apache/iceberg/flink/source/StreamingMonitorFunction.html" title="class in org.apache.iceberg.flink.source"><code>StreamingMonitorFunction</code></a>. Contrary to the <a href="../../../../../org/apache/iceberg/flink/source/StreamingMonitorFunction.html" title="class in org.apache.iceberg.flink.source"><code>StreamingMonitorFunction</code></a> which has a
+ parallelism of 1, this operator can have multiple parallelism.
 
- <p>As soon as a split descriptor is received, it is put in a queue, and use <code>MailboxExecutor</code>
- read the actual data of the split. This architecture allows the separation of the reading thread from the one split
- processing the checkpoint barriers, thus removing any potential back-pressure.</div>
+ <p>As soon as a split descriptor is received, it is put in a queue, and use <code>MailboxExecutor</code> read the actual data of the split. This architecture allows the separation of
+ the reading thread from the one split processing the checkpoint barriers, thus removing any
+ potential back-pressure.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../../serialized-form.html#org.apache.iceberg.flink.source.StreamingReaderOperator">Serialized Form</a></dd>
@@ -192,7 +192,7 @@ implements org.apache.flink.streaming.api.operators.OneInputStreamOperator&lt;<a
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.flink.streaming.api.operators.AbstractStreamOperator</h3>
-<code>getChainingStrategy, getContainingTask, getCurrentKey, getExecutionConfig, getInternalTimerService, getKeyedStateBackend, getKeyedStateStore, getMetricGroup, getOperatorConfig, getOperatorID, getOperatorName, getOperatorStateBackend, getOrCreateKeyedState, getPartitionedState, getPartitionedState, getProcessingTimeService, getRuntimeContext, getTimeServiceManager, getUserCodeClassloader, initializeState, isUsingCustomRawKeyedState, notifyCheckpointAborted, notifyCheckpointComplete, open, prepareSnapshotPreBarrier, processLatencyMarker, processLatencyMarker1, processLatencyMarker2, processWatermark1, processWatermark2, processWatermarkStatus, processWatermarkStatus1, processWatermarkStatus2, reportOrForwardLatencyMarker, setChainingStrategy, setCurrentKey, setKeyContextElement1, setKeyContextElement2, setProcessingTimeService, setup, snapshotState</code></li>
+<code>getChainingStrategy, getContainingTask, getCurrentKey, getExecutionConfig, getInternalTimerService, getKeyedStateBackend, getKeyedStateStore, getMetricGroup, getOperatorConfig, getOperatorID, getOperatorName, getOperatorStateBackend, getOrCreateKeyedState, getPartitionedState, getPartitionedState, getProcessingTimeService, getRuntimeContext, getTimeServiceManager, getUserCodeClassloader, initializeState, isUsingCustomRawKeyedState, notifyCheckpointAborted, notifyCheckpointComplete, open, prepareSnapshotPreBarrier, processLatencyMarker, processLatencyMarker1, processLatencyMarker2, processWatermark1, processWatermark2, processWatermarkStatus, processWatermarkStatus1, processWatermarkStatus2, registerCounterOnOutput, reportOrForwardLatencyMarker, setChainingStrategy, setCurrentKey, setKeyContextElement1, setKeyContextElement2, setProcessingTimeService, setup, snapshotState</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -378,7 +378,7 @@ implements org.apache.flink.streaming.api.operators.OneInputStreamOperator&lt;<a
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../org/apache/iceberg/flink/source/StreamingMonitorFunction.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li>Next&nbsp;Class</li>
+<li><a href="../../../../../org/apache/iceberg/flink/source/StreamingStartingStrategy.html" title="enum in org.apache.iceberg.flink.source"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/iceberg/flink/source/StreamingReaderOperator.html" target="_top">Frames</a></li>

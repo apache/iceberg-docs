@@ -103,15 +103,15 @@ var activeTableTab = "activeTableTab";
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../org/apache/iceberg/spark/actions/BaseExpireSnapshotsSparkAction.html" title="class in org.apache.iceberg.spark.actions">BaseExpireSnapshotsSparkAction</a></dd>
+<dd><a href="../../../../org/apache/iceberg/spark/actions/ExpireSnapshotsSparkAction.html" title="class in org.apache.iceberg.spark.actions">ExpireSnapshotsSparkAction</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public interface <span class="typeNameLabel">ExpireSnapshots</span>
 extends <a href="../../../../org/apache/iceberg/actions/Action.html" title="interface in org.apache.iceberg.actions">Action</a>&lt;<a href="../../../../org/apache/iceberg/actions/ExpireSnapshots.html" title="interface in org.apache.iceberg.actions">ExpireSnapshots</a>,<a href="../../../../org/apache/iceberg/actions/ExpireSnapshots.Result.html" title="interface in org.apache.iceberg.actions">ExpireSnapshots.Result</a>&gt;</pre>
 <div class="block">An action that expires snapshots in a table.
- <p>
- Similar to <a href="../../../../org/apache/iceberg/ExpireSnapshots.html" title="interface in org.apache.iceberg"><code>ExpireSnapshots</code></a> but may use a query engine to distribute
+
+ <p>Similar to <a href="../../../../org/apache/iceberg/ExpireSnapshots.html" title="interface in org.apache.iceberg"><code>ExpireSnapshots</code></a> but may use a query engine to distribute
  parts of the work.</div>
 </li>
 </ul>
@@ -155,13 +155,15 @@ extends <a href="../../../../org/apache/iceberg/actions/Action.html" title="inte
 <tr id="i0" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/actions/ExpireSnapshots.html" title="interface in org.apache.iceberg.actions">ExpireSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/ExpireSnapshots.html#deleteWith-java.util.function.Consumer-">deleteWith</a></span>(java.util.function.Consumer&lt;java.lang.String&gt;&nbsp;deleteFunc)</code>
-<div class="block">Passes an alternative delete implementation that will be used for manifests and data files.</div>
+<div class="block">Passes an alternative delete implementation that will be used for manifests, data and delete
+ files.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/actions/ExpireSnapshots.html" title="interface in org.apache.iceberg.actions">ExpireSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/ExpireSnapshots.html#executeDeleteWith-java.util.concurrent.ExecutorService-">executeDeleteWith</a></span>(java.util.concurrent.ExecutorService&nbsp;executorService)</code>
-<div class="block">Passes an alternative executor service that will be used for manifests and data files deletion.</div>
+<div class="block">Passes an alternative executor service that will be used for manifests, data and delete files
+ deletion.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -212,8 +214,8 @@ extends <a href="../../../../org/apache/iceberg/actions/Action.html" title="inte
 <h4>expireSnapshotId</h4>
 <pre><a href="../../../../org/apache/iceberg/actions/ExpireSnapshots.html" title="interface in org.apache.iceberg.actions">ExpireSnapshots</a>&nbsp;expireSnapshotId(long&nbsp;snapshotId)</pre>
 <div class="block">Expires a specific <a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><code>Snapshot</code></a> identified by id.
- <p>
- Identical to <a href="../../../../org/apache/iceberg/ExpireSnapshots.html#expireSnapshotId-long-"><code>ExpireSnapshots.expireSnapshotId(long)</code></a></div>
+
+ <p>Identical to <a href="../../../../org/apache/iceberg/ExpireSnapshots.html#expireSnapshotId-long-"><code>ExpireSnapshots.expireSnapshotId(long)</code></a></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>snapshotId</code> - id of the snapshot to expire</dd>
@@ -230,8 +232,8 @@ extends <a href="../../../../org/apache/iceberg/actions/Action.html" title="inte
 <h4>expireOlderThan</h4>
 <pre><a href="../../../../org/apache/iceberg/actions/ExpireSnapshots.html" title="interface in org.apache.iceberg.actions">ExpireSnapshots</a>&nbsp;expireOlderThan(long&nbsp;timestampMillis)</pre>
 <div class="block">Expires all snapshots older than the given timestamp.
- <p>
- Identical to <a href="../../../../org/apache/iceberg/ExpireSnapshots.html#expireOlderThan-long-"><code>ExpireSnapshots.expireOlderThan(long)</code></a></div>
+
+ <p>Identical to <a href="../../../../org/apache/iceberg/ExpireSnapshots.html#expireOlderThan-long-"><code>ExpireSnapshots.expireOlderThan(long)</code></a></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>timestampMillis</code> - a long timestamp, as returned by <code>System.currentTimeMillis()</code></dd>
@@ -248,12 +250,12 @@ extends <a href="../../../../org/apache/iceberg/actions/Action.html" title="inte
 <h4>retainLast</h4>
 <pre><a href="../../../../org/apache/iceberg/actions/ExpireSnapshots.html" title="interface in org.apache.iceberg.actions">ExpireSnapshots</a>&nbsp;retainLast(int&nbsp;numSnapshots)</pre>
 <div class="block">Retains the most recent ancestors of the current snapshot.
- <p>
- If a snapshot would be expired because it is older than the expiration timestamp, but is one of
- the <code>numSnapshots</code> most recent ancestors of the current state, it will be retained. This
- will not cause snapshots explicitly identified by id from expiring.
- <p>
- Identical to <a href="../../../../org/apache/iceberg/ExpireSnapshots.html#retainLast-int-"><code>ExpireSnapshots.retainLast(int)</code></a></div>
+
+ <p>If a snapshot would be expired because it is older than the expiration timestamp, but is one
+ of the <code>numSnapshots</code> most recent ancestors of the current state, it will be retained.
+ This will not cause snapshots explicitly identified by id from expiring.
+
+ <p>Identical to <a href="../../../../org/apache/iceberg/ExpireSnapshots.html#retainLast-int-"><code>ExpireSnapshots.retainLast(int)</code></a></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>numSnapshots</code> - the number of snapshots to retain</dd>
@@ -269,14 +271,15 @@ extends <a href="../../../../org/apache/iceberg/actions/Action.html" title="inte
 <li class="blockList">
 <h4>deleteWith</h4>
 <pre><a href="../../../../org/apache/iceberg/actions/ExpireSnapshots.html" title="interface in org.apache.iceberg.actions">ExpireSnapshots</a>&nbsp;deleteWith(java.util.function.Consumer&lt;java.lang.String&gt;&nbsp;deleteFunc)</pre>
-<div class="block">Passes an alternative delete implementation that will be used for manifests and data files.
- <p>
- Manifest files that are no longer used by valid snapshots will be deleted. Data files that were
- deleted by snapshots that are expired will be deleted.
- <p>
- If this method is not called, unnecessary manifests and data files will still be deleted.
- <p>
- Identical to <a href="../../../../org/apache/iceberg/ExpireSnapshots.html#deleteWith-java.util.function.Consumer-"><code>ExpireSnapshots.deleteWith(Consumer)</code></a></div>
+<div class="block">Passes an alternative delete implementation that will be used for manifests, data and delete
+ files.
+
+ <p>Manifest files that are no longer used by valid snapshots will be deleted. Content files
+ that were marked as logically deleted by snapshots that are expired will be deleted as well.
+
+ <p>If this method is not called, unnecessary manifests and content files will still be deleted.
+
+ <p>Identical to <a href="../../../../org/apache/iceberg/ExpireSnapshots.html#deleteWith-java.util.function.Consumer-"><code>ExpireSnapshots.deleteWith(Consumer)</code></a></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>deleteFunc</code> - a function that will be called to delete manifests and data files</dd>
@@ -292,12 +295,13 @@ extends <a href="../../../../org/apache/iceberg/actions/Action.html" title="inte
 <li class="blockList">
 <h4>executeDeleteWith</h4>
 <pre><a href="../../../../org/apache/iceberg/actions/ExpireSnapshots.html" title="interface in org.apache.iceberg.actions">ExpireSnapshots</a>&nbsp;executeDeleteWith(java.util.concurrent.ExecutorService&nbsp;executorService)</pre>
-<div class="block">Passes an alternative executor service that will be used for manifests and data files deletion.
- <p>
- If this method is not called, unnecessary manifests and data files will still be deleted in
- the current thread.
- <p>
- Identical to <a href="../../../../org/apache/iceberg/ExpireSnapshots.html#executeDeleteWith-java.util.concurrent.ExecutorService-"><code>ExpireSnapshots.executeDeleteWith(ExecutorService)</code></a></div>
+<div class="block">Passes an alternative executor service that will be used for manifests, data and delete files
+ deletion.
+
+ <p>If this method is not called, unnecessary manifests and content files will still be deleted
+ in the current thread.
+
+ <p>Identical to <a href="../../../../org/apache/iceberg/ExpireSnapshots.html#executeDeleteWith-java.util.concurrent.ExecutorService-"><code>ExpireSnapshots.executeDeleteWith(ExecutorService)</code></a></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>executorService</code> - the service to use</dd>

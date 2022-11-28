@@ -109,12 +109,12 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public interface <span class="typeNameLabel">HadoopConfigurable</span>
 extends org.apache.hadoop.conf.Configurable</pre>
-<div class="block">An interface that extends the Hadoop <a href="../../../../org/apache/iceberg/hadoop/Configurable.html" title="interface in org.apache.iceberg.hadoop"><code>Configurable</code></a> interface to offer better serialization support for
- customizable Iceberg objects such as <a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><code>FileIO</code></a>.
- <p>
- If an object is serialized and needs to use Hadoop configuration, it is recommended for the object to implement
- this interface so that a serializable supplier of configuration can be provided instead of an actual Hadoop
- configuration which is not serializable.</div>
+<div class="block">An interface that extends the Hadoop <a href="../../../../org/apache/iceberg/hadoop/Configurable.html" title="interface in org.apache.iceberg.hadoop"><code>Configurable</code></a> interface to offer better serialization
+ support for customizable Iceberg objects such as <a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><code>FileIO</code></a>.
+
+ <p>If an object is serialized and needs to use Hadoop configuration, it is recommended for the
+ object to implement this interface so that a serializable supplier of configuration can be
+ provided instead of an actual Hadoop configuration which is not serializable.</div>
 </li>
 </ul>
 </div>
@@ -168,11 +168,13 @@ extends org.apache.hadoop.conf.Configurable</pre>
 <li class="blockList">
 <h4>serializeConfWith</h4>
 <pre>void&nbsp;serializeConfWith(java.util.function.Function&lt;org.apache.hadoop.conf.Configuration,<a href="../../../../org/apache/iceberg/util/SerializableSupplier.html" title="interface in org.apache.iceberg.util">SerializableSupplier</a>&lt;org.apache.hadoop.conf.Configuration&gt;&gt;&nbsp;confSerializer)</pre>
-<div class="block">Take a function that serializes Hadoop configuration into a supplier. An implementation is supposed to pass in
- its current Hadoop configuration into this function, and the result can be safely serialized for future use.</div>
+<div class="block">Take a function that serializes Hadoop configuration into a supplier. An implementation is
+ supposed to pass in its current Hadoop configuration into this function, and the result can be
+ safely serialized for future use.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>confSerializer</code> - A function that takes Hadoop configuration and returns a serializable supplier of it.</dd>
+<dd><code>confSerializer</code> - A function that takes Hadoop configuration and returns a serializable
+     supplier of it.</dd>
 </dl>
 </li>
 </ul>

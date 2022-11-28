@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/DoubleFieldMetrics.Builder.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/EnvironmentContext.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../org/apache/iceberg/FieldMetrics.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -106,18 +106,18 @@ var activeTableTab = "activeTableTab";
 <pre>public interface <span class="typeNameLabel">ExpireSnapshots</span>
 extends <a href="../../../org/apache/iceberg/PendingUpdate.html" title="interface in org.apache.iceberg">PendingUpdate</a>&lt;java.util.List&lt;<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;&gt;</pre>
 <div class="block">API for removing old <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><code>snapshots</code></a> from a table.
- <p>
- This API accumulates snapshot deletions and commits the new list to the table. This API does not
- allow deleting the current snapshot.
- <p>
- When committing, these changes will be applied to the latest table metadata. Commit conflicts
- will be resolved by applying the changes to the new latest metadata and reattempting the commit.
- <p>
- Manifest files that are no longer used by valid snapshots will be deleted. Data files that were
- deleted by snapshots that are expired will be deleted. <a href="../../../org/apache/iceberg/ExpireSnapshots.html#deleteWith-java.util.function.Consumer-"><code>deleteWith(Consumer)</code></a> can be used
- to pass an alternative deletion method.
 
- <a href="../../../org/apache/iceberg/PendingUpdate.html#apply--"><code>PendingUpdate.apply()</code></a> returns a list of the snapshots that will be removed.</div>
+ <p>This API accumulates snapshot deletions and commits the new list to the table. This API does
+ not allow deleting the current snapshot.
+
+ <p>When committing, these changes will be applied to the latest table metadata. Commit conflicts
+ will be resolved by applying the changes to the new latest metadata and reattempting the commit.
+
+ <p>Manifest files that are no longer used by valid snapshots will be deleted. Data files that
+ were deleted by snapshots that are expired will be deleted. <a href="../../../org/apache/iceberg/ExpireSnapshots.html#deleteWith-java.util.function.Consumer-"><code>deleteWith(Consumer)</code></a> can be
+ used to pass an alternative deletion method.
+
+ <p><a href="../../../org/apache/iceberg/PendingUpdate.html#apply--"><code>PendingUpdate.apply()</code></a> returns a list of the snapshots that will be removed.</div>
 </li>
 </ul>
 </div>
@@ -167,6 +167,12 @@ extends <a href="../../../org/apache/iceberg/PendingUpdate.html" title="interfac
 </td>
 </tr>
 <tr id="i5" class="rowColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/ExpireSnapshots.html" title="interface in org.apache.iceberg">ExpireSnapshots</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ExpireSnapshots.html#planWith-java.util.concurrent.ExecutorService-">planWith</a></span>(java.util.concurrent.ExecutorService&nbsp;executorService)</code>
+<div class="block">Passes an alternative executor service that will be used for planning.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ExpireSnapshots.html" title="interface in org.apache.iceberg">ExpireSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ExpireSnapshots.html#retainLast-int-">retainLast</a></span>(int&nbsp;numSnapshots)</code>
 <div class="block">Retains the most recent ancestors of the current snapshot.</div>
@@ -234,13 +240,14 @@ extends <a href="../../../org/apache/iceberg/PendingUpdate.html" title="interfac
 <h4>retainLast</h4>
 <pre><a href="../../../org/apache/iceberg/ExpireSnapshots.html" title="interface in org.apache.iceberg">ExpireSnapshots</a>&nbsp;retainLast(int&nbsp;numSnapshots)</pre>
 <div class="block">Retains the most recent ancestors of the current snapshot.
- <p>
- If a snapshot would be expired because it is older than the expiration timestamp, but is one of
- the <code>numSnapshots</code> most recent ancestors of the current state, it will be retained. This
- will not cause snapshots explicitly identified by id from expiring.
- <p>
- This may keep more than <code>numSnapshots</code> ancestors if snapshots are added concurrently. This
- may keep less than <code>numSnapshots</code> ancestors if the current table state does not have that many.</div>
+
+ <p>If a snapshot would be expired because it is older than the expiration timestamp, but is one
+ of the <code>numSnapshots</code> most recent ancestors of the current state, it will be retained.
+ This will not cause snapshots explicitly identified by id from expiring.
+
+ <p>This may keep more than <code>numSnapshots</code> ancestors if snapshots are added concurrently.
+ This may keep less than <code>numSnapshots</code> ancestors if the current table state does not have
+ that many.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>numSnapshots</code> - the number of snapshots to retain</dd>
@@ -257,11 +264,11 @@ extends <a href="../../../org/apache/iceberg/PendingUpdate.html" title="interfac
 <h4>deleteWith</h4>
 <pre><a href="../../../org/apache/iceberg/ExpireSnapshots.html" title="interface in org.apache.iceberg">ExpireSnapshots</a>&nbsp;deleteWith(java.util.function.Consumer&lt;java.lang.String&gt;&nbsp;deleteFunc)</pre>
 <div class="block">Passes an alternative delete implementation that will be used for manifests and data files.
- <p>
- Manifest files that are no longer used by valid snapshots will be deleted. Data files that were
- deleted by snapshots that are expired will be deleted.
- <p>
- If this method is not called, unnecessary manifests and data files will still be deleted.</div>
+
+ <p>Manifest files that are no longer used by valid snapshots will be deleted. Data files that
+ were deleted by snapshots that are expired will be deleted.
+
+ <p>If this method is not called, unnecessary manifests and data files will still be deleted.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>deleteFunc</code> - a function that will be called to delete manifests and data files</dd>
@@ -278,15 +285,33 @@ extends <a href="../../../org/apache/iceberg/PendingUpdate.html" title="interfac
 <h4>executeDeleteWith</h4>
 <pre><a href="../../../org/apache/iceberg/ExpireSnapshots.html" title="interface in org.apache.iceberg">ExpireSnapshots</a>&nbsp;executeDeleteWith(java.util.concurrent.ExecutorService&nbsp;executorService)</pre>
 <div class="block">Passes an alternative executor service that will be used for manifests and data files deletion.
- <p>
- Manifest files that are no longer used by valid snapshots will be deleted. Data files that were
- deleted by snapshots that are expired will be deleted.
- <p>
- If this method is not called, unnecessary manifests and data files will still be deleted using a single threaded
- executor service.</div>
+
+ <p>Manifest files that are no longer used by valid snapshots will be deleted. Data files that
+ were deleted by snapshots that are expired will be deleted.
+
+ <p>If this method is not called, unnecessary manifests and data files will still be deleted
+ using a single threaded executor service.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>executorService</code> - an executor service to parallelize tasks to delete manifests and data files</dd>
+<dd><code>executorService</code> - an executor service to parallelize tasks to delete manifests and data
+     files</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a name="planWith-java.util.concurrent.ExecutorService-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>planWith</h4>
+<pre><a href="../../../org/apache/iceberg/ExpireSnapshots.html" title="interface in org.apache.iceberg">ExpireSnapshots</a>&nbsp;planWith(java.util.concurrent.ExecutorService&nbsp;executorService)</pre>
+<div class="block">Passes an alternative executor service that will be used for planning. If this method is not
+ called, the default worker pool will be used.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>executorService</code> - an executor service to plan</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>
 </dl>
@@ -300,9 +325,9 @@ extends <a href="../../../org/apache/iceberg/PendingUpdate.html" title="interfac
 <h4>cleanExpiredFiles</h4>
 <pre><a href="../../../org/apache/iceberg/ExpireSnapshots.html" title="interface in org.apache.iceberg">ExpireSnapshots</a>&nbsp;cleanExpiredFiles(boolean&nbsp;clean)</pre>
 <div class="block">Allows expiration of snapshots without any cleanup of underlying manifest or data files.
- <p>
- Allows control in removing data and manifest files which may be more efficiently removed using
- a distributed framework through the actions API.</div>
+
+ <p>Allows control in removing data and manifest files which may be more efficiently removed
+ using a distributed framework through the actions API.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>clean</code> - setting this to false will skip deleting expired manifests and files</dd>
@@ -338,7 +363,7 @@ extends <a href="../../../org/apache/iceberg/PendingUpdate.html" title="interfac
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/DoubleFieldMetrics.Builder.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/EnvironmentContext.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../org/apache/iceberg/FieldMetrics.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

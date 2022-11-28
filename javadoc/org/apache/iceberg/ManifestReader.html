@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -170,10 +170,23 @@ implements <a href="../../../org/apache/iceberg/io/CloseableIterable.html" title
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected </code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManifestReader.html#ManifestReader-org.apache.iceberg.io.InputFile-java.util.Map-org.apache.iceberg.InheritableMetadata-org.apache.iceberg.ManifestReader.FileType-">ManifestReader</a></span>(<a href="../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a>&nbsp;file,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManifestReader.html#ManifestReader-org.apache.iceberg.io.InputFile-int-java.util.Map-org.apache.iceberg.InheritableMetadata-org.apache.iceberg.ManifestReader.FileType-">ManifestReader</a></span>(<a href="../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a>&nbsp;file,
+              int&nbsp;specId,
               java.util.Map&lt;java.lang.Integer,<a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&gt;&nbsp;specsById,
               org.apache.iceberg.InheritableMetadata&nbsp;inheritableMetadata,
               <a href="../../../org/apache/iceberg/ManifestReader.FileType.html" title="enum in org.apache.iceberg">ManifestReader.FileType</a>&nbsp;content)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected </code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManifestReader.html#ManifestReader-org.apache.iceberg.io.InputFile-java.util.Map-org.apache.iceberg.InheritableMetadata-org.apache.iceberg.ManifestReader.FileType-">ManifestReader</a></span>(<a href="../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a>&nbsp;file,
+              java.util.Map&lt;java.lang.Integer,<a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&gt;&nbsp;specsById,
+              org.apache.iceberg.InheritableMetadata&nbsp;inheritableMetadata,
+              <a href="../../../org/apache/iceberg/ManifestReader.FileType.html" title="enum in org.apache.iceberg">ManifestReader.FileType</a>&nbsp;content)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
+<div class="block"><span class="deprecationComment">Will be removed in 1.2.0, use <a href="../../../org/apache/iceberg/ManifestReader.html#ManifestReader-org.apache.iceberg.io.InputFile-int-java.util.Map-org.apache.iceberg.InheritableMetadata-org.apache.iceberg.ManifestReader.FileType-"><code>ManifestReader(InputFile, int,
+     Map, InheritableMetadata, FileType)</code></a>.</span></div>
+</div>
+</td>
 </tr>
 </table>
 </li>
@@ -204,31 +217,35 @@ implements <a href="../../../org/apache/iceberg/io/CloseableIterable.html" title
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManifestReader.html" title="class in org.apache.iceberg">ManifestReader</a>&lt;<a href="../../../org/apache/iceberg/ManifestReader.html" title="type parameter in ManifestReader">F</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManifestReader.html#filterRows-org.apache.iceberg.expressions.Expression-">filterRows</a></span>(<a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManifestReader.html#filterPartitions-org.apache.iceberg.util.PartitionSet-">filterPartitions</a></span>(<a href="../../../org/apache/iceberg/util/PartitionSet.html" title="class in org.apache.iceberg.util">PartitionSet</a>&nbsp;partitions)</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/ManifestReader.html" title="class in org.apache.iceberg">ManifestReader</a>&lt;<a href="../../../org/apache/iceberg/ManifestReader.html" title="type parameter in ManifestReader">F</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManifestReader.html#filterRows-org.apache.iceberg.expressions.Expression-">filterRows</a></span>(<a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr)</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManifestReader.html#isDeleteManifestReader--">isDeleteManifestReader</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/io/CloseableIterator.html" title="interface in org.apache.iceberg.io">CloseableIterator</a>&lt;<a href="../../../org/apache/iceberg/ManifestReader.html" title="type parameter in ManifestReader">F</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManifestReader.html#iterator--">iterator</a></span>()</code>
-<div class="block">Returns an closeable iterator over elements of type <code>T</code>.</div>
+<div class="block">Returns a closeable iterator over elements of type <code>T</code>.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManifestReader.html" title="class in org.apache.iceberg">ManifestReader</a>&lt;<a href="../../../org/apache/iceberg/ManifestReader.html" title="type parameter in ManifestReader">F</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManifestReader.html#project-org.apache.iceberg.Schema-">project</a></span>(<a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;newFileProjection)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManifestReader.html#schema--">schema</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManifestReader.html" title="class in org.apache.iceberg">ManifestReader</a>&lt;<a href="../../../org/apache/iceberg/ManifestReader.html" title="type parameter in ManifestReader">F</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManifestReader.html#select-java.util.Collection-">select</a></span>(java.util.Collection&lt;java.lang.String&gt;&nbsp;newColumns)</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManifestReader.html#spec--">spec</a></span>()</code>&nbsp;</td>
 </tr>
@@ -252,7 +269,7 @@ implements <a href="../../../org/apache/iceberg/io/CloseableIterable.html" title
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.iceberg.io.<a href="../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a></h3>
-<code><a href="../../../org/apache/iceberg/io/CloseableIterable.html#combine-java.lang.Iterable-java.io.Closeable-">combine</a>, <a href="../../../org/apache/iceberg/io/CloseableIterable.html#concat-java.lang.Iterable-">concat</a>, <a href="../../../org/apache/iceberg/io/CloseableIterable.html#empty--">empty</a>, <a href="../../../org/apache/iceberg/io/CloseableIterable.html#filter-org.apache.iceberg.io.CloseableIterable-java.util.function.Predicate-">filter</a>, <a href="../../../org/apache/iceberg/io/CloseableIterable.html#transform-org.apache.iceberg.io.CloseableIterable-java.util.function.Function-">transform</a>, <a href="../../../org/apache/iceberg/io/CloseableIterable.html#withNoopClose-E-">withNoopClose</a>, <a href="../../../org/apache/iceberg/io/CloseableIterable.html#withNoopClose-java.lang.Iterable-">withNoopClose</a></code></li>
+<code><a href="../../../org/apache/iceberg/io/CloseableIterable.html#combine-java.lang.Iterable-java.io.Closeable-">combine</a>, <a href="../../../org/apache/iceberg/io/CloseableIterable.html#concat-java.lang.Iterable-">concat</a>, <a href="../../../org/apache/iceberg/io/CloseableIterable.html#count-org.apache.iceberg.metrics.Counter-org.apache.iceberg.io.CloseableIterable-">count</a>, <a href="../../../org/apache/iceberg/io/CloseableIterable.html#empty--">empty</a>, <a href="../../../org/apache/iceberg/io/CloseableIterable.html#filter-org.apache.iceberg.io.CloseableIterable-java.util.function.Predicate-">filter</a>, <a href="../../../org/apache/iceberg/io/CloseableIterable.html#filter-org.apache.iceberg.metrics.Counter-org.apache.iceberg.io.CloseableIterable-java.util.function.Predicate-">filter</a>, <a href="../../../org/apache/iceberg/io/CloseableIterable.html#transform-org.apache.iceberg.io.CloseableIterable-java.util.function.Function-">transform</a>, <a href="../../../org/apache/iceberg/io/CloseableIterable.html#whenComplete-org.apache.iceberg.io.CloseableIterable-java.lang.Runnable-">whenComplete</a>, <a href="../../../org/apache/iceberg/io/CloseableIterable.html#withNoopClose-E-">withNoopClose</a>, <a href="../../../org/apache/iceberg/io/CloseableIterable.html#withNoopClose-java.lang.Iterable-">withNoopClose</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Iterable">
@@ -285,10 +302,26 @@ implements <a href="../../../org/apache/iceberg/io/CloseableIterable.html" title
 <a name="ManifestReader-org.apache.iceberg.io.InputFile-java.util.Map-org.apache.iceberg.InheritableMetadata-org.apache.iceberg.ManifestReader.FileType-">
 <!--   -->
 </a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ManifestReader</h4>
+<pre>@Deprecated
+protected&nbsp;ManifestReader(<a href="../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a>&nbsp;file,
+                                     java.util.Map&lt;java.lang.Integer,<a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&gt;&nbsp;specsById,
+                                     org.apache.iceberg.InheritableMetadata&nbsp;inheritableMetadata,
+                                     <a href="../../../org/apache/iceberg/ManifestReader.FileType.html" title="enum in org.apache.iceberg">ManifestReader.FileType</a>&nbsp;content)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">Will be removed in 1.2.0, use <a href="../../../org/apache/iceberg/ManifestReader.html#ManifestReader-org.apache.iceberg.io.InputFile-int-java.util.Map-org.apache.iceberg.InheritableMetadata-org.apache.iceberg.ManifestReader.FileType-"><code>ManifestReader(InputFile, int,
+     Map, InheritableMetadata, FileType)</code></a>.</span></div>
+</li>
+</ul>
+<a name="ManifestReader-org.apache.iceberg.io.InputFile-int-java.util.Map-org.apache.iceberg.InheritableMetadata-org.apache.iceberg.ManifestReader.FileType-">
+<!--   -->
+</a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ManifestReader</h4>
 <pre>protected&nbsp;ManifestReader(<a href="../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a>&nbsp;file,
+                         int&nbsp;specId,
                          java.util.Map&lt;java.lang.Integer,<a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&gt;&nbsp;specsById,
                          org.apache.iceberg.InheritableMetadata&nbsp;inheritableMetadata,
                          <a href="../../../org/apache/iceberg/ManifestReader.FileType.html" title="enum in org.apache.iceberg">ManifestReader.FileType</a>&nbsp;content)</pre>
@@ -365,6 +398,15 @@ implements <a href="../../../org/apache/iceberg/io/CloseableIterable.html" title
 <pre>public&nbsp;<a href="../../../org/apache/iceberg/ManifestReader.html" title="class in org.apache.iceberg">ManifestReader</a>&lt;<a href="../../../org/apache/iceberg/ManifestReader.html" title="type parameter in ManifestReader">F</a>&gt;&nbsp;filterPartitions(<a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr)</pre>
 </li>
 </ul>
+<a name="filterPartitions-org.apache.iceberg.util.PartitionSet-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>filterPartitions</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/ManifestReader.html" title="class in org.apache.iceberg">ManifestReader</a>&lt;<a href="../../../org/apache/iceberg/ManifestReader.html" title="type parameter in ManifestReader">F</a>&gt;&nbsp;filterPartitions(<a href="../../../org/apache/iceberg/util/PartitionSet.html" title="class in org.apache.iceberg.util">PartitionSet</a>&nbsp;partitions)</pre>
+</li>
+</ul>
 <a name="filterRows-org.apache.iceberg.expressions.Expression-">
 <!--   -->
 </a>
@@ -391,7 +433,7 @@ implements <a href="../../../org/apache/iceberg/io/CloseableIterable.html" title
 <h4>iterator</h4>
 <pre>public&nbsp;<a href="../../../org/apache/iceberg/io/CloseableIterator.html" title="interface in org.apache.iceberg.io">CloseableIterator</a>&lt;<a href="../../../org/apache/iceberg/ManifestReader.html" title="type parameter in ManifestReader">F</a>&gt;&nbsp;iterator()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/io/CloseableIterable.html#iterator--">CloseableIterable</a></code></span></div>
-<div class="block">Returns an closeable iterator over elements of type <code>T</code>.</div>
+<div class="block">Returns a closeable iterator over elements of type <code>T</code>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>iterator</code>&nbsp;in interface&nbsp;<code>java.lang.Iterable&lt;<a href="../../../org/apache/iceberg/ManifestReader.html" title="type parameter in ManifestReader">F</a> extends <a href="../../../org/apache/iceberg/ContentFile.html" title="interface in org.apache.iceberg">ContentFile</a>&lt;<a href="../../../org/apache/iceberg/ManifestReader.html" title="type parameter in ManifestReader">F</a>&gt;&gt;</code></dd>

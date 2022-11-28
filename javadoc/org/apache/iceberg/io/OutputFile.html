@@ -99,14 +99,14 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../org/apache/iceberg/gcp/gcs/GCSOutputFile.html" title="class in org.apache.iceberg.gcp.gcs">GCSOutputFile</a>, <a href="../../../../org/apache/iceberg/hadoop/HadoopOutputFile.html" title="class in org.apache.iceberg.hadoop">HadoopOutputFile</a>, <a href="../../../../org/apache/iceberg/aws/s3/S3OutputFile.html" title="class in org.apache.iceberg.aws.s3">S3OutputFile</a></dd>
+<dd><a href="../../../../org/apache/iceberg/hadoop/HadoopOutputFile.html" title="class in org.apache.iceberg.hadoop">HadoopOutputFile</a>, <a href="../../../../org/apache/iceberg/aws/s3/S3OutputFile.html" title="class in org.apache.iceberg.aws.s3">S3OutputFile</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public interface <span class="typeNameLabel">OutputFile</span></pre>
 <div class="block">An interface used to create output files using <a href="../../../../org/apache/iceberg/io/PositionOutputStream.html" title="class in org.apache.iceberg.io"><code>PositionOutputStream</code></a> instances.
- <p>
- This class is based on Parquet's InputFile.</div>
+
+ <p>This class is based on Parquet's InputFile.</div>
 </li>
 </ul>
 </div>
@@ -172,8 +172,8 @@ var activeTableTab = "activeTableTab";
 <h4>create</h4>
 <pre><a href="../../../../org/apache/iceberg/io/PositionOutputStream.html" title="class in org.apache.iceberg.io">PositionOutputStream</a>&nbsp;create()</pre>
 <div class="block">Create a new file and return a <a href="../../../../org/apache/iceberg/io/PositionOutputStream.html" title="class in org.apache.iceberg.io"><code>PositionOutputStream</code></a> to it.
- <p>
- If the file already exists, this will throw an exception.</div>
+
+ <p>If the file already exists, this will throw an exception.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>an output stream that can report its position</dd>
@@ -191,14 +191,15 @@ var activeTableTab = "activeTableTab";
 <h4>createOrOverwrite</h4>
 <pre><a href="../../../../org/apache/iceberg/io/PositionOutputStream.html" title="class in org.apache.iceberg.io">PositionOutputStream</a>&nbsp;createOrOverwrite()</pre>
 <div class="block">Create a new file and return a <a href="../../../../org/apache/iceberg/io/PositionOutputStream.html" title="class in org.apache.iceberg.io"><code>PositionOutputStream</code></a> to it.
- <p>
- If the file already exists, this will not throw an exception and will replace the file.</div>
+
+ <p>If the file already exists, this will not throw an exception and will replace the file.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>an output stream that can report its position</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/exceptions/RuntimeIOException.html" title="class in org.apache.iceberg.exceptions">RuntimeIOException</a></code> - If the implementation throws an <code>IOException</code></dd>
-<dd><code>java.lang.SecurityException</code> - If staging directory creation fails due to missing JVM level permission</dd>
+<dd><code>java.lang.SecurityException</code> - If staging directory creation fails due to missing JVM level
+     permission</dd>
 </dl>
 </li>
 </ul>

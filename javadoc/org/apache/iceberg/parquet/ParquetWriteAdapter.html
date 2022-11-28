@@ -118,8 +118,8 @@ var activeTableTab = "activeTableTab";
 public class <span class="typeNameLabel">ParquetWriteAdapter&lt;D&gt;</span>
 extends java.lang.Object
 implements <a href="../../../../org/apache/iceberg/io/FileAppender.html" title="interface in org.apache.iceberg.io">FileAppender</a>&lt;D&gt;</pre>
-<div class="block">Parquet writer that wraps around hadoop's <code>ParquetWriter</code>.
- It shouldn't be used in production; <code>ParquetWriter</code> is a better alternative.</div>
+<div class="block">Parquet writer that wraps around hadoop's <code>ParquetWriter</code>. It shouldn't be used in
+ production; <code>ParquetWriter</code> is a better alternative.</div>
 </li>
 </ul>
 </div>
@@ -297,10 +297,10 @@ implements <a href="../../../../org/apache/iceberg/io/FileAppender.html" title="
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/io/FileAppender.html#splitOffsets--">FileAppender</a></code></span></div>
 <div class="block">Returns a list of recommended split locations, if applicable, null otherwise.
- <p>
- When available, this information is used for planning scan tasks whose boundaries
- are determined by these offsets. The returned list must be sorted in ascending order.
- Only valid after the file is closed.</div>
+
+ <p>When available, this information is used for planning scan tasks whose boundaries are
+ determined by these offsets. The returned list must be sorted in ascending order. Only valid
+ after the file is closed.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/io/FileAppender.html#splitOffsets--">splitOffsets</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/io/FileAppender.html" title="interface in org.apache.iceberg.io">FileAppender</a>&lt;<a href="../../../../org/apache/iceberg/parquet/ParquetWriteAdapter.html" title="type parameter in ParquetWriteAdapter">D</a>&gt;</code></dd>

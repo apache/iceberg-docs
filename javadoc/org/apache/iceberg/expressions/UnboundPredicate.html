@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/expressions/Unbound.html" title="interface in org.apache.iceberg.expressions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/expressions/UnboundAggregate.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -202,6 +202,13 @@ implements <a href="../../../../org/apache/iceberg/expressions/Unbound.html" tit
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
 <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, wait, wait, wait</code></li>
 </ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.org.apache.iceberg.expressions.Expression">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a></h3>
+<code><a href="../../../../org/apache/iceberg/expressions/Expression.html#isEquivalentTo-org.apache.iceberg.expressions.Expression-">isEquivalentTo</a></code></li>
+</ul>
 </li>
 </ul>
 </li>
@@ -278,11 +285,13 @@ implements <a href="../../../../org/apache/iceberg/expressions/Unbound.html" tit
 <dd><code><a href="../../../../org/apache/iceberg/expressions/Unbound.html#bind-org.apache.iceberg.types.Types.StructType-boolean-">bind</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/expressions/Unbound.html" title="interface in org.apache.iceberg.expressions">Unbound</a>&lt;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="type parameter in UnboundPredicate">T</a>,<a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&gt;</code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>struct</code> - The <a href="../../../../org/apache/iceberg/types/Types.StructType.html" title="class in org.apache.iceberg.types"><code>struct type</code></a> to resolve references by name.</dd>
-<dd><code>caseSensitive</code> - A boolean flag to control whether the bind should enforce case sensitivity.</dd>
+<dd><code>caseSensitive</code> - A boolean flag to control whether the bind should enforce case
+     sensitivity.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>an <a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions"><code>Expression</code></a></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../../org/apache/iceberg/exceptions/ValidationException.html" title="class in org.apache.iceberg.exceptions">ValidationException</a></code> - if literals do not match bound references, or if comparison on expression is invalid</dd>
+<dd><code><a href="../../../../org/apache/iceberg/exceptions/ValidationException.html" title="class in org.apache.iceberg.exceptions">ValidationException</a></code> - if literals do not match bound references, or if comparison on
+     expression is invalid</dd>
 </dl>
 </li>
 </ul>
@@ -326,7 +335,7 @@ implements <a href="../../../../org/apache/iceberg/expressions/Unbound.html" tit
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/expressions/Unbound.html" title="interface in org.apache.iceberg.expressions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/expressions/UnboundAggregate.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

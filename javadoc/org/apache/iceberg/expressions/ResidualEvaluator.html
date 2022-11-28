@@ -115,23 +115,22 @@ var activeTableTab = "activeTableTab";
 extends java.lang.Object
 implements java.io.Serializable</pre>
 <div class="block">Finds the residuals for an <a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions"><code>Expression</code></a> the partitions in the given <a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg"><code>PartitionSpec</code></a>.
- <p>
- A residual expression is made by partially evaluating an expression using partition values. For
- example, if a table is partitioned by day(utc_timestamp) and is read with a filter expression
+
+ <p>A residual expression is made by partially evaluating an expression using partition values.
+ For example, if a table is partitioned by day(utc_timestamp) and is read with a filter expression
  utc_timestamp &gt;= a and utc_timestamp &lt;= b, then there are 4 possible residuals expressions
  for the partition data, d:
+
  <ul>
- <li>If d &gt; day(a) and d &lt; day(b), the residual is always true</li>
- <li>If d == day(a) and d != day(b), the residual is utc_timestamp &gt;= a</li>
- <li>if d == day(b) and d != day(a), the residual is utc_timestamp &lt;= b</li>
- <li>If d == day(a) == day(b), the residual is utc_timestamp &gt;= a and utc_timestamp &lt;= b
- </li>
+   <li>If d &gt; day(a) and d &lt; day(b), the residual is always true
+   <li>If d == day(a) and d != day(b), the residual is utc_timestamp &gt;= a
+   <li>if d == day(b) and d != day(a), the residual is utc_timestamp &lt;= b
+   <li>If d == day(a) == day(b), the residual is utc_timestamp &gt;= a and utc_timestamp &lt;= b
  </ul>
- <p>
- Partition data is passed using <a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg"><code>StructLike</code></a>. Residuals are returned by
- <a href="../../../../org/apache/iceberg/expressions/ResidualEvaluator.html#residualFor-org.apache.iceberg.StructLike-"><code>residualFor(StructLike)</code></a>.
- <p>
- This class is thread-safe.</div>
+
+ <p>Partition data is passed using <a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg"><code>StructLike</code></a>. Residuals are returned by <a href="../../../../org/apache/iceberg/expressions/ResidualEvaluator.html#residualFor-org.apache.iceberg.StructLike-"><code>residualFor(StructLike)</code></a>.
+
+ <p>This class is thread-safe.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../serialized-form.html#org.apache.iceberg.expressions.ResidualEvaluator">Serialized Form</a></dd>

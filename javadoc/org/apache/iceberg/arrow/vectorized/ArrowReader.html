@@ -118,40 +118,37 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public class <span class="typeNameLabel">ArrowReader</span>
 extends <a href="../../../../../org/apache/iceberg/io/CloseableGroup.html" title="class in org.apache.iceberg.io">CloseableGroup</a></pre>
-<div class="block">Vectorized reader that returns an iterator of <a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ColumnarBatch</code></a>.
- See <a href="../../../../../org/apache/iceberg/arrow/vectorized/ArrowReader.html#open-org.apache.iceberg.io.CloseableIterable-"><code>open(CloseableIterable)</code></a> ()} to learn about the
- behavior of the iterator.
+<div class="block">Vectorized reader that returns an iterator of <a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ColumnarBatch</code></a>. See <a href="../../../../../org/apache/iceberg/arrow/vectorized/ArrowReader.html#open-org.apache.iceberg.io.CloseableIterable-"><code>open(CloseableIterable)</code></a> ()} to learn about the behavior of the iterator.
 
  <p>The following Iceberg data types are supported and have been tested:
+
  <ul>
-     <li>Iceberg: <code>Types.BooleanType</code>, Arrow: <code>Types.MinorType.BIT</code></li>
-     <li>Iceberg: <code>Types.IntegerType</code>, Arrow: <code>Types.MinorType.INT</code></li>
-     <li>Iceberg: <code>Types.LongType</code>, Arrow: <code>Types.MinorType.BIGINT</code></li>
-     <li>Iceberg: <code>Types.FloatType</code>, Arrow: <code>Types.MinorType.FLOAT4</code></li>
-     <li>Iceberg: <code>Types.DoubleType</code>, Arrow: <code>Types.MinorType.FLOAT8</code></li>
-     <li>Iceberg: <code>Types.StringType</code>, Arrow: <code>Types.MinorType.VARCHAR</code></li>
-     <li>Iceberg: <code>Types.TimestampType</code> (both with and without timezone),
-         Arrow: <code>Types.MinorType.TIMEMICRO</code></li>
-     <li>Iceberg: <code>Types.BinaryType</code>, Arrow: <code>Types.MinorType.VARBINARY</code></li>
-     <li>Iceberg: <code>Types.DateType</code>, Arrow: <code>Types.MinorType.DATEDAY</code></li>
-     <li>Iceberg: <code>Types.TimeType</code>, Arrow: <code>Types.MinorType.TIMEMICRO</code></li>
-     <li>Iceberg: <code>Types.UUIDType</code>, Arrow: <code>Types.MinorType.FIXEDSIZEBINARY</code>(16)</li>
+   <li>Iceberg: <code>Types.BooleanType</code>, Arrow: <code>Types.MinorType.BIT</code>
+   <li>Iceberg: <code>Types.IntegerType</code>, Arrow: <code>Types.MinorType.INT</code>
+   <li>Iceberg: <code>Types.LongType</code>, Arrow: <code>Types.MinorType.BIGINT</code>
+   <li>Iceberg: <code>Types.FloatType</code>, Arrow: <code>Types.MinorType.FLOAT4</code>
+   <li>Iceberg: <code>Types.DoubleType</code>, Arrow: <code>Types.MinorType.FLOAT8</code>
+   <li>Iceberg: <code>Types.StringType</code>, Arrow: <code>Types.MinorType.VARCHAR</code>
+   <li>Iceberg: <code>Types.TimestampType</code> (both with and without timezone), Arrow: <code>Types.MinorType.TIMEMICRO</code>
+   <li>Iceberg: <code>Types.BinaryType</code>, Arrow: <code>Types.MinorType.VARBINARY</code>
+   <li>Iceberg: <code>Types.DateType</code>, Arrow: <code>Types.MinorType.DATEDAY</code>
+   <li>Iceberg: <code>Types.TimeType</code>, Arrow: <code>Types.MinorType.TIMEMICRO</code>
+   <li>Iceberg: <code>Types.UUIDType</code>, Arrow: <code>Types.MinorType.FIXEDSIZEBINARY</code>(16)
  </ul>
 
  <p>Features that don't work in this implementation:
+
  <ul>
-     <li>Type promotion: In case of type promotion, the Arrow vector corresponding to
-     the data type in the parquet file is returned instead of the data type in the latest schema.
-     See https://github.com/apache/iceberg/issues/2483.</li>
-     <li>Columns with constant values are physically encoded as a dictionary. The Arrow vector
-     type is int32 instead of the type as per the schema.
-     See https://github.com/apache/iceberg/issues/2484.</li>
-     <li>Data types: <code>Types.ListType</code>, <code>Types.MapType</code>,
-     <code>Types.StructType</code>, <code>Types.FixedType</code> and
-     <code>Types.DecimalType</code>
-     See https://github.com/apache/iceberg/issues/2485 and https://github.com/apache/iceberg/issues/2486.</li>
-     <li>Delete files are not supported.
-     See https://github.com/apache/iceberg/issues/2487.</li>
+   <li>Type promotion: In case of type promotion, the Arrow vector corresponding to the data type
+       in the parquet file is returned instead of the data type in the latest schema. See
+       https://github.com/apache/iceberg/issues/2483.
+   <li>Columns with constant values are physically encoded as a dictionary. The Arrow vector type
+       is int32 instead of the type as per the schema. See
+       https://github.com/apache/iceberg/issues/2484.
+   <li>Data types: <code>Types.ListType</code>, <code>Types.MapType</code>, <code>Types.StructType</code>, <code>Types.FixedType</code> and <code>Types.DecimalType</code> See
+       https://github.com/apache/iceberg/issues/2485 and
+       https://github.com/apache/iceberg/issues/2486.
+   <li>Delete files are not supported. See https://github.com/apache/iceberg/issues/2487.
  </ul></div>
 </li>
 </ul>
@@ -247,16 +244,12 @@ extends <a href="../../../../../org/apache/iceberg/io/CloseableGroup.html" title
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>scan</code> - the table scan object.</dd>
 <dd><code>batchSize</code> - the maximum number of rows per Arrow batch.</dd>
-<dd><code>reuseContainers</code> - whether to reuse Arrow vectors when iterating through the data.
-                        If set to <code>false</code>, every <code>Iterator.next()</code> call creates
-                        new instances of Arrow vectors.
-                        If set to <code>true</code>, the Arrow vectors in the previous
-                        <code>Iterator.next()</code> may be reused for the data returned
-                        in the current <code>Iterator.next()</code>.
-                        This option avoids allocating memory again and again.
-                        Irrespective of the value of <code>reuseContainers</code>, the Arrow vectors
-                        in the previous <code>Iterator.next()</code> call are closed before creating
-                        new instances if the current <code>Iterator.next()</code>.</dd>
+<dd><code>reuseContainers</code> - whether to reuse Arrow vectors when iterating through the data. If set
+     to <code>false</code>, every <code>Iterator.next()</code> call creates new instances of Arrow
+     vectors. If set to <code>true</code>, the Arrow vectors in the previous <code>Iterator.next()</code>
+     may be reused for the data returned in the current <code>Iterator.next()</code>. This option
+     avoids allocating memory again and again. Irrespective of the value of <code>reuseContainers</code>, the Arrow vectors in the previous <code>Iterator.next()</code> call are closed
+     before creating new instances if the current <code>Iterator.next()</code>.</dd>
 </dl>
 </li>
 </ul>
@@ -276,26 +269,25 @@ extends <a href="../../../../../org/apache/iceberg/io/CloseableGroup.html" title
 <h4>open</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/iceberg/io/CloseableIterator.html" title="interface in org.apache.iceberg.io">CloseableIterator</a>&lt;<a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized">ColumnarBatch</a>&gt;&nbsp;open(<a href="../../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../../../../../org/apache/iceberg/CombinedScanTask.html" title="interface in org.apache.iceberg">CombinedScanTask</a>&gt;&nbsp;tasks)</pre>
 <div class="block">Returns a new iterator of <a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ColumnarBatch</code></a> objects.
- <p>
- Note that the reader owns the <a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ColumnarBatch</code></a> objects and takes care of closing them.
+
+ <p>Note that the reader owns the <a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ColumnarBatch</code></a> objects and takes care of closing them.
  The caller should not hold onto a <a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ColumnarBatch</code></a> or try to close them.
 
- <p>If <code>reuseContainers</code> is <code>false</code>, the Arrow vectors in the
- previous <a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ColumnarBatch</code></a> are closed before returning the next <a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ColumnarBatch</code></a> object.
- This implies that the caller should either use the <a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ColumnarBatch</code></a> or transfer the ownership of
- <a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ColumnarBatch</code></a> before getting the next <a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ColumnarBatch</code></a>.
+ <p>If <code>reuseContainers</code> is <code>false</code>, the Arrow vectors in the previous <a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ColumnarBatch</code></a> are closed before returning the next <a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ColumnarBatch</code></a> object. This implies
+ that the caller should either use the <a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ColumnarBatch</code></a> or transfer the ownership of <a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ColumnarBatch</code></a> before getting the next <a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ColumnarBatch</code></a>.
 
- <p>If <code>reuseContainers</code> is <code>true</code>, the Arrow vectors in the
- previous <a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ColumnarBatch</code></a> may be reused for the next <a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ColumnarBatch</code></a>.
- This implies that the caller should either use the <a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ColumnarBatch</code></a> or deep copy the
- <a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ColumnarBatch</code></a> before getting the next <a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ColumnarBatch</code></a>.
- <p>
- This method works for only when the following conditions are true:
+ <p>If <code>reuseContainers</code> is <code>true</code>, the Arrow vectors in the previous <a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ColumnarBatch</code></a> may be reused for the next <a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ColumnarBatch</code></a>. This implies that the caller
+ should either use the <a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ColumnarBatch</code></a> or deep copy the <a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ColumnarBatch</code></a> before
+ getting the next <a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ColumnarBatch</code></a>.
+
+ <p>This method works for only when the following conditions are true:
+
  <ol>
-     <li>At least one column is queried,</li>
-     <li>There are no delete files, and</li>
-     <li>Supported data types are queried (see <a href="../../../../../org/apache/iceberg/arrow/vectorized/ArrowReader.html#SUPPORTED_TYPES"><code>SUPPORTED_TYPES</code></a>).</li>
+   <li>At least one column is queried,
+   <li>There are no delete files, and
+   <li>Supported data types are queried (see <a href="../../../../../org/apache/iceberg/arrow/vectorized/ArrowReader.html#SUPPORTED_TYPES"><code>SUPPORTED_TYPES</code></a>).
  </ol>
+
  When any of these conditions fail, an <code>UnsupportedOperationException</code> is thrown.</div>
 </li>
 </ul>

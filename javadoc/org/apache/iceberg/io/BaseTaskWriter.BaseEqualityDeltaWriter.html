@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":10,"i2":10,"i3":10,"i4":10};
+var methods = {"i0":6,"i1":6,"i2":10,"i3":10,"i4":10,"i5":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -165,22 +165,28 @@ implements java.io.Closeable</pre>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>protected abstract <a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/BaseTaskWriter.BaseEqualityDeltaWriter.html#asStructLikeKey-T-">asStructLikeKey</a></span>(<a href="../../../../org/apache/iceberg/io/BaseTaskWriter.html" title="type parameter in BaseTaskWriter">T</a>&nbsp;key)</code>
+<div class="block">Wrap the passed in key of a row as a <a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg"><code>StructLike</code></a></div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/BaseTaskWriter.BaseEqualityDeltaWriter.html#close--">close</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/BaseTaskWriter.BaseEqualityDeltaWriter.html#delete-T-">delete</a></span>(<a href="../../../../org/apache/iceberg/io/BaseTaskWriter.html" title="type parameter in BaseTaskWriter">T</a>&nbsp;row)</code>
 <div class="block">Delete those rows whose equality fields has the same values with the given row.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/BaseTaskWriter.BaseEqualityDeltaWriter.html#deleteKey-T-">deleteKey</a></span>(<a href="../../../../org/apache/iceberg/io/BaseTaskWriter.html" title="type parameter in BaseTaskWriter">T</a>&nbsp;key)</code>
 <div class="block">Delete those rows with the given key.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/BaseTaskWriter.BaseEqualityDeltaWriter.html#write-T-">write</a></span>(<a href="../../../../org/apache/iceberg/io/BaseTaskWriter.html" title="type parameter in BaseTaskWriter">T</a>&nbsp;row)</code>&nbsp;</td>
 </tr>
@@ -237,6 +243,18 @@ implements java.io.Closeable</pre>
 <div class="block">Wrap the data as a <a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg"><code>StructLike</code></a>.</div>
 </li>
 </ul>
+<a name="asStructLikeKey-java.lang.Object-">
+<!--   -->
+</a><a name="asStructLikeKey-T-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>asStructLikeKey</h4>
+<pre>protected abstract&nbsp;<a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&nbsp;asStructLikeKey(<a href="../../../../org/apache/iceberg/io/BaseTaskWriter.html" title="type parameter in BaseTaskWriter">T</a>&nbsp;key)</pre>
+<div class="block">Wrap the passed in key of a row as a <a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg"><code>StructLike</code></a></div>
+</li>
+</ul>
 <a name="write-java.lang.Object-">
 <!--   -->
 </a><a name="write-T-">
@@ -263,8 +281,8 @@ implements java.io.Closeable</pre>
 <h4>delete</h4>
 <pre>public&nbsp;void&nbsp;delete(<a href="../../../../org/apache/iceberg/io/BaseTaskWriter.html" title="type parameter in BaseTaskWriter">T</a>&nbsp;row)
             throws java.io.IOException</pre>
-<div class="block">Delete those rows whose equality fields has the same values with the given row. It will write the entire row into
- the equality-delete file.</div>
+<div class="block">Delete those rows whose equality fields has the same values with the given row. It will write
+ the entire row into the equality-delete file.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>row</code> - the given row to delete.</dd>
@@ -283,8 +301,8 @@ implements java.io.Closeable</pre>
 <h4>deleteKey</h4>
 <pre>public&nbsp;void&nbsp;deleteKey(<a href="../../../../org/apache/iceberg/io/BaseTaskWriter.html" title="type parameter in BaseTaskWriter">T</a>&nbsp;key)
                throws java.io.IOException</pre>
-<div class="block">Delete those rows with the given key. It will only write the values of equality fields into the equality-delete
- file.</div>
+<div class="block">Delete those rows with the given key. It will only write the values of equality fields into
+ the equality-delete file.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>key</code> - is the projected data whose columns are the same as the equality fields.</dd>

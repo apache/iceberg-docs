@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/apache/iceberg/DataTableScan.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/DeletedDataFileScanTask.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/DataTask.html" target="_top">Frames</a></li>
@@ -99,7 +99,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Superinterfaces:</dt>
-<dd><a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>, <a href="../../../org/apache/iceberg/ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a>, java.io.Serializable</dd>
+<dd><a href="../../../org/apache/iceberg/ContentScanTask.html" title="interface in org.apache.iceberg">ContentScanTask</a>&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;, <a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>, <a href="../../../org/apache/iceberg/PartitionScanTask.html" title="interface in org.apache.iceberg">PartitionScanTask</a>, <a href="../../../org/apache/iceberg/ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a>, java.io.Serializable, <a href="../../../org/apache/iceberg/SplittableScanTask.html" title="interface in org.apache.iceberg">SplittableScanTask</a>&lt;<a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;</dd>
 </dl>
 <hr>
 <br>
@@ -148,7 +148,21 @@ extends <a href="../../../org/apache/iceberg/FileScanTask.html" title="interface
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a></h3>
-<code><a href="../../../org/apache/iceberg/FileScanTask.html#asFileScanTask--">asFileScanTask</a>, <a href="../../../org/apache/iceberg/FileScanTask.html#deletes--">deletes</a>, <a href="../../../org/apache/iceberg/FileScanTask.html#file--">file</a>, <a href="../../../org/apache/iceberg/FileScanTask.html#isFileScanTask--">isFileScanTask</a>, <a href="../../../org/apache/iceberg/FileScanTask.html#length--">length</a>, <a href="../../../org/apache/iceberg/FileScanTask.html#residual--">residual</a>, <a href="../../../org/apache/iceberg/FileScanTask.html#spec--">spec</a>, <a href="../../../org/apache/iceberg/FileScanTask.html#split-long-">split</a>, <a href="../../../org/apache/iceberg/FileScanTask.html#start--">start</a></code></li>
+<code><a href="../../../org/apache/iceberg/FileScanTask.html#asFileScanTask--">asFileScanTask</a>, <a href="../../../org/apache/iceberg/FileScanTask.html#deletes--">deletes</a>, <a href="../../../org/apache/iceberg/FileScanTask.html#filesCount--">filesCount</a>, <a href="../../../org/apache/iceberg/FileScanTask.html#isFileScanTask--">isFileScanTask</a>, <a href="../../../org/apache/iceberg/FileScanTask.html#sizeBytes--">sizeBytes</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.org.apache.iceberg.ContentScanTask">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="../../../org/apache/iceberg/ContentScanTask.html" title="interface in org.apache.iceberg">ContentScanTask</a></h3>
+<code><a href="../../../org/apache/iceberg/ContentScanTask.html#estimatedRowsCount--">estimatedRowsCount</a>, <a href="../../../org/apache/iceberg/ContentScanTask.html#file--">file</a>, <a href="../../../org/apache/iceberg/ContentScanTask.html#length--">length</a>, <a href="../../../org/apache/iceberg/ContentScanTask.html#partition--">partition</a>, <a href="../../../org/apache/iceberg/ContentScanTask.html#residual--">residual</a>, <a href="../../../org/apache/iceberg/ContentScanTask.html#start--">start</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.org.apache.iceberg.PartitionScanTask">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="../../../org/apache/iceberg/PartitionScanTask.html" title="interface in org.apache.iceberg">PartitionScanTask</a></h3>
+<code><a href="../../../org/apache/iceberg/PartitionScanTask.html#spec--">spec</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.org.apache.iceberg.ScanTask">
@@ -156,6 +170,13 @@ extends <a href="../../../org/apache/iceberg/FileScanTask.html" title="interface
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="../../../org/apache/iceberg/ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a></h3>
 <code><a href="../../../org/apache/iceberg/ScanTask.html#asCombinedScanTask--">asCombinedScanTask</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.org.apache.iceberg.SplittableScanTask">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="../../../org/apache/iceberg/SplittableScanTask.html" title="interface in org.apache.iceberg">SplittableScanTask</a></h3>
+<code><a href="../../../org/apache/iceberg/SplittableScanTask.html#split-long-">split</a></code></li>
 </ul>
 </li>
 </ul>
@@ -241,7 +262,7 @@ extends <a href="../../../org/apache/iceberg/FileScanTask.html" title="interface
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/apache/iceberg/DataTableScan.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/DeletedDataFileScanTask.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/DataTask.html" target="_top">Frames</a></li>

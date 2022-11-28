@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/HistoryTable.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/IncrementalScan.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../org/apache/iceberg/LocationProviders.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -119,18 +119,18 @@ var activeTableTab = "activeTableTab";
 <pre>public enum <span class="typeNameLabel">IsolationLevel</span>
 extends java.lang.Enum&lt;<a href="../../../org/apache/iceberg/IsolationLevel.html" title="enum in org.apache.iceberg">IsolationLevel</a>&gt;</pre>
 <div class="block">An isolation level in a table.
- <p>
- Two isolation levels are supported: serializable and snapshot isolation. Both of them provide
+
+ <p>Two isolation levels are supported: serializable and snapshot isolation. Both of them provide
  a read consistent view of the table to all operations and allow readers to see only already
- committed data. While serializable is the strongest isolation level in databases,
- snapshot isolation is beneficial for environments with many concurrent writers.
- <p>
- The serializable isolation level guarantees that an ongoing UPDATE/DELETE/MERGE operation
- fails if a concurrent transaction commits a new file that might contain rows matching
- the condition used in UPDATE/DELETE/MERGE. For example, if there is an ongoing update
- on a subset of rows and a concurrent transaction adds a new file with records
- that potentially match the update condition, the update operation must fail under
- the serializable isolation but can still commit under the snapshot isolation.</div>
+ committed data. While serializable is the strongest isolation level in databases, snapshot
+ isolation is beneficial for environments with many concurrent writers.
+
+ <p>The serializable isolation level guarantees that an ongoing UPDATE/DELETE/MERGE operation
+ fails if a concurrent transaction commits a new file that might contain rows matching the
+ condition used in UPDATE/DELETE/MERGE. For example, if there is an ongoing update on a subset of
+ rows and a concurrent transaction adds a new file with records that potentially match the update
+ condition, the update operation must fail under the serializable isolation but can still commit
+ under the snapshot isolation.</div>
 </li>
 </ul>
 </div>
@@ -319,7 +319,7 @@ not permitted.)</div>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/HistoryTable.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/IncrementalScan.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../org/apache/iceberg/LocationProviders.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

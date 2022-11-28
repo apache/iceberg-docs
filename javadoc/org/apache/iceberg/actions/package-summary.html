@@ -113,7 +113,7 @@
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.html" title="interface in org.apache.iceberg.actions">DeleteOrphanFiles</a></td>
 <td class="colLast">
-<div class="block">An action that deletes orphan files in a table.</div>
+<div class="block">An action that deletes orphan metadata, data and delete files in a table.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -173,8 +173,8 @@
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.FileGroupRewriteResult.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles.FileGroupRewriteResult</a></td>
 <td class="colLast">
-<div class="block">For a particular file group, the number of files which are newly created and the number of files
-  which were formerly part of the table but have been rewritten.</div>
+<div class="block">For a particular file group, the number of files which are newly created and the number of
+ files which were formerly part of the table but have been rewritten.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -293,8 +293,7 @@
 <tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html" title="class in org.apache.iceberg.actions">BinPackStrategy</a></td>
 <td class="colLast">
-<div class="block">A rewrite strategy for data files which determines which files to rewrite
- based on their size.</div>
+<div class="block">A rewrite strategy for data files which determines which files to rewrite based on their size.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -310,15 +309,32 @@
 <tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/actions/RewriteFileGroup.html" title="class in org.apache.iceberg.actions">RewriteFileGroup</a></td>
 <td class="colLast">
-<div class="block">Container class representing a set of files to be rewritten by a RewriteAction and the new files which have been
- written by the action.</div>
+<div class="block">Container class representing a set of files to be rewritten by a RewriteAction and the new files
+ which have been written by the action.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/actions/SortStrategy.html" title="class in org.apache.iceberg.actions">SortStrategy</a></td>
 <td class="colLast">
-<div class="block">A rewrite strategy for data files which aims to reorder data with data files to optimally lay them out
- in relation to a column.</div>
+<div class="block">A rewrite strategy for data files which aims to reorder data with data files to optimally lay
+ them out in relation to a column.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li class="blockList">
+<table class="typeSummary" border="0" cellpadding="3" cellspacing="0" summary="Enum Summary table, listing enums, and an explanation">
+<caption><span>Enum Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Enum</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.PrefixMismatchMode.html" title="enum in org.apache.iceberg.actions">DeleteOrphanFiles.PrefixMismatchMode</a></td>
+<td class="colLast">
+<div class="block">Defines the action behavior when location prefixes (scheme/authority) mismatch.</div>
 </td>
 </tr>
 </tbody>

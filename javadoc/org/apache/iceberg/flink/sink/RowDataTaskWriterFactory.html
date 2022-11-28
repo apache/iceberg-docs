@@ -136,10 +136,11 @@ implements <a href="../../../../../org/apache/iceberg/flink/sink/TaskWriterFacto
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/sink/RowDataTaskWriterFactory.html#RowDataTaskWriterFactory-org.apache.iceberg.Table-org.apache.flink.table.types.logical.RowType-long-org.apache.iceberg.FileFormat-java.util.List-boolean-">RowDataTaskWriterFactory</a></span>(<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/sink/RowDataTaskWriterFactory.html#RowDataTaskWriterFactory-org.apache.iceberg.Table-org.apache.flink.table.types.logical.RowType-long-org.apache.iceberg.FileFormat-java.util.Map-java.util.List-boolean-">RowDataTaskWriterFactory</a></span>(<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
                         org.apache.flink.table.types.logical.RowType&nbsp;flinkSchema,
                         long&nbsp;targetFileSizeBytes,
                         <a href="../../../../../org/apache/iceberg/FileFormat.html" title="enum in org.apache.iceberg">FileFormat</a>&nbsp;format,
+                        java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;writeProperties,
                         java.util.List&lt;java.lang.Integer&gt;&nbsp;equalityFieldIds,
                         boolean&nbsp;upsert)</code>&nbsp;</td>
 </tr>
@@ -193,7 +194,7 @@ implements <a href="../../../../../org/apache/iceberg/flink/sink/TaskWriterFacto
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="RowDataTaskWriterFactory-org.apache.iceberg.Table-org.apache.flink.table.types.logical.RowType-long-org.apache.iceberg.FileFormat-java.util.List-boolean-">
+<a name="RowDataTaskWriterFactory-org.apache.iceberg.Table-org.apache.flink.table.types.logical.RowType-long-org.apache.iceberg.FileFormat-java.util.Map-java.util.List-boolean-">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -203,6 +204,7 @@ implements <a href="../../../../../org/apache/iceberg/flink/sink/TaskWriterFacto
                                 org.apache.flink.table.types.logical.RowType&nbsp;flinkSchema,
                                 long&nbsp;targetFileSizeBytes,
                                 <a href="../../../../../org/apache/iceberg/FileFormat.html" title="enum in org.apache.iceberg">FileFormat</a>&nbsp;format,
+                                java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;writeProperties,
                                 java.util.List&lt;java.lang.Integer&gt;&nbsp;equalityFieldIds,
                                 boolean&nbsp;upsert)</pre>
 </li>

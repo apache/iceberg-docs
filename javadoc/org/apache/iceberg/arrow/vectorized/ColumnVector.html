@@ -114,26 +114,25 @@ var activeTableTab = "activeTableTab";
 <pre>public class <span class="typeNameLabel">ColumnVector</span>
 extends java.lang.Object
 implements java.lang.AutoCloseable</pre>
-<div class="block">This class is inspired by Spark's <code>ColumnVector</code>.
- This class represents the column data for an Iceberg table query.
- It wraps an arrow <code>FieldVector</code> and provides simple
- accessors for the row values. Advanced users can access
- the <code>FieldVector</code>.
- <p>
-   Supported Iceberg data types:
-   <ul>
-     <li><code>Types.BooleanType</code></li>
-     <li><code>Types.IntegerType</code></li>
-     <li><code>Types.LongType</code></li>
-     <li><code>Types.FloatType</code></li>
-     <li><code>Types.DoubleType</code></li>
-     <li><code>Types.StringType</code></li>
-     <li><code>Types.BinaryType</code></li>
-     <li><code>Types.TimestampType</code> (with and without timezone)</li>
-     <li><code>Types.DateType</code></li>
-     <li><code>Types.TimeType</code></li>
-     <li><code>Types.UUIDType</code></li>
-   </ul></div>
+<div class="block">This class is inspired by Spark's <code>ColumnVector</code>. This class represents the column data for
+ an Iceberg table query. It wraps an arrow <code>FieldVector</code> and provides simple accessors for
+ the row values. Advanced users can access the <code>FieldVector</code>.
+
+ <p>Supported Iceberg data types:
+
+ <ul>
+   <li><code>Types.BooleanType</code>
+   <li><code>Types.IntegerType</code>
+   <li><code>Types.LongType</code>
+   <li><code>Types.FloatType</code>
+   <li><code>Types.DoubleType</code>
+   <li><code>Types.StringType</code>
+   <li><code>Types.BinaryType</code>
+   <li><code>Types.TimestampType</code> (with and without timezone)
+   <li><code>Types.DateType</code>
+   <li><code>Types.TimeType</code>
+   <li><code>Types.UUIDType</code>
+ </ul></div>
 </li>
 </ul>
 </div>

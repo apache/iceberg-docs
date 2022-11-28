@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":18,"i16":6,"i17":6,"i18":6,"i19":6,"i20":6,"i21":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
+var methods = {"i0":50,"i1":50,"i2":6,"i3":6,"i4":6,"i5":18,"i6":6};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -98,16 +98,18 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <dl>
+<dt>All Superinterfaces:</dt>
+<dd><a href="../../../org/apache/iceberg/Scan.html" title="interface in org.apache.iceberg">Scan</a>&lt;<a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a>,<a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>,<a href="../../../org/apache/iceberg/CombinedScanTask.html" title="interface in org.apache.iceberg">CombinedScanTask</a>&gt;</dd>
+</dl>
+<dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../org/apache/iceberg/AllDataFilesTable.AllDataFilesTableScan.html" title="class in org.apache.iceberg">AllDataFilesTable.AllDataFilesTableScan</a>, <a href="../../../org/apache/iceberg/AllManifestsTable.AllManifestsTableScan.html" title="class in org.apache.iceberg">AllManifestsTable.AllManifestsTableScan</a>, <a href="../../../org/apache/iceberg/DataFilesTable.FilesTableScan.html" title="class in org.apache.iceberg">DataFilesTable.FilesTableScan</a>, <a href="../../../org/apache/iceberg/DataTableScan.html" title="class in org.apache.iceberg">DataTableScan</a></dd>
+<dd><a href="../../../org/apache/iceberg/AllDataFilesTable.AllDataFilesTableScan.html" title="class in org.apache.iceberg">AllDataFilesTable.AllDataFilesTableScan</a>, <a href="../../../org/apache/iceberg/AllDeleteFilesTable.AllDeleteFilesTableScan.html" title="class in org.apache.iceberg">AllDeleteFilesTable.AllDeleteFilesTableScan</a>, <a href="../../../org/apache/iceberg/AllFilesTable.AllFilesTableScan.html" title="class in org.apache.iceberg">AllFilesTable.AllFilesTableScan</a>, <a href="../../../org/apache/iceberg/AllManifestsTable.AllManifestsTableScan.html" title="class in org.apache.iceberg">AllManifestsTable.AllManifestsTableScan</a>, <a href="../../../org/apache/iceberg/DataFilesTable.DataFilesTableScan.html" title="class in org.apache.iceberg">DataFilesTable.DataFilesTableScan</a>, <a href="../../../org/apache/iceberg/DataTableScan.html" title="class in org.apache.iceberg">DataTableScan</a>, <a href="../../../org/apache/iceberg/DeleteFilesTable.DeleteFilesTableScan.html" title="class in org.apache.iceberg">DeleteFilesTable.DeleteFilesTableScan</a>, <a href="../../../org/apache/iceberg/FilesTable.FilesTableScan.html" title="class in org.apache.iceberg">FilesTable.FilesTableScan</a></dd>
 </dl>
 <hr>
 <br>
-<pre>public interface <span class="typeNameLabel">TableScan</span></pre>
-<div class="block">API for configuring a table scan.
- <p>
- TableScan objects are immutable and can be shared between threads. Refinement methods, like
- <a href="../../../org/apache/iceberg/TableScan.html#select-java.util.Collection-"><code>select(Collection)</code></a> and <a href="../../../org/apache/iceberg/TableScan.html#filter-org.apache.iceberg.expressions.Expression-"><code>filter(Expression)</code></a>, create new TableScan instances.</div>
+<pre>public interface <span class="typeNameLabel">TableScan</span>
+extends <a href="../../../org/apache/iceberg/Scan.html" title="interface in org.apache.iceberg">Scan</a>&lt;<a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a>,<a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>,<a href="../../../org/apache/iceberg/CombinedScanTask.html" title="interface in org.apache.iceberg">CombinedScanTask</a>&gt;</pre>
+<div class="block">API for configuring a table scan.</div>
 </li>
 </ul>
 </div>
@@ -121,146 +123,58 @@ var activeTableTab = "activeTableTab";
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a></code></td>
+<td class="colFirst"><code>default <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableScan.html#appendsAfter-long-">appendsAfter</a></span>(long&nbsp;fromSnapshotId)</code>
-<div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> to read appended data from <code>fromSnapshotId</code> exclusive to the current snapshot
- inclusive.</div>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
+<div class="block"><span class="deprecationComment">since 1.0.0, will be removed in 2.0.0; use <a href="../../../org/apache/iceberg/Table.html#newIncrementalAppendScan--"><code>Table.newIncrementalAppendScan()</code></a>
+     instead.</span></div>
+</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a></code></td>
+<td class="colFirst"><code>default <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableScan.html#appendsBetween-long-long-">appendsBetween</a></span>(long&nbsp;fromSnapshotId,
               long&nbsp;toSnapshotId)</code>
-<div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> to read appended data from <code>fromSnapshotId</code> exclusive to <code>toSnapshotId</code>
- inclusive.</div>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
+<div class="block"><span class="deprecationComment">since 1.0.0, will be removed in 2.0.0; use <a href="../../../org/apache/iceberg/Table.html#newIncrementalAppendScan--"><code>Table.newIncrementalAppendScan()</code></a>
+     instead.</span></div>
+</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableScan.html#asOfTime-long-">asOfTime</a></span>(long&nbsp;timestampMillis)</code>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> from this scan's configuration that will use the most recent
- snapshot as of the given time in milliseconds.</div>
+ snapshot as of the given time in milliseconds on the branch in the scan or main if no branch is
+ set.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableScan.html#caseSensitive-boolean-">caseSensitive</a></span>(boolean&nbsp;caseSensitive)</code>
-<div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> from this that, if data columns where selected
- via <a href="../../../org/apache/iceberg/TableScan.html#select-java.util.Collection-"><code>select(java.util.Collection)</code></a>, controls whether the match to the schema will be done
- with case sensitivity.</div>
-</td>
-</tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code><a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableScan.html#filter--">filter</a></span>()</code>
-<div class="block">Returns this scan's filter <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions"><code>Expression</code></a>.</div>
-</td>
-</tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableScan.html#filter-org.apache.iceberg.expressions.Expression-">filter</a></span>(<a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr)</code>
-<div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> from the results of this filtered by the <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions"><code>Expression</code></a>.</div>
-</td>
-</tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableScan.html#ignoreResiduals--">ignoreResiduals</a></span>()</code>
-<div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> from this that applies data filtering to files but not to rows in those files.</div>
-</td>
-</tr>
-<tr id="i7" class="rowColor">
-<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableScan.html#includeColumnStats--">includeColumnStats</a></span>()</code>
-<div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> from this that loads the column stats with each data file.</div>
-</td>
-</tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableScan.html#isCaseSensitive--">isCaseSensitive</a></span>()</code>
-<div class="block">Returns whether this scan should apply column name case sensitiveness as per <a href="../../../org/apache/iceberg/TableScan.html#caseSensitive-boolean-"><code>caseSensitive(boolean)</code></a>.</div>
-</td>
-</tr>
-<tr id="i9" class="rowColor">
-<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableScan.html#option-java.lang.String-java.lang.String-">option</a></span>(java.lang.String&nbsp;property,
-      java.lang.String&nbsp;value)</code>
-<div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> from this scan's configuration that will override the <a href="../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><code>Table</code></a>'s behavior based
- on the incoming pair.</div>
-</td>
-</tr>
-<tr id="i10" class="altColor">
-<td class="colFirst"><code><a href="../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableScan.html#planFiles--">planFiles</a></span>()</code>
-<div class="block">Plan the <a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg"><code>files</code></a> that will be read by this scan.</div>
-</td>
-</tr>
-<tr id="i11" class="rowColor">
-<td class="colFirst"><code><a href="../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../../../org/apache/iceberg/CombinedScanTask.html" title="interface in org.apache.iceberg">CombinedScanTask</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableScan.html#planTasks--">planTasks</a></span>()</code>
-<div class="block">Plan the <a href="../../../org/apache/iceberg/CombinedScanTask.html" title="interface in org.apache.iceberg"><code>tasks</code></a> for this scan.</div>
-</td>
-</tr>
-<tr id="i12" class="altColor">
-<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableScan.html#project-org.apache.iceberg.Schema-">project</a></span>(<a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema)</code>
-<div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> from this with the schema as its projection.</div>
-</td>
-</tr>
-<tr id="i13" class="rowColor">
-<td class="colFirst"><code><a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableScan.html#schema--">schema</a></span>()</code>
-<div class="block">Returns this scan's projection <a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>Schema</code></a>.</div>
-</td>
-</tr>
-<tr id="i14" class="altColor">
-<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableScan.html#select-java.util.Collection-">select</a></span>(java.util.Collection&lt;java.lang.String&gt;&nbsp;columns)</code>
-<div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> from this that will read the given data columns.</div>
-</td>
-</tr>
-<tr id="i15" class="rowColor">
-<td class="colFirst"><code>default <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableScan.html#select-java.lang.String...-">select</a></span>(java.lang.String...&nbsp;columns)</code>
-<div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> from this that will read the given data columns.</div>
-</td>
-</tr>
-<tr id="i16" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableScan.html#snapshot--">snapshot</a></span>()</code>
 <div class="block">Returns the <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><code>Snapshot</code></a> that will be used by this scan.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableScan.html#splitLookback--">splitLookback</a></span>()</code>
-<div class="block">Returns the split lookback for this scan.</div>
-</td>
-</tr>
-<tr id="i18" class="altColor">
-<td class="colFirst"><code>long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableScan.html#splitOpenFileCost--">splitOpenFileCost</a></span>()</code>
-<div class="block">Returns the split open file cost for this scan.</div>
-</td>
-</tr>
-<tr id="i19" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableScan.html#table--">table</a></span>()</code>
 <div class="block">Returns the <a href="../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><code>Table</code></a> from which this scan loads data.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
-<td class="colFirst"><code>long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableScan.html#targetSplitSize--">targetSplitSize</a></span>()</code>
-<div class="block">Returns the target split size for this scan.</div>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>default <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableScan.html#useRef-java.lang.String-">useRef</a></span>(java.lang.String&nbsp;ref)</code>
+<div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> from this scan's configuration that will use the given
+ reference.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableScan.html#useSnapshot-long-">useSnapshot</a></span>(long&nbsp;snapshotId)</code>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> from this scan's configuration that will use the given snapshot
@@ -268,6 +182,13 @@ var activeTableTab = "activeTableTab";
 </td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.org.apache.iceberg.Scan">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="../../../org/apache/iceberg/Scan.html" title="interface in org.apache.iceberg">Scan</a></h3>
+<code><a href="../../../org/apache/iceberg/Scan.html#caseSensitive-boolean-">caseSensitive</a>, <a href="../../../org/apache/iceberg/Scan.html#filter--">filter</a>, <a href="../../../org/apache/iceberg/Scan.html#filter-org.apache.iceberg.expressions.Expression-">filter</a>, <a href="../../../org/apache/iceberg/Scan.html#ignoreResiduals--">ignoreResiduals</a>, <a href="../../../org/apache/iceberg/Scan.html#includeColumnStats--">includeColumnStats</a>, <a href="../../../org/apache/iceberg/Scan.html#isCaseSensitive--">isCaseSensitive</a>, <a href="../../../org/apache/iceberg/Scan.html#option-java.lang.String-java.lang.String-">option</a>, <a href="../../../org/apache/iceberg/Scan.html#planFiles--">planFiles</a>, <a href="../../../org/apache/iceberg/Scan.html#planTasks--">planTasks</a>, <a href="../../../org/apache/iceberg/Scan.html#planWith-java.util.concurrent.ExecutorService-">planWith</a>, <a href="../../../org/apache/iceberg/Scan.html#project-org.apache.iceberg.Schema-">project</a>, <a href="../../../org/apache/iceberg/Scan.html#schema--">schema</a>, <a href="../../../org/apache/iceberg/Scan.html#select-java.util.Collection-">select</a>, <a href="../../../org/apache/iceberg/Scan.html#select-java.lang.String...-">select</a>, <a href="../../../org/apache/iceberg/Scan.html#splitLookback--">splitLookback</a>, <a href="../../../org/apache/iceberg/Scan.html#splitOpenFileCost--">splitOpenFileCost</a>, <a href="../../../org/apache/iceberg/Scan.html#targetSplitSize--">targetSplitSize</a></code></li>
+</ul>
 </li>
 </ul>
 </li>
@@ -315,6 +236,25 @@ var activeTableTab = "activeTableTab";
 </dl>
 </li>
 </ul>
+<a name="useRef-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>useRef</h4>
+<pre>default&nbsp;<a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a>&nbsp;useRef(java.lang.String&nbsp;ref)</pre>
+<div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> from this scan's configuration that will use the given
+ reference.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ref</code> - reference</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a new scan based on the given reference.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.IllegalArgumentException</code> - if a reference with the given name could not be found</dd>
+</dl>
+</li>
+</ul>
 <a name="asOfTime-long-">
 <!--   -->
 </a>
@@ -323,161 +263,16 @@ var activeTableTab = "activeTableTab";
 <h4>asOfTime</h4>
 <pre><a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a>&nbsp;asOfTime(long&nbsp;timestampMillis)</pre>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> from this scan's configuration that will use the most recent
- snapshot as of the given time in milliseconds.</div>
+ snapshot as of the given time in milliseconds on the branch in the scan or main if no branch is
+ set.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>timestampMillis</code> - a timestamp in milliseconds.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a new scan based on this with the current snapshot at the given time</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.IllegalArgumentException</code> - if the snapshot cannot be found</dd>
-</dl>
-</li>
-</ul>
-<a name="option-java.lang.String-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>option</h4>
-<pre><a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a>&nbsp;option(java.lang.String&nbsp;property,
-                 java.lang.String&nbsp;value)</pre>
-<div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> from this scan's configuration that will override the <a href="../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><code>Table</code></a>'s behavior based
- on the incoming pair. Unknown properties will be ignored.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>property</code> - name of the table property to be overridden</dd>
-<dd><code>value</code> - value to override with</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a new scan based on this with overridden behavior</dd>
-</dl>
-</li>
-</ul>
-<a name="project-org.apache.iceberg.Schema-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>project</h4>
-<pre><a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a>&nbsp;project(<a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema)</pre>
-<div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> from this with the schema as its projection.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>schema</code> - a projection schema</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a new scan based on this with the given projection</dd>
-</dl>
-</li>
-</ul>
-<a name="caseSensitive-boolean-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>caseSensitive</h4>
-<pre><a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a>&nbsp;caseSensitive(boolean&nbsp;caseSensitive)</pre>
-<div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> from this that, if data columns where selected
- via <a href="../../../org/apache/iceberg/TableScan.html#select-java.util.Collection-"><code>select(java.util.Collection)</code></a>, controls whether the match to the schema will be done
- with case sensitivity.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a new scan based on this with case sensitivity as stated</dd>
-</dl>
-</li>
-</ul>
-<a name="includeColumnStats--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>includeColumnStats</h4>
-<pre><a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a>&nbsp;includeColumnStats()</pre>
-<div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> from this that loads the column stats with each data file.
- <p>
- Column stats include: value count, null value count, lower bounds, and upper bounds.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a new scan based on this that loads column stats.</dd>
-</dl>
-</li>
-</ul>
-<a name="select-java.lang.String...-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>select</h4>
-<pre>default&nbsp;<a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a>&nbsp;select(java.lang.String...&nbsp;columns)</pre>
-<div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> from this that will read the given data columns. This produces
- an expected schema that includes all fields that are either selected or used by this scan's
- filter expression.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>columns</code> - column names from the table's schema</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a new scan based on this with the given projection columns</dd>
-</dl>
-</li>
-</ul>
-<a name="select-java.util.Collection-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>select</h4>
-<pre><a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a>&nbsp;select(java.util.Collection&lt;java.lang.String&gt;&nbsp;columns)</pre>
-<div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> from this that will read the given data columns. This produces
- an expected schema that includes all fields that are either selected or used by this scan's
- filter expression.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>columns</code> - column names from the table's schema</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a new scan based on this with the given projection columns</dd>
-</dl>
-</li>
-</ul>
-<a name="filter-org.apache.iceberg.expressions.Expression-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>filter</h4>
-<pre><a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a>&nbsp;filter(<a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr)</pre>
-<div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> from the results of this filtered by the <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions"><code>Expression</code></a>.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>expr</code> - a filter expression</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a new scan based on this with results filtered by the expression</dd>
-</dl>
-</li>
-</ul>
-<a name="filter--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>filter</h4>
-<pre><a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;filter()</pre>
-<div class="block">Returns this scan's filter <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions"><code>Expression</code></a>.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>this scan's filter expression</dd>
-</dl>
-</li>
-</ul>
-<a name="ignoreResiduals--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>ignoreResiduals</h4>
-<pre><a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a>&nbsp;ignoreResiduals()</pre>
-<div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> from this that applies data filtering to files but not to rows in those files.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a new scan based on this that does not filter rows in files.</dd>
+<dd><code>java.lang.IllegalArgumentException</code> - if the snapshot cannot be found or time travel is attempted on
+     a tag</dd>
 </dl>
 </li>
 </ul>
@@ -487,17 +282,20 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>appendsBetween</h4>
-<pre><a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a>&nbsp;appendsBetween(long&nbsp;fromSnapshotId,
-                         long&nbsp;toSnapshotId)</pre>
-<div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> to read appended data from <code>fromSnapshotId</code> exclusive to <code>toSnapshotId</code>
- inclusive.</div>
+<pre>@Deprecated
+default&nbsp;<a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a>&nbsp;appendsBetween(long&nbsp;fromSnapshotId,
+                                             long&nbsp;toSnapshotId)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">since 1.0.0, will be removed in 2.0.0; use <a href="../../../org/apache/iceberg/Table.html#newIncrementalAppendScan--"><code>Table.newIncrementalAppendScan()</code></a>
+     instead.</span></div>
+<div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> to read appended data from <code>fromSnapshotId</code> exclusive to
+ <code>toSnapshotId</code> inclusive.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>fromSnapshotId</code> - the last snapshot id read by the user, exclusive</dd>
 <dd><code>toSnapshotId</code> - read append data up to this snapshot id</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>a table scan which can read append data from <code>fromSnapshotId</code>
- exclusive and up to <code>toSnapshotId</code> inclusive</dd>
+<dd>a table scan which can read append data from <code>fromSnapshotId</code> exclusive and up to
+     <code>toSnapshotId</code> inclusive</dd>
 </dl>
 </li>
 </ul>
@@ -507,132 +305,35 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>appendsAfter</h4>
-<pre><a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a>&nbsp;appendsAfter(long&nbsp;fromSnapshotId)</pre>
-<div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> to read appended data from <code>fromSnapshotId</code> exclusive to the current snapshot
- inclusive.</div>
+<pre>@Deprecated
+default&nbsp;<a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a>&nbsp;appendsAfter(long&nbsp;fromSnapshotId)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">since 1.0.0, will be removed in 2.0.0; use <a href="../../../org/apache/iceberg/Table.html#newIncrementalAppendScan--"><code>Table.newIncrementalAppendScan()</code></a>
+     instead.</span></div>
+<div class="block">Create a new <a href="../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg"><code>TableScan</code></a> to read appended data from <code>fromSnapshotId</code> exclusive to
+ the current snapshot inclusive.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>fromSnapshotId</code> - - the last snapshot id read by the user, exclusive</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>a table scan which can read append data from <code>fromSnapshotId</code>
- exclusive and up to current snapshot inclusive</dd>
-</dl>
-</li>
-</ul>
-<a name="planFiles--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>planFiles</h4>
-<pre><a href="../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;&nbsp;planFiles()</pre>
-<div class="block">Plan the <a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg"><code>files</code></a> that will be read by this scan.
- <p>
- Each file has a residual expression that should be applied to filter the file's rows.
- <p>
- This simple plan returns file scans for each file from position 0 to the file's length. For
- planning that will combine small files, split large files, and attempt to balance work, use
- <a href="../../../org/apache/iceberg/TableScan.html#planTasks--"><code>planTasks()</code></a> instead.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>an Iterable of file tasks that are required by this scan</dd>
-</dl>
-</li>
-</ul>
-<a name="planTasks--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>planTasks</h4>
-<pre><a href="../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../../../org/apache/iceberg/CombinedScanTask.html" title="interface in org.apache.iceberg">CombinedScanTask</a>&gt;&nbsp;planTasks()</pre>
-<div class="block">Plan the <a href="../../../org/apache/iceberg/CombinedScanTask.html" title="interface in org.apache.iceberg"><code>tasks</code></a> for this scan.
- <p>
- Tasks created by this method may read partial input files, multiple input files, or both.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>an Iterable of tasks for this scan</dd>
-</dl>
-</li>
-</ul>
-<a name="schema--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>schema</h4>
-<pre><a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema()</pre>
-<div class="block">Returns this scan's projection <a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>Schema</code></a>.
- <p>
- If the projection schema was set directly using <a href="../../../org/apache/iceberg/TableScan.html#project-org.apache.iceberg.Schema-"><code>project(Schema)</code></a>, returns that schema.
- <p>
- If the projection schema was set by calling <a href="../../../org/apache/iceberg/TableScan.html#select-java.util.Collection-"><code>select(Collection)</code></a>, returns a projection
- schema that includes the selected data fields and any fields used in the filter expression.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>this scan's projection schema</dd>
+<dd>a table scan which can read append data from <code>fromSnapshotId</code> exclusive and up to
+     current snapshot inclusive</dd>
 </dl>
 </li>
 </ul>
 <a name="snapshot--">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>snapshot</h4>
 <pre><a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;snapshot()</pre>
 <div class="block">Returns the <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><code>Snapshot</code></a> that will be used by this scan.
- <p>
- If the snapshot was not configured using <a href="../../../org/apache/iceberg/TableScan.html#asOfTime-long-"><code>asOfTime(long)</code></a> or <a href="../../../org/apache/iceberg/TableScan.html#useSnapshot-long-"><code>useSnapshot(long)</code></a>, the current table
- snapshot will be used.</div>
+
+ <p>If the snapshot was not configured using <a href="../../../org/apache/iceberg/TableScan.html#asOfTime-long-"><code>asOfTime(long)</code></a> or <a href="../../../org/apache/iceberg/TableScan.html#useSnapshot-long-"><code>useSnapshot(long)</code></a>, the current table snapshot will be used.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the Snapshot this scan will use</dd>
 </dl>
-</li>
-</ul>
-<a name="isCaseSensitive--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isCaseSensitive</h4>
-<pre>boolean&nbsp;isCaseSensitive()</pre>
-<div class="block">Returns whether this scan should apply column name case sensitiveness as per <a href="../../../org/apache/iceberg/TableScan.html#caseSensitive-boolean-"><code>caseSensitive(boolean)</code></a>.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if case sensitive, false otherwise.</dd>
-</dl>
-</li>
-</ul>
-<a name="targetSplitSize--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>targetSplitSize</h4>
-<pre>long&nbsp;targetSplitSize()</pre>
-<div class="block">Returns the target split size for this scan.</div>
-</li>
-</ul>
-<a name="splitLookback--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>splitLookback</h4>
-<pre>int&nbsp;splitLookback()</pre>
-<div class="block">Returns the split lookback for this scan.</div>
-</li>
-</ul>
-<a name="splitOpenFileCost--">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>splitOpenFileCost</h4>
-<pre>long&nbsp;splitOpenFileCost()</pre>
-<div class="block">Returns the split open file cost for this scan.</div>
 </li>
 </ul>
 </li>

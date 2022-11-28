@@ -103,6 +103,24 @@
 <br>
 <pre>public class <span class="typeNameLabel">FlinkConfigOptions</span>
 extends java.lang.Object</pre>
+<div class="block">When constructing Flink Iceberg source via Java API, configs can be set in <code>Configuration</code>
+ passed to source builder. E.g.
+
+ <pre>
+   configuration.setBoolean(FlinkConfigOptions.TABLE_EXEC_ICEBERG_INFER_SOURCE_PARALLELISM, true);
+   FlinkSource.forRowData()
+       .flinkConf(configuration)
+       ...
+ </pre>
+
+ <p>When using Flink SQL/table API, connector options can be set in Flink's <code>TableEnvironment</code>.
+
+ <pre>
+   TableEnvironment tEnv = createTableEnv();
+   tEnv.getConfig()
+        .getConfiguration()
+        .setBoolean(FlinkConfigOptions.TABLE_EXEC_ICEBERG_INFER_SOURCE_PARALLELISM, true);
+ </pre></div>
 </li>
 </ul>
 </div>
@@ -122,12 +140,32 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Field and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>static org.apache.flink.configuration.ConfigOption&lt;java.lang.Integer&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkConfigOptions.html#SOURCE_READER_FETCH_BATCH_RECORD_COUNT">SOURCE_READER_FETCH_BATCH_RECORD_COUNT</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static org.apache.flink.configuration.ConfigOption&lt;java.lang.Boolean&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkConfigOptions.html#TABLE_EXEC_ICEBERG_EXPOSE_SPLIT_LOCALITY_INFO">TABLE_EXEC_ICEBERG_EXPOSE_SPLIT_LOCALITY_INFO</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>static org.apache.flink.configuration.ConfigOption&lt;java.lang.Boolean&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkConfigOptions.html#TABLE_EXEC_ICEBERG_INFER_SOURCE_PARALLELISM">TABLE_EXEC_ICEBERG_INFER_SOURCE_PARALLELISM</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static org.apache.flink.configuration.ConfigOption&lt;java.lang.Integer&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkConfigOptions.html#TABLE_EXEC_ICEBERG_INFER_SOURCE_PARALLELISM_MAX">TABLE_EXEC_ICEBERG_INFER_SOURCE_PARALLELISM_MAX</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static org.apache.flink.configuration.ConfigOption&lt;java.lang.Boolean&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkConfigOptions.html#TABLE_EXEC_ICEBERG_USE_FLIP27_SOURCE">TABLE_EXEC_ICEBERG_USE_FLIP27_SOURCE</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static org.apache.flink.configuration.ConfigOption&lt;java.lang.Integer&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkConfigOptions.html#TABLE_EXEC_ICEBERG_WORKER_POOL_SIZE">TABLE_EXEC_ICEBERG_WORKER_POOL_SIZE</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static org.apache.flink.configuration.ConfigOption&lt;<a href="../../../../org/apache/iceberg/flink/source/assigner/SplitAssignerType.html" title="enum in org.apache.iceberg.flink.source.assigner">SplitAssignerType</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkConfigOptions.html#TABLE_EXEC_SPLIT_ASSIGNER_TYPE">TABLE_EXEC_SPLIT_ASSIGNER_TYPE</a></span></code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -171,10 +209,55 @@ extends java.lang.Object</pre>
 <a name="TABLE_EXEC_ICEBERG_INFER_SOURCE_PARALLELISM_MAX">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>TABLE_EXEC_ICEBERG_INFER_SOURCE_PARALLELISM_MAX</h4>
 <pre>public static final&nbsp;org.apache.flink.configuration.ConfigOption&lt;java.lang.Integer&gt; TABLE_EXEC_ICEBERG_INFER_SOURCE_PARALLELISM_MAX</pre>
+</li>
+</ul>
+<a name="TABLE_EXEC_ICEBERG_EXPOSE_SPLIT_LOCALITY_INFO">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>TABLE_EXEC_ICEBERG_EXPOSE_SPLIT_LOCALITY_INFO</h4>
+<pre>public static final&nbsp;org.apache.flink.configuration.ConfigOption&lt;java.lang.Boolean&gt; TABLE_EXEC_ICEBERG_EXPOSE_SPLIT_LOCALITY_INFO</pre>
+</li>
+</ul>
+<a name="SOURCE_READER_FETCH_BATCH_RECORD_COUNT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>SOURCE_READER_FETCH_BATCH_RECORD_COUNT</h4>
+<pre>public static final&nbsp;org.apache.flink.configuration.ConfigOption&lt;java.lang.Integer&gt; SOURCE_READER_FETCH_BATCH_RECORD_COUNT</pre>
+</li>
+</ul>
+<a name="TABLE_EXEC_ICEBERG_WORKER_POOL_SIZE">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>TABLE_EXEC_ICEBERG_WORKER_POOL_SIZE</h4>
+<pre>public static final&nbsp;org.apache.flink.configuration.ConfigOption&lt;java.lang.Integer&gt; TABLE_EXEC_ICEBERG_WORKER_POOL_SIZE</pre>
+</li>
+</ul>
+<a name="TABLE_EXEC_ICEBERG_USE_FLIP27_SOURCE">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>TABLE_EXEC_ICEBERG_USE_FLIP27_SOURCE</h4>
+<pre>public static final&nbsp;org.apache.flink.configuration.ConfigOption&lt;java.lang.Boolean&gt; TABLE_EXEC_ICEBERG_USE_FLIP27_SOURCE</pre>
+</li>
+</ul>
+<a name="TABLE_EXEC_SPLIT_ASSIGNER_TYPE">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>TABLE_EXEC_SPLIT_ASSIGNER_TYPE</h4>
+<pre>public static final&nbsp;org.apache.flink.configuration.ConfigOption&lt;<a href="../../../../org/apache/iceberg/flink/source/assigner/SplitAssignerType.html" title="enum in org.apache.iceberg.flink.source.assigner">SplitAssignerType</a>&gt; TABLE_EXEC_SPLIT_ASSIGNER_TYPE</pre>
 </li>
 </ul>
 </li>

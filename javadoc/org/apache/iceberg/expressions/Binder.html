@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9};
+var methods = {"i0":9,"i1":9,"i2":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -143,6 +143,12 @@ extends java.lang.Object</pre>
                java.util.List&lt;<a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&gt;&nbsp;exprs,
                boolean&nbsp;caseSensitive)</code>&nbsp;</td>
 </tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Binder.html#isBound-org.apache.iceberg.expressions.Expression-">isBound</a></span>(<a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr)</code>
+<div class="block">Returns whether an expression is bound.</div>
+</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -175,21 +181,21 @@ extends java.lang.Object</pre>
                               <a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr,
                               boolean&nbsp;caseSensitive)</pre>
 <div class="block">Replaces all unbound/named references with bound references to fields in the given struct.
- <p>
- When a reference is resolved, any literal used in a predicate for that field is converted to
+
+ <p>When a reference is resolved, any literal used in a predicate for that field is converted to
  the field's type using <a href="../../../../org/apache/iceberg/expressions/Literal.html#to-org.apache.iceberg.types.Type-"><code>Literal.to(Type)</code></a>. If automatic conversion to that type isn't
  allowed, a <a href="../../../../org/apache/iceberg/exceptions/ValidationException.html" title="class in org.apache.iceberg.exceptions"><code>validation exception</code></a> is thrown.
- <p>
- The result expression may be simplified when constructed. For example, <code>isNull("a")</code> is
- replaced with <code>alwaysFalse()</code> when <code>"a"</code> is resolved to a required field.
- <p>
- The expression cannot contain references that are already bound, or an
- <code>IllegalStateException</code> will be thrown.</div>
+
+ <p>The result expression may be simplified when constructed. For example, <code>isNull("a")</code>
+ is replaced with <code>alwaysFalse()</code> when <code>"a"</code> is resolved to a required field.
+
+ <p>The expression cannot contain references that are already bound, or an <code>IllegalStateException</code> will be thrown.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>struct</code> - The <a href="../../../../org/apache/iceberg/types/Types.StructType.html" title="class in org.apache.iceberg.types"><code>struct type</code></a> to resolve references by name.</dd>
 <dd><code>expr</code> - An <a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions"><code>expression</code></a> to rewrite with bound references.</dd>
-<dd><code>caseSensitive</code> - A boolean flag to control whether the bind should enforce case sensitivity.</dd>
+<dd><code>caseSensitive</code> - A boolean flag to control whether the bind should enforce case
+     sensitivity.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the expression rewritten with bound references</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
@@ -201,12 +207,32 @@ extends java.lang.Object</pre>
 <a name="boundReferences-org.apache.iceberg.types.Types.StructType-java.util.List-boolean-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>boundReferences</h4>
 <pre>public static&nbsp;java.util.Set&lt;java.lang.Integer&gt;&nbsp;boundReferences(<a href="../../../../org/apache/iceberg/types/Types.StructType.html" title="class in org.apache.iceberg.types">Types.StructType</a>&nbsp;struct,
                                                                java.util.List&lt;<a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&gt;&nbsp;exprs,
                                                                boolean&nbsp;caseSensitive)</pre>
+</li>
+</ul>
+<a name="isBound-org.apache.iceberg.expressions.Expression-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>isBound</h4>
+<pre>public static&nbsp;boolean&nbsp;isBound(<a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr)</pre>
+<div class="block">Returns whether an expression is bound.
+
+ <p>An expression is bound if all of its predicates are bound.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>expr</code> - an <a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions"><code>Expression</code></a></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the expression is bound</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.IllegalArgumentException</code> - if the expression has both bound and unbound predicates.</dd>
+</dl>
 </li>
 </ul>
 </li>

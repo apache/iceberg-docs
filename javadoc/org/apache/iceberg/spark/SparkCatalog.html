@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/spark/Spark3Util.DescribeSchemaVisitor.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/spark/SparkCachedTableCatalog.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/spark/SparkDataFile.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -107,28 +107,30 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>org.apache.spark.sql.connector.catalog.CatalogPlugin, org.apache.spark.sql.connector.catalog.StagingTableCatalog, org.apache.spark.sql.connector.catalog.SupportsNamespaces, org.apache.spark.sql.connector.catalog.TableCatalog, <a href="../../../../org/apache/spark/sql/connector/iceberg/catalog/ProcedureCatalog.html" title="interface in org.apache.spark.sql.connector.iceberg.catalog">ProcedureCatalog</a></dd>
+<dd><a href="../../../../org/apache/iceberg/spark/source/HasIcebergCatalog.html" title="interface in org.apache.iceberg.spark.source">HasIcebergCatalog</a>, org.apache.spark.sql.connector.catalog.CatalogPlugin, org.apache.spark.sql.connector.catalog.FunctionCatalog, org.apache.spark.sql.connector.catalog.StagingTableCatalog, org.apache.spark.sql.connector.catalog.SupportsNamespaces, org.apache.spark.sql.connector.catalog.TableCatalog, <a href="../../../../org/apache/spark/sql/connector/iceberg/catalog/ProcedureCatalog.html" title="interface in org.apache.spark.sql.connector.iceberg.catalog">ProcedureCatalog</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">SparkCatalog</span>
 extends java.lang.Object</pre>
 <div class="block">A Spark TableCatalog implementation that wraps an Iceberg <a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog"><code>Catalog</code></a>.
- <p>
- This supports the following catalog configuration options:
+
+ <p>This supports the following catalog configuration options:
+
  <ul>
-   <li><code>type</code> - catalog type, "hive" or "hadoop"</li>
-   <li><code>uri</code> - the Hive Metastore URI (Hive catalog only)</li>
-   <li><code>warehouse</code> - the warehouse path (Hadoop catalog only)</li>
-   <li><code>default-namespace</code> - a namespace to use as the default</li>
-   <li><code>cache-enabled</code> - whether to enable catalog cache</li>
-   <li><code>cache.expiration-interval-ms</code> - interval in millis before expiring tables from catalog cache.
-       Refer to <a href="../../../../org/apache/iceberg/CatalogProperties.html#CACHE_EXPIRATION_INTERVAL_MS"><code>CatalogProperties.CACHE_EXPIRATION_INTERVAL_MS</code></a> for further details and significant values.
-   </li>
+   <li><code>type</code> - catalog type, "hive" or "hadoop". To specify a non-hive or hadoop
+       catalog, use the <code>catalog-impl</code> option.
+   <li><code>uri</code> - the Hive Metastore URI (Hive catalog only)
+   <li><code>warehouse</code> - the warehouse path (Hadoop catalog only)
+   <li><code>catalog-impl</code> - a custom <a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog"><code>Catalog</code></a> implementation to use
+   <li><code>default-namespace</code> - a namespace to use as the default
+   <li><code>cache-enabled</code> - whether to enable catalog cache
+   <li><code>cache.expiration-interval-ms</code> - interval in millis before expiring tables from
+       catalog cache. Refer to <a href="../../../../org/apache/iceberg/CatalogProperties.html#CACHE_EXPIRATION_INTERVAL_MS"><code>CatalogProperties.CACHE_EXPIRATION_INTERVAL_MS</code></a> for further
+       details and significant values.
  </ul>
- <p>
- To use a custom catalog that is not a Hive or Hadoop catalog, extend this class and override
- <a href="../../../../org/apache/iceberg/spark/SparkCatalog.html#buildIcebergCatalog-java.lang.String-org.apache.spark.sql.util.CaseInsensitiveStringMap-"><code>buildIcebergCatalog(String, CaseInsensitiveStringMap)</code></a>.</div>
+
+ <p></div>
 </li>
 </ul>
 </div>
@@ -142,18 +144,18 @@ extends java.lang.Object</pre>
 </a>
 <h3>Field Summary</h3>
 <ul class="blockList">
-<li class="blockList"><a name="fields.inherited.from.class.org.apache.spark.sql.connector.catalog.TableCatalog">
-<!--   -->
-</a>
-<h3>Fields inherited from interface&nbsp;org.apache.spark.sql.connector.catalog.TableCatalog</h3>
-<code>OPTION_PREFIX, PROP_COMMENT, PROP_EXTERNAL, PROP_LOCATION, PROP_OWNER, PROP_PROVIDER</code></li>
-</ul>
-<ul class="blockList">
 <li class="blockList"><a name="fields.inherited.from.class.org.apache.spark.sql.connector.catalog.SupportsNamespaces">
 <!--   -->
 </a>
 <h3>Fields inherited from interface&nbsp;org.apache.spark.sql.connector.catalog.SupportsNamespaces</h3>
 <code>PROP_COMMENT, PROP_LOCATION, PROP_OWNER</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="fields.inherited.from.class.org.apache.spark.sql.connector.catalog.TableCatalog">
+<!--   -->
+</a>
+<h3>Fields inherited from interface&nbsp;org.apache.spark.sql.connector.catalog.TableCatalog</h3>
+<code>OPTION_PREFIX, PROP_EXTERNAL, PROP_IS_MANAGED_LOCATION, PROP_PROVIDER</code></li>
 </ul>
 </li>
 </ul>
@@ -192,7 +194,7 @@ extends java.lang.Object</pre>
               org.apache.spark.sql.connector.catalog.NamespaceChange...&nbsp;changes)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="../../../../org/apache/iceberg/spark/source/SparkTable.html" title="class in org.apache.iceberg.spark.source">SparkTable</a></code></td>
+<td class="colFirst"><code>org.apache.spark.sql.connector.catalog.Table</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCatalog.html#alterTable-org.apache.spark.sql.connector.catalog.Identifier-org.apache.spark.sql.connector.catalog.TableChange...-">alterTable</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident,
           org.apache.spark.sql.connector.catalog.TableChange...&nbsp;changes)</code>&nbsp;</td>
 </tr>
@@ -215,7 +217,7 @@ extends java.lang.Object</pre>
                java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;metadata)</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code><a href="../../../../org/apache/iceberg/spark/source/SparkTable.html" title="class in org.apache.iceberg.spark.source">SparkTable</a></code></td>
+<td class="colFirst"><code>org.apache.spark.sql.connector.catalog.Table</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCatalog.html#createTable-org.apache.spark.sql.connector.catalog.Identifier-org.apache.spark.sql.types.StructType-org.apache.spark.sql.connector.expressions.Transform:A-java.util.Map-">createTable</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident,
            org.apache.spark.sql.types.StructType&nbsp;schema,
            org.apache.spark.sql.connector.expressions.Transform[]&nbsp;transforms,
@@ -227,71 +229,100 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCatalog.html#dropNamespace-java.lang.String:A-">dropNamespace</a></span>(java.lang.String[]&nbsp;namespace)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCatalog.html#dropNamespace-java.lang.String:A-boolean-">dropNamespace</a></span>(java.lang.String[]&nbsp;namespace,
+             boolean&nbsp;cascade)</code>&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCatalog.html#dropTable-org.apache.spark.sql.connector.catalog.Identifier-">dropTable</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident)</code>&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
+<td class="colFirst"><code><a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCatalog.html#icebergCatalog--">icebergCatalog</a></span>()</code>
+<div class="block">Returns the underlying <a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog"><code>Catalog</code></a> backing this Spark Catalog</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCatalog.html#initialize-java.lang.String-org.apache.spark.sql.util.CaseInsensitiveStringMap-">initialize</a></span>(java.lang.String&nbsp;name,
           org.apache.spark.sql.util.CaseInsensitiveStringMap&nbsp;options)</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCatalog.html#invalidateTable-org.apache.spark.sql.connector.catalog.Identifier-">invalidateTable</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident)</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>org.apache.spark.sql.connector.catalog.Identifier[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCatalog.html#listFunctions-java.lang.String:A-">listFunctions</a></span>(java.lang.String[]&nbsp;namespace)</code>&nbsp;</td>
+</tr>
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>java.lang.String[][]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCatalog.html#listNamespaces--">listNamespaces</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>java.lang.String[][]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCatalog.html#listNamespaces-java.lang.String:A-">listNamespaces</a></span>(java.lang.String[]&nbsp;namespace)</code>&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>org.apache.spark.sql.connector.catalog.Identifier[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCatalog.html#listTables-java.lang.String:A-">listTables</a></span>(java.lang.String[]&nbsp;namespace)</code>&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i16" class="altColor">
+<td class="colFirst"><code>org.apache.spark.sql.connector.catalog.functions.UnboundFunction</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCatalog.html#loadFunction-org.apache.spark.sql.connector.catalog.Identifier-">loadFunction</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident)</code>&nbsp;</td>
+</tr>
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.String,java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCatalog.html#loadNamespaceMetadata-java.lang.String:A-">loadNamespaceMetadata</a></span>(java.lang.String[]&nbsp;namespace)</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/spark/sql/connector/iceberg/catalog/Procedure.html" title="interface in org.apache.spark.sql.connector.iceberg.catalog">Procedure</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCatalog.html#loadProcedure-org.apache.spark.sql.connector.catalog.Identifier-">loadProcedure</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident)</code>
 <div class="block">Load a <a href="../../../../org/apache/spark/sql/connector/iceberg/catalog/Procedure.html" title="interface in org.apache.spark.sql.connector.iceberg.catalog"><code>stored procedure</code></a> by <code>identifier</code>.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
-<td class="colFirst"><code><a href="../../../../org/apache/iceberg/spark/source/SparkTable.html" title="class in org.apache.iceberg.spark.source">SparkTable</a></code></td>
+<tr id="i19" class="rowColor">
+<td class="colFirst"><code>org.apache.spark.sql.connector.catalog.Table</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCatalog.html#loadTable-org.apache.spark.sql.connector.catalog.Identifier-">loadTable</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident)</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i20" class="altColor">
+<td class="colFirst"><code>org.apache.spark.sql.connector.catalog.Table</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCatalog.html#loadTable-org.apache.spark.sql.connector.catalog.Identifier-long-">loadTable</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident,
+         long&nbsp;timestamp)</code>&nbsp;</td>
+</tr>
+<tr id="i21" class="rowColor">
+<td class="colFirst"><code>org.apache.spark.sql.connector.catalog.Table</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCatalog.html#loadTable-org.apache.spark.sql.connector.catalog.Identifier-java.lang.String-">loadTable</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident,
+         java.lang.String&nbsp;version)</code>&nbsp;</td>
+</tr>
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCatalog.html#name--">name</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i23" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCatalog.html#purgeTable-org.apache.spark.sql.connector.catalog.Identifier-">purgeTable</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident)</code>&nbsp;</td>
+</tr>
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCatalog.html#renameTable-org.apache.spark.sql.connector.catalog.Identifier-org.apache.spark.sql.connector.catalog.Identifier-">renameTable</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;from,
            org.apache.spark.sql.connector.catalog.Identifier&nbsp;to)</code>&nbsp;</td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>org.apache.spark.sql.connector.catalog.StagedTable</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCatalog.html#stageCreate-org.apache.spark.sql.connector.catalog.Identifier-org.apache.spark.sql.types.StructType-org.apache.spark.sql.connector.expressions.Transform:A-java.util.Map-">stageCreate</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident,
            org.apache.spark.sql.types.StructType&nbsp;schema,
            org.apache.spark.sql.connector.expressions.Transform[]&nbsp;transforms,
            java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</code>&nbsp;</td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>org.apache.spark.sql.connector.catalog.StagedTable</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCatalog.html#stageCreateOrReplace-org.apache.spark.sql.connector.catalog.Identifier-org.apache.spark.sql.types.StructType-org.apache.spark.sql.connector.expressions.Transform:A-java.util.Map-">stageCreateOrReplace</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident,
                     org.apache.spark.sql.types.StructType&nbsp;schema,
                     org.apache.spark.sql.connector.expressions.Transform[]&nbsp;transforms,
                     java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</code>&nbsp;</td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code>org.apache.spark.sql.connector.catalog.StagedTable</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCatalog.html#stageReplace-org.apache.spark.sql.connector.catalog.Identifier-org.apache.spark.sql.types.StructType-org.apache.spark.sql.connector.expressions.Transform:A-java.util.Map-">stageReplace</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident,
             org.apache.spark.sql.types.StructType&nbsp;schema,
@@ -307,18 +338,25 @@ extends java.lang.Object</pre>
 <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 <ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.org.apache.spark.sql.connector.catalog.TableCatalog">
-<!--   -->
-</a>
-<h3>Methods inherited from interface&nbsp;org.apache.spark.sql.connector.catalog.TableCatalog</h3>
-<code>purgeTable, tableExists</code></li>
-</ul>
-<ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.org.apache.spark.sql.connector.catalog.SupportsNamespaces">
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.spark.sql.connector.catalog.SupportsNamespaces</h3>
 <code>namespaceExists</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.org.apache.spark.sql.connector.catalog.TableCatalog">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;org.apache.spark.sql.connector.catalog.TableCatalog</h3>
+<code>tableExists</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.org.apache.spark.sql.connector.catalog.FunctionCatalog">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;org.apache.spark.sql.connector.catalog.FunctionCatalog</h3>
+<code>functionExists</code></li>
 </ul>
 </li>
 </ul>
@@ -391,8 +429,38 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>loadTable</h4>
-<pre>public&nbsp;<a href="../../../../org/apache/iceberg/spark/source/SparkTable.html" title="class in org.apache.iceberg.spark.source">SparkTable</a>&nbsp;loadTable(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident)
-                     throws org.apache.spark.sql.catalyst.analysis.NoSuchTableException</pre>
+<pre>public&nbsp;org.apache.spark.sql.connector.catalog.Table&nbsp;loadTable(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident)
+                                                       throws org.apache.spark.sql.catalyst.analysis.NoSuchTableException</pre>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>org.apache.spark.sql.catalyst.analysis.NoSuchTableException</code></dd>
+</dl>
+</li>
+</ul>
+<a name="loadTable-org.apache.spark.sql.connector.catalog.Identifier-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>loadTable</h4>
+<pre>public&nbsp;org.apache.spark.sql.connector.catalog.Table&nbsp;loadTable(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident,
+                                                              java.lang.String&nbsp;version)
+                                                       throws org.apache.spark.sql.catalyst.analysis.NoSuchTableException</pre>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>org.apache.spark.sql.catalyst.analysis.NoSuchTableException</code></dd>
+</dl>
+</li>
+</ul>
+<a name="loadTable-org.apache.spark.sql.connector.catalog.Identifier-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>loadTable</h4>
+<pre>public&nbsp;org.apache.spark.sql.connector.catalog.Table&nbsp;loadTable(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident,
+                                                              long&nbsp;timestamp)
+                                                       throws org.apache.spark.sql.catalyst.analysis.NoSuchTableException</pre>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>org.apache.spark.sql.catalyst.analysis.NoSuchTableException</code></dd>
@@ -405,11 +473,11 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>createTable</h4>
-<pre>public&nbsp;<a href="../../../../org/apache/iceberg/spark/source/SparkTable.html" title="class in org.apache.iceberg.spark.source">SparkTable</a>&nbsp;createTable(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident,
-                              org.apache.spark.sql.types.StructType&nbsp;schema,
-                              org.apache.spark.sql.connector.expressions.Transform[]&nbsp;transforms,
-                              java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)
-                       throws org.apache.spark.sql.catalyst.analysis.TableAlreadyExistsException</pre>
+<pre>public&nbsp;org.apache.spark.sql.connector.catalog.Table&nbsp;createTable(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident,
+                                                                org.apache.spark.sql.types.StructType&nbsp;schema,
+                                                                org.apache.spark.sql.connector.expressions.Transform[]&nbsp;transforms,
+                                                                java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)
+                                                         throws org.apache.spark.sql.catalyst.analysis.TableAlreadyExistsException</pre>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>org.apache.spark.sql.catalyst.analysis.TableAlreadyExistsException</code></dd>
@@ -468,9 +536,9 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>alterTable</h4>
-<pre>public&nbsp;<a href="../../../../org/apache/iceberg/spark/source/SparkTable.html" title="class in org.apache.iceberg.spark.source">SparkTable</a>&nbsp;alterTable(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident,
-                             org.apache.spark.sql.connector.catalog.TableChange...&nbsp;changes)
-                      throws org.apache.spark.sql.catalyst.analysis.NoSuchTableException</pre>
+<pre>public&nbsp;org.apache.spark.sql.connector.catalog.Table&nbsp;alterTable(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident,
+                                                               org.apache.spark.sql.connector.catalog.TableChange...&nbsp;changes)
+                                                        throws org.apache.spark.sql.catalyst.analysis.NoSuchTableException</pre>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>org.apache.spark.sql.catalyst.analysis.NoSuchTableException</code></dd>
@@ -484,6 +552,15 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>dropTable</h4>
 <pre>public&nbsp;boolean&nbsp;dropTable(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident)</pre>
+</li>
+</ul>
+<a name="purgeTable-org.apache.spark.sql.connector.catalog.Identifier-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>purgeTable</h4>
+<pre>public&nbsp;boolean&nbsp;purgeTable(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident)</pre>
 </li>
 </ul>
 <a name="renameTable-org.apache.spark.sql.connector.catalog.Identifier-org.apache.spark.sql.connector.catalog.Identifier-">
@@ -597,13 +674,14 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="dropNamespace-java.lang.String:A-">
+<a name="dropNamespace-java.lang.String:A-boolean-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>dropNamespace</h4>
-<pre>public&nbsp;boolean&nbsp;dropNamespace(java.lang.String[]&nbsp;namespace)
+<pre>public&nbsp;boolean&nbsp;dropNamespace(java.lang.String[]&nbsp;namespace,
+                             boolean&nbsp;cascade)
                       throws org.apache.spark.sql.catalyst.analysis.NoSuchNamespaceException</pre>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
@@ -630,10 +708,21 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;java.lang.String&nbsp;name()</pre>
 </li>
 </ul>
+<a name="icebergCatalog--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>icebergCatalog</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a>&nbsp;icebergCatalog()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/spark/source/HasIcebergCatalog.html#icebergCatalog--">HasIcebergCatalog</a></code></span></div>
+<div class="block">Returns the underlying <a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog"><code>Catalog</code></a> backing this Spark Catalog</div>
+</li>
+</ul>
 <a name="loadProcedure-org.apache.spark.sql.connector.catalog.Identifier-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>loadProcedure</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/spark/sql/connector/iceberg/catalog/Procedure.html" title="interface in org.apache.spark.sql.connector.iceberg.catalog">Procedure</a>&nbsp;loadProcedure(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident)
@@ -649,6 +738,38 @@ extends java.lang.Object</pre>
 <dd>the stored procedure's metadata</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../../org/apache/spark/sql/catalyst/analysis/NoSuchProcedureException.html" title="class in org.apache.spark.sql.catalyst.analysis">NoSuchProcedureException</a></code> - if there is no matching stored procedure</dd>
+</dl>
+</li>
+</ul>
+<a name="listFunctions-java.lang.String:A-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>listFunctions</h4>
+<pre>public&nbsp;org.apache.spark.sql.connector.catalog.Identifier[]&nbsp;listFunctions(java.lang.String[]&nbsp;namespace)
+                                                                  throws org.apache.spark.sql.catalyst.analysis.NoSuchNamespaceException</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>listFunctions</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.catalog.FunctionCatalog</code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>org.apache.spark.sql.catalyst.analysis.NoSuchNamespaceException</code></dd>
+</dl>
+</li>
+</ul>
+<a name="loadFunction-org.apache.spark.sql.connector.catalog.Identifier-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>loadFunction</h4>
+<pre>public&nbsp;org.apache.spark.sql.connector.catalog.functions.UnboundFunction&nbsp;loadFunction(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident)
+                                                                              throws org.apache.spark.sql.catalyst.analysis.NoSuchFunctionException</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>loadFunction</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.catalog.FunctionCatalog</code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>org.apache.spark.sql.catalyst.analysis.NoSuchFunctionException</code></dd>
 </dl>
 </li>
 </ul>
@@ -679,7 +800,7 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/spark/Spark3Util.DescribeSchemaVisitor.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/spark/SparkCachedTableCatalog.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/spark/SparkDataFile.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

@@ -159,7 +159,7 @@ implements <a href="../../../../org/apache/iceberg/io/CloseableIterable.html" ti
 <tr id="i0" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/io/CloseableIterator.html" title="interface in org.apache.iceberg.io">CloseableIterator</a>&lt;<a href="../../../../org/apache/iceberg/io/CloseableIterable.ConcatCloseableIterable.html" title="type parameter in CloseableIterable.ConcatCloseableIterable">E</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/CloseableIterable.ConcatCloseableIterable.html#iterator--">iterator</a></span>()</code>
-<div class="block">Returns an closeable iterator over elements of type <code>T</code>.</div>
+<div class="block">Returns a closeable iterator over elements of type <code>T</code>.</div>
 </td>
 </tr>
 </table>
@@ -182,7 +182,7 @@ implements <a href="../../../../org/apache/iceberg/io/CloseableIterable.html" ti
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a></h3>
-<code><a href="../../../../org/apache/iceberg/io/CloseableIterable.html#combine-java.lang.Iterable-java.io.Closeable-">combine</a>, <a href="../../../../org/apache/iceberg/io/CloseableIterable.html#concat-java.lang.Iterable-">concat</a>, <a href="../../../../org/apache/iceberg/io/CloseableIterable.html#empty--">empty</a>, <a href="../../../../org/apache/iceberg/io/CloseableIterable.html#filter-org.apache.iceberg.io.CloseableIterable-java.util.function.Predicate-">filter</a>, <a href="../../../../org/apache/iceberg/io/CloseableIterable.html#transform-org.apache.iceberg.io.CloseableIterable-java.util.function.Function-">transform</a>, <a href="../../../../org/apache/iceberg/io/CloseableIterable.html#withNoopClose-E-">withNoopClose</a>, <a href="../../../../org/apache/iceberg/io/CloseableIterable.html#withNoopClose-java.lang.Iterable-">withNoopClose</a></code></li>
+<code><a href="../../../../org/apache/iceberg/io/CloseableIterable.html#combine-java.lang.Iterable-java.io.Closeable-">combine</a>, <a href="../../../../org/apache/iceberg/io/CloseableIterable.html#concat-java.lang.Iterable-">concat</a>, <a href="../../../../org/apache/iceberg/io/CloseableIterable.html#count-org.apache.iceberg.metrics.Counter-org.apache.iceberg.io.CloseableIterable-">count</a>, <a href="../../../../org/apache/iceberg/io/CloseableIterable.html#empty--">empty</a>, <a href="../../../../org/apache/iceberg/io/CloseableIterable.html#filter-org.apache.iceberg.io.CloseableIterable-java.util.function.Predicate-">filter</a>, <a href="../../../../org/apache/iceberg/io/CloseableIterable.html#filter-org.apache.iceberg.metrics.Counter-org.apache.iceberg.io.CloseableIterable-java.util.function.Predicate-">filter</a>, <a href="../../../../org/apache/iceberg/io/CloseableIterable.html#transform-org.apache.iceberg.io.CloseableIterable-java.util.function.Function-">transform</a>, <a href="../../../../org/apache/iceberg/io/CloseableIterable.html#whenComplete-org.apache.iceberg.io.CloseableIterable-java.lang.Runnable-">whenComplete</a>, <a href="../../../../org/apache/iceberg/io/CloseableIterable.html#withNoopClose-E-">withNoopClose</a>, <a href="../../../../org/apache/iceberg/io/CloseableIterable.html#withNoopClose-java.lang.Iterable-">withNoopClose</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Iterable">
@@ -220,7 +220,7 @@ implements <a href="../../../../org/apache/iceberg/io/CloseableIterable.html" ti
 <h4>iterator</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterator.html" title="interface in org.apache.iceberg.io">CloseableIterator</a>&lt;<a href="../../../../org/apache/iceberg/io/CloseableIterable.ConcatCloseableIterable.html" title="type parameter in CloseableIterable.ConcatCloseableIterable">E</a>&gt;&nbsp;iterator()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/io/CloseableIterable.html#iterator--">CloseableIterable</a></code></span></div>
-<div class="block">Returns an closeable iterator over elements of type <code>T</code>.</div>
+<div class="block">Returns a closeable iterator over elements of type <code>T</code>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>iterator</code>&nbsp;in interface&nbsp;<code>java.lang.Iterable&lt;<a href="../../../../org/apache/iceberg/io/CloseableIterable.ConcatCloseableIterable.html" title="type parameter in CloseableIterable.ConcatCloseableIterable">E</a>&gt;</code></dd>

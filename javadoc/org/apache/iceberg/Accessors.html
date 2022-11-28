@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/apache/iceberg/Accessor.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/AllDataFilesTable.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/AddedRowsScanTask.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/Accessors.html" target="_top">Frames</a></li>
@@ -110,17 +110,19 @@ var activeTableTab = "activeTableTab";
 <pre>public class <span class="typeNameLabel">Accessors</span>
 extends java.lang.Object</pre>
 <div class="block">Position2Accessor and Position3Accessor here is an optimization. For a nested schema like:
+
  <pre>
  root
   |-- a: struct (nullable = false)
   |    |-- b: struct (nullable = false)
   |        | -- c: string (containsNull = false)
  </pre>
-  Then we will use Position3Accessor to access nested field 'c'. It can be accessed like this:
-  <code>row.get(p0, StructLike.class).get(p1, StructLike.class).get(p2, javaClass)</code>.
-  Commonly, Nested fields with depth=1 or 2 or 3 are the fields that will be accessed frequently,
-  so this optimization will help to access this kind of schema. For schema whose depth is deeper than 3,
-  then we will use the <code>WrappedPositionAccessor</code> to access recursively.</div>
+
+ Then we will use Position3Accessor to access nested field 'c'. It can be accessed like this:
+ <code>row.get(p0, StructLike.class).get(p1, StructLike.class).get(p2, javaClass)</code>. Commonly,
+ Nested fields with depth=1 or 2 or 3 are the fields that will be accessed frequently, so this
+ optimization will help to access this kind of schema. For schema whose depth is deeper than 3,
+ then we will use the <code>WrappedPositionAccessor</code> to access recursively.</div>
 </li>
 </ul>
 </div>
@@ -202,7 +204,7 @@ extends java.lang.Object</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/apache/iceberg/Accessor.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/AllDataFilesTable.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/AddedRowsScanTask.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/Accessors.html" target="_top">Frames</a></li>

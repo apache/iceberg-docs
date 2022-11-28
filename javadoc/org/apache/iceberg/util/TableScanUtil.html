@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -138,18 +138,37 @@ extends java.lang.Object</pre>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/TableScanUtil.html#hasEqDeletes-org.apache.iceberg.CombinedScanTask-">hasEqDeletes</a></span>(<a href="../../../../org/apache/iceberg/CombinedScanTask.html" title="interface in org.apache.iceberg">CombinedScanTask</a>&nbsp;task)</code>
-<div class="block">This is temporarily introduced since we plan to support pos-delete vectorized read first, then get to the
- equality-delete support.</div>
+<div class="block">This is temporarily introduced since we plan to support pos-delete vectorized read first, then
+ get to the equality-delete support.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>static &lt;T extends <a href="../../../../org/apache/iceberg/ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a>&gt;<br>java.util.List&lt;T&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/TableScanUtil.html#mergeTasks-java.util.List-">mergeTasks</a></span>(java.util.List&lt;T&gt;&nbsp;tasks)</code>&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>static &lt;T extends <a href="../../../../org/apache/iceberg/ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a>&gt;<br><a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../../../../org/apache/iceberg/ScanTaskGroup.html" title="interface in org.apache.iceberg">ScanTaskGroup</a>&lt;T&gt;&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/TableScanUtil.html#planTaskGroups-org.apache.iceberg.io.CloseableIterable-long-int-long-">planTaskGroups</a></span>(<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&nbsp;tasks,
+              long&nbsp;splitSize,
+              int&nbsp;lookback,
+              long&nbsp;openFileCost)</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>static &lt;T extends <a href="../../../../org/apache/iceberg/PartitionScanTask.html" title="interface in org.apache.iceberg">PartitionScanTask</a>&gt;<br>java.util.List&lt;<a href="../../../../org/apache/iceberg/ScanTaskGroup.html" title="interface in org.apache.iceberg">ScanTaskGroup</a>&lt;T&gt;&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/TableScanUtil.html#planTaskGroups-java.util.List-long-int-long-org.apache.iceberg.types.Types.StructType-">planTaskGroups</a></span>(java.util.List&lt;T&gt;&nbsp;tasks,
+              long&nbsp;splitSize,
+              int&nbsp;lookback,
+              long&nbsp;openFileCost,
+              <a href="../../../../org/apache/iceberg/types/Types.StructType.html" title="class in org.apache.iceberg.types">Types.StructType</a>&nbsp;projectedPartitionType)</code>&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../../../../org/apache/iceberg/CombinedScanTask.html" title="interface in org.apache.iceberg">CombinedScanTask</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/TableScanUtil.html#planTasks-org.apache.iceberg.io.CloseableIterable-long-int-long-">planTasks</a></span>(<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;&nbsp;splitFiles,
          long&nbsp;splitSize,
          int&nbsp;lookback,
          long&nbsp;openFileCost)</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/TableScanUtil.html#splitFiles-org.apache.iceberg.io.CloseableIterable-long-">splitFiles</a></span>(<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;&nbsp;tasks,
           long&nbsp;splitSize)</code>&nbsp;</td>
@@ -192,8 +211,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>hasEqDeletes</h4>
 <pre>public static&nbsp;boolean&nbsp;hasEqDeletes(<a href="../../../../org/apache/iceberg/CombinedScanTask.html" title="interface in org.apache.iceberg">CombinedScanTask</a>&nbsp;task)</pre>
-<div class="block">This is temporarily introduced since we plan to support pos-delete vectorized read first, then get to the
- equality-delete support. We will remove this method once both are supported.</div>
+<div class="block">This is temporarily introduced since we plan to support pos-delete vectorized read first, then
+ get to the equality-delete support. We will remove this method once both are supported.</div>
 </li>
 </ul>
 <a name="hasDeletes-org.apache.iceberg.FileScanTask-">
@@ -218,13 +237,47 @@ extends java.lang.Object</pre>
 <a name="planTasks-org.apache.iceberg.io.CloseableIterable-long-int-long-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>planTasks</h4>
 <pre>public static&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../../../../org/apache/iceberg/CombinedScanTask.html" title="interface in org.apache.iceberg">CombinedScanTask</a>&gt;&nbsp;planTasks(<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;&nbsp;splitFiles,
                                                             long&nbsp;splitSize,
                                                             int&nbsp;lookback,
                                                             long&nbsp;openFileCost)</pre>
+</li>
+</ul>
+<a name="planTaskGroups-org.apache.iceberg.io.CloseableIterable-long-int-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>planTaskGroups</h4>
+<pre>public static&nbsp;&lt;T extends <a href="../../../../org/apache/iceberg/ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a>&gt;&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../../../../org/apache/iceberg/ScanTaskGroup.html" title="interface in org.apache.iceberg">ScanTaskGroup</a>&lt;T&gt;&gt;&nbsp;planTaskGroups(<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&nbsp;tasks,
+                                                                                      long&nbsp;splitSize,
+                                                                                      int&nbsp;lookback,
+                                                                                      long&nbsp;openFileCost)</pre>
+</li>
+</ul>
+<a name="planTaskGroups-java.util.List-long-int-long-org.apache.iceberg.types.Types.StructType-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>planTaskGroups</h4>
+<pre>public static&nbsp;&lt;T extends <a href="../../../../org/apache/iceberg/PartitionScanTask.html" title="interface in org.apache.iceberg">PartitionScanTask</a>&gt;&nbsp;java.util.List&lt;<a href="../../../../org/apache/iceberg/ScanTaskGroup.html" title="interface in org.apache.iceberg">ScanTaskGroup</a>&lt;T&gt;&gt;&nbsp;planTaskGroups(java.util.List&lt;T&gt;&nbsp;tasks,
+                                                                                            long&nbsp;splitSize,
+                                                                                            int&nbsp;lookback,
+                                                                                            long&nbsp;openFileCost,
+                                                                                            <a href="../../../../org/apache/iceberg/types/Types.StructType.html" title="class in org.apache.iceberg.types">Types.StructType</a>&nbsp;projectedPartitionType)</pre>
+</li>
+</ul>
+<a name="mergeTasks-java.util.List-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>mergeTasks</h4>
+<pre>public static&nbsp;&lt;T extends <a href="../../../../org/apache/iceberg/ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a>&gt;&nbsp;java.util.List&lt;T&gt;&nbsp;mergeTasks(java.util.List&lt;T&gt;&nbsp;tasks)</pre>
 </li>
 </ul>
 </li>

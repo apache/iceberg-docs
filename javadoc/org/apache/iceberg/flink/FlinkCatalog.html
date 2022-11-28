@@ -119,13 +119,14 @@ var activeTableTab = "activeTableTab";
 <pre>public class <span class="typeNameLabel">FlinkCatalog</span>
 extends org.apache.flink.table.catalog.AbstractCatalog</pre>
 <div class="block">A Flink Catalog implementation that wraps an Iceberg <a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog"><code>Catalog</code></a>.
- <p>
- The mapping between Flink database and Iceberg namespace:
- Supplying a base namespace for a given catalog, so if you have a catalog that supports a 2-level namespace, you
- would supply the first level in the catalog configuration and the second level would be exposed as Flink databases.
- <p>
- The Iceberg table manages its partitions by itself. The partition of the Iceberg table is independent of the
- partition of Flink.</div>
+
+ <p>The mapping between Flink database and Iceberg namespace: Supplying a base namespace for a
+ given catalog, so if you have a catalog that supports a 2-level namespace, you would supply the
+ first level in the catalog configuration and the second level would be exposed as Flink
+ databases.
+
+ <p>The Iceberg table manages its partitions by itself. The partition of the Iceberg table is
+ independent of the partition of Flink.</div>
 </li>
 </ul>
 </div>
@@ -144,11 +145,12 @@ extends org.apache.flink.table.catalog.AbstractCatalog</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#FlinkCatalog-java.lang.String-java.lang.String-org.apache.iceberg.catalog.Namespace-org.apache.iceberg.flink.CatalogLoader-boolean-">FlinkCatalog</a></span>(java.lang.String&nbsp;catalogName,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#FlinkCatalog-java.lang.String-java.lang.String-org.apache.iceberg.catalog.Namespace-org.apache.iceberg.flink.CatalogLoader-boolean-long-">FlinkCatalog</a></span>(java.lang.String&nbsp;catalogName,
             java.lang.String&nbsp;defaultDatabase,
             <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;baseNamespace,
             <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink">CatalogLoader</a>&nbsp;catalogLoader,
-            boolean&nbsp;cacheEnabled)</code>&nbsp;</td>
+            boolean&nbsp;cacheEnabled,
+            long&nbsp;cacheExpirationIntervalMs)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -387,7 +389,7 @@ extends org.apache.flink.table.catalog.AbstractCatalog</pre>
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.flink.table.catalog.Catalog</h3>
-<code>dropDatabase, getFunctionDefinitionFactory, getTableFactory</code></li>
+<code>bulkGetPartitionColumnStatistics, bulkGetPartitionStatistics, dropDatabase, getFunctionDefinitionFactory, getTableFactory, supportsManagedTable</code></li>
 </ul>
 </li>
 </ul>
@@ -403,7 +405,7 @@ extends org.apache.flink.table.catalog.AbstractCatalog</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="FlinkCatalog-java.lang.String-java.lang.String-org.apache.iceberg.catalog.Namespace-org.apache.iceberg.flink.CatalogLoader-boolean-">
+<a name="FlinkCatalog-java.lang.String-java.lang.String-org.apache.iceberg.catalog.Namespace-org.apache.iceberg.flink.CatalogLoader-boolean-long-">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -413,7 +415,8 @@ extends org.apache.flink.table.catalog.AbstractCatalog</pre>
                     java.lang.String&nbsp;defaultDatabase,
                     <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;baseNamespace,
                     <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink">CatalogLoader</a>&nbsp;catalogLoader,
-                    boolean&nbsp;cacheEnabled)</pre>
+                    boolean&nbsp;cacheEnabled,
+                    long&nbsp;cacheExpirationIntervalMs)</pre>
 </li>
 </ul>
 </li>

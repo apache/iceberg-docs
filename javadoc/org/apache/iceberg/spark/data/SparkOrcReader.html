@@ -114,10 +114,9 @@ var activeTableTab = "activeTableTab";
 <pre>public class <span class="typeNameLabel">SparkOrcReader</span>
 extends java.lang.Object
 implements <a href="../../../../../org/apache/iceberg/orc/OrcRowReader.html" title="interface in org.apache.iceberg.orc">OrcRowReader</a>&lt;org.apache.spark.sql.catalyst.InternalRow&gt;</pre>
-<div class="block">Converts the OrcIterator, which returns ORC's VectorizedRowBatch to a
- set of Spark's UnsafeRows.
+<div class="block">Converts the OrcIterator, which returns ORC's VectorizedRowBatch to a set of Spark's UnsafeRows.
 
- It minimizes allocations by reusing most of the objects in the implementation.</div>
+ <p>It minimizes allocations by reusing most of the objects in the implementation.</div>
 </li>
 </ul>
 </div>
