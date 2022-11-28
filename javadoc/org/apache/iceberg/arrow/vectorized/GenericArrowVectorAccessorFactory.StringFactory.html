@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -135,11 +135,17 @@ var activeTableTab = "activeTableTab";
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/arrow/vectorized/GenericArrowVectorAccessorFactory.StringFactory.html" title="type parameter in GenericArrowVectorAccessorFactory.StringFactory">Utf8StringT</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/GenericArrowVectorAccessorFactory.StringFactory.html#ofByteBuffer-java.nio.ByteBuffer-">ofByteBuffer</a></span>(java.nio.ByteBuffer&nbsp;byteBuffer)</code>
+<div class="block">Create a UTF8 String from the byte buffer.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/iceberg/arrow/vectorized/GenericArrowVectorAccessorFactory.StringFactory.html" title="type parameter in GenericArrowVectorAccessorFactory.StringFactory">Utf8StringT</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/GenericArrowVectorAccessorFactory.StringFactory.html#ofBytes-byte:A-">ofBytes</a></span>(byte[]&nbsp;bytes)</code>
 <div class="block">Create a UTF8 String from the byte array.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/arrow/vectorized/GenericArrowVectorAccessorFactory.StringFactory.html" title="type parameter in GenericArrowVectorAccessorFactory.StringFactory">Utf8StringT</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/GenericArrowVectorAccessorFactory.StringFactory.html#ofRow-org.apache.arrow.vector.VarCharVector-int-">ofRow</a></span>(org.apache.arrow.vector.VarCharVector&nbsp;vector,
      int&nbsp;rowId)</code>
@@ -185,11 +191,21 @@ var activeTableTab = "activeTableTab";
 <a name="ofBytes-byte:A-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>ofBytes</h4>
 <pre><a href="../../../../../org/apache/iceberg/arrow/vectorized/GenericArrowVectorAccessorFactory.StringFactory.html" title="type parameter in GenericArrowVectorAccessorFactory.StringFactory">Utf8StringT</a>&nbsp;ofBytes(byte[]&nbsp;bytes)</pre>
 <div class="block">Create a UTF8 String from the byte array.</div>
+</li>
+</ul>
+<a name="ofByteBuffer-java.nio.ByteBuffer-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>ofByteBuffer</h4>
+<pre><a href="../../../../../org/apache/iceberg/arrow/vectorized/GenericArrowVectorAccessorFactory.StringFactory.html" title="type parameter in GenericArrowVectorAccessorFactory.StringFactory">Utf8StringT</a>&nbsp;ofByteBuffer(java.nio.ByteBuffer&nbsp;byteBuffer)</pre>
+<div class="block">Create a UTF8 String from the byte buffer.</div>
 </li>
 </ul>
 </li>

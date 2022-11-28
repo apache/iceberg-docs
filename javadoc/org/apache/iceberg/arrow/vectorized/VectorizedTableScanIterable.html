@@ -119,8 +119,7 @@ var activeTableTab = "activeTableTab";
 <pre>public class <span class="typeNameLabel">VectorizedTableScanIterable</span>
 extends <a href="../../../../../org/apache/iceberg/io/CloseableGroup.html" title="class in org.apache.iceberg.io">CloseableGroup</a>
 implements <a href="../../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized">ColumnarBatch</a>&gt;</pre>
-<div class="block">A vectorized implementation of the Iceberg reader that iterates over the table scan.
- See <a href="../../../../../org/apache/iceberg/arrow/vectorized/ArrowReader.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ArrowReader</code></a> for details.</div>
+<div class="block">A vectorized implementation of the Iceberg reader that iterates over the table scan. See <a href="../../../../../org/apache/iceberg/arrow/vectorized/ArrowReader.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ArrowReader</code></a> for details.</div>
 </li>
 </ul>
 </div>
@@ -189,7 +188,7 @@ implements <a href="../../../../../org/apache/iceberg/io/CloseableIterable.html"
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/io/CloseableIterator.html" title="interface in org.apache.iceberg.io">CloseableIterator</a>&lt;<a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized">ColumnarBatch</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorizedTableScanIterable.html#iterator--">iterator</a></span>()</code>
-<div class="block">Returns an closeable iterator over elements of type <code>T</code>.</div>
+<div class="block">Returns a closeable iterator over elements of type <code>T</code>.</div>
 </td>
 </tr>
 </table>
@@ -212,7 +211,7 @@ implements <a href="../../../../../org/apache/iceberg/io/CloseableIterable.html"
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.iceberg.io.<a href="../../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a></h3>
-<code><a href="../../../../../org/apache/iceberg/io/CloseableIterable.html#combine-java.lang.Iterable-java.io.Closeable-">combine</a>, <a href="../../../../../org/apache/iceberg/io/CloseableIterable.html#concat-java.lang.Iterable-">concat</a>, <a href="../../../../../org/apache/iceberg/io/CloseableIterable.html#empty--">empty</a>, <a href="../../../../../org/apache/iceberg/io/CloseableIterable.html#filter-org.apache.iceberg.io.CloseableIterable-java.util.function.Predicate-">filter</a>, <a href="../../../../../org/apache/iceberg/io/CloseableIterable.html#transform-org.apache.iceberg.io.CloseableIterable-java.util.function.Function-">transform</a>, <a href="../../../../../org/apache/iceberg/io/CloseableIterable.html#withNoopClose-E-">withNoopClose</a>, <a href="../../../../../org/apache/iceberg/io/CloseableIterable.html#withNoopClose-java.lang.Iterable-">withNoopClose</a></code></li>
+<code><a href="../../../../../org/apache/iceberg/io/CloseableIterable.html#combine-java.lang.Iterable-java.io.Closeable-">combine</a>, <a href="../../../../../org/apache/iceberg/io/CloseableIterable.html#concat-java.lang.Iterable-">concat</a>, <a href="../../../../../org/apache/iceberg/io/CloseableIterable.html#count-org.apache.iceberg.metrics.Counter-org.apache.iceberg.io.CloseableIterable-">count</a>, <a href="../../../../../org/apache/iceberg/io/CloseableIterable.html#empty--">empty</a>, <a href="../../../../../org/apache/iceberg/io/CloseableIterable.html#filter-org.apache.iceberg.io.CloseableIterable-java.util.function.Predicate-">filter</a>, <a href="../../../../../org/apache/iceberg/io/CloseableIterable.html#filter-org.apache.iceberg.metrics.Counter-org.apache.iceberg.io.CloseableIterable-java.util.function.Predicate-">filter</a>, <a href="../../../../../org/apache/iceberg/io/CloseableIterable.html#transform-org.apache.iceberg.io.CloseableIterable-java.util.function.Function-">transform</a>, <a href="../../../../../org/apache/iceberg/io/CloseableIterable.html#whenComplete-org.apache.iceberg.io.CloseableIterable-java.lang.Runnable-">whenComplete</a>, <a href="../../../../../org/apache/iceberg/io/CloseableIterable.html#withNoopClose-E-">withNoopClose</a>, <a href="../../../../../org/apache/iceberg/io/CloseableIterable.html#withNoopClose-java.lang.Iterable-">withNoopClose</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Iterable">
@@ -243,8 +242,8 @@ implements <a href="../../../../../org/apache/iceberg/io/CloseableIterable.html"
 <h4>VectorizedTableScanIterable</h4>
 <pre>public&nbsp;VectorizedTableScanIterable(<a href="../../../../../org/apache/iceberg/TableScan.html" title="interface in org.apache.iceberg">TableScan</a>&nbsp;scan)</pre>
 <div class="block">Create a new instance using default values for <code>batchSize</code> and <code>reuseContainers</code>.
- The <code>batchSize</code> is set to <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorizedTableScanIterable.html#BATCH_SIZE_IN_NUM_ROWS"><code>BATCH_SIZE_IN_NUM_ROWS</code></a> and <code>reuseContainers</code>
- is set to <code>false</code>.</div>
+ The <code>batchSize</code> is set to <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorizedTableScanIterable.html#BATCH_SIZE_IN_NUM_ROWS"><code>BATCH_SIZE_IN_NUM_ROWS</code></a> and <code>reuseContainers</code> is
+ set to <code>false</code>.</div>
 </li>
 </ul>
 <a name="VectorizedTableScanIterable-org.apache.iceberg.TableScan-int-boolean-">
@@ -258,7 +257,7 @@ implements <a href="../../../../../org/apache/iceberg/io/CloseableIterable.html"
                                    boolean&nbsp;reuseContainers)</pre>
 <div class="block">Create a new instance.
 
- See <a href="../../../../../org/apache/iceberg/arrow/vectorized/ArrowReader.html#ArrowReader-org.apache.iceberg.TableScan-int-boolean-"><code>ArrowReader(TableScan, int, boolean)</code></a> for details.</div>
+ <p>See <a href="../../../../../org/apache/iceberg/arrow/vectorized/ArrowReader.html#ArrowReader-org.apache.iceberg.TableScan-int-boolean-"><code>ArrowReader(TableScan, int, boolean)</code></a> for details.</div>
 </li>
 </ul>
 </li>
@@ -277,7 +276,7 @@ implements <a href="../../../../../org/apache/iceberg/io/CloseableIterable.html"
 <h4>iterator</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/iceberg/io/CloseableIterator.html" title="interface in org.apache.iceberg.io">CloseableIterator</a>&lt;<a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized">ColumnarBatch</a>&gt;&nbsp;iterator()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/iceberg/io/CloseableIterable.html#iterator--">CloseableIterable</a></code></span></div>
-<div class="block">Returns an closeable iterator over elements of type <code>T</code>.</div>
+<div class="block">Returns a closeable iterator over elements of type <code>T</code>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>iterator</code>&nbsp;in interface&nbsp;<code>java.lang.Iterable&lt;<a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html" title="class in org.apache.iceberg.arrow.vectorized">ColumnarBatch</a>&gt;</code></dd>

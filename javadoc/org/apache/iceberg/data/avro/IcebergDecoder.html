@@ -152,15 +152,13 @@ extends org.apache.avro.message.MessageDecoder.BaseDecoder&lt;D&gt;</pre>
 </tr>
 <tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/data/avro/IcebergDecoder.html#IcebergDecoder-org.apache.iceberg.Schema-">IcebergDecoder</a></span>(<a href="../../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;readSchema)</code>
-<div class="block">Creates a new decoder that constructs datum instances described by an
- <a href="../../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>Iceberg schema</code></a>.</div>
+<div class="block">Creates a new decoder that constructs datum instances described by an <a href="../../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>Iceberg schema</code></a>.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/data/avro/IcebergDecoder.html#IcebergDecoder-org.apache.iceberg.Schema-org.apache.avro.message.SchemaStore-">IcebergDecoder</a></span>(<a href="../../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;readSchema,
               org.apache.avro.message.SchemaStore&nbsp;resolver)</code>
-<div class="block">Creates a new decoder that constructs datum instances described by an
- <a href="../../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>Iceberg schema</code></a>.</div>
+<div class="block">Creates a new decoder that constructs datum instances described by an <a href="../../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>Iceberg schema</code></a>.</div>
 </td>
 </tr>
 </table>
@@ -225,16 +223,13 @@ extends org.apache.avro.message.MessageDecoder.BaseDecoder&lt;D&gt;</pre>
 <li class="blockList">
 <h4>IcebergDecoder</h4>
 <pre>public&nbsp;IcebergDecoder(<a href="../../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;readSchema)</pre>
-<div class="block">Creates a new decoder that constructs datum instances described by an
- <a href="../../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>Iceberg schema</code></a>.
- <p>
- The <code>readSchema</code> is as used the expected schema (read schema). Datum instances created
+<div class="block">Creates a new decoder that constructs datum instances described by an <a href="../../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>Iceberg schema</code></a>.
+
+ <p>The <code>readSchema</code> is as used the expected schema (read schema). Datum instances created
  by this class will are described by the expected schema.
- <p>
- The schema used to decode incoming buffers is determined by the schema fingerprint encoded in
- the message header. This class can decode messages that were encoded using the
- <code>readSchema</code> and other schemas that are added using
- <a href="../../../../../org/apache/iceberg/data/avro/IcebergDecoder.html#addSchema-org.apache.iceberg.Schema-"><code>addSchema(org.apache.iceberg.Schema)</code></a>.</div>
+
+ <p>The schema used to decode incoming buffers is determined by the schema fingerprint encoded
+ in the message header. This class can decode messages that were encoded using the <code>readSchema</code> and other schemas that are added using <a href="../../../../../org/apache/iceberg/data/avro/IcebergDecoder.html#addSchema-org.apache.iceberg.Schema-"><code>addSchema(org.apache.iceberg.Schema)</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>readSchema</code> - the schema used to construct datum instances</dd>
@@ -249,18 +244,15 @@ extends org.apache.avro.message.MessageDecoder.BaseDecoder&lt;D&gt;</pre>
 <h4>IcebergDecoder</h4>
 <pre>public&nbsp;IcebergDecoder(<a href="../../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;readSchema,
                       org.apache.avro.message.SchemaStore&nbsp;resolver)</pre>
-<div class="block">Creates a new decoder that constructs datum instances described by an
- <a href="../../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>Iceberg schema</code></a>.
- <p>
- The <code>readSchema</code> is as used the expected schema (read schema). Datum instances created
+<div class="block">Creates a new decoder that constructs datum instances described by an <a href="../../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>Iceberg schema</code></a>.
+
+ <p>The <code>readSchema</code> is as used the expected schema (read schema). Datum instances created
  by this class will are described by the expected schema.
- <p>
- The schema used to decode incoming buffers is determined by the schema fingerprint encoded in
- the message header. This class can decode messages that were encoded using the
- <code>readSchema</code> and other schemas that are added using
- <a href="../../../../../org/apache/iceberg/data/avro/IcebergDecoder.html#addSchema-org.apache.iceberg.Schema-"><code>addSchema(org.apache.iceberg.Schema)</code></a>.
- <p>
- Schemas may also be returned from an Avro <code>SchemaStore</code>. Avro Schemas from the store
+
+ <p>The schema used to decode incoming buffers is determined by the schema fingerprint encoded
+ in the message header. This class can decode messages that were encoded using the <code>readSchema</code> and other schemas that are added using <a href="../../../../../org/apache/iceberg/data/avro/IcebergDecoder.html#addSchema-org.apache.iceberg.Schema-"><code>addSchema(org.apache.iceberg.Schema)</code></a>.
+
+ <p>Schemas may also be returned from an Avro <code>SchemaStore</code>. Avro Schemas from the store
  must be compatible with Iceberg and should contain id properties and use only Iceberg types.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>

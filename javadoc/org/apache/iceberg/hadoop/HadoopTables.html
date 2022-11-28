@@ -114,8 +114,7 @@ var activeTableTab = "activeTableTab";
 <pre>public class <span class="typeNameLabel">HadoopTables</span>
 extends java.lang.Object
 implements <a href="../../../../org/apache/iceberg/Tables.html" title="interface in org.apache.iceberg">Tables</a>, org.apache.hadoop.conf.Configurable</pre>
-<div class="block">Implementation of Iceberg tables that uses the Hadoop FileSystem
- to store metadata and manifests.</div>
+<div class="block">Implementation of Iceberg tables that uses the Hadoop FileSystem to store metadata and manifests.</div>
 </li>
 </ul>
 </div>
@@ -185,8 +184,7 @@ implements <a href="../../../../org/apache/iceberg/Tables.html" title="interface
       <a href="../../../../org/apache/iceberg/SortOrder.html" title="class in org.apache.iceberg">SortOrder</a>&nbsp;order,
       java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties,
       java.lang.String&nbsp;location)</code>
-<div class="block">Create a table using the FileSystem implementation resolve from
- location.</div>
+<div class="block">Create a table using the FileSystem implementation resolve from location.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -357,8 +355,7 @@ implements <a href="../../../../org/apache/iceberg/Tables.html" title="interface
                     <a href="../../../../org/apache/iceberg/SortOrder.html" title="class in org.apache.iceberg">SortOrder</a>&nbsp;order,
                     java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties,
                     java.lang.String&nbsp;location)</pre>
-<div class="block">Create a table using the FileSystem implementation resolve from
- location.</div>
+<div class="block">Create a table using the FileSystem implementation resolve from location.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/Tables.html#create-org.apache.iceberg.Schema-org.apache.iceberg.PartitionSpec-org.apache.iceberg.SortOrder-java.util.Map-java.lang.String-">create</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/Tables.html" title="interface in org.apache.iceberg">Tables</a></code></dd>
@@ -397,8 +394,8 @@ implements <a href="../../../../org/apache/iceberg/Tables.html" title="interface
 <pre>public&nbsp;boolean&nbsp;dropTable(java.lang.String&nbsp;location,
                          boolean&nbsp;purge)</pre>
 <div class="block">Drop a table; optionally delete data and metadata files.
- <p>
- If purge is set to true the implementation should delete all data and metadata files.</div>
+
+ <p>If purge is set to true the implementation should delete all data and metadata files.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>location</code> - a path URI (e.g. hdfs:///warehouse/my_table)</dd>

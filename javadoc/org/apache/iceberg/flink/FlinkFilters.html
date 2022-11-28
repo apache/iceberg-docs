@@ -163,10 +163,10 @@ extends java.lang.Object</pre>
 <h4>convert</h4>
 <pre>public static&nbsp;java.util.Optional&lt;<a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&gt;&nbsp;convert(org.apache.flink.table.expressions.Expression&nbsp;flinkExpression)</pre>
 <div class="block">Convert flink expression to iceberg expression.
- <p>
- the BETWEEN, NOT_BETWEEN, IN expression will be converted by flink automatically. the BETWEEN will be converted to
- (GT_EQ AND LT_EQ), the NOT_BETWEEN will be converted to (LT_EQ OR GT_EQ), the IN will be converted to OR, so we do
- not add the conversion here</div>
+
+ <p>the BETWEEN, NOT_BETWEEN, IN expression will be converted by flink automatically. the
+ BETWEEN will be converted to (GT_EQ AND LT_EQ), the NOT_BETWEEN will be converted to (LT_EQ OR
+ GT_EQ), the IN will be converted to OR, so we do not add the conversion here</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>flinkExpression</code> - the flink expression</dd>

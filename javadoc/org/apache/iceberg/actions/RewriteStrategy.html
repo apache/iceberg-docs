@@ -103,7 +103,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html" title="class in org.apache.iceberg.actions">BinPackStrategy</a>, <a href="../../../../org/apache/iceberg/actions/SortStrategy.html" title="class in org.apache.iceberg.actions">SortStrategy</a>, <a href="../../../../org/apache/iceberg/spark/actions/Spark3BinPackStrategy.html" title="class in org.apache.iceberg.spark.actions">Spark3BinPackStrategy</a>, <a href="../../../../org/apache/iceberg/spark/actions/Spark3SortStrategy.html" title="class in org.apache.iceberg.spark.actions">Spark3SortStrategy</a></dd>
+<dd><a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html" title="class in org.apache.iceberg.actions">BinPackStrategy</a>, <a href="../../../../org/apache/iceberg/actions/SortStrategy.html" title="class in org.apache.iceberg.actions">SortStrategy</a>, <a href="../../../../org/apache/iceberg/spark/actions/SparkBinPackStrategy.html" title="class in org.apache.iceberg.spark.actions">SparkBinPackStrategy</a>, <a href="../../../../org/apache/iceberg/spark/actions/SparkSortStrategy.html" title="class in org.apache.iceberg.spark.actions">SparkSortStrategy</a>, <a href="../../../../org/apache/iceberg/spark/actions/SparkZOrderStrategy.html" title="class in org.apache.iceberg.spark.actions">SparkZOrderStrategy</a></dd>
 </dl>
 <hr>
 <br>
@@ -211,8 +211,8 @@ extends java.io.Serializable</pre>
 <li class="blockList">
 <h4>validOptions</h4>
 <pre>java.util.Set&lt;java.lang.String&gt;&nbsp;validOptions()</pre>
-<div class="block">Returns a set of options which this rewrite strategy can use. This is an allowed-list and any options not
- specified here will be rejected at runtime.</div>
+<div class="block">Returns a set of options which this rewrite strategy can use. This is an allowed-list and any
+ options not specified here will be rejected at runtime.</div>
 </li>
 </ul>
 <a name="options-java.util.Map-">
@@ -248,9 +248,9 @@ extends java.io.Serializable</pre>
 <li class="blockList">
 <h4>planFileGroups</h4>
 <pre>java.lang.Iterable&lt;java.util.List&lt;<a href="../../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;&gt;&nbsp;planFileGroups(java.lang.Iterable&lt;<a href="../../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;&nbsp;dataFiles)</pre>
-<div class="block">Groups file scans into lists which will be processed in a single executable unit. Each group will end up being
- committed as an independent set of changes. This creates the jobs which will eventually be run as by the underlying
- Action.</div>
+<div class="block">Groups file scans into lists which will be processed in a single executable unit. Each group
+ will end up being committed as an independent set of changes. This creates the jobs which will
+ eventually be run as by the underlying Action.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>dataFiles</code> - iterable of FileScanTasks to be rewritten</dd>
@@ -266,8 +266,8 @@ extends java.io.Serializable</pre>
 <li class="blockList">
 <h4>rewriteFiles</h4>
 <pre>java.util.Set&lt;<a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;&nbsp;rewriteFiles(java.util.List&lt;<a href="../../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;&nbsp;filesToRewrite)</pre>
-<div class="block">Method which will rewrite files based on this particular RewriteStrategy's algorithm.
- This will most likely be Action framework specific (Spark/Presto/Flink ....).</div>
+<div class="block">Method which will rewrite files based on this particular RewriteStrategy's algorithm. This will
+ most likely be Action framework specific (Spark/Presto/Flink ....).</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>filesToRewrite</code> - a group of files to be rewritten together</dd>

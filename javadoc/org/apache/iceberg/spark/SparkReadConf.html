@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -110,18 +110,21 @@ var activeTableTab = "activeTableTab";
 <pre>public class <span class="typeNameLabel">SparkReadConf</span>
 extends java.lang.Object</pre>
 <div class="block">A class for common Iceberg configs for Spark reads.
- <p>
- If a config is set at multiple levels, the following order of precedence is used (top to bottom):
+
+ <p>If a config is set at multiple levels, the following order of precedence is used (top to
+ bottom):
+
  <ol>
-   <li>Read options</li>
-   <li>Session configuration</li>
-   <li>Table metadata</li>
+   <li>Read options
+   <li>Session configuration
+   <li>Table metadata
  </ol>
- The most specific value is set in read options and takes precedence over all other configs.
- If no read option is provided, this class checks the session configuration for any overrides.
- If no applicable value is found in the session configuration, this class uses the table metadata.
- <p>
- Note this class is NOT meant to be serialized and sent to executors.</div>
+
+ The most specific value is set in read options and takes precedence over all other configs. If no
+ read option is provided, this class checks the session configuration for any overrides. If no
+ applicable value is found in the session configuration, this class uses the table metadata.
+
+ <p>Note this class is NOT meant to be serialized and sent to executors.</div>
 </li>
 </ul>
 </div>
@@ -164,82 +167,94 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#asOfTimestamp--">asOfTimestamp</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#branch--">branch</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#caseSensitive--">caseSensitive</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.Long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#endSnapshotId--">endSnapshotId</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#fileScanTaskSetId--">fileScanTaskSetId</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#handleTimestampWithoutZone--">handleTimestampWithoutZone</a></span>()</code>
 <div class="block">Enables reading a timestamp without time zone as a timestamp with time zone.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#localityEnabled--">localityEnabled</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#orcBatchSize--">orcBatchSize</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#orcVectorizationEnabled--">orcVectorizationEnabled</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#parquetBatchSize--">parquetBatchSize</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#parquetVectorizationEnabled--">parquetVectorizationEnabled</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.lang.Long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#snapshotId--">snapshotId</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#splitLookback--">splitLookback</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>java.lang.Integer</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#splitLookbackOption--">splitLookbackOption</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#splitOpenFileCost--">splitOpenFileCost</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>java.lang.Long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#splitOpenFileCostOption--">splitOpenFileCostOption</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#splitSize--">splitSize</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>java.lang.Long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#splitSizeOption--">splitSizeOption</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>java.lang.Long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#startSnapshotId--">startSnapshotId</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>java.lang.Long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#streamFromTimestamp--">streamFromTimestamp</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#streamingSkipDeleteSnapshots--">streamingSkipDeleteSnapshots</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i21" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#streamingSkipOverwriteSnapshots--">streamingSkipOverwriteSnapshots</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i22" class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#tag--">tag</a></span>()</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -336,6 +351,24 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;java.lang.Long&nbsp;endSnapshotId()</pre>
 </li>
 </ul>
+<a name="branch--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>branch</h4>
+<pre>public&nbsp;java.lang.String&nbsp;branch()</pre>
+</li>
+</ul>
+<a name="tag--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>tag</h4>
+<pre>public&nbsp;java.lang.String&nbsp;tag()</pre>
+</li>
+</ul>
 <a name="fileScanTaskSetId--">
 <!--   -->
 </a>
@@ -352,6 +385,15 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>streamingSkipDeleteSnapshots</h4>
 <pre>public&nbsp;boolean&nbsp;streamingSkipDeleteSnapshots()</pre>
+</li>
+</ul>
+<a name="streamingSkipOverwriteSnapshots--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>streamingSkipOverwriteSnapshots</h4>
+<pre>public&nbsp;boolean&nbsp;streamingSkipOverwriteSnapshots()</pre>
 </li>
 </ul>
 <a name="parquetVectorizationEnabled--">
@@ -452,13 +494,14 @@ extends java.lang.Object</pre>
 <h4>handleTimestampWithoutZone</h4>
 <pre>public&nbsp;boolean&nbsp;handleTimestampWithoutZone()</pre>
 <div class="block">Enables reading a timestamp without time zone as a timestamp with time zone.
- <p>
- Generally, this is not safe as a timestamp without time zone is supposed to represent the wall-clock time,
- i.e. no matter the reader/writer timezone 3PM should always be read as 3PM,
- but a timestamp with time zone represents instant semantics, i.e. the timestamp
- is adjusted so that the corresponding time in the reader timezone is displayed.
- <p>
- When set to false (default), an exception must be thrown while reading a timestamp without time zone.</div>
+
+ <p>Generally, this is not safe as a timestamp without time zone is supposed to represent the
+ wall-clock time, i.e. no matter the reader/writer timezone 3PM should always be read as 3PM,
+ but a timestamp with time zone represents instant semantics, i.e. the timestamp is adjusted so
+ that the corresponding time in the reader timezone is displayed.
+
+ <p>When set to false (default), an exception must be thrown while reading a timestamp without
+ time zone.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>boolean indicating if reading timestamps without timezone is allowed</dd>

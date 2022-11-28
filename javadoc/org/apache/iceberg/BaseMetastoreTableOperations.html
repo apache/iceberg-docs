@@ -111,7 +111,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><a href="../../../org/apache/iceberg/hive/HiveTableOperations.html" title="class in org.apache.iceberg.hive">HiveTableOperations</a>, <a href="../../../org/apache/iceberg/nessie/NessieTableOperations.html" title="class in org.apache.iceberg.nessie">NessieTableOperations</a></dd>
+<dd><a href="../../../org/apache/iceberg/dell/ecs/EcsTableOperations.html" title="class in org.apache.iceberg.dell.ecs">EcsTableOperations</a>, <a href="../../../org/apache/iceberg/hive/HiveTableOperations.html" title="class in org.apache.iceberg.hive">HiveTableOperations</a>, <a href="../../../org/apache/iceberg/nessie/NessieTableOperations.html" title="class in org.apache.iceberg.nessie">NessieTableOperations</a></dd>
 </dl>
 <hr>
 <br>
@@ -209,8 +209,8 @@ implements <a href="../../../org/apache/iceberg/TableOperations.html" title="int
 <td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/BaseMetastoreTableOperations.CommitStatus.html" title="enum in org.apache.iceberg">BaseMetastoreTableOperations.CommitStatus</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseMetastoreTableOperations.html#checkCommitStatus-java.lang.String-org.apache.iceberg.TableMetadata-">checkCommitStatus</a></span>(java.lang.String&nbsp;newMetadataLocation,
                  <a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;config)</code>
-<div class="block">Attempt to load the table and see if any current or past metadata location matches the one we were attempting
- to set.</div>
+<div class="block">Attempt to load the table and see if any current or past metadata location matches the one we
+ were attempting to set.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -301,7 +301,8 @@ implements <a href="../../../org/apache/iceberg/TableOperations.html" title="int
 <tr id="i17" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/TableOperations.html" title="interface in org.apache.iceberg">TableOperations</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseMetastoreTableOperations.html#temp-org.apache.iceberg.TableMetadata-">temp</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;uncommittedMetadata)</code>
-<div class="block">Return a temporary <a href="../../../org/apache/iceberg/TableOperations.html" title="interface in org.apache.iceberg"><code>TableOperations</code></a> instance that uses configuration from uncommitted metadata.</div>
+<div class="block">Return a temporary <a href="../../../org/apache/iceberg/TableOperations.html" title="interface in org.apache.iceberg"><code>TableOperations</code></a> instance that uses configuration from uncommitted
+ metadata.</div>
 </td>
 </tr>
 <tr id="i18" class="altColor">
@@ -422,8 +423,8 @@ implements <a href="../../../org/apache/iceberg/TableOperations.html" title="int
 <li class="blockList">
 <h4>tableName</h4>
 <pre>protected abstract&nbsp;java.lang.String&nbsp;tableName()</pre>
-<div class="block">The full name of the table used for logging purposes only. For example for HiveTableOperations it is
- catalogName + "." + database + "." + table.</div>
+<div class="block">The full name of the table used for logging purposes only. For example for HiveTableOperations
+ it is catalogName + "." + database + "." + table.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The full name</dd>
@@ -501,18 +502,18 @@ implements <a href="../../../org/apache/iceberg/TableOperations.html" title="int
                    <a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;metadata)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/TableOperations.html#commit-org.apache.iceberg.TableMetadata-org.apache.iceberg.TableMetadata-">TableOperations</a></code></span></div>
 <div class="block">Replace the base table metadata with a new version.
- <p>
- This method should implement and document atomicity guarantees.
- <p>
- Implementations must check that the base metadata is current to avoid overwriting updates.
+
+ <p>This method should implement and document atomicity guarantees.
+
+ <p>Implementations must check that the base metadata is current to avoid overwriting updates.
  Once the atomic commit operation succeeds, implementations must not perform any operations that
  may fail because failure in this method cannot be distinguished from commit failure.
- <p>
- Implementations must throw a <a href="../../../org/apache/iceberg/exceptions/CommitStateUnknownException.html" title="class in org.apache.iceberg.exceptions"><code>CommitStateUnknownException</code></a>
- in cases where it cannot be determined if the commit succeeded or failed.
- For example if a network partition causes the confirmation of the commit to be lost,
- the implementation should throw a CommitStateUnknownException. This is important because downstream users of
- this API need to know whether they can clean up the commit or not, if the state is unknown then it is not safe
+
+ <p>Implementations must throw a <a href="../../../org/apache/iceberg/exceptions/CommitStateUnknownException.html" title="class in org.apache.iceberg.exceptions"><code>CommitStateUnknownException</code></a> in cases where it cannot be
+ determined if the commit succeeded or failed. For example if a network partition causes the
+ confirmation of the commit to be lost, the implementation should throw a
+ CommitStateUnknownException. This is important because downstream users of this API need to
+ know whether they can clean up the commit or not, if the state is unknown then it is not safe
  to remove any files. All other exceptions will be treated as if the commit has failed.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
@@ -613,9 +614,9 @@ implements <a href="../../../org/apache/iceberg/TableOperations.html" title="int
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/TableOperations.html#metadataFileLocation-java.lang.String-">TableOperations</a></code></span></div>
 <div class="block">Given the name of a metadata file, obtain the full path of that file using an appropriate base
  location of the implementation's choosing.
- <p>
- The file may not exist yet, in which case the path should be returned as if it were to be created
- by e.g. <a href="../../../org/apache/iceberg/io/FileIO.html#newOutputFile-java.lang.String-"><code>FileIO.newOutputFile(String)</code></a>.</div>
+
+ <p>The file may not exist yet, in which case the path should be returned as if it were to be
+ created by e.g. <a href="../../../org/apache/iceberg/io/FileIO.html#newOutputFile-java.lang.String-"><code>FileIO.newOutputFile(String)</code></a>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../org/apache/iceberg/TableOperations.html#metadataFileLocation-java.lang.String-">metadataFileLocation</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/TableOperations.html" title="interface in org.apache.iceberg">TableOperations</a></code></dd>
@@ -647,12 +648,15 @@ implements <a href="../../../org/apache/iceberg/TableOperations.html" title="int
 <h4>temp</h4>
 <pre>public&nbsp;<a href="../../../org/apache/iceberg/TableOperations.html" title="interface in org.apache.iceberg">TableOperations</a>&nbsp;temp(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;uncommittedMetadata)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/TableOperations.html#temp-org.apache.iceberg.TableMetadata-">TableOperations</a></code></span></div>
-<div class="block">Return a temporary <a href="../../../org/apache/iceberg/TableOperations.html" title="interface in org.apache.iceberg"><code>TableOperations</code></a> instance that uses configuration from uncommitted metadata.
- <p>
- This is called by transactions when uncommitted table metadata should be used; for example, to create a metadata
- file location based on metadata in the transaction that has not been committed.
- <p>
- Transactions will not call <a href="../../../org/apache/iceberg/TableOperations.html#refresh--"><code>TableOperations.refresh()</code></a> or <a href="../../../org/apache/iceberg/TableOperations.html#commit-org.apache.iceberg.TableMetadata-org.apache.iceberg.TableMetadata-"><code>TableOperations.commit(TableMetadata, TableMetadata)</code></a>.</div>
+<div class="block">Return a temporary <a href="../../../org/apache/iceberg/TableOperations.html" title="interface in org.apache.iceberg"><code>TableOperations</code></a> instance that uses configuration from uncommitted
+ metadata.
+
+ <p>This is called by transactions when uncommitted table metadata should be used; for example,
+ to create a metadata file location based on metadata in the transaction that has not been
+ committed.
+
+ <p>Transactions will not call <a href="../../../org/apache/iceberg/TableOperations.html#refresh--"><code>TableOperations.refresh()</code></a> or <a href="../../../org/apache/iceberg/TableOperations.html#commit-org.apache.iceberg.TableMetadata-org.apache.iceberg.TableMetadata-"><code>TableOperations.commit(TableMetadata,
+ TableMetadata)</code></a>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../org/apache/iceberg/TableOperations.html#temp-org.apache.iceberg.TableMetadata-">temp</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/TableOperations.html" title="interface in org.apache.iceberg">TableOperations</a></code></dd>
@@ -671,10 +675,11 @@ implements <a href="../../../org/apache/iceberg/TableOperations.html" title="int
 <h4>checkCommitStatus</h4>
 <pre>protected&nbsp;<a href="../../../org/apache/iceberg/BaseMetastoreTableOperations.CommitStatus.html" title="enum in org.apache.iceberg">BaseMetastoreTableOperations.CommitStatus</a>&nbsp;checkCommitStatus(java.lang.String&nbsp;newMetadataLocation,
                                                                       <a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;config)</pre>
-<div class="block">Attempt to load the table and see if any current or past metadata location matches the one we were attempting
- to set. This is used as a last resort when we are dealing with exceptions that may indicate the commit has
- failed but are not proof that this is the case. Past locations must also be searched on the chance that a second
- committer was able to successfully commit on top of our commit.</div>
+<div class="block">Attempt to load the table and see if any current or past metadata location matches the one we
+ were attempting to set. This is used as a last resort when we are dealing with exceptions that
+ may indicate the commit has failed but are not proof that this is the case. Past locations must
+ also be searched on the chance that a second committer was able to successfully commit on top
+ of our commit.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>newMetadataLocation</code> - the path of the new commit file</dd>

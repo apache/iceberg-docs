@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../../../org/apache/spark/sql/connector/iceberg/write/RowLevelOperationInfo.html" title="interface in org.apache.spark.sql.connector.iceberg.write"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../../../org/apache/spark/sql/connector/iceberg/write/ExtendedLogicalWriteInfo.html" title="interface in org.apache.spark.sql.connector.iceberg.write"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">
@@ -99,14 +99,14 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Superinterfaces:</dt>
-<dd><a href="../../../../../../../org/apache/spark/sql/connector/iceberg/write/RowLevelOperation.html" title="interface in org.apache.spark.sql.connector.iceberg.write">RowLevelOperation</a></dd>
+<dd>org.apache.spark.sql.connector.write.RowLevelOperation</dd>
 </dl>
 <hr>
 <br>
 <pre>public interface <span class="typeNameLabel">SupportsDelta</span>
-extends <a href="../../../../../../../org/apache/spark/sql/connector/iceberg/write/RowLevelOperation.html" title="interface in org.apache.spark.sql.connector.iceberg.write">RowLevelOperation</a></pre>
-<div class="block">A mix-in interface for RowLevelOperation. Data sources can implement this interface
- to indicate they support handling deltas of rows.</div>
+extends org.apache.spark.sql.connector.write.RowLevelOperation</pre>
+<div class="block">A mix-in interface for RowLevelOperation. Data sources can implement this interface to indicate
+ they support handling deltas of rows.</div>
 </li>
 </ul>
 </div>
@@ -120,11 +120,11 @@ extends <a href="../../../../../../../org/apache/spark/sql/connector/iceberg/wri
 </a>
 <h3>Nested Class Summary</h3>
 <ul class="blockList">
-<li class="blockList"><a name="nested.classes.inherited.from.class.org.apache.spark.sql.connector.iceberg.write.RowLevelOperation">
+<li class="blockList"><a name="nested.classes.inherited.from.class.org.apache.spark.sql.connector.write.RowLevelOperation">
 <!--   -->
 </a>
-<h3>Nested classes/interfaces inherited from interface&nbsp;org.apache.spark.sql.connector.iceberg.write.<a href="../../../../../../../org/apache/spark/sql/connector/iceberg/write/RowLevelOperation.html" title="interface in org.apache.spark.sql.connector.iceberg.write">RowLevelOperation</a></h3>
-<code><a href="../../../../../../../org/apache/spark/sql/connector/iceberg/write/RowLevelOperation.Command.html" title="enum in org.apache.spark.sql.connector.iceberg.write">RowLevelOperation.Command</a></code></li>
+<h3>Nested classes/interfaces inherited from interface&nbsp;org.apache.spark.sql.connector.write.RowLevelOperation</h3>
+<code>org.apache.spark.sql.connector.write.RowLevelOperation.Command</code></li>
 </ul>
 </li>
 </ul>
@@ -142,9 +142,7 @@ extends <a href="../../../../../../../org/apache/spark/sql/connector/iceberg/wri
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code><a href="../../../../../../../org/apache/spark/sql/connector/iceberg/write/DeltaWriteBuilder.html" title="interface in org.apache.spark.sql.connector.iceberg.write">DeltaWriteBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../org/apache/spark/sql/connector/iceberg/write/SupportsDelta.html#newWriteBuilder-org.apache.spark.sql.connector.iceberg.write.ExtendedLogicalWriteInfo-">newWriteBuilder</a></span>(<a href="../../../../../../../org/apache/spark/sql/connector/iceberg/write/ExtendedLogicalWriteInfo.html" title="interface in org.apache.spark.sql.connector.iceberg.write">ExtendedLogicalWriteInfo</a>&nbsp;info)</code>
-<div class="block">Returns a write builder to configure a write for this row-level operation.</div>
-</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../org/apache/spark/sql/connector/iceberg/write/SupportsDelta.html#newWriteBuilder-org.apache.spark.sql.connector.write.LogicalWriteInfo-">newWriteBuilder</a></span>(org.apache.spark.sql.connector.write.LogicalWriteInfo&nbsp;info)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>org.apache.spark.sql.connector.expressions.NamedReference[]</code></td>
@@ -154,11 +152,11 @@ extends <a href="../../../../../../../org/apache/spark/sql/connector/iceberg/wri
 </tr>
 </table>
 <ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.org.apache.spark.sql.connector.iceberg.write.RowLevelOperation">
+<li class="blockList"><a name="methods.inherited.from.class.org.apache.spark.sql.connector.write.RowLevelOperation">
 <!--   -->
 </a>
-<h3>Methods inherited from interface&nbsp;org.apache.spark.sql.connector.iceberg.write.<a href="../../../../../../../org/apache/spark/sql/connector/iceberg/write/RowLevelOperation.html" title="interface in org.apache.spark.sql.connector.iceberg.write">RowLevelOperation</a></h3>
-<code><a href="../../../../../../../org/apache/spark/sql/connector/iceberg/write/RowLevelOperation.html#command--">command</a>, <a href="../../../../../../../org/apache/spark/sql/connector/iceberg/write/RowLevelOperation.html#description--">description</a>, <a href="../../../../../../../org/apache/spark/sql/connector/iceberg/write/RowLevelOperation.html#newScanBuilder-org.apache.spark.sql.util.CaseInsensitiveStringMap-">newScanBuilder</a>, <a href="../../../../../../../org/apache/spark/sql/connector/iceberg/write/RowLevelOperation.html#requiredMetadataAttributes--">requiredMetadataAttributes</a></code></li>
+<h3>Methods inherited from interface&nbsp;org.apache.spark.sql.connector.write.RowLevelOperation</h3>
+<code>command, description, newScanBuilder, requiredMetadataAttributes</code></li>
 </ul>
 </li>
 </ul>
@@ -174,23 +172,16 @@ extends <a href="../../../../../../../org/apache/spark/sql/connector/iceberg/wri
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="newWriteBuilder-org.apache.spark.sql.connector.iceberg.write.ExtendedLogicalWriteInfo-">
+<a name="newWriteBuilder-org.apache.spark.sql.connector.write.LogicalWriteInfo-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>newWriteBuilder</h4>
-<pre><a href="../../../../../../../org/apache/spark/sql/connector/iceberg/write/DeltaWriteBuilder.html" title="interface in org.apache.spark.sql.connector.iceberg.write">DeltaWriteBuilder</a>&nbsp;newWriteBuilder(<a href="../../../../../../../org/apache/spark/sql/connector/iceberg/write/ExtendedLogicalWriteInfo.html" title="interface in org.apache.spark.sql.connector.iceberg.write">ExtendedLogicalWriteInfo</a>&nbsp;info)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../../org/apache/spark/sql/connector/iceberg/write/RowLevelOperation.html#newWriteBuilder-org.apache.spark.sql.connector.iceberg.write.ExtendedLogicalWriteInfo-">RowLevelOperation</a></code></span></div>
-<div class="block">Returns a write builder to configure a write for this row-level operation.
- <p>
- Note that Spark will first configure the scan and then the write, allowing data sources
- to pass information from the scan to the write. For example, the scan can report
- which condition was used to read the data that may be needed by the write under certain
- isolation levels.</div>
+<pre><a href="../../../../../../../org/apache/spark/sql/connector/iceberg/write/DeltaWriteBuilder.html" title="interface in org.apache.spark.sql.connector.iceberg.write">DeltaWriteBuilder</a>&nbsp;newWriteBuilder(org.apache.spark.sql.connector.write.LogicalWriteInfo&nbsp;info)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../../org/apache/spark/sql/connector/iceberg/write/RowLevelOperation.html#newWriteBuilder-org.apache.spark.sql.connector.iceberg.write.ExtendedLogicalWriteInfo-">newWriteBuilder</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../../org/apache/spark/sql/connector/iceberg/write/RowLevelOperation.html" title="interface in org.apache.spark.sql.connector.iceberg.write">RowLevelOperation</a></code></dd>
+<dd><code>newWriteBuilder</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.write.RowLevelOperation</code></dd>
 </dl>
 </li>
 </ul>
@@ -231,7 +222,7 @@ extends <a href="../../../../../../../org/apache/spark/sql/connector/iceberg/wri
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../../../org/apache/spark/sql/connector/iceberg/write/RowLevelOperationInfo.html" title="interface in org.apache.spark.sql.connector.iceberg.write"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../../../org/apache/spark/sql/connector/iceberg/write/ExtendedLogicalWriteInfo.html" title="interface in org.apache.spark.sql.connector.iceberg.write"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">

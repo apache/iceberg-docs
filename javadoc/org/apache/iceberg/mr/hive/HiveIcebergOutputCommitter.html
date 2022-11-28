@@ -119,8 +119,8 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public class <span class="typeNameLabel">HiveIcebergOutputCommitter</span>
 extends org.apache.hadoop.mapred.OutputCommitter</pre>
-<div class="block">An Iceberg table committer for adding data files to the Iceberg tables.
- Currently independent of the Hive ACID transactions.</div>
+<div class="block">An Iceberg table committer for adding data files to the Iceberg tables. Currently independent of
+ the Hive ACID transactions.</div>
 </li>
 </ul>
 </div>
@@ -172,7 +172,8 @@ extends org.apache.hadoop.mapred.OutputCommitter</pre>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/mr/hive/HiveIcebergOutputCommitter.html#commitJob-org.apache.hadoop.mapred.JobContext-">commitJob</a></span>(org.apache.hadoop.mapred.JobContext&nbsp;originalContext)</code>
-<div class="block">Reads the commit files stored in the temp directories and collects the generated committed data files.</div>
+<div class="block">Reads the commit files stored in the temp directories and collects the generated committed data
+ files.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
@@ -324,8 +325,8 @@ extends org.apache.hadoop.mapred.OutputCommitter</pre>
 <h4>commitJob</h4>
 <pre>public&nbsp;void&nbsp;commitJob(org.apache.hadoop.mapred.JobContext&nbsp;originalContext)
                throws java.io.IOException</pre>
-<div class="block">Reads the commit files stored in the temp directories and collects the generated committed data files.
- Appends the data files to the tables. At the end removes the temporary directories.</div>
+<div class="block">Reads the commit files stored in the temp directories and collects the generated committed data
+ files. Appends the data files to the tables. At the end removes the temporary directories.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>commitJob</code>&nbsp;in class&nbsp;<code>org.apache.hadoop.mapred.OutputCommitter</code></dd>
@@ -345,8 +346,8 @@ extends org.apache.hadoop.mapred.OutputCommitter</pre>
 <pre>public&nbsp;void&nbsp;abortJob(org.apache.hadoop.mapred.JobContext&nbsp;originalContext,
                      int&nbsp;status)
               throws java.io.IOException</pre>
-<div class="block">Removes the generated data files if there is a commit file already generated for them.
- The cleanup at the end removes the temporary directories as well.</div>
+<div class="block">Removes the generated data files if there is a commit file already generated for them. The
+ cleanup at the end removes the temporary directories as well.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>abortJob</code>&nbsp;in class&nbsp;<code>org.apache.hadoop.mapred.OutputCommitter</code></dd>

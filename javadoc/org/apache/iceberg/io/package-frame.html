@@ -14,12 +14,14 @@
 <ul title="Interfaces">
 <li><a href="CloseableIterable.html" title="interface in org.apache.iceberg.io" target="classFrame"><span class="interfaceName">CloseableIterable</span></a></li>
 <li><a href="CloseableIterator.html" title="interface in org.apache.iceberg.io" target="classFrame"><span class="interfaceName">CloseableIterator</span></a></li>
+<li><a href="CredentialSupplier.html" title="interface in org.apache.iceberg.io" target="classFrame"><span class="interfaceName">CredentialSupplier</span></a></li>
 <li><a href="DelegatingInputStream.html" title="interface in org.apache.iceberg.io" target="classFrame"><span class="interfaceName">DelegatingInputStream</span></a></li>
 <li><a href="DelegatingOutputStream.html" title="interface in org.apache.iceberg.io" target="classFrame"><span class="interfaceName">DelegatingOutputStream</span></a></li>
 <li><a href="EqualityDeltaWriter.html" title="interface in org.apache.iceberg.io" target="classFrame"><span class="interfaceName">EqualityDeltaWriter</span></a></li>
 <li><a href="FileAppender.html" title="interface in org.apache.iceberg.io" target="classFrame"><span class="interfaceName">FileAppender</span></a></li>
 <li><a href="FileAppenderFactory.html" title="interface in org.apache.iceberg.io" target="classFrame"><span class="interfaceName">FileAppenderFactory</span></a></li>
 <li><a href="FileIO.html" title="interface in org.apache.iceberg.io" target="classFrame"><span class="interfaceName">FileIO</span></a></li>
+<li><a href="FileIOMetricsContext.html" title="interface in org.apache.iceberg.io" target="classFrame"><span class="interfaceName">FileIOMetricsContext</span></a></li>
 <li><a href="FileWriter.html" title="interface in org.apache.iceberg.io" target="classFrame"><span class="interfaceName">FileWriter</span></a></li>
 <li><a href="FileWriterFactory.html" title="interface in org.apache.iceberg.io" target="classFrame"><span class="interfaceName">FileWriterFactory</span></a></li>
 <li><a href="InputFile.html" title="interface in org.apache.iceberg.io" target="classFrame"><span class="interfaceName">InputFile</span></a></li>
@@ -27,24 +29,32 @@
 <li><a href="OutputFile.html" title="interface in org.apache.iceberg.io" target="classFrame"><span class="interfaceName">OutputFile</span></a></li>
 <li><a href="PartitioningWriter.html" title="interface in org.apache.iceberg.io" target="classFrame"><span class="interfaceName">PartitioningWriter</span></a></li>
 <li><a href="PositionDeltaWriter.html" title="interface in org.apache.iceberg.io" target="classFrame"><span class="interfaceName">PositionDeltaWriter</span></a></li>
+<li><a href="RangeReadable.html" title="interface in org.apache.iceberg.io" target="classFrame"><span class="interfaceName">RangeReadable</span></a></li>
+<li><a href="SupportsBulkOperations.html" title="interface in org.apache.iceberg.io" target="classFrame"><span class="interfaceName">SupportsBulkOperations</span></a></li>
+<li><a href="SupportsPrefixOperations.html" title="interface in org.apache.iceberg.io" target="classFrame"><span class="interfaceName">SupportsPrefixOperations</span></a></li>
 <li><a href="TaskWriter.html" title="interface in org.apache.iceberg.io" target="classFrame"><span class="interfaceName">TaskWriter</span></a></li>
 </ul>
 <h2 title="Classes">Classes</h2>
 <ul title="Classes">
 <li><a href="BasePositionDeltaWriter.html" title="class in org.apache.iceberg.io" target="classFrame">BasePositionDeltaWriter</a></li>
 <li><a href="BaseTaskWriter.html" title="class in org.apache.iceberg.io" target="classFrame">BaseTaskWriter</a></li>
+<li><a href="ByteBufferInputStream.html" title="class in org.apache.iceberg.io" target="classFrame">ByteBufferInputStream</a></li>
 <li><a href="CloseableGroup.html" title="class in org.apache.iceberg.io" target="classFrame">CloseableGroup</a></li>
 <li><a href="CloseableIterable.ConcatCloseableIterable.html" title="class in org.apache.iceberg.io" target="classFrame">CloseableIterable.ConcatCloseableIterable</a></li>
 <li><a href="ClosingIterator.html" title="class in org.apache.iceberg.io" target="classFrame">ClosingIterator</a></li>
 <li><a href="ClusteredDataWriter.html" title="class in org.apache.iceberg.io" target="classFrame">ClusteredDataWriter</a></li>
 <li><a href="ClusteredEqualityDeleteWriter.html" title="class in org.apache.iceberg.io" target="classFrame">ClusteredEqualityDeleteWriter</a></li>
 <li><a href="ClusteredPositionDeleteWriter.html" title="class in org.apache.iceberg.io" target="classFrame">ClusteredPositionDeleteWriter</a></li>
+<li><a href="ContentCache.html" title="class in org.apache.iceberg.io" target="classFrame">ContentCache</a></li>
 <li><a href="DataWriter.html" title="class in org.apache.iceberg.io" target="classFrame">DataWriter</a></li>
 <li><a href="DataWriteResult.html" title="class in org.apache.iceberg.io" target="classFrame">DataWriteResult</a></li>
 <li><a href="DeleteSchemaUtil.html" title="class in org.apache.iceberg.io" target="classFrame">DeleteSchemaUtil</a></li>
 <li><a href="DeleteWriteResult.html" title="class in org.apache.iceberg.io" target="classFrame">DeleteWriteResult</a></li>
 <li><a href="FanoutDataWriter.html" title="class in org.apache.iceberg.io" target="classFrame">FanoutDataWriter</a></li>
+<li><a href="FileInfo.html" title="class in org.apache.iceberg.io" target="classFrame">FileInfo</a></li>
+<li><a href="FileIOParser.html" title="class in org.apache.iceberg.io" target="classFrame">FileIOParser</a></li>
 <li><a href="FilterIterator.html" title="class in org.apache.iceberg.io" target="classFrame">FilterIterator</a></li>
+<li><a href="IOUtil.html" title="class in org.apache.iceberg.io" target="classFrame">IOUtil</a></li>
 <li><a href="OutputFileFactory.html" title="class in org.apache.iceberg.io" target="classFrame">OutputFileFactory</a></li>
 <li><a href="OutputFileFactory.Builder.html" title="class in org.apache.iceberg.io" target="classFrame">OutputFileFactory.Builder</a></li>
 <li><a href="PartitionedFanoutWriter.html" title="class in org.apache.iceberg.io" target="classFrame">PartitionedFanoutWriter</a></li>
@@ -58,6 +68,10 @@
 <li><a href="UnpartitionedWriter.html" title="class in org.apache.iceberg.io" target="classFrame">UnpartitionedWriter</a></li>
 <li><a href="WriteResult.html" title="class in org.apache.iceberg.io" target="classFrame">WriteResult</a></li>
 <li><a href="WriteResult.Builder.html" title="class in org.apache.iceberg.io" target="classFrame">WriteResult.Builder</a></li>
+</ul>
+<h2 title="Exceptions">Exceptions</h2>
+<ul title="Exceptions">
+<li><a href="BulkDeletionFailureException.html" title="class in org.apache.iceberg.io" target="classFrame">BulkDeletionFailureException</a></li>
 </ul>
 </div>
 </body>

@@ -106,8 +106,8 @@ var activeTableTab = "activeTableTab";
 <pre>public interface <span class="typeNameLabel">UpdatePartitionSpec</span>
 extends <a href="../../../org/apache/iceberg/PendingUpdate.html" title="interface in org.apache.iceberg">PendingUpdate</a>&lt;<a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&gt;</pre>
 <div class="block">API for partition spec evolution.
- <p>
- When committing, these changes will be applied to the current table metadata. Commit conflicts
+
+ <p>When committing, these changes will be applied to the current table metadata. Commit conflicts
  will not be resolved and will result in a <a href="../../../org/apache/iceberg/exceptions/CommitFailedException.html" title="class in org.apache.iceberg.exceptions"><code>CommitFailedException</code></a>.</div>
 </li>
 </ul>
@@ -137,7 +137,8 @@ extends <a href="../../../org/apache/iceberg/PendingUpdate.html" title="interfac
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/UpdatePartitionSpec.html" title="interface in org.apache.iceberg">UpdatePartitionSpec</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/UpdatePartitionSpec.html#addField-java.lang.String-org.apache.iceberg.expressions.Term-">addField</a></span>(java.lang.String&nbsp;name,
         <a href="../../../org/apache/iceberg/expressions/Term.html" title="interface in org.apache.iceberg.expressions">Term</a>&nbsp;term)</code>
-<div class="block">Add a new partition field from an <a href="../../../org/apache/iceberg/expressions/Expressions.html" title="class in org.apache.iceberg.expressions"><code>expression term</code></a>, with the given partition field name.</div>
+<div class="block">Add a new partition field from an <a href="../../../org/apache/iceberg/expressions/Expressions.html" title="class in org.apache.iceberg.expressions"><code>expression term</code></a>, with the given partition
+ field name.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -217,19 +218,19 @@ extends <a href="../../../org/apache/iceberg/PendingUpdate.html" title="interfac
 <h4>addField</h4>
 <pre><a href="../../../org/apache/iceberg/UpdatePartitionSpec.html" title="interface in org.apache.iceberg">UpdatePartitionSpec</a>&nbsp;addField(java.lang.String&nbsp;sourceName)</pre>
 <div class="block">Add a new partition field from a source column.
- <p>
- The partition field will be created as an identity partition field for the given source column, with the same name
- as the source column.
- <p>
- The source column is located using <a href="../../../org/apache/iceberg/Schema.html#findField-java.lang.String-"><code>Schema.findField(String)</code></a>.</div>
+
+ <p>The partition field will be created as an identity partition field for the given source
+ column, with the same name as the source column.
+
+ <p>The source column is located using <a href="../../../org/apache/iceberg/Schema.html#findField-java.lang.String-"><code>Schema.findField(String)</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>sourceName</code> - source column name in the table schema</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.IllegalArgumentException</code> - If the an identity partition field for the source already exists, or if this
-                                  change conflicts with other additions, removals, or renames.</dd>
+<dd><code>java.lang.IllegalArgumentException</code> - If the an identity partition field for the source already
+     exists, or if this change conflicts with other additions, removals, or renames.</dd>
 </dl>
 </li>
 </ul>
@@ -241,20 +242,21 @@ extends <a href="../../../org/apache/iceberg/PendingUpdate.html" title="interfac
 <h4>addField</h4>
 <pre><a href="../../../org/apache/iceberg/UpdatePartitionSpec.html" title="interface in org.apache.iceberg">UpdatePartitionSpec</a>&nbsp;addField(<a href="../../../org/apache/iceberg/expressions/Term.html" title="interface in org.apache.iceberg.expressions">Term</a>&nbsp;term)</pre>
 <div class="block">Add a new partition field from an <a href="../../../org/apache/iceberg/expressions/Expressions.html" title="class in org.apache.iceberg.expressions"><code>expression term</code></a>.
- <p>
- The partition field will use the term's transform or the identity transform if the term is a reference.
- <p>
- The term's reference is used to locate the source column using <a href="../../../org/apache/iceberg/Schema.html#findField-java.lang.String-"><code>Schema.findField(String)</code></a>.
- <p>
- The new partition field will be named for the source column and the transform.</div>
+
+ <p>The partition field will use the term's transform or the identity transform if the term is a
+ reference.
+
+ <p>The term's reference is used to locate the source column using <a href="../../../org/apache/iceberg/Schema.html#findField-java.lang.String-"><code>Schema.findField(String)</code></a>.
+
+ <p>The new partition field will be named for the source column and the transform.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>term</code> - source column name in the table schema</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.IllegalArgumentException</code> - If the a partition field for the transform and source already exists, or if this
-                                  change conflicts with other additions, removals, or renames.</dd>
+<dd><code>java.lang.IllegalArgumentException</code> - If the a partition field for the transform and source already
+     exists, or if this change conflicts with other additions, removals, or renames.</dd>
 </dl>
 </li>
 </ul>
@@ -266,11 +268,13 @@ extends <a href="../../../org/apache/iceberg/PendingUpdate.html" title="interfac
 <h4>addField</h4>
 <pre><a href="../../../org/apache/iceberg/UpdatePartitionSpec.html" title="interface in org.apache.iceberg">UpdatePartitionSpec</a>&nbsp;addField(java.lang.String&nbsp;name,
                              <a href="../../../org/apache/iceberg/expressions/Term.html" title="interface in org.apache.iceberg.expressions">Term</a>&nbsp;term)</pre>
-<div class="block">Add a new partition field from an <a href="../../../org/apache/iceberg/expressions/Expressions.html" title="class in org.apache.iceberg.expressions"><code>expression term</code></a>, with the given partition field name.
- <p>
- The partition field will use the term's transform or the identity transform if the term is a reference.
- <p>
- The term's reference is used to locate the source column using <a href="../../../org/apache/iceberg/Schema.html#findField-java.lang.String-"><code>Schema.findField(String)</code></a>.</div>
+<div class="block">Add a new partition field from an <a href="../../../org/apache/iceberg/expressions/Expressions.html" title="class in org.apache.iceberg.expressions"><code>expression term</code></a>, with the given partition
+ field name.
+
+ <p>The partition field will use the term's transform or the identity transform if the term is a
+ reference.
+
+ <p>The term's reference is used to locate the source column using <a href="../../../org/apache/iceberg/Schema.html#findField-java.lang.String-"><code>Schema.findField(String)</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - name for the partition field</dd>
@@ -278,9 +282,9 @@ extends <a href="../../../org/apache/iceberg/PendingUpdate.html" title="interfac
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.IllegalArgumentException</code> - If the a partition field for the transform and source already exists, if a
-                                  partition field with the given name already exists, or if this change conflicts
-                                  with other additions, removals, or renames.</dd>
+<dd><code>java.lang.IllegalArgumentException</code> - If the a partition field for the transform and source already
+     exists, if a partition field with the given name already exists, or if this change
+     conflicts with other additions, removals, or renames.</dd>
 </dl>
 </li>
 </ul>
@@ -298,8 +302,8 @@ extends <a href="../../../org/apache/iceberg/PendingUpdate.html" title="interfac
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.IllegalArgumentException</code> - If the a partition field with the given name does not exist, or if this change
-                                  conflicts with other additions, removals, or renames.</dd>
+<dd><code>java.lang.IllegalArgumentException</code> - If the a partition field with the given name does not exist,
+     or if this change conflicts with other additions, removals, or renames.</dd>
 </dl>
 </li>
 </ul>
@@ -311,17 +315,17 @@ extends <a href="../../../org/apache/iceberg/PendingUpdate.html" title="interfac
 <h4>removeField</h4>
 <pre><a href="../../../org/apache/iceberg/UpdatePartitionSpec.html" title="interface in org.apache.iceberg">UpdatePartitionSpec</a>&nbsp;removeField(<a href="../../../org/apache/iceberg/expressions/Term.html" title="interface in org.apache.iceberg.expressions">Term</a>&nbsp;term)</pre>
 <div class="block">Remove a partition field by its transform <a href="../../../org/apache/iceberg/expressions/Expressions.html" title="class in org.apache.iceberg.expressions"><code>expression term</code></a>.
- <p>
- The partition field with the same transform and source reference will be removed. If the term is a reference and
- does not have a transform, the identity transform is used.</div>
+
+ <p>The partition field with the same transform and source reference will be removed. If the
+ term is a reference and does not have a transform, the identity transform is used.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>term</code> - expression for the partition transform to remove</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.IllegalArgumentException</code> - If the a partition field with the given transform and source does not exist, or
-                                  if this change conflicts with other additions, removals, or renames.</dd>
+<dd><code>java.lang.IllegalArgumentException</code> - If the a partition field with the given transform and source
+     does not exist, or if this change conflicts with other additions, removals, or renames.</dd>
 </dl>
 </li>
 </ul>
@@ -341,8 +345,8 @@ extends <a href="../../../org/apache/iceberg/PendingUpdate.html" title="interfac
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.IllegalArgumentException</code> - If name doesn't identify a column in the schema or if this change conflicts with
-                                  other additions, removals, or renames.</dd>
+<dd><code>java.lang.IllegalArgumentException</code> - If name doesn't identify a column in the schema or if this
+     change conflicts with other additions, removals, or renames.</dd>
 </dl>
 </li>
 </ul>

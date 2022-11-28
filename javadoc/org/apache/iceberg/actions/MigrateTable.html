@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
+var methods = {"i0":18,"i1":6,"i2":6};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -103,7 +103,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../org/apache/iceberg/spark/actions/BaseMigrateTableSparkAction.html" title="class in org.apache.iceberg.spark.actions">BaseMigrateTableSparkAction</a></dd>
+<dd><a href="../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html" title="class in org.apache.iceberg.spark.actions">MigrateTableSparkAction</a></dd>
 </dl>
 <hr>
 <br>
@@ -144,18 +144,24 @@ extends <a href="../../../../org/apache/iceberg/actions/Action.html" title="inte
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>default <a href="../../../../org/apache/iceberg/actions/MigrateTable.html" title="interface in org.apache.iceberg.actions">MigrateTable</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/MigrateTable.html#dropBackup--">dropBackup</a></span>()</code>
+<div class="block">Drops the backup of the original table after a successful migration</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/actions/MigrateTable.html" title="interface in org.apache.iceberg.actions">MigrateTable</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/MigrateTable.html#tableProperties-java.util.Map-">tableProperties</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</code>
 <div class="block">Sets table properties in the newly created Iceberg table.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/actions/MigrateTable.html" title="interface in org.apache.iceberg.actions">MigrateTable</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/MigrateTable.html#tableProperty-java.lang.String-java.lang.String-">tableProperty</a></span>(java.lang.String&nbsp;name,
              java.lang.String&nbsp;value)</code>
@@ -191,8 +197,8 @@ extends <a href="../../../../org/apache/iceberg/actions/Action.html" title="inte
 <li class="blockList">
 <h4>tableProperties</h4>
 <pre><a href="../../../../org/apache/iceberg/actions/MigrateTable.html" title="interface in org.apache.iceberg.actions">MigrateTable</a>&nbsp;tableProperties(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</pre>
-<div class="block">Sets table properties in the newly created Iceberg table. Any properties with
- the same key name will be overwritten.</div>
+<div class="block">Sets table properties in the newly created Iceberg table. Any properties with the same key name
+ will be overwritten.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>properties</code> - a map of properties to set</dd>
@@ -204,17 +210,31 @@ extends <a href="../../../../org/apache/iceberg/actions/Action.html" title="inte
 <a name="tableProperty-java.lang.String-java.lang.String-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>tableProperty</h4>
 <pre><a href="../../../../org/apache/iceberg/actions/MigrateTable.html" title="interface in org.apache.iceberg.actions">MigrateTable</a>&nbsp;tableProperty(java.lang.String&nbsp;name,
                            java.lang.String&nbsp;value)</pre>
-<div class="block">Sets a table property in the newly created Iceberg table. Any properties
- with the same key will be overwritten.</div>
+<div class="block">Sets a table property in the newly created Iceberg table. Any properties with the same key will
+ be overwritten.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - a table property name</dd>
 <dd><code>value</code> - a table property value</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a name="dropBackup--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>dropBackup</h4>
+<pre>default&nbsp;<a href="../../../../org/apache/iceberg/actions/MigrateTable.html" title="interface in org.apache.iceberg.actions">MigrateTable</a>&nbsp;dropBackup()</pre>
+<div class="block">Drops the backup of the original table after a successful migration</div>
+<dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>
 </dl>

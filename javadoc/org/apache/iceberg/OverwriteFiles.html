@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":50,"i8":6,"i9":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"],32:["t6","Deprecated Methods"]};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -110,19 +110,19 @@ var activeTableTab = "activeTableTab";
 <pre>public interface <span class="typeNameLabel">OverwriteFiles</span>
 extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interface in org.apache.iceberg">SnapshotUpdate</a>&lt;<a href="../../../org/apache/iceberg/OverwriteFiles.html" title="interface in org.apache.iceberg">OverwriteFiles</a>&gt;</pre>
 <div class="block">API for overwriting files in a table.
- <p>
- This API accumulates file additions and produces a new <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><code>Snapshot</code></a> of the table by replacing
- all the deleted files with the set of additions. This operation is used to implement idempotent
- writes that always replace a section of a table with new data or update/delete operations that
- eagerly overwrite files.
- <p>
- Overwrites can be validated. The default validation mode is idempotent, meaning the overwrite is
- correct and should be committed out regardless of other concurrent changes to the table.
- For example, this can be used for replacing all the data for day D with query results.
- Alternatively, this API can be configured for overwriting certain files with their filtered
- versions while ensuring no new data that would need to be filtered has been added.
- <p>
- When committing, these changes will be applied to the latest table snapshot. Commit conflicts
+
+ <p>This API accumulates file additions and produces a new <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><code>Snapshot</code></a> of the table by
+ replacing all the deleted files with the set of additions. This operation is used to implement
+ idempotent writes that always replace a section of a table with new data or update/delete
+ operations that eagerly overwrite files.
+
+ <p>Overwrites can be validated. The default validation mode is idempotent, meaning the overwrite
+ is correct and should be committed out regardless of other concurrent changes to the table. For
+ example, this can be used for replacing all the data for day D with query results. Alternatively,
+ this API can be configured for overwriting certain files with their filtered versions while
+ ensuring no new data that would need to be filtered has been added.
+
+ <p>When committing, these changes will be applied to the latest table snapshot. Commit conflicts
  will be resolved by applying the changes to the new latest snapshot and reattempting the commit.</div>
 </li>
 </ul>
@@ -137,7 +137,7 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -185,24 +185,16 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 </td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code>default <a href="../../../org/apache/iceberg/OverwriteFiles.html" title="interface in org.apache.iceberg">OverwriteFiles</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/OverwriteFiles.html#validateNoConflictingAppends-org.apache.iceberg.expressions.Expression-">validateNoConflictingAppends</a></span>(<a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;conflictDetectionFilter)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">since 0.13.0, will be removed in 0.14.0; use <a href="../../../org/apache/iceberg/OverwriteFiles.html#conflictDetectionFilter-org.apache.iceberg.expressions.Expression-"><code>conflictDetectionFilter(Expression)</code></a> and
-             <a href="../../../org/apache/iceberg/OverwriteFiles.html#validateNoConflictingData--"><code>validateNoConflictingData()</code></a> instead.</span></div>
-</div>
-</td>
-</tr>
-<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/OverwriteFiles.html" title="interface in org.apache.iceberg">OverwriteFiles</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/OverwriteFiles.html#validateNoConflictingData--">validateNoConflictingData</a></span>()</code>
 <div class="block">Enables validation that data added concurrently does not conflict with this commit's operation.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/OverwriteFiles.html" title="interface in org.apache.iceberg">OverwriteFiles</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/OverwriteFiles.html#validateNoConflictingDeletes--">validateNoConflictingDeletes</a></span>()</code>
-<div class="block">Enables validation that deletes that happened concurrently do not conflict with this commit's operation.</div>
+<div class="block">Enables validation that deletes that happened concurrently do not conflict with this commit's
+ operation.</div>
 </td>
 </tr>
 </table>
@@ -211,7 +203,7 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interface in org.apache.iceberg">SnapshotUpdate</a></h3>
-<code><a href="../../../org/apache/iceberg/SnapshotUpdate.html#deleteWith-java.util.function.Consumer-">deleteWith</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#set-java.lang.String-java.lang.String-">set</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#stageOnly--">stageOnly</a></code></li>
+<code><a href="../../../org/apache/iceberg/SnapshotUpdate.html#deleteWith-java.util.function.Consumer-">deleteWith</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#scanManifestsWith-java.util.concurrent.ExecutorService-">scanManifestsWith</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#set-java.lang.String-java.lang.String-">set</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#stageOnly--">stageOnly</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#toBranch-java.lang.String-">toBranch</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.org.apache.iceberg.PendingUpdate">
@@ -242,15 +234,14 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 <h4>overwriteByRowFilter</h4>
 <pre><a href="../../../org/apache/iceberg/OverwriteFiles.html" title="interface in org.apache.iceberg">OverwriteFiles</a>&nbsp;overwriteByRowFilter(<a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr)</pre>
 <div class="block">Delete files that match an <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions"><code>Expression</code></a> on data rows from the table.
- <p>
- A file is selected to be deleted by the expression if it could contain any rows that match the
- expression (candidate files are selected using an
- <a href="../../../org/apache/iceberg/expressions/Projections.html#inclusive-org.apache.iceberg.PartitionSpec-"><code>inclusive projection</code></a>). These candidate files are
- deleted if all of the rows in the file must match the expression (the partition data matches
- the expression's <a href="../../../org/apache/iceberg/expressions/Projections.html#strict-org.apache.iceberg.PartitionSpec-"><code>Projections.strict(PartitionSpec)</code></a> strict projection}). This guarantees
+
+ <p>A file is selected to be deleted by the expression if it could contain any rows that match
+ the expression (candidate files are selected using an <a href="../../../org/apache/iceberg/expressions/Projections.html#inclusive-org.apache.iceberg.PartitionSpec-"><code>inclusive projection</code></a>). These candidate files are deleted
+ if all of the rows in the file must match the expression (the partition data matches the
+ expression's <a href="../../../org/apache/iceberg/expressions/Projections.html#strict-org.apache.iceberg.PartitionSpec-"><code>Projections.strict(PartitionSpec)</code></a> strict projection}). This guarantees
  that files are deleted if and only if all rows in the file must match the expression.
- <p>
- Files that may contain some rows that match the expression and some rows that do not will
+
+ <p>Files that may contain some rows that match the expression and some rows that do not will
  result in a <a href="../../../org/apache/iceberg/exceptions/ValidationException.html" title="class in org.apache.iceberg.exceptions"><code>ValidationException</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -302,9 +293,9 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 <h4>validateAddedFilesMatchOverwriteFilter</h4>
 <pre><a href="../../../org/apache/iceberg/OverwriteFiles.html" title="interface in org.apache.iceberg">OverwriteFiles</a>&nbsp;validateAddedFilesMatchOverwriteFilter()</pre>
 <div class="block">Signal that each file added to the table must match the overwrite expression.
- <p>
- If this method is called, each added file is validated on commit to ensure that it matches the
- overwrite row filter. This is used to ensure that writes are idempotent: that files cannot
+
+ <p>If this method is called, each added file is validated on commit to ensure that it matches
+ the overwrite row filter. This is used to ensure that writes are idempotent: that files cannot
  be added during a commit that would not be removed if the operation were run a second time.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -320,9 +311,9 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 <h4>validateFromSnapshot</h4>
 <pre><a href="../../../org/apache/iceberg/OverwriteFiles.html" title="interface in org.apache.iceberg">OverwriteFiles</a>&nbsp;validateFromSnapshot(long&nbsp;snapshotId)</pre>
 <div class="block">Set the snapshot ID used in any reads for this operation.
- <p>
- Validations will check changes after this snapshot ID. If the from snapshot is not set, all ancestor snapshots
- through the table's initial snapshot are validated.</div>
+
+ <p>Validations will check changes after this snapshot ID. If the from snapshot is not set, all
+ ancestor snapshots through the table's initial snapshot are validated.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>snapshotId</code> - a snapshot ID</dd>
@@ -342,36 +333,6 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>caseSensitive</code> - whether expression binding should be case sensitive</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>this for method chaining</dd>
-</dl>
-</li>
-</ul>
-<a name="validateNoConflictingAppends-org.apache.iceberg.expressions.Expression-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>validateNoConflictingAppends</h4>
-<pre>@Deprecated
-default&nbsp;<a href="../../../org/apache/iceberg/OverwriteFiles.html" title="interface in org.apache.iceberg">OverwriteFiles</a>&nbsp;validateNoConflictingAppends(<a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;conflictDetectionFilter)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">since 0.13.0, will be removed in 0.14.0; use <a href="../../../org/apache/iceberg/OverwriteFiles.html#conflictDetectionFilter-org.apache.iceberg.expressions.Expression-"><code>conflictDetectionFilter(Expression)</code></a> and
-             <a href="../../../org/apache/iceberg/OverwriteFiles.html#validateNoConflictingData--"><code>validateNoConflictingData()</code></a> instead.</span></div>
-<div class="block">Enables validation that data files added concurrently do not conflict with this commit's operation.
- <p>
- This method should be called while committing non-idempotent overwrite operations.
- If a concurrent operation commits a new file after the data was read and that file might
- contain rows matching the specified conflict detection filter, the overwrite operation
- will detect this and fail.
- <p>
- Calling this method with a correct conflict detection filter is required to maintain
- serializable isolation for overwrite operations. Otherwise, the isolation level
- will be snapshot isolation.
- <p>
- Validation applies to files added to the table since the snapshot passed to <a href="../../../org/apache/iceberg/OverwriteFiles.html#validateFromSnapshot-long-"><code>validateFromSnapshot(long)</code></a>.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>conflictDetectionFilter</code> - an expression on rows in the table</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>
 </dl>
@@ -401,19 +362,18 @@ default&nbsp;<a href="../../../org/apache/iceberg/OverwriteFiles.html" title="in
 <h4>validateNoConflictingData</h4>
 <pre><a href="../../../org/apache/iceberg/OverwriteFiles.html" title="interface in org.apache.iceberg">OverwriteFiles</a>&nbsp;validateNoConflictingData()</pre>
 <div class="block">Enables validation that data added concurrently does not conflict with this commit's operation.
- <p>
- This method should be called while committing non-idempotent overwrite operations.
- If a concurrent operation commits a new file after the data was read and that file might
- contain rows matching the specified conflict detection filter, the overwrite operation
- will detect this and fail.
- <p>
- Calling this method with a correct conflict detection filter is required to maintain
+
+ <p>This method should be called while committing non-idempotent overwrite operations. If a
+ concurrent operation commits a new file after the data was read and that file might contain
+ rows matching the specified conflict detection filter, the overwrite operation will detect this
+ and fail.
+
+ <p>Calling this method with a correct conflict detection filter is required to maintain
  isolation for non-idempotent overwrite operations.
- <p>
- Validation uses the conflict detection filter passed to <a href="../../../org/apache/iceberg/OverwriteFiles.html#conflictDetectionFilter-org.apache.iceberg.expressions.Expression-"><code>conflictDetectionFilter(Expression)</code></a> and
- applies to operations that happened after the snapshot passed to <a href="../../../org/apache/iceberg/OverwriteFiles.html#validateFromSnapshot-long-"><code>validateFromSnapshot(long)</code></a>.
- If the conflict detection filter is not set, any new data added concurrently will fail this
- overwrite operation.</div>
+
+ <p>Validation uses the conflict detection filter passed to <a href="../../../org/apache/iceberg/OverwriteFiles.html#conflictDetectionFilter-org.apache.iceberg.expressions.Expression-"><code>conflictDetectionFilter(Expression)</code></a> and applies to operations that happened after the
+ snapshot passed to <a href="../../../org/apache/iceberg/OverwriteFiles.html#validateFromSnapshot-long-"><code>validateFromSnapshot(long)</code></a>. If the conflict detection filter is not
+ set, any new data added concurrently will fail this overwrite operation.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>
@@ -427,20 +387,20 @@ default&nbsp;<a href="../../../org/apache/iceberg/OverwriteFiles.html" title="in
 <li class="blockList">
 <h4>validateNoConflictingDeletes</h4>
 <pre><a href="../../../org/apache/iceberg/OverwriteFiles.html" title="interface in org.apache.iceberg">OverwriteFiles</a>&nbsp;validateNoConflictingDeletes()</pre>
-<div class="block">Enables validation that deletes that happened concurrently do not conflict with this commit's operation.
- <p>
- Validating concurrent deletes is required during non-idempotent overwrite operations.
- If a concurrent operation deletes data in one of the files being overwritten, the overwrite
+<div class="block">Enables validation that deletes that happened concurrently do not conflict with this commit's
+ operation.
+
+ <p>Validating concurrent deletes is required during non-idempotent overwrite operations. If a
+ concurrent operation deletes data in one of the files being overwritten, the overwrite
  operation must be aborted as it may undelete rows that were removed concurrently.
- <p>
- Calling this method with a correct conflict detection filter is required to maintain
+
+ <p>Calling this method with a correct conflict detection filter is required to maintain
  isolation for non-idempotent overwrite operations.
- <p>
- Validation uses the conflict detection filter passed to <a href="../../../org/apache/iceberg/OverwriteFiles.html#conflictDetectionFilter-org.apache.iceberg.expressions.Expression-"><code>conflictDetectionFilter(Expression)</code></a> and
- applies to operations that happened after the snapshot passed to <a href="../../../org/apache/iceberg/OverwriteFiles.html#validateFromSnapshot-long-"><code>validateFromSnapshot(long)</code></a>.
- If the conflict detection filter is not set, this operation will use the row filter provided
- in <a href="../../../org/apache/iceberg/OverwriteFiles.html#overwriteByRowFilter-org.apache.iceberg.expressions.Expression-"><code>overwriteByRowFilter(Expression)</code></a> to check for new delete files and will ensure
- there are no conflicting deletes for data files removed via <a href="../../../org/apache/iceberg/OverwriteFiles.html#deleteFile-org.apache.iceberg.DataFile-"><code>deleteFile(DataFile)</code></a>.</div>
+
+ <p>Validation uses the conflict detection filter passed to <a href="../../../org/apache/iceberg/OverwriteFiles.html#conflictDetectionFilter-org.apache.iceberg.expressions.Expression-"><code>conflictDetectionFilter(Expression)</code></a> and applies to operations that happened after the
+ snapshot passed to <a href="../../../org/apache/iceberg/OverwriteFiles.html#validateFromSnapshot-long-"><code>validateFromSnapshot(long)</code></a>. If the conflict detection filter is not
+ set, this operation will use the row filter provided in <a href="../../../org/apache/iceberg/OverwriteFiles.html#overwriteByRowFilter-org.apache.iceberg.expressions.Expression-"><code>overwriteByRowFilter(Expression)</code></a> to check for new delete files and will ensure there are no
+ conflicting deletes for data files removed via <a href="../../../org/apache/iceberg/OverwriteFiles.html#deleteFile-org.apache.iceberg.DataFile-"><code>deleteFile(DataFile)</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>

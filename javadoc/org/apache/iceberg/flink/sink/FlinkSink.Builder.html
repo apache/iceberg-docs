@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":42,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -126,7 +126,7 @@ extends java.lang.Object</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -138,25 +138,20 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>org.apache.flink.streaming.api.datastream.DataStreamSink&lt;org.apache.flink.table.data.RowData&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html#build--">build</a></span>()</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">this will be removed in 0.14.0; use <a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html#append--"><code>append()</code></a> because its returned <code>DataStreamSink</code>
- has a more correct data type.</span></div>
-</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html#distributionMode-org.apache.iceberg.DistributionMode-">distributionMode</a></span>(<a href="../../../../../org/apache/iceberg/DistributionMode.html" title="enum in org.apache.iceberg">DistributionMode</a>&nbsp;mode)</code>
 <div class="block">Configure the write <a href="../../../../../org/apache/iceberg/DistributionMode.html" title="enum in org.apache.iceberg"><code>DistributionMode</code></a> that the flink sink will use.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html#equalityFieldColumns-java.util.List-">equalityFieldColumns</a></span>(java.util.List&lt;java.lang.String&gt;&nbsp;columns)</code>
 <div class="block">Configuring the equality field columns for iceberg table that accept CDC or UPSERT events.</div>
 </td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html#flinkConf-org.apache.flink.configuration.ReadableConfig-">flinkConf</a></span>(org.apache.flink.configuration.ReadableConfig&nbsp;config)</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
@@ -164,37 +159,59 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html#table-org.apache.iceberg.Table-">table</a></span>(<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;newTable)</code>
-<div class="block">This iceberg <a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><code>Table</code></a> instance is used for initializing <code>IcebergStreamWriter</code> which will write all
- the records into <a href="../../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg"><code>DataFile</code></a>s and emit them to downstream operator.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html#set-java.lang.String-java.lang.String-">set</a></span>(java.lang.String&nbsp;property,
+   java.lang.String&nbsp;value)</code>
+<div class="block">Set the write properties for Flink sink.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html#tableLoader-org.apache.iceberg.flink.TableLoader-">tableLoader</a></span>(<a href="../../../../../org/apache/iceberg/flink/TableLoader.html" title="interface in org.apache.iceberg.flink">TableLoader</a>&nbsp;newTableLoader)</code>
-<div class="block">The table loader is used for loading tables in <code>IcebergFilesCommitter</code> lazily, we need this loader because
- <a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><code>Table</code></a> is not serializable and could not just use the loaded table from Builder#table in the remote task
- manager.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html#setAll-java.util.Map-">setAll</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</code>
+<div class="block">Set the write properties for Flink sink.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html#tableSchema-org.apache.flink.table.api.TableSchema-">tableSchema</a></span>(org.apache.flink.table.api.TableSchema&nbsp;newTableSchema)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html#setSnapshotProperties-java.util.Map-">setSnapshotProperties</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</code>&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html#setSnapshotProperty-java.lang.String-java.lang.String-">setSnapshotProperty</a></span>(java.lang.String&nbsp;property,
+                   java.lang.String&nbsp;value)</code>&nbsp;</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html#table-org.apache.iceberg.Table-">table</a></span>(<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;newTable)</code>
+<div class="block">This iceberg <a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><code>Table</code></a> instance is used for initializing <code>IcebergStreamWriter</code>
+ which will write all the records into <a href="../../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg"><code>DataFile</code></a>s and emit them to downstream operator.</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html#tableLoader-org.apache.iceberg.flink.TableLoader-">tableLoader</a></span>(<a href="../../../../../org/apache/iceberg/flink/TableLoader.html" title="interface in org.apache.iceberg.flink">TableLoader</a>&nbsp;newTableLoader)</code>
+<div class="block">The table loader is used for loading tables in <code>IcebergFilesCommitter</code> lazily, we need
+ this loader because <a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><code>Table</code></a> is not serializable and could not just use the loaded table
+ from Builder#table in the remote task manager.</div>
+</td>
+</tr>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html#tableSchema-org.apache.flink.table.api.TableSchema-">tableSchema</a></span>(org.apache.flink.table.api.TableSchema&nbsp;newTableSchema)</code>&nbsp;</td>
+</tr>
+<tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html#uidPrefix-java.lang.String-">uidPrefix</a></span>(java.lang.String&nbsp;newPrefix)</code>
 <div class="block">Set the uid prefix for FlinkSink operators.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html#upsert-boolean-">upsert</a></span>(boolean&nbsp;enabled)</code>
-<div class="block">All INSERT/UPDATE_AFTER events from input stream will be transformed to UPSERT events, which means it will
- DELETE the old records and then INSERT the new records.</div>
+<div class="block">All INSERT/UPDATE_AFTER events from input stream will be transformed to UPSERT events, which
+ means it will DELETE the old records and then INSERT the new records.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html#writeParallelism-int-">writeParallelism</a></span>(int&nbsp;newWriteParallelism)</code>
 <div class="block">Configuring the write parallel number for iceberg stream writer.</div>
@@ -229,9 +246,9 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>table</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a>&nbsp;table(<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;newTable)</pre>
-<div class="block">This iceberg <a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><code>Table</code></a> instance is used for initializing <code>IcebergStreamWriter</code> which will write all
- the records into <a href="../../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg"><code>DataFile</code></a>s and emit them to downstream operator. Providing a table would avoid so many
- table loading from each separate task.</div>
+<div class="block">This iceberg <a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><code>Table</code></a> instance is used for initializing <code>IcebergStreamWriter</code>
+ which will write all the records into <a href="../../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg"><code>DataFile</code></a>s and emit them to downstream operator.
+ Providing a table would avoid so many table loading from each separate task.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>newTable</code> - the loaded iceberg table instance.</dd>
@@ -247,15 +264,36 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>tableLoader</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a>&nbsp;tableLoader(<a href="../../../../../org/apache/iceberg/flink/TableLoader.html" title="interface in org.apache.iceberg.flink">TableLoader</a>&nbsp;newTableLoader)</pre>
-<div class="block">The table loader is used for loading tables in <code>IcebergFilesCommitter</code> lazily, we need this loader because
- <a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><code>Table</code></a> is not serializable and could not just use the loaded table from Builder#table in the remote task
- manager.</div>
+<div class="block">The table loader is used for loading tables in <code>IcebergFilesCommitter</code> lazily, we need
+ this loader because <a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><code>Table</code></a> is not serializable and could not just use the loaded table
+ from Builder#table in the remote task manager.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>newTableLoader</code> - to load iceberg table inside tasks.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink"><code>FlinkSink.Builder</code></a> to connect the iceberg table.</dd>
 </dl>
+</li>
+</ul>
+<a name="set-java.lang.String-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>set</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a>&nbsp;set(java.lang.String&nbsp;property,
+                             java.lang.String&nbsp;value)</pre>
+<div class="block">Set the write properties for Flink sink. View the supported properties in <a href="../../../../../org/apache/iceberg/flink/FlinkWriteOptions.html" title="class in org.apache.iceberg.flink"><code>FlinkWriteOptions</code></a></div>
+</li>
+</ul>
+<a name="setAll-java.util.Map-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setAll</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a>&nbsp;setAll(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</pre>
+<div class="block">Set the write properties for Flink sink. View the supported properties in <a href="../../../../../org/apache/iceberg/flink/FlinkWriteOptions.html" title="class in org.apache.iceberg.flink"><code>FlinkWriteOptions</code></a></div>
 </li>
 </ul>
 <a name="tableSchema-org.apache.flink.table.api.TableSchema-">
@@ -276,6 +314,15 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a>&nbsp;overwrite(boolean&nbsp;newOverwrite)</pre>
 </li>
 </ul>
+<a name="flinkConf-org.apache.flink.configuration.ReadableConfig-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>flinkConf</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a>&nbsp;flinkConf(org.apache.flink.configuration.ReadableConfig&nbsp;config)</pre>
+</li>
+</ul>
 <a name="distributionMode-org.apache.iceberg.DistributionMode-">
 <!--   -->
 </a>
@@ -283,8 +330,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>distributionMode</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a>&nbsp;distributionMode(<a href="../../../../../org/apache/iceberg/DistributionMode.html" title="enum in org.apache.iceberg">DistributionMode</a>&nbsp;mode)</pre>
-<div class="block">Configure the write <a href="../../../../../org/apache/iceberg/DistributionMode.html" title="enum in org.apache.iceberg"><code>DistributionMode</code></a> that the flink sink will use. Currently, flink support
- <a href="../../../../../org/apache/iceberg/DistributionMode.html#NONE"><code>DistributionMode.NONE</code></a> and <a href="../../../../../org/apache/iceberg/DistributionMode.html#HASH"><code>DistributionMode.HASH</code></a>.</div>
+<div class="block">Configure the write <a href="../../../../../org/apache/iceberg/DistributionMode.html" title="enum in org.apache.iceberg"><code>DistributionMode</code></a> that the flink sink will use. Currently, flink
+ support <a href="../../../../../org/apache/iceberg/DistributionMode.html#NONE"><code>DistributionMode.NONE</code></a> and <a href="../../../../../org/apache/iceberg/DistributionMode.html#HASH"><code>DistributionMode.HASH</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>mode</code> - to specify the write distribution mode.</dd>
@@ -316,10 +363,10 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>upsert</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a>&nbsp;upsert(boolean&nbsp;enabled)</pre>
-<div class="block">All INSERT/UPDATE_AFTER events from input stream will be transformed to UPSERT events, which means it will
- DELETE the old records and then INSERT the new records. In partitioned table, the partition fields should be
- a subset of equality fields, otherwise the old row that located in partition-A could not be deleted by the
- new row that located in partition-B.</div>
+<div class="block">All INSERT/UPDATE_AFTER events from input stream will be transformed to UPSERT events, which
+ means it will DELETE the old records and then INSERT the new records. In partitioned table,
+ the partition fields should be a subset of equality fields, otherwise the old row that
+ located in partition-A could not be deleted by the new row that located in partition-B.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>enabled</code> - indicate whether it should transform all INSERT/UPDATE_AFTER events to UPSERT.</dd>
@@ -351,20 +398,25 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>uidPrefix</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a>&nbsp;uidPrefix(java.lang.String&nbsp;newPrefix)</pre>
-<div class="block">Set the uid prefix for FlinkSink operators. Note that FlinkSink internally consists of multiple operators (like
- writer, committer, dummy sink etc.) Actually operator uid will be appended with a suffix like "uidPrefix-writer".
- <br><br>
- If provided, this prefix is also applied to operator names.
- <br><br>
- Flink auto generates operator uid if not set explicitly. It is a recommended
- <a href="https://ci.apache.org/projects/flink/flink-docs-master/docs/ops/production_ready/">
- best-practice to set uid for all operators</a> before deploying to production. Flink has an option to <code>pipeline.auto-generate-uid=false</code> to disable auto-generation and force explicit setting of all operator uid.
- <br><br>
- Be careful with setting this for an existing job, because now we are changing the operator uid from an
- auto-generated one to this new value. When deploying the change with a checkpoint, Flink won't be able to restore
- the previous Flink sink operator state (more specifically the committer operator state). You need to use <code>--allowNonRestoredState</code> to ignore the previous sink state. During restore Flink sink state is used to check if
- last commit was actually successful or not. <code>--allowNonRestoredState</code> can lead to data loss if the
- Iceberg commit failed in the last completed checkpoint.</div>
+<div class="block">Set the uid prefix for FlinkSink operators. Note that FlinkSink internally consists of
+ multiple operators (like writer, committer, dummy sink etc.) Actually operator uid will be
+ appended with a suffix like "uidPrefix-writer". <br>
+ <br>
+ If provided, this prefix is also applied to operator names. <br>
+ <br>
+ Flink auto generates operator uid if not set explicitly. It is a recommended <a
+ href="https://ci.apache.org/projects/flink/flink-docs-master/docs/ops/production_ready/">
+ best-practice to set uid for all operators</a> before deploying to production. Flink has an
+ option to <code>pipeline.auto-generate-uid=false</code> to disable auto-generation and force
+ explicit setting of all operator uid. <br>
+ <br>
+ Be careful with setting this for an existing job, because now we are changing the operator
+ uid from an auto-generated one to this new value. When deploying the change with a
+ checkpoint, Flink won't be able to restore the previous Flink sink operator state (more
+ specifically the committer operator state). You need to use <code>--allowNonRestoredState</code>
+ to ignore the previous sink state. During restore Flink sink state is used to check if last
+ commit was actually successful or not. <code>--allowNonRestoredState</code> can lead to data loss
+ if the Iceberg commit failed in the last completed checkpoint.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>newPrefix</code> - prefix for Flink sink operator uid and name</dd>
@@ -373,21 +425,23 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="build--">
+<a name="setSnapshotProperties-java.util.Map-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>build</h4>
-<pre>@Deprecated
-public&nbsp;org.apache.flink.streaming.api.datastream.DataStreamSink&lt;org.apache.flink.table.data.RowData&gt;&nbsp;build()</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">this will be removed in 0.14.0; use <a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html#append--"><code>append()</code></a> because its returned <code>DataStreamSink</code>
- has a more correct data type.</span></div>
-<div class="block">Append the iceberg sink operators to write records to iceberg table.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd><code>DataStreamSink</code> for sink.</dd>
-</dl>
+<h4>setSnapshotProperties</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a>&nbsp;setSnapshotProperties(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</pre>
+</li>
+</ul>
+<a name="setSnapshotProperty-java.lang.String-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setSnapshotProperty</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a>&nbsp;setSnapshotProperty(java.lang.String&nbsp;property,
+                                             java.lang.String&nbsp;value)</pre>
 </li>
 </ul>
 <a name="append--">

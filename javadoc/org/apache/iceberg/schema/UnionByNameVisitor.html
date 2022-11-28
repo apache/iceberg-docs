@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":9};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":9,"i6":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -114,8 +114,8 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public class <span class="typeNameLabel">UnionByNameVisitor</span>
 extends <a href="../../../../org/apache/iceberg/schema/SchemaWithPartnerVisitor.html" title="class in org.apache.iceberg.schema">SchemaWithPartnerVisitor</a>&lt;java.lang.Integer,java.lang.Boolean&gt;</pre>
-<div class="block">Visitor class that accumulates the set of changes needed to evolve an existing schema into the union of the
- existing and a new schema. Changes are added to an <a href="../../../../org/apache/iceberg/UpdateSchema.html" title="interface in org.apache.iceberg"><code>UpdateSchema</code></a> operation.</div>
+<div class="block">Visitor class that accumulates the set of changes needed to evolve an existing schema into the
+ union of the existing and a new schema. Changes are added to an <a href="../../../../org/apache/iceberg/UpdateSchema.html" title="interface in org.apache.iceberg"><code>UpdateSchema</code></a> operation.</div>
 </li>
 </ul>
 </div>
@@ -187,6 +187,15 @@ extends <a href="../../../../org/apache/iceberg/schema/SchemaWithPartnerVisitor.
 <div class="block">Adds changes needed to produce a union of two schemas to an <a href="../../../../org/apache/iceberg/UpdateSchema.html" title="interface in org.apache.iceberg"><code>UpdateSchema</code></a> operation.</div>
 </td>
 </tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/schema/UnionByNameVisitor.html#visit-org.apache.iceberg.UpdateSchema-org.apache.iceberg.Schema-org.apache.iceberg.Schema-boolean-">visit</a></span>(<a href="../../../../org/apache/iceberg/UpdateSchema.html" title="interface in org.apache.iceberg">UpdateSchema</a>&nbsp;api,
+     <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;existingSchema,
+     <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;newSchema,
+     boolean&nbsp;caseSensitive)</code>
+<div class="block">Adds changes needed to produce a union of two schemas to an <a href="../../../../org/apache/iceberg/UpdateSchema.html" title="interface in org.apache.iceberg"><code>UpdateSchema</code></a> operation.</div>
+</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.org.apache.iceberg.schema.SchemaWithPartnerVisitor">
@@ -226,12 +235,34 @@ extends <a href="../../../../org/apache/iceberg/schema/SchemaWithPartnerVisitor.
                          <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;existingSchema,
                          <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;newSchema)</pre>
 <div class="block">Adds changes needed to produce a union of two schemas to an <a href="../../../../org/apache/iceberg/UpdateSchema.html" title="interface in org.apache.iceberg"><code>UpdateSchema</code></a> operation.
- <p>
- Changes are accumulated to evolve the existingSchema into a union with newSchema.</div>
+
+ <p>Changes are accumulated to evolve the existingSchema into a union with newSchema.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>api</code> - an UpdateSchema for adding changes</dd>
 <dd><code>existingSchema</code> - an existing schema</dd>
+<dd><code>newSchema</code> - a new schema to compare with the existing</dd>
+</dl>
+</li>
+</ul>
+<a name="visit-org.apache.iceberg.UpdateSchema-org.apache.iceberg.Schema-org.apache.iceberg.Schema-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>visit</h4>
+<pre>public static&nbsp;void&nbsp;visit(<a href="../../../../org/apache/iceberg/UpdateSchema.html" title="interface in org.apache.iceberg">UpdateSchema</a>&nbsp;api,
+                         <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;existingSchema,
+                         <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;newSchema,
+                         boolean&nbsp;caseSensitive)</pre>
+<div class="block">Adds changes needed to produce a union of two schemas to an <a href="../../../../org/apache/iceberg/UpdateSchema.html" title="interface in org.apache.iceberg"><code>UpdateSchema</code></a> operation.
+
+ <p>Changes are accumulated to evolve the existingSchema into a union with newSchema.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>api</code> - an UpdateSchema for adding changes</dd>
+<dd><code>existingSchema</code> - an existing schema</dd>
+<dd><code>caseSensitive</code> - when false, the case of schema's fields are ignored</dd>
 <dd><code>newSchema</code> - a new schema to compare with the existing</dd>
 </dl>
 </li>

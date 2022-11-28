@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -171,17 +171,21 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/data/IcebergGenerics.ScanBuilder.html" title="class in org.apache.iceberg.data">IcebergGenerics.ScanBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/data/IcebergGenerics.ScanBuilder.html#reuseContainers--">reuseContainers</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/data/IcebergGenerics.ScanBuilder.html#project-org.apache.iceberg.Schema-">project</a></span>(<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema)</code>&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/data/IcebergGenerics.ScanBuilder.html" title="class in org.apache.iceberg.data">IcebergGenerics.ScanBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/data/IcebergGenerics.ScanBuilder.html#select-java.lang.String...-">select</a></span>(java.lang.String...&nbsp;selectedColumns)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/data/IcebergGenerics.ScanBuilder.html#reuseContainers--">reuseContainers</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/data/IcebergGenerics.ScanBuilder.html" title="class in org.apache.iceberg.data">IcebergGenerics.ScanBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/data/IcebergGenerics.ScanBuilder.html#useSnapshot-long-">useSnapshot</a></span>(long&nbsp;scanSnapshotId)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/data/IcebergGenerics.ScanBuilder.html#select-java.lang.String...-">select</a></span>(java.lang.String...&nbsp;selectedColumns)</code>&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/iceberg/data/IcebergGenerics.ScanBuilder.html" title="class in org.apache.iceberg.data">IcebergGenerics.ScanBuilder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/data/IcebergGenerics.ScanBuilder.html#useSnapshot-long-">useSnapshot</a></span>(long&nbsp;scanSnapshotId)</code>&nbsp;</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/data/IcebergGenerics.ScanBuilder.html" title="class in org.apache.iceberg.data">IcebergGenerics.ScanBuilder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/data/IcebergGenerics.ScanBuilder.html#where-org.apache.iceberg.expressions.Expression-">where</a></span>(<a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;rowFilter)</code>&nbsp;</td>
 </tr>
@@ -258,6 +262,15 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>select</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/data/IcebergGenerics.ScanBuilder.html" title="class in org.apache.iceberg.data">IcebergGenerics.ScanBuilder</a>&nbsp;select(java.lang.String...&nbsp;selectedColumns)</pre>
+</li>
+</ul>
+<a name="project-org.apache.iceberg.Schema-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>project</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/iceberg/data/IcebergGenerics.ScanBuilder.html" title="class in org.apache.iceberg.data">IcebergGenerics.ScanBuilder</a>&nbsp;project(<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema)</pre>
 </li>
 </ul>
 <a name="useSnapshot-long-">

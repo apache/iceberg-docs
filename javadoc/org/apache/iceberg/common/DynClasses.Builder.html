@@ -74,13 +74,13 @@ var activeTableTab = "activeTableTab";
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
@@ -119,23 +119,6 @@ extends java.lang.Object</pre>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<ul class="blockList">
-<li class="blockList"><a name="constructor.summary">
-<!--   -->
-</a>
-<h3>Constructor Summary</h3>
-<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
-<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colOne" scope="col">Constructor and Description</th>
-</tr>
-<tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/common/DynClasses.Builder.html#Builder--">Builder</a></span>()</code>&nbsp;</td>
-</tr>
-</table>
-</li>
-</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.summary">
@@ -151,15 +134,13 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>&lt;S&gt;&nbsp;java.lang.Class&lt;? extends S&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/common/DynClasses.Builder.html#build--">build</a></span>()</code>
-<div class="block">Returns the first implementation or throws RuntimeException if one was
- not found.</div>
+<div class="block">Returns the first implementation or throws RuntimeException if one was not found.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>&lt;S&gt;&nbsp;java.lang.Class&lt;? extends S&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/common/DynClasses.Builder.html#buildChecked--">buildChecked</a></span>()</code>
-<div class="block">Returns the first implementation or throws ClassNotFoundException if
- one was not found.</div>
+<div class="block">Returns the first implementation or throws ClassNotFoundException if one was not found.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -177,8 +158,8 @@ extends java.lang.Object</pre>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/common/DynClasses.Builder.html" title="class in org.apache.iceberg.common">DynClasses.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/common/DynClasses.Builder.html#orNull--">orNull</a></span>()</code>
-<div class="block">Instructs this builder to return null if no class is found, rather than
- throwing an Exception.</div>
+<div class="block">Instructs this builder to return null if no class is found, rather than throwing an
+ Exception.</div>
 </td>
 </tr>
 </table>
@@ -197,23 +178,6 @@ extends java.lang.Object</pre>
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ========= CONSTRUCTOR DETAIL ======== -->
-<ul class="blockList">
-<li class="blockList"><a name="constructor.detail">
-<!--   -->
-</a>
-<h3>Constructor Detail</h3>
-<a name="Builder--">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>Builder</h4>
-<pre>public&nbsp;Builder()</pre>
-</li>
-</ul>
-</li>
-</ul>
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.detail">
@@ -228,8 +192,8 @@ extends java.lang.Object</pre>
 <h4>loader</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/common/DynClasses.Builder.html" title="class in org.apache.iceberg.common">DynClasses.Builder</a>&nbsp;loader(java.lang.ClassLoader&nbsp;newLoader)</pre>
 <div class="block">Set the <code>ClassLoader</code> used to lookup classes by name.
- <p>
- If not set, the current thread's ClassLoader is used.</div>
+
+ <p>If not set, the current thread's ClassLoader is used.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>newLoader</code> - a ClassLoader</dd>
@@ -261,8 +225,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>orNull</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/common/DynClasses.Builder.html" title="class in org.apache.iceberg.common">DynClasses.Builder</a>&nbsp;orNull()</pre>
-<div class="block">Instructs this builder to return null if no class is found, rather than
- throwing an Exception.</div>
+<div class="block">Instructs this builder to return null if no class is found, rather than throwing an
+ Exception.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this Builder for method chaining</dd>
@@ -277,8 +241,7 @@ extends java.lang.Object</pre>
 <h4>buildChecked</h4>
 <pre>public&nbsp;&lt;S&gt;&nbsp;java.lang.Class&lt;? extends S&gt;&nbsp;buildChecked()
                                               throws java.lang.ClassNotFoundException</pre>
-<div class="block">Returns the first implementation or throws ClassNotFoundException if
- one was not found.</div>
+<div class="block">Returns the first implementation or throws ClassNotFoundException if one was not found.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
 <dd><code>S</code> - Java superclass</dd>
@@ -296,8 +259,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>build</h4>
 <pre>public&nbsp;&lt;S&gt;&nbsp;java.lang.Class&lt;? extends S&gt;&nbsp;build()</pre>
-<div class="block">Returns the first implementation or throws RuntimeException if one was
- not found.</div>
+<div class="block">Returns the first implementation or throws RuntimeException if one was not found.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
 <dd><code>S</code> - Java superclass</dd>
@@ -362,13 +324,13 @@ extends java.lang.Object</pre>
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
