@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -137,6 +137,14 @@ implements <a href="../../../../org/apache/iceberg/actions/DeleteReachableFiles.
                                     long&nbsp;deletedManifestListsCount,
                                     long&nbsp;otherDeletedFilesCount)</code>&nbsp;</td>
 </tr>
+<tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BaseDeleteReachableFilesActionResult.html#BaseDeleteReachableFilesActionResult-long-long-long-long-long-long-">BaseDeleteReachableFilesActionResult</a></span>(long&nbsp;deletedDataFilesCount,
+                                    long&nbsp;deletedPosDeleteFilesCount,
+                                    long&nbsp;deletedEqDeleteFilesCount,
+                                    long&nbsp;deletedManifestsCount,
+                                    long&nbsp;deletedManifestListsCount,
+                                    long&nbsp;otherDeletedFilesCount)</code>&nbsp;</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -160,20 +168,32 @@ implements <a href="../../../../org/apache/iceberg/actions/DeleteReachableFiles.
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BaseDeleteReachableFilesActionResult.html#deletedEqualityDeleteFilesCount--">deletedEqualityDeleteFilesCount</a></span>()</code>
+<div class="block">Returns the number of deleted equality delete files.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BaseDeleteReachableFilesActionResult.html#deletedManifestListsCount--">deletedManifestListsCount</a></span>()</code>
 <div class="block">Returns the number of deleted manifest lists.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BaseDeleteReachableFilesActionResult.html#deletedManifestsCount--">deletedManifestsCount</a></span>()</code>
 <div class="block">Returns the number of deleted manifests.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BaseDeleteReachableFilesActionResult.html#deletedOtherFilesCount--">deletedOtherFilesCount</a></span>()</code>
 <div class="block">Returns the number of deleted metadata json, version hint files.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BaseDeleteReachableFilesActionResult.html#deletedPositionDeleteFilesCount--">deletedPositionDeleteFilesCount</a></span>()</code>
+<div class="block">Returns the number of deleted position delete files.</div>
 </td>
 </tr>
 </table>
@@ -201,10 +221,24 @@ implements <a href="../../../../org/apache/iceberg/actions/DeleteReachableFiles.
 <a name="BaseDeleteReachableFilesActionResult-long-long-long-long-">
 <!--   -->
 </a>
+<ul class="blockList">
+<li class="blockList">
+<h4>BaseDeleteReachableFilesActionResult</h4>
+<pre>public&nbsp;BaseDeleteReachableFilesActionResult(long&nbsp;deletedDataFilesCount,
+                                            long&nbsp;deletedManifestsCount,
+                                            long&nbsp;deletedManifestListsCount,
+                                            long&nbsp;otherDeletedFilesCount)</pre>
+</li>
+</ul>
+<a name="BaseDeleteReachableFilesActionResult-long-long-long-long-long-long-">
+<!--   -->
+</a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>BaseDeleteReachableFilesActionResult</h4>
 <pre>public&nbsp;BaseDeleteReachableFilesActionResult(long&nbsp;deletedDataFilesCount,
+                                            long&nbsp;deletedPosDeleteFilesCount,
+                                            long&nbsp;deletedEqDeleteFilesCount,
                                             long&nbsp;deletedManifestsCount,
                                             long&nbsp;deletedManifestListsCount,
                                             long&nbsp;otherDeletedFilesCount)</pre>
@@ -230,6 +264,36 @@ implements <a href="../../../../org/apache/iceberg/actions/DeleteReachableFiles.
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/actions/DeleteReachableFiles.Result.html#deletedDataFilesCount--">deletedDataFilesCount</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/actions/DeleteReachableFiles.Result.html" title="interface in org.apache.iceberg.actions">DeleteReachableFiles.Result</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="deletedPositionDeleteFilesCount--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>deletedPositionDeleteFilesCount</h4>
+<pre>public&nbsp;long&nbsp;deletedPositionDeleteFilesCount()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/actions/DeleteReachableFiles.Result.html#deletedPositionDeleteFilesCount--">DeleteReachableFiles.Result</a></code></span></div>
+<div class="block">Returns the number of deleted position delete files.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../org/apache/iceberg/actions/DeleteReachableFiles.Result.html#deletedPositionDeleteFilesCount--">deletedPositionDeleteFilesCount</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/actions/DeleteReachableFiles.Result.html" title="interface in org.apache.iceberg.actions">DeleteReachableFiles.Result</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="deletedEqualityDeleteFilesCount--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>deletedEqualityDeleteFilesCount</h4>
+<pre>public&nbsp;long&nbsp;deletedEqualityDeleteFilesCount()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/actions/DeleteReachableFiles.Result.html#deletedEqualityDeleteFilesCount--">DeleteReachableFiles.Result</a></code></span></div>
+<div class="block">Returns the number of deleted equality delete files.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../org/apache/iceberg/actions/DeleteReachableFiles.Result.html#deletedEqualityDeleteFilesCount--">deletedEqualityDeleteFilesCount</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/actions/DeleteReachableFiles.Result.html" title="interface in org.apache.iceberg.actions">DeleteReachableFiles.Result</a></code></dd>
 </dl>
 </li>
 </ul>

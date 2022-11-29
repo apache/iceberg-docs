@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/MetadataColumns.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/MetadataLogEntriesTable.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../org/apache/iceberg/MetadataTableUtils.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -139,10 +139,22 @@ extends java.lang.Enum&lt;<a href="../../../org/apache/iceberg/MetadataTableType
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataTableType.html#ALL_DATA_FILES">ALL_DATA_FILES</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataTableType.html#ALL_DELETE_FILES">ALL_DELETE_FILES</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataTableType.html#ALL_ENTRIES">ALL_ENTRIES</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataTableType.html#ALL_FILES">ALL_FILES</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataTableType.html#ALL_MANIFESTS">ALL_MANIFESTS</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataTableType.html#DATA_FILES">DATA_FILES</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataTableType.html#DELETE_FILES">DELETE_FILES</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataTableType.html#ENTRIES">ENTRIES</a></span></code>&nbsp;</td>
@@ -157,7 +169,13 @@ extends java.lang.Enum&lt;<a href="../../../org/apache/iceberg/MetadataTableType
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataTableType.html#MANIFESTS">MANIFESTS</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataTableType.html#METADATA_LOG_ENTRIES">METADATA_LOG_ENTRIES</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataTableType.html#PARTITIONS">PARTITIONS</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataTableType.html#REFS">REFS</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataTableType.html#SNAPSHOTS">SNAPSHOTS</a></span></code>&nbsp;</td>
@@ -241,6 +259,24 @@ the order they are declared.</div>
 <pre>public static final&nbsp;<a href="../../../org/apache/iceberg/MetadataTableType.html" title="enum in org.apache.iceberg">MetadataTableType</a> FILES</pre>
 </li>
 </ul>
+<a name="DATA_FILES">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DATA_FILES</h4>
+<pre>public static final&nbsp;<a href="../../../org/apache/iceberg/MetadataTableType.html" title="enum in org.apache.iceberg">MetadataTableType</a> DATA_FILES</pre>
+</li>
+</ul>
+<a name="DELETE_FILES">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DELETE_FILES</h4>
+<pre>public static final&nbsp;<a href="../../../org/apache/iceberg/MetadataTableType.html" title="enum in org.apache.iceberg">MetadataTableType</a> DELETE_FILES</pre>
+</li>
+</ul>
 <a name="HISTORY">
 <!--   -->
 </a>
@@ -250,6 +286,15 @@ the order they are declared.</div>
 <pre>public static final&nbsp;<a href="../../../org/apache/iceberg/MetadataTableType.html" title="enum in org.apache.iceberg">MetadataTableType</a> HISTORY</pre>
 </li>
 </ul>
+<a name="METADATA_LOG_ENTRIES">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>METADATA_LOG_ENTRIES</h4>
+<pre>public static final&nbsp;<a href="../../../org/apache/iceberg/MetadataTableType.html" title="enum in org.apache.iceberg">MetadataTableType</a> METADATA_LOG_ENTRIES</pre>
+</li>
+</ul>
 <a name="SNAPSHOTS">
 <!--   -->
 </a>
@@ -257,6 +302,15 @@ the order they are declared.</div>
 <li class="blockList">
 <h4>SNAPSHOTS</h4>
 <pre>public static final&nbsp;<a href="../../../org/apache/iceberg/MetadataTableType.html" title="enum in org.apache.iceberg">MetadataTableType</a> SNAPSHOTS</pre>
+</li>
+</ul>
+<a name="REFS">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>REFS</h4>
+<pre>public static final&nbsp;<a href="../../../org/apache/iceberg/MetadataTableType.html" title="enum in org.apache.iceberg">MetadataTableType</a> REFS</pre>
 </li>
 </ul>
 <a name="MANIFESTS">
@@ -284,6 +338,24 @@ the order they are declared.</div>
 <li class="blockList">
 <h4>ALL_DATA_FILES</h4>
 <pre>public static final&nbsp;<a href="../../../org/apache/iceberg/MetadataTableType.html" title="enum in org.apache.iceberg">MetadataTableType</a> ALL_DATA_FILES</pre>
+</li>
+</ul>
+<a name="ALL_DELETE_FILES">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ALL_DELETE_FILES</h4>
+<pre>public static final&nbsp;<a href="../../../org/apache/iceberg/MetadataTableType.html" title="enum in org.apache.iceberg">MetadataTableType</a> ALL_DELETE_FILES</pre>
+</li>
+</ul>
+<a name="ALL_FILES">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ALL_FILES</h4>
+<pre>public static final&nbsp;<a href="../../../org/apache/iceberg/MetadataTableType.html" title="enum in org.apache.iceberg">MetadataTableType</a> ALL_FILES</pre>
 </li>
 </ul>
 <a name="ALL_MANIFESTS">
@@ -390,7 +462,7 @@ not permitted.)</div>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/MetadataColumns.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/MetadataLogEntriesTable.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../org/apache/iceberg/MetadataTableUtils.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

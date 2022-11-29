@@ -183,10 +183,10 @@ extends java.lang.Object</pre>
                                                         org.apache.flink.table.data.RowData&nbsp;reuse,
                                                         org.apache.flink.table.types.logical.RowType&nbsp;rowType,
                                                         org.apache.flink.api.common.typeutils.TypeSerializer[]&nbsp;fieldSerializers)</pre>
-<div class="block">Similar to the private <code>RowDataSerializer.copyRowData(RowData, RowData)</code> method.
- This skips the check the arity of rowType and from,
- because the from RowData may contains additional column for position deletes.
- Using <code>RowDataSerializer.copy(RowData, RowData)</code> will fail the arity check.</div>
+<div class="block">Similar to the private <code>RowDataSerializer.copyRowData(RowData, RowData)</code> method. This
+ skips the check the arity of rowType and from, because the from RowData may contains additional
+ column for position deletes. Using <code>RowDataSerializer.copy(RowData, RowData)</code> will fail
+ the arity check.</div>
 </li>
 </ul>
 </li>

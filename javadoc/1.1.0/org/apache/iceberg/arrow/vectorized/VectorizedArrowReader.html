@@ -111,15 +111,16 @@ var activeTableTab = "activeTableTab";
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorizedArrowReader.ConstantVectorReader.html" title="class in org.apache.iceberg.arrow.vectorized">VectorizedArrowReader.ConstantVectorReader</a></dd>
+<dd><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorizedArrowReader.ConstantVectorReader.html" title="class in org.apache.iceberg.arrow.vectorized">VectorizedArrowReader.ConstantVectorReader</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorizedArrowReader.DeletedVectorReader.html" title="class in org.apache.iceberg.arrow.vectorized">VectorizedArrowReader.DeletedVectorReader</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">VectorizedArrowReader</span>
 extends java.lang.Object
 implements <a href="../../../../../org/apache/iceberg/parquet/VectorizedReader.html" title="interface in org.apache.iceberg.parquet">VectorizedReader</a>&lt;<a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html" title="class in org.apache.iceberg.arrow.vectorized">VectorHolder</a>&gt;</pre>
-<div class="block"><a href="../../../../../org/apache/iceberg/parquet/VectorizedReader.html" title="interface in org.apache.iceberg.parquet"><code>VectorReader(s)</code></a> that read in a batch of values into Arrow vectors. It also takes care of
- allocating the right kind of Arrow vectors depending on the corresponding Iceberg/Parquet data types.</div>
+<div class="block"><a href="../../../../../org/apache/iceberg/parquet/VectorizedReader.html" title="interface in org.apache.iceberg.parquet"><code>VectorReader(s)</code></a> that read in a batch of values into Arrow vectors. It
+ also takes care of allocating the right kind of Arrow vectors depending on the corresponding
+ Iceberg/Parquet data types.</div>
 </li>
 </ul>
 </div>
@@ -143,6 +144,12 @@ implements <a href="../../../../../org/apache/iceberg/parquet/VectorizedReader.h
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorizedArrowReader.ConstantVectorReader.html" title="class in org.apache.iceberg.arrow.vectorized">VectorizedArrowReader.ConstantVectorReader</a>&lt;<a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorizedArrowReader.ConstantVectorReader.html" title="type parameter in VectorizedArrowReader.ConstantVectorReader">T</a>&gt;</span></code>
 <div class="block">A Dummy Vector Reader which doesn't actually read files, instead it returns a dummy
  VectorHolder which indicates the constant value which should be used for this column.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorizedArrowReader.DeletedVectorReader.html" title="class in org.apache.iceberg.arrow.vectorized">VectorizedArrowReader.DeletedVectorReader</a></span></code>
+<div class="block">A Dummy Vector Reader which doesn't actually read files.</div>
 </td>
 </tr>
 </table>

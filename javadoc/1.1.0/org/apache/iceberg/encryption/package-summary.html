@@ -41,7 +41,7 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/deletes/package-summary.html">Prev&nbsp;Package</a></li>
+<li><a href="../../../../org/apache/iceberg/dell/ecs/package-summary.html">Prev&nbsp;Package</a></li>
 <li><a href="../../../../org/apache/iceberg/events/package-summary.html">Next&nbsp;Package</a></li>
 </ul>
 <ul class="navList">
@@ -89,22 +89,35 @@
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/encryption/EncryptedOutputFile.html" title="interface in org.apache.iceberg.encryption">EncryptedOutputFile</a></td>
 <td class="colLast">
-<div class="block">Thin wrapper around a <a href="../../../../org/apache/iceberg/io/OutputFile.html" title="interface in org.apache.iceberg.io"><code>OutputFile</code></a> that is encrypting bytes written to the underlying
- file system, via an encryption key that is symbolized by the enclosed
- <a href="../../../../org/apache/iceberg/encryption/EncryptionKeyMetadata.html" title="interface in org.apache.iceberg.encryption"><code>EncryptionKeyMetadata</code></a>.</div>
+<div class="block">Thin wrapper around a <a href="../../../../org/apache/iceberg/io/OutputFile.html" title="interface in org.apache.iceberg.io"><code>OutputFile</code></a> that is encrypting bytes written to the underlying file
+ system, via an encryption key that is symbolized by the enclosed <a href="../../../../org/apache/iceberg/encryption/EncryptionKeyMetadata.html" title="interface in org.apache.iceberg.encryption"><code>EncryptionKeyMetadata</code></a>.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/encryption/EncryptionKeyMetadata.html" title="interface in org.apache.iceberg.encryption">EncryptionKeyMetadata</a></td>
 <td class="colLast">
-<div class="block">Light typedef over a ByteBuffer that indicates that the given bytes represent metadata about
- an encrypted data file's encryption key.</div>
+<div class="block">Light typedef over a ByteBuffer that indicates that the given bytes represent metadata about an
+ encrypted data file's encryption key.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/encryption/EncryptionManager.html" title="interface in org.apache.iceberg.encryption">EncryptionManager</a></td>
 <td class="colLast">
 <div class="block">Module for encrypting and decrypting table data files.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/encryption/KmsClient.html" title="interface in org.apache.iceberg.encryption">KmsClient</a></td>
+<td class="colLast">
+<div class="block">A minimum client interface to connect to a key management service (KMS).</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/encryption/NativelyEncryptedFile.html" title="interface in org.apache.iceberg.encryption">NativelyEncryptedFile</a></td>
+<td class="colLast">
+<div class="block">This interface is applied to OutputFile and InputFile implementations, in order to enable
+ delivery of crypto parameters (such as encryption keys etc) from the Iceberg key management
+ module to the writers/readers of file formats that support encryption natively (Parquet and ORC).</div>
 </td>
 </tr>
 </tbody>
@@ -119,20 +132,66 @@
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colFirst"><a href="../../../../org/apache/iceberg/encryption/EncryptedFiles.html" title="class in org.apache.iceberg.encryption">EncryptedFiles</a></td>
+<td class="colFirst"><a href="../../../../org/apache/iceberg/encryption/Ciphers.html" title="class in org.apache.iceberg.encryption">Ciphers</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><a href="../../../../org/apache/iceberg/encryption/EncryptionKeyMetadatas.html" title="class in org.apache.iceberg.encryption">EncryptionKeyMetadatas</a></td>
+<td class="colFirst"><a href="../../../../org/apache/iceberg/encryption/Ciphers.AesGcmDecryptor.html" title="class in org.apache.iceberg.encryption">Ciphers.AesGcmDecryptor</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/encryption/Ciphers.AesGcmEncryptor.html" title="class in org.apache.iceberg.encryption">Ciphers.AesGcmEncryptor</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/encryption/EncryptedFiles.html" title="class in org.apache.iceberg.encryption">EncryptedFiles</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/encryption/EncryptionKeyMetadatas.html" title="class in org.apache.iceberg.encryption">EncryptionKeyMetadatas</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/encryption/InputFilesDecryptor.html" title="class in org.apache.iceberg.encryption">InputFilesDecryptor</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/encryption/KmsClient.KeyGenerationResult.html" title="class in org.apache.iceberg.encryption">KmsClient.KeyGenerationResult</a></td>
+<td class="colLast">
+<div class="block">For KMS systems that support key generation, this class keeps the key generation result - the
+ raw secret key, and its wrap.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/encryption/NativeFileCryptoParameters.html" title="class in org.apache.iceberg.encryption">NativeFileCryptoParameters</a></td>
+<td class="colLast">
+<div class="block">Barebone encryption parameters, one object per content file.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/encryption/NativeFileCryptoParameters.Builder.html" title="class in org.apache.iceberg.encryption">NativeFileCryptoParameters.Builder</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/encryption/PlaintextEncryptionManager.html" title="class in org.apache.iceberg.encryption">PlaintextEncryptionManager</a></td>
 <td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li class="blockList">
+<table class="typeSummary" border="0" cellpadding="3" cellspacing="0" summary="Enum Summary table, listing enums, and an explanation">
+<caption><span>Enum Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Enum</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/encryption/EncryptionAlgorithm.html" title="enum in org.apache.iceberg.encryption">EncryptionAlgorithm</a></td>
+<td class="colLast">
+<div class="block">Algorithm supported for file encryption.</div>
+</td>
 </tr>
 </tbody>
 </table>
@@ -159,7 +218,7 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/deletes/package-summary.html">Prev&nbsp;Package</a></li>
+<li><a href="../../../../org/apache/iceberg/dell/ecs/package-summary.html">Prev&nbsp;Package</a></li>
 <li><a href="../../../../org/apache/iceberg/events/package-summary.html">Next&nbsp;Package</a></li>
 </ul>
 <ul class="navList">

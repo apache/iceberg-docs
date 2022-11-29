@@ -109,7 +109,8 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public interface <span class="typeNameLabel">EqualityDeltaWriter&lt;T&gt;</span>
 extends java.io.Closeable</pre>
-<div class="block">A writer capable of writing data and equality deletes that may belong to different specs and partitions.</div>
+<div class="block">A writer capable of writing data and equality deletes that may belong to different specs and
+ partitions.</div>
 </li>
 </ul>
 </div>
@@ -212,8 +213,8 @@ extends java.io.Closeable</pre>
             <a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec,
             <a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&nbsp;partition)</pre>
 <div class="block">Deletes a row from the provided spec/partition.
- <p>
- This method assumes the delete record has the same schema as the rows that will be inserted.</div>
+
+ <p>This method assumes the delete record has the same schema as the rows that will be inserted.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>row</code> - a delete record</dd>
@@ -234,8 +235,8 @@ extends java.io.Closeable</pre>
                <a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec,
                <a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&nbsp;partition)</pre>
 <div class="block">Deletes a key from the provided spec/partition.
- <p>
- This method assumes the delete key contains values only for equality fields.</div>
+
+ <p>This method assumes the delete key contains values only for equality fields.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>key</code> - a delete key</dd>
@@ -251,8 +252,7 @@ extends java.io.Closeable</pre>
 <li class="blockList">
 <h4>result</h4>
 <pre><a href="../../../../org/apache/iceberg/io/WriteResult.html" title="class in org.apache.iceberg.io">WriteResult</a>&nbsp;result()</pre>
-<div class="block">Returns a result that contains information about written <a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg"><code>DataFile</code></a>s or <a href="../../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg"><code>DeleteFile</code></a>s.
- The result is valid only after the writer is closed.</div>
+<div class="block">Returns a result that contains information about written <a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg"><code>DataFile</code></a>s or <a href="../../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg"><code>DeleteFile</code></a>s. The result is valid only after the writer is closed.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the writer result</dd>

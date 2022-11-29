@@ -158,32 +158,42 @@
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html" title="class in org.apache.iceberg.arrow.vectorized">VectorHolder</a></td>
 <td class="colLast">
-<div class="block">Container class for holding the Arrow vector storing a batch of values along with other state needed for reading
- values out of it.</div>
+<div class="block">Container class for holding the Arrow vector storing a batch of values along with other state
+ needed for reading values out of it.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.ConstantVectorHolder.html" title="class in org.apache.iceberg.arrow.vectorized">VectorHolder.ConstantVectorHolder</a>&lt;T&gt;</td>
 <td class="colLast">
-<div class="block">A Vector Holder which does not actually produce values, consumers of this class should
- use the constantValue to populate their ColumnVector implementation.</div>
+<div class="block">A Vector Holder which does not actually produce values, consumers of this class should use the
+ constantValue to populate their ColumnVector implementation.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.PositionVectorHolder.html" title="class in org.apache.iceberg.arrow.vectorized">VectorHolder.PositionVectorHolder</a></td>
+<td class="colFirst"><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.DeletedVectorHolder.html" title="class in org.apache.iceberg.arrow.vectorized">VectorHolder.DeletedVectorHolder</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.PositionVectorHolder.html" title="class in org.apache.iceberg.arrow.vectorized">VectorHolder.PositionVectorHolder</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorizedArrowReader.html" title="class in org.apache.iceberg.arrow.vectorized">VectorizedArrowReader</a></td>
 <td class="colLast">
 <div class="block"><a href="../../../../../org/apache/iceberg/parquet/VectorizedReader.html" title="interface in org.apache.iceberg.parquet"><code>VectorReader(s)</code></a> that read in a batch of values into Arrow vectors.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorizedArrowReader.ConstantVectorReader.html" title="class in org.apache.iceberg.arrow.vectorized">VectorizedArrowReader.ConstantVectorReader</a>&lt;T&gt;</td>
 <td class="colLast">
 <div class="block">A Dummy Vector Reader which doesn't actually read files, instead it returns a dummy
  VectorHolder which indicates the constant value which should be used for this column.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorizedArrowReader.DeletedVectorReader.html" title="class in org.apache.iceberg.arrow.vectorized">VectorizedArrowReader.DeletedVectorReader</a></td>
+<td class="colLast">
+<div class="block">A Dummy Vector Reader which doesn't actually read files.</div>
 </td>
 </tr>
 <tr class="altColor">

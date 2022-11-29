@@ -128,27 +128,35 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadOptions.html#END_SNAPSHOT_ID">END_SNAPSHOT_ID</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadOptions.html#BRANCH">BRANCH</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadOptions.html#END_SNAPSHOT_ID">END_SNAPSHOT_ID</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadOptions.html#FILE_OPEN_COST">FILE_OPEN_COST</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadOptions.html#FILE_SCAN_TASK_SET_ID">FILE_SCAN_TASK_SET_ID</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadOptions.html#HANDLE_TIMESTAMP_WITHOUT_TIMEZONE">HANDLE_TIMESTAMP_WITHOUT_TIMEZONE</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadOptions.html#LOCALITY">LOCALITY</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadOptions.html#LOOKBACK">LOOKBACK</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadOptions.html#PATH">PATH</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
@@ -176,11 +184,31 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadOptions.html#STREAMING_SKIP_OVERWRITE_SNAPSHOTS">STREAMING_SKIP_OVERWRITE_SNAPSHOTS</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadOptions.html#STREAMING_SKIP_OVERWRITE_SNAPSHOTS_DEFAULT">STREAMING_SKIP_OVERWRITE_SNAPSHOTS_DEFAULT</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadOptions.html#TAG">TAG</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadOptions.html#TIMESTAMP_AS_OF">TIMESTAMP_AS_OF</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadOptions.html#VECTORIZATION_BATCH_SIZE">VECTORIZATION_BATCH_SIZE</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadOptions.html#VECTORIZATION_ENABLED">VECTORIZATION_ENABLED</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadOptions.html#VERSION_AS_OF">VERSION_AS_OF</a></span></code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -261,6 +289,32 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkReadOptions.AS_OF_TIMESTAMP">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="BRANCH">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>BRANCH</h4>
+<pre>public static final&nbsp;java.lang.String BRANCH</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkReadOptions.BRANCH">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="TAG">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>TAG</h4>
+<pre>public static final&nbsp;java.lang.String TAG</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkReadOptions.TAG">Constant Field Values</a></dd>
 </dl>
 </li>
 </ul>
@@ -368,6 +422,32 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
+<a name="STREAMING_SKIP_OVERWRITE_SNAPSHOTS">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>STREAMING_SKIP_OVERWRITE_SNAPSHOTS</h4>
+<pre>public static final&nbsp;java.lang.String STREAMING_SKIP_OVERWRITE_SNAPSHOTS</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkReadOptions.STREAMING_SKIP_OVERWRITE_SNAPSHOTS">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="STREAMING_SKIP_OVERWRITE_SNAPSHOTS_DEFAULT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>STREAMING_SKIP_OVERWRITE_SNAPSHOTS_DEFAULT</h4>
+<pre>public static final&nbsp;boolean STREAMING_SKIP_OVERWRITE_SNAPSHOTS_DEFAULT</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkReadOptions.STREAMING_SKIP_OVERWRITE_SNAPSHOTS_DEFAULT">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
 <a name="HANDLE_TIMESTAMP_WITHOUT_TIMEZONE">
 <!--   -->
 </a>
@@ -397,13 +477,52 @@ extends java.lang.Object</pre>
 <a name="STREAM_FROM_TIMESTAMP">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>STREAM_FROM_TIMESTAMP</h4>
 <pre>public static final&nbsp;java.lang.String STREAM_FROM_TIMESTAMP</pre>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkReadOptions.STREAM_FROM_TIMESTAMP">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="PATH">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>PATH</h4>
+<pre>public static final&nbsp;java.lang.String PATH</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkReadOptions.PATH">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="VERSION_AS_OF">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>VERSION_AS_OF</h4>
+<pre>public static final&nbsp;java.lang.String VERSION_AS_OF</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkReadOptions.VERSION_AS_OF">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="TIMESTAMP_AS_OF">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>TIMESTAMP_AS_OF</h4>
+<pre>public static final&nbsp;java.lang.String TIMESTAMP_AS_OF</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkReadOptions.TIMESTAMP_AS_OF">Constant Field Values</a></dd>
 </dl>
 </li>
 </ul>

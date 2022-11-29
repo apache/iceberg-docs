@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li><a href="../../../../../org/apache/iceberg/gcp/gcs/GCSInputFile.html" title="class in org.apache.iceberg.gcp.gcs"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/iceberg/gcp/gcs/GCSFileIO.html" target="_top">Frames</a></li>
@@ -115,12 +115,14 @@ var activeTableTab = "activeTableTab";
 extends java.lang.Object
 implements <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a></pre>
 <div class="block">FileIO Implementation backed by Google Cloud Storage (GCS)
- <p>
- Locations follow the conventions used by
- <code>BlobId.fromGsUtilUri</code>
- that follow the convention <pre><code> gs://&lt;bucket&gt;/&lt;blob_path&gt;</code></pre>
- <p>
- See <a href="https://cloud.google.com/storage/docs/folders#overview">Cloud Storage Overview</a></div>
+
+ <p>Locations follow the conventions used by <code>BlobId.fromGsUtilUri</code> that follow the
+ convention
+
+ <pre><code> gs://&lt;bucket&gt;/&lt;blob_path&gt;</code></pre>
+
+ <p>See <a href="https://cloud.google.com/storage/docs/folders#overview">Cloud Storage
+ Overview</a></div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../../serialized-form.html#org.apache.iceberg.gcp.gcs.GCSFileIO">Serialized Form</a></dd>
@@ -182,7 +184,7 @@ implements <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="int
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/gcp/gcs/GCSFileIO.html#initialize-java.util.Map-">initialize</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/gcp/gcs/GCSFileIO.html#initialize-java.util.Map-">initialize</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;props)</code>
 <div class="block">Initialize File IO from catalog properties.</div>
 </td>
 </tr>
@@ -193,9 +195,23 @@ implements <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="int
 </td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/gcp/gcs/GCSFileIO.html#newInputFile-java.lang.String-long-">newInputFile</a></span>(java.lang.String&nbsp;path,
+            long&nbsp;length)</code>
+<div class="block">Get a <a href="../../../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io"><code>InputFile</code></a> instance to read bytes from the file at the given path, with a known
+ file length.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/io/OutputFile.html" title="interface in org.apache.iceberg.io">OutputFile</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/gcp/gcs/GCSFileIO.html#newOutputFile-java.lang.String-">newOutputFile</a></span>(java.lang.String&nbsp;path)</code>
 <div class="block">Get a <a href="../../../../../org/apache/iceberg/io/OutputFile.html" title="interface in org.apache.iceberg.io"><code>OutputFile</code></a> instance to write bytes to the file at the given path.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>java.util.Map&lt;java.lang.String,java.lang.String&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/gcp/gcs/GCSFileIO.html#properties--">properties</a></span>()</code>
+<div class="block">Returns the property map used to configure this FileIO</div>
 </td>
 </tr>
 </table>
@@ -235,8 +251,8 @@ implements <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="int
 <h4>GCSFileIO</h4>
 <pre>public&nbsp;GCSFileIO()</pre>
 <div class="block">No-arg constructor to load the FileIO dynamically.
- <p>
- All fields are initialized by calling <a href="../../../../../org/apache/iceberg/gcp/gcs/GCSFileIO.html#initialize-java.util.Map-"><code>initialize(Map)</code></a> later.</div>
+
+ <p>All fields are initialized by calling <a href="../../../../../org/apache/iceberg/gcp/gcs/GCSFileIO.html#initialize-java.util.Map-"><code>initialize(Map)</code></a> later.</div>
 </li>
 </ul>
 <a name="GCSFileIO-org.apache.iceberg.util.SerializableSupplier-org.apache.iceberg.gcp.GCPProperties-">
@@ -248,8 +264,9 @@ implements <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="int
 <pre>public&nbsp;GCSFileIO(<a href="../../../../../org/apache/iceberg/util/SerializableSupplier.html" title="interface in org.apache.iceberg.util">SerializableSupplier</a>&lt;com.google.cloud.storage.Storage&gt;&nbsp;storageSupplier,
                  <a href="../../../../../org/apache/iceberg/gcp/GCPProperties.html" title="class in org.apache.iceberg.gcp">GCPProperties</a>&nbsp;gcpProperties)</pre>
 <div class="block">Constructor with custom storage supplier and GCP properties.
- <p>
- Calling <a href="../../../../../org/apache/iceberg/gcp/gcs/GCSFileIO.html#initialize-java.util.Map-"><code>initialize(Map)</code></a> will overwrite information set in this constructor.</div>
+
+ <p>Calling <a href="../../../../../org/apache/iceberg/gcp/gcs/GCSFileIO.html#initialize-java.util.Map-"><code>initialize(Map)</code></a> will overwrite information set in this
+ constructor.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>storageSupplier</code> - storage supplier</dd>
@@ -277,6 +294,23 @@ implements <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="int
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/iceberg/io/FileIO.html#newInputFile-java.lang.String-">newInputFile</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="newInputFile-java.lang.String-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>newInputFile</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a>&nbsp;newInputFile(java.lang.String&nbsp;path,
+                              long&nbsp;length)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/iceberg/io/FileIO.html#newInputFile-java.lang.String-long-">FileIO</a></code></span></div>
+<div class="block">Get a <a href="../../../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io"><code>InputFile</code></a> instance to read bytes from the file at the given path, with a known
+ file length.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../org/apache/iceberg/io/FileIO.html#newInputFile-java.lang.String-long-">newInputFile</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -310,20 +344,35 @@ implements <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="int
 </dl>
 </li>
 </ul>
+<a name="properties--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>properties</h4>
+<pre>public&nbsp;java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/iceberg/io/FileIO.html#properties--">FileIO</a></code></span></div>
+<div class="block">Returns the property map used to configure this FileIO</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../org/apache/iceberg/io/FileIO.html#properties--">properties</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a></code></dd>
+</dl>
+</li>
+</ul>
 <a name="initialize-java.util.Map-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>initialize</h4>
-<pre>public&nbsp;void&nbsp;initialize(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</pre>
+<pre>public&nbsp;void&nbsp;initialize(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;props)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/iceberg/io/FileIO.html#initialize-java.util.Map-">FileIO</a></code></span></div>
 <div class="block">Initialize File IO from catalog properties.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/iceberg/io/FileIO.html#initialize-java.util.Map-">initialize</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>properties</code> - catalog properties</dd>
+<dd><code>props</code> - catalog properties</dd>
 </dl>
 </li>
 </ul>
@@ -336,9 +385,9 @@ implements <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="int
 <pre>public&nbsp;void&nbsp;close()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/iceberg/io/FileIO.html#close--">FileIO</a></code></span></div>
 <div class="block">Close File IO to release underlying resources.
- <p>
- Calling this method is only required when this FileIO instance is no longer expected to be used,
- and the resources it holds need to be explicitly released to avoid resource leaks.</div>
+
+ <p>Calling this method is only required when this FileIO instance is no longer expected to be
+ used, and the resources it holds need to be explicitly released to avoid resource leaks.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>close</code>&nbsp;in interface&nbsp;<code>java.io.Closeable</code></dd>
@@ -377,7 +426,7 @@ implements <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="int
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li><a href="../../../../../org/apache/iceberg/gcp/gcs/GCSInputFile.html" title="class in org.apache.iceberg.gcp.gcs"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/iceberg/gcp/gcs/GCSFileIO.html" target="_top">Frames</a></li>

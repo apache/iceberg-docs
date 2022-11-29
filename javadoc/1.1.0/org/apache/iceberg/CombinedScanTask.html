@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":18,"i1":6};
+var methods = {"i0":18,"i1":6,"i2":18};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -99,7 +99,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Superinterfaces:</dt>
-<dd><a href="../../../org/apache/iceberg/ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a>, java.io.Serializable</dd>
+<dd><a href="../../../org/apache/iceberg/ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a>, <a href="../../../org/apache/iceberg/ScanTaskGroup.html" title="interface in org.apache.iceberg">ScanTaskGroup</a>&lt;<a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;, java.io.Serializable</dd>
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
@@ -108,7 +108,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public interface <span class="typeNameLabel">CombinedScanTask</span>
-extends <a href="../../../org/apache/iceberg/ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a></pre>
+extends <a href="../../../org/apache/iceberg/ScanTaskGroup.html" title="interface in org.apache.iceberg">ScanTaskGroup</a>&lt;<a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;</pre>
 <div class="block">A scan task made of several ranges from files.</div>
 </li>
 </ul>
@@ -140,7 +140,20 @@ extends <a href="../../../org/apache/iceberg/ScanTask.html" title="interface in 
 <div class="block">Return the <a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg"><code>tasks</code></a> in this combined task.</div>
 </td>
 </tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>default java.util.Collection&lt;<a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CombinedScanTask.html#tasks--">tasks</a></span>()</code>
+<div class="block">Returns scan tasks in this group.</div>
+</td>
+</tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.org.apache.iceberg.ScanTaskGroup">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="../../../org/apache/iceberg/ScanTaskGroup.html" title="interface in org.apache.iceberg">ScanTaskGroup</a></h3>
+<code><a href="../../../org/apache/iceberg/ScanTaskGroup.html#estimatedRowsCount--">estimatedRowsCount</a>, <a href="../../../org/apache/iceberg/ScanTaskGroup.html#filesCount--">filesCount</a>, <a href="../../../org/apache/iceberg/ScanTaskGroup.html#sizeBytes--">sizeBytes</a></code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.org.apache.iceberg.ScanTask">
 <!--   -->
@@ -173,6 +186,21 @@ extends <a href="../../../org/apache/iceberg/ScanTask.html" title="interface in 
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a Collection of FileScanTask instances.</dd>
+</dl>
+</li>
+</ul>
+<a name="tasks--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>tasks</h4>
+<pre>default&nbsp;java.util.Collection&lt;<a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;&nbsp;tasks()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/ScanTaskGroup.html#tasks--">ScanTaskGroup</a></code></span></div>
+<div class="block">Returns scan tasks in this group.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/ScanTaskGroup.html#tasks--">tasks</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ScanTaskGroup.html" title="interface in org.apache.iceberg">ScanTaskGroup</a>&lt;<a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;</code></dd>
 </dl>
 </li>
 </ul>

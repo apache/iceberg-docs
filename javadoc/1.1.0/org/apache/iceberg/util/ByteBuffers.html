@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9};
+var methods = {"i0":9,"i1":9,"i2":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/util/BinPacking.PackingIterable.html" title="class in org.apache.iceberg.util"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/util/BucketUtil.html" title="class in org.apache.iceberg.util"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/util/CharSequenceSet.html" title="class in org.apache.iceberg.util"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -132,6 +132,11 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/ByteBuffers.html#copy-java.nio.ByteBuffer-">copy</a></span>(java.nio.ByteBuffer&nbsp;buffer)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>static java.nio.ByteBuffer</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/ByteBuffers.html#reuse-java.nio.ByteBuffer-int-">reuse</a></span>(java.nio.ByteBuffer&nbsp;reuse,
+     int&nbsp;length)</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>static byte[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/ByteBuffers.html#toByteArray-java.nio.ByteBuffer-">toByteArray</a></span>(java.nio.ByteBuffer&nbsp;buffer)</code>&nbsp;</td>
 </tr>
@@ -164,6 +169,16 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>toByteArray</h4>
 <pre>public static&nbsp;byte[]&nbsp;toByteArray(java.nio.ByteBuffer&nbsp;buffer)</pre>
+</li>
+</ul>
+<a name="reuse-java.nio.ByteBuffer-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>reuse</h4>
+<pre>public static&nbsp;java.nio.ByteBuffer&nbsp;reuse(java.nio.ByteBuffer&nbsp;reuse,
+                                        int&nbsp;length)</pre>
 </li>
 </ul>
 <a name="copy-java.nio.ByteBuffer-">
@@ -202,7 +217,7 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/util/BinPacking.PackingIterable.html" title="class in org.apache.iceberg.util"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/util/BucketUtil.html" title="class in org.apache.iceberg.util"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/util/CharSequenceSet.html" title="class in org.apache.iceberg.util"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

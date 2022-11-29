@@ -114,8 +114,8 @@ var activeTableTab = "activeTableTab";
 <pre>public class <span class="typeNameLabel">ColumnarBatch</span>
 extends java.lang.Object
 implements java.lang.AutoCloseable</pre>
-<div class="block">This class is inspired by Spark's <code>ColumnarBatch</code>.
- This class wraps a columnar batch in the result set of an Iceberg table query.</div>
+<div class="block">This class is inspired by Spark's <code>ColumnarBatch</code>. This class wraps a columnar batch in the
+ result set of an Iceberg table query.</div>
 </li>
 </ul>
 </div>
@@ -149,8 +149,8 @@ implements java.lang.AutoCloseable</pre>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>org.apache.arrow.vector.VectorSchemaRoot</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnarBatch.html#createVectorSchemaRootFromVectors--">createVectorSchemaRootFromVectors</a></span>()</code>
-<div class="block">Create a new instance of <code>VectorSchemaRoot</code>
- from the arrow vectors stored in this arrow batch.</div>
+<div class="block">Create a new instance of <code>VectorSchemaRoot</code> from the arrow vectors stored in this arrow
+ batch.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
@@ -194,9 +194,8 @@ implements java.lang.AutoCloseable</pre>
 <li class="blockList">
 <h4>createVectorSchemaRootFromVectors</h4>
 <pre>public&nbsp;org.apache.arrow.vector.VectorSchemaRoot&nbsp;createVectorSchemaRootFromVectors()</pre>
-<div class="block">Create a new instance of <code>VectorSchemaRoot</code>
- from the arrow vectors stored in this arrow batch.
- The arrow vectors are owned by the reader.</div>
+<div class="block">Create a new instance of <code>VectorSchemaRoot</code> from the arrow vectors stored in this arrow
+ batch. The arrow vectors are owned by the reader.</div>
 </li>
 </ul>
 <a name="close--">
@@ -206,8 +205,8 @@ implements java.lang.AutoCloseable</pre>
 <li class="blockList">
 <h4>close</h4>
 <pre>public&nbsp;void&nbsp;close()</pre>
-<div class="block">Called to close all the columns in this batch. It is not valid to access the data after calling this. This must be
- called at the end to clean up memory allocations.</div>
+<div class="block">Called to close all the columns in this batch. It is not valid to access the data after calling
+ this. This must be called at the end to clean up memory allocations.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>close</code>&nbsp;in interface&nbsp;<code>java.lang.AutoCloseable</code></dd>

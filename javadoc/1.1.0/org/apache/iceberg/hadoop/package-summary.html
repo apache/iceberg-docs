@@ -89,8 +89,8 @@
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/hadoop/HadoopConfigurable.html" title="interface in org.apache.iceberg.hadoop">HadoopConfigurable</a></td>
 <td class="colLast">
-<div class="block">An interface that extends the Hadoop <a href="../../../../org/apache/iceberg/hadoop/Configurable.html" title="interface in org.apache.iceberg.hadoop"><code>Configurable</code></a> interface to offer better serialization support for
- customizable Iceberg objects such as <a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><code>FileIO</code></a>.</div>
+<div class="block">An interface that extends the Hadoop <a href="../../../../org/apache/iceberg/hadoop/Configurable.html" title="interface in org.apache.iceberg.hadoop"><code>Configurable</code></a> interface to offer better serialization
+ support for customizable Iceberg objects such as <a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><code>FileIO</code></a>.</div>
 </td>
 </tr>
 </tbody>
@@ -111,8 +111,8 @@
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/hadoop/HadoopCatalog.html" title="class in org.apache.iceberg.hadoop">HadoopCatalog</a></td>
 <td class="colLast">
-<div class="block">HadoopCatalog provides a way to use table names like db.table to work with path-based tables under a common
- location.</div>
+<div class="block">HadoopCatalog provides a way to use table names like db.table to work with path-based tables
+ under a common location.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -126,37 +126,43 @@
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/hadoop/HadoopMetricsContext.html" title="class in org.apache.iceberg.hadoop">HadoopMetricsContext</a></td>
+<td class="colLast">
+<div class="block">FileIO Metrics implementation that delegates to Hadoop FileSystem statistics implementation using
+ the provided scheme.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/hadoop/HadoopOutputFile.html" title="class in org.apache.iceberg.hadoop">HadoopOutputFile</a></td>
 <td class="colLast">
 <div class="block"><a href="../../../../org/apache/iceberg/io/OutputFile.html" title="interface in org.apache.iceberg.io"><code>OutputFile</code></a> implementation using the Hadoop <code>FileSystem</code> API.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/hadoop/HadoopTableOperations.html" title="class in org.apache.iceberg.hadoop">HadoopTableOperations</a></td>
 <td class="colLast">
 <div class="block">TableOperations implementation for file systems that support atomic rename.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/hadoop/HadoopTables.html" title="class in org.apache.iceberg.hadoop">HadoopTables</a></td>
 <td class="colLast">
-<div class="block">Implementation of Iceberg tables that uses the Hadoop FileSystem
- to store metadata and manifests.</div>
+<div class="block">Implementation of Iceberg tables that uses the Hadoop FileSystem to store metadata and manifests.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/hadoop/HiddenPathFilter.html" title="class in org.apache.iceberg.hadoop">HiddenPathFilter</a></td>
 <td class="colLast">
 <div class="block">A <code>PathFilter</code> that filters out hidden paths.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/hadoop/SerializableConfiguration.html" title="class in org.apache.iceberg.hadoop">SerializableConfiguration</a></td>
 <td class="colLast">
 <div class="block">Wraps a <code>Configuration</code> object in a <code>Serializable</code> layer.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/hadoop/Util.html" title="class in org.apache.iceberg.hadoop">Util</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>

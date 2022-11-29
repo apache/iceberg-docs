@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":50,"i8":6,"i9":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"],32:["t6","Deprecated Methods"]};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/Rollback.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/RewriteManifests.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../org/apache/iceberg/RowLevelOperationMode.html" title="enum in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -106,11 +106,11 @@ var activeTableTab = "activeTableTab";
 <pre>public interface <span class="typeNameLabel">RowDelta</span>
 extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interface in org.apache.iceberg">SnapshotUpdate</a>&lt;<a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg">RowDelta</a>&gt;</pre>
 <div class="block">API for encoding row-level changes to a table.
- <p>
- This API accumulates data and delete file changes, produces a new <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><code>Snapshot</code></a> of the table, and commits
- that snapshot as the current.
- <p>
- When committing, these changes will be applied to the latest table snapshot. Commit conflicts
+
+ <p>This API accumulates data and delete file changes, produces a new <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><code>Snapshot</code></a> of the
+ table, and commits that snapshot as the current.
+
+ <p>When committing, these changes will be applied to the latest table snapshot. Commit conflicts
  will be resolved by applying the changes to the new latest snapshot and reattempting the commit.</div>
 </li>
 </ul>
@@ -125,7 +125,7 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -157,14 +157,14 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 <tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg">RowDelta</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/RowDelta.html#validateDataFilesExist-java.lang.Iterable-">validateDataFilesExist</a></span>(java.lang.Iterable&lt;? extends java.lang.CharSequence&gt;&nbsp;referencedFiles)</code>
-<div class="block">Add data file paths that must not be removed by conflicting commits for this RowDelta to succeed.</div>
+<div class="block">Add data file paths that must not be removed by conflicting commits for this RowDelta to
+ succeed.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg">RowDelta</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/RowDelta.html#validateDeletedFiles--">validateDeletedFiles</a></span>()</code>
-<div class="block">Enable validation that referenced data files passed to <a href="../../../org/apache/iceberg/RowDelta.html#validateDataFilesExist-java.lang.Iterable-"><code>validateDataFilesExist(Iterable)</code></a> have not been
- removed by a delete operation.</div>
+<div class="block">Enable validation that referenced data files passed to <a href="../../../org/apache/iceberg/RowDelta.html#validateDataFilesExist-java.lang.Iterable-"><code>validateDataFilesExist(Iterable)</code></a> have not been removed by a delete operation.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
@@ -174,24 +174,17 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 </td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code>default <a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg">RowDelta</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/RowDelta.html#validateNoConflictingAppends-org.apache.iceberg.expressions.Expression-">validateNoConflictingAppends</a></span>(<a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;conflictDetectionFilter)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">since 0.13.0, will be removed in 0.14.0; use <a href="../../../org/apache/iceberg/RowDelta.html#conflictDetectionFilter-org.apache.iceberg.expressions.Expression-"><code>conflictDetectionFilter(Expression)</code></a> and
-             <a href="../../../org/apache/iceberg/RowDelta.html#validateNoConflictingDataFiles--"><code>validateNoConflictingDataFiles()</code></a> instead.</span></div>
-</div>
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg">RowDelta</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/RowDelta.html#validateNoConflictingDataFiles--">validateNoConflictingDataFiles</a></span>()</code>
+<div class="block">Enables validation that data files added concurrently do not conflict with this commit's
+ operation.</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg">RowDelta</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/RowDelta.html#validateNoConflictingDataFiles--">validateNoConflictingDataFiles</a></span>()</code>
-<div class="block">Enables validation that data files added concurrently do not conflict with this commit's operation.</div>
-</td>
-</tr>
-<tr id="i9" class="rowColor">
-<td class="colFirst"><code><a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg">RowDelta</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/RowDelta.html#validateNoConflictingDeleteFiles--">validateNoConflictingDeleteFiles</a></span>()</code>
-<div class="block">Enables validation that delete files added concurrently do not conflict with this commit's operation.</div>
+<div class="block">Enables validation that delete files added concurrently do not conflict with this commit's
+ operation.</div>
 </td>
 </tr>
 </table>
@@ -200,7 +193,7 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interface in org.apache.iceberg">SnapshotUpdate</a></h3>
-<code><a href="../../../org/apache/iceberg/SnapshotUpdate.html#deleteWith-java.util.function.Consumer-">deleteWith</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#set-java.lang.String-java.lang.String-">set</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#stageOnly--">stageOnly</a></code></li>
+<code><a href="../../../org/apache/iceberg/SnapshotUpdate.html#deleteWith-java.util.function.Consumer-">deleteWith</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#scanManifestsWith-java.util.concurrent.ExecutorService-">scanManifestsWith</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#set-java.lang.String-java.lang.String-">set</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#stageOnly--">stageOnly</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#toBranch-java.lang.String-">toBranch</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.org.apache.iceberg.PendingUpdate">
@@ -263,9 +256,9 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 <h4>validateFromSnapshot</h4>
 <pre><a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg">RowDelta</a>&nbsp;validateFromSnapshot(long&nbsp;snapshotId)</pre>
 <div class="block">Set the snapshot ID used in any reads for this operation.
- <p>
- Validations will check changes after this snapshot ID. If the from snapshot is not set, all ancestor snapshots
- through the table's initial snapshot are validated.</div>
+
+ <p>Validations will check changes after this snapshot ID. If the from snapshot is not set, all
+ ancestor snapshots through the table's initial snapshot are validated.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>snapshotId</code> - a snapshot ID</dd>
@@ -297,14 +290,14 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 <li class="blockList">
 <h4>validateDataFilesExist</h4>
 <pre><a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg">RowDelta</a>&nbsp;validateDataFilesExist(java.lang.Iterable&lt;? extends java.lang.CharSequence&gt;&nbsp;referencedFiles)</pre>
-<div class="block">Add data file paths that must not be removed by conflicting commits for this RowDelta to succeed.
- <p>
- If any path has been removed by a conflicting commit in the table since the snapshot passed to
- <a href="../../../org/apache/iceberg/RowDelta.html#validateFromSnapshot-long-"><code>validateFromSnapshot(long)</code></a>, the operation will fail with a
- <a href="../../../org/apache/iceberg/exceptions/ValidationException.html" title="class in org.apache.iceberg.exceptions"><code>ValidationException</code></a>.
- <p>
- By default, this validation checks only rewrite and overwrite commits. To apply validation to delete commits, call
- <a href="../../../org/apache/iceberg/RowDelta.html#validateDeletedFiles--"><code>validateDeletedFiles()</code></a>.</div>
+<div class="block">Add data file paths that must not be removed by conflicting commits for this RowDelta to
+ succeed.
+
+ <p>If any path has been removed by a conflicting commit in the table since the snapshot passed
+ to <a href="../../../org/apache/iceberg/RowDelta.html#validateFromSnapshot-long-"><code>validateFromSnapshot(long)</code></a>, the operation will fail with a <a href="../../../org/apache/iceberg/exceptions/ValidationException.html" title="class in org.apache.iceberg.exceptions"><code>ValidationException</code></a>.
+
+ <p>By default, this validation checks only rewrite and overwrite commits. To apply validation
+ to delete commits, call <a href="../../../org/apache/iceberg/RowDelta.html#validateDeletedFiles--"><code>validateDeletedFiles()</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>referencedFiles</code> - file paths that are referenced by a position delete file</dd>
@@ -320,43 +313,13 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 <li class="blockList">
 <h4>validateDeletedFiles</h4>
 <pre><a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg">RowDelta</a>&nbsp;validateDeletedFiles()</pre>
-<div class="block">Enable validation that referenced data files passed to <a href="../../../org/apache/iceberg/RowDelta.html#validateDataFilesExist-java.lang.Iterable-"><code>validateDataFilesExist(Iterable)</code></a> have not been
- removed by a delete operation.
- <p>
- If a data file has a row deleted using a position delete file, rewriting or overwriting the data file concurrently
- would un-delete the row. Deleting the data file is normally allowed, but a delete may be part of a transaction
- that reads and re-appends a row. This method is used to validate deletes for the transaction case.</div>
+<div class="block">Enable validation that referenced data files passed to <a href="../../../org/apache/iceberg/RowDelta.html#validateDataFilesExist-java.lang.Iterable-"><code>validateDataFilesExist(Iterable)</code></a> have not been removed by a delete operation.
+
+ <p>If a data file has a row deleted using a position delete file, rewriting or overwriting the
+ data file concurrently would un-delete the row. Deleting the data file is normally allowed, but
+ a delete may be part of a transaction that reads and re-appends a row. This method is used to
+ validate deletes for the transaction case.</div>
 <dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>this for method chaining</dd>
-</dl>
-</li>
-</ul>
-<a name="validateNoConflictingAppends-org.apache.iceberg.expressions.Expression-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>validateNoConflictingAppends</h4>
-<pre>@Deprecated
-default&nbsp;<a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg">RowDelta</a>&nbsp;validateNoConflictingAppends(<a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;conflictDetectionFilter)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">since 0.13.0, will be removed in 0.14.0; use <a href="../../../org/apache/iceberg/RowDelta.html#conflictDetectionFilter-org.apache.iceberg.expressions.Expression-"><code>conflictDetectionFilter(Expression)</code></a> and
-             <a href="../../../org/apache/iceberg/RowDelta.html#validateNoConflictingDataFiles--"><code>validateNoConflictingDataFiles()</code></a> instead.</span></div>
-<div class="block">Enables validation that data files added concurrently do not conflict with this commit's operation.
- <p>
- This method should be called when the table is queried to determine which files to delete/append.
- If a concurrent operation commits a new file after the data was read and that file might
- contain rows matching the specified conflict detection filter, the overwrite operation
- will detect this during retries and fail.
- <p>
- Calling this method with a correct conflict detection filter is required to maintain
- serializable isolation for update/delete operations. Otherwise, the isolation level
- will be snapshot isolation.
- <p>
- Validation applies to files added to the table since the snapshot passed to <a href="../../../org/apache/iceberg/RowDelta.html#validateFromSnapshot-long-"><code>validateFromSnapshot(long)</code></a>.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>conflictDetectionFilter</code> - an expression on rows in the table</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>
 </dl>
@@ -370,8 +333,8 @@ default&nbsp;<a href="../../../org/apache/iceberg/RowDelta.html" title="interfac
 <h4>conflictDetectionFilter</h4>
 <pre><a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg">RowDelta</a>&nbsp;conflictDetectionFilter(<a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;conflictDetectionFilter)</pre>
 <div class="block">Sets a conflict detection filter used to validate concurrently added data and delete files.
- <p>
- If not called, a true literal will be used as the conflict detection filter.</div>
+
+ <p>If not called, a true literal will be used as the conflict detection filter.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>conflictDetectionFilter</code> - an expression on rows in the table</dd>
@@ -387,18 +350,19 @@ default&nbsp;<a href="../../../org/apache/iceberg/RowDelta.html" title="interfac
 <li class="blockList">
 <h4>validateNoConflictingDataFiles</h4>
 <pre><a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg">RowDelta</a>&nbsp;validateNoConflictingDataFiles()</pre>
-<div class="block">Enables validation that data files added concurrently do not conflict with this commit's operation.
- <p>
- This method should be called when the table is queried to determine which files to delete/append.
- If a concurrent operation commits a new file after the data was read and that file might
- contain rows matching the specified conflict detection filter, this operation
- will detect this during retries and fail.
- <p>
- Calling this method is required to maintain serializable isolation for update/delete operations.
- Otherwise, the isolation level will be snapshot isolation.
- <p>
- Validation uses the conflict detection filter passed to <a href="../../../org/apache/iceberg/RowDelta.html#conflictDetectionFilter-org.apache.iceberg.expressions.Expression-"><code>conflictDetectionFilter(Expression)</code></a> and
- applies to operations that happened after the snapshot passed to <a href="../../../org/apache/iceberg/RowDelta.html#validateFromSnapshot-long-"><code>validateFromSnapshot(long)</code></a>.</div>
+<div class="block">Enables validation that data files added concurrently do not conflict with this commit's
+ operation.
+
+ <p>This method should be called when the table is queried to determine which files to
+ delete/append. If a concurrent operation commits a new file after the data was read and that
+ file might contain rows matching the specified conflict detection filter, this operation will
+ detect this during retries and fail.
+
+ <p>Calling this method is required to maintain serializable isolation for update/delete
+ operations. Otherwise, the isolation level will be snapshot isolation.
+
+ <p>Validation uses the conflict detection filter passed to <a href="../../../org/apache/iceberg/RowDelta.html#conflictDetectionFilter-org.apache.iceberg.expressions.Expression-"><code>conflictDetectionFilter(Expression)</code></a> and applies to operations that happened after the
+ snapshot passed to <a href="../../../org/apache/iceberg/RowDelta.html#validateFromSnapshot-long-"><code>validateFromSnapshot(long)</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>
@@ -412,14 +376,15 @@ default&nbsp;<a href="../../../org/apache/iceberg/RowDelta.html" title="interfac
 <li class="blockList">
 <h4>validateNoConflictingDeleteFiles</h4>
 <pre><a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg">RowDelta</a>&nbsp;validateNoConflictingDeleteFiles()</pre>
-<div class="block">Enables validation that delete files added concurrently do not conflict with this commit's operation.
- <p>
- This method must be called when the table is queried to produce a row delta for UPDATE and
- MERGE operations independently of the isolation level. Calling this method isn't required
- for DELETE operations as it is OK to delete a record that is also deleted concurrently.
- <p>
- Validation uses the conflict detection filter passed to <a href="../../../org/apache/iceberg/RowDelta.html#conflictDetectionFilter-org.apache.iceberg.expressions.Expression-"><code>conflictDetectionFilter(Expression)</code></a> and
- applies to operations that happened after the snapshot passed to <a href="../../../org/apache/iceberg/RowDelta.html#validateFromSnapshot-long-"><code>validateFromSnapshot(long)</code></a>.</div>
+<div class="block">Enables validation that delete files added concurrently do not conflict with this commit's
+ operation.
+
+ <p>This method must be called when the table is queried to produce a row delta for UPDATE and
+ MERGE operations independently of the isolation level. Calling this method isn't required for
+ DELETE operations as it is OK to delete a record that is also deleted concurrently.
+
+ <p>Validation uses the conflict detection filter passed to <a href="../../../org/apache/iceberg/RowDelta.html#conflictDetectionFilter-org.apache.iceberg.expressions.Expression-"><code>conflictDetectionFilter(Expression)</code></a> and applies to operations that happened after the
+ snapshot passed to <a href="../../../org/apache/iceberg/RowDelta.html#validateFromSnapshot-long-"><code>validateFromSnapshot(long)</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>
@@ -453,7 +418,7 @@ default&nbsp;<a href="../../../org/apache/iceberg/RowDelta.html" title="interfac
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/Rollback.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/RewriteManifests.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../org/apache/iceberg/RowLevelOperationMode.html" title="enum in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

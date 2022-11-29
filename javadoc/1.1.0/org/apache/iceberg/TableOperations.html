@@ -99,7 +99,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../org/apache/iceberg/BaseMetastoreTableOperations.html" title="class in org.apache.iceberg">BaseMetastoreTableOperations</a>, <a href="../../../org/apache/iceberg/hadoop/HadoopTableOperations.html" title="class in org.apache.iceberg.hadoop">HadoopTableOperations</a>, <a href="../../../org/apache/iceberg/hive/HiveTableOperations.html" title="class in org.apache.iceberg.hive">HiveTableOperations</a>, <a href="../../../org/apache/iceberg/nessie/NessieTableOperations.html" title="class in org.apache.iceberg.nessie">NessieTableOperations</a>, <a href="../../../org/apache/iceberg/StaticTableOperations.html" title="class in org.apache.iceberg">StaticTableOperations</a></dd>
+<dd><a href="../../../org/apache/iceberg/BaseMetastoreTableOperations.html" title="class in org.apache.iceberg">BaseMetastoreTableOperations</a>, <a href="../../../org/apache/iceberg/BaseTransaction.TransactionTableOperations.html" title="class in org.apache.iceberg">BaseTransaction.TransactionTableOperations</a>, <a href="../../../org/apache/iceberg/dell/ecs/EcsTableOperations.html" title="class in org.apache.iceberg.dell.ecs">EcsTableOperations</a>, <a href="../../../org/apache/iceberg/hadoop/HadoopTableOperations.html" title="class in org.apache.iceberg.hadoop">HadoopTableOperations</a>, <a href="../../../org/apache/iceberg/hive/HiveTableOperations.html" title="class in org.apache.iceberg.hive">HiveTableOperations</a>, <a href="../../../org/apache/iceberg/nessie/NessieTableOperations.html" title="class in org.apache.iceberg.nessie">NessieTableOperations</a>, <a href="../../../org/apache/iceberg/StaticTableOperations.html" title="class in org.apache.iceberg">StaticTableOperations</a></dd>
 </dl>
 <hr>
 <br>
@@ -139,7 +139,8 @@ var activeTableTab = "activeTableTab";
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>default <a href="../../../org/apache/iceberg/encryption/EncryptionManager.html" title="interface in org.apache.iceberg.encryption">EncryptionManager</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableOperations.html#encryption--">encryption</a></span>()</code>
-<div class="block">Returns a <a href="../../../org/apache/iceberg/encryption/EncryptionManager.html" title="interface in org.apache.iceberg.encryption"><code>EncryptionManager</code></a> to encrypt and decrypt data files.</div>
+<div class="block">Returns a <a href="../../../org/apache/iceberg/encryption/EncryptionManager.html" title="interface in org.apache.iceberg.encryption"><code>EncryptionManager</code></a> to encrypt and decrypt data
+ files.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
@@ -176,7 +177,8 @@ var activeTableTab = "activeTableTab";
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>default <a href="../../../org/apache/iceberg/TableOperations.html" title="interface in org.apache.iceberg">TableOperations</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableOperations.html#temp-org.apache.iceberg.TableMetadata-">temp</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;uncommittedMetadata)</code>
-<div class="block">Return a temporary <a href="../../../org/apache/iceberg/TableOperations.html" title="interface in org.apache.iceberg"><code>TableOperations</code></a> instance that uses configuration from uncommitted metadata.</div>
+<div class="block">Return a temporary <a href="../../../org/apache/iceberg/TableOperations.html" title="interface in org.apache.iceberg"><code>TableOperations</code></a> instance that uses configuration from uncommitted
+ metadata.</div>
 </td>
 </tr>
 </table>
@@ -231,18 +233,18 @@ var activeTableTab = "activeTableTab";
 <pre>void&nbsp;commit(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
             <a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;metadata)</pre>
 <div class="block">Replace the base table metadata with a new version.
- <p>
- This method should implement and document atomicity guarantees.
- <p>
- Implementations must check that the base metadata is current to avoid overwriting updates.
+
+ <p>This method should implement and document atomicity guarantees.
+
+ <p>Implementations must check that the base metadata is current to avoid overwriting updates.
  Once the atomic commit operation succeeds, implementations must not perform any operations that
  may fail because failure in this method cannot be distinguished from commit failure.
- <p>
- Implementations must throw a <a href="../../../org/apache/iceberg/exceptions/CommitStateUnknownException.html" title="class in org.apache.iceberg.exceptions"><code>CommitStateUnknownException</code></a>
- in cases where it cannot be determined if the commit succeeded or failed.
- For example if a network partition causes the confirmation of the commit to be lost,
- the implementation should throw a CommitStateUnknownException. This is important because downstream users of
- this API need to know whether they can clean up the commit or not, if the state is unknown then it is not safe
+
+ <p>Implementations must throw a <a href="../../../org/apache/iceberg/exceptions/CommitStateUnknownException.html" title="class in org.apache.iceberg.exceptions"><code>CommitStateUnknownException</code></a> in cases where it cannot be
+ determined if the commit succeeded or failed. For example if a network partition causes the
+ confirmation of the commit to be lost, the implementation should throw a
+ CommitStateUnknownException. This is important because downstream users of this API need to
+ know whether they can clean up the commit or not, if the state is unknown then it is not safe
  to remove any files. All other exceptions will be treated as if the commit has failed.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -268,7 +270,8 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>encryption</h4>
 <pre>default&nbsp;<a href="../../../org/apache/iceberg/encryption/EncryptionManager.html" title="interface in org.apache.iceberg.encryption">EncryptionManager</a>&nbsp;encryption()</pre>
-<div class="block">Returns a <a href="../../../org/apache/iceberg/encryption/EncryptionManager.html" title="interface in org.apache.iceberg.encryption"><code>EncryptionManager</code></a> to encrypt and decrypt data files.</div>
+<div class="block">Returns a <a href="../../../org/apache/iceberg/encryption/EncryptionManager.html" title="interface in org.apache.iceberg.encryption"><code>EncryptionManager</code></a> to encrypt and decrypt data
+ files.</div>
 </li>
 </ul>
 <a name="metadataFileLocation-java.lang.String-">
@@ -280,9 +283,9 @@ var activeTableTab = "activeTableTab";
 <pre>java.lang.String&nbsp;metadataFileLocation(java.lang.String&nbsp;fileName)</pre>
 <div class="block">Given the name of a metadata file, obtain the full path of that file using an appropriate base
  location of the implementation's choosing.
- <p>
- The file may not exist yet, in which case the path should be returned as if it were to be created
- by e.g. <a href="../../../org/apache/iceberg/io/FileIO.html#newOutputFile-java.lang.String-"><code>FileIO.newOutputFile(String)</code></a>.</div>
+
+ <p>The file may not exist yet, in which case the path should be returned as if it were to be
+ created by e.g. <a href="../../../org/apache/iceberg/io/FileIO.html#newOutputFile-java.lang.String-"><code>FileIO.newOutputFile(String)</code></a>.</div>
 </li>
 </ul>
 <a name="locationProvider--">
@@ -306,12 +309,15 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>temp</h4>
 <pre>default&nbsp;<a href="../../../org/apache/iceberg/TableOperations.html" title="interface in org.apache.iceberg">TableOperations</a>&nbsp;temp(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;uncommittedMetadata)</pre>
-<div class="block">Return a temporary <a href="../../../org/apache/iceberg/TableOperations.html" title="interface in org.apache.iceberg"><code>TableOperations</code></a> instance that uses configuration from uncommitted metadata.
- <p>
- This is called by transactions when uncommitted table metadata should be used; for example, to create a metadata
- file location based on metadata in the transaction that has not been committed.
- <p>
- Transactions will not call <a href="../../../org/apache/iceberg/TableOperations.html#refresh--"><code>refresh()</code></a> or <a href="../../../org/apache/iceberg/TableOperations.html#commit-org.apache.iceberg.TableMetadata-org.apache.iceberg.TableMetadata-"><code>commit(TableMetadata, TableMetadata)</code></a>.</div>
+<div class="block">Return a temporary <a href="../../../org/apache/iceberg/TableOperations.html" title="interface in org.apache.iceberg"><code>TableOperations</code></a> instance that uses configuration from uncommitted
+ metadata.
+
+ <p>This is called by transactions when uncommitted table metadata should be used; for example,
+ to create a metadata file location based on metadata in the transaction that has not been
+ committed.
+
+ <p>Transactions will not call <a href="../../../org/apache/iceberg/TableOperations.html#refresh--"><code>refresh()</code></a> or <a href="../../../org/apache/iceberg/TableOperations.html#commit-org.apache.iceberg.TableMetadata-org.apache.iceberg.TableMetadata-"><code>commit(TableMetadata,
+ TableMetadata)</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>uncommittedMetadata</code> - uncommitted table metadata</dd>

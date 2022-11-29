@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -135,14 +135,26 @@ var activeTableTab = "activeTableTab";
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/ExpireSnapshots.Result.html#deletedManifestListsCount--">deletedManifestListsCount</a></span>()</code>
-<div class="block">Returns the number of deleted manifest lists.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/ExpireSnapshots.Result.html#deletedEqualityDeleteFilesCount--">deletedEqualityDeleteFilesCount</a></span>()</code>
+<div class="block">Returns the number of deleted equality delete files.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/ExpireSnapshots.Result.html#deletedManifestListsCount--">deletedManifestListsCount</a></span>()</code>
+<div class="block">Returns the number of deleted manifest lists.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/ExpireSnapshots.Result.html#deletedManifestsCount--">deletedManifestsCount</a></span>()</code>
 <div class="block">Returns the number of deleted manifests.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/ExpireSnapshots.Result.html#deletedPositionDeleteFilesCount--">deletedPositionDeleteFilesCount</a></span>()</code>
+<div class="block">Returns the number of deleted position delete files.</div>
 </td>
 </tr>
 </table>
@@ -168,6 +180,26 @@ var activeTableTab = "activeTableTab";
 <h4>deletedDataFilesCount</h4>
 <pre>long&nbsp;deletedDataFilesCount()</pre>
 <div class="block">Returns the number of deleted data files.</div>
+</li>
+</ul>
+<a name="deletedEqualityDeleteFilesCount--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>deletedEqualityDeleteFilesCount</h4>
+<pre>long&nbsp;deletedEqualityDeleteFilesCount()</pre>
+<div class="block">Returns the number of deleted equality delete files.</div>
+</li>
+</ul>
+<a name="deletedPositionDeleteFilesCount--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>deletedPositionDeleteFilesCount</h4>
+<pre>long&nbsp;deletedPositionDeleteFilesCount()</pre>
+<div class="block">Returns the number of deleted position delete files.</div>
 </li>
 </ul>
 <a name="deletedManifestsCount--">

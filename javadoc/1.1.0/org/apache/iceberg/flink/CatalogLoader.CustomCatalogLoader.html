@@ -202,9 +202,10 @@ implements <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" tit
 <h4>loadCatalog</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a>&nbsp;loadCatalog()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/flink/CatalogLoader.html#loadCatalog--">CatalogLoader</a></code></span></div>
-<div class="block">Create a new catalog with the provided properties. NOTICE: for flink, we may initialize the <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink"><code>CatalogLoader</code></a>
- at flink sql client side or job manager side, and then serialize this catalog loader to task manager, finally
- deserialize it and create a new catalog at task manager side.</div>
+<div class="block">Create a new catalog with the provided properties. NOTICE: for flink, we may initialize the
+ <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink"><code>CatalogLoader</code></a> at flink sql client side or job manager side, and then serialize this
+ catalog loader to task manager, finally deserialize it and create a new catalog at task manager
+ side.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/flink/CatalogLoader.html#loadCatalog--">loadCatalog</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink">CatalogLoader</a></code></dd>

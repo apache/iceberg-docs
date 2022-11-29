@@ -190,13 +190,11 @@ var activeTableTab = "activeTableTab";
 <h4>call</h4>
 <pre>org.apache.spark.sql.catalyst.InternalRow[]&nbsp;call(org.apache.spark.sql.catalyst.InternalRow&nbsp;args)</pre>
 <div class="block">Executes this procedure.
- <p>
- Spark will align the provided arguments according to the input parameters
- defined in <a href="../../../../../../../org/apache/spark/sql/connector/iceberg/catalog/Procedure.html#parameters--"><code>parameters()</code></a> either by position or by name before execution.
- <p>
- Implementations may provide a summary of execution by returning one or many rows
- as a result. The schema of output rows must match the defined output type
- in <a href="../../../../../../../org/apache/spark/sql/connector/iceberg/catalog/Procedure.html#outputType--"><code>outputType()</code></a>.</div>
+
+ <p>Spark will align the provided arguments according to the input parameters defined in <a href="../../../../../../../org/apache/spark/sql/connector/iceberg/catalog/Procedure.html#parameters--"><code>parameters()</code></a> either by position or by name before execution.
+
+ <p>Implementations may provide a summary of execution by returning one or many rows as a
+ result. The schema of output rows must match the defined output type in <a href="../../../../../../../org/apache/spark/sql/connector/iceberg/catalog/Procedure.html#outputType--"><code>outputType()</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>args</code> - input arguments</dd>

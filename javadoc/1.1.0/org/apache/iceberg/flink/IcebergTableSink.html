@@ -47,8 +47,8 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/flink/FlinkTypeVisitor.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/flink/IcebergTableSource.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/flink/FlinkWriteOptions.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/flink/RowDataWrapper.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/flink/IcebergTableSink.html" target="_top">Frames</a></li>
@@ -147,8 +147,10 @@ implements org.apache.flink.table.connector.sink.DynamicTableSink, org.apache.fl
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/IcebergTableSink.html#IcebergTableSink-org.apache.iceberg.flink.TableLoader-org.apache.flink.table.api.TableSchema-">IcebergTableSink</a></span>(<a href="../../../../org/apache/iceberg/flink/TableLoader.html" title="interface in org.apache.iceberg.flink">TableLoader</a>&nbsp;tableLoader,
-                org.apache.flink.table.api.TableSchema&nbsp;tableSchema)</code>&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/IcebergTableSink.html#IcebergTableSink-org.apache.iceberg.flink.TableLoader-org.apache.flink.table.api.TableSchema-org.apache.flink.configuration.ReadableConfig-java.util.Map-">IcebergTableSink</a></span>(<a href="../../../../org/apache/iceberg/flink/TableLoader.html" title="interface in org.apache.iceberg.flink">TableLoader</a>&nbsp;tableLoader,
+                org.apache.flink.table.api.TableSchema&nbsp;tableSchema,
+                org.apache.flink.configuration.ReadableConfig&nbsp;readableConfig,
+                java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;writeProps)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -218,14 +220,16 @@ implements org.apache.flink.table.connector.sink.DynamicTableSink, org.apache.fl
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="IcebergTableSink-org.apache.iceberg.flink.TableLoader-org.apache.flink.table.api.TableSchema-">
+<a name="IcebergTableSink-org.apache.iceberg.flink.TableLoader-org.apache.flink.table.api.TableSchema-org.apache.flink.configuration.ReadableConfig-java.util.Map-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>IcebergTableSink</h4>
 <pre>public&nbsp;IcebergTableSink(<a href="../../../../org/apache/iceberg/flink/TableLoader.html" title="interface in org.apache.iceberg.flink">TableLoader</a>&nbsp;tableLoader,
-                        org.apache.flink.table.api.TableSchema&nbsp;tableSchema)</pre>
+                        org.apache.flink.table.api.TableSchema&nbsp;tableSchema,
+                        org.apache.flink.configuration.ReadableConfig&nbsp;readableConfig,
+                        java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;writeProps)</pre>
 </li>
 </ul>
 </li>
@@ -341,8 +345,8 @@ implements org.apache.flink.table.connector.sink.DynamicTableSink, org.apache.fl
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/flink/FlinkTypeVisitor.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/flink/IcebergTableSource.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/flink/FlinkWriteOptions.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/flink/RowDataWrapper.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/flink/IcebergTableSink.html" target="_top">Frames</a></li>

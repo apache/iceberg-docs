@@ -110,17 +110,18 @@ var activeTableTab = "activeTableTab";
 <pre>public class <span class="typeNameLabel">InclusiveMetricsEvaluator</span>
 extends java.lang.Object</pre>
 <div class="block">Evaluates an <a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions"><code>Expression</code></a> on a <a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg"><code>DataFile</code></a> to test whether rows in the file may match.
- <p>
- This evaluation is inclusive: it returns true if a file may match and false if it cannot match.
- <p>
- Files are passed to <a href="../../../../org/apache/iceberg/expressions/InclusiveMetricsEvaluator.html#eval-org.apache.iceberg.ContentFile-"><code>eval(ContentFile)</code></a>, which returns true if the file may contain matching
- rows and false if the file cannot contain matching rows. Files may be skipped if and only if the
- return value of <code>eval</code> is false.
- <p>
- Due to the comparison implementation of ORC stats, for float/double columns in ORC files, if the first
- value in a file is NaN, metrics of this file will report NaN for both upper and lower bound despite
- that the column could contain non-NaN data. Thus in some scenarios explicitly checks for NaN is necessary
- in order to not skip files that may contain matching data.</div>
+
+ <p>This evaluation is inclusive: it returns true if a file may match and false if it cannot
+ match.
+
+ <p>Files are passed to <a href="../../../../org/apache/iceberg/expressions/InclusiveMetricsEvaluator.html#eval-org.apache.iceberg.ContentFile-"><code>eval(ContentFile)</code></a>, which returns true if the file may contain
+ matching rows and false if the file cannot contain matching rows. Files may be skipped if and
+ only if the return value of <code>eval</code> is false.
+
+ <p>Due to the comparison implementation of ORC stats, for float/double columns in ORC files, if
+ the first value in a file is NaN, metrics of this file will report NaN for both upper and lower
+ bound despite that the column could contain non-NaN data. Thus in some scenarios explicitly
+ checks for NaN is necessary in order to not skip files that may contain matching data.</div>
 </li>
 </ul>
 </div>

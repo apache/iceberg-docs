@@ -109,10 +109,10 @@
 <pre>public class <span class="typeNameLabel">DoubleFieldMetrics</span>
 extends <a href="../../../org/apache/iceberg/FieldMetrics.html" title="class in org.apache.iceberg">FieldMetrics</a>&lt;java.lang.Double&gt;</pre>
 <div class="block">Iceberg internally tracked field level metrics, used by Parquet and ORC writers only.
- <p>
- Parquet/ORC keeps track of most metrics in file statistics, and only NaN counter is actually tracked by writers.
- This wrapper ensures that metrics not being updated by those writers will not be incorrectly used, by throwing
- exceptions when they are accessed.</div>
+
+ <p>Parquet/ORC keeps track of most metrics in file statistics, and only NaN counter is actually
+ tracked by writers. This wrapper ensures that metrics not being updated by those writers will not
+ be incorrectly used, by throwing exceptions when they are accessed.</div>
 </li>
 </ul>
 </div>

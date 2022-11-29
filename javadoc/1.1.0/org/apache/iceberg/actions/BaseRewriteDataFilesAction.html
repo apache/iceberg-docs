@@ -379,15 +379,16 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>splitLookback</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/actions/BaseRewriteDataFilesAction.html" title="class in org.apache.iceberg.actions">BaseRewriteDataFilesAction</a>&lt;<a href="../../../../org/apache/iceberg/actions/BaseRewriteDataFilesAction.html" title="type parameter in BaseRewriteDataFilesAction">ThisT</a>&gt;&nbsp;splitLookback(int&nbsp;lookback)</pre>
-<div class="block">Specify the number of "bins" considered when trying to pack the next file split into a task. Increasing this
- usually makes tasks a bit more even by considering more ways to pack file regions into a single task with extra
- planning cost.
- <p>
- This configuration can reorder the incoming file regions, to preserve order for lower/upper bounds in file
- metadata, user can use a lookback of 1.</div>
+<div class="block">Specify the number of "bins" considered when trying to pack the next file split into a task.
+ Increasing this usually makes tasks a bit more even by considering more ways to pack file
+ regions into a single task with extra planning cost.
+
+ <p>This configuration can reorder the incoming file regions, to preserve order for lower/upper
+ bounds in file metadata, user can use a lookback of 1.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>lookback</code> - number of "bins" considered when trying to pack the next file split into a task.</dd>
+<dd><code>lookback</code> - number of "bins" considered when trying to pack the next file split into a
+     task.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>
 </dl>
@@ -400,11 +401,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>splitOpenFileCost</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/actions/BaseRewriteDataFilesAction.html" title="class in org.apache.iceberg.actions">BaseRewriteDataFilesAction</a>&lt;<a href="../../../../org/apache/iceberg/actions/BaseRewriteDataFilesAction.html" title="type parameter in BaseRewriteDataFilesAction">ThisT</a>&gt;&nbsp;splitOpenFileCost(long&nbsp;openFileCost)</pre>
-<div class="block">Specify the minimum file size to count to pack into one "bin". If the read file size is smaller than this specified
- threshold, Iceberg will use this value to do count.
- <p>
- this configuration controls the number of files to compact for each task, small value would lead to a high
- compaction, the default value is 4MB.</div>
+<div class="block">Specify the minimum file size to count to pack into one "bin". If the read file size is smaller
+ than this specified threshold, Iceberg will use this value to do count.
+
+ <p>this configuration controls the number of files to compact for each task, small value would
+ lead to a high compaction, the default value is 4MB.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>openFileCost</code> - minimum file size to count to pack into one "bin".</dd>
@@ -420,8 +421,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>filter</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/actions/BaseRewriteDataFilesAction.html" title="class in org.apache.iceberg.actions">BaseRewriteDataFilesAction</a>&lt;<a href="../../../../org/apache/iceberg/actions/BaseRewriteDataFilesAction.html" title="type parameter in BaseRewriteDataFilesAction">ThisT</a>&gt;&nbsp;filter(<a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr)</pre>
-<div class="block">Pass a row Expression to filter DataFiles to be rewritten. Note that all files that may contain data matching the
- filter may be rewritten.</div>
+<div class="block">Pass a row Expression to filter DataFiles to be rewritten. Note that all files that may contain
+ data matching the filter may be rewritten.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>expr</code> - Expression to filter out DataFiles</dd>

@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -143,42 +143,48 @@ implements <a href="../../../../org/apache/iceberg/transforms/Transform.html" ti
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code><a href="../../../../org/apache/iceberg/util/SerializableFunction.html" title="interface in org.apache.iceberg.util">SerializableFunction</a>&lt;<a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html" title="type parameter in UnknownTransform">S</a>,<a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html" title="type parameter in UnknownTransform">T</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html#bind-org.apache.iceberg.types.Type-">bind</a></span>(<a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types">Type</a>&nbsp;type)</code>
+<div class="block">Returns a function that applies this transform to values of the given <a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types"><code>type</code></a>.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html#canTransform-org.apache.iceberg.types.Type-">canTransform</a></span>(<a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types">Type</a>&nbsp;type)</code>
 <div class="block">Checks whether this function can be applied to the given <a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types"><code>Type</code></a>.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html#equals-java.lang.Object-">equals</a></span>(java.lang.Object&nbsp;other)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types">Type</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html#getResultType-org.apache.iceberg.types.Type-">getResultType</a></span>(<a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types">Type</a>&nbsp;type)</code>
 <div class="block">Returns the <a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types"><code>Type</code></a> produced by this transform given a source type.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html#hashCode--">hashCode</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;<a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html" title="type parameter in UnknownTransform">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html#project-java.lang.String-org.apache.iceberg.expressions.BoundPredicate-">project</a></span>(java.lang.String&nbsp;name,
        <a href="../../../../org/apache/iceberg/expressions/BoundPredicate.html" title="class in org.apache.iceberg.expressions">BoundPredicate</a>&lt;<a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html" title="type parameter in UnknownTransform">S</a>&gt;&nbsp;predicate)</code>
-<div class="block">Transforms a <a href="../../../../org/apache/iceberg/expressions/BoundPredicate.html" title="class in org.apache.iceberg.expressions"><code>predicate</code></a> to an inclusive predicate on the partition
- values produced by <a href="../../../../org/apache/iceberg/transforms/Transform.html#apply-S-"><code>Transform.apply(Object)</code></a>.</div>
+<div class="block">Transforms a <a href="../../../../org/apache/iceberg/expressions/BoundPredicate.html" title="class in org.apache.iceberg.expressions"><code>predicate</code></a> to an inclusive predicate on the partition values
+ produced by the transform.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;<a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html" title="type parameter in UnknownTransform">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html#projectStrict-java.lang.String-org.apache.iceberg.expressions.BoundPredicate-">projectStrict</a></span>(java.lang.String&nbsp;name,
              <a href="../../../../org/apache/iceberg/expressions/BoundPredicate.html" title="class in org.apache.iceberg.expressions">BoundPredicate</a>&lt;<a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html" title="type parameter in UnknownTransform">S</a>&gt;&nbsp;predicate)</code>
 <div class="block">Transforms a <a href="../../../../org/apache/iceberg/expressions/BoundPredicate.html" title="class in org.apache.iceberg.expressions"><code>predicate</code></a> to a strict predicate on the partition values
- produced by <a href="../../../../org/apache/iceberg/transforms/Transform.html#apply-S-"><code>Transform.apply(Object)</code></a>.</div>
+ produced by the transform.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -195,7 +201,7 @@ implements <a href="../../../../org/apache/iceberg/transforms/Transform.html" ti
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.iceberg.transforms.<a href="../../../../org/apache/iceberg/transforms/Transform.html" title="interface in org.apache.iceberg.transforms">Transform</a></h3>
-<code><a href="../../../../org/apache/iceberg/transforms/Transform.html#dedupName--">dedupName</a>, <a href="../../../../org/apache/iceberg/transforms/Transform.html#isIdentity--">isIdentity</a>, <a href="../../../../org/apache/iceberg/transforms/Transform.html#preservesOrder--">preservesOrder</a>, <a href="../../../../org/apache/iceberg/transforms/Transform.html#satisfiesOrderOf-org.apache.iceberg.transforms.Transform-">satisfiesOrderOf</a>, <a href="../../../../org/apache/iceberg/transforms/Transform.html#toHumanString-T-">toHumanString</a></code></li>
+<code><a href="../../../../org/apache/iceberg/transforms/Transform.html#dedupName--">dedupName</a>, <a href="../../../../org/apache/iceberg/transforms/Transform.html#isIdentity--">isIdentity</a>, <a href="../../../../org/apache/iceberg/transforms/Transform.html#preservesOrder--">preservesOrder</a>, <a href="../../../../org/apache/iceberg/transforms/Transform.html#satisfiesOrderOf-org.apache.iceberg.transforms.Transform-">satisfiesOrderOf</a>, <a href="../../../../org/apache/iceberg/transforms/Transform.html#toHumanString-T-">toHumanString</a>, <a href="../../../../org/apache/iceberg/transforms/Transform.html#toHumanString-org.apache.iceberg.types.Type-T-">toHumanString</a></code></li>
 </ul>
 </li>
 </ul>
@@ -229,6 +235,25 @@ implements <a href="../../../../org/apache/iceberg/transforms/Transform.html" ti
 <dd><code>value</code> - a source value</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a transformed partition value</dd>
+</dl>
+</li>
+</ul>
+<a name="bind-org.apache.iceberg.types.Type-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>bind</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/iceberg/util/SerializableFunction.html" title="interface in org.apache.iceberg.util">SerializableFunction</a>&lt;<a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html" title="type parameter in UnknownTransform">S</a>,<a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html" title="type parameter in UnknownTransform">T</a>&gt;&nbsp;bind(<a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types">Type</a>&nbsp;type)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/transforms/Transform.html#bind-org.apache.iceberg.types.Type-">Transform</a></code></span></div>
+<div class="block">Returns a function that applies this transform to values of the given <a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types"><code>type</code></a>.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../org/apache/iceberg/transforms/Transform.html#bind-org.apache.iceberg.types.Type-">bind</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/transforms/Transform.html" title="interface in org.apache.iceberg.transforms">Transform</a>&lt;<a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html" title="type parameter in UnknownTransform">S</a>,<a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html" title="type parameter in UnknownTransform">T</a>&gt;</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>type</code> - an Iceberg <a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types"><code>Type</code></a></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a <code>Function</code> that applies this transform to values of the given type.</dd>
 </dl>
 </li>
 </ul>
@@ -279,10 +304,11 @@ implements <a href="../../../../org/apache/iceberg/transforms/Transform.html" ti
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;<a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html" title="type parameter in UnknownTransform">T</a>&gt;&nbsp;project(java.lang.String&nbsp;name,
                                    <a href="../../../../org/apache/iceberg/expressions/BoundPredicate.html" title="class in org.apache.iceberg.expressions">BoundPredicate</a>&lt;<a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html" title="type parameter in UnknownTransform">S</a>&gt;&nbsp;predicate)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/transforms/Transform.html#project-java.lang.String-org.apache.iceberg.expressions.BoundPredicate-">Transform</a></code></span></div>
-<div class="block">Transforms a <a href="../../../../org/apache/iceberg/expressions/BoundPredicate.html" title="class in org.apache.iceberg.expressions"><code>predicate</code></a> to an inclusive predicate on the partition
- values produced by <a href="../../../../org/apache/iceberg/transforms/Transform.html#apply-S-"><code>Transform.apply(Object)</code></a>.
- <p>
- This inclusive transform guarantees that if pred(v) is true, then projected(apply(v)) is true.</div>
+<div class="block">Transforms a <a href="../../../../org/apache/iceberg/expressions/BoundPredicate.html" title="class in org.apache.iceberg.expressions"><code>predicate</code></a> to an inclusive predicate on the partition values
+ produced by the transform.
+
+ <p>This inclusive transform guarantees that if pred(v) is true, then projected(apply(v)) is
+ true.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/transforms/Transform.html#project-java.lang.String-org.apache.iceberg.expressions.BoundPredicate-">project</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/transforms/Transform.html" title="interface in org.apache.iceberg.transforms">Transform</a>&lt;<a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html" title="type parameter in UnknownTransform">S</a>,<a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html" title="type parameter in UnknownTransform">T</a>&gt;</code></dd>
@@ -304,9 +330,10 @@ implements <a href="../../../../org/apache/iceberg/transforms/Transform.html" ti
                                          <a href="../../../../org/apache/iceberg/expressions/BoundPredicate.html" title="class in org.apache.iceberg.expressions">BoundPredicate</a>&lt;<a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html" title="type parameter in UnknownTransform">S</a>&gt;&nbsp;predicate)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/transforms/Transform.html#projectStrict-java.lang.String-org.apache.iceberg.expressions.BoundPredicate-">Transform</a></code></span></div>
 <div class="block">Transforms a <a href="../../../../org/apache/iceberg/expressions/BoundPredicate.html" title="class in org.apache.iceberg.expressions"><code>predicate</code></a> to a strict predicate on the partition values
- produced by <a href="../../../../org/apache/iceberg/transforms/Transform.html#apply-S-"><code>Transform.apply(Object)</code></a>.
- <p>
- This strict transform guarantees that if strict(apply(v)) is true, then pred(v) is also true.</div>
+ produced by the transform.
+
+ <p>This strict transform guarantees that if strict(apply(v)) is true, then pred(v) is also
+ true.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/transforms/Transform.html#projectStrict-java.lang.String-org.apache.iceberg.expressions.BoundPredicate-">projectStrict</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/transforms/Transform.html" title="interface in org.apache.iceberg.transforms">Transform</a>&lt;<a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html" title="type parameter in UnknownTransform">S</a>,<a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html" title="type parameter in UnknownTransform">T</a>&gt;</code></dd>

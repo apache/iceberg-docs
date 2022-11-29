@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9};
+var methods = {"i0":9,"i1":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -128,6 +128,15 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/hive/MetastoreUtil.html#alterTable-org.apache.hadoop.hive.metastore.IMetaStoreClient-java.lang.String-java.lang.String-org.apache.hadoop.hive.metastore.api.Table-">alterTable</a></span>(org.apache.hadoop.hive.metastore.IMetaStoreClient&nbsp;client,
+          java.lang.String&nbsp;databaseName,
+          java.lang.String&nbsp;tblName,
+          org.apache.hadoop.hive.metastore.api.Table&nbsp;table)</code>
+<div class="block">Calls alter_table method using the metastore client.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/hive/MetastoreUtil.html#hive3PresentOnClasspath--">hive3PresentOnClasspath</a></span>()</code>
 <div class="block">Returns true if Hive3 dependencies are found on classpath, false otherwise.</div>
@@ -158,11 +167,25 @@ extends java.lang.Object</pre>
 <a name="hive3PresentOnClasspath--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>hive3PresentOnClasspath</h4>
 <pre>public static&nbsp;boolean&nbsp;hive3PresentOnClasspath()</pre>
 <div class="block">Returns true if Hive3 dependencies are found on classpath, false otherwise.</div>
+</li>
+</ul>
+<a name="alterTable-org.apache.hadoop.hive.metastore.IMetaStoreClient-java.lang.String-java.lang.String-org.apache.hadoop.hive.metastore.api.Table-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>alterTable</h4>
+<pre>public static&nbsp;void&nbsp;alterTable(org.apache.hadoop.hive.metastore.IMetaStoreClient&nbsp;client,
+                              java.lang.String&nbsp;databaseName,
+                              java.lang.String&nbsp;tblName,
+                              org.apache.hadoop.hive.metastore.api.Table&nbsp;table)</pre>
+<div class="block">Calls alter_table method using the metastore client. If possible, an environmental context will
+ be used that turns off stats updates to avoid recursive listing.</div>
 </li>
 </ul>
 </li>

@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/io/FileIOParser.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/io/FileWriterFactory.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -115,11 +115,12 @@ var activeTableTab = "activeTableTab";
 <pre>public interface <span class="typeNameLabel">FileWriter&lt;T,R&gt;</span>
 extends java.io.Closeable</pre>
 <div class="block">A writer capable of writing files of a single type (i.e. data/delete) to one spec/partition.
- <p>
- As opposed to <a href="../../../../org/apache/iceberg/io/FileAppender.html" title="interface in org.apache.iceberg.io"><code>FileAppender</code></a>, this interface should be implemented by classes that not only
- append records to files but actually produce <a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg"><code>DataFile</code></a>s or <a href="../../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg"><code>DeleteFile</code></a>s objects
- with Iceberg metadata. Implementations may wrap <a href="../../../../org/apache/iceberg/io/FileAppender.html" title="interface in org.apache.iceberg.io"><code>FileAppender</code></a>s with extra information
- such as spec, partition, sort order ID needed to construct <a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg"><code>DataFile</code></a>s or <a href="../../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg"><code>DeleteFile</code></a>s.</div>
+
+ <p>As opposed to <a href="../../../../org/apache/iceberg/io/FileAppender.html" title="interface in org.apache.iceberg.io"><code>FileAppender</code></a>, this interface should be implemented by classes that not
+ only append records to files but actually produce <a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg"><code>DataFile</code></a>s or <a href="../../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg"><code>DeleteFile</code></a>s
+ objects with Iceberg metadata. Implementations may wrap <a href="../../../../org/apache/iceberg/io/FileAppender.html" title="interface in org.apache.iceberg.io"><code>FileAppender</code></a>s with extra
+ information such as spec, partition, sort order ID needed to construct <a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg"><code>DataFile</code></a>s or
+ <a href="../../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg"><code>DeleteFile</code></a>s.</div>
 </li>
 </ul>
 </div>
@@ -235,8 +236,7 @@ extends java.io.Closeable</pre>
 <li class="blockList">
 <h4>result</h4>
 <pre><a href="../../../../org/apache/iceberg/io/FileWriter.html" title="type parameter in FileWriter">R</a>&nbsp;result()</pre>
-<div class="block">Returns a result that contains information about written <a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg"><code>DataFile</code></a>s or <a href="../../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg"><code>DeleteFile</code></a>s.
- The result is valid only after the writer is closed.</div>
+<div class="block">Returns a result that contains information about written <a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg"><code>DataFile</code></a>s or <a href="../../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg"><code>DeleteFile</code></a>s. The result is valid only after the writer is closed.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the file writer result</dd>
@@ -270,7 +270,7 @@ extends java.io.Closeable</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/io/FileIOParser.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/io/FileWriterFactory.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

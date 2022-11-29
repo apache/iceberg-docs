@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -248,24 +248,28 @@ implements java.io.Closeable, <a href="../../../../../org/apache/iceberg/catalog
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/glue/GlueCatalog.html#newTableOps-org.apache.iceberg.catalog.TableIdentifier-">newTableOps</a></span>(<a href="../../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;tableIdentifier)</code>&nbsp;</td>
 </tr>
 <tr id="i12" class="altColor">
+<td class="colFirst"><code>protected java.util.Map&lt;java.lang.String,java.lang.String&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/glue/GlueCatalog.html#properties--">properties</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/glue/GlueCatalog.html#removeProperties-org.apache.iceberg.catalog.Namespace-java.util.Set-">removeProperties</a></span>(<a href="../../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace,
                 java.util.Set&lt;java.lang.String&gt;&nbsp;properties)</code>
 <div class="block">Remove a set of property keys from a namespace in the catalog.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/glue/GlueCatalog.html#renameTable-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.catalog.TableIdentifier-">renameTable</a></span>(<a href="../../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;from,
            <a href="../../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;to)</code>
 <div class="block">Rename table in Glue is a drop table and create table.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/glue/GlueCatalog.html#setConf-org.apache.hadoop.conf.Configuration-">setConf</a></span>(org.apache.hadoop.conf.Configuration&nbsp;conf)</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/glue/GlueCatalog.html#setProperties-org.apache.iceberg.catalog.Namespace-java.util.Map-">setProperties</a></span>(<a href="../../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace,
              java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</code>
@@ -278,7 +282,7 @@ implements java.io.Closeable, <a href="../../../../../org/apache/iceberg/catalog
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.iceberg.<a href="../../../../../org/apache/iceberg/BaseMetastoreCatalog.html" title="class in org.apache.iceberg">BaseMetastoreCatalog</a></h3>
-<code><a href="../../../../../org/apache/iceberg/BaseMetastoreCatalog.html#buildTable-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-">buildTable</a>, <a href="../../../../../org/apache/iceberg/BaseMetastoreCatalog.html#fullTableName-java.lang.String-org.apache.iceberg.catalog.TableIdentifier-">fullTableName</a>, <a href="../../../../../org/apache/iceberg/BaseMetastoreCatalog.html#loadTable-org.apache.iceberg.catalog.TableIdentifier-">loadTable</a>, <a href="../../../../../org/apache/iceberg/BaseMetastoreCatalog.html#toString--">toString</a></code></li>
+<code><a href="../../../../../org/apache/iceberg/BaseMetastoreCatalog.html#buildTable-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-">buildTable</a>, <a href="../../../../../org/apache/iceberg/BaseMetastoreCatalog.html#fullTableName-java.lang.String-org.apache.iceberg.catalog.TableIdentifier-">fullTableName</a>, <a href="../../../../../org/apache/iceberg/BaseMetastoreCatalog.html#loadTable-org.apache.iceberg.catalog.TableIdentifier-">loadTable</a>, <a href="../../../../../org/apache/iceberg/BaseMetastoreCatalog.html#registerTable-org.apache.iceberg.catalog.TableIdentifier-java.lang.String-">registerTable</a>, <a href="../../../../../org/apache/iceberg/BaseMetastoreCatalog.html#toString--">toString</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -299,7 +303,7 @@ implements java.io.Closeable, <a href="../../../../../org/apache/iceberg/catalog
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.iceberg.catalog.<a href="../../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a></h3>
-<code><a href="../../../../../org/apache/iceberg/catalog/Catalog.html#createTable-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-">createTable</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#createTable-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-org.apache.iceberg.PartitionSpec-">createTable</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#createTable-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-org.apache.iceberg.PartitionSpec-java.util.Map-">createTable</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#createTable-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-org.apache.iceberg.PartitionSpec-java.lang.String-java.util.Map-">createTable</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#dropTable-org.apache.iceberg.catalog.TableIdentifier-">dropTable</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#invalidateTable-org.apache.iceberg.catalog.TableIdentifier-">invalidateTable</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#newCreateTableTransaction-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-">newCreateTableTransaction</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#newCreateTableTransaction-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-org.apache.iceberg.PartitionSpec-">newCreateTableTransaction</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#newCreateTableTransaction-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-org.apache.iceberg.PartitionSpec-java.util.Map-">newCreateTableTransaction</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#newCreateTableTransaction-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-org.apache.iceberg.PartitionSpec-java.lang.String-java.util.Map-">newCreateTableTransaction</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#newReplaceTableTransaction-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-boolean-">newReplaceTableTransaction</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#newReplaceTableTransaction-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-org.apache.iceberg.PartitionSpec-boolean-">newReplaceTableTransaction</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#newReplaceTableTransaction-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-org.apache.iceberg.PartitionSpec-java.util.Map-boolean-">newReplaceTableTransaction</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#newReplaceTableTransaction-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-org.apache.iceberg.PartitionSpec-java.lang.String-java.util.Map-boolean-">newReplaceTableTransaction</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#registerTable-org.apache.iceberg.catalog.TableIdentifier-java.lang.String-">registerTable</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#tableExists-org.apache.iceberg.catalog.TableIdentifier-">tableExists</a></code></li>
+<code><a href="../../../../../org/apache/iceberg/catalog/Catalog.html#createTable-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-">createTable</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#createTable-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-org.apache.iceberg.PartitionSpec-">createTable</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#createTable-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-org.apache.iceberg.PartitionSpec-java.util.Map-">createTable</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#createTable-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-org.apache.iceberg.PartitionSpec-java.lang.String-java.util.Map-">createTable</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#dropTable-org.apache.iceberg.catalog.TableIdentifier-">dropTable</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#invalidateTable-org.apache.iceberg.catalog.TableIdentifier-">invalidateTable</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#newCreateTableTransaction-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-">newCreateTableTransaction</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#newCreateTableTransaction-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-org.apache.iceberg.PartitionSpec-">newCreateTableTransaction</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#newCreateTableTransaction-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-org.apache.iceberg.PartitionSpec-java.util.Map-">newCreateTableTransaction</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#newCreateTableTransaction-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-org.apache.iceberg.PartitionSpec-java.lang.String-java.util.Map-">newCreateTableTransaction</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#newReplaceTableTransaction-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-boolean-">newReplaceTableTransaction</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#newReplaceTableTransaction-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-org.apache.iceberg.PartitionSpec-boolean-">newReplaceTableTransaction</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#newReplaceTableTransaction-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-org.apache.iceberg.PartitionSpec-java.util.Map-boolean-">newReplaceTableTransaction</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#newReplaceTableTransaction-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-org.apache.iceberg.PartitionSpec-java.lang.String-java.util.Map-boolean-">newReplaceTableTransaction</a>, <a href="../../../../../org/apache/iceberg/catalog/Catalog.html#tableExists-org.apache.iceberg.catalog.TableIdentifier-">tableExists</a></code></li>
 </ul>
 </li>
 </ul>
@@ -323,8 +327,8 @@ implements java.io.Closeable, <a href="../../../../../org/apache/iceberg/catalog
 <h4>GlueCatalog</h4>
 <pre>public&nbsp;GlueCatalog()</pre>
 <div class="block">No-arg constructor to load the catalog dynamically.
- <p>
- All fields are initialized by calling <a href="../../../../../org/apache/iceberg/aws/glue/GlueCatalog.html#initialize-java.lang.String-java.util.Map-"><code>initialize(String, Map)</code></a> later.</div>
+
+ <p>All fields are initialized by calling <a href="../../../../../org/apache/iceberg/aws/glue/GlueCatalog.html#initialize-java.lang.String-java.util.Map-"><code>initialize(String, Map)</code></a> later.</div>
 </li>
 </ul>
 </li>
@@ -345,10 +349,10 @@ implements java.io.Closeable, <a href="../../../../../org/apache/iceberg/catalog
                        java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/iceberg/catalog/Catalog.html#initialize-java.lang.String-java.util.Map-">Catalog</a></code></span></div>
 <div class="block">Initialize a catalog given a custom name and a map of catalog properties.
- <p>
- A custom Catalog implementation must have a no-arg constructor.
- A compute engine like Spark or Flink will first initialize the catalog without any arguments,
- and then call this method to complete catalog initialization with properties passed into the engine.</div>
+
+ <p>A custom Catalog implementation must have a no-arg constructor. A compute engine like Spark
+ or Flink will first initialize the catalog without any arguments, and then call this method to
+ complete catalog initialization with properties passed into the engine.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/iceberg/catalog/Catalog.html#initialize-java.lang.String-java.util.Map-">initialize</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a></code></dd>
@@ -378,9 +382,9 @@ implements java.io.Closeable, <a href="../../../../../org/apache/iceberg/catalog
 <li class="blockList">
 <h4>defaultWarehouseLocation</h4>
 <pre>protected&nbsp;java.lang.String&nbsp;defaultWarehouseLocation(<a href="../../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;tableIdentifier)</pre>
-<div class="block">This method produces the same result as using a HiveCatalog.
- If databaseUri exists for the Glue database URI, the default location is databaseUri/tableName.
- If not, the default location is warehousePath/databaseName.db/tableName</div>
+<div class="block">This method produces the same result as using a HiveCatalog. If databaseUri exists for the Glue
+ database URI, the default location is databaseUri/tableName. If not, the default location is
+ warehousePath/databaseName.db/tableName</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/iceberg/BaseMetastoreCatalog.html#defaultWarehouseLocation-org.apache.iceberg.catalog.TableIdentifier-">defaultWarehouseLocation</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/iceberg/BaseMetastoreCatalog.html" title="class in org.apache.iceberg">BaseMetastoreCatalog</a></code></dd>
@@ -420,8 +424,8 @@ implements java.io.Closeable, <a href="../../../../../org/apache/iceberg/catalog
                          boolean&nbsp;purge)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/iceberg/catalog/Catalog.html#dropTable-org.apache.iceberg.catalog.TableIdentifier-boolean-">Catalog</a></code></span></div>
 <div class="block">Drop a table; optionally delete data and metadata files.
- <p>
- If purge is set to true the implementation should delete all data and metadata files.</div>
+
+ <p>If purge is set to true the implementation should delete all data and metadata files.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/iceberg/catalog/Catalog.html#dropTable-org.apache.iceberg.catalog.TableIdentifier-boolean-">dropTable</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a></code></dd>
@@ -480,9 +484,9 @@ implements java.io.Closeable, <a href="../../../../../org/apache/iceberg/catalog
                                          throws <a href="../../../../../org/apache/iceberg/exceptions/NoSuchNamespaceException.html" title="class in org.apache.iceberg.exceptions">NoSuchNamespaceException</a></pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/iceberg/catalog/SupportsNamespaces.html#listNamespaces-org.apache.iceberg.catalog.Namespace-">SupportsNamespaces</a></code></span></div>
 <div class="block">List namespaces from the namespace.
- <p>
- For example, if table a.b.t exists, use 'SELECT NAMESPACE IN a' this method
- must return Namepace.of("a","b") <a href="../../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>Namespace</code></a>.</div>
+
+ <p>For example, if table a.b.t exists, use 'SELECT NAMESPACE IN a' this method must return
+ Namepace.of("a","b") <a href="../../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>Namespace</code></a>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/iceberg/catalog/SupportsNamespaces.html#listNamespaces-org.apache.iceberg.catalog.Namespace-">listNamespaces</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/iceberg/catalog/SupportsNamespaces.html" title="interface in org.apache.iceberg.catalog">SupportsNamespaces</a></code></dd>
@@ -548,8 +552,8 @@ implements java.io.Closeable, <a href="../../../../../org/apache/iceberg/catalog
                       throws <a href="../../../../../org/apache/iceberg/exceptions/NoSuchNamespaceException.html" title="class in org.apache.iceberg.exceptions">NoSuchNamespaceException</a></pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/iceberg/catalog/SupportsNamespaces.html#setProperties-org.apache.iceberg.catalog.Namespace-java.util.Map-">SupportsNamespaces</a></code></span></div>
 <div class="block">Set a collection of properties on a namespace in the catalog.
- <p>
- Properties that are not in the given map are not modified or removed by this method.</div>
+
+ <p>Properties that are not in the given map are not modified or removed by this method.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/iceberg/catalog/SupportsNamespaces.html#setProperties-org.apache.iceberg.catalog.Namespace-java.util.Map-">setProperties</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/iceberg/catalog/SupportsNamespaces.html" title="interface in org.apache.iceberg.catalog">SupportsNamespaces</a></code></dd>
@@ -572,8 +576,8 @@ implements java.io.Closeable, <a href="../../../../../org/apache/iceberg/catalog
                          throws <a href="../../../../../org/apache/iceberg/exceptions/NoSuchNamespaceException.html" title="class in org.apache.iceberg.exceptions">NoSuchNamespaceException</a></pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/iceberg/catalog/SupportsNamespaces.html#removeProperties-org.apache.iceberg.catalog.Namespace-java.util.Set-">SupportsNamespaces</a></code></span></div>
 <div class="block">Remove a set of property keys from a namespace in the catalog.
- <p>
- Properties that are not in the given set are not modified or removed by this method.</div>
+
+ <p>Properties that are not in the given set are not modified or removed by this method.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/iceberg/catalog/SupportsNamespaces.html#removeProperties-org.apache.iceberg.catalog.Namespace-java.util.Set-">removeProperties</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/iceberg/catalog/SupportsNamespaces.html" title="interface in org.apache.iceberg.catalog">SupportsNamespaces</a></code></dd>
@@ -636,13 +640,26 @@ implements java.io.Closeable, <a href="../../../../../org/apache/iceberg/catalog
 <a name="setConf-org.apache.hadoop.conf.Configuration-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setConf</h4>
 <pre>public&nbsp;void&nbsp;setConf(org.apache.hadoop.conf.Configuration&nbsp;conf)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/iceberg/hadoop/Configurable.html#setConf-C-">setConf</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/iceberg/hadoop/Configurable.html" title="interface in org.apache.iceberg.hadoop">Configurable</a>&lt;org.apache.hadoop.conf.Configuration&gt;</code></dd>
+</dl>
+</li>
+</ul>
+<a name="properties--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>properties</h4>
+<pre>protected&nbsp;java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../../org/apache/iceberg/BaseMetastoreCatalog.html#properties--">properties</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/iceberg/BaseMetastoreCatalog.html" title="class in org.apache.iceberg">BaseMetastoreCatalog</a></code></dd>
 </dl>
 </li>
 </ul>

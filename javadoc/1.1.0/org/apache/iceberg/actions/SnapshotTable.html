@@ -103,7 +103,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../org/apache/iceberg/spark/actions/BaseSnapshotTableSparkAction.html" title="class in org.apache.iceberg.spark.actions">BaseSnapshotTableSparkAction</a></dd>
+<dd><a href="../../../../org/apache/iceberg/spark/actions/SnapshotTableSparkAction.html" title="class in org.apache.iceberg.spark.actions">SnapshotTableSparkAction</a></dd>
 </dl>
 <hr>
 <br>
@@ -235,8 +235,8 @@ extends <a href="../../../../org/apache/iceberg/actions/Action.html" title="inte
 <li class="blockList">
 <h4>tableProperties</h4>
 <pre><a href="../../../../org/apache/iceberg/actions/SnapshotTable.html" title="interface in org.apache.iceberg.actions">SnapshotTable</a>&nbsp;tableProperties(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</pre>
-<div class="block">Sets table properties in the newly created Iceberg table. Any properties with
- the same key name will be overwritten.</div>
+<div class="block">Sets table properties in the newly created Iceberg table. Any properties with the same key name
+ will be overwritten.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>properties</code> - a map of properties to be included</dd>
@@ -253,8 +253,8 @@ extends <a href="../../../../org/apache/iceberg/actions/Action.html" title="inte
 <h4>tableProperty</h4>
 <pre><a href="../../../../org/apache/iceberg/actions/SnapshotTable.html" title="interface in org.apache.iceberg.actions">SnapshotTable</a>&nbsp;tableProperty(java.lang.String&nbsp;key,
                             java.lang.String&nbsp;value)</pre>
-<div class="block">Sets a table property in the newly created Iceberg table. Any properties
- with the same key name will be overwritten.</div>
+<div class="block">Sets a table property in the newly created Iceberg table. Any properties with the same key name
+ will be overwritten.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>key</code> - the key of the property to add</dd>

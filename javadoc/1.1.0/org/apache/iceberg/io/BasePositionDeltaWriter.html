@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -132,7 +132,8 @@ implements <a href="../../../../org/apache/iceberg/io/PositionDeltaWriter.html" 
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html#BasePositionDeltaWriter-org.apache.iceberg.io.PartitioningWriter-org.apache.iceberg.io.PartitioningWriter-">BasePositionDeltaWriter</a></span>(<a href="../../../../org/apache/iceberg/io/PartitioningWriter.html" title="interface in org.apache.iceberg.io">PartitioningWriter</a>&lt;<a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html" title="type parameter in BasePositionDeltaWriter">T</a>,<a href="../../../../org/apache/iceberg/io/DataWriteResult.html" title="class in org.apache.iceberg.io">DataWriteResult</a>&gt;&nbsp;dataWriter,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html#BasePositionDeltaWriter-org.apache.iceberg.io.PartitioningWriter-org.apache.iceberg.io.PartitioningWriter-org.apache.iceberg.io.PartitioningWriter-">BasePositionDeltaWriter</a></span>(<a href="../../../../org/apache/iceberg/io/PartitioningWriter.html" title="interface in org.apache.iceberg.io">PartitioningWriter</a>&lt;<a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html" title="type parameter in BasePositionDeltaWriter">T</a>,<a href="../../../../org/apache/iceberg/io/DataWriteResult.html" title="class in org.apache.iceberg.io">DataWriteResult</a>&gt;&nbsp;insertWriter,
+                       <a href="../../../../org/apache/iceberg/io/PartitioningWriter.html" title="interface in org.apache.iceberg.io">PartitioningWriter</a>&lt;<a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html" title="type parameter in BasePositionDeltaWriter">T</a>,<a href="../../../../org/apache/iceberg/io/DataWriteResult.html" title="class in org.apache.iceberg.io">DataWriteResult</a>&gt;&nbsp;updateWriter,
                        <a href="../../../../org/apache/iceberg/io/PartitioningWriter.html" title="interface in org.apache.iceberg.io">PartitioningWriter</a>&lt;<a href="../../../../org/apache/iceberg/deletes/PositionDelete.html" title="class in org.apache.iceberg.deletes">PositionDelete</a>&lt;<a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html" title="type parameter in BasePositionDeltaWriter">T</a>&gt;,<a href="../../../../org/apache/iceberg/io/DeleteWriteResult.html" title="class in org.apache.iceberg.io">DeleteWriteResult</a>&gt;&nbsp;deleteWriter)</code>&nbsp;</td>
 </tr>
 </table>
@@ -161,7 +162,8 @@ implements <a href="../../../../org/apache/iceberg/io/PositionDeltaWriter.html" 
       <a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html" title="type parameter in BasePositionDeltaWriter">T</a>&nbsp;row,
       <a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec,
       <a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&nbsp;partition)</code>
-<div class="block">Deletes a position in the provided spec/partition and records the deleted row in the delete file.</div>
+<div class="block">Deletes a position in the provided spec/partition and records the deleted row in the delete
+ file.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -176,6 +178,14 @@ implements <a href="../../../../org/apache/iceberg/io/PositionDeltaWriter.html" 
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/io/WriteResult.html" title="class in org.apache.iceberg.io">WriteResult</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html#result--">result</a></span>()</code>
 <div class="block">Returns a result that contains information about written <a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg"><code>DataFile</code></a>s or <a href="../../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg"><code>DeleteFile</code></a>s.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html#update-T-org.apache.iceberg.PartitionSpec-org.apache.iceberg.StructLike-">update</a></span>(<a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html" title="type parameter in BasePositionDeltaWriter">T</a>&nbsp;row,
+      <a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec,
+      <a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&nbsp;partition)</code>
+<div class="block">Inserts a new version of an existing row to the provided spec/partition.</div>
 </td>
 </tr>
 </table>
@@ -207,13 +217,14 @@ implements <a href="../../../../org/apache/iceberg/io/PositionDeltaWriter.html" 
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="BasePositionDeltaWriter-org.apache.iceberg.io.PartitioningWriter-org.apache.iceberg.io.PartitioningWriter-">
+<a name="BasePositionDeltaWriter-org.apache.iceberg.io.PartitioningWriter-org.apache.iceberg.io.PartitioningWriter-org.apache.iceberg.io.PartitioningWriter-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>BasePositionDeltaWriter</h4>
-<pre>public&nbsp;BasePositionDeltaWriter(<a href="../../../../org/apache/iceberg/io/PartitioningWriter.html" title="interface in org.apache.iceberg.io">PartitioningWriter</a>&lt;<a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html" title="type parameter in BasePositionDeltaWriter">T</a>,<a href="../../../../org/apache/iceberg/io/DataWriteResult.html" title="class in org.apache.iceberg.io">DataWriteResult</a>&gt;&nbsp;dataWriter,
+<pre>public&nbsp;BasePositionDeltaWriter(<a href="../../../../org/apache/iceberg/io/PartitioningWriter.html" title="interface in org.apache.iceberg.io">PartitioningWriter</a>&lt;<a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html" title="type parameter in BasePositionDeltaWriter">T</a>,<a href="../../../../org/apache/iceberg/io/DataWriteResult.html" title="class in org.apache.iceberg.io">DataWriteResult</a>&gt;&nbsp;insertWriter,
+                               <a href="../../../../org/apache/iceberg/io/PartitioningWriter.html" title="interface in org.apache.iceberg.io">PartitioningWriter</a>&lt;<a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html" title="type parameter in BasePositionDeltaWriter">T</a>,<a href="../../../../org/apache/iceberg/io/DataWriteResult.html" title="class in org.apache.iceberg.io">DataWriteResult</a>&gt;&nbsp;updateWriter,
                                <a href="../../../../org/apache/iceberg/io/PartitioningWriter.html" title="interface in org.apache.iceberg.io">PartitioningWriter</a>&lt;<a href="../../../../org/apache/iceberg/deletes/PositionDelete.html" title="class in org.apache.iceberg.deletes">PositionDelete</a>&lt;<a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html" title="type parameter in BasePositionDeltaWriter">T</a>&gt;,<a href="../../../../org/apache/iceberg/io/DeleteWriteResult.html" title="class in org.apache.iceberg.io">DeleteWriteResult</a>&gt;&nbsp;deleteWriter)</pre>
 </li>
 </ul>
@@ -248,6 +259,33 @@ implements <a href="../../../../org/apache/iceberg/io/PositionDeltaWriter.html" 
 </dl>
 </li>
 </ul>
+<a name="update-java.lang.Object-org.apache.iceberg.PartitionSpec-org.apache.iceberg.StructLike-">
+<!--   -->
+</a><a name="update-T-org.apache.iceberg.PartitionSpec-org.apache.iceberg.StructLike-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>update</h4>
+<pre>public&nbsp;void&nbsp;update(<a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html" title="type parameter in BasePositionDeltaWriter">T</a>&nbsp;row,
+                   <a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec,
+                   <a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&nbsp;partition)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/io/PositionDeltaWriter.html#update-T-org.apache.iceberg.PartitionSpec-org.apache.iceberg.StructLike-">PositionDeltaWriter</a></code></span></div>
+<div class="block">Inserts a new version of an existing row to the provided spec/partition.
+
+ <p>This method allows writers to distinguish new and updated records. The caller must
+ separately invoke <a href="../../../../org/apache/iceberg/io/PositionDeltaWriter.html#delete-java.lang.CharSequence-long-org.apache.iceberg.PartitionSpec-org.apache.iceberg.StructLike-"><code>PositionDeltaWriter.delete(CharSequence, long, PartitionSpec, StructLike)</code></a> for the
+ original row position that is being updated.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../org/apache/iceberg/io/PositionDeltaWriter.html#update-T-org.apache.iceberg.PartitionSpec-org.apache.iceberg.StructLike-">update</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/io/PositionDeltaWriter.html" title="interface in org.apache.iceberg.io">PositionDeltaWriter</a>&lt;<a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html" title="type parameter in BasePositionDeltaWriter">T</a>&gt;</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>row</code> - a new version of an existing row</dd>
+<dd><code>spec</code> - a new partition spec</dd>
+<dd><code>partition</code> - a new partition or null if the spec is unpartitioned</dd>
+</dl>
+</li>
+</ul>
 <a name="delete-java.lang.CharSequence-long-java.lang.Object-org.apache.iceberg.PartitionSpec-org.apache.iceberg.StructLike-">
 <!--   -->
 </a><a name="delete-java.lang.CharSequence-long-T-org.apache.iceberg.PartitionSpec-org.apache.iceberg.StructLike-">
@@ -262,7 +300,8 @@ implements <a href="../../../../org/apache/iceberg/io/PositionDeltaWriter.html" 
                    <a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec,
                    <a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&nbsp;partition)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/io/PositionDeltaWriter.html#delete-java.lang.CharSequence-long-T-org.apache.iceberg.PartitionSpec-org.apache.iceberg.StructLike-">PositionDeltaWriter</a></code></span></div>
-<div class="block">Deletes a position in the provided spec/partition and records the deleted row in the delete file.</div>
+<div class="block">Deletes a position in the provided spec/partition and records the deleted row in the delete
+ file.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/io/PositionDeltaWriter.html#delete-java.lang.CharSequence-long-T-org.apache.iceberg.PartitionSpec-org.apache.iceberg.StructLike-">delete</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/io/PositionDeltaWriter.html" title="interface in org.apache.iceberg.io">PositionDeltaWriter</a>&lt;<a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html" title="type parameter in BasePositionDeltaWriter">T</a>&gt;</code></dd>
@@ -283,8 +322,7 @@ implements <a href="../../../../org/apache/iceberg/io/PositionDeltaWriter.html" 
 <h4>result</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/io/WriteResult.html" title="class in org.apache.iceberg.io">WriteResult</a>&nbsp;result()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/io/PositionDeltaWriter.html#result--">PositionDeltaWriter</a></code></span></div>
-<div class="block">Returns a result that contains information about written <a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg"><code>DataFile</code></a>s or <a href="../../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg"><code>DeleteFile</code></a>s.
- The result is valid only after the writer is closed.</div>
+<div class="block">Returns a result that contains information about written <a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg"><code>DataFile</code></a>s or <a href="../../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg"><code>DeleteFile</code></a>s. The result is valid only after the writer is closed.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/io/PositionDeltaWriter.html#result--">result</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/io/PositionDeltaWriter.html" title="interface in org.apache.iceberg.io">PositionDeltaWriter</a>&lt;<a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html" title="type parameter in BasePositionDeltaWriter">T</a>&gt;</code></dd>

@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/apache/iceberg/ReplaceSortOrder.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/RewriteManifests.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/RewriteJobOrder.html" title="enum in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/RewriteFiles.html" target="_top">Frames</a></li>
@@ -106,11 +106,11 @@ var activeTableTab = "activeTableTab";
 <pre>public interface <span class="typeNameLabel">RewriteFiles</span>
 extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interface in org.apache.iceberg">SnapshotUpdate</a>&lt;<a href="../../../org/apache/iceberg/RewriteFiles.html" title="interface in org.apache.iceberg">RewriteFiles</a>&gt;</pre>
 <div class="block">API for replacing files in a table.
- <p>
- This API accumulates file additions and deletions, produces a new <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><code>Snapshot</code></a> of the
+
+ <p>This API accumulates file additions and deletions, produces a new <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><code>Snapshot</code></a> of the
  changes, and commits that snapshot as the current.
- <p>
- When committing, these changes will be applied to the latest table snapshot. Commit conflicts
+
+ <p>When committing, these changes will be applied to the latest table snapshot. Commit conflicts
  will be resolved by applying the changes to the new latest snapshot and reattempting the commit.
  If any of the deleted files are no longer in the latest snapshot when reattempting, the commit
  will throw a <a href="../../../org/apache/iceberg/exceptions/ValidationException.html" title="class in org.apache.iceberg.exceptions"><code>ValidationException</code></a>.</div>
@@ -168,7 +168,7 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interface in org.apache.iceberg">SnapshotUpdate</a></h3>
-<code><a href="../../../org/apache/iceberg/SnapshotUpdate.html#deleteWith-java.util.function.Consumer-">deleteWith</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#set-java.lang.String-java.lang.String-">set</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#stageOnly--">stageOnly</a></code></li>
+<code><a href="../../../org/apache/iceberg/SnapshotUpdate.html#deleteWith-java.util.function.Consumer-">deleteWith</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#scanManifestsWith-java.util.concurrent.ExecutorService-">scanManifestsWith</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#set-java.lang.String-java.lang.String-">set</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#stageOnly--">stageOnly</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#toBranch-java.lang.String-">toBranch</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.org.apache.iceberg.PendingUpdate">
@@ -260,9 +260,9 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 <h4>validateFromSnapshot</h4>
 <pre><a href="../../../org/apache/iceberg/RewriteFiles.html" title="interface in org.apache.iceberg">RewriteFiles</a>&nbsp;validateFromSnapshot(long&nbsp;snapshotId)</pre>
 <div class="block">Set the snapshot ID used in any reads for this operation.
- <p>
- Validations will check changes after this snapshot ID. If this is not called, all ancestor snapshots through the
- table's initial snapshot are validated.</div>
+
+ <p>Validations will check changes after this snapshot ID. If this is not called, all ancestor
+ snapshots through the table's initial snapshot are validated.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>snapshotId</code> - a snapshot ID</dd>
@@ -299,7 +299,7 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/apache/iceberg/ReplaceSortOrder.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/RewriteManifests.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/RewriteJobOrder.html" title="enum in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/RewriteFiles.html" target="_top">Frames</a></li>

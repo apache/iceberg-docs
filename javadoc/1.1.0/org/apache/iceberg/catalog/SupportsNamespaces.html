@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/catalog/SessionCatalog.SessionContext.html" title="class in org.apache.iceberg.catalog"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -99,19 +99,18 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../org/apache/iceberg/aws/dynamodb/DynamoDbCatalog.html" title="class in org.apache.iceberg.aws.dynamodb">DynamoDbCatalog</a>, <a href="../../../../org/apache/iceberg/aws/glue/GlueCatalog.html" title="class in org.apache.iceberg.aws.glue">GlueCatalog</a>, <a href="../../../../org/apache/iceberg/hadoop/HadoopCatalog.html" title="class in org.apache.iceberg.hadoop">HadoopCatalog</a>, <a href="../../../../org/apache/iceberg/hive/HiveCatalog.html" title="class in org.apache.iceberg.hive">HiveCatalog</a>, <a href="../../../../org/apache/iceberg/jdbc/JdbcCatalog.html" title="class in org.apache.iceberg.jdbc">JdbcCatalog</a>, <a href="../../../../org/apache/iceberg/nessie/NessieCatalog.html" title="class in org.apache.iceberg.nessie">NessieCatalog</a></dd>
+<dd><a href="../../../../org/apache/iceberg/catalog/BaseSessionCatalog.AsCatalog.html" title="class in org.apache.iceberg.catalog">BaseSessionCatalog.AsCatalog</a>, <a href="../../../../org/apache/iceberg/aws/dynamodb/DynamoDbCatalog.html" title="class in org.apache.iceberg.aws.dynamodb">DynamoDbCatalog</a>, <a href="../../../../org/apache/iceberg/dell/ecs/EcsCatalog.html" title="class in org.apache.iceberg.dell.ecs">EcsCatalog</a>, <a href="../../../../org/apache/iceberg/aws/glue/GlueCatalog.html" title="class in org.apache.iceberg.aws.glue">GlueCatalog</a>, <a href="../../../../org/apache/iceberg/hadoop/HadoopCatalog.html" title="class in org.apache.iceberg.hadoop">HadoopCatalog</a>, <a href="../../../../org/apache/iceberg/hive/HiveCatalog.html" title="class in org.apache.iceberg.hive">HiveCatalog</a>, <a href="../../../../org/apache/iceberg/jdbc/JdbcCatalog.html" title="class in org.apache.iceberg.jdbc">JdbcCatalog</a>, <a href="../../../../org/apache/iceberg/nessie/NessieCatalog.html" title="class in org.apache.iceberg.nessie">NessieCatalog</a>, <a href="../../../../org/apache/iceberg/rest/RESTCatalog.html" title="class in org.apache.iceberg.rest">RESTCatalog</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public interface <span class="typeNameLabel">SupportsNamespaces</span></pre>
 <div class="block">Catalog methods for working with namespaces.
- <p>
- If an object such as a table, view, or function exists, its parent namespaces must also exist
- and must be returned by the discovery methods <a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.html#listNamespaces--"><code>listNamespaces()</code></a> and
- <a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.html#listNamespaces-org.apache.iceberg.catalog.Namespace-"><code>listNamespaces(Namespace namespace)</code></a>.
- <p>
- Catalog implementations are not required to maintain the existence of namespaces independent of
- objects in a namespace. For example, a function catalog that loads functions using reflection
+
+ <p>If an object such as a table, view, or function exists, its parent namespaces must also exist
+ and must be returned by the discovery methods <a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.html#listNamespaces--"><code>listNamespaces()</code></a> and <a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.html#listNamespaces-org.apache.iceberg.catalog.Namespace-"><code>listNamespaces(Namespace namespace)</code></a>.
+
+ <p>Catalog implementations are not required to maintain the existence of namespaces independent
+ of objects in a namespace. For example, a function catalog that loads functions using reflection
  and uses Java packages as namespaces is not required to support the methods to create, alter, or
  drop a namespace. Implementations are allowed to discover the existence of objects or namespaces
  without throwing <a href="../../../../org/apache/iceberg/exceptions/NoSuchNamespaceException.html" title="class in org.apache.iceberg.exceptions"><code>NoSuchNamespaceException</code></a> when no namespace is found.</div>
@@ -249,10 +248,10 @@ var activeTableTab = "activeTableTab";
 <h4>listNamespaces</h4>
 <pre>default&nbsp;java.util.List&lt;<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&gt;&nbsp;listNamespaces()</pre>
 <div class="block">List top-level namespaces from the catalog.
- <p>
- If an object such as a table, view, or function exists, its parent namespaces must also exist
- and must be returned by this discovery method. For example, if table a.b.t exists, this method
- must return ["a"] in the result array.</div>
+
+ <p>If an object such as a table, view, or function exists, its parent namespaces must also
+ exist and must be returned by this discovery method. For example, if table a.b.t exists, this
+ method must return ["a"] in the result array.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>an List of namespace <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>Namespace</code></a> names</dd>
@@ -268,9 +267,9 @@ var activeTableTab = "activeTableTab";
 <pre>java.util.List&lt;<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&gt;&nbsp;listNamespaces(<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace)
                                   throws <a href="../../../../org/apache/iceberg/exceptions/NoSuchNamespaceException.html" title="class in org.apache.iceberg.exceptions">NoSuchNamespaceException</a></pre>
 <div class="block">List namespaces from the namespace.
- <p>
- For example, if table a.b.t exists, use 'SELECT NAMESPACE IN a' this method
- must return Namepace.of("a","b") <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>Namespace</code></a>.</div>
+
+ <p>For example, if table a.b.t exists, use 'SELECT NAMESPACE IN a' this method must return
+ Namepace.of("a","b") <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>Namespace</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a List of namespace <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>Namespace</code></a> names</dd>
@@ -327,8 +326,8 @@ var activeTableTab = "activeTableTab";
                       java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)
                throws <a href="../../../../org/apache/iceberg/exceptions/NoSuchNamespaceException.html" title="class in org.apache.iceberg.exceptions">NoSuchNamespaceException</a></pre>
 <div class="block">Set a collection of properties on a namespace in the catalog.
- <p>
- Properties that are not in the given map are not modified or removed by this method.</div>
+
+ <p>Properties that are not in the given map are not modified or removed by this method.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>namespace</code> - a namespace. <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>Namespace</code></a></dd>
@@ -349,8 +348,8 @@ var activeTableTab = "activeTableTab";
                          java.util.Set&lt;java.lang.String&gt;&nbsp;properties)
                   throws <a href="../../../../org/apache/iceberg/exceptions/NoSuchNamespaceException.html" title="class in org.apache.iceberg.exceptions">NoSuchNamespaceException</a></pre>
 <div class="block">Remove a set of property keys from a namespace in the catalog.
- <p>
- Properties that are not in the given set are not modified or removed by this method.</div>
+
+ <p>Properties that are not in the given set are not modified or removed by this method.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>namespace</code> - a namespace. <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>Namespace</code></a></dd>
@@ -404,7 +403,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/catalog/SessionCatalog.SessionContext.html" title="class in org.apache.iceberg.catalog"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

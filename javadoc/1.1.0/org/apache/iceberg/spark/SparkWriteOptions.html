@@ -148,15 +148,31 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#OVERWRITE_MODE">OVERWRITE_MODE</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#ISOLATION_LEVEL">ISOLATION_LEVEL</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#REWRITTEN_FILE_SCAN_TASK_SET_ID">REWRITTEN_FILE_SCAN_TASK_SET_ID</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#MERGE_SCHEMA">MERGE_SCHEMA</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#MERGE_SCHEMA_DEFAULT">MERGE_SCHEMA_DEFAULT</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#OVERWRITE_MODE">OVERWRITE_MODE</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#REWRITTEN_FILE_SCAN_TASK_SET_ID">REWRITTEN_FILE_SCAN_TASK_SET_ID</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#SNAPSHOT_PROPERTY_PREFIX">SNAPSHOT_PROPERTY_PREFIX</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#SPARK_MERGE_SCHEMA">SPARK_MERGE_SCHEMA</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
@@ -175,6 +191,10 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#USE_TABLE_DISTRIBUTION_AND_ORDERING_DEFAULT">USE_TABLE_DISTRIBUTION_AND_ORDERING_DEFAULT</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#VALIDATE_FROM_SNAPSHOT_ID">VALIDATE_FROM_SNAPSHOT_ID</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#WRITE_FORMAT">WRITE_FORMAT</a></span></code>&nbsp;</td>
 </tr>
@@ -380,13 +400,78 @@ extends java.lang.Object</pre>
 <a name="USE_TABLE_DISTRIBUTION_AND_ORDERING_DEFAULT">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>USE_TABLE_DISTRIBUTION_AND_ORDERING_DEFAULT</h4>
 <pre>public static final&nbsp;boolean USE_TABLE_DISTRIBUTION_AND_ORDERING_DEFAULT</pre>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkWriteOptions.USE_TABLE_DISTRIBUTION_AND_ORDERING_DEFAULT">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="MERGE_SCHEMA">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>MERGE_SCHEMA</h4>
+<pre>public static final&nbsp;java.lang.String MERGE_SCHEMA</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkWriteOptions.MERGE_SCHEMA">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="SPARK_MERGE_SCHEMA">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>SPARK_MERGE_SCHEMA</h4>
+<pre>public static final&nbsp;java.lang.String SPARK_MERGE_SCHEMA</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkWriteOptions.SPARK_MERGE_SCHEMA">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="MERGE_SCHEMA_DEFAULT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>MERGE_SCHEMA_DEFAULT</h4>
+<pre>public static final&nbsp;boolean MERGE_SCHEMA_DEFAULT</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkWriteOptions.MERGE_SCHEMA_DEFAULT">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="VALIDATE_FROM_SNAPSHOT_ID">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>VALIDATE_FROM_SNAPSHOT_ID</h4>
+<pre>public static final&nbsp;java.lang.String VALIDATE_FROM_SNAPSHOT_ID</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkWriteOptions.VALIDATE_FROM_SNAPSHOT_ID">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="ISOLATION_LEVEL">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>ISOLATION_LEVEL</h4>
+<pre>public static final&nbsp;java.lang.String ISOLATION_LEVEL</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkWriteOptions.ISOLATION_LEVEL">Constant Field Values</a></dd>
 </dl>
 </li>
 </ul>

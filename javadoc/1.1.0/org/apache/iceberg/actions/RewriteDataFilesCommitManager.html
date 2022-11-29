@@ -176,15 +176,15 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFilesCommitManager.html#abortFileGroup-org.apache.iceberg.actions.RewriteFileGroup-">abortFileGroup</a></span>(<a href="../../../../org/apache/iceberg/actions/RewriteFileGroup.html" title="class in org.apache.iceberg.actions">RewriteFileGroup</a>&nbsp;fileGroup)</code>
-<div class="block">Clean up a specified file set by removing any files created for that operation, should
- not throw any exceptions</div>
+<div class="block">Clean up a specified file set by removing any files created for that operation, should not
+ throw any exceptions</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFilesCommitManager.html#commitFileGroups-java.util.Set-">commitFileGroups</a></span>(java.util.Set&lt;<a href="../../../../org/apache/iceberg/actions/RewriteFileGroup.html" title="class in org.apache.iceberg.actions">RewriteFileGroup</a>&gt;&nbsp;fileGroups)</code>
-<div class="block">Perform a commit operation on the table adding and removing files as
- required for this set of file groups</div>
+<div class="block">Perform a commit operation on the table adding and removing files as required for this set of
+ file groups</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -264,8 +264,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>commitFileGroups</h4>
 <pre>public&nbsp;void&nbsp;commitFileGroups(java.util.Set&lt;<a href="../../../../org/apache/iceberg/actions/RewriteFileGroup.html" title="class in org.apache.iceberg.actions">RewriteFileGroup</a>&gt;&nbsp;fileGroups)</pre>
-<div class="block">Perform a commit operation on the table adding and removing files as
- required for this set of file groups</div>
+<div class="block">Perform a commit operation on the table adding and removing files as required for this set of
+ file groups</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>fileGroups</code> - fileSets to commit</dd>
@@ -279,8 +279,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>abortFileGroup</h4>
 <pre>public&nbsp;void&nbsp;abortFileGroup(<a href="../../../../org/apache/iceberg/actions/RewriteFileGroup.html" title="class in org.apache.iceberg.actions">RewriteFileGroup</a>&nbsp;fileGroup)</pre>
-<div class="block">Clean up a specified file set by removing any files created for that operation, should
- not throw any exceptions</div>
+<div class="block">Clean up a specified file set by removing any files created for that operation, should not
+ throw any exceptions</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>fileGroup</code> - group of files which has already been rewritten</dd>
@@ -303,9 +303,9 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>service</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/actions/RewriteDataFilesCommitManager.CommitService.html" title="class in org.apache.iceberg.actions">RewriteDataFilesCommitManager.CommitService</a>&nbsp;service(int&nbsp;rewritesPerCommit)</pre>
-<div class="block">An async service which allows for committing multiple file groups as their rewrites complete. The service also
- allows for partial-progress since commits can fail. Once the service has been closed no new file groups should not
- be offered.</div>
+<div class="block">An async service which allows for committing multiple file groups as their rewrites complete.
+ The service also allows for partial-progress since commits can fail. Once the service has been
+ closed no new file groups should not be offered.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>rewritesPerCommit</code> - number of file groups to include in a commit</dd>

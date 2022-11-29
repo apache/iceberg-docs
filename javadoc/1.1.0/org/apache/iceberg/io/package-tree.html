@@ -99,17 +99,25 @@
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/ClusteredDataWriter.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">ClusteredDataWriter</span></a>&lt;T&gt;</li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/ClusteredEqualityDeleteWriter.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">ClusteredEqualityDeleteWriter</span></a>&lt;T&gt;</li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/ClusteredPositionDeleteWriter.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">ClusteredPositionDeleteWriter</span></a>&lt;T&gt;</li>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/ContentCache.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">ContentCache</span></a></li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/DataWriter.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">DataWriter</span></a>&lt;T&gt; (implements org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FileWriter.html" title="interface in org.apache.iceberg.io">FileWriter</a>&lt;T,R&gt;)</li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/DataWriteResult.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">DataWriteResult</span></a></li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/DeleteSchemaUtil.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">DeleteSchemaUtil</span></a></li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/DeleteWriteResult.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">DeleteWriteResult</span></a></li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FanoutDataWriter.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">FanoutDataWriter</span></a>&lt;T&gt;</li>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FileInfo.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">FileInfo</span></a></li>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FileIOParser.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">FileIOParser</span></a></li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FilterIterator.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">FilterIterator</span></a>&lt;T&gt; (implements org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/CloseableIterator.html" title="interface in org.apache.iceberg.io">CloseableIterator</a>&lt;T&gt;)</li>
 <li type="circle">java.io.InputStream (implements java.io.Closeable)
 <ul>
-<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/SeekableInputStream.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">SeekableInputStream</span></a></li>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/SeekableInputStream.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">SeekableInputStream</span></a>
+<ul>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/ByteBufferInputStream.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">ByteBufferInputStream</span></a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/IOUtil.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">IOUtil</span></a></li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/OutputFileFactory.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">OutputFileFactory</span></a></li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/OutputFileFactory.Builder.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">OutputFileFactory.Builder</span></a></li>
 <li type="circle">java.io.OutputStream (implements java.io.Closeable, java.io.Flushable)
@@ -121,6 +129,19 @@
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/RollingDataWriter.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">RollingDataWriter</span></a>&lt;T&gt;</li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/RollingEqualityDeleteWriter.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">RollingEqualityDeleteWriter</span></a>&lt;T&gt;</li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/RollingPositionDeleteWriter.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">RollingPositionDeleteWriter</span></a>&lt;T&gt;</li>
+<li type="circle">java.lang.Throwable (implements java.io.Serializable)
+<ul>
+<li type="circle">java.lang.Exception
+<ul>
+<li type="circle">java.lang.RuntimeException
+<ul>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/BulkDeletionFailureException.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">BulkDeletionFailureException</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/WriteResult.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">WriteResult</span></a> (implements java.io.Serializable)</li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/WriteResult.Builder.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">WriteResult.Builder</span></a></li>
 </ul>
@@ -136,15 +157,22 @@
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/CloseableIterator.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">CloseableIterator</span></a>&lt;T&gt; (also extends java.util.Iterator&lt;E&gt;)</li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/EqualityDeltaWriter.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">EqualityDeltaWriter</span></a>&lt;T&gt;</li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FileAppender.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">FileAppender</span></a>&lt;D&gt;</li>
-<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">FileIO</span></a> (also extends java.io.Serializable)</li>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">FileIO</span></a> (also extends java.io.Serializable)
+<ul>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/SupportsBulkOperations.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">SupportsBulkOperations</span></a></li>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/SupportsPrefixOperations.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">SupportsPrefixOperations</span></a></li>
+</ul>
+</li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FileWriter.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">FileWriter</span></a>&lt;T,R&gt;</li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/PartitioningWriter.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">PartitioningWriter</span></a>&lt;T,R&gt;</li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/PositionDeltaWriter.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">PositionDeltaWriter</span></a>&lt;T&gt;</li>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/RangeReadable.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">RangeReadable</span></a></li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/TaskWriter.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">TaskWriter</span></a>&lt;T&gt;</li>
 </ul>
 </li>
 </ul>
 </li>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/CredentialSupplier.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">CredentialSupplier</span></a></li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/DelegatingInputStream.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">DelegatingInputStream</span></a></li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/DelegatingOutputStream.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">DelegatingOutputStream</span></a></li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FileAppenderFactory.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">FileAppenderFactory</span></a>&lt;T&gt;</li>
@@ -163,8 +191,18 @@
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/OutputFile.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">OutputFile</span></a></li>
 <li type="circle">java.io.Serializable
 <ul>
-<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">FileIO</span></a> (also extends java.io.Closeable)</li>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">FileIO</span></a> (also extends java.io.Closeable)
+<ul>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/SupportsBulkOperations.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">SupportsBulkOperations</span></a></li>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/SupportsPrefixOperations.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">SupportsPrefixOperations</span></a></li>
+</ul>
+</li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/LocationProvider.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">LocationProvider</span></a></li>
+<li type="circle">org.apache.iceberg.metrics.<a href="../../../../org/apache/iceberg/metrics/MetricsContext.html" title="interface in org.apache.iceberg.metrics"><span class="typeNameLink">MetricsContext</span></a>
+<ul>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FileIOMetricsContext.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">FileIOMetricsContext</span></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
