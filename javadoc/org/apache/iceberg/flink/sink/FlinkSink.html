@@ -151,20 +151,23 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.html#builderFor-org.apache.flink.streaming.api.datastream.DataStream-org.apache.flink.api.common.functions.MapFunction-org.apache.flink.api.common.typeinfo.TypeInformation-">builderFor</a></span>(org.apache.flink.streaming.api.datastream.DataStream&lt;T&gt;&nbsp;input,
           org.apache.flink.api.common.functions.MapFunction&lt;T,org.apache.flink.table.data.RowData&gt;&nbsp;mapper,
           org.apache.flink.api.common.typeinfo.TypeInformation&lt;org.apache.flink.table.data.RowData&gt;&nbsp;outputType)</code>
-<div class="block">Initialize a <a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink"><code>FlinkSink.Builder</code></a> to export the data from generic input data stream into iceberg table.</div>
+<div class="block">Initialize a <a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink"><code>FlinkSink.Builder</code></a> to export the data from generic input data stream into iceberg
+ table.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.html#forRow-org.apache.flink.streaming.api.datastream.DataStream-org.apache.flink.table.api.TableSchema-">forRow</a></span>(org.apache.flink.streaming.api.datastream.DataStream&lt;org.apache.flink.types.Row&gt;&nbsp;input,
       org.apache.flink.table.api.TableSchema&nbsp;tableSchema)</code>
-<div class="block">Initialize a <a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink"><code>FlinkSink.Builder</code></a> to export the data from input data stream with <code>Row</code>s into iceberg table.</div>
+<div class="block">Initialize a <a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink"><code>FlinkSink.Builder</code></a> to export the data from input data stream with <code>Row</code>s into
+ iceberg table.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.html#forRowData-org.apache.flink.streaming.api.datastream.DataStream-">forRowData</a></span>(org.apache.flink.streaming.api.datastream.DataStream&lt;org.apache.flink.table.data.RowData&gt;&nbsp;input)</code>
-<div class="block">Initialize a <a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink"><code>FlinkSink.Builder</code></a> to export the data from input data stream with <code>RowData</code>s into iceberg table.</div>
+<div class="block">Initialize a <a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink"><code>FlinkSink.Builder</code></a> to export the data from input data stream with <code>RowData</code>s
+ into iceberg table.</div>
 </td>
 </tr>
 </table>
@@ -198,9 +201,10 @@ extends java.lang.Object</pre>
 <pre>public static&nbsp;&lt;T&gt;&nbsp;<a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a>&nbsp;builderFor(org.apache.flink.streaming.api.datastream.DataStream&lt;T&gt;&nbsp;input,
                                                org.apache.flink.api.common.functions.MapFunction&lt;T,org.apache.flink.table.data.RowData&gt;&nbsp;mapper,
                                                org.apache.flink.api.common.typeinfo.TypeInformation&lt;org.apache.flink.table.data.RowData&gt;&nbsp;outputType)</pre>
-<div class="block">Initialize a <a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink"><code>FlinkSink.Builder</code></a> to export the data from generic input data stream into iceberg table. We use
- <code>RowData</code> inside the sink connector, so users need to provide a mapper function and a
- <code>TypeInformation</code> to convert those generic records to a RowData DataStream.</div>
+<div class="block">Initialize a <a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink"><code>FlinkSink.Builder</code></a> to export the data from generic input data stream into iceberg
+ table. We use <code>RowData</code> inside the sink connector, so users need to provide a mapper
+ function and a <code>TypeInformation</code> to convert those generic records to a RowData
+ DataStream.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
 <dd><code>T</code> - the data type of records.</dd>
@@ -221,9 +225,9 @@ extends java.lang.Object</pre>
 <h4>forRow</h4>
 <pre>public static&nbsp;<a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a>&nbsp;forRow(org.apache.flink.streaming.api.datastream.DataStream&lt;org.apache.flink.types.Row&gt;&nbsp;input,
                                        org.apache.flink.table.api.TableSchema&nbsp;tableSchema)</pre>
-<div class="block">Initialize a <a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink"><code>FlinkSink.Builder</code></a> to export the data from input data stream with <code>Row</code>s into iceberg table. We use
- <code>RowData</code> inside the sink connector, so users need to provide a <code>TableSchema</code> for builder to convert
- those <code>Row</code>s to a <code>RowData</code> DataStream.</div>
+<div class="block">Initialize a <a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink"><code>FlinkSink.Builder</code></a> to export the data from input data stream with <code>Row</code>s into
+ iceberg table. We use <code>RowData</code> inside the sink connector, so users need to provide a
+ <code>TableSchema</code> for builder to convert those <code>Row</code>s to a <code>RowData</code> DataStream.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>input</code> - the source input data stream with <code>Row</code>s.</dd>
@@ -240,7 +244,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>forRowData</h4>
 <pre>public static&nbsp;<a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink">FlinkSink.Builder</a>&nbsp;forRowData(org.apache.flink.streaming.api.datastream.DataStream&lt;org.apache.flink.table.data.RowData&gt;&nbsp;input)</pre>
-<div class="block">Initialize a <a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink"><code>FlinkSink.Builder</code></a> to export the data from input data stream with <code>RowData</code>s into iceberg table.</div>
+<div class="block">Initialize a <a href="../../../../../org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink"><code>FlinkSink.Builder</code></a> to export the data from input data stream with <code>RowData</code>s
+ into iceberg table.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>input</code> - the source input data stream with <code>RowData</code>s.</dd>

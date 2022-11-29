@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9};
+var methods = {"i0":9,"i1":9,"i2":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/apache/iceberg/SnapshotManager.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/SnapshotsTable.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/SnapshotRef.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/SnapshotParser.html" target="_top">Frames</a></li>
@@ -129,12 +129,16 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotParser.html#fromJson-org.apache.iceberg.io.FileIO-java.lang.String-">fromJson</a></span>(<a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io,
-        java.lang.String&nbsp;json)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotParser.html#fromJson-java.lang.String-">fromJson</a></span>(java.lang.String&nbsp;json)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotParser.html#toJson-org.apache.iceberg.Snapshot-">toJson</a></span>(<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;snapshot)</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotParser.html#toJson-org.apache.iceberg.Snapshot-boolean-">toJson</a></span>(<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;snapshot,
+      boolean&nbsp;pretty)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -167,14 +171,23 @@ extends java.lang.Object</pre>
 <pre>public static&nbsp;java.lang.String&nbsp;toJson(<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;snapshot)</pre>
 </li>
 </ul>
-<a name="fromJson-org.apache.iceberg.io.FileIO-java.lang.String-">
+<a name="toJson-org.apache.iceberg.Snapshot-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>toJson</h4>
+<pre>public static&nbsp;java.lang.String&nbsp;toJson(<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;snapshot,
+                                      boolean&nbsp;pretty)</pre>
+</li>
+</ul>
+<a name="fromJson-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>fromJson</h4>
-<pre>public static&nbsp;<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;fromJson(<a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io,
-                                java.lang.String&nbsp;json)</pre>
+<pre>public static&nbsp;<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;fromJson(java.lang.String&nbsp;json)</pre>
 </li>
 </ul>
 </li>
@@ -205,7 +218,7 @@ extends java.lang.Object</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/apache/iceberg/SnapshotManager.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/SnapshotsTable.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/SnapshotRef.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/SnapshotParser.html" target="_top">Frames</a></li>

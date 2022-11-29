@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":18};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -111,7 +111,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../org/apache/iceberg/BaseOverwriteFiles.html" title="class in org.apache.iceberg">BaseOverwriteFiles</a>, <a href="../../../org/apache/iceberg/BaseReplacePartitions.html" title="class in org.apache.iceberg">BaseReplacePartitions</a>, <a href="../../../org/apache/iceberg/BaseRewriteManifests.html" title="class in org.apache.iceberg">BaseRewriteManifests</a>, <a href="../../../org/apache/iceberg/SnapshotManager.html" title="class in org.apache.iceberg">SnapshotManager</a></dd>
+<dd><a href="../../../org/apache/iceberg/BaseOverwriteFiles.html" title="class in org.apache.iceberg">BaseOverwriteFiles</a>, <a href="../../../org/apache/iceberg/BaseReplacePartitions.html" title="class in org.apache.iceberg">BaseReplacePartitions</a>, <a href="../../../org/apache/iceberg/BaseRewriteManifests.html" title="class in org.apache.iceberg">BaseRewriteManifests</a>, <a href="../../../org/apache/iceberg/StreamingDelete.html" title="class in org.apache.iceberg">StreamingDelete</a></dd>
 </dl>
 <hr>
 <br>
@@ -132,7 +132,7 @@ extends <a href="../../../org/apache/iceberg/PendingUpdate.html" title="interfac
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -145,15 +145,27 @@ extends <a href="../../../org/apache/iceberg/PendingUpdate.html" title="interfac
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="type parameter in SnapshotUpdate">ThisT</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotUpdate.html#scanManifestsWith-java.util.concurrent.ExecutorService-">scanManifestsWith</a></span>(java.util.concurrent.ExecutorService&nbsp;executorService)</code>
+<div class="block">Use a particular executor to scan manifests.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="type parameter in SnapshotUpdate">ThisT</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotUpdate.html#set-java.lang.String-java.lang.String-">set</a></span>(java.lang.String&nbsp;property,
    java.lang.String&nbsp;value)</code>
 <div class="block">Set a summary property in the snapshot produced by this update.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="type parameter in SnapshotUpdate">ThisT</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotUpdate.html#stageOnly--">stageOnly</a></span>()</code>
 <div class="block">Called to stage a snapshot in table metadata, but not update the current snapshot id.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>default <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="type parameter in SnapshotUpdate">ThisT</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotUpdate.html#toBranch-java.lang.String-">toBranch</a></span>(java.lang.String&nbsp;branch)</code>
+<div class="block">Perform operations on a particular branch</div>
 </td>
 </tr>
 </table>
@@ -215,7 +227,7 @@ extends <a href="../../../org/apache/iceberg/PendingUpdate.html" title="interfac
 <a name="stageOnly--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>stageOnly</h4>
 <pre><a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="type parameter in SnapshotUpdate">ThisT</a>&nbsp;stageOnly()</pre>
@@ -223,6 +235,36 @@ extends <a href="../../../org/apache/iceberg/PendingUpdate.html" title="interfac
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a name="scanManifestsWith-java.util.concurrent.ExecutorService-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>scanManifestsWith</h4>
+<pre><a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="type parameter in SnapshotUpdate">ThisT</a>&nbsp;scanManifestsWith(java.util.concurrent.ExecutorService&nbsp;executorService)</pre>
+<div class="block">Use a particular executor to scan manifests. The default worker pool will be used by default.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>executorService</code> - the provided executor</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a name="toBranch-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>toBranch</h4>
+<pre>default&nbsp;<a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="type parameter in SnapshotUpdate">ThisT</a>&nbsp;toBranch(java.lang.String&nbsp;branch)</pre>
+<div class="block">Perform operations on a particular branch</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>branch</code> - which is name of SnapshotRef of type branch.</dd>
 </dl>
 </li>
 </ul>

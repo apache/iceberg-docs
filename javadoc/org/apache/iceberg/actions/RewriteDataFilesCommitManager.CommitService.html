@@ -143,8 +143,9 @@ implements java.io.Closeable</pre>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFilesCommitManager.CommitService.html#offer-org.apache.iceberg.actions.RewriteFileGroup-">offer</a></span>(<a href="../../../../org/apache/iceberg/actions/RewriteFileGroup.html" title="class in org.apache.iceberg.actions">RewriteFileGroup</a>&nbsp;group)</code>
-<div class="block">Places a file group in the queue to be asynchronously committed either when the queue has enough elements
- to do a batch of size <a href="../../../../org/apache/iceberg/actions/RewriteDataFilesCommitManager.CommitService.html#rewritesPerCommit"><code>rewritesPerCommit</code></a> or the service has been closed.</div>
+<div class="block">Places a file group in the queue to be asynchronously committed either when the queue has
+ enough elements to do a batch of size <a href="../../../../org/apache/iceberg/actions/RewriteDataFilesCommitManager.CommitService.html#rewritesPerCommit"><code>rewritesPerCommit</code></a> or the service has been
+ closed.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -198,8 +199,9 @@ implements java.io.Closeable</pre>
 <li class="blockList">
 <h4>offer</h4>
 <pre>public&nbsp;void&nbsp;offer(<a href="../../../../org/apache/iceberg/actions/RewriteFileGroup.html" title="class in org.apache.iceberg.actions">RewriteFileGroup</a>&nbsp;group)</pre>
-<div class="block">Places a file group in the queue to be asynchronously committed either when the queue has enough elements
- to do a batch of size <a href="../../../../org/apache/iceberg/actions/RewriteDataFilesCommitManager.CommitService.html#rewritesPerCommit"><code>rewritesPerCommit</code></a> or the service has been closed.</div>
+<div class="block">Places a file group in the queue to be asynchronously committed either when the queue has
+ enough elements to do a batch of size <a href="../../../../org/apache/iceberg/actions/RewriteDataFilesCommitManager.CommitService.html#rewritesPerCommit"><code>rewritesPerCommit</code></a> or the service has been
+ closed.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>group</code> - file group to eventually be committed</dd>

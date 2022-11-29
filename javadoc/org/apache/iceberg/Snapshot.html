@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":18,"i9":6,"i10":6,"i11":6,"i12":6};
+var methods = {"i0":6,"i1":18,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":18,"i10":18,"i11":6,"i12":6,"i13":6,"i14":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,8 +47,8 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/SetLocation.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/SnapshotManager.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/SingleValueParser.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/SnapshotIdGeneratorUtil.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/Snapshot.html" target="_top">Frames</a></li>
@@ -106,11 +106,11 @@ var activeTableTab = "activeTableTab";
 <pre>public interface <span class="typeNameLabel">Snapshot</span>
 extends java.io.Serializable</pre>
 <div class="block">A snapshot of the data in a table at a point in time.
- <p>
- A snapshot consist of one or more file manifests, and the complete table contents is the union
+
+ <p>A snapshot consist of one or more file manifests, and the complete table contents is the union
  of all the data files in those manifests.
- <p>
- Snapshots are created by table operations, like <a href="../../../org/apache/iceberg/AppendFiles.html" title="interface in org.apache.iceberg"><code>AppendFiles</code></a> and <a href="../../../org/apache/iceberg/RewriteFiles.html" title="interface in org.apache.iceberg"><code>RewriteFiles</code></a>.</div>
+
+ <p>Snapshots are created by table operations, like <a href="../../../org/apache/iceberg/AppendFiles.html" title="interface in org.apache.iceberg"><code>AppendFiles</code></a> and <a href="../../../org/apache/iceberg/RewriteFiles.html" title="interface in org.apache.iceberg"><code>RewriteFiles</code></a>.</div>
 </li>
 </ul>
 </div>
@@ -131,31 +131,31 @@ extends java.io.Serializable</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>java.lang.Iterable&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Snapshot.html#addedFiles--">addedFiles</a></span>()</code>
-<div class="block">Return all files added to the table in this snapshot.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Snapshot.html#addedDataFiles-org.apache.iceberg.io.FileIO-">addedDataFiles</a></span>(<a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io)</code>
+<div class="block">Return all data files added to the table in this snapshot.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>java.util.List&lt;<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Snapshot.html#allManifests--">allManifests</a></span>()</code>
-<div class="block">Return all <a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg"><code>ManifestFile</code></a> instances for either data or delete manifests in this snapshot.</div>
+<td class="colFirst"><code>default java.lang.Iterable&lt;<a href="../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg">DeleteFile</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Snapshot.html#addedDeleteFiles-org.apache.iceberg.io.FileIO-">addedDeleteFiles</a></span>(<a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io)</code>
+<div class="block">Return all delete files added to the table in this snapshot.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Snapshot.html#dataManifests--">dataManifests</a></span>()</code>
-<div class="block">Return a <a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg"><code>ManifestFile</code></a> for each data manifest in this snapshot.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Snapshot.html#allManifests-org.apache.iceberg.io.FileIO-">allManifests</a></span>(<a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io)</code>
+<div class="block">Return all <a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg"><code>ManifestFile</code></a> instances for either data or delete manifests in this snapshot.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>java.lang.Iterable&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Snapshot.html#deletedFiles--">deletedFiles</a></span>()</code>
-<div class="block">Return all files deleted from the table in this snapshot.</div>
+<td class="colFirst"><code>java.util.List&lt;<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Snapshot.html#dataManifests-org.apache.iceberg.io.FileIO-">dataManifests</a></span>(<a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io)</code>
+<div class="block">Return a <a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg"><code>ManifestFile</code></a> for each data manifest in this snapshot.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Snapshot.html#deleteManifests--">deleteManifests</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Snapshot.html#deleteManifests-org.apache.iceberg.io.FileIO-">deleteManifests</a></span>(<a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io)</code>
 <div class="block">Return a <a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg"><code>ManifestFile</code></a> for each delete manifest in this snapshot.</div>
 </td>
 </tr>
@@ -178,30 +178,43 @@ extends java.io.Serializable</pre>
 </td>
 </tr>
 <tr id="i8" class="altColor">
-<td class="colFirst"><code>default java.lang.Integer</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Snapshot.html#schemaId--">schemaId</a></span>()</code>
-<div class="block">Return the id of the schema used when this snapshot was created, or null if this information is not available.</div>
+<td class="colFirst"><code>java.lang.Iterable&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Snapshot.html#removedDataFiles-org.apache.iceberg.io.FileIO-">removedDataFiles</a></span>(<a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io)</code>
+<div class="block">Return all data files removed from the table in this snapshot.</div>
 </td>
 </tr>
 <tr id="i9" class="rowColor">
+<td class="colFirst"><code>default java.lang.Iterable&lt;<a href="../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg">DeleteFile</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Snapshot.html#removedDeleteFiles-org.apache.iceberg.io.FileIO-">removedDeleteFiles</a></span>(<a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io)</code>
+<div class="block">Return all delete files removed from the table in this snapshot.</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>default java.lang.Integer</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Snapshot.html#schemaId--">schemaId</a></span>()</code>
+<div class="block">Return the id of the schema used when this snapshot was created, or null if this information is
+ not available.</div>
+</td>
+</tr>
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Snapshot.html#sequenceNumber--">sequenceNumber</a></span>()</code>
 <div class="block">Return this snapshot's sequence number.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Snapshot.html#snapshotId--">snapshotId</a></span>()</code>
 <div class="block">Return this snapshot's ID.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.String,java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Snapshot.html#summary--">summary</a></span>()</code>
 <div class="block">Return a string map of summary data for the operation that produced this snapshot.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Snapshot.html#timestampMillis--">timestampMillis</a></span>()</code>
 <div class="block">Return this snapshot's timestamp.</div>
@@ -230,8 +243,8 @@ extends java.io.Serializable</pre>
 <h4>sequenceNumber</h4>
 <pre>long&nbsp;sequenceNumber()</pre>
 <div class="block">Return this snapshot's sequence number.
- <p>
- Sequence numbers are assigned when a snapshot is committed.</div>
+
+ <p>Sequence numbers are assigned when a snapshot is committed.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a long sequence number</dd>
@@ -274,51 +287,57 @@ extends java.io.Serializable</pre>
 <h4>timestampMillis</h4>
 <pre>long&nbsp;timestampMillis()</pre>
 <div class="block">Return this snapshot's timestamp.
- <p>
- This timestamp is the same as those produced by <code>System.currentTimeMillis()</code>.</div>
+
+ <p>This timestamp is the same as those produced by <code>System.currentTimeMillis()</code>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a long timestamp in milliseconds</dd>
 </dl>
 </li>
 </ul>
-<a name="allManifests--">
+<a name="allManifests-org.apache.iceberg.io.FileIO-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>allManifests</h4>
-<pre>java.util.List&lt;<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&gt;&nbsp;allManifests()</pre>
+<pre>java.util.List&lt;<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&gt;&nbsp;allManifests(<a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io)</pre>
 <div class="block">Return all <a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg"><code>ManifestFile</code></a> instances for either data or delete manifests in this snapshot.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>io</code> - a <a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><code>FileIO</code></a> instance used for reading files from storage</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a list of ManifestFile</dd>
 </dl>
 </li>
 </ul>
-<a name="dataManifests--">
+<a name="dataManifests-org.apache.iceberg.io.FileIO-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>dataManifests</h4>
-<pre>java.util.List&lt;<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&gt;&nbsp;dataManifests()</pre>
+<pre>java.util.List&lt;<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&gt;&nbsp;dataManifests(<a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io)</pre>
 <div class="block">Return a <a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg"><code>ManifestFile</code></a> for each data manifest in this snapshot.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>io</code> - a <a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><code>FileIO</code></a> instance used for reading files from storage</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a list of ManifestFile</dd>
 </dl>
 </li>
 </ul>
-<a name="deleteManifests--">
+<a name="deleteManifests-org.apache.iceberg.io.FileIO-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>deleteManifests</h4>
-<pre>java.util.List&lt;<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&gt;&nbsp;deleteManifests()</pre>
+<pre>java.util.List&lt;<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&gt;&nbsp;deleteManifests(<a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io)</pre>
 <div class="block">Return a <a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg"><code>ManifestFile</code></a> for each delete manifest in this snapshot.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>io</code> - a <a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><code>FileIO</code></a> instance used for reading files from storage</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a list of ManifestFile</dd>
 </dl>
@@ -354,37 +373,79 @@ extends java.io.Serializable</pre>
 </dl>
 </li>
 </ul>
-<a name="addedFiles--">
+<a name="addedDataFiles-org.apache.iceberg.io.FileIO-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>addedFiles</h4>
-<pre>java.lang.Iterable&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;&nbsp;addedFiles()</pre>
-<div class="block">Return all files added to the table in this snapshot.
- <p>
- The files returned include the following columns: file_path, file_format, partition,
+<h4>addedDataFiles</h4>
+<pre>java.lang.Iterable&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;&nbsp;addedDataFiles(<a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io)</pre>
+<div class="block">Return all data files added to the table in this snapshot.
+
+ <p>The files returned include the following columns: file_path, file_format, partition,
  record_count, and file_size_in_bytes. Other columns will be null.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>io</code> - a <a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><code>FileIO</code></a> instance used for reading files from storage</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>all files added to the table in this snapshot.</dd>
+<dd>all data files added to the table in this snapshot.</dd>
 </dl>
 </li>
 </ul>
-<a name="deletedFiles--">
+<a name="removedDataFiles-org.apache.iceberg.io.FileIO-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>deletedFiles</h4>
-<pre>java.lang.Iterable&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;&nbsp;deletedFiles()</pre>
-<div class="block">Return all files deleted from the table in this snapshot.
- <p>
- The files returned include the following columns: file_path, file_format, partition,
+<h4>removedDataFiles</h4>
+<pre>java.lang.Iterable&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;&nbsp;removedDataFiles(<a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io)</pre>
+<div class="block">Return all data files removed from the table in this snapshot.
+
+ <p>The files returned include the following columns: file_path, file_format, partition,
  record_count, and file_size_in_bytes. Other columns will be null.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>io</code> - a <a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><code>FileIO</code></a> instance used for reading files from storage</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>all files deleted from the table in this snapshot.</dd>
+<dd>all data files removed from the table in this snapshot.</dd>
+</dl>
+</li>
+</ul>
+<a name="addedDeleteFiles-org.apache.iceberg.io.FileIO-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addedDeleteFiles</h4>
+<pre>default&nbsp;java.lang.Iterable&lt;<a href="../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg">DeleteFile</a>&gt;&nbsp;addedDeleteFiles(<a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io)</pre>
+<div class="block">Return all delete files added to the table in this snapshot.
+
+ <p>The files returned include the following columns: file_path, file_format, partition,
+ record_count, and file_size_in_bytes. Other columns will be null.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>io</code> - a <a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><code>FileIO</code></a> instance used for reading files from storage</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>all delete files added to the table in this snapshot</dd>
+</dl>
+</li>
+</ul>
+<a name="removedDeleteFiles-org.apache.iceberg.io.FileIO-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>removedDeleteFiles</h4>
+<pre>default&nbsp;java.lang.Iterable&lt;<a href="../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg">DeleteFile</a>&gt;&nbsp;removedDeleteFiles(<a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io)</pre>
+<div class="block">Return all delete files removed from the table in this snapshot.
+
+ <p>The files returned include the following columns: file_path, file_format, partition,
+ record_count, and file_size_in_bytes. Other columns will be null.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>io</code> - a <a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><code>FileIO</code></a> instance used for reading files from storage</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>all delete files removed from the table in this snapshot</dd>
 </dl>
 </li>
 </ul>
@@ -409,7 +470,8 @@ extends java.io.Serializable</pre>
 <li class="blockList">
 <h4>schemaId</h4>
 <pre>default&nbsp;java.lang.Integer&nbsp;schemaId()</pre>
-<div class="block">Return the id of the schema used when this snapshot was created, or null if this information is not available.</div>
+<div class="block">Return the id of the schema used when this snapshot was created, or null if this information is
+ not available.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>schema id associated with this snapshot</dd>
@@ -443,8 +505,8 @@ extends java.io.Serializable</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/SetLocation.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/SnapshotManager.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/SingleValueParser.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/SnapshotIdGeneratorUtil.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/Snapshot.html" target="_top">Frames</a></li>

@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":42,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var methods = {"i0":10,"i1":42,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -150,31 +150,35 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html" title="class in org.apache.iceberg.orc">ORC.WriteBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html#metadata-java.lang.String-java.lang.String-">metadata</a></span>(java.lang.String&nbsp;property,
-        java.lang.String&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html#forTable-org.apache.iceberg.Table-">forTable</a></span>(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html" title="class in org.apache.iceberg.orc">ORC.WriteBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html#metricsConfig-org.apache.iceberg.MetricsConfig-">metricsConfig</a></span>(<a href="../../../../org/apache/iceberg/MetricsConfig.html" title="class in org.apache.iceberg">MetricsConfig</a>&nbsp;newMetricsConfig)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html#metadata-java.lang.String-java.lang.String-">metadata</a></span>(java.lang.String&nbsp;property,
+        java.lang.String&nbsp;value)</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html" title="class in org.apache.iceberg.orc">ORC.WriteBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html#overwrite--">overwrite</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html#metricsConfig-org.apache.iceberg.MetricsConfig-">metricsConfig</a></span>(<a href="../../../../org/apache/iceberg/MetricsConfig.html" title="class in org.apache.iceberg">MetricsConfig</a>&nbsp;newMetricsConfig)</code>&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html" title="class in org.apache.iceberg.orc">ORC.WriteBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html#overwrite-boolean-">overwrite</a></span>(boolean&nbsp;enabled)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html#overwrite--">overwrite</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html" title="class in org.apache.iceberg.orc">ORC.WriteBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html#schema-org.apache.iceberg.Schema-">schema</a></span>(<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;newSchema)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html#overwrite-boolean-">overwrite</a></span>(boolean&nbsp;enabled)</code>&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html" title="class in org.apache.iceberg.orc">ORC.WriteBuilder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html#schema-org.apache.iceberg.Schema-">schema</a></span>(<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;newSchema)</code>&nbsp;</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html" title="class in org.apache.iceberg.orc">ORC.WriteBuilder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html#set-java.lang.String-java.lang.String-">set</a></span>(java.lang.String&nbsp;property,
    java.lang.String&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html" title="class in org.apache.iceberg.orc">ORC.WriteBuilder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html#setAll-java.util.Map-">setAll</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</code>&nbsp;</td>
 </tr>
@@ -200,6 +204,15 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="forTable-org.apache.iceberg.Table-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>forTable</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html" title="class in org.apache.iceberg.orc">ORC.WriteBuilder</a>&nbsp;forTable(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</pre>
+</li>
+</ul>
 <a name="metadata-java.lang.String-java.lang.String-">
 <!--   -->
 </a>

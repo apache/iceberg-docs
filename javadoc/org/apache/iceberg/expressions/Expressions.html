@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9,"i25":9,"i26":9,"i27":9,"i28":9,"i29":9,"i30":9,"i31":9,"i32":9,"i33":9,"i34":9,"i35":9,"i36":9,"i37":9,"i38":9,"i39":9,"i40":9,"i41":9,"i42":9,"i43":9,"i44":9,"i45":9,"i46":9,"i47":9,"i48":9,"i49":9,"i50":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9,"i25":9,"i26":9,"i27":9,"i28":9,"i29":9,"i30":9,"i31":9,"i32":9,"i33":9,"i34":9,"i35":9,"i36":9,"i37":9,"i38":9,"i39":9,"i40":9,"i41":9,"i42":9,"i43":9,"i44":9,"i45":9,"i46":9,"i47":9,"i48":9,"i49":9,"i50":9,"i51":9,"i52":9,"i53":9,"i54":9,"i55":9,"i56":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,8 +47,8 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html" title="enum in org.apache.iceberg.expressions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/expressions/ExpressionParser.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/expressions/ExpressionUtil.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/expressions/Expressions.html" target="_top">Frames</a></li>
@@ -153,224 +153,251 @@ extends java.lang.Object</pre>
       int&nbsp;numBuckets)</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundAggregate.html" title="class in org.apache.iceberg.expressions">UnboundAggregate</a>&lt;T&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#count-java.lang.String-">count</a></span>(java.lang.String&nbsp;name)</code>&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundAggregate.html" title="class in org.apache.iceberg.expressions">UnboundAggregate</a>&lt;T&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#countStar--">countStar</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#day-java.lang.String-">day</a></span>(java.lang.String&nbsp;name)</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#equal-java.lang.String-T-">equal</a></span>(java.lang.String&nbsp;name,
      T&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#equal-org.apache.iceberg.expressions.UnboundTerm-T-">equal</a></span>(<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;&nbsp;expr,
      T&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#greaterThan-java.lang.String-T-">greaterThan</a></span>(java.lang.String&nbsp;name,
            T&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#greaterThan-org.apache.iceberg.expressions.UnboundTerm-T-">greaterThan</a></span>(<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;&nbsp;expr,
            T&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#greaterThanOrEqual-java.lang.String-T-">greaterThanOrEqual</a></span>(java.lang.String&nbsp;name,
                   T&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#greaterThanOrEqual-org.apache.iceberg.expressions.UnboundTerm-T-">greaterThanOrEqual</a></span>(<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;&nbsp;expr,
                   T&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#hour-java.lang.String-">hour</a></span>(java.lang.String&nbsp;name)</code>&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#in-java.lang.String-java.lang.Iterable-">in</a></span>(java.lang.String&nbsp;name,
   java.lang.Iterable&lt;T&gt;&nbsp;values)</code>&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#in-java.lang.String-T...-">in</a></span>(java.lang.String&nbsp;name,
   T...&nbsp;values)</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#in-org.apache.iceberg.expressions.UnboundTerm-java.lang.Iterable-">in</a></span>(<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;&nbsp;expr,
   java.lang.Iterable&lt;T&gt;&nbsp;values)</code>&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#in-org.apache.iceberg.expressions.UnboundTerm-T...-">in</a></span>(<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;&nbsp;expr,
   T...&nbsp;values)</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#isNaN-java.lang.String-">isNaN</a></span>(java.lang.String&nbsp;name)</code>&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#isNaN-org.apache.iceberg.expressions.UnboundTerm-">isNaN</a></span>(<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;&nbsp;expr)</code>&nbsp;</td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#isNull-java.lang.String-">isNull</a></span>(java.lang.String&nbsp;name)</code>&nbsp;</td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#isNull-org.apache.iceberg.expressions.UnboundTerm-">isNull</a></span>(<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;&nbsp;expr)</code>&nbsp;</td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#lessThan-java.lang.String-T-">lessThan</a></span>(java.lang.String&nbsp;name,
         T&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#lessThan-org.apache.iceberg.expressions.UnboundTerm-T-">lessThan</a></span>(<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;&nbsp;expr,
         T&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#lessThanOrEqual-java.lang.String-T-">lessThanOrEqual</a></span>(java.lang.String&nbsp;name,
                T&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#lessThanOrEqual-org.apache.iceberg.expressions.UnboundTerm-T-">lessThanOrEqual</a></span>(<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;&nbsp;expr,
                T&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i27" class="rowColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundAggregate.html" title="class in org.apache.iceberg.expressions">UnboundAggregate</a>&lt;T&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#max-java.lang.String-">max</a></span>(java.lang.String&nbsp;name)</code>&nbsp;</td>
+</tr>
+<tr id="i28" class="altColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundAggregate.html" title="class in org.apache.iceberg.expressions">UnboundAggregate</a>&lt;T&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#min-java.lang.String-">min</a></span>(java.lang.String&nbsp;name)</code>&nbsp;</td>
+</tr>
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#month-java.lang.String-">month</a></span>(java.lang.String&nbsp;name)</code>&nbsp;</td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i30" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#not-org.apache.iceberg.expressions.Expression-">not</a></span>(<a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;child)</code>&nbsp;</td>
 </tr>
-<tr id="i27" class="rowColor">
+<tr id="i31" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#notEqual-java.lang.String-T-">notEqual</a></span>(java.lang.String&nbsp;name,
         T&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i28" class="altColor">
+<tr id="i32" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#notEqual-org.apache.iceberg.expressions.UnboundTerm-T-">notEqual</a></span>(<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;&nbsp;expr,
         T&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i29" class="rowColor">
+<tr id="i33" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#notIn-java.lang.String-java.lang.Iterable-">notIn</a></span>(java.lang.String&nbsp;name,
      java.lang.Iterable&lt;T&gt;&nbsp;values)</code>&nbsp;</td>
 </tr>
-<tr id="i30" class="altColor">
+<tr id="i34" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#notIn-java.lang.String-T...-">notIn</a></span>(java.lang.String&nbsp;name,
      T...&nbsp;values)</code>&nbsp;</td>
 </tr>
-<tr id="i31" class="rowColor">
+<tr id="i35" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#notIn-org.apache.iceberg.expressions.UnboundTerm-java.lang.Iterable-">notIn</a></span>(<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;&nbsp;expr,
      java.lang.Iterable&lt;T&gt;&nbsp;values)</code>&nbsp;</td>
 </tr>
-<tr id="i32" class="altColor">
+<tr id="i36" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#notIn-org.apache.iceberg.expressions.UnboundTerm-T...-">notIn</a></span>(<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;&nbsp;expr,
      T...&nbsp;values)</code>&nbsp;</td>
 </tr>
-<tr id="i33" class="rowColor">
+<tr id="i37" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#notNaN-java.lang.String-">notNaN</a></span>(java.lang.String&nbsp;name)</code>&nbsp;</td>
 </tr>
-<tr id="i34" class="altColor">
+<tr id="i38" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#notNaN-org.apache.iceberg.expressions.UnboundTerm-">notNaN</a></span>(<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;&nbsp;expr)</code>&nbsp;</td>
 </tr>
-<tr id="i35" class="rowColor">
+<tr id="i39" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#notNull-java.lang.String-">notNull</a></span>(java.lang.String&nbsp;name)</code>&nbsp;</td>
 </tr>
-<tr id="i36" class="altColor">
+<tr id="i40" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#notNull-org.apache.iceberg.expressions.UnboundTerm-">notNull</a></span>(<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;&nbsp;expr)</code>&nbsp;</td>
 </tr>
-<tr id="i37" class="rowColor">
+<tr id="i41" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#notStartsWith-java.lang.String-java.lang.String-">notStartsWith</a></span>(java.lang.String&nbsp;name,
              java.lang.String&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i38" class="altColor">
+<tr id="i42" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#notStartsWith-org.apache.iceberg.expressions.UnboundTerm-java.lang.String-">notStartsWith</a></span>(<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;java.lang.String&gt;&nbsp;expr,
              java.lang.String&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i39" class="rowColor">
+<tr id="i43" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#or-org.apache.iceberg.expressions.Expression-org.apache.iceberg.expressions.Expression-">or</a></span>(<a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;left,
   <a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;right)</code>&nbsp;</td>
 </tr>
-<tr id="i40" class="altColor">
+<tr id="i44" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#predicate-org.apache.iceberg.expressions.Expression.Operation-java.lang.String-">predicate</a></span>(<a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html" title="enum in org.apache.iceberg.expressions">Expression.Operation</a>&nbsp;op,
          java.lang.String&nbsp;name)</code>&nbsp;</td>
 </tr>
-<tr id="i41" class="rowColor">
+<tr id="i45" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#predicate-org.apache.iceberg.expressions.Expression.Operation-java.lang.String-java.lang.Iterable-">predicate</a></span>(<a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html" title="enum in org.apache.iceberg.expressions">Expression.Operation</a>&nbsp;op,
          java.lang.String&nbsp;name,
          java.lang.Iterable&lt;T&gt;&nbsp;values)</code>&nbsp;</td>
 </tr>
-<tr id="i42" class="altColor">
+<tr id="i46" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#predicate-org.apache.iceberg.expressions.Expression.Operation-java.lang.String-org.apache.iceberg.expressions.Literal-">predicate</a></span>(<a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html" title="enum in org.apache.iceberg.expressions">Expression.Operation</a>&nbsp;op,
          java.lang.String&nbsp;name,
          <a href="../../../../org/apache/iceberg/expressions/Literal.html" title="interface in org.apache.iceberg.expressions">Literal</a>&lt;T&gt;&nbsp;lit)</code>&nbsp;</td>
 </tr>
-<tr id="i43" class="rowColor">
+<tr id="i47" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#predicate-org.apache.iceberg.expressions.Expression.Operation-java.lang.String-T-">predicate</a></span>(<a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html" title="enum in org.apache.iceberg.expressions">Expression.Operation</a>&nbsp;op,
          java.lang.String&nbsp;name,
          T&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i44" class="altColor">
+<tr id="i48" class="altColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#predicate-org.apache.iceberg.expressions.Expression.Operation-org.apache.iceberg.expressions.UnboundTerm-">predicate</a></span>(<a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html" title="enum in org.apache.iceberg.expressions">Expression.Operation</a>&nbsp;op,
+         <a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;&nbsp;expr)</code>&nbsp;</td>
+</tr>
+<tr id="i49" class="rowColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#predicate-org.apache.iceberg.expressions.Expression.Operation-org.apache.iceberg.expressions.UnboundTerm-java.lang.Iterable-">predicate</a></span>(<a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html" title="enum in org.apache.iceberg.expressions">Expression.Operation</a>&nbsp;op,
+         <a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;&nbsp;expr,
+         java.lang.Iterable&lt;T&gt;&nbsp;values)</code>&nbsp;</td>
+</tr>
+<tr id="i50" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/NamedReference.html" title="class in org.apache.iceberg.expressions">NamedReference</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#ref-java.lang.String-">ref</a></span>(java.lang.String&nbsp;name)</code>
 <div class="block">Constructs a reference for a given column.</div>
 </td>
 </tr>
-<tr id="i45" class="rowColor">
+<tr id="i51" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#rewriteNot-org.apache.iceberg.expressions.Expression-">rewriteNot</a></span>(<a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr)</code>&nbsp;</td>
 </tr>
-<tr id="i46" class="altColor">
+<tr id="i52" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#startsWith-java.lang.String-java.lang.String-">startsWith</a></span>(java.lang.String&nbsp;name,
           java.lang.String&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i47" class="rowColor">
+<tr id="i53" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#startsWith-org.apache.iceberg.expressions.UnboundTerm-java.lang.String-">startsWith</a></span>(<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;java.lang.String&gt;&nbsp;expr,
           java.lang.String&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i48" class="altColor">
+<tr id="i54" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#transform-java.lang.String-org.apache.iceberg.transforms.Transform-">transform</a></span>(java.lang.String&nbsp;name,
          <a href="../../../../org/apache/iceberg/transforms/Transform.html" title="interface in org.apache.iceberg.transforms">Transform</a>&lt;?,T&gt;&nbsp;transform)</code>
 <div class="block">Constructs a transform expression for a given column.</div>
 </td>
 </tr>
-<tr id="i49" class="rowColor">
+<tr id="i55" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#truncate-java.lang.String-int-">truncate</a></span>(java.lang.String&nbsp;name,
         int&nbsp;width)</code>&nbsp;</td>
 </tr>
-<tr id="i50" class="altColor">
+<tr id="i56" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expressions.html#year-java.lang.String-">year</a></span>(java.lang.String&nbsp;name)</code>&nbsp;</td>
 </tr>
@@ -881,6 +908,27 @@ extends java.lang.Object</pre>
                                                 java.lang.String&nbsp;name)</pre>
 </li>
 </ul>
+<a name="predicate-org.apache.iceberg.expressions.Expression.Operation-org.apache.iceberg.expressions.UnboundTerm-java.lang.Iterable-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>predicate</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;&nbsp;predicate(<a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html" title="enum in org.apache.iceberg.expressions">Expression.Operation</a>&nbsp;op,
+                                                <a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;&nbsp;expr,
+                                                java.lang.Iterable&lt;T&gt;&nbsp;values)</pre>
+</li>
+</ul>
+<a name="predicate-org.apache.iceberg.expressions.Expression.Operation-org.apache.iceberg.expressions.UnboundTerm-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>predicate</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;T&gt;&nbsp;predicate(<a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html" title="enum in org.apache.iceberg.expressions">Expression.Operation</a>&nbsp;op,
+                                                <a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;&nbsp;expr)</pre>
+</li>
+</ul>
 <a name="alwaysTrue--">
 <!--   -->
 </a>
@@ -916,8 +964,8 @@ extends java.lang.Object</pre>
 <h4>ref</h4>
 <pre>public static&nbsp;&lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/NamedReference.html" title="class in org.apache.iceberg.expressions">NamedReference</a>&lt;T&gt;&nbsp;ref(java.lang.String&nbsp;name)</pre>
 <div class="block">Constructs a reference for a given column.
- <p>
- The following are equivalent: equals("a", 5) and equals(ref("a"), 5).</div>
+
+ <p>The following are equivalent: equals("a", 5) and equals(ref("a"), 5).</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
 <dd><code>T</code> - the Java type of this reference</dd>
@@ -931,7 +979,7 @@ extends java.lang.Object</pre>
 <a name="transform-java.lang.String-org.apache.iceberg.transforms.Transform-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>transform</h4>
 <pre>public static&nbsp;&lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;&nbsp;transform(java.lang.String&nbsp;name,
@@ -946,6 +994,42 @@ extends java.lang.Object</pre>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>an unbound transform expression</dd>
 </dl>
+</li>
+</ul>
+<a name="count-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>count</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundAggregate.html" title="class in org.apache.iceberg.expressions">UnboundAggregate</a>&lt;T&gt;&nbsp;count(java.lang.String&nbsp;name)</pre>
+</li>
+</ul>
+<a name="countStar--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>countStar</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundAggregate.html" title="class in org.apache.iceberg.expressions">UnboundAggregate</a>&lt;T&gt;&nbsp;countStar()</pre>
+</li>
+</ul>
+<a name="max-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>max</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundAggregate.html" title="class in org.apache.iceberg.expressions">UnboundAggregate</a>&lt;T&gt;&nbsp;max(java.lang.String&nbsp;name)</pre>
+</li>
+</ul>
+<a name="min-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>min</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundAggregate.html" title="class in org.apache.iceberg.expressions">UnboundAggregate</a>&lt;T&gt;&nbsp;min(java.lang.String&nbsp;name)</pre>
 </li>
 </ul>
 </li>
@@ -975,8 +1059,8 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html" title="enum in org.apache.iceberg.expressions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/expressions/ExpressionParser.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/expressions/ExpressionUtil.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/expressions/Expressions.html" target="_top">Frames</a></li>

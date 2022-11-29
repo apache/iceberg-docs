@@ -103,7 +103,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../org/apache/iceberg/spark/actions/BaseRewriteManifestsSparkAction.html" title="class in org.apache.iceberg.spark.actions">BaseRewriteManifestsSparkAction</a></dd>
+<dd><a href="../../../../org/apache/iceberg/spark/actions/RewriteManifestsSparkAction.html" title="class in org.apache.iceberg.spark.actions">RewriteManifestsSparkAction</a></dd>
 </dl>
 <hr>
 <br>
@@ -204,8 +204,8 @@ extends <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" tit
 <h4>specId</h4>
 <pre><a href="../../../../org/apache/iceberg/actions/RewriteManifests.html" title="interface in org.apache.iceberg.actions">RewriteManifests</a>&nbsp;specId(int&nbsp;specId)</pre>
 <div class="block">Rewrites manifests for a given spec id.
- <p>
- If not set, defaults to the table's default spec ID.</div>
+
+ <p>If not set, defaults to the table's default spec ID.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>specId</code> - a spec id</dd>
@@ -222,8 +222,8 @@ extends <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" tit
 <h4>rewriteIf</h4>
 <pre><a href="../../../../org/apache/iceberg/actions/RewriteManifests.html" title="interface in org.apache.iceberg.actions">RewriteManifests</a>&nbsp;rewriteIf(java.util.function.Predicate&lt;<a href="../../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&gt;&nbsp;predicate)</pre>
 <div class="block">Rewrites only manifests that match the given predicate.
- <p>
- If not set, all manifests will be rewritten.</div>
+
+ <p>If not set, all manifests will be rewritten.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>predicate</code> - a predicate</dd>
@@ -240,8 +240,8 @@ extends <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" tit
 <h4>stagingLocation</h4>
 <pre><a href="../../../../org/apache/iceberg/actions/RewriteManifests.html" title="interface in org.apache.iceberg.actions">RewriteManifests</a>&nbsp;stagingLocation(java.lang.String&nbsp;stagingLocation)</pre>
 <div class="block">Passes a location where the staged manifests should be written.
- <p>
- If not set, defaults to the table's metadata location.</div>
+
+ <p>If not set, defaults to the table's metadata location.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>stagingLocation</code> - a staging location</dd>

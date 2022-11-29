@@ -150,6 +150,11 @@ implements <a href="../../../../org/apache/iceberg/DataFile.html" title="interfa
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkDataFile.html#SparkDataFile-org.apache.iceberg.types.Types.StructType-org.apache.spark.sql.types.StructType-">SparkDataFile</a></span>(<a href="../../../../org/apache/iceberg/types/Types.StructType.html" title="class in org.apache.iceberg.types">Types.StructType</a>&nbsp;type,
              org.apache.spark.sql.types.StructType&nbsp;sparkType)</code>&nbsp;</td>
 </tr>
+<tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkDataFile.html#SparkDataFile-org.apache.iceberg.types.Types.StructType-org.apache.iceberg.types.Types.StructType-org.apache.spark.sql.types.StructType-">SparkDataFile</a></span>(<a href="../../../../org/apache/iceberg/types/Types.StructType.html" title="class in org.apache.iceberg.types">Types.StructType</a>&nbsp;type,
+             <a href="../../../../org/apache/iceberg/types/Types.StructType.html" title="class in org.apache.iceberg.types">Types.StructType</a>&nbsp;projectedType,
+             org.apache.spark.sql.types.StructType&nbsp;sparkType)</code>&nbsp;</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -234,7 +239,8 @@ implements <a href="../../../../org/apache/iceberg/DataFile.html" title="interfa
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.lang.Long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkDataFile.html#pos--">pos</a></span>()</code>
-<div class="block">Returns the ordinal position of the file in a manifest, or null if it was not read from a manifest.</div>
+<div class="block">Returns the ordinal position of the file in a manifest, or null if it was not read from a
+ manifest.</div>
 </td>
 </tr>
 <tr id="i12" class="altColor">
@@ -292,6 +298,13 @@ implements <a href="../../../../org/apache/iceberg/DataFile.html" title="interfa
 <h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a></h3>
 <code><a href="../../../../org/apache/iceberg/DataFile.html#content--">content</a>, <a href="../../../../org/apache/iceberg/DataFile.html#equalityFieldIds--">equalityFieldIds</a>, <a href="../../../../org/apache/iceberg/DataFile.html#getType-org.apache.iceberg.types.Types.StructType-">getType</a></code></li>
 </ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.org.apache.iceberg.ContentFile">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="../../../../org/apache/iceberg/ContentFile.html" title="interface in org.apache.iceberg">ContentFile</a></h3>
+<code><a href="../../../../org/apache/iceberg/ContentFile.html#copy-boolean-">copy</a></code></li>
+</ul>
 </li>
 </ul>
 </li>
@@ -309,10 +322,21 @@ implements <a href="../../../../org/apache/iceberg/DataFile.html" title="interfa
 <a name="SparkDataFile-org.apache.iceberg.types.Types.StructType-org.apache.spark.sql.types.StructType-">
 <!--   -->
 </a>
+<ul class="blockList">
+<li class="blockList">
+<h4>SparkDataFile</h4>
+<pre>public&nbsp;SparkDataFile(<a href="../../../../org/apache/iceberg/types/Types.StructType.html" title="class in org.apache.iceberg.types">Types.StructType</a>&nbsp;type,
+                     org.apache.spark.sql.types.StructType&nbsp;sparkType)</pre>
+</li>
+</ul>
+<a name="SparkDataFile-org.apache.iceberg.types.Types.StructType-org.apache.iceberg.types.Types.StructType-org.apache.spark.sql.types.StructType-">
+<!--   -->
+</a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>SparkDataFile</h4>
 <pre>public&nbsp;SparkDataFile(<a href="../../../../org/apache/iceberg/types/Types.StructType.html" title="class in org.apache.iceberg.types">Types.StructType</a>&nbsp;type,
+                     <a href="../../../../org/apache/iceberg/types/Types.StructType.html" title="class in org.apache.iceberg.types">Types.StructType</a>&nbsp;projectedType,
                      org.apache.spark.sql.types.StructType&nbsp;sparkType)</pre>
 </li>
 </ul>
@@ -341,7 +365,8 @@ implements <a href="../../../../org/apache/iceberg/DataFile.html" title="interfa
 <h4>pos</h4>
 <pre>public&nbsp;java.lang.Long&nbsp;pos()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/ContentFile.html#pos--">ContentFile</a></code></span></div>
-<div class="block">Returns the ordinal position of the file in a manifest, or null if it was not read from a manifest.</div>
+<div class="block">Returns the ordinal position of the file in a manifest, or null if it was not read from a
+ manifest.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/ContentFile.html#pos--">pos</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/ContentFile.html" title="interface in org.apache.iceberg">ContentFile</a>&lt;<a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;</code></dd>
@@ -551,8 +576,8 @@ implements <a href="../../../../org/apache/iceberg/DataFile.html" title="interfa
 <h4>copy</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&nbsp;copy()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/ContentFile.html#copy--">ContentFile</a></code></span></div>
-<div class="block">Copies this file. Manifest readers can reuse file instances; use
- this method to copy data when collecting files from tasks.</div>
+<div class="block">Copies this file. Manifest readers can reuse file instances; use this method to copy data when
+ collecting files from tasks.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/ContentFile.html#copy--">copy</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/ContentFile.html" title="interface in org.apache.iceberg">ContentFile</a>&lt;<a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;</code></dd>
@@ -569,14 +594,14 @@ implements <a href="../../../../org/apache/iceberg/DataFile.html" title="interfa
 <h4>copyWithoutStats</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&nbsp;copyWithoutStats()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/ContentFile.html#copyWithoutStats--">ContentFile</a></code></span></div>
-<div class="block">Copies this file without file stats. Manifest readers can reuse file instances; use
- this method to copy data without stats when collecting files.</div>
+<div class="block">Copies this file without file stats. Manifest readers can reuse file instances; use this method
+ to copy data without stats when collecting files.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/ContentFile.html#copyWithoutStats--">copyWithoutStats</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/ContentFile.html" title="interface in org.apache.iceberg">ContentFile</a>&lt;<a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>a copy of this data file, without lower bounds, upper bounds, value counts,
-         null value counts, or nan value counts</dd>
+<dd>a copy of this data file, without lower bounds, upper bounds, value counts, null value
+     counts, or nan value counts</dd>
 </dl>
 </li>
 </ul>
@@ -589,9 +614,9 @@ implements <a href="../../../../org/apache/iceberg/DataFile.html" title="interfa
 <pre>public&nbsp;java.util.List&lt;java.lang.Long&gt;&nbsp;splitOffsets()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/ContentFile.html#splitOffsets--">ContentFile</a></code></span></div>
 <div class="block">Returns list of recommended split locations, if applicable, null otherwise.
- <p>
- When available, this information is used for planning scan tasks whose boundaries
- are determined by these offsets. The returned list must be sorted in ascending order.</div>
+
+ <p>When available, this information is used for planning scan tasks whose boundaries are
+ determined by these offsets. The returned list must be sorted in ascending order.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/ContentFile.html#splitOffsets--">splitOffsets</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/ContentFile.html" title="interface in org.apache.iceberg">ContentFile</a>&lt;<a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;</code></dd>
@@ -606,9 +631,9 @@ implements <a href="../../../../org/apache/iceberg/DataFile.html" title="interfa
 <h4>sortOrderId</h4>
 <pre>public&nbsp;java.lang.Integer&nbsp;sortOrderId()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/ContentFile.html#sortOrderId--">ContentFile</a></code></span></div>
-<div class="block">Returns the sort order id of this file, which describes how the file is ordered.
- This information will be useful for merging data and equality delete files more efficiently
- when they share the same sort order id.</div>
+<div class="block">Returns the sort order id of this file, which describes how the file is ordered. This
+ information will be useful for merging data and equality delete files more efficiently when
+ they share the same sort order id.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/ContentFile.html#sortOrderId--">sortOrderId</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/ContentFile.html" title="interface in org.apache.iceberg">ContentFile</a>&lt;<a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;</code></dd>

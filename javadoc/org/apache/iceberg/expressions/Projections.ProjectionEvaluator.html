@@ -120,13 +120,13 @@ var activeTableTab = "activeTableTab";
 extends <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html" title="class in org.apache.iceberg.expressions">ExpressionVisitors.ExpressionVisitor</a>&lt;<a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&gt;</pre>
 <div class="block">A class that projects expressions for a table's data rows into expressions on the table's
  partition values, for a table's <a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg"><code>partition spec</code></a>.
- <p>
- There are two types of projections: inclusive and strict.
- <p>
- An inclusive projection guarantees that if an expression matches a row, the projected
+
+ <p>There are two types of projections: inclusive and strict.
+
+ <p>An inclusive projection guarantees that if an expression matches a row, the projected
  expression will match the row's partition.
- <p>
- A strict projection guarantees that if a partition matches a projected expression, then all
+
+ <p>A strict projection guarantees that if a partition matches a projected expression, then all
  rows in that partition will match the original expression.</div>
 </li>
 </ul>
@@ -175,7 +175,7 @@ extends <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.E
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html" title="class in org.apache.iceberg.expressions">ExpressionVisitors.ExpressionVisitor</a></h3>
-<code><a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#alwaysFalse--">alwaysFalse</a>, <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#alwaysTrue--">alwaysTrue</a>, <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#and-R-R-">and</a>, <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#not-R-">not</a>, <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#or-R-R-">or</a>, <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#predicate-org.apache.iceberg.expressions.BoundPredicate-">predicate</a>, <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#predicate-org.apache.iceberg.expressions.UnboundPredicate-">predicate</a></code></li>
+<code><a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#aggregate-org.apache.iceberg.expressions.BoundAggregate-">aggregate</a>, <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#aggregate-org.apache.iceberg.expressions.UnboundAggregate-">aggregate</a>, <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#alwaysFalse--">alwaysFalse</a>, <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#alwaysTrue--">alwaysTrue</a>, <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#and-R-R-">and</a>, <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#not-R-">not</a>, <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#or-R-R-">or</a>, <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#predicate-org.apache.iceberg.expressions.BoundPredicate-">predicate</a>, <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#predicate-org.apache.iceberg.expressions.UnboundPredicate-">predicate</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">

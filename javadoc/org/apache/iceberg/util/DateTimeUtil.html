@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9,"i25":9,"i26":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -139,6 +139,10 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>static long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#MICROS_PER_MILLIS">MICROS_PER_MILLIS</a></span></code>&nbsp;</td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#MICROS_PER_SECOND">MICROS_PER_SECOND</a></span></code>&nbsp;</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -168,37 +172,97 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#formatTimestampMillis-long-">formatTimestampMillis</a></span>(long&nbsp;millis)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#daysToIsoDate-int-">daysToIsoDate</a></span>(int&nbsp;days)</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>static long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#microsFromInstant-java.time.Instant-">microsFromInstant</a></span>(java.time.Instant&nbsp;instant)</code>&nbsp;</td>
+<td class="colFirst"><code>static int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#daysToMonths-int-">daysToMonths</a></span>(int&nbsp;days)</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>static long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#microsFromTime-java.time.LocalTime-">microsFromTime</a></span>(java.time.LocalTime&nbsp;time)</code>&nbsp;</td>
+<td class="colFirst"><code>static int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#daysToYears-int-">daysToYears</a></span>(int&nbsp;days)</code>&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code>static long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#microsFromTimestamp-java.time.LocalDateTime-">microsFromTimestamp</a></span>(java.time.LocalDateTime&nbsp;dateTime)</code>&nbsp;</td>
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#formatTimestampMillis-long-">formatTimestampMillis</a></span>(long&nbsp;millis)</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code>static long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#microsFromTimestamptz-java.time.OffsetDateTime-">microsFromTimestamptz</a></span>(java.time.OffsetDateTime&nbsp;dateTime)</code>&nbsp;</td>
+<td class="colFirst"><code>static int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#isoDateToDays-java.lang.String-">isoDateToDays</a></span>(java.lang.String&nbsp;dateString)</code>&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>static long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#microsToMillis-long-">microsToMillis</a></span>(long&nbsp;micros)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#isoTimestampToMicros-java.lang.String-">isoTimestampToMicros</a></span>(java.lang.String&nbsp;timestampString)</code>&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
+<td class="colFirst"><code>static long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#isoTimestamptzToMicros-java.lang.String-">isoTimestamptzToMicros</a></span>(java.lang.String&nbsp;timestampString)</code>&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>static long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#isoTimeToMicros-java.lang.String-">isoTimeToMicros</a></span>(java.lang.String&nbsp;timeString)</code>&nbsp;</td>
+</tr>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#isUTCTimestamptz-java.lang.String-">isUTCTimestamptz</a></span>(java.lang.String&nbsp;timestampString)</code>&nbsp;</td>
+</tr>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>static long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#microsFromInstant-java.time.Instant-">microsFromInstant</a></span>(java.time.Instant&nbsp;instant)</code>&nbsp;</td>
+</tr>
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code>static long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#microsFromTime-java.time.LocalTime-">microsFromTime</a></span>(java.time.LocalTime&nbsp;time)</code>&nbsp;</td>
+</tr>
+<tr id="i14" class="altColor">
+<td class="colFirst"><code>static long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#microsFromTimestamp-java.time.LocalDateTime-">microsFromTimestamp</a></span>(java.time.LocalDateTime&nbsp;dateTime)</code>&nbsp;</td>
+</tr>
+<tr id="i15" class="rowColor">
+<td class="colFirst"><code>static long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#microsFromTimestamptz-java.time.OffsetDateTime-">microsFromTimestamptz</a></span>(java.time.OffsetDateTime&nbsp;dateTime)</code>&nbsp;</td>
+</tr>
+<tr id="i16" class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#microsToDays-long-">microsToDays</a></span>(long&nbsp;micros)</code>&nbsp;</td>
+</tr>
+<tr id="i17" class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#microsToHours-long-">microsToHours</a></span>(long&nbsp;micros)</code>&nbsp;</td>
+</tr>
+<tr id="i18" class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#microsToIsoTime-long-">microsToIsoTime</a></span>(long&nbsp;micros)</code>&nbsp;</td>
+</tr>
+<tr id="i19" class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#microsToIsoTimestamp-long-">microsToIsoTimestamp</a></span>(long&nbsp;micros)</code>&nbsp;</td>
+</tr>
+<tr id="i20" class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#microsToIsoTimestamptz-long-">microsToIsoTimestamptz</a></span>(long&nbsp;micros)</code>&nbsp;</td>
+</tr>
+<tr id="i21" class="rowColor">
+<td class="colFirst"><code>static long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#microsToMillis-long-">microsToMillis</a></span>(long&nbsp;micros)</code>&nbsp;</td>
+</tr>
+<tr id="i22" class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#microsToMonths-long-">microsToMonths</a></span>(long&nbsp;micros)</code>&nbsp;</td>
+</tr>
+<tr id="i23" class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#microsToYears-long-">microsToYears</a></span>(long&nbsp;micros)</code>&nbsp;</td>
+</tr>
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>static java.time.LocalTime</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#timeFromMicros-long-">timeFromMicros</a></span>(long&nbsp;microFromMidnight)</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>static java.time.LocalDateTime</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#timestampFromMicros-long-">timestampFromMicros</a></span>(long&nbsp;microsFromEpoch)</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>static java.time.OffsetDateTime</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html#timestamptzFromMicros-long-">timestamptzFromMicros</a></span>(long&nbsp;microsFromEpoch)</code>&nbsp;</td>
 </tr>
@@ -245,13 +309,26 @@ extends java.lang.Object</pre>
 <a name="MICROS_PER_MILLIS">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>MICROS_PER_MILLIS</h4>
 <pre>public static final&nbsp;long MICROS_PER_MILLIS</pre>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.util.DateTimeUtil.MICROS_PER_MILLIS">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="MICROS_PER_SECOND">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>MICROS_PER_SECOND</h4>
+<pre>public static final&nbsp;long MICROS_PER_SECOND</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.util.DateTimeUtil.MICROS_PER_SECOND">Constant Field Values</a></dd>
 </dl>
 </li>
 </ul>
@@ -365,10 +442,145 @@ extends java.lang.Object</pre>
 <a name="formatTimestampMillis-long-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>formatTimestampMillis</h4>
 <pre>public static&nbsp;java.lang.String&nbsp;formatTimestampMillis(long&nbsp;millis)</pre>
+</li>
+</ul>
+<a name="daysToIsoDate-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>daysToIsoDate</h4>
+<pre>public static&nbsp;java.lang.String&nbsp;daysToIsoDate(int&nbsp;days)</pre>
+</li>
+</ul>
+<a name="microsToIsoTime-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>microsToIsoTime</h4>
+<pre>public static&nbsp;java.lang.String&nbsp;microsToIsoTime(long&nbsp;micros)</pre>
+</li>
+</ul>
+<a name="microsToIsoTimestamptz-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>microsToIsoTimestamptz</h4>
+<pre>public static&nbsp;java.lang.String&nbsp;microsToIsoTimestamptz(long&nbsp;micros)</pre>
+</li>
+</ul>
+<a name="microsToIsoTimestamp-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>microsToIsoTimestamp</h4>
+<pre>public static&nbsp;java.lang.String&nbsp;microsToIsoTimestamp(long&nbsp;micros)</pre>
+</li>
+</ul>
+<a name="isoDateToDays-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isoDateToDays</h4>
+<pre>public static&nbsp;int&nbsp;isoDateToDays(java.lang.String&nbsp;dateString)</pre>
+</li>
+</ul>
+<a name="isoTimeToMicros-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isoTimeToMicros</h4>
+<pre>public static&nbsp;long&nbsp;isoTimeToMicros(java.lang.String&nbsp;timeString)</pre>
+</li>
+</ul>
+<a name="isoTimestamptzToMicros-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isoTimestamptzToMicros</h4>
+<pre>public static&nbsp;long&nbsp;isoTimestamptzToMicros(java.lang.String&nbsp;timestampString)</pre>
+</li>
+</ul>
+<a name="isUTCTimestamptz-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isUTCTimestamptz</h4>
+<pre>public static&nbsp;boolean&nbsp;isUTCTimestamptz(java.lang.String&nbsp;timestampString)</pre>
+</li>
+</ul>
+<a name="isoTimestampToMicros-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isoTimestampToMicros</h4>
+<pre>public static&nbsp;long&nbsp;isoTimestampToMicros(java.lang.String&nbsp;timestampString)</pre>
+</li>
+</ul>
+<a name="daysToYears-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>daysToYears</h4>
+<pre>public static&nbsp;int&nbsp;daysToYears(int&nbsp;days)</pre>
+</li>
+</ul>
+<a name="daysToMonths-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>daysToMonths</h4>
+<pre>public static&nbsp;int&nbsp;daysToMonths(int&nbsp;days)</pre>
+</li>
+</ul>
+<a name="microsToYears-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>microsToYears</h4>
+<pre>public static&nbsp;int&nbsp;microsToYears(long&nbsp;micros)</pre>
+</li>
+</ul>
+<a name="microsToMonths-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>microsToMonths</h4>
+<pre>public static&nbsp;int&nbsp;microsToMonths(long&nbsp;micros)</pre>
+</li>
+</ul>
+<a name="microsToDays-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>microsToDays</h4>
+<pre>public static&nbsp;int&nbsp;microsToDays(long&nbsp;micros)</pre>
+</li>
+</ul>
+<a name="microsToHours-long-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>microsToHours</h4>
+<pre>public static&nbsp;int&nbsp;microsToHours(long&nbsp;micros)</pre>
 </li>
 </ul>
 </li>

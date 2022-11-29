@@ -229,8 +229,8 @@ extends <a href="../../../../org/apache/iceberg/types/TypeUtil.CustomOrderSchema
 <h4>writeCompatibilityErrors</h4>
 <pre>public static&nbsp;java.util.List&lt;java.lang.String&gt;&nbsp;writeCompatibilityErrors(<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;readSchema,
                                                                         <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;writeSchema)</pre>
-<div class="block">Returns a list of compatibility errors for writing with the given write schema.
- This includes nullability: writing optional (nullable) values to a required field is an error.</div>
+<div class="block">Returns a list of compatibility errors for writing with the given write schema. This includes
+ nullability: writing optional (nullable) values to a required field is an error.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>readSchema</code> - a read schema</dd>
@@ -249,9 +249,9 @@ extends <a href="../../../../org/apache/iceberg/types/TypeUtil.CustomOrderSchema
 <pre>public static&nbsp;java.util.List&lt;java.lang.String&gt;&nbsp;writeCompatibilityErrors(<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;readSchema,
                                                                         <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;writeSchema,
                                                                         boolean&nbsp;checkOrdering)</pre>
-<div class="block">Returns a list of compatibility errors for writing with the given write schema.
- This includes nullability: writing optional (nullable) values to a required field is an error
- Optionally this method allows case where input schema has different ordering than table schema.</div>
+<div class="block">Returns a list of compatibility errors for writing with the given write schema. This includes
+ nullability: writing optional (nullable) values to a required field is an error Optionally this
+ method allows case where input schema has different ordering than table schema.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>readSchema</code> - a read schema</dd>
@@ -271,11 +271,10 @@ extends <a href="../../../../org/apache/iceberg/types/TypeUtil.CustomOrderSchema
 <pre>public static&nbsp;java.util.List&lt;java.lang.String&gt;&nbsp;typeCompatibilityErrors(<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;readSchema,
                                                                        <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;writeSchema,
                                                                        boolean&nbsp;checkOrdering)</pre>
-<div class="block">Returns a list of compatibility errors for writing with the given write schema.
- This checks type compatibility and not nullability: writing optional (nullable) values
- to a required field is not an error. To check nullability as well as types,
- Optionally this method allows case where input schema has different ordering than table schema.
- use <a href="../../../../org/apache/iceberg/types/CheckCompatibility.html#writeCompatibilityErrors-org.apache.iceberg.Schema-org.apache.iceberg.Schema-"><code>writeCompatibilityErrors(Schema, Schema)</code></a>.</div>
+<div class="block">Returns a list of compatibility errors for writing with the given write schema. This checks
+ type compatibility and not nullability: writing optional (nullable) values to a required field
+ is not an error. To check nullability as well as types, Optionally this method allows case
+ where input schema has different ordering than table schema. use <a href="../../../../org/apache/iceberg/types/CheckCompatibility.html#writeCompatibilityErrors-org.apache.iceberg.Schema-org.apache.iceberg.Schema-"><code>writeCompatibilityErrors(Schema, Schema)</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>readSchema</code> - a read schema</dd>
@@ -294,10 +293,9 @@ extends <a href="../../../../org/apache/iceberg/types/TypeUtil.CustomOrderSchema
 <h4>typeCompatibilityErrors</h4>
 <pre>public static&nbsp;java.util.List&lt;java.lang.String&gt;&nbsp;typeCompatibilityErrors(<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;readSchema,
                                                                        <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;writeSchema)</pre>
-<div class="block">Returns a list of compatibility errors for writing with the given write schema.
- This checks type compatibility and not nullability: writing optional (nullable) values
- to a required field is not an error. To check nullability as well as types,
- use <a href="../../../../org/apache/iceberg/types/CheckCompatibility.html#writeCompatibilityErrors-org.apache.iceberg.Schema-org.apache.iceberg.Schema-"><code>writeCompatibilityErrors(Schema, Schema)</code></a>.</div>
+<div class="block">Returns a list of compatibility errors for writing with the given write schema. This checks
+ type compatibility and not nullability: writing optional (nullable) values to a required field
+ is not an error. To check nullability as well as types, use <a href="../../../../org/apache/iceberg/types/CheckCompatibility.html#writeCompatibilityErrors-org.apache.iceberg.Schema-org.apache.iceberg.Schema-"><code>writeCompatibilityErrors(Schema, Schema)</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>readSchema</code> - a read schema</dd>

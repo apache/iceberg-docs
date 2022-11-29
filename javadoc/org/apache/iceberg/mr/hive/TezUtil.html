@@ -136,7 +136,8 @@ extends java.lang.Object</pre>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static org.apache.hadoop.mapred.JobContext</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/mr/hive/TezUtil.html#enrichContextWithVertexId-org.apache.hadoop.mapred.JobContext-">enrichContextWithVertexId</a></span>(org.apache.hadoop.mapred.JobContext&nbsp;jobContext)</code>
-<div class="block">If the Tez vertex id is present in config, creates a new jobContext by appending the Tez vertex id to the jobID.</div>
+<div class="block">If the Tez vertex id is present in config, creates a new jobContext by appending the Tez vertex
+ id to the jobID.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -176,8 +177,9 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>enrichContextWithVertexId</h4>
 <pre>public static&nbsp;org.apache.hadoop.mapred.JobContext&nbsp;enrichContextWithVertexId(org.apache.hadoop.mapred.JobContext&nbsp;jobContext)</pre>
-<div class="block">If the Tez vertex id is present in config, creates a new jobContext by appending the Tez vertex id to the jobID.
- For the rationale behind this enrichment, please refer to point #1 in the docs of <code>TaskAttemptWrapper</code>.</div>
+<div class="block">If the Tez vertex id is present in config, creates a new jobContext by appending the Tez vertex
+ id to the jobID. For the rationale behind this enrichment, please refer to point #1 in the docs
+ of <code>TaskAttemptWrapper</code>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>jobContext</code> - original jobContext to be enriched</dd>
@@ -193,8 +195,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>enrichContextWithAttemptWrapper</h4>
 <pre>public static&nbsp;org.apache.hadoop.mapred.TaskAttemptContext&nbsp;enrichContextWithAttemptWrapper(org.apache.hadoop.mapred.TaskAttemptContext&nbsp;taskAttemptContext)</pre>
-<div class="block">Creates a new taskAttemptContext by replacing the taskAttemptID with a wrapped object.
- For the rationale behind this enrichment, please refer to point #2 in the docs of <code>TaskAttemptWrapper</code>.</div>
+<div class="block">Creates a new taskAttemptContext by replacing the taskAttemptID with a wrapped object. For the
+ rationale behind this enrichment, please refer to point #2 in the docs of <code>TaskAttemptWrapper</code>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>taskAttemptContext</code> - original taskAttemptContext to be enriched</dd>

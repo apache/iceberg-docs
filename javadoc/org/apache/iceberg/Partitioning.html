@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -128,18 +128,24 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>static <a href="../../../org/apache/iceberg/types/Types.StructType.html" title="class in org.apache.iceberg.types">Types.StructType</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Partitioning.html#groupingKeyType-java.util.Collection-">groupingKeyType</a></span>(java.util.Collection&lt;<a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&gt;&nbsp;specs)</code>
+<div class="block">Builds a grouping key type considering all provided specs.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Partitioning.html#hasBucketField-org.apache.iceberg.PartitionSpec-">hasBucketField</a></span>(<a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec)</code>
 <div class="block">Check whether the spec contains a bucketed partition field.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>static <a href="../../../org/apache/iceberg/types/Types.StructType.html" title="class in org.apache.iceberg.types">Types.StructType</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Partitioning.html#partitionType-org.apache.iceberg.Table-">partitionType</a></span>(<a href="../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</code>
-<div class="block">Builds a common partition type for all specs in a table.</div>
+<div class="block">Builds a unified partition type considering all specs in a table.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../org/apache/iceberg/SortOrder.html" title="class in org.apache.iceberg">SortOrder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Partitioning.html#sortOrderFor-org.apache.iceberg.PartitionSpec-">sortOrderFor</a></span>(<a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec)</code>
 <div class="block">Create a sort order that will group data for a partition spec.</div>
@@ -191,14 +197,46 @@ extends java.lang.Object</pre>
 <h4>sortOrderFor</h4>
 <pre>public static&nbsp;<a href="../../../org/apache/iceberg/SortOrder.html" title="class in org.apache.iceberg">SortOrder</a>&nbsp;sortOrderFor(<a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec)</pre>
 <div class="block">Create a sort order that will group data for a partition spec.
- <p>
- If the partition spec contains bucket columns, the sort order will also have a field to sort by a column that is
- bucketed in the spec. The column is selected by the highest number of buckets in the transform.</div>
+
+ <p>If the partition spec contains bucket columns, the sort order will also have a field to sort
+ by a column that is bucketed in the spec. The column is selected by the highest number of
+ buckets in the transform.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>spec</code> - a partition spec</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a sort order that will cluster data for the spec</dd>
+</dl>
+</li>
+</ul>
+<a name="groupingKeyType-java.util.Collection-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>groupingKeyType</h4>
+<pre>public static&nbsp;<a href="../../../org/apache/iceberg/types/Types.StructType.html" title="class in org.apache.iceberg.types">Types.StructType</a>&nbsp;groupingKeyType(java.util.Collection&lt;<a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&gt;&nbsp;specs)</pre>
+<div class="block">Builds a grouping key type considering all provided specs.
+
+ <p>A grouping key defines how data is split between files and consists of partition fields with
+ non-void transforms that are present in each provided spec. Iceberg guarantees that records
+ with different values for the grouping key are disjoint and are stored in separate files.
+
+ <p>If there is only one spec, the grouping key will include all partition fields with non-void
+ transforms from that spec. Whenever there are multiple specs, the grouping key will represent
+ an intersection of all partition fields with non-void transforms. If a partition field is
+ present only in a subset of specs, Iceberg cannot guarantee data distribution on that field.
+ That's why it will not be part of the grouping key. Unpartitioned tables or tables with
+ non-overlapping specs have empty grouping keys.
+
+ <p>When partition fields are dropped in v1 tables, they are replaced with new partition fields
+ that have the same field ID but use a void transform under the hood. Such fields cannot be part
+ of the grouping key as void transforms always return null.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>specs</code> - one or many specs</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the constructed grouping key type</dd>
 </dl>
 </li>
 </ul>
@@ -209,15 +247,17 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>partitionType</h4>
 <pre>public static&nbsp;<a href="../../../org/apache/iceberg/types/Types.StructType.html" title="class in org.apache.iceberg.types">Types.StructType</a>&nbsp;partitionType(<a href="../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</pre>
-<div class="block">Builds a common partition type for all specs in a table.
- <p>
- Whenever a table has multiple specs, the partition type is a struct containing
- all columns that have ever been a part of any spec in the table.</div>
+<div class="block">Builds a unified partition type considering all specs in a table.
+
+ <p>If there is only one spec, the partition type is that spec's partition type. Whenever there
+ are multiple specs, the partition type is a struct containing all fields that have ever been a
+ part of any spec in the table. In other words, the struct fields represent a union of all known
+ partition fields.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>table</code> - a table with one or many specs</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the constructed common partition type</dd>
+<dd>the constructed unified partition type</dd>
 </dl>
 </li>
 </ul>

@@ -239,7 +239,7 @@ extends <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.E
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html" title="class in org.apache.iceberg.expressions">ExpressionVisitors.ExpressionVisitor</a></h3>
-<code><a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#alwaysFalse--">alwaysFalse</a>, <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#alwaysTrue--">alwaysTrue</a>, <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#and-R-R-">and</a>, <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#not-R-">not</a>, <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#or-R-R-">or</a></code></li>
+<code><a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#aggregate-org.apache.iceberg.expressions.BoundAggregate-">aggregate</a>, <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#aggregate-org.apache.iceberg.expressions.UnboundAggregate-">aggregate</a>, <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#alwaysFalse--">alwaysFalse</a>, <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#alwaysTrue--">alwaysTrue</a>, <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#and-R-R-">and</a>, <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#not-R-">not</a>, <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html#or-R-R-">or</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -423,10 +423,10 @@ extends <a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.E
 <h4>handleNonReference</h4>
 <pre>public&nbsp;&lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.BoundExpressionVisitor.html" title="type parameter in ExpressionVisitors.BoundExpressionVisitor">R</a>&nbsp;handleNonReference(<a href="../../../../org/apache/iceberg/expressions/Bound.html" title="interface in org.apache.iceberg.expressions">Bound</a>&lt;T&gt;&nbsp;term)</pre>
 <div class="block">Handle a non-reference value in this visitor.
- <p>
- Visitors that require <a href="../../../../org/apache/iceberg/expressions/BoundReference.html" title="class in org.apache.iceberg.expressions"><code>references</code></a> and not <a href="../../../../org/apache/iceberg/expressions/Bound.html" title="interface in org.apache.iceberg.expressions"><code>terms</code></a> can use this method to
- return a default value for expressions with non-references. The default implementation will throw a validation
- exception because the non-reference is not supported.</div>
+
+ <p>Visitors that require <a href="../../../../org/apache/iceberg/expressions/BoundReference.html" title="class in org.apache.iceberg.expressions"><code>references</code></a> and not <a href="../../../../org/apache/iceberg/expressions/Bound.html" title="interface in org.apache.iceberg.expressions"><code>terms</code></a> can
+ use this method to return a default value for expressions with non-references. The default
+ implementation will throw a validation exception because the non-reference is not supported.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
 <dd><code>T</code> - a Java return type</dd>

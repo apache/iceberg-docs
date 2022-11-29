@@ -115,20 +115,21 @@ var activeTableTab = "activeTableTab";
 extends java.lang.Object
 implements org.apache.spark.sql.connector.catalog.StagedTable, org.apache.spark.sql.connector.catalog.SupportsRead, org.apache.spark.sql.connector.catalog.SupportsWrite, org.apache.spark.sql.connector.catalog.SupportsDelete</pre>
 <div class="block">An implementation of StagedTable that mimics the behavior of Spark's non-atomic CTAS and RTAS.
- <p>
- A Spark catalog can implement StagingTableCatalog to support atomic operations by producing StagedTable. But if a
- catalog implements StagingTableCatalog, Spark expects the catalog to be able to produce a StagedTable for any table
- loaded by the catalog. This assumption doesn't always work, as in the case of <a href="../../../../org/apache/iceberg/spark/SparkSessionCatalog.html" title="class in org.apache.iceberg.spark"><code>SparkSessionCatalog</code></a>, which
- supports atomic operations can produce a StagedTable for Iceberg tables, but wraps the session catalog and cannot
- necessarily produce a working StagedTable implementation for tables that it loads.
- <p>
- The work-around is this class, which implements the StagedTable interface but does not have atomic behavior. Instead,
- the StagedTable interface is used to implement the behavior of the non-atomic SQL plans that will create a table,
- write, and will drop the table to roll back.
- <p>
- This StagedTable implements SupportsRead, SupportsWrite, and SupportsDelete by passing the calls to the real table.
- Implementing those interfaces is safe because Spark will not use them unless the table supports them and returns the
- corresponding capabilities from <a href="../../../../org/apache/iceberg/spark/RollbackStagedTable.html#capabilities--"><code>capabilities()</code></a>.</div>
+
+ <p>A Spark catalog can implement StagingTableCatalog to support atomic operations by producing
+ StagedTable. But if a catalog implements StagingTableCatalog, Spark expects the catalog to be
+ able to produce a StagedTable for any table loaded by the catalog. This assumption doesn't always
+ work, as in the case of <a href="../../../../org/apache/iceberg/spark/SparkSessionCatalog.html" title="class in org.apache.iceberg.spark"><code>SparkSessionCatalog</code></a>, which supports atomic operations can produce
+ a StagedTable for Iceberg tables, but wraps the session catalog and cannot necessarily produce a
+ working StagedTable implementation for tables that it loads.
+
+ <p>The work-around is this class, which implements the StagedTable interface but does not have
+ atomic behavior. Instead, the StagedTable interface is used to implement the behavior of the
+ non-atomic SQL plans that will create a table, write, and will drop the table to roll back.
+
+ <p>This StagedTable implements SupportsRead, SupportsWrite, and SupportsDelete by passing the
+ calls to the real table. Implementing those interfaces is safe because Spark will not use them
+ unless the table supports them and returns the corresponding capabilities from <a href="../../../../org/apache/iceberg/spark/RollbackStagedTable.html#capabilities--"><code>capabilities()</code></a>.</div>
 </li>
 </ul>
 </div>

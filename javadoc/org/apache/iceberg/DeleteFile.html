@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/DataTask.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/DeletedRowsScanTask.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../org/apache/iceberg/DeleteFiles.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -136,7 +136,7 @@ extends <a href="../../../org/apache/iceberg/ContentFile.html" title="interface 
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="../../../org/apache/iceberg/ContentFile.html" title="interface in org.apache.iceberg">ContentFile</a></h3>
-<code><a href="../../../org/apache/iceberg/ContentFile.html#columnSizes--">columnSizes</a>, <a href="../../../org/apache/iceberg/ContentFile.html#content--">content</a>, <a href="../../../org/apache/iceberg/ContentFile.html#copy--">copy</a>, <a href="../../../org/apache/iceberg/ContentFile.html#copyWithoutStats--">copyWithoutStats</a>, <a href="../../../org/apache/iceberg/ContentFile.html#equalityFieldIds--">equalityFieldIds</a>, <a href="../../../org/apache/iceberg/ContentFile.html#fileSizeInBytes--">fileSizeInBytes</a>, <a href="../../../org/apache/iceberg/ContentFile.html#format--">format</a>, <a href="../../../org/apache/iceberg/ContentFile.html#keyMetadata--">keyMetadata</a>, <a href="../../../org/apache/iceberg/ContentFile.html#lowerBounds--">lowerBounds</a>, <a href="../../../org/apache/iceberg/ContentFile.html#nanValueCounts--">nanValueCounts</a>, <a href="../../../org/apache/iceberg/ContentFile.html#nullValueCounts--">nullValueCounts</a>, <a href="../../../org/apache/iceberg/ContentFile.html#partition--">partition</a>, <a href="../../../org/apache/iceberg/ContentFile.html#path--">path</a>, <a href="../../../org/apache/iceberg/ContentFile.html#pos--">pos</a>, <a href="../../../org/apache/iceberg/ContentFile.html#recordCount--">recordCount</a>, <a href="../../../org/apache/iceberg/ContentFile.html#sortOrderId--">sortOrderId</a>, <a href="../../../org/apache/iceberg/ContentFile.html#specId--">specId</a>, <a href="../../../org/apache/iceberg/ContentFile.html#upperBounds--">upperBounds</a>, <a href="../../../org/apache/iceberg/ContentFile.html#valueCounts--">valueCounts</a></code></li>
+<code><a href="../../../org/apache/iceberg/ContentFile.html#columnSizes--">columnSizes</a>, <a href="../../../org/apache/iceberg/ContentFile.html#content--">content</a>, <a href="../../../org/apache/iceberg/ContentFile.html#copy--">copy</a>, <a href="../../../org/apache/iceberg/ContentFile.html#copy-boolean-">copy</a>, <a href="../../../org/apache/iceberg/ContentFile.html#copyWithoutStats--">copyWithoutStats</a>, <a href="../../../org/apache/iceberg/ContentFile.html#equalityFieldIds--">equalityFieldIds</a>, <a href="../../../org/apache/iceberg/ContentFile.html#fileSizeInBytes--">fileSizeInBytes</a>, <a href="../../../org/apache/iceberg/ContentFile.html#format--">format</a>, <a href="../../../org/apache/iceberg/ContentFile.html#keyMetadata--">keyMetadata</a>, <a href="../../../org/apache/iceberg/ContentFile.html#lowerBounds--">lowerBounds</a>, <a href="../../../org/apache/iceberg/ContentFile.html#nanValueCounts--">nanValueCounts</a>, <a href="../../../org/apache/iceberg/ContentFile.html#nullValueCounts--">nullValueCounts</a>, <a href="../../../org/apache/iceberg/ContentFile.html#partition--">partition</a>, <a href="../../../org/apache/iceberg/ContentFile.html#path--">path</a>, <a href="../../../org/apache/iceberg/ContentFile.html#pos--">pos</a>, <a href="../../../org/apache/iceberg/ContentFile.html#recordCount--">recordCount</a>, <a href="../../../org/apache/iceberg/ContentFile.html#sortOrderId--">sortOrderId</a>, <a href="../../../org/apache/iceberg/ContentFile.html#specId--">specId</a>, <a href="../../../org/apache/iceberg/ContentFile.html#upperBounds--">upperBounds</a>, <a href="../../../org/apache/iceberg/ContentFile.html#valueCounts--">valueCounts</a></code></li>
 </ul>
 </li>
 </ul>
@@ -161,16 +161,16 @@ extends <a href="../../../org/apache/iceberg/ContentFile.html" title="interface 
 <pre>default&nbsp;java.util.List&lt;java.lang.Long&gt;&nbsp;splitOffsets()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/ContentFile.html#splitOffsets--">ContentFile</a></code></span></div>
 <div class="block">Returns list of recommended split locations, if applicable, null otherwise.
- <p>
- When available, this information is used for planning scan tasks whose boundaries
- are determined by these offsets. The returned list must be sorted in ascending order.</div>
+
+ <p>When available, this information is used for planning scan tasks whose boundaries are
+ determined by these offsets. The returned list must be sorted in ascending order.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../org/apache/iceberg/ContentFile.html#splitOffsets--">splitOffsets</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ContentFile.html" title="interface in org.apache.iceberg">ContentFile</a>&lt;<a href="../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg">DeleteFile</a>&gt;</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>List of recommended split locations, if applicable, null otherwise.
- When available, this information is used for planning scan tasks whose boundaries
- are determined by these offsets. The returned list must be sorted in ascending order.</dd>
+<dd>List of recommended split locations, if applicable, null otherwise. When available,
+     this information is used for planning scan tasks whose boundaries are determined by these
+     offsets. The returned list must be sorted in ascending order.</dd>
 </dl>
 </li>
 </ul>
@@ -201,7 +201,7 @@ extends <a href="../../../org/apache/iceberg/ContentFile.html" title="interface 
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/DataTask.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/DeletedRowsScanTask.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../org/apache/iceberg/DeleteFiles.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

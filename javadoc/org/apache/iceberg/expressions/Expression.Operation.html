@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":9,"i3":9};
+var methods = {"i0":10,"i1":9,"i2":10,"i3":9,"i4":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/expressions/Expressions.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/expressions/ExpressionParser.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/expressions/Expression.Operation.html" target="_top">Frames</a></li>
@@ -143,6 +143,12 @@ extends java.lang.Enum&lt;<a href="../../../../org/apache/iceberg/expressions/Ex
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html#AND">AND</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html#COUNT">COUNT</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html#COUNT_STAR">COUNT_STAR</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html#EQ">EQ</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
@@ -168,6 +174,12 @@ extends java.lang.Enum&lt;<a href="../../../../org/apache/iceberg/expressions/Ex
 </tr>
 <tr class="rowColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html#LT_EQ">LT_EQ</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html#MAX">MAX</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html#MIN">MIN</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html#NOT">NOT</a></span></code>&nbsp;</td>
@@ -218,18 +230,22 @@ extends java.lang.Enum&lt;<a href="../../../../org/apache/iceberg/expressions/Ex
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html" title="enum in org.apache.iceberg.expressions">Expression.Operation</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html#fromString-java.lang.String-">fromString</a></span>(java.lang.String&nbsp;operationType)</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html" title="enum in org.apache.iceberg.expressions">Expression.Operation</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html#negate--">negate</a></span>()</code>
 <div class="block">Returns the operation used when this is negated.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html" title="enum in org.apache.iceberg.expressions">Expression.Operation</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html#valueOf-java.lang.String-">valueOf</a></span>(java.lang.String&nbsp;name)</code>
 <div class="block">Returns the enum constant of this type with the specified name.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html" title="enum in org.apache.iceberg.expressions">Expression.Operation</a>[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html#values--">values</a></span>()</code>
 <div class="block">Returns an array containing the constants of this enum type, in
@@ -430,10 +446,46 @@ the order they are declared.</div>
 <a name="NOT_STARTS_WITH">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>NOT_STARTS_WITH</h4>
 <pre>public static final&nbsp;<a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html" title="enum in org.apache.iceberg.expressions">Expression.Operation</a> NOT_STARTS_WITH</pre>
+</li>
+</ul>
+<a name="COUNT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>COUNT</h4>
+<pre>public static final&nbsp;<a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html" title="enum in org.apache.iceberg.expressions">Expression.Operation</a> COUNT</pre>
+</li>
+</ul>
+<a name="COUNT_STAR">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>COUNT_STAR</h4>
+<pre>public static final&nbsp;<a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html" title="enum in org.apache.iceberg.expressions">Expression.Operation</a> COUNT_STAR</pre>
+</li>
+</ul>
+<a name="MAX">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>MAX</h4>
+<pre>public static final&nbsp;<a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html" title="enum in org.apache.iceberg.expressions">Expression.Operation</a> MAX</pre>
+</li>
+</ul>
+<a name="MIN">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>MIN</h4>
+<pre>public static final&nbsp;<a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html" title="enum in org.apache.iceberg.expressions">Expression.Operation</a> MIN</pre>
 </li>
 </ul>
 </li>
@@ -486,6 +538,15 @@ not permitted.)</div>
 </dl>
 </li>
 </ul>
+<a name="fromString-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>fromString</h4>
+<pre>public static&nbsp;<a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html" title="enum in org.apache.iceberg.expressions">Expression.Operation</a>&nbsp;fromString(java.lang.String&nbsp;operationType)</pre>
+</li>
+</ul>
 <a name="negate--">
 <!--   -->
 </a>
@@ -534,7 +595,7 @@ not permitted.)</div>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/expressions/Expressions.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/expressions/ExpressionParser.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/expressions/Expression.Operation.html" target="_top">Frames</a></li>

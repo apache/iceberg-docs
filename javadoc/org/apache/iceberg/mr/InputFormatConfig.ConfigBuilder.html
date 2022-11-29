@@ -411,10 +411,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>skipResidualFiltering</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/mr/InputFormatConfig.ConfigBuilder.html" title="class in org.apache.iceberg.mr">InputFormatConfig.ConfigBuilder</a>&nbsp;skipResidualFiltering()</pre>
-<div class="block">Compute platforms pass down filters to data sources. If the data source cannot apply some filters, or only
- partially applies the filter, it will return the residual filter back. If the platform can correctly apply the
- residual filters, then it should call this api. Otherwise the current api will throw an exception if the passed
- in filter is not completely satisfied.</div>
+<div class="block">Compute platforms pass down filters to data sources. If the data source cannot apply some
+ filters, or only partially applies the filter, it will return the residual filter back. If
+ the platform can correctly apply the residual filters, then it should call this api.
+ Otherwise the current api will throw an exception if the passed in filter is not completely
+ satisfied.</div>
 </li>
 </ul>
 </li>

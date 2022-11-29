@@ -103,7 +103,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../org/apache/iceberg/util/LockManagers.BaseLockManager.html" title="class in org.apache.iceberg.util">LockManagers.BaseLockManager</a></dd>
+<dd><a href="../../../org/apache/iceberg/aws/dynamodb/DynamoDbLockManager.html" title="class in org.apache.iceberg.aws.dynamodb">DynamoDbLockManager</a>, <a href="../../../org/apache/iceberg/util/LockManagers.BaseLockManager.html" title="class in org.apache.iceberg.util">LockManagers.BaseLockManager</a></dd>
 </dl>
 <hr>
 <br>
@@ -145,9 +145,7 @@ extends java.lang.AutoCloseable</pre>
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/LockManager.html#release-java.lang.String-java.lang.String-">release</a></span>(java.lang.String&nbsp;entityId,
        java.lang.String&nbsp;ownerId)</code>
-<div class="block">Release a lock
-
- exception must not be thrown for this method.</div>
+<div class="block">Release a lock</div>
 </td>
 </tr>
 </table>
@@ -200,7 +198,7 @@ extends java.lang.AutoCloseable</pre>
                 java.lang.String&nbsp;ownerId)</pre>
 <div class="block">Release a lock
 
- exception must not be thrown for this method.</div>
+ <p>exception must not be thrown for this method.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>entityId</code> - ID of the entity to lock</dd>

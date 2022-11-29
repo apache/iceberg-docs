@@ -186,12 +186,12 @@ extends java.lang.Object</pre>
                                                      <a href="../../../../org/apache/iceberg/MetricsConfig.html" title="class in org.apache.iceberg">MetricsConfig</a>&nbsp;metricsConfig,
                                                      <a href="../../../../org/apache/iceberg/mapping/NameMapping.html" title="class in org.apache.iceberg.mapping">NameMapping</a>&nbsp;mapping)</pre>
 <div class="block">Returns the data files in a partition by listing the partition location.
- <p>
- For Parquet and ORC partitions, this will read metrics from the file footer. For Avro partitions,
- metrics are set to null.
- <p>
- Note: certain metrics, like NaN counts, that are only supported by iceberg file writers but not file footers,
- will not be populated.</div>
+
+ <p>For Parquet and ORC partitions, this will read metrics from the file footer. For Avro
+ partitions, metrics are set to null.
+
+ <p>Note: certain metrics, like NaN counts, that are only supported by iceberg file writers but
+ not file footers, will not be populated.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>partition</code> - partition key, e.g., "a=1/b=2"</dd>

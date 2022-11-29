@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -111,21 +111,19 @@ var activeTableTab = "activeTableTab";
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><a href="../../../../org/apache/iceberg/actions/SortStrategy.html" title="class in org.apache.iceberg.actions">SortStrategy</a>, <a href="../../../../org/apache/iceberg/spark/actions/Spark3BinPackStrategy.html" title="class in org.apache.iceberg.spark.actions">Spark3BinPackStrategy</a></dd>
+<dd><a href="../../../../org/apache/iceberg/actions/SortStrategy.html" title="class in org.apache.iceberg.actions">SortStrategy</a>, <a href="../../../../org/apache/iceberg/spark/actions/SparkBinPackStrategy.html" title="class in org.apache.iceberg.spark.actions">SparkBinPackStrategy</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public abstract class <span class="typeNameLabel">BinPackStrategy</span>
 extends java.lang.Object
 implements <a href="../../../../org/apache/iceberg/actions/RewriteStrategy.html" title="interface in org.apache.iceberg.actions">RewriteStrategy</a></pre>
-<div class="block">A rewrite strategy for data files which determines which files to rewrite
- based on their size. If files are either smaller than the <a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#MIN_FILE_SIZE_BYTES"><code>MIN_FILE_SIZE_BYTES</code></a> threshold or
- larger than the <a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#MAX_FILE_SIZE_BYTES"><code>MAX_FILE_SIZE_BYTES</code></a> threshold, they are considered targets for being rewritten.
- <p>
- Once selected files are grouped based on a <a href="../../../../org/apache/iceberg/util/BinPacking.html" title="class in org.apache.iceberg.util"><code>BinPacking</code></a> into groups defined
- by <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.html#MAX_FILE_GROUP_SIZE_BYTES"><code>RewriteDataFiles.MAX_FILE_GROUP_SIZE_BYTES</code></a>. Groups will be considered for rewriting if they contain
- more files than <a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#MIN_INPUT_FILES"><code>MIN_INPUT_FILES</code></a> or would produce at least one file of
- <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.html#TARGET_FILE_SIZE_BYTES"><code>RewriteDataFiles.TARGET_FILE_SIZE_BYTES</code></a>.</div>
+<div class="block">A rewrite strategy for data files which determines which files to rewrite based on their size. If
+ files are either smaller than the <a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#MIN_FILE_SIZE_BYTES"><code>MIN_FILE_SIZE_BYTES</code></a> threshold or larger than the
+ <a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#MAX_FILE_SIZE_BYTES"><code>MAX_FILE_SIZE_BYTES</code></a> threshold, they are considered targets for being rewritten.
+
+ <p>Once selected files are grouped based on a <a href="../../../../org/apache/iceberg/util/BinPacking.html" title="class in org.apache.iceberg.util"><code>BinPacking</code></a> into groups defined by <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.html#MAX_FILE_GROUP_SIZE_BYTES"><code>RewriteDataFiles.MAX_FILE_GROUP_SIZE_BYTES</code></a>. Groups will be considered for rewriting if they
+ contain more files than <a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#MIN_INPUT_FILES"><code>MIN_INPUT_FILES</code></a> or would produce at least one file of <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.html#TARGET_FILE_SIZE_BYTES"><code>RewriteDataFiles.TARGET_FILE_SIZE_BYTES</code></a>.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../serialized-form.html#org.apache.iceberg.actions.BinPackStrategy">Serialized Form</a></dd>
@@ -151,7 +149,8 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteStrategy.html"
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#DELETE_FILE_THRESHOLD">DELETE_FILE_THRESHOLD</a></span></code>
-<div class="block">The minimum number of deletes that needs to be associated with a data file for it to be considered for rewriting.</div>
+<div class="block">The minimum number of deletes that needs to be associated with a data file for it to be
+ considered for rewriting.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -188,6 +187,16 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteStrategy.html"
 <tr class="rowColor">
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#MIN_INPUT_FILES_DEFAULT">MIN_INPUT_FILES_DEFAULT</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#REWRITE_ALL">REWRITE_ALL</a></span></code>
+<div class="block">Rewrites all files, regardless of their size.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#REWRITE_ALL_DEFAULT">REWRITE_ALL_DEFAULT</a></span></code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -226,62 +235,58 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteStrategy.html"
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#inputFileSize-java.util.List-">inputFileSize</a></span>(java.util.List&lt;<a href="../../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;&nbsp;fileToRewrite)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>protected long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#maxGroupSize--">maxGroupSize</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#name--">name</a></span>()</code>
 <div class="block">Returns the name of this rewrite strategy</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>protected long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#numOutputFiles-long-">numOutputFiles</a></span>(long&nbsp;totalSizeInBytes)</code>
 <div class="block">Determine how many output files to create when rewriting.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/actions/RewriteStrategy.html" title="interface in org.apache.iceberg.actions">RewriteStrategy</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#options-java.util.Map-">options</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;options)</code>
 <div class="block">Sets options to be used with this strategy</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.Iterable&lt;java.util.List&lt;<a href="../../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#planFileGroups-java.lang.Iterable-">planFileGroups</a></span>(java.lang.Iterable&lt;<a href="../../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;&nbsp;dataFiles)</code>
 <div class="block">Groups file scans into lists which will be processed in a single executable unit.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.Iterable&lt;<a href="../../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#selectFilesToRewrite-java.lang.Iterable-">selectFilesToRewrite</a></span>(java.lang.Iterable&lt;<a href="../../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;&nbsp;dataFiles)</code>
 <div class="block">Selects files which this strategy believes are valid targets to be rewritten.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#splitSize-long-">splitSize</a></span>(long&nbsp;totalSizeInBytes)</code>
-<div class="block">Returns the smallest of our max write file threshold, and our estimated split size based on
- the number of output files we want to generate.</div>
+<div class="block">Returns the smallest of our max write file threshold, and our estimated split size based on the
+ number of output files we want to generate.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>protected long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#targetFileSize--">targetFileSize</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.util.Set&lt;java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#validOptions--">validOptions</a></span>()</code>
 <div class="block">Returns a set of options which this rewrite strategy can use.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>protected long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#writeMaxFileSize--">writeMaxFileSize</a></span>()</code>
 <div class="block">Estimates a larger max target file size than our target size used in task creation to avoid
- tasks which are predicted to have a certain size, but exceed that target size when serde is complete creating
- tiny remainder files.</div>
+ tasks which are predicted to have a certain size, but exceed that target size when serde is
+ complete creating tiny remainder files.</div>
 </td>
 </tr>
 </table>
@@ -321,9 +326,8 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteStrategy.html"
 <h4>MIN_INPUT_FILES</h4>
 <pre>public static final&nbsp;java.lang.String MIN_INPUT_FILES</pre>
 <div class="block">The minimum number of files that need to be in a file group for it to be considered for
- compaction if the total size of that group is less than the <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.html#TARGET_FILE_SIZE_BYTES"><code>RewriteDataFiles.TARGET_FILE_SIZE_BYTES</code></a>.
- This can also be thought of as the maximum number of non-target-size files that could remain in a file
- group (partition) after rewriting.</div>
+ compaction if the total size of that group is less than the <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.html#TARGET_FILE_SIZE_BYTES"><code>RewriteDataFiles.TARGET_FILE_SIZE_BYTES</code></a>. This can also be thought of as the maximum number of
+ non-target-size files that could remain in a file group (partition) after rewriting.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.BinPackStrategy.MIN_INPUT_FILES">Constant Field Values</a></dd>
@@ -350,11 +354,9 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteStrategy.html"
 <li class="blockList">
 <h4>MIN_FILE_SIZE_BYTES</h4>
 <pre>public static final&nbsp;java.lang.String MIN_FILE_SIZE_BYTES</pre>
-<div class="block">Adjusts files which will be considered for rewriting. Files smaller than
- <a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#MIN_FILE_SIZE_BYTES"><code>MIN_FILE_SIZE_BYTES</code></a> will be considered for rewriting. This functions independently
- of <a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#MAX_FILE_SIZE_BYTES"><code>MAX_FILE_SIZE_BYTES</code></a>.
- <p>
- Defaults to 75% of the target file size</div>
+<div class="block">Adjusts files which will be considered for rewriting. Files smaller than <a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#MIN_FILE_SIZE_BYTES"><code>MIN_FILE_SIZE_BYTES</code></a> will be considered for rewriting. This functions independently of <a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#MAX_FILE_SIZE_BYTES"><code>MAX_FILE_SIZE_BYTES</code></a>.
+
+ <p>Defaults to 75% of the target file size</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.BinPackStrategy.MIN_FILE_SIZE_BYTES">Constant Field Values</a></dd>
@@ -381,11 +383,9 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteStrategy.html"
 <li class="blockList">
 <h4>MAX_FILE_SIZE_BYTES</h4>
 <pre>public static final&nbsp;java.lang.String MAX_FILE_SIZE_BYTES</pre>
-<div class="block">Adjusts files which will be considered for rewriting. Files larger than
- <a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#MAX_FILE_SIZE_BYTES"><code>MAX_FILE_SIZE_BYTES</code></a> will be considered for rewriting. This functions independently
- of <a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#MIN_FILE_SIZE_BYTES"><code>MIN_FILE_SIZE_BYTES</code></a>.
- <p>
- Defaults to 180% of the target file size</div>
+<div class="block">Adjusts files which will be considered for rewriting. Files larger than <a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#MAX_FILE_SIZE_BYTES"><code>MAX_FILE_SIZE_BYTES</code></a> will be considered for rewriting. This functions independently of <a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#MIN_FILE_SIZE_BYTES"><code>MIN_FILE_SIZE_BYTES</code></a>.
+
+ <p>Defaults to 180% of the target file size</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.BinPackStrategy.MAX_FILE_SIZE_BYTES">Constant Field Values</a></dd>
@@ -412,13 +412,13 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteStrategy.html"
 <li class="blockList">
 <h4>DELETE_FILE_THRESHOLD</h4>
 <pre>public static final&nbsp;java.lang.String DELETE_FILE_THRESHOLD</pre>
-<div class="block">The minimum number of deletes that needs to be associated with a data file for it to be considered for rewriting.
- If a data file has this number of deletes or more, it will be rewritten regardless of its file size determined
- by <a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#MIN_FILE_SIZE_BYTES"><code>MIN_FILE_SIZE_BYTES</code></a> and <a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#MAX_FILE_SIZE_BYTES"><code>MAX_FILE_SIZE_BYTES</code></a>.
- If a file group contains a file that satisfies this condition, the file group will be rewritten regardless of
- the number of files in the file group determined by <a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#MIN_INPUT_FILES"><code>MIN_INPUT_FILES</code></a>
- <p>
- Defaults to Integer.MAX_VALUE, which means this feature is not enabled by default.</div>
+<div class="block">The minimum number of deletes that needs to be associated with a data file for it to be
+ considered for rewriting. If a data file has this number of deletes or more, it will be
+ rewritten regardless of its file size determined by <a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#MIN_FILE_SIZE_BYTES"><code>MIN_FILE_SIZE_BYTES</code></a> and <a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#MAX_FILE_SIZE_BYTES"><code>MAX_FILE_SIZE_BYTES</code></a>. If a file group contains a file that satisfies this condition, the file
+ group will be rewritten regardless of the number of files in the file group determined by
+ <a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html#MIN_INPUT_FILES"><code>MIN_INPUT_FILES</code></a>
+
+ <p>Defaults to Integer.MAX_VALUE, which means this feature is not enabled by default.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.BinPackStrategy.DELETE_FILE_THRESHOLD">Constant Field Values</a></dd>
@@ -428,13 +428,41 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteStrategy.html"
 <a name="DELETE_FILE_THRESHOLD_DEFAULT">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>DELETE_FILE_THRESHOLD_DEFAULT</h4>
 <pre>public static final&nbsp;int DELETE_FILE_THRESHOLD_DEFAULT</pre>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.BinPackStrategy.DELETE_FILE_THRESHOLD_DEFAULT">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="REWRITE_ALL">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>REWRITE_ALL</h4>
+<pre>public static final&nbsp;java.lang.String REWRITE_ALL</pre>
+<div class="block">Rewrites all files, regardless of their size. Defaults to false, rewriting only mis-sized
+ files;</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.BinPackStrategy.REWRITE_ALL">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="REWRITE_ALL_DEFAULT">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>REWRITE_ALL_DEFAULT</h4>
+<pre>public static final&nbsp;boolean REWRITE_ALL_DEFAULT</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.BinPackStrategy.REWRITE_ALL_DEFAULT">Constant Field Values</a></dd>
 </dl>
 </li>
 </ul>
@@ -486,8 +514,8 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteStrategy.html"
 <h4>validOptions</h4>
 <pre>public&nbsp;java.util.Set&lt;java.lang.String&gt;&nbsp;validOptions()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/actions/RewriteStrategy.html#validOptions--">RewriteStrategy</a></code></span></div>
-<div class="block">Returns a set of options which this rewrite strategy can use. This is an allowed-list and any options not
- specified here will be rejected at runtime.</div>
+<div class="block">Returns a set of options which this rewrite strategy can use. This is an allowed-list and any
+ options not specified here will be rejected at runtime.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/actions/RewriteStrategy.html#validOptions--">validOptions</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/actions/RewriteStrategy.html" title="interface in org.apache.iceberg.actions">RewriteStrategy</a></code></dd>
@@ -536,9 +564,9 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteStrategy.html"
 <h4>planFileGroups</h4>
 <pre>public&nbsp;java.lang.Iterable&lt;java.util.List&lt;<a href="../../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;&gt;&nbsp;planFileGroups(java.lang.Iterable&lt;<a href="../../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;&nbsp;dataFiles)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/actions/RewriteStrategy.html#planFileGroups-java.lang.Iterable-">RewriteStrategy</a></code></span></div>
-<div class="block">Groups file scans into lists which will be processed in a single executable unit. Each group will end up being
- committed as an independent set of changes. This creates the jobs which will eventually be run as by the underlying
- Action.</div>
+<div class="block">Groups file scans into lists which will be processed in a single executable unit. Each group
+ will end up being committed as an independent set of changes. This creates the jobs which will
+ eventually be run as by the underlying Action.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/actions/RewriteStrategy.html#planFileGroups-java.lang.Iterable-">planFileGroups</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/actions/RewriteStrategy.html" title="interface in org.apache.iceberg.actions">RewriteStrategy</a></code></dd>
@@ -565,15 +593,15 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteStrategy.html"
 <li class="blockList">
 <h4>numOutputFiles</h4>
 <pre>protected&nbsp;long&nbsp;numOutputFiles(long&nbsp;totalSizeInBytes)</pre>
-<div class="block">Determine how many output files to create when rewriting. We use this to determine the split-size
- we want to use when actually writing files to avoid the following situation.
- <p>
- If we are writing 10.1 G of data with a target file size of 1G we would end up with
- 11 files, one of which would only have 0.1g. This would most likely be less preferable to
- 10 files each of which was 1.01g. So here we decide whether to round up or round down
- based on what the estimated average file size will be if we ignore the remainder (0.1g). If
- the new file size is less than 10% greater than the target file size then we will round down
- when determining the number of output files.</div>
+<div class="block">Determine how many output files to create when rewriting. We use this to determine the
+ split-size we want to use when actually writing files to avoid the following situation.
+
+ <p>If we are writing 10.1 G of data with a target file size of 1G we would end up with 11
+ files, one of which would only have 0.1g. This would most likely be less preferable to 10 files
+ each of which was 1.01g. So here we decide whether to round up or round down based on what the
+ estimated average file size will be if we ignore the remainder (0.1g). If the new file size is
+ less than 10% greater than the target file size then we will round down when determining the
+ number of output files.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>totalSizeInBytes</code> - total data size for a file group</dd>
@@ -589,9 +617,9 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteStrategy.html"
 <li class="blockList">
 <h4>splitSize</h4>
 <pre>protected&nbsp;long&nbsp;splitSize(long&nbsp;totalSizeInBytes)</pre>
-<div class="block">Returns the smallest of our max write file threshold, and our estimated split size based on
- the number of output files we want to generate. Add a overhead onto the estimated splitSize to try to avoid
- small errors in size creating brand-new files.</div>
+<div class="block">Returns the smallest of our max write file threshold, and our estimated split size based on the
+ number of output files we want to generate. Add a overhead onto the estimated splitSize to try
+ to avoid small errors in size creating brand-new files.</div>
 </li>
 </ul>
 <a name="inputFileSize-java.util.List-">
@@ -603,15 +631,6 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteStrategy.html"
 <pre>protected&nbsp;long&nbsp;inputFileSize(java.util.List&lt;<a href="../../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;&nbsp;fileToRewrite)</pre>
 </li>
 </ul>
-<a name="maxGroupSize--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>maxGroupSize</h4>
-<pre>protected&nbsp;long&nbsp;maxGroupSize()</pre>
-</li>
-</ul>
 <a name="writeMaxFileSize--">
 <!--   -->
 </a>
@@ -620,17 +639,18 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteStrategy.html"
 <h4>writeMaxFileSize</h4>
 <pre>protected&nbsp;long&nbsp;writeMaxFileSize()</pre>
 <div class="block">Estimates a larger max target file size than our target size used in task creation to avoid
- tasks which are predicted to have a certain size, but exceed that target size when serde is complete creating
- tiny remainder files.
- <p>
- While we create tasks that should all be smaller than our target size there is a chance that the actual
- data will end up being larger than our target size due to various factors of compression, serialization and
- other factors outside our control. If this occurs, instead of making a single file that is close in size to
- our target we would end up producing one file of the target size, and then a small extra file with the remaining
- data. For example, if our target is 512 MB we may generate a rewrite task that should be 500 MB. When we write
- the data we may find we actually have to write out 530 MB. If we use the target size while writing we would
- produced a 512 MB file and a 18 MB file. If instead we use a larger size estimated by this method,
- then we end up writing a single file.</div>
+ tasks which are predicted to have a certain size, but exceed that target size when serde is
+ complete creating tiny remainder files.
+
+ <p>While we create tasks that should all be smaller than our target size there is a chance that
+ the actual data will end up being larger than our target size due to various factors of
+ compression, serialization and other factors outside our control. If this occurs, instead of
+ making a single file that is close in size to our target we would end up producing one file of
+ the target size, and then a small extra file with the remaining data. For example, if our
+ target is 512 MB we may generate a rewrite task that should be 500 MB. When we write the data
+ we may find we actually have to write out 530 MB. If we use the target size while writing we
+ would produced a 512 MB file and a 18 MB file. If instead we use a larger size estimated by
+ this method, then we end up writing a single file.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the target size plus one half of the distance between max and target</dd>

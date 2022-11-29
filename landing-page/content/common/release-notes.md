@@ -68,6 +68,10 @@ To add a dependency on Iceberg in Maven, add the following to your `pom.xml`:
 </dependencies>
 ```
 
+## 1.1.0 release
+
+For more details, please visit [Github](https://github.com/apache/iceberg/releases/tag/apache-iceberg-1.1.0).
+
 ## 1.0.0 release
 
 The 1.0.0 release officially guarantees the stability of the Iceberg API.

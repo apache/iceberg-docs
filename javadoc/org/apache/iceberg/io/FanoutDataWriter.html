@@ -113,8 +113,8 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public class <span class="typeNameLabel">FanoutDataWriter&lt;T&gt;</span>
 extends java.lang.Object</pre>
-<div class="block">A data writer capable of writing to multiple specs and partitions that keeps data writers for each
- seen spec/partition pair open until this writer is closed.</div>
+<div class="block">A data writer capable of writing to multiple specs and partitions that keeps data writers for
+ each seen spec/partition pair open until this writer is closed.</div>
 </li>
 </ul>
 </div>
@@ -133,10 +133,9 @@ extends java.lang.Object</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/FanoutDataWriter.html#FanoutDataWriter-org.apache.iceberg.io.FileWriterFactory-org.apache.iceberg.io.OutputFileFactory-org.apache.iceberg.io.FileIO-org.apache.iceberg.FileFormat-long-">FanoutDataWriter</a></span>(<a href="../../../../org/apache/iceberg/io/FileWriterFactory.html" title="interface in org.apache.iceberg.io">FileWriterFactory</a>&lt;<a href="../../../../org/apache/iceberg/io/FanoutDataWriter.html" title="type parameter in FanoutDataWriter">T</a>&gt;&nbsp;writerFactory,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/FanoutDataWriter.html#FanoutDataWriter-org.apache.iceberg.io.FileWriterFactory-org.apache.iceberg.io.OutputFileFactory-org.apache.iceberg.io.FileIO-long-">FanoutDataWriter</a></span>(<a href="../../../../org/apache/iceberg/io/FileWriterFactory.html" title="interface in org.apache.iceberg.io">FileWriterFactory</a>&lt;<a href="../../../../org/apache/iceberg/io/FanoutDataWriter.html" title="type parameter in FanoutDataWriter">T</a>&gt;&nbsp;writerFactory,
                 <a href="../../../../org/apache/iceberg/io/OutputFileFactory.html" title="class in org.apache.iceberg.io">OutputFileFactory</a>&nbsp;fileFactory,
                 <a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io,
-                <a href="../../../../org/apache/iceberg/FileFormat.html" title="enum in org.apache.iceberg">FileFormat</a>&nbsp;fileFormat,
                 long&nbsp;targetFileSizeInBytes)</code>&nbsp;</td>
 </tr>
 </table>
@@ -213,7 +212,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="FanoutDataWriter-org.apache.iceberg.io.FileWriterFactory-org.apache.iceberg.io.OutputFileFactory-org.apache.iceberg.io.FileIO-org.apache.iceberg.FileFormat-long-">
+<a name="FanoutDataWriter-org.apache.iceberg.io.FileWriterFactory-org.apache.iceberg.io.OutputFileFactory-org.apache.iceberg.io.FileIO-long-">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -222,7 +221,6 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;FanoutDataWriter(<a href="../../../../org/apache/iceberg/io/FileWriterFactory.html" title="interface in org.apache.iceberg.io">FileWriterFactory</a>&lt;<a href="../../../../org/apache/iceberg/io/FanoutDataWriter.html" title="type parameter in FanoutDataWriter">T</a>&gt;&nbsp;writerFactory,
                         <a href="../../../../org/apache/iceberg/io/OutputFileFactory.html" title="class in org.apache.iceberg.io">OutputFileFactory</a>&nbsp;fileFactory,
                         <a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io,
-                        <a href="../../../../org/apache/iceberg/FileFormat.html" title="enum in org.apache.iceberg">FileFormat</a>&nbsp;fileFormat,
                         long&nbsp;targetFileSizeInBytes)</pre>
 </li>
 </ul>
@@ -311,8 +309,7 @@ extends java.lang.Object</pre>
 <h4>result</h4>
 <pre>public final&nbsp;R&nbsp;result()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/io/PartitioningWriter.html#result--">PartitioningWriter</a></code></span></div>
-<div class="block">Returns a result that contains information about written <a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg"><code>DataFile</code></a>s or <a href="../../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg"><code>DeleteFile</code></a>s.
- The result is valid only after the writer is closed.</div>
+<div class="block">Returns a result that contains information about written <a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg"><code>DataFile</code></a>s or <a href="../../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg"><code>DeleteFile</code></a>s. The result is valid only after the writer is closed.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/io/PartitioningWriter.html#result--">result</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/io/PartitioningWriter.html" title="interface in org.apache.iceberg.io">PartitioningWriter</a>&lt;T,R&gt;</code></dd>

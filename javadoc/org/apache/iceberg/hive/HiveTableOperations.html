@@ -284,19 +284,21 @@ extends <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.htm
 <li class="blockList">
 <h4>translateToIcebergProp</h4>
 <pre>public static&nbsp;java.lang.String&nbsp;translateToIcebergProp(java.lang.String&nbsp;hmsProp)</pre>
-<div class="block">Provides key translation where necessary between Iceberg and HMS props. This translation is needed because some
- properties control the same behaviour but are named differently in Iceberg and Hive. Therefore changes to these
- property pairs should be synchronized.
+<div class="block">Provides key translation where necessary between Iceberg and HMS props. This translation is
+ needed because some properties control the same behaviour but are named differently in Iceberg
+ and Hive. Therefore changes to these property pairs should be synchronized.
 
- Example: Deleting data files upon DROP TABLE is enabled using gc.enabled=true in Iceberg and
- external.table.purge=true in Hive. Hive and Iceberg users are unaware of each other's control flags, therefore
- inconsistent behaviour can occur from e.g. a Hive user's point of view if external.table.purge=true is set on the
- HMS table but gc.enabled=false is set on the Iceberg table, resulting in no data file deletion.</div>
+ <p>Example: Deleting data files upon DROP TABLE is enabled using gc.enabled=true in Iceberg and
+ external.table.purge=true in Hive. Hive and Iceberg users are unaware of each other's control
+ flags, therefore inconsistent behaviour can occur from e.g. a Hive user's point of view if
+ external.table.purge=true is set on the HMS table but gc.enabled=false is set on the Iceberg
+ table, resulting in no data file deletion.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>hmsProp</code> - The HMS property that should be translated to Iceberg property</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>Iceberg property equivalent to the hmsProp. If no such translation exists, the original hmsProp is returned</dd>
+<dd>Iceberg property equivalent to the hmsProp. If no such translation exists, the original
+     hmsProp is returned</dd>
 </dl>
 </li>
 </ul>
@@ -308,8 +310,8 @@ extends <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.htm
 <h4>tableName</h4>
 <pre>protected&nbsp;java.lang.String&nbsp;tableName()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#tableName--">BaseMetastoreTableOperations</a></code></span></div>
-<div class="block">The full name of the table used for logging purposes only. For example for HiveTableOperations it is
- catalogName + "." + database + "." + table.</div>
+<div class="block">The full name of the table used for logging purposes only. For example for HiveTableOperations
+ it is catalogName + "." + database + "." + table.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#tableName--">tableName</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html" title="class in org.apache.iceberg">BaseMetastoreTableOperations</a></code></dd>

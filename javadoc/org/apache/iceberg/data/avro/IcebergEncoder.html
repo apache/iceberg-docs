@@ -199,8 +199,8 @@ implements org.apache.avro.message.MessageEncoder&lt;D&gt;</pre>
 <pre>public&nbsp;IcebergEncoder(<a href="../../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema)</pre>
 <div class="block">Creates a new <code>MessageEncoder</code> that will deconstruct datum instances described by the
  <a href="../../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>schema</code></a>.
- <p>
- Buffers returned by <code>encode</code> are copied and will not be modified by future calls to
+
+ <p>Buffers returned by <code>encode</code> are copied and will not be modified by future calls to
  <code>encode</code>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -218,11 +218,11 @@ implements org.apache.avro.message.MessageEncoder&lt;D&gt;</pre>
                       boolean&nbsp;shouldCopy)</pre>
 <div class="block">Creates a new <code>MessageEncoder</code> that will deconstruct datum instances described by the
  <a href="../../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>schema</code></a>.
- <p>
- If <code>shouldCopy</code> is true, then buffers returned by <code>encode</code> are copied and will
+
+ <p>If <code>shouldCopy</code> is true, then buffers returned by <code>encode</code> are copied and will
  not be modified by future calls to <code>encode</code>.
- <p>
- If <code>shouldCopy</code> is false, then buffers returned by <code>encode</code> wrap a thread-local
+
+ <p>If <code>shouldCopy</code> is false, then buffers returned by <code>encode</code> wrap a thread-local
  buffer that can be reused by future calls to <code>encode</code>, but may not be. Callers should
  only set <code>shouldCopy</code> to false if the buffer will be copied before the current thread's
  next call to <code>encode</code>.</div>

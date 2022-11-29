@@ -106,11 +106,11 @@ var activeTableTab = "activeTableTab";
 <pre>public interface <span class="typeNameLabel">AppendFiles</span>
 extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interface in org.apache.iceberg">SnapshotUpdate</a>&lt;<a href="../../../org/apache/iceberg/AppendFiles.html" title="interface in org.apache.iceberg">AppendFiles</a>&gt;</pre>
 <div class="block">API for appending new files in a table.
- <p>
- This API accumulates file additions, produces a new <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><code>Snapshot</code></a> of the table, and commits
+
+ <p>This API accumulates file additions, produces a new <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><code>Snapshot</code></a> of the table, and commits
  that snapshot as the current.
- <p>
- When committing, these changes will be applied to the latest table snapshot. Commit conflicts
+
+ <p>When committing, these changes will be applied to the latest table snapshot. Commit conflicts
  will be resolved by applying the changes to the new latest snapshot and reattempting the commit.</div>
 </li>
 </ul>
@@ -148,7 +148,7 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interface in org.apache.iceberg">SnapshotUpdate</a></h3>
-<code><a href="../../../org/apache/iceberg/SnapshotUpdate.html#deleteWith-java.util.function.Consumer-">deleteWith</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#set-java.lang.String-java.lang.String-">set</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#stageOnly--">stageOnly</a></code></li>
+<code><a href="../../../org/apache/iceberg/SnapshotUpdate.html#deleteWith-java.util.function.Consumer-">deleteWith</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#scanManifestsWith-java.util.concurrent.ExecutorService-">scanManifestsWith</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#set-java.lang.String-java.lang.String-">set</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#stageOnly--">stageOnly</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#toBranch-java.lang.String-">toBranch</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.org.apache.iceberg.PendingUpdate">
@@ -195,20 +195,20 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 <h4>appendManifest</h4>
 <pre><a href="../../../org/apache/iceberg/AppendFiles.html" title="interface in org.apache.iceberg">AppendFiles</a>&nbsp;appendManifest(<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&nbsp;file)</pre>
 <div class="block">Append a <a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg"><code>ManifestFile</code></a> to the table.
- <p>
- The manifest must contain only appended files. All files in the manifest will be appended to
+
+ <p>The manifest must contain only appended files. All files in the manifest will be appended to
  the table in the snapshot created by this update.
- <p>
- By default, the manifest will be rewritten to assign all entries this update's snapshot ID.
- In that case, it is always the responsibility of the caller to manage the lifecycle of
- the original manifest.
- <p>
- If manifest entries are allowed to inherit the snapshot ID assigned on commit, the manifest
+
+ <p>By default, the manifest will be rewritten to assign all entries this update's snapshot ID.
+ In that case, it is always the responsibility of the caller to manage the lifecycle of the
+ original manifest.
+
+ <p>If manifest entries are allowed to inherit the snapshot ID assigned on commit, the manifest
  should never be deleted manually if the commit succeeds as it will become part of the table
  metadata and will be cleaned up on expiry. If the manifest gets merged with others while
- preparing a new snapshot, it will be deleted automatically if this operation is successful.
- If the commit fails, the manifest will never be deleted and it is up to the caller whether
- to delete or reuse it.</div>
+ preparing a new snapshot, it will be deleted automatically if this operation is successful. If
+ the commit fails, the manifest will never be deleted and it is up to the caller whether to
+ delete or reuse it.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>file</code> - a manifest file</dd>
