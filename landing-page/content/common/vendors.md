@@ -24,6 +24,9 @@ disableSidebar: true
 
 This page contains some of the vendors who are shipping and supporting Apache Iceberg in their products
 
+### [CelerData](https://celerdata.com)
+
+CelerData provides commercial offerings for [StarRocks](https://www.starrocks.io/), a distributed MPP SQL engine for enterprise analytics on Iceberg. With its fully vectorized technology, local caching, and intelligent materialized view, StarRocks delivers sub-second query latency for both batch and real-time analytics. CelerData offers both an [enterprise deployment](https://celerdata.com/celerdata-enterprise) and a [cloud service](https://celerdata.com/celerdata-cloud) to help customers use StarRocks more smoothly. Learn more about how to query Iceberg with StarRocks [here](https://docs.starrocks.io/en-us/latest/data_source/catalog/iceberg_catalog).
 
 ### [Cloudera](http://cloudera.com)
 
