@@ -74,6 +74,10 @@ Has been released on 28 November 2022. The 1.1.0 release deprecates various pre-
 
 * Puffin statistics have been [added to the Table API](https://github.com/apache/iceberg/pull/4945)
 * Support for [Table scan reporting](https://github.com/apache/iceberg/pull/5268), which enables collection of statistics of the table scans.
+* Added support for Flink 1.16, dropped support for Flink 1.13
+* Dropped support for Apache Spark 3.0
+* [Fixed the SequenceNumber](https://github.com/apache/iceberg/pull/5913) to represent DataSequenceNumber in the ManifestEntry
+* [Support register table](https://github.com/apache/iceberg/pull/5037) for all the catalogs (previously it was only for hive)
 
 A lot of dependency updates, including:
 
