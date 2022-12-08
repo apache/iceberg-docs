@@ -70,7 +70,20 @@ To add a dependency on Iceberg in Maven, add the following to your `pom.xml`:
 
 ## 1.1.0 release
 
+Has been released on 28 November 2022. The 1.1.0 release deprecates various pre-1.0.0 methods:
+
+* Puffin statistics have been [added to the Table API](https://github.com/apache/iceberg/pull/4945)
+* Support for [Table scan reporting](https://github.com/apache/iceberg/pull/5268), which enables collection of statistics of the table scans.
+
+A lot of dependency updates, including:
+
+* [AWS SDK: 2.17.257](https://github.com/apache/iceberg/pull/5612)
+* [Nessie: 0.44](https://github.com/apache/iceberg/pull/6008)
+* [Apache ORC: 1.8.0](https://github.com/apache/iceberg/pull/5699) (Also, supports [setting bloom filters on row groups](https://github.com/apache/iceberg/pull/5313/files))
+
 For more details, please visit [Github](https://github.com/apache/iceberg/releases/tag/apache-iceberg-1.1.0).
+
+## Past releases
 
 ## 1.0.0 release
 
@@ -83,9 +96,6 @@ This release removes deprecated APIs that are no longer part of the API. To make
 * Increase metrics limit to 100 columns ([#5933](https://github.com/apache/iceberg/pull/5933))
 * Bump Spark patch versions for CVE-2022-33891 ([#5292](https://github.com/apache/iceberg/pull/5292))
 * Exclude Scala from Spark runtime Jars ([#5884](https://github.com/apache/iceberg/pull/5884))
-
-
-## Past releases
 
 ### 0.14.1 release
 
