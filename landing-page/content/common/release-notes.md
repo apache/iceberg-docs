@@ -70,16 +70,28 @@ To add a dependency on Iceberg in Maven, add the following to your `pom.xml`:
 
 ## 1.1.0 release
 
-Has been released on 28 November 2022. The 1.1.0 release deprecates various pre-1.0.0 methods:
+Has been released on 28 November 2022. The 1.1.0 release deprecates various pre-1.0.0 methods, and adds a variety of new features. An overview:
 
 * Puffin statistics have been [added to the Table API](https://github.com/apache/iceberg/pull/4945)
 * Support for [Table scan reporting](https://github.com/apache/iceberg/pull/5268), which enables collection of statistics of the table scans.
-* Added support for Flink 1.16, dropped support for Flink 1.13
-* Dropped support for Apache Spark 3.0
-* [Fixed the SequenceNumber](https://github.com/apache/iceberg/pull/5913) to represent DataSequenceNumber in the ManifestEntry
+* [Add file sequence number to ManifestEntry](https://github.com/apache/iceberg/pull/6002)
 * [Support register table](https://github.com/apache/iceberg/pull/5037) for all the catalogs (previously it was only for hive)
+* [Support performing merge appends and delete files on branches](https://github.com/apache/iceberg/pull/5618)
+* [Improved Expire Snapshots FileCleanupStrategy](https://github.com/apache/iceberg/pull/5669)
+* [SnapshotProducer supports branch writes](https://github.com/apache/iceberg/pull/4926)
 
-A lot of dependency updates, including:
+Apache Spark:
+
+* Dropped support for Apache Spark 3.0
+* [Support for aggregate expressions](https://github.com/apache/iceberg/pull/5961) for Apache Spark
+* [SparkChangelogTable for querying changelogs](https://github.com/apache/iceberg/pull/5740) in Apache Spark
+
+Apache Flink:
+
+* [FLIP-27 reader is supported in SQL]()
+* Added support for Flink 1.16, dropped support for Flink 1.13
+
+And dependency updates, including:
 
 * [AWS SDK: 2.17.257](https://github.com/apache/iceberg/pull/5612)
 * [Nessie: 0.44](https://github.com/apache/iceberg/pull/6008)
