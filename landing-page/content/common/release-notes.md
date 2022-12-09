@@ -72,30 +72,25 @@ To add a dependency on Iceberg in Maven, add the following to your `pom.xml`:
 
 Has been released on 28 November 2022. The 1.1.0 release deprecates various pre-1.0.0 methods, and adds a variety of new features. An overview:
 
-* Puffin statistics have been [added to the Table API](https://github.com/apache/iceberg/pull/4945)
-* Support for [Table scan reporting](https://github.com/apache/iceberg/pull/5268), which enables collection of statistics of the table scans.
-* [Add file sequence number to ManifestEntry](https://github.com/apache/iceberg/pull/6002)
-* [Support register table](https://github.com/apache/iceberg/pull/5037) for all the catalogs (previously it was only for hive)
-* [Support performing merge appends and delete files on branches](https://github.com/apache/iceberg/pull/5618)
-* [Improved Expire Snapshots FileCleanupStrategy](https://github.com/apache/iceberg/pull/5669)
-* [SnapshotProducer supports branch writes](https://github.com/apache/iceberg/pull/4926)
-
-Apache Spark:
-
-* Dropped support for Apache Spark 3.0
-* [Support for aggregate expressions](https://github.com/apache/iceberg/pull/5961) for Apache Spark
-* [SparkChangelogTable for querying changelogs](https://github.com/apache/iceberg/pull/5740) in Apache Spark
-
-Apache Flink:
-
-* [FLIP-27 reader is supported in SQL]()
-* Added support for Flink 1.16, dropped support for Flink 1.13
-
-And dependency updates, including:
-
-* [AWS SDK: 2.17.257](https://github.com/apache/iceberg/pull/5612)
-* [Nessie: 0.44](https://github.com/apache/iceberg/pull/6008)
-* [Apache ORC: 1.8.0](https://github.com/apache/iceberg/pull/5699) (Also, supports [setting bloom filters on row groups](https://github.com/apache/iceberg/pull/5313/files))
+* Core
+  - Puffin statistics have been [added to the Table API](https://github.com/apache/iceberg/pull/4945)
+  - Support for [Table scan reporting](https://github.com/apache/iceberg/pull/5268), which enables collection of statistics of the table scans.
+  - [Add file sequence number to ManifestEntry](https://github.com/apache/iceberg/pull/6002)
+  - [Support register table](https://github.com/apache/iceberg/pull/5037) for all the catalogs (previously it was only for Hive)
+  - [Support performing merge appends and delete files on branches](https://github.com/apache/iceberg/pull/5618)
+  - [Improved Expire Snapshots FileCleanupStrategy](https://github.com/apache/iceberg/pull/5669)
+  - [SnapshotProducer supports branch writes](https://github.com/apache/iceberg/pull/4926)
+* Spark
+  - [Support for aggregate expressions](https://github.com/apache/iceberg/pull/5961)
+  - [SparkChangelogTable for querying changelogs](https://github.com/apache/iceberg/pull/5740)
+  - Dropped support for Apache Spark 3.0
+* Flink
+  - [FLIP-27 reader is supported in SQL](https://github.com/apache/iceberg/pull/5318)
+  - Added support for Flink 1.16, dropped support for Flink 1.13
+* Dependencies
+  - [AWS SDK: 2.17.257](https://github.com/apache/iceberg/pull/5612)
+  - [Nessie: 0.44](https://github.com/apache/iceberg/pull/6008)
+  - [Apache ORC: 1.8.0](https://github.com/apache/iceberg/pull/5699) (Also, supports [setting bloom filters on row groups](https://github.com/apache/iceberg/pull/5313/files))
 
 For more details, please visit [Github](https://github.com/apache/iceberg/releases/tag/apache-iceberg-1.1.0).
 
