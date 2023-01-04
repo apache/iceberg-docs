@@ -24,6 +24,11 @@ disableSidebar: true
 
 Here is a list of company blogs that talk about Iceberg. The blogs are ordered from most recent to oldest.
 
+### [Multi-Cloud Open Lakehouse with Apache Iceberg in Cloudera Data Platform](https://blog.cloudera.com/implement-a-multi-cloud-open-lakehouse-with-apache-iceberg-in-cloudera-data-platform/)
+**Date**: December 15th, 2022, **Company**: Cloudera
+
+**Authors**: [Bill Zhang](https://www.linkedin.com/in/billzhang01/), [Shaun Ahmadian](https://www.linkedin.com/in/ssahmadian/), [Zoltan Borok-Nagy](https://www.linkedin.com/in/zoltán-borók-nagy-7370a65b/), [Vincent Kulandaisamy](https://www.linkedin.com/in/vincentkulandaisamy/)
+
 ### [Compaction in Apache Iceberg: Fine-Tuning Your Iceberg Table's Data Files](https://www.dremio.com/subsurface/compaction-in-apache-iceberg-fine-tuning-your-iceberg-tables-data-files/)
 **Date**: November 9th, 2022, **Company**: Dremio
 
