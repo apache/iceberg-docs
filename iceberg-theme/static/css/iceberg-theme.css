@@ -370,6 +370,10 @@ i.fa.fa-chevron-down {
     }
   }
 
+@media screen and (max-width: 768px) {
+    div.sidebar { display: none; }  /* Hide the sidebar if the page is less than 768px. It will be available from a hamburger menu */
+}
+
 /* Style for the hint shortcode */
 .info, .success, .warning, .error {
     margin: 10px 0px;
