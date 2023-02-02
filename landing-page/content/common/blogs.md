@@ -27,7 +27,7 @@ Here is a list of company blogs that talk about Iceberg. The blogs are ordered f
 ### [Understanding Iceberg Table Metadata](https://medium.com/snowflake/understanding-iceberg-table-metadata-b1209fbcc7c3)
 **Date**: January 30st, 2023, **Company**: Snowflake
 
-**Authors**: [Phani Raj](https://www.linkedin.com/in/phani-raj-9830a31b/)
+**Author**: [Phani Raj](https://www.linkedin.com/in/phani-raj-9830a31b/)
 
 ### [Creating and managing Apache Iceberg tables using serverless features and without coding](https://medium.com/snowflake/creating-and-managing-apache-iceberg-tables-using-serverless-features-and-without-coding-14d2198cf5b5)
 **Date**: January 27th, 2023, **Company**: Snowflake
