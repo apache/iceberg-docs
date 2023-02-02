@@ -25,7 +25,7 @@ disableSidebar: true
 Here is a list of company blogs that talk about Iceberg. The blogs are ordered from most recent to oldest.
 
 ### [Understanding Iceberg Table Metadata](https://medium.com/snowflake/understanding-iceberg-table-metadata-b1209fbcc7c3)
-**Date**: January 31st, 2023, **Company**: Snowflake
+**Date**: January 30st, 2023, **Company**: Snowflake
 
 **Authors**: [Phani Raj](https://www.linkedin.com/in/phani-raj-9830a31b/)
 
