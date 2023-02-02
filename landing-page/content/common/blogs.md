@@ -32,7 +32,7 @@ Here is a list of company blogs that talk about Iceberg. The blogs are ordered f
 ### [Creating and managing Apache Iceberg tables using serverless features and without coding](https://medium.com/snowflake/creating-and-managing-apache-iceberg-tables-using-serverless-features-and-without-coding-14d2198cf5b5)
 **Date**: January 27th, 2023, **Company**: Snowflake
 
-**Authors**: [Parag Jain](https://www.linkedin.com/in/paragjainsa/)
+**Author**: [Parag Jain](https://www.linkedin.com/in/paragjainsa/)
 
 ### [Getting started with Apache Iceberg](https://medium.com/snowflake/getting-started-with-apache-iceberg-80f338921a31)
 **Date**: January 27th, 2023, **Company**: Snowflake
