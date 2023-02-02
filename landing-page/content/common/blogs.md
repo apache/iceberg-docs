@@ -37,7 +37,7 @@ Here is a list of company blogs that talk about Iceberg. The blogs are ordered f
 ### [Getting started with Apache Iceberg](https://medium.com/snowflake/getting-started-with-apache-iceberg-80f338921a31)
 **Date**: January 27th, 2023, **Company**: Snowflake
 
-**Authors**: [Jedidiah Rajbhushan](https://www.linkedin.com/in/jrajbhushan/)
+**Author**: [Jedidiah Rajbhushan](https://www.linkedin.com/in/jrajbhushan/)
 
 ### [How Apache Iceberg enables ACID compliance for data lakes](https://medium.com/snowflake/how-apache-iceberg-enables-acid-compliance-for-data-lakes-9069ae783b60/)
 **Date**: January 13th, 2023, **Company**: Snowflake
