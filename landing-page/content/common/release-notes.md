@@ -95,7 +95,7 @@ For more details, please visit [Github](https://github.com/apache/iceberg/releas
 
 ## Past releases
 
-## 1.0.0 release
+### 1.0.0 release
 
 The 1.0.0 release officially guarantees the stability of the Iceberg API.
 
