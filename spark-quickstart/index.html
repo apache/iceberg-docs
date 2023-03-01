@@ -163,19 +163,19 @@ the <a href=../docs/latest/spark-configuration/#catalogs>Catalog</a> page in the
 </span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    --conf spark.sql.extensions<span style=color:#f92672>=</span>org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions <span style=color:#ae81ff>\
 </span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    --conf spark.sql.catalog.spark_catalog<span style=color:#f92672>=</span>org.apache.iceberg.spark.SparkSessionCatalog <span style=color:#ae81ff>\
 </span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    --conf spark.sql.catalog.spark_catalog.type<span style=color:#f92672>=</span>hive <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    --conf spark.sql.catalog.demo<span style=color:#f92672>=</span>org.apache.iceberg.spark.SparkCatalog <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    --conf spark.sql.catalog.demo.type<span style=color:#f92672>=</span>hadoop <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    --conf spark.sql.catalog.demo.warehouse<span style=color:#f92672>=</span>$PWD/warehouse <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    --conf spark.sql.defaultCatalog<span style=color:#f92672>=</span>demo
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    --conf spark.sql.catalog.local<span style=color:#f92672>=</span>org.apache.iceberg.spark.SparkCatalog <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    --conf spark.sql.catalog.local.type<span style=color:#f92672>=</span>hadoop <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    --conf spark.sql.catalog.local.warehouse<span style=color:#f92672>=</span>$PWD/warehouse <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    --conf spark.sql.defaultCatalog<span style=color:#f92672>=</span>local
 </span></span></code></pre></div></codeblock><codeblock class=spark-defaults><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>spark.jars.packages                                  org.apache.iceberg:iceberg-spark-runtime-3.2_2.12:1.1.0
 </span></span><span style=display:flex><span>spark.sql.extensions                                 org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions
 </span></span><span style=display:flex><span>spark.sql.catalog.spark_catalog                      org.apache.iceberg.spark.SparkSessionCatalog
 </span></span><span style=display:flex><span>spark.sql.catalog.spark_catalog.type                 hive
-</span></span><span style=display:flex><span>spark.sql.catalog.demo                               org.apache.iceberg.spark.SparkCatalog
-</span></span><span style=display:flex><span>spark.sql.catalog.demo.type                          hadoop
-</span></span><span style=display:flex><span>spark.sql.catalog.demo.warehouse                     $PWD/warehouse
-</span></span><span style=display:flex><span>spark.sql.defaultCatalog                             demo
-</span></span></code></pre></div></codeblock></div><div class=info>If your Iceberg catalog is not set as the default catalog, you will have to switch to it by executing <code>USE demo;</code></div><h3 id=next-steps>Next steps</h3><h4 id=adding-iceberg-to-spark>Adding Iceberg to Spark</h4><p>If you already have a Spark environment, you can add Iceberg, using the <code>--packages</code> option.</p><div class=codetabs><input id=spark-sql type=radio name=AddIcebergToSpark onclick='selectExampleLanguage("spark-queries","spark-sql")'>
+</span></span><span style=display:flex><span>spark.sql.catalog.local                              org.apache.iceberg.spark.SparkCatalog
+</span></span><span style=display:flex><span>spark.sql.catalog.local.type                         hadoop
+</span></span><span style=display:flex><span>spark.sql.catalog.local.warehouse                    $PWD/warehouse
+</span></span><span style=display:flex><span>spark.sql.defaultCatalog                             local
+</span></span></code></pre></div></codeblock></div><div class=info>If your Iceberg catalog is not set as the default catalog, you will have to switch to it by executing <code>USE local;</code></div><h3 id=next-steps>Next steps</h3><h4 id=adding-iceberg-to-spark>Adding Iceberg to Spark</h4><p>If you already have a Spark environment, you can add Iceberg, using the <code>--packages</code> option.</p><div class=codetabs><input id=spark-sql type=radio name=AddIcebergToSpark onclick='selectExampleLanguage("spark-queries","spark-sql")'>
 <label for=spark-sql>SparkSQL</label>
 <input id=spark-shell type=radio name=AddIcebergToSpark onclick='selectExampleLanguage("spark-queries","spark-shell")'>
 <label for=spark-shell>Spark-Shell</label>
