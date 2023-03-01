@@ -45,6 +45,7 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     { name = "Spec", parent = "Project", pre = "relative", url = "../../spec", weight = 200 },
     { name = "View Spec", parent = "Project", pre = "relative", url = "../../view-spec", weight = 300 },
     { name = "Puffin Spec", parent = "Project", pre = "relative", url = "../../puffin-spec", weight = 400 },
+    { name = "Multi-Engine Support", parent = "Project", pre = "relative", url = "../../multi-engine-support", weight = 450 },
     { name = "How To Release", parent = "Project", pre = "relative", url = "../../how-to-release", weight = 500 },
     { name = "Terms", parent = "Project", pre = "relative", url = "../../terms", weight = 600 },
     { name = "ASF", weight = 1200 },
