@@ -260,7 +260,7 @@ For example, for 1.2.0 release we do:
 
 ```bash
 git checkout -b 1.2.x apache-iceberg-1.2.0
-git push apache 1.2.x
+git push --set-upstream apache 1.2.x
 ```
 
 #### Maven release
