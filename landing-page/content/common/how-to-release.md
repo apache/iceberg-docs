@@ -220,6 +220,8 @@ Therefore, the release candidate is passed/rejected.
 
 ### Finishing the release
 
+#### Apache release
+
 After the release vote has passed, you need to release the last candidate's artifacts.
 
 First, copy the source release directory to releases:
@@ -235,13 +237,40 @@ svn add apache-iceberg-<VERSION>
 svn ci -m 'Iceberg: Add release <VERSION>'
 ```
 
+#### GitHub release
+
 Next, add a release tag to the git repository based on the passing candidate tag:
 
 ```bash
 git tag -am 'Release Apache Iceberg <VERSION>' apache-iceberg-<VERSION> apache-iceberg-<VERSION>-rcN
+git push apache apache-iceberg-<VERSION>
 ```
 
-Then release the candidate repository in [Nexus](https://repository.apache.org/#stagingRepositories).
+Then create a new GitHub release in https://github.com/apache/iceberg/releases from the release version tag.
+
+Next, clean up each RC tag with:
+
+```bash
+git push --delete apache apache-iceberg-<VERSION>-rcN
+```
+
+For each major or minor version release, 
+publish the release branch with a `.x` in the end.
+For example, for 1.2.0 release we do:
+
+```bash
+git checkout -b 1.2.x apache-iceberg-1.2.0
+git push apache 1.2.x
+```
+
+#### Maven release
+
+1. Go to [Nexus](https://repository.apache.org/) and log in
+2. In the menu on the left, choose "Staging Repositories"
+3. Select the Iceberg repository that was previously closed and passed vote
+4. At the top, select "Release" and follow the instructions
+
+#### Announcement email
 
 To announce the release, wait until Maven central has mirrored the Apache binaries, then update the Iceberg site and send an announcement email:
 
