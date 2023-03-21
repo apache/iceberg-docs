@@ -86,8 +86,8 @@ Follow the instructions for [Eclipse](https://github.com/google/google-java-form
 ## Semantic Versioning
 
 Apache Iceberg leverages [semantic versioning](https://semver.org/#semantic-versioning-200) to ensure compatibility
-for developers and users of the iceberg libraries as APIs and implementations evolve.  The requirements and
-guarantees provided depend on the subproject as described below:
+for developers and users of the iceberg libraries as APIs and implementations evolve.
+The requirements and guarantees provided depend on the subproject as described below:
 
 ### Major Version Deprecations Required
 
@@ -95,12 +95,12 @@ __Modules__
 `iceberg-api`
 
 The API subproject is the main interface for developers and users of the Iceberg API and therefore has the strongest
-guarantees.  Evolution of the interfaces in this subproject are enforced by [Revapi](https://revapi.org/) and require
+guarantees.
+Evolution of the interfaces in this subproject are enforced by [Revapi](https://revapi.org/) and require
 explicit acknowledgement of API changes.
-
-All public interfaces and classes require one major version for deprecation cycle.  Any backward incompatible changes
-should be annotated as `@Deprecated` and removed for the next major release.  Backward compatible changes are allowed
-within major versions.
+All public interfaces and classes require one major version for deprecation cycle.
+Any backward incompatible changes should be annotated as `@Deprecated` and removed for the next major release.
+Backward compatible changes are allowed within major versions.
 
 ### Minor Version Deprecations Required
 
@@ -112,7 +112,8 @@ __Modules__
 `iceberg-parquet`
 
 Changes to public interfaces and classes in the subprojects listed above require a deprecation cycle of one minor
-release.  These projects contain common and internal code used by other projects and can evolve within a major release.
+release.
+These projects contain common and internal code used by other projects and can evolve within a major release.
 Minor release deprecation will provide other subprojects and external projects notice and opportunity to transition
 to new implementations.
 
@@ -121,7 +122,8 @@ to new implementations.
 __modules__ (All modules not referenced above)
 
 Other modules are less likely to be extended directly and modifications should make a good faith effort to follow a
-minor version deprecation cycle.  If there are significant structural or design changes that result in deprecations
+minor version deprecation cycle.
+If there are significant structural or design changes that result in deprecations
 being difficult to orchestrate, it is up to the committers to decide if deprecation is necessary.
 
 ## Deprecation Notices
@@ -338,7 +340,7 @@ Please refer to the [usage guide](https://github.com/awaitility/awaitility/wiki/
 
 ### JUnit4 / JUnit5
 
-Iceberg currently uses a mix of JUnit4 and JUnit5 tests. To allow an easier migration to JUnit5 in the future, new test classes
+Iceberg currently uses a mix of JUnit4 (`org.junit` imports) and JUnit5 (`org.junit.jupiter.api` imports) tests. To allow an easier migration to JUnit5 in the future, new test classes
 that are being added to the codebase should be written purely in JUnit5 where possible.
 
 
