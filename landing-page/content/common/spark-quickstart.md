@@ -42,7 +42,7 @@ highlight some powerful features. You can learn more about Iceberg's Spark runti
 
 ### Docker-Compose
 
-The fastest way to get started is to use a docker-compose file that uses the the [tabulario/spark-iceberg](https://hub.docker.com/r/tabulario/spark-iceberg) image
+The fastest way to get started is to use a docker-compose file that uses the [tabulario/spark-iceberg](https://hub.docker.com/r/tabulario/spark-iceberg) image
 which contains a local Spark cluster with a configured Iceberg catalog. To use this, you'll need to install the [Docker CLI](https://docs.docker.com/get-docker/) as well as the [Docker Compose CLI](https://github.com/docker/compose-cli/blob/main/INSTALL.md).
 
 Once you have those, save the yaml below into a file named `docker-compose.yml`:
@@ -55,6 +55,8 @@ services:
     image: tabulario/spark-iceberg
     container_name: spark-iceberg
     build: spark/
+    networks:
+      iceberg_net:
     depends_on:
       - rest
       - minio
@@ -68,18 +70,20 @@ services:
     ports:
       - 8888:8888
       - 8080:8080
-    links:
-      - rest:rest
-      - minio:minio
+      - 10000:10000
+      - 10001:10001
   rest:
     image: tabulario/iceberg-rest
+    container_name: iceberg-rest
+    networks:
+      iceberg_net:
     ports:
       - 8181:8181
     environment:
       - AWS_ACCESS_KEY_ID=admin
       - AWS_SECRET_ACCESS_KEY=password
       - AWS_REGION=us-east-1
-      - CATALOG_WAREHOUSE=s3a://warehouse/wh/
+      - CATALOG_WAREHOUSE=s3://warehouse/
       - CATALOG_IO__IMPL=org.apache.iceberg.aws.s3.S3FileIO
       - CATALOG_S3_ENDPOINT=http://minio:9000
   minio:
@@ -88,6 +92,11 @@ services:
     environment:
       - MINIO_ROOT_USER=admin
       - MINIO_ROOT_PASSWORD=password
+      - MINIO_DOMAIN=minio
+    networks:
+      iceberg_net:
+        aliases:
+          - warehouse.minio
     ports:
       - 9001:9001
       - 9000:9000
@@ -97,6 +106,8 @@ services:
       - minio
     image: minio/mc
     container_name: mc
+    networks:
+      iceberg_net:
     environment:
       - AWS_ACCESS_KEY_ID=admin
       - AWS_SECRET_ACCESS_KEY=password
@@ -107,8 +118,11 @@ services:
       /usr/bin/mc rm -r --force minio/warehouse;
       /usr/bin/mc mb minio/warehouse;
       /usr/bin/mc policy set public minio/warehouse;
-      exit 0;
+      tail -f /dev/null
       "
+networks:
+  iceberg_net:
+
 ```
 
 Next, start up the docker containers with this command:
