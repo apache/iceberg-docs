@@ -292,6 +292,13 @@ Java artifacts are available from Maven Central.
 Thanks to everyone for contributing!
 ```
 
+#### Codebase updates
+
+There are a few places in the codebase that reference the latest Iceberg releases and need to be updated:
+1. https://github.com/apache/iceberg/blob/master/.github/ISSUE_TEMPLATE/iceberg_bug_report.yml
+2. https://github.com/apache/iceberg/blob/master/python/dev/Dockerfile
+3. `oldVersion` in `revapi` in https://github.com/apache/iceberg/blob/master/build.gradle
+
 ### Documentation Release
 
 Documentation needs to be updated as a part of an Iceberg release after a release candidate is passed.
@@ -299,12 +306,6 @@ The commands described below assume you are in a directory containing a local cl
 repository and `iceberg` repository. Adjust the commands accordingly if it is not the case. Note that all
 changes in `iceberg` need to happen against the `master` branch and changes in `iceberg-docs` need to happen
 against the `main` branch. 
-
-#### iceberg repository preparations
-
-A PR needs to be published in the `iceberg` repository with the following changes:
-
-1. Create a new folder called `docs/releases/<VERSION NUMBER>` with an `_index.md` file. See the existing folders under `docs/releases` for more details.
 
 #### Common documentation update
 
