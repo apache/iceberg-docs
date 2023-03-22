@@ -16,11 +16,10 @@ the field aliases are &lsquo;alias_name&rsquo;, &lsquo;alias_name2&rsquo;, and e
   },
   &#34;versions&#34; : [ { =&gt; Last few versions of the view.
     &#34;version-id&#34; : 1,
-    &#34;parent-version-id&#34; : -1,
     &#34;timestamp-ms&#34; : 1573518431292,
     &#34;summary&#34; : {
       &#34;operation&#34; : &#34;create&#34;, =&gt; View operation that caused this metadata to be created
-      &#34;engineVersion&#34; : &#34;presto-350&#34;, =&gt; Version of the engine that performed the operation (create / replace)
+      &#34;engineVersion&#34; : &#34;presto-350&#34; =&gt; Version of the engine that performed the operation (create / replace)
     },
     &#34;representations&#34; : [ { =&gt; SQL metadata of the view
       &#34;type&#34; : &#34;sql&#34;,
@@ -29,7 +28,7 @@ the field aliases are &lsquo;alias_name&rsquo;, &lsquo;alias_name2&rsquo;, and e
       &#34;schema-id&#34; : 1,
       &#34;default-catalog&#34; : &#34;iceberg&#34;,
       &#34;default-namespace&#34; : [ &#34;anorwood&#34; ]
-    } ],
+    } ]
   } ],
   &#34;version-log&#34; : [ { =&gt; Log of the created versions
     &#34;timestamp-ms&#34; : 1573518431292,
@@ -63,11 +62,10 @@ the field aliases are &lsquo;alias_name&rsquo;, &lsquo;alias_name2&rsquo;, and e
   },
   &#34;versions&#34; : [ {
     &#34;version-id&#34; : 1,
-    &#34;parent-version-id&#34; : -1,
     &#34;timestamp-ms&#34; : 1573518431292,
     &#34;summary&#34; : {
       &#34;operation&#34; : &#34;create&#34;,
-      &#34;engineVersion&#34; : &#34;presto-350&#34;,
+      &#34;engineVersion&#34; : &#34;presto-350&#34;
     },
     &#34;representations&#34; : [ {
       &#34;type&#34; : &#34;sql&#34;,
@@ -80,11 +78,10 @@ the field aliases are &lsquo;alias_name&rsquo;, &lsquo;alias_name2&rsquo;, and e
     &#34;properties&#34; : { }
   }, {
     &#34;version-id&#34; : 2,
-    &#34;parent-version-id&#34; : 1, =&gt; Version 2 was created on top of version 1, making parent-version-id 1
     &#34;timestamp-ms&#34; : 1573518440265,
     &#34;summary&#34; : {
       &#34;operation&#34; : &#34;replace&#34;, =&gt; The ‘replace’ operation caused this latest version creation
-      &#34;engineVersion&#34; : &#34;spark-2.4.4&#34;,
+      &#34;engineVersion&#34; : &#34;spark-2.4.4&#34;
     },
     &#34;representations&#34; : [ {
       &#34;type&#34; : &#34;sql&#34;,
@@ -93,7 +90,7 @@ the field aliases are &lsquo;alias_name&rsquo;, &lsquo;alias_name2&rsquo;, and e
       &#34;schema-id&#34; : 2,
       &#34;default-catalog&#34; : &#34;iceberg&#34;,
       &#34;default-namespace&#34; : [ &#34;anorwood&#34; ]
-    },
+    } ]
   } ],
   &#34;version-log&#34; : [ {
     &#34;timestamp-ms&#34; : 1573518431292,
