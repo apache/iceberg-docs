@@ -69,7 +69,7 @@ To add a dependency on Iceberg in Maven, add the following to your `pom.xml`:
 
 ## 1.2.0 release
 
-Has been released on 28 November 2022. The 1.1.0 release adds a variety of new features and bug fixes. An overview:
+Has been released on 20 March 2023. The 1.2.0 release adds a variety of new features and bug fixes. An overview:
 
 * Core
   - Added AES GCM encrpytion stream spec ([\#5432](https://github.com/apache/iceberg/pull/5432))
