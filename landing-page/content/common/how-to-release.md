@@ -340,7 +340,7 @@ rm -rf ../iceberg-docs/docs/content
 cp -r ../iceberg/docs ../iceberg-docs/docs/content
 ```
 
-Raise a PR with the specific changes against `<VERSION>` branch and merge.
+Raise a PR with the specific changes against `main` branch and merge.
 
 #### Copy versioned Javadoc
 
@@ -354,20 +354,40 @@ rm -rf ../iceberg-docs/javadoc
 cp -r site/docs/javadoc/<VERSION> ../iceberg-docs/javadoc
 ```
 
-Raise a PR with the specific changes against `<VERSION>` branch and merge.
+Raise a PR with the specific changes against `main` branch and merge.
+
+#### Set latest versions
+
+The following fields need to be updated:
+1. in `landing-page/config.toml`:
+   - update `latestVersions.iceberg`
+   - add one new row in `versions` for the latest version
+2. in `docs/config.toml`:
+   - update `latestVersions.iceberg`
+   - update `versions.nessie` (check to the version of `org.projectnessie.nessie:*` from [versions.props](https://github.com/apache/iceberg/blob/master/versions.props))
+   - add one new row in `versions` for the latest version
+
+Raise a PR with the specific changes against `main` branch and merge.
+
+### update release notes
+
+In page `landing-page/content/common/release-notes.md`:
+1. Mark the current latest release notes to past releases
+2. Add release notes for the new release version
+
+Raise a PR with the specific changes against `main` branch and merge.
 
 #### Create version branch
 
 Create a branch with the specific version number:
 
 ```shell
-# sync main to latest first
 git checkout -b <VERSION>
 git push --set-upstream apache <VERSION>
 ```
 
-#### Update the latest branch
-
+#### Update the `latest` branch
+ 
 Since `main` is currently the same as the version branch, one needs to rebase `latest` branch against `main`:
 
 ```shell
@@ -375,17 +395,6 @@ git checkout latest
 git rebase main
 git push apache latest
 ```
-
-#### Set latest version in iceberg-docs repo
-
-The last step is to update the `main` branch in `iceberg-docs` to set the latest version.
-A PR needs to be published in the `iceberg-docs` repository with the following changes:
-1. Update variable `latestVersions.iceberg` to the new release version in `landing-page/config.toml`
-2. Update variable `latestVersions.iceberg` to the new release version and 
-`versions.nessie` to the version of `org.projectnessie.nessie:*` from [versions.props](https://github.com/apache/iceberg/blob/master/versions.props) in `docs/config.toml`
-3. Mark the current latest release notes to past releases under `landing-page/content/common/release-notes.md`
-4. Add release notes for the new release version in `landing-page/content/common/release-notes.md`
-
 
 # How to Verify a Release
 
