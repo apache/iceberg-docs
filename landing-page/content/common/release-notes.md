@@ -110,7 +110,7 @@ Has been released on 20 March 2023. The 1.2.0 release adds a variety of new feat
   - Fixed bug that metrics config was not applied to equality and position deletes ([\#6271](https://github.com/apache/iceberg/pull/6271), [\#6313](https://github.com/apache/iceberg/pull/6313))
 * Vendor Integrations
   - Added Snowflake catalog integration ([\#6428](https://github.com/apache/iceberg/pull/6428))
-  - AWS sigV4 authentication support for REST catalog ([\#6951](https://github.com/apache/iceberg/pull/6951))
+  - Added AWS sigV4 authentication support for REST catalog ([\#6951](https://github.com/apache/iceberg/pull/6951))
   - Added support for AWS S3 remote signing ([\#6169](https://github.com/apache/iceberg/pull/6169), [\#6835](https://github.com/apache/iceberg/pull/6835), [\#7080](https://github.com/apache/iceberg/pull/7080))
   - Added support for a bucket-only S3 location such as `s3://my-bucket` ([\#6352](https://github.com/apache/iceberg/pull/6352))
   - Updated AWS Glue catalog to skip table version archive by default ([\#6919](https://github.com/apache/iceberg/pull/6916))
@@ -119,10 +119,10 @@ Has been released on 20 March 2023. The 1.2.0 release adds a variety of new feat
   - Fixed bug that AWS Glue catalog did not respect custom catalog ID when determining default warehouse location ([\#6223](https://github.com/apache/iceberg/pull/6223))
   - Fixes bug that AWS DynamoDB catalog namespace listing was incomplete ([\#6823](https://github.com/apache/iceberg/pull/6823))
 * Dependencies
-  - AWS SDK V2: 2.20.18 ([\#7003](https://github.com/apache/iceberg/pull/7003))
-  - Nessie: 0.50.0 ([\#6875](https://github.com/apache/iceberg/pull/6875))
-  - ORC: 1.8.1 ([\#6349](https://github.com/apache/iceberg/pull/6349))
-  - Jackson: 2.14.1 ([\#6168](https://github.com/apache/iceberg/pull/6168))
+  - Upgraded AWS SDK V2 to 2.20.18 ([\#7003](https://github.com/apache/iceberg/pull/7003))
+  - Upgraded Nessie to 0.50.0 ([\#6875](https://github.com/apache/iceberg/pull/6875))
+  - Upgraded ORC to 1.8.1 ([\#6349](https://github.com/apache/iceberg/pull/6349))
+  - Upgraded Jackson to 2.14.1 ([\#6168](https://github.com/apache/iceberg/pull/6168))
 
 ## 1.1.0 release
 
