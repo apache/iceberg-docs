@@ -124,7 +124,11 @@ Has been released on 20 March 2023. The 1.2.0 release adds a variety of new feat
   - Upgraded ORC to 1.8.1 ([\#6349](https://github.com/apache/iceberg/pull/6349))
   - Upgraded Jackson to 2.14.1 ([\#6168](https://github.com/apache/iceberg/pull/6168))
 
-## 1.1.0 release
+For more details, please visit [Github](https://github.com/apache/iceberg/releases/tag/apache-iceberg-1.2.0).
+
+## Past releases
+
+### 1.1.0 release
 
 Has been released on 28 November 2022. The 1.1.0 release deprecates various pre-1.0.0 methods, and adds a variety of new features. An overview:
 
@@ -149,8 +153,6 @@ Has been released on 28 November 2022. The 1.1.0 release deprecates various pre-
   - [Apache ORC: 1.8.0](https://github.com/apache/iceberg/pull/5699) (Also, supports [setting bloom filters on row groups](https://github.com/apache/iceberg/pull/5313/files))
 
 For more details, please visit [Github](https://github.com/apache/iceberg/releases/tag/apache-iceberg-1.1.0).
-
-## Past releases
 
 ### 1.0.0 release
 
