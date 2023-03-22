@@ -117,7 +117,7 @@ Has been released on 20 March 2023. The 1.2.0 release adds a variety of new feat
   - Fixed bug that a bucket-only AWS S3 location such as `s3://my-bucket` was not supported ([\#6352](https://github.com/apache/iceberg/pull/6352))
   - Fixed bug that unnecessary HTTP client dependency had to be included to use AWS integrations ([\#6746](https://github.com/apache/iceberg/pull/6746))
   - Fixed bug that AWS Glue catalog did not respect custom catalog ID when determining default warehouse location ([\#6223](https://github.com/apache/iceberg/pull/6223))
-  - Fixes bug that AWS DynamoDB catalog namespace listing was incomplete ([\#6823](https://github.com/apache/iceberg/pull/6823))
+  - Fixes bug that AWS DynamoDB catalog namespace listing result was incomplete ([\#6823](https://github.com/apache/iceberg/pull/6823))
 * Dependencies
   - Upgraded AWS SDK V2 to 2.20.18 ([\#7003](https://github.com/apache/iceberg/pull/7003))
   - Upgraded Nessie to 0.50.0 ([\#6875](https://github.com/apache/iceberg/pull/6875))
