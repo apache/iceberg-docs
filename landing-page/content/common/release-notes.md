@@ -87,9 +87,9 @@ Has been released on 20 March 2023. The 1.2.0 release adds a variety of new feat
 * Spark
   - Added time range query support for changelog table ([\#6350](https://github.com/apache/iceberg/pull/6350))
   - Added changelog view procedure for v1 table ([\#6012](https://github.com/apache/iceberg/pull/6012))
+  - Added support for storage partition joins to improve read and write performance ([\#6371](https://github.com/apache/iceberg/pull/6371))
   - Updated default Arrow environment settings to improve read performance ([\#6550](https://github.com/apache/iceberg/pull/6550))
   - Added aggregate pushdown support for `min`, `max` and `count` to improve read performance ([\#6622](https://github.com/apache/iceberg/pull/6622))
-  - Added support for storage partition joins to improve write performance ([\#6371](https://github.com/apache/iceberg/pull/6371))
   - Updated default distribution mode settings to improve write performance ([\#6828](https://github.com/apache/iceberg/pull/6828), [\#6838](https://github.com/apache/iceberg/pull/6838))
   - Updated DELETE to perform metadata operation whenever possible to improve DELETE performance ([\#6899](https://github.com/apache/iceberg/pull/6899))
   - Improved predicate pushdown support for write operations ([\#6636](https://github.com/apache/iceberg/pull/6633))
