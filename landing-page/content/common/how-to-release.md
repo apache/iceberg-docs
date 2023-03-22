@@ -331,16 +331,6 @@ cp -r ../iceberg/format/* ../iceberg-docs/landing-page/content/common/
 
 Raise a PR with the specific changes against `main` branch and merge.
 
-#### Create version branch
-
-Create a branch with the specific version number:
-
-```shell
-# sync main to latest first
-git checkout -b <VERSION>
-git push --set-upstream apache <VERSION>
-```
-
 #### Copy versioned documentations
 
 Copy the versioned docs into `docs/content`
@@ -354,8 +344,6 @@ Raise a PR with the specific changes against `<VERSION>` branch and merge.
 
 #### Copy versioned Javadoc
 
-
-
 In the `iceberg` repository, generate the javadoc for your release and copy it to the `javadoc` folder:
 
 ```shell
@@ -367,6 +355,16 @@ cp -r site/docs/javadoc/<VERSION> ../iceberg-docs/javadoc
 ```
 
 Raise a PR with the specific changes against `<VERSION>` branch and merge.
+
+#### Create version branch
+
+Create a branch with the specific version number:
+
+```shell
+# sync main to latest first
+git checkout -b <VERSION>
+git push --set-upstream apache <VERSION>
+```
 
 #### Update the latest branch
 
