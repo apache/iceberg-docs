@@ -294,60 +294,79 @@ Thanks to everyone for contributing!
 
 #### Codebase updates
 
-There are a few places in the codebase that reference the latest Iceberg releases and need to be updated:
+There are a few places in the codebase that reference the latest Iceberg release version number and need to be updated:
 1. https://github.com/apache/iceberg/blob/master/.github/ISSUE_TEMPLATE/iceberg_bug_report.yml
 2. https://github.com/apache/iceberg/blob/master/python/dev/Dockerfile
 3. `oldVersion` in `revapi` in https://github.com/apache/iceberg/blob/master/build.gradle
 
-### Documentation Release
+### Documentation release
 
 Documentation needs to be updated as a part of an Iceberg release after a release candidate is passed.
-The commands described below assume you are in a directory containing a local clone of the `iceberg-docs`
-repository and `iceberg` repository. Adjust the commands accordingly if it is not the case. Note that all
-changes in `iceberg` need to happen against the `master` branch and changes in `iceberg-docs` need to happen
-against the `main` branch. 
 
-#### Common documentation update
+#### Prerequisites
 
-1. To start the release process, run the following steps in the `iceberg-docs` repository to copy docs over:
+Similar to the `iceberg` repository, you also need to set up `https://github.com/apache/iceberg-docs.git` as a remote with name `apache`.
+
+The commands described below assume you have a directory structure of:
+
+```text
+/some/path
+├── iceberg
+└── iceberg-docs
+```
+
+And you are:
+1. in the `iceberg-docs` repository.
+2. have `iceberg` repository on the specific version branch
+
+Adjust the commands below accordingly if it is not the case.
+
+#### Update specs
+
+Copy the latest format specifications to `landing-page/content/common`:
+
 ```shell
 cp -r ../iceberg/format/* ../iceberg-docs/landing-page/content/common/
 ```
-2. Change into the `iceberg-docs` repository and create a branch.
+
+Raise a PR with the specific changes against `main` branch and merge.
+
+#### Create version branch
+
+Create a branch with the specific version number:
+
 ```shell
-cd ../iceberg-docs
-git checkout -b <BRANCH NAME>
-```
-3. Commit, push, and open a PR against the `iceberg-docs` repo (`<BRANCH NAME>` -> `main`)
-
-#### Versioned documentation update
-
-Once the common docs changes have been merged into `main`, the next step is to update the versioned docs.
-
-1. In the `iceberg-docs` repository, cut a new branch using the version number as the branch name
-```shell
-cd ../iceberg-docs
+# sync main to latest first
 git checkout -b <VERSION>
 git push --set-upstream apache <VERSION>
 ```
-2. Copy the versioned docs from the `iceberg` repo into the `iceberg-docs` repo
+
+#### Copy versioned documentations
+
+Copy the versioned docs into `docs/content`
+
 ```shell
 rm -rf ../iceberg-docs/docs/content
 cp -r ../iceberg/docs ../iceberg-docs/docs/content
 ```
-3. Commit the changes and open a PR against the `<VERSION>` branch in the `iceberg-docs` repo
 
-#### Javadoc update
+Raise a PR with the specific changes against `<VERSION>` branch and merge.
 
-In the `iceberg` repository, generate the javadoc for your release and copy it to the `javadoc` folder in `iceberg-docs` repo:
+#### Copy versioned Javadoc
+
+
+
+In the `iceberg` repository, generate the javadoc for your release and copy it to the `javadoc` folder:
+
 ```shell
 cd ../iceberg
+echo "<VERSION>" > version.txt
 ./gradlew refreshJavadoc
 rm -rf ../iceberg-docs/javadoc
-cp -r site/docs/javadoc/<VERSION NUMBER> ../iceberg-docs/javadoc
+cp -r site/docs/javadoc/<VERSION> ../iceberg-docs/javadoc
 ```
 
-This resulted changes in `iceberg-docs` should be approved in a separate PR.
+Raise a PR with the specific changes against `<VERSION>` branch and merge.
 
 #### Update the latest branch
 
