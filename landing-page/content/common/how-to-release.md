@@ -217,10 +217,13 @@ The vote result is:
 Therefore, the release candidate is passed/rejected.
 ```
 
+While waiting for the vote, you can start to draft the release notes. See [Documentation release section](#documentation-release) for more details.
 
-### Finishing the release
+## Release artifacts
 
-#### Apache release
+After a release candidate is passed, the next step is to release the candidate artifacts.
+
+### Apache release
 
 After the release vote has passed, you need to release the last candidate's artifacts.
 
@@ -237,7 +240,7 @@ svn add apache-iceberg-<VERSION>
 svn ci -m 'Iceberg: Add release <VERSION>'
 ```
 
-#### GitHub release
+### GitHub release
 
 Next, add a release tag to the git repository based on the passing candidate tag:
 
@@ -263,19 +266,20 @@ git checkout -b 1.2.x apache-iceberg-1.2.0
 git push --set-upstream apache 1.2.x
 ```
 
-#### Maven release
+### Maven release
 
 1. Go to [Nexus](https://repository.apache.org/) and log in
 2. In the menu on the left, choose "Staging Repositories"
 3. Select the Iceberg repository that was previously closed and passed vote
 4. At the top, select "Release" and follow the instructions
-5. Wait until Maven central has mirrored the Apache binaries and the new version shows up in [Maven Central](https://mvnrepository.com/artifact/org.apache.iceberg) (this typically takes 1-2 days)
+5. Wait until Maven central has mirrored the Apache binaries and the new version shows up in [Maven Central](https://mvnrepository.com/artifact/org.apache.iceberg). This typically takes 1-2 days, and you can work on documentation updates during this time.
 
-#### Documentation release
+## Documentation release
 
 Documentation needs to be updated as a part of an Iceberg release after a release candidate is passed.
+This can be done while you are waiting for Maven Central to be updated.
 
-##### Prerequisites
+### Prerequisites
 
 Similar to the `iceberg` repository, you also need to set up `https://github.com/apache/iceberg-docs.git` as a remote with name `apache`.
 
@@ -293,7 +297,7 @@ And you are:
 
 Adjust the commands below accordingly if it is not the case.
 
-##### Update specs
+### Update specs
 
 Copy the latest format specifications to `landing-page/content/common`:
 
@@ -303,7 +307,7 @@ cp -r ../iceberg/format/* ../iceberg-docs/landing-page/content/common/
 
 Raise a PR with the specific changes against `main` branch and merge.
 
-##### Copy versioned documentations
+### Copy versioned documentations
 
 Copy the versioned docs into `docs/content`
 
@@ -314,7 +318,7 @@ cp -r ../iceberg/docs ../iceberg-docs/docs/content
 
 Raise a PR with the specific changes against `main` branch and merge.
 
-##### Copy versioned Javadoc
+### Copy versioned Javadoc
 
 In the `iceberg` repository, generate the javadoc for your release and copy it to the `javadoc` folder:
 
@@ -328,7 +332,7 @@ cp -r site/docs/javadoc/<VERSION> ../iceberg-docs/javadoc
 
 Raise a PR with the specific changes against `main` branch and merge.
 
-##### Set latest versions
+### Set latest versions
 
 The following fields need to be updated:
 1. in `landing-page/config.toml`:
@@ -341,7 +345,7 @@ The following fields need to be updated:
 
 Raise a PR with the specific changes against `main` branch and merge.
 
-##### update release notes
+### update release notes
 
 In page `landing-page/content/common/release-notes.md`:
 1. Mark the current latest release notes to past releases
@@ -349,7 +353,7 @@ In page `landing-page/content/common/release-notes.md`:
 
 Raise a PR with the specific changes against `main` branch and merge.
 
-##### Create version branch
+### Create version branch
 
 Create a branch with the specific version number:
 
@@ -358,7 +362,7 @@ git checkout -b <VERSION>
 git push --set-upstream apache <VERSION>
 ```
 
-##### Update the `latest` branch
+### Update the `latest` branch
  
 Since `main` is currently the same as the version branch, one needs to rebase `latest` branch against `main`:
 
@@ -368,7 +372,9 @@ git rebase main
 git push apache latest
 ```
 
-#### Send announcement email
+## Finalize release
+
+### Send announcement email
 
 After every step is completed, send an announcement email:
 
@@ -390,7 +396,7 @@ Java artifacts are available from Maven Central.
 Thanks to everyone for contributing!
 ```
 
-#### Iceberg codebase updates
+### Update Iceberg codebase
 
 After the release artifacts are available in Maven, 
 there are a few places in the codebase that reference the latest Iceberg release version number and need to be updated:
