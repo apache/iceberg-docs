@@ -217,8 +217,13 @@ The vote result is:
 Therefore, the release candidate is passed/rejected.
 ```
 
+While waiting for the vote, you can start to draft the release notes. See [Documentation release section](#documentation-release) for more details.
 
-### Finishing the release
+## Release artifacts
+
+After a release candidate is passed, the next step is to release the candidate artifacts.
+
+### Apache release
 
 After the release vote has passed, you need to release the last candidate's artifacts.
 
@@ -235,15 +240,143 @@ svn add apache-iceberg-<VERSION>
 svn ci -m 'Iceberg: Add release <VERSION>'
 ```
 
+### GitHub release
+
 Next, add a release tag to the git repository based on the passing candidate tag:
 
 ```bash
 git tag -am 'Release Apache Iceberg <VERSION>' apache-iceberg-<VERSION> apache-iceberg-<VERSION>-rcN
+git push apache apache-iceberg-<VERSION>
 ```
 
-Then release the candidate repository in [Nexus](https://repository.apache.org/#stagingRepositories).
+Then create a new GitHub release in https://github.com/apache/iceberg/releases from the release version tag.
 
-To announce the release, wait until Maven central has mirrored the Apache binaries, then update the Iceberg site and send an announcement email:
+Next, clean up each RC tag with:
+
+```bash
+git push --delete apache apache-iceberg-<VERSION>-rcN
+```
+
+For each major or minor version release, 
+publish the release branch with a `.x` in the end.
+For example, for 1.2.0 release we do:
+
+```bash
+git checkout -b 1.2.x apache-iceberg-1.2.0
+git push --set-upstream apache 1.2.x
+```
+
+### Maven release
+
+1. Go to [Nexus](https://repository.apache.org/) and log in
+2. In the menu on the left, choose "Staging Repositories"
+3. Select the Iceberg repository that was previously closed and passed vote
+4. At the top, select "Release" and follow the instructions
+5. Wait until Maven central has mirrored the Apache binaries and the new version shows up in [Maven Central](https://mvnrepository.com/artifact/org.apache.iceberg). This typically takes 1-2 days, and you can work on documentation updates during this time.
+
+## Documentation release
+
+Documentation needs to be updated as a part of an Iceberg release after a release candidate is passed.
+This can be done while you are waiting for Maven Central to be updated.
+
+### Prerequisites
+
+Similar to the `iceberg` repository, you also need to set up `https://github.com/apache/iceberg-docs.git` as a remote with name `apache`.
+
+The commands described below assume you have a directory structure of:
+
+```text
+/some/path
+├── iceberg
+└── iceberg-docs
+```
+
+And you are:
+1. in the `iceberg-docs` repository.
+2. have `iceberg` repository on the specific version branch
+
+Adjust the commands below accordingly if it is not the case.
+
+### Update specs
+
+Copy the latest format specifications to `landing-page/content/common`:
+
+```shell
+cp -r ../iceberg/format/* ../iceberg-docs/landing-page/content/common/
+```
+
+Raise a PR with the specific changes against `main` branch and merge.
+
+### Copy versioned documentations
+
+Copy the versioned docs into `docs/content`
+
+```shell
+rm -rf ../iceberg-docs/docs/content
+cp -r ../iceberg/docs ../iceberg-docs/docs/content
+```
+
+Raise a PR with the specific changes against `main` branch and merge.
+
+### Copy versioned Javadoc
+
+In the `iceberg` repository, generate the javadoc for your release and copy it to the `javadoc` folder:
+
+```shell
+cd ../iceberg
+echo "<VERSION>" > version.txt
+./gradlew refreshJavadoc
+rm -rf ../iceberg-docs/javadoc
+cp -r site/docs/javadoc/<VERSION> ../iceberg-docs/javadoc
+```
+
+Raise a PR with the specific changes against `main` branch and merge.
+
+### Set latest versions
+
+The following fields need to be updated:
+1. in `landing-page/config.toml`:
+   - update `latestVersions.iceberg`
+   - add one new row in `versions` for the latest version
+2. in `docs/config.toml`:
+   - update `latestVersions.iceberg`
+   - update `versions.nessie` (check to the version of `org.projectnessie.nessie:*` from [versions.props](https://github.com/apache/iceberg/blob/master/versions.props))
+   - add one new row in `versions` for the latest version
+
+Raise a PR with the specific changes against `main` branch and merge.
+
+### update release notes
+
+In page `landing-page/content/common/release-notes.md`:
+1. Mark the current latest release notes to past releases
+2. Add release notes for the new release version
+
+Raise a PR with the specific changes against `main` branch and merge.
+
+### Create version branch
+
+Create a branch with the specific version number:
+
+```shell
+git checkout -b <VERSION>
+git push --set-upstream apache <VERSION>
+```
+
+### Update the `latest` branch
+ 
+Since `main` is currently the same as the version branch, one needs to rebase `latest` branch against `main`:
+
+```shell
+git checkout latest
+git rebase main
+git push apache latest
+```
+
+## Finalize release
+
+### Send announcement email
+
+After every step is completed, send an announcement email:
 
 ```text
 [ANNOUNCE] Apache Iceberg release <VERSION>
@@ -263,82 +396,13 @@ Java artifacts are available from Maven Central.
 Thanks to everyone for contributing!
 ```
 
-### Documentation Release
+### Update Iceberg codebase
 
-Documentation needs to be updated as a part of an Iceberg release after a release candidate is passed.
-The commands described below assume you are in a directory containing a local clone of the `iceberg-docs`
-repository and `iceberg` repository. Adjust the commands accordingly if it is not the case. Note that all
-changes in `iceberg` need to happen against the `master` branch and changes in `iceberg-docs` need to happen
-against the `main` branch. 
-
-#### iceberg repository preparations
-
-A PR needs to be published in the `iceberg` repository with the following changes:
-
-1. Create a new folder called `docs/releases/<VERSION NUMBER>` with an `_index.md` file. See the existing folders under `docs/releases` for more details.
-
-#### Common documentation update
-
-1. To start the release process, run the following steps in the `iceberg-docs` repository to copy docs over:
-```shell
-cp -r ../iceberg/format/* ../iceberg-docs/landing-page/content/common/
-```
-2. Change into the `iceberg-docs` repository and create a branch.
-```shell
-cd ../iceberg-docs
-git checkout -b <BRANCH NAME>
-```
-3. Commit, push, and open a PR against the `iceberg-docs` repo (`<BRANCH NAME>` -> `main`)
-
-#### Versioned documentation update
-
-Once the common docs changes have been merged into `main`, the next step is to update the versioned docs.
-
-1. In the `iceberg-docs` repository, cut a new branch using the version number as the branch name
-```shell
-cd ../iceberg-docs
-git checkout -b <VERSION>
-git push --set-upstream apache <VERSION>
-```
-2. Copy the versioned docs from the `iceberg` repo into the `iceberg-docs` repo
-```shell
-rm -rf ../iceberg-docs/docs/content
-cp -r ../iceberg/docs ../iceberg-docs/docs/content
-```
-3. Commit the changes and open a PR against the `<VERSION>` branch in the `iceberg-docs` repo
-
-#### Javadoc update
-
-In the `iceberg` repository, generate the javadoc for your release and copy it to the `javadoc` folder in `iceberg-docs` repo:
-```shell
-cd ../iceberg
-./gradlew refreshJavadoc
-rm -rf ../iceberg-docs/javadoc
-cp -r site/docs/javadoc/<VERSION NUMBER> ../iceberg-docs/javadoc
-```
-
-This resulted changes in `iceberg-docs` should be approved in a separate PR.
-
-#### Update the latest branch
-
-Since `main` is currently the same as the version branch, one needs to rebase `latest` branch against `main`:
-
-```shell
-git checkout latest
-git rebase main
-git push apache latest
-```
-
-#### Set latest version in iceberg-docs repo
-
-The last step is to update the `main` branch in `iceberg-docs` to set the latest version.
-A PR needs to be published in the `iceberg-docs` repository with the following changes:
-1. Update variable `latestVersions.iceberg` to the new release version in `landing-page/config.toml`
-2. Update variable `latestVersions.iceberg` to the new release version and 
-`versions.nessie` to the version of `org.projectnessie.nessie:*` from [versions.props](https://github.com/apache/iceberg/blob/master/versions.props) in `docs/config.toml`
-3. Mark the current latest release notes to past releases under `landing-page/content/common/release-notes.md`
-4. Add release notes for the new release version in `landing-page/content/common/release-notes.md`
-
+After the release artifacts are available in Maven, 
+there are a few places in the codebase that reference the latest Iceberg release version number and need to be updated:
+1. Update `options` list for `Apache Iceberg version` in https://github.com/apache/iceberg/blob/master/.github/ISSUE_TEMPLATE/iceberg_bug_report.yml
+2. Update `ICEBERG_VERSION` in https://github.com/apache/iceberg/blob/master/python/dev/Dockerfile
+3. Update `oldVersion` in `revapi` in https://github.com/apache/iceberg/blob/master/build.gradle
 
 # How to Verify a Release
 
