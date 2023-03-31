@@ -66,5 +66,6 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     { name = "Doris", identifier = "_doris", weight = 1001, url = "https://doris.apache.org/docs/ecosystem/external-table/iceberg-of-doris" },
     { name = "Integrations", weight = 1100 },
     { name = "API", weight = 1200},
+    { name = "Migration", weight = 1300},
     { name = "Javadoc", pre = "relative", url = "../../javadoc/latest", weight = 1300} # `url` is populated by the github deploy workflow and is equal to "../../javadoc/<branch name>"
   ]
