@@ -26,6 +26,38 @@ Apache Iceberg tracks issues in GitHub and prefers to receive contributions as p
 
 Community discussions happen primarily on the dev mailing list, on apache-iceberg Slack workspace, and on specific GitHub issues.
 
+## Community Guidelines
+
+### Apache Iceberg Community Guidelines
+
+The Apache Iceberg community is built on the principles described in the [Apache Way](https://www.apache.org/theapacheway/index.html) 
+and all who engage with the community are expected to be respectful, open, come with the best interests of the community in mind, 
+and abide by the Apache Foundation [Code of Conduct](https://www.apache.org/foundation/policies/conduct.html). 
+
+### Participants with Corporate Interests
+
+A wide range of corporate entities have interests that overlap in both features and frameworks related to Iceberg and while we 
+encourage engagement and contributions, the community is not a venue for marketing, solicitation, or recruitment.
+
+Any vendor who wants to participate in the Apache Iceberg community Slack workspace should create a dedicated vendor channel 
+for their organization prefixed by `vendor-`.  
+
+This space can be used to discuss features and integration with Iceberg related to the vendor offering.  This space should not 
+be used to promote competing vendor products/services or disparage other vendor offerings.  Discussion should be focused on 
+questions asked by the community and not to expand/introduce/redirect users to alternate offerings.
+
+### Marketing / Solicitation / Recruiting
+
+The Apache Iceberg community is a space for everyone to operate free of influence.  The development lists, slack workspace, 
+and github should not be used to market products or services.  Solicitation or overt promotion should not be performed in common 
+channels or through direct messages.
+
+Recruitment of community members should not be conducted through direct messages or community channels, but opportunities 
+related to contributing to or using Iceberg can be posted to the `#jobs` channel. 
+
+For questions regarding any of the guidelines above, please contact a PMC member
+
+
 ## Contribute
 
 See [Contributing](../../../contribute) for more details on how to contribute to Iceberg.
