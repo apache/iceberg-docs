@@ -24,6 +24,11 @@ disableSidebar: true
 
 Here is a list of company blogs that talk about Iceberg. The blogs are ordered from most recent to oldest.
 
+### [Open Data Lakehouse powered by Iceberg for all your Data Warehouse needs](https://blog.cloudera.com/open-data-lakehouse-powered-by-iceberg-for-all-your-data-warehouse-needs/)
+**Date**: April 3rd, 2023, **Company**: Cloudera
+
+**Authors**: [Zoltan Borok-Nagy](https://www.linkedin.com/in/zoltán-borók-nagy-7370a65b/), [Ayush Saxena](https://www.linkedin.com/in/ayush-saxena151/), [Tamas Mate](https://www.linkedin.com/in/tmater/), [Simhadri Govindappa](https://www.linkedin.com/in/simhadri-govindappa-1a7788148/)
+
 ### [Iceberg Tables: Catalog Support Now Available](https://www.snowflake.com/blog/iceberg-tables-catalog-support-available-now/)
 **Date**: March 29th, 2023, **Company**: Snowflake
 
