@@ -67,7 +67,28 @@ To add a dependency on Iceberg in Maven, add the following to your `pom.xml`:
 </dependencies>
 ```
 
-## 1.2.0 release
+## 1.2.1 release
+
+Apache Iceberg 1.2.1 was released on April 11th, 2023.
+The 1.2.1 release is a patch release to address various issues identified in the prior release.
+Here is an overview:
+
+* CORE
+  - REST: fix previous locations for refs-only load [\#7284](https://github.com/apache/iceberg/pull/7284)
+  - Parse snapshot-id as long in remove-statistics update [\#7235](https://github.com/apache/iceberg/pull/7235)
+* Spark
+  - Broadcast table instead of file IO in rewrite manifests [\#7263](https://github.com/apache/iceberg/pull/7263)
+  - Revert "Spark: Add "Iceberg" prefix to SparkTable name string for SparkUI [\#7273](https://github.com/apache/iceberg/pull/7273)
+* AWS
+  - Make AuthSession cache static [\#7289](https://github.com/apache/iceberg/pull/7289)
+  - Abort S3 input stream on close if not EOS [\#7262](https://github.com/apache/iceberg/pull/7262)
+  - Disable local credentials if remote signing is enabled [\#7230](https://github.com/apache/iceberg/pull/7230)
+  - Prevent token refresh scheduling on every sign request [\#7270](https://github.com/apache/iceberg/pull/7270)
+  - S3 Credentials provider support in DefaultAwsClientFactory [\#7066](https://github.com/apache/iceberg/pull/7066)
+
+## Past releases
+
+### 1.2.0 release
 
 Apache Iceberg 1.2.0 was released on March 20th, 2023. 
 The 1.2.0 release adds a variety of new features and bug fixes.
@@ -128,7 +149,6 @@ Here is an overview:
 
 For more details, please visit [Github](https://github.com/apache/iceberg/releases/tag/apache-iceberg-1.2.0).
 
-## Past releases
 
 ### 1.1.0 release
 
