@@ -114,13 +114,13 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public interface <span class="typeNameLabel">PartitioningWriter&lt;T,R&gt;</span>
 extends java.io.Closeable</pre>
-<div class="block">A writer capable of writing files of a single type (i.e. data/delete) to multiple specs and partitions.
- <p>
- As opposed to <a href="../../../../org/apache/iceberg/io/FileWriter.html" title="interface in org.apache.iceberg.io"><code>FileWriter</code></a>, this interface should be implemented by writers that are not
- limited to writing to a single spec/partition. Implementations may internally use <a href="../../../../org/apache/iceberg/io/FileWriter.html" title="interface in org.apache.iceberg.io"><code>FileWriter</code></a>s
- for writing to a single spec/partition.
- <p>
- Note that this writer can be used both for partitioned and unpartitioned tables.</div>
+<div class="block">A writer capable of writing files of a single type (i.e. data/delete) to multiple specs and
+ partitions.
+
+ <p>As opposed to <a href="../../../../org/apache/iceberg/io/FileWriter.html" title="interface in org.apache.iceberg.io"><code>FileWriter</code></a>, this interface should be implemented by writers that are not
+ limited to writing to a single spec/partition. Implementations may internally use <a href="../../../../org/apache/iceberg/io/FileWriter.html" title="interface in org.apache.iceberg.io"><code>FileWriter</code></a>s for writing to a single spec/partition.
+
+ <p>Note that this writer can be used both for partitioned and unpartitioned tables.</div>
 </li>
 </ul>
 </div>
@@ -202,8 +202,7 @@ extends java.io.Closeable</pre>
 <li class="blockList">
 <h4>result</h4>
 <pre><a href="../../../../org/apache/iceberg/io/PartitioningWriter.html" title="type parameter in PartitioningWriter">R</a>&nbsp;result()</pre>
-<div class="block">Returns a result that contains information about written <a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg"><code>DataFile</code></a>s or <a href="../../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg"><code>DeleteFile</code></a>s.
- The result is valid only after the writer is closed.</div>
+<div class="block">Returns a result that contains information about written <a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg"><code>DataFile</code></a>s or <a href="../../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg"><code>DeleteFile</code></a>s. The result is valid only after the writer is closed.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the writer result</dd>

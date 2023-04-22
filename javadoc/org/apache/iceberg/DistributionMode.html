@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/DeleteFiles.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/DeleteFilesTable.DeleteFilesTableScan.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../org/apache/iceberg/DoubleFieldMetrics.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -118,17 +118,19 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public enum <span class="typeNameLabel">DistributionMode</span>
 extends java.lang.Enum&lt;<a href="../../../org/apache/iceberg/DistributionMode.html" title="enum in org.apache.iceberg">DistributionMode</a>&gt;</pre>
-<div class="block">Enum of supported write distribution mode, it defines the write behavior of batch or streaming job:
- <p>
- 1. none: don't shuffle rows. It is suitable for scenarios where the rows are located in only few
- partitions, otherwise that may produce too many small files because each task is writing rows into different
- partitions randomly.
- <p>
- 2. hash: hash distribute by partition key, which is suitable for the scenarios where the rows are located
- into different partitions evenly.
- <p>
- 3. range: range distribute by partition key (or sort key if table has an <a href="../../../org/apache/iceberg/SortOrder.html" title="class in org.apache.iceberg"><code>SortOrder</code></a>), which is suitable
- for the scenarios where rows are located into different partitions with skew distribution.</div>
+<div class="block">Enum of supported write distribution mode, it defines the write behavior of batch or streaming
+ job:
+
+ <p>1. none: don't shuffle rows. It is suitable for scenarios where the rows are located in only
+ few partitions, otherwise that may produce too many small files because each task is writing rows
+ into different partitions randomly.
+
+ <p>2. hash: hash distribute by partition key, which is suitable for the scenarios where the rows
+ are located into different partitions evenly.
+
+ <p>3. range: range distribute by partition key (or sort key if table has an <a href="../../../org/apache/iceberg/SortOrder.html" title="class in org.apache.iceberg"><code>SortOrder</code></a>),
+ which is suitable for the scenarios where rows are located into different partitions with skew
+ distribution.</div>
 </li>
 </ul>
 </div>
@@ -342,7 +344,7 @@ not permitted.)</div>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/DeleteFiles.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/DeleteFilesTable.DeleteFilesTableScan.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../org/apache/iceberg/DoubleFieldMetrics.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

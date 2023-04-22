@@ -505,8 +505,8 @@ implements org.apache.hadoop.hive.ql.metadata.HiveStoragePredicateHandler, org.a
 <h4>table</h4>
 <pre>public static&nbsp;<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table(org.apache.hadoop.conf.Configuration&nbsp;config,
                           java.lang.String&nbsp;name)</pre>
-<div class="block">Returns the Table serialized to the configuration based on the table name.
- If configuration is missing from the FileIO of the table, it will be populated with the input config.</div>
+<div class="block">Returns the Table serialized to the configuration based on the table name. If configuration is
+ missing from the FileIO of the table, it will be populated with the input config.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>config</code> - The configuration used to get the data from</dd>
@@ -524,8 +524,8 @@ implements org.apache.hadoop.hive.ql.metadata.HiveStoragePredicateHandler, org.a
 <h4>checkAndSetIoConfig</h4>
 <pre>public static&nbsp;void&nbsp;checkAndSetIoConfig(org.apache.hadoop.conf.Configuration&nbsp;config,
                                        <a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</pre>
-<div class="block">If enabled, it populates the FileIO's hadoop configuration with the input config object.
- This might be necessary when the table object was serialized without the FileIO config.</div>
+<div class="block">If enabled, it populates the FileIO's hadoop configuration with the input config object. This
+ might be necessary when the table object was serialized without the FileIO config.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>config</code> - Configuration to set for FileIO, if enabled</dd>
@@ -541,11 +541,12 @@ implements org.apache.hadoop.hive.ql.metadata.HiveStoragePredicateHandler, org.a
 <h4>checkAndSkipIoConfigSerialization</h4>
 <pre>public static&nbsp;void&nbsp;checkAndSkipIoConfigSerialization(org.apache.hadoop.conf.Configuration&nbsp;config,
                                                      <a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</pre>
-<div class="block">If enabled, it ensures that the FileIO's hadoop configuration will not be serialized.
- This might be desirable for decreasing the overall size of serialized table objects.
+<div class="block">If enabled, it ensures that the FileIO's hadoop configuration will not be serialized. This
+ might be desirable for decreasing the overall size of serialized table objects.
 
- Note: Skipping FileIO config serialization in this fashion might in turn necessitate calling
- <a href="../../../../../org/apache/iceberg/mr/hive/HiveIcebergStorageHandler.html#checkAndSetIoConfig-org.apache.hadoop.conf.Configuration-org.apache.iceberg.Table-"><code>checkAndSetIoConfig(Configuration, Table)</code></a> on the deserializer-side to enable subsequent use of the FileIO.</div>
+ <p>Note: Skipping FileIO config serialization in this fashion might in turn necessitate calling
+ <a href="../../../../../org/apache/iceberg/mr/hive/HiveIcebergStorageHandler.html#checkAndSetIoConfig-org.apache.hadoop.conf.Configuration-org.apache.iceberg.Table-"><code>checkAndSetIoConfig(Configuration, Table)</code></a> on the deserializer-side to enable
+ subsequent use of the FileIO.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>config</code> - Configuration to set for FileIO in a transient manner, if enabled</dd>

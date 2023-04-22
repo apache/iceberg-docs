@@ -167,8 +167,8 @@ extends java.lang.Object</pre>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/expressions/Projections.ProjectionEvaluator.html" title="class in org.apache.iceberg.expressions">Projections.ProjectionEvaluator</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Projections.html#strict-org.apache.iceberg.PartitionSpec-">strict</a></span>(<a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec)</code>
-<div class="block">Creates a strict <code>ProjectionEvaluator</code> for the <a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg"><code>spec</code></a>, defaulting
- to case sensitive mode.</div>
+<div class="block">Creates a strict <code>ProjectionEvaluator</code> for the <a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg"><code>spec</code></a>, defaulting to
+ case sensitive mode.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
@@ -209,14 +209,14 @@ extends java.lang.Object</pre>
 <pre>public static&nbsp;<a href="../../../../org/apache/iceberg/expressions/Projections.ProjectionEvaluator.html" title="class in org.apache.iceberg.expressions">Projections.ProjectionEvaluator</a>&nbsp;inclusive(<a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec)</pre>
 <div class="block">Creates an inclusive <code>ProjectionEvaluator</code> for the <a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg"><code>spec</code></a>, defaulting
  to case sensitive mode.
- <p>
- An evaluator is used to project expressions for a table's data rows into expressions on the
+
+ <p>An evaluator is used to project expressions for a table's data rows into expressions on the
  table's partition values. The evaluator returned by this function is inclusive and will build
  expressions with the following guarantee: if the original expression matches a row, then the
  projected expression will match that row's partition.
- <p>
- Each predicate in the expression is projected using
- <a href="../../../../org/apache/iceberg/transforms/Transform.html#project-java.lang.String-org.apache.iceberg.expressions.BoundPredicate-"><code>Transform.project(String, BoundPredicate)</code></a>.</div>
+
+ <p>Each predicate in the expression is projected using <a href="../../../../org/apache/iceberg/transforms/Transform.html#project-java.lang.String-org.apache.iceberg.expressions.BoundPredicate-"><code>Transform.project(String,
+ BoundPredicate)</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>spec</code> - a partition spec</dd>
@@ -236,18 +236,19 @@ extends java.lang.Object</pre>
 <pre>public static&nbsp;<a href="../../../../org/apache/iceberg/expressions/Projections.ProjectionEvaluator.html" title="class in org.apache.iceberg.expressions">Projections.ProjectionEvaluator</a>&nbsp;inclusive(<a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec,
                                                         boolean&nbsp;caseSensitive)</pre>
 <div class="block">Creates an inclusive <code>ProjectionEvaluator</code> for the <a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg"><code>spec</code></a>.
- <p>
- An evaluator is used to project expressions for a table's data rows into expressions on the
+
+ <p>An evaluator is used to project expressions for a table's data rows into expressions on the
  table's partition values. The evaluator returned by this function is inclusive and will build
  expressions with the following guarantee: if the original expression matches a row, then the
  projected expression will match that row's partition.
- <p>
- Each predicate in the expression is projected using
- <a href="../../../../org/apache/iceberg/transforms/Transform.html#project-java.lang.String-org.apache.iceberg.expressions.BoundPredicate-"><code>Transform.project(String, BoundPredicate)</code></a>.</div>
+
+ <p>Each predicate in the expression is projected using <a href="../../../../org/apache/iceberg/transforms/Transform.html#project-java.lang.String-org.apache.iceberg.expressions.BoundPredicate-"><code>Transform.project(String,
+ BoundPredicate)</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>spec</code> - a partition spec</dd>
-<dd><code>caseSensitive</code> - whether the Projection should consider case sensitivity on column names or not.</dd>
+<dd><code>caseSensitive</code> - whether the Projection should consider case sensitivity on column names or
+     not.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>an inclusive projection evaluator for the partition spec</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -262,16 +263,16 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>strict</h4>
 <pre>public static&nbsp;<a href="../../../../org/apache/iceberg/expressions/Projections.ProjectionEvaluator.html" title="class in org.apache.iceberg.expressions">Projections.ProjectionEvaluator</a>&nbsp;strict(<a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec)</pre>
-<div class="block">Creates a strict <code>ProjectionEvaluator</code> for the <a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg"><code>spec</code></a>, defaulting
- to case sensitive mode.
- <p>
- An evaluator is used to project expressions for a table's data rows into expressions on the
+<div class="block">Creates a strict <code>ProjectionEvaluator</code> for the <a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg"><code>spec</code></a>, defaulting to
+ case sensitive mode.
+
+ <p>An evaluator is used to project expressions for a table's data rows into expressions on the
  table's partition values. The evaluator returned by this function is strict and will build
- expressions with the following guarantee: if the projected expression matches a partition,
- then the original expression will match all rows in that partition.
- <p>
- Each predicate in the expression is projected using
- <a href="../../../../org/apache/iceberg/transforms/Transform.html#projectStrict-java.lang.String-org.apache.iceberg.expressions.BoundPredicate-"><code>Transform.projectStrict(String, BoundPredicate)</code></a>.</div>
+ expressions with the following guarantee: if the projected expression matches a partition, then
+ the original expression will match all rows in that partition.
+
+ <p>Each predicate in the expression is projected using <a href="../../../../org/apache/iceberg/transforms/Transform.html#projectStrict-java.lang.String-org.apache.iceberg.expressions.BoundPredicate-"><code>Transform.projectStrict(String,
+ BoundPredicate)</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>spec</code> - a partition spec</dd>
@@ -291,18 +292,19 @@ extends java.lang.Object</pre>
 <pre>public static&nbsp;<a href="../../../../org/apache/iceberg/expressions/Projections.ProjectionEvaluator.html" title="class in org.apache.iceberg.expressions">Projections.ProjectionEvaluator</a>&nbsp;strict(<a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec,
                                                      boolean&nbsp;caseSensitive)</pre>
 <div class="block">Creates a strict <code>ProjectionEvaluator</code> for the <a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg"><code>spec</code></a>.
- <p>
- An evaluator is used to project expressions for a table's data rows into expressions on the
+
+ <p>An evaluator is used to project expressions for a table's data rows into expressions on the
  table's partition values. The evaluator returned by this function is strict and will build
- expressions with the following guarantee: if the projected expression matches a partition,
- then the original expression will match all rows in that partition.
- <p>
- Each predicate in the expression is projected using
- <a href="../../../../org/apache/iceberg/transforms/Transform.html#projectStrict-java.lang.String-org.apache.iceberg.expressions.BoundPredicate-"><code>Transform.projectStrict(String, BoundPredicate)</code></a>.</div>
+ expressions with the following guarantee: if the projected expression matches a partition, then
+ the original expression will match all rows in that partition.
+
+ <p>Each predicate in the expression is projected using <a href="../../../../org/apache/iceberg/transforms/Transform.html#projectStrict-java.lang.String-org.apache.iceberg.expressions.BoundPredicate-"><code>Transform.projectStrict(String,
+ BoundPredicate)</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>spec</code> - a partition spec</dd>
-<dd><code>caseSensitive</code> - whether the Projection should consider case sensitivity on column names or not.</dd>
+<dd><code>caseSensitive</code> - whether the Projection should consider case sensitivity on column names or
+     not.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a strict projection evaluator for the partition spec</dd>
 <dt><span class="seeLabel">See Also:</span></dt>

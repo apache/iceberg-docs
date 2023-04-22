@@ -115,20 +115,22 @@ var activeTableTab = "activeTableTab";
 extends java.lang.Object
 implements org.apache.flink.table.factories.CatalogFactory</pre>
 <div class="block">A Flink Catalog factory implementation that creates <a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html" title="class in org.apache.iceberg.flink"><code>FlinkCatalog</code></a>.
- <p>
- This supports the following catalog configuration options:
+
+ <p>This supports the following catalog configuration options:
+
  <ul>
-   <li><code>type</code> - Flink catalog factory key, should be "iceberg"</li>
-   <li><code>catalog-type</code> - iceberg catalog type, "hive" or "hadoop"</li>
-   <li><code>uri</code> - the Hive Metastore URI (Hive catalog only)</li>
-   <li><code>clients</code> - the Hive Client Pool Size (Hive catalog only)</li>
-   <li><code>warehouse</code> - the warehouse path (Hadoop catalog only)</li>
-   <li><code>default-database</code> - a database name to use as the default</li>
-   <li><code>base-namespace</code> - a base namespace as the prefix for all databases (Hadoop catalog only)</li>
-   <li><code>cache-enabled</code> - whether to enable catalog cache</li>
+   <li><code>type</code> - Flink catalog factory key, should be "iceberg"
+   <li><code>catalog-type</code> - iceberg catalog type, "hive", "hadoop" or "rest"
+   <li><code>uri</code> - the Hive Metastore URI (Hive catalog only)
+   <li><code>clients</code> - the Hive Client Pool Size (Hive catalog only)
+   <li><code>warehouse</code> - the warehouse path (Hadoop catalog only)
+   <li><code>default-database</code> - a database name to use as the default
+   <li><code>base-namespace</code> - a base namespace as the prefix for all databases (Hadoop
+       catalog only)
+   <li><code>cache-enabled</code> - whether to enable catalog cache
  </ul>
- <p>
- To use a custom catalog that is not a Hive or Hadoop catalog, extend this class and override
+
+ <p>To use a custom catalog that is not a Hive or Hadoop catalog, extend this class and override
  <a href="../../../../org/apache/iceberg/flink/FlinkCatalogFactory.html#createCatalogLoader-java.lang.String-java.util.Map-org.apache.hadoop.conf.Configuration-"><code>createCatalogLoader(String, Map, Configuration)</code></a>.</div>
 </li>
 </ul>
@@ -169,15 +171,15 @@ implements org.apache.flink.table.factories.CatalogFactory</pre>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalogFactory.html#CACHE_ENABLED">CACHE_ENABLED</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalogFactory.html#DEFAULT_DATABASE">DEFAULT_DATABASE</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalogFactory.html#DEFAULT_DATABASE">DEFAULT_DATABASE</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalogFactory.html#DEFAULT_DATABASE_NAME">DEFAULT_DATABASE_NAME</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalogFactory.html#DEFAULT_DATABASE_NAME">DEFAULT_DATABASE_NAME</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalogFactory.html#HADOOP_CONF_DIR">HADOOP_CONF_DIR</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
@@ -197,9 +199,13 @@ implements org.apache.flink.table.factories.CatalogFactory</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalogFactory.html#PROPERTY_VERSION">PROPERTY_VERSION</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalogFactory.html#ICEBERG_CATALOG_TYPE_REST">ICEBERG_CATALOG_TYPE_REST</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalogFactory.html#PROPERTY_VERSION">PROPERTY_VERSION</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalogFactory.html#TYPE">TYPE</a></span></code>&nbsp;</td>
 </tr>
@@ -326,6 +332,19 @@ implements org.apache.flink.table.factories.CatalogFactory</pre>
 </dl>
 </li>
 </ul>
+<a name="ICEBERG_CATALOG_TYPE_REST">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ICEBERG_CATALOG_TYPE_REST</h4>
+<pre>public static final&nbsp;java.lang.String ICEBERG_CATALOG_TYPE_REST</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.flink.FlinkCatalogFactory.ICEBERG_CATALOG_TYPE_REST">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
 <a name="HIVE_CONF_DIR">
 <!--   -->
 </a>
@@ -336,6 +355,19 @@ implements org.apache.flink.table.factories.CatalogFactory</pre>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.flink.FlinkCatalogFactory.HIVE_CONF_DIR">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="HADOOP_CONF_DIR">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>HADOOP_CONF_DIR</h4>
+<pre>public static final&nbsp;java.lang.String HADOOP_CONF_DIR</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.flink.FlinkCatalogFactory.HADOOP_CONF_DIR">Constant Field Values</a></dd>
 </dl>
 </li>
 </ul>
@@ -375,19 +407,6 @@ implements org.apache.flink.table.factories.CatalogFactory</pre>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.flink.FlinkCatalogFactory.BASE_NAMESPACE">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="CACHE_ENABLED">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>CACHE_ENABLED</h4>
-<pre>public static final&nbsp;java.lang.String CACHE_ENABLED</pre>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../constant-values.html#org.apache.iceberg.flink.FlinkCatalogFactory.CACHE_ENABLED">Constant Field Values</a></dd>
 </dl>
 </li>
 </ul>

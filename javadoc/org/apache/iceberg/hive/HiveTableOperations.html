@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/hive/HiveSchemaUtil.html" title="class in org.apache.iceberg.hive"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/hive/MetastoreUtil.html" title="class in org.apache.iceberg.hive"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/hive/HiveVersion.html" title="enum in org.apache.iceberg.hive"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/hive/HiveTableOperations.html" target="_top">Frames</a></li>
@@ -225,7 +225,7 @@ extends <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.htm
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.iceberg.<a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html" title="class in org.apache.iceberg">BaseMetastoreTableOperations</a></h3>
-<code><a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#checkCommitStatus-java.lang.String-org.apache.iceberg.TableMetadata-">checkCommitStatus</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#commit-org.apache.iceberg.TableMetadata-org.apache.iceberg.TableMetadata-">commit</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#current--">current</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#currentMetadataLocation--">currentMetadataLocation</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#currentVersion--">currentVersion</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#disableRefresh--">disableRefresh</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#locationProvider--">locationProvider</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#metadataFileLocation-java.lang.String-">metadataFileLocation</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#refresh--">refresh</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#refreshFromMetadataLocation-java.lang.String-">refreshFromMetadataLocation</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#refreshFromMetadataLocation-java.lang.String-int-">refreshFromMetadataLocation</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#refreshFromMetadataLocation-java.lang.String-java.util.function.Predicate-int-">refreshFromMetadataLocation</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#refreshFromMetadataLocation-java.lang.String-java.util.function.Predicate-int-java.util.function.Function-">refreshFromMetadataLocation</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#requestRefresh--">requestRefresh</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#temp-org.apache.iceberg.TableMetadata-">temp</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#writeNewMetadata-org.apache.iceberg.TableMetadata-int-">writeNewMetadata</a></code></li>
+<code><a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#checkCommitStatus-java.lang.String-org.apache.iceberg.TableMetadata-">checkCommitStatus</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#commit-org.apache.iceberg.TableMetadata-org.apache.iceberg.TableMetadata-">commit</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#current--">current</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#currentMetadataLocation--">currentMetadataLocation</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#currentVersion--">currentVersion</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#disableRefresh--">disableRefresh</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#locationProvider--">locationProvider</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#metadataFileLocation-java.lang.String-">metadataFileLocation</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#refresh--">refresh</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#refreshFromMetadataLocation-java.lang.String-">refreshFromMetadataLocation</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#refreshFromMetadataLocation-java.lang.String-int-">refreshFromMetadataLocation</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#refreshFromMetadataLocation-java.lang.String-java.util.function.Predicate-int-">refreshFromMetadataLocation</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#refreshFromMetadataLocation-java.lang.String-java.util.function.Predicate-int-java.util.function.Function-">refreshFromMetadataLocation</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#requestRefresh--">requestRefresh</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#temp-org.apache.iceberg.TableMetadata-">temp</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#writeNewMetadata-org.apache.iceberg.TableMetadata-int-">writeNewMetadata</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#writeNewMetadataIfRequired-boolean-org.apache.iceberg.TableMetadata-">writeNewMetadataIfRequired</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -284,19 +284,21 @@ extends <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.htm
 <li class="blockList">
 <h4>translateToIcebergProp</h4>
 <pre>public static&nbsp;java.lang.String&nbsp;translateToIcebergProp(java.lang.String&nbsp;hmsProp)</pre>
-<div class="block">Provides key translation where necessary between Iceberg and HMS props. This translation is needed because some
- properties control the same behaviour but are named differently in Iceberg and Hive. Therefore changes to these
- property pairs should be synchronized.
+<div class="block">Provides key translation where necessary between Iceberg and HMS props. This translation is
+ needed because some properties control the same behaviour but are named differently in Iceberg
+ and Hive. Therefore changes to these property pairs should be synchronized.
 
- Example: Deleting data files upon DROP TABLE is enabled using gc.enabled=true in Iceberg and
- external.table.purge=true in Hive. Hive and Iceberg users are unaware of each other's control flags, therefore
- inconsistent behaviour can occur from e.g. a Hive user's point of view if external.table.purge=true is set on the
- HMS table but gc.enabled=false is set on the Iceberg table, resulting in no data file deletion.</div>
+ <p>Example: Deleting data files upon DROP TABLE is enabled using gc.enabled=true in Iceberg and
+ external.table.purge=true in Hive. Hive and Iceberg users are unaware of each other's control
+ flags, therefore inconsistent behaviour can occur from e.g. a Hive user's point of view if
+ external.table.purge=true is set on the HMS table but gc.enabled=false is set on the Iceberg
+ table, resulting in no data file deletion.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>hmsProp</code> - The HMS property that should be translated to Iceberg property</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>Iceberg property equivalent to the hmsProp. If no such translation exists, the original hmsProp is returned</dd>
+<dd>Iceberg property equivalent to the hmsProp. If no such translation exists, the original
+     hmsProp is returned</dd>
 </dl>
 </li>
 </ul>
@@ -308,8 +310,8 @@ extends <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.htm
 <h4>tableName</h4>
 <pre>protected&nbsp;java.lang.String&nbsp;tableName()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#tableName--">BaseMetastoreTableOperations</a></code></span></div>
-<div class="block">The full name of the table used for logging purposes only. For example for HiveTableOperations it is
- catalogName + "." + database + "." + table.</div>
+<div class="block">The full name of the table used for logging purposes only. For example for HiveTableOperations
+ it is catalogName + "." + database + "." + table.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html#tableName--">tableName</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.html" title="class in org.apache.iceberg">BaseMetastoreTableOperations</a></code></dd>
@@ -384,7 +386,7 @@ extends <a href="../../../../org/apache/iceberg/BaseMetastoreTableOperations.htm
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/hive/HiveSchemaUtil.html" title="class in org.apache.iceberg.hive"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/hive/MetastoreUtil.html" title="class in org.apache.iceberg.hive"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/hive/HiveVersion.html" title="enum in org.apache.iceberg.hive"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/hive/HiveTableOperations.html" target="_top">Frames</a></li>

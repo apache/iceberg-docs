@@ -109,22 +109,26 @@ var activeTableTab = "activeTableTab";
 <dt><span class="paramLabel">Type Parameters:</span></dt>
 <dd><code>DecimalT</code> - A concrete type that can represent a decimal.</dd>
 <dd><code>Utf8StringT</code> - A concrete type that can represent a UTF8 string.</dd>
-<dd><code>ArrayT</code> - A concrete type that can represent an array value in a list vector, e.g. Spark's ColumnarArray.</dd>
-<dd><code>ChildVectorT</code> - A concrete type that can represent a child vector in a struct, e.g. Spark's ArrowColumnVector.</dd>
+<dd><code>ArrayT</code> - A concrete type that can represent an array value in a list vector, e.g. Spark's
+     ColumnarArray.</dd>
+<dd><code>ChildVectorT</code> - A concrete type that can represent a child vector in a struct, e.g. Spark's
+     ArrowColumnVector.</dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">GenericArrowVectorAccessorFactory&lt;DecimalT,Utf8StringT,ArrayT,ChildVectorT extends java.lang.AutoCloseable&gt;</span>
 extends java.lang.Object</pre>
-<div class="block">This class is creates typed <a href="../../../../../org/apache/iceberg/arrow/vectorized/ArrowVectorAccessor.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ArrowVectorAccessor</code></a> from <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html" title="class in org.apache.iceberg.arrow.vectorized"><code>VectorHolder</code></a>.
- It provides a generic implementation for following Arrow types:
+<div class="block">This class is creates typed <a href="../../../../../org/apache/iceberg/arrow/vectorized/ArrowVectorAccessor.html" title="class in org.apache.iceberg.arrow.vectorized"><code>ArrowVectorAccessor</code></a> from <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html" title="class in org.apache.iceberg.arrow.vectorized"><code>VectorHolder</code></a>. It provides a
+ generic implementation for following Arrow types:
+
  <ul>
-   <li>Decimal type can be deserialized to a type that supports decimal,
-   e.g. BigDecimal or Spark's Decimal.</li>
-   <li>UTF8 String type can deserialized to a Java String or Spark's UTF8String.</li>
-   <li>List type: the child elements of a list can be deserialized to Spark's ColumnarArray or similar type.</li>
-   <li>Struct type: the child elements of a struct can be deserialized to a Spark's ArrowColumnVector
-   or similar type.</li>
+   <li>Decimal type can be deserialized to a type that supports decimal, e.g. BigDecimal or
+       Spark's Decimal.
+   <li>UTF8 String type can deserialized to a Java String or Spark's UTF8String.
+   <li>List type: the child elements of a list can be deserialized to Spark's ColumnarArray or
+       similar type.
+   <li>Struct type: the child elements of a struct can be deserialized to a Spark's
+       ArrowColumnVector or similar type.
  </ul></div>
 </li>
 </ul>
@@ -243,9 +247,8 @@ extends java.lang.Object</pre>
                                             java.util.function.Supplier&lt;<a href="../../../../../org/apache/iceberg/arrow/vectorized/GenericArrowVectorAccessorFactory.StringFactory.html" title="interface in org.apache.iceberg.arrow.vectorized">GenericArrowVectorAccessorFactory.StringFactory</a>&lt;<a href="../../../../../org/apache/iceberg/arrow/vectorized/GenericArrowVectorAccessorFactory.html" title="type parameter in GenericArrowVectorAccessorFactory">Utf8StringT</a>&gt;&gt;&nbsp;stringFactorySupplier,
                                             java.util.function.Supplier&lt;<a href="../../../../../org/apache/iceberg/arrow/vectorized/GenericArrowVectorAccessorFactory.StructChildFactory.html" title="interface in org.apache.iceberg.arrow.vectorized">GenericArrowVectorAccessorFactory.StructChildFactory</a>&lt;<a href="../../../../../org/apache/iceberg/arrow/vectorized/GenericArrowVectorAccessorFactory.html" title="type parameter in GenericArrowVectorAccessorFactory">ChildVectorT</a>&gt;&gt;&nbsp;structChildFactorySupplier,
                                             java.util.function.Supplier&lt;<a href="../../../../../org/apache/iceberg/arrow/vectorized/GenericArrowVectorAccessorFactory.ArrayFactory.html" title="interface in org.apache.iceberg.arrow.vectorized">GenericArrowVectorAccessorFactory.ArrayFactory</a>&lt;<a href="../../../../../org/apache/iceberg/arrow/vectorized/GenericArrowVectorAccessorFactory.html" title="type parameter in GenericArrowVectorAccessorFactory">ChildVectorT</a>,<a href="../../../../../org/apache/iceberg/arrow/vectorized/GenericArrowVectorAccessorFactory.html" title="type parameter in GenericArrowVectorAccessorFactory">ArrayT</a>&gt;&gt;&nbsp;arrayFactorySupplier)</pre>
-<div class="block">The constructor is parameterized using the decimal, string, struct and array factories.
- If a specific type is not supported, the factory supplier can raise an
- <code>UnsupportedOperationException</code>.</div>
+<div class="block">The constructor is parameterized using the decimal, string, struct and array factories. If a
+ specific type is not supported, the factory supplier can raise an <code>UnsupportedOperationException</code>.</div>
 </li>
 </ul>
 </li>

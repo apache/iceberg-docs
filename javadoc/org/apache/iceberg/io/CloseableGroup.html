@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/io/BaseTaskWriter.RollingFileWriter.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/io/ByteBufferInputStream.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -118,15 +118,16 @@ var activeTableTab = "activeTableTab";
 <pre>public class <span class="typeNameLabel">CloseableGroup</span>
 extends java.lang.Object
 implements java.io.Closeable</pre>
-<div class="block">This class acts as a helper for handling the closure of multiple resource.
- It can be used for either inheritance or composition.
- To use it, register resources to be closed via the add() calls, and call the corresponding close method when needed.
- <p>
- It can take both closeable and autocloseable objects, and handle closeable as autocloseable and guarantee close
- idempotency by ensuring that each resource will be closed once even with concurrent close calls. It will also
- wrap checked non-IO exceptions into runtime exceptions.
- <p>
- Users can choose to suppress close failure with this class. By default such failures are not suppressed.</div>
+<div class="block">This class acts as a helper for handling the closure of multiple resource. It can be used for
+ either inheritance or composition. To use it, register resources to be closed via the add()
+ calls, and call the corresponding close method when needed.
+
+ <p>It can take both closeable and autocloseable objects, and handle closeable as autocloseable
+ and guarantee close idempotency by ensuring that each resource will be closed once even with
+ concurrent close calls. It will also wrap checked non-IO exceptions into runtime exceptions.
+
+ <p>Users can choose to suppress close failure with this class. By default such failures are not
+ suppressed.</div>
 </li>
 </ul>
 </div>
@@ -183,7 +184,8 @@ implements java.io.Closeable</pre>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/CloseableGroup.html#setSuppressCloseFailure-boolean-">setSuppressCloseFailure</a></span>(boolean&nbsp;shouldSuppress)</code>
-<div class="block">Whether to suppress failure when any of the closeable this class tracks throws exception during closing.</div>
+<div class="block">Whether to suppress failure when any of the closeable this class tracks throws exception during
+ closing.</div>
 </td>
 </tr>
 </table>
@@ -242,7 +244,8 @@ implements java.io.Closeable</pre>
 <li class="blockList">
 <h4>addCloseable</h4>
 <pre>public&nbsp;void&nbsp;addCloseable(java.lang.AutoCloseable&nbsp;autoCloseable)</pre>
-<div class="block">Register an autocloseables to be managed by this class. It will be handled as a closeable object.</div>
+<div class="block">Register an autocloseables to be managed by this class. It will be handled as a closeable
+ object.</div>
 </li>
 </ul>
 <a name="setSuppressCloseFailure-boolean-">
@@ -252,8 +255,8 @@ implements java.io.Closeable</pre>
 <li class="blockList">
 <h4>setSuppressCloseFailure</h4>
 <pre>public&nbsp;void&nbsp;setSuppressCloseFailure(boolean&nbsp;shouldSuppress)</pre>
-<div class="block">Whether to suppress failure when any of the closeable this class tracks throws exception during closing.
- This could be helpful to ensure the close method of all resources to be called.</div>
+<div class="block">Whether to suppress failure when any of the closeable this class tracks throws exception during
+ closing. This could be helpful to ensure the close method of all resources to be called.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>shouldSuppress</code> - true if user wants to suppress close failures</dd>
@@ -307,7 +310,7 @@ implements java.io.Closeable</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/io/BaseTaskWriter.RollingFileWriter.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/io/ByteBufferInputStream.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

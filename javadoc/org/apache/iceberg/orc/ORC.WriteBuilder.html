@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":42,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -126,7 +126,7 @@ extends java.lang.Object</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -137,16 +137,11 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html" title="class in org.apache.iceberg.orc">ORC.WriteBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html#config-java.lang.String-java.lang.String-">config</a></span>(java.lang.String&nbsp;property,
-      java.lang.String&nbsp;value)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">Please use #set(String, String) instead</span></div>
-</div>
-</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html#createWriterFunc-java.util.function.BiFunction-">createWriterFunc</a></span>(java.util.function.BiFunction&lt;<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>,org.apache.orc.TypeDescription,<a href="../../../../org/apache/iceberg/orc/OrcRowWriter.html" title="interface in org.apache.iceberg.orc">OrcRowWriter</a>&lt;?&gt;&gt;&nbsp;writerFunction)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html" title="class in org.apache.iceberg.orc">ORC.WriteBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html#createWriterFunc-java.util.function.BiFunction-">createWriterFunc</a></span>(java.util.function.BiFunction&lt;<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>,org.apache.orc.TypeDescription,<a href="../../../../org/apache/iceberg/orc/OrcRowWriter.html" title="interface in org.apache.iceberg.orc">OrcRowWriter</a>&lt;?&gt;&gt;&nbsp;writerFunction)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html#forTable-org.apache.iceberg.Table-">forTable</a></span>(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html" title="class in org.apache.iceberg.orc">ORC.WriteBuilder</a></code></td>
@@ -200,6 +195,15 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="forTable-org.apache.iceberg.Table-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>forTable</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html" title="class in org.apache.iceberg.orc">ORC.WriteBuilder</a>&nbsp;forTable(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</pre>
+</li>
+</ul>
 <a name="metadata-java.lang.String-java.lang.String-">
 <!--   -->
 </a>
@@ -208,26 +212,6 @@ extends java.lang.Object</pre>
 <h4>metadata</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html" title="class in org.apache.iceberg.orc">ORC.WriteBuilder</a>&nbsp;metadata(java.lang.String&nbsp;property,
                                  java.lang.String&nbsp;value)</pre>
-</li>
-</ul>
-<a name="config-java.lang.String-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>config</h4>
-<pre>@Deprecated
-public&nbsp;<a href="../../../../org/apache/iceberg/orc/ORC.WriteBuilder.html" title="class in org.apache.iceberg.orc">ORC.WriteBuilder</a>&nbsp;config(java.lang.String&nbsp;property,
-                                           java.lang.String&nbsp;value)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">Please use #set(String, String) instead</span></div>
-<div class="block">Setting a specific configuration value for the writer.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>property</code> - The property to set</dd>
-<dd><code>value</code> - The value to set</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>The resulting builder for chaining purposes</dd>
-</dl>
 </li>
 </ul>
 <a name="set-java.lang.String-java.lang.String-">

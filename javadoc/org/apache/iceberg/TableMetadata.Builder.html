@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -137,81 +137,129 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#addSchema-org.apache.iceberg.Schema-int-">addSchema</a></span>(<a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema,
-         int&nbsp;newLastColumnId)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#addPartitionSpec-org.apache.iceberg.UnboundPartitionSpec-">addPartitionSpec</a></span>(<a href="../../../org/apache/iceberg/UnboundPartitionSpec.html" title="class in org.apache.iceberg">UnboundPartitionSpec</a>&nbsp;spec)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#addSnapshot-org.apache.iceberg.Snapshot-">addSnapshot</a></span>(<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;snapshot)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#addSchema-org.apache.iceberg.Schema-int-">addSchema</a></span>(<a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema,
+         int&nbsp;newLastColumnId)</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#addSortOrder-org.apache.iceberg.SortOrder-">addSortOrder</a></span>(<a href="../../../org/apache/iceberg/SortOrder.html" title="class in org.apache.iceberg">SortOrder</a>&nbsp;order)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#addSnapshot-org.apache.iceberg.Snapshot-">addSnapshot</a></span>(<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;snapshot)</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#assignUUID--">assignUUID</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#addSortOrder-org.apache.iceberg.SortOrder-">addSortOrder</a></span>(<a href="../../../org/apache/iceberg/SortOrder.html" title="class in org.apache.iceberg">SortOrder</a>&nbsp;order)</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#build--">build</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#addSortOrder-org.apache.iceberg.UnboundSortOrder-">addSortOrder</a></span>(<a href="../../../org/apache/iceberg/UnboundSortOrder.html" title="class in org.apache.iceberg">UnboundSortOrder</a>&nbsp;order)</code>&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#discardChanges--">discardChanges</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#assignUUID--">assignUUID</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#removeProperties-java.util.Set-">removeProperties</a></span>(java.util.Set&lt;java.lang.String&gt;&nbsp;removed)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#assignUUID-java.lang.String-">assignUUID</a></span>(java.lang.String&nbsp;newUuid)</code>&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
-<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#removeSnapshots-java.util.List-">removeSnapshots</a></span>(java.util.List&lt;<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;&nbsp;snapshotsToRemove)</code>&nbsp;</td>
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#build--">build</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#setCurrentSchema-int-">setCurrentSchema</a></span>(int&nbsp;schemaId)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#discardChanges--">discardChanges</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i10" class="altColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#removeProperties-java.util.Set-">removeProperties</a></span>(java.util.Set&lt;java.lang.String&gt;&nbsp;removed)</code>&nbsp;</td>
+</tr>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#removeRef-java.lang.String-">removeRef</a></span>(java.lang.String&nbsp;name)</code>&nbsp;</td>
+</tr>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#removeSnapshots-java.util.Collection-">removeSnapshots</a></span>(java.util.Collection&lt;java.lang.Long&gt;&nbsp;idsToRemove)</code>&nbsp;</td>
+</tr>
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#removeSnapshots-java.util.List-">removeSnapshots</a></span>(java.util.List&lt;<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;&nbsp;snapshotsToRemove)</code>&nbsp;</td>
+</tr>
+<tr id="i14" class="altColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#removeStatistics-long-">removeStatistics</a></span>(long&nbsp;snapshotId)</code>&nbsp;</td>
+</tr>
+<tr id="i15" class="rowColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#setBranchSnapshot-long-java.lang.String-">setBranchSnapshot</a></span>(long&nbsp;snapshotId,
+                 java.lang.String&nbsp;branch)</code>&nbsp;</td>
+</tr>
+<tr id="i16" class="altColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#setBranchSnapshot-org.apache.iceberg.Snapshot-java.lang.String-">setBranchSnapshot</a></span>(<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;snapshot,
+                 java.lang.String&nbsp;branch)</code>&nbsp;</td>
+</tr>
+<tr id="i17" class="rowColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#setCurrentSchema-int-">setCurrentSchema</a></span>(int&nbsp;schemaId)</code>&nbsp;</td>
+</tr>
+<tr id="i18" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#setCurrentSchema-org.apache.iceberg.Schema-int-">setCurrentSchema</a></span>(<a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;newSchema,
                 int&nbsp;newLastColumnId)</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
-<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#setCurrentSnapshot-long-">setCurrentSnapshot</a></span>(long&nbsp;snapshotId)</code>&nbsp;</td>
-</tr>
-<tr id="i12" class="altColor">
-<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#setCurrentSnapshot-org.apache.iceberg.Snapshot-">setCurrentSnapshot</a></span>(<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;snapshot)</code>&nbsp;</td>
-</tr>
-<tr id="i13" class="rowColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#setDefaultPartitionSpec-int-">setDefaultPartitionSpec</a></span>(int&nbsp;specId)</code>&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#setDefaultPartitionSpec-org.apache.iceberg.PartitionSpec-">setDefaultPartitionSpec</a></span>(<a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec)</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#setDefaultSortOrder-int-">setDefaultSortOrder</a></span>(int&nbsp;sortOrderId)</code>&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#setDefaultSortOrder-org.apache.iceberg.SortOrder-">setDefaultSortOrder</a></span>(<a href="../../../org/apache/iceberg/SortOrder.html" title="class in org.apache.iceberg">SortOrder</a>&nbsp;order)</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#setLocation-java.lang.String-">setLocation</a></span>(java.lang.String&nbsp;newLocation)</code>&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i24" class="altColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#setPreviousFileLocation-java.lang.String-">setPreviousFileLocation</a></span>(java.lang.String&nbsp;previousFileLocation)</code>&nbsp;</td>
+</tr>
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#setProperties-java.util.Map-">setProperties</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;updated)</code>&nbsp;</td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i26" class="altColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#setRef-java.lang.String-org.apache.iceberg.SnapshotRef-">setRef</a></span>(java.lang.String&nbsp;name,
+      <a href="../../../org/apache/iceberg/SnapshotRef.html" title="class in org.apache.iceberg">SnapshotRef</a>&nbsp;ref)</code>&nbsp;</td>
+</tr>
+<tr id="i27" class="rowColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#setSnapshotsSupplier-org.apache.iceberg.util.SerializableSupplier-">setSnapshotsSupplier</a></span>(<a href="../../../org/apache/iceberg/util/SerializableSupplier.html" title="interface in org.apache.iceberg.util">SerializableSupplier</a>&lt;java.util.List&lt;<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;&gt;&nbsp;snapshotsSupplier)</code>&nbsp;</td>
+</tr>
+<tr id="i28" class="altColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#setStatistics-long-org.apache.iceberg.StatisticsFile-">setStatistics</a></span>(long&nbsp;snapshotId,
+             <a href="../../../org/apache/iceberg/StatisticsFile.html" title="interface in org.apache.iceberg">StatisticsFile</a>&nbsp;statisticsFile)</code>&nbsp;</td>
+</tr>
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#upgradeFormatVersion-int-">upgradeFormatVersion</a></span>(int&nbsp;newFormatVersion)</code>&nbsp;</td>
+</tr>
+<tr id="i30" class="altColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#withMetadataLocation-java.lang.String-">withMetadataLocation</a></span>(java.lang.String&nbsp;newMetadataLocation)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -235,6 +283,15 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="withMetadataLocation-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>withMetadataLocation</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a>&nbsp;withMetadataLocation(java.lang.String&nbsp;newMetadataLocation)</pre>
+</li>
+</ul>
 <a name="assignUUID--">
 <!--   -->
 </a>
@@ -242,6 +299,15 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>assignUUID</h4>
 <pre>public&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a>&nbsp;assignUUID()</pre>
+</li>
+</ul>
+<a name="assignUUID-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>assignUUID</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a>&nbsp;assignUUID(java.lang.String&nbsp;newUuid)</pre>
 </li>
 </ul>
 <a name="upgradeFormatVersion-int-">
@@ -300,6 +366,15 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a>&nbsp;setDefaultPartitionSpec(int&nbsp;specId)</pre>
 </li>
 </ul>
+<a name="addPartitionSpec-org.apache.iceberg.UnboundPartitionSpec-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addPartitionSpec</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a>&nbsp;addPartitionSpec(<a href="../../../org/apache/iceberg/UnboundPartitionSpec.html" title="class in org.apache.iceberg">UnboundPartitionSpec</a>&nbsp;spec)</pre>
+</li>
+</ul>
 <a name="addPartitionSpec-org.apache.iceberg.PartitionSpec-">
 <!--   -->
 </a>
@@ -327,6 +402,15 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a>&nbsp;setDefaultSortOrder(int&nbsp;sortOrderId)</pre>
 </li>
 </ul>
+<a name="addSortOrder-org.apache.iceberg.UnboundSortOrder-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addSortOrder</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a>&nbsp;addSortOrder(<a href="../../../org/apache/iceberg/UnboundSortOrder.html" title="class in org.apache.iceberg">UnboundSortOrder</a>&nbsp;order)</pre>
+</li>
+</ul>
 <a name="addSortOrder-org.apache.iceberg.SortOrder-">
 <!--   -->
 </a>
@@ -345,22 +429,71 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a>&nbsp;addSnapshot(<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;snapshot)</pre>
 </li>
 </ul>
-<a name="setCurrentSnapshot-org.apache.iceberg.Snapshot-">
+<a name="setSnapshotsSupplier-org.apache.iceberg.util.SerializableSupplier-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>setCurrentSnapshot</h4>
-<pre>public&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a>&nbsp;setCurrentSnapshot(<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;snapshot)</pre>
+<h4>setSnapshotsSupplier</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a>&nbsp;setSnapshotsSupplier(<a href="../../../org/apache/iceberg/util/SerializableSupplier.html" title="interface in org.apache.iceberg.util">SerializableSupplier</a>&lt;java.util.List&lt;<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;&gt;&nbsp;snapshotsSupplier)</pre>
 </li>
 </ul>
-<a name="setCurrentSnapshot-long-">
+<a name="setBranchSnapshot-org.apache.iceberg.Snapshot-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>setCurrentSnapshot</h4>
-<pre>public&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a>&nbsp;setCurrentSnapshot(long&nbsp;snapshotId)</pre>
+<h4>setBranchSnapshot</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a>&nbsp;setBranchSnapshot(<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;snapshot,
+                                               java.lang.String&nbsp;branch)</pre>
+</li>
+</ul>
+<a name="setBranchSnapshot-long-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setBranchSnapshot</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a>&nbsp;setBranchSnapshot(long&nbsp;snapshotId,
+                                               java.lang.String&nbsp;branch)</pre>
+</li>
+</ul>
+<a name="setRef-java.lang.String-org.apache.iceberg.SnapshotRef-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setRef</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a>&nbsp;setRef(java.lang.String&nbsp;name,
+                                    <a href="../../../org/apache/iceberg/SnapshotRef.html" title="class in org.apache.iceberg">SnapshotRef</a>&nbsp;ref)</pre>
+</li>
+</ul>
+<a name="removeRef-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>removeRef</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a>&nbsp;removeRef(java.lang.String&nbsp;name)</pre>
+</li>
+</ul>
+<a name="setStatistics-long-org.apache.iceberg.StatisticsFile-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setStatistics</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a>&nbsp;setStatistics(long&nbsp;snapshotId,
+                                           <a href="../../../org/apache/iceberg/StatisticsFile.html" title="interface in org.apache.iceberg">StatisticsFile</a>&nbsp;statisticsFile)</pre>
+</li>
+</ul>
+<a name="removeStatistics-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>removeStatistics</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a>&nbsp;removeStatistics(long&nbsp;snapshotId)</pre>
 </li>
 </ul>
 <a name="removeSnapshots-java.util.List-">
@@ -370,6 +503,15 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>removeSnapshots</h4>
 <pre>public&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a>&nbsp;removeSnapshots(java.util.List&lt;<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;&nbsp;snapshotsToRemove)</pre>
+</li>
+</ul>
+<a name="removeSnapshots-java.util.Collection-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>removeSnapshots</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a>&nbsp;removeSnapshots(java.util.Collection&lt;java.lang.Long&gt;&nbsp;idsToRemove)</pre>
 </li>
 </ul>
 <a name="setProperties-java.util.Map-">
@@ -406,6 +548,15 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>discardChanges</h4>
 <pre>public&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a>&nbsp;discardChanges()</pre>
+</li>
+</ul>
+<a name="setPreviousFileLocation-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setPreviousFileLocation</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a>&nbsp;setPreviousFileLocation(java.lang.String&nbsp;previousFileLocation)</pre>
 </li>
 </ul>
 <a name="build--">

@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9};
+var methods = {"i0":9,"i1":9,"i2":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -158,11 +158,15 @@ extends java.lang.Enum&lt;<a href="../../../org/apache/iceberg/SortDirection.htm
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static <a href="../../../org/apache/iceberg/SortDirection.html" title="enum in org.apache.iceberg">SortDirection</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SortDirection.html#fromString-java.lang.String-">fromString</a></span>(java.lang.String&nbsp;directionAsString)</code>&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>static <a href="../../../org/apache/iceberg/SortDirection.html" title="enum in org.apache.iceberg">SortDirection</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SortDirection.html#valueOf-java.lang.String-">valueOf</a></span>(java.lang.String&nbsp;name)</code>
 <div class="block">Returns the enum constant of this type with the specified name.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>static <a href="../../../org/apache/iceberg/SortDirection.html" title="enum in org.apache.iceberg">SortDirection</a>[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SortDirection.html#values--">values</a></span>()</code>
 <div class="block">Returns an array containing the constants of this enum type, in
@@ -247,7 +251,7 @@ for (SortDirection c : SortDirection.values())
 <a name="valueOf-java.lang.String-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>valueOf</h4>
 <pre>public static&nbsp;<a href="../../../org/apache/iceberg/SortDirection.html" title="enum in org.apache.iceberg">SortDirection</a>&nbsp;valueOf(java.lang.String&nbsp;name)</pre>
@@ -264,6 +268,15 @@ not permitted.)</div>
 <dd><code>java.lang.IllegalArgumentException</code> - if this enum type has no constant with the specified name</dd>
 <dd><code>java.lang.NullPointerException</code> - if the argument is null</dd>
 </dl>
+</li>
+</ul>
+<a name="fromString-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>fromString</h4>
+<pre>public static&nbsp;<a href="../../../org/apache/iceberg/SortDirection.html" title="enum in org.apache.iceberg">SortDirection</a>&nbsp;fromString(java.lang.String&nbsp;directionAsString)</pre>
 </li>
 </ul>
 </li>

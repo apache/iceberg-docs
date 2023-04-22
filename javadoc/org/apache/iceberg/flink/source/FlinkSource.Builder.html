@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":42,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -144,7 +144,7 @@ extends java.lang.Object</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -154,80 +154,121 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#asOfTimestamp-java.lang.Long-">asOfTimestamp</a></span>(java.lang.Long&nbsp;asOfTimestamp)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#branch-java.lang.String-">branch</a></span>(java.lang.String&nbsp;branch)</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>org.apache.flink.streaming.api.datastream.DataStream&lt;org.apache.flink.table.data.RowData&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#build--">build</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkInputFormat.html" title="class in org.apache.iceberg.flink.source">FlinkInputFormat</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#buildFormat--">buildFormat</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#caseSensitive-boolean-">caseSensitive</a></span>(boolean&nbsp;caseSensitive)</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#endSnapshotId-java.lang.Long-">endSnapshotId</a></span>(java.lang.Long&nbsp;endSnapshotId)</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#env-org.apache.flink.streaming.api.environment.StreamExecutionEnvironment-">env</a></span>(org.apache.flink.streaming.api.environment.StreamExecutionEnvironment&nbsp;newEnv)</code>&nbsp;</td>
-</tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#filters-java.util.List-">filters</a></span>(java.util.List&lt;<a href="../../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&gt;&nbsp;filters)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#endTag-java.lang.String-">endTag</a></span>(java.lang.String&nbsp;endTag)</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#flinkConf-org.apache.flink.configuration.ReadableConfig-">flinkConf</a></span>(org.apache.flink.configuration.ReadableConfig&nbsp;config)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#env-org.apache.flink.streaming.api.environment.StreamExecutionEnvironment-">env</a></span>(org.apache.flink.streaming.api.environment.StreamExecutionEnvironment&nbsp;newEnv)</code>&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#limit-long-">limit</a></span>(long&nbsp;newLimit)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#exposeLocality-boolean-">exposeLocality</a></span>(boolean&nbsp;newExposeLocality)</code>&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#nameMapping-java.lang.String-">nameMapping</a></span>(java.lang.String&nbsp;nameMapping)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#filters-java.util.List-">filters</a></span>(java.util.List&lt;<a href="../../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&gt;&nbsp;filters)</code>&nbsp;</td>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#project-org.apache.flink.table.api.TableSchema-">project</a></span>(org.apache.flink.table.api.TableSchema&nbsp;schema)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#flinkConf-org.apache.flink.configuration.ReadableConfig-">flinkConf</a></span>(org.apache.flink.configuration.ReadableConfig&nbsp;config)</code>&nbsp;</td>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#properties-java.util.Map-">properties</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#limit-java.lang.Long-">limit</a></span>(java.lang.Long&nbsp;newLimit)</code>&nbsp;</td>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#snapshotId-java.lang.Long-">snapshotId</a></span>(java.lang.Long&nbsp;snapshotId)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#maxPlanningSnapshotCount-int-">maxPlanningSnapshotCount</a></span>(int&nbsp;newMaxPlanningSnapshotCount)</code>&nbsp;</td>
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#splitLookback-java.lang.Integer-">splitLookback</a></span>(java.lang.Integer&nbsp;splitLookback)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#monitorInterval-java.time.Duration-">monitorInterval</a></span>(java.time.Duration&nbsp;interval)</code>&nbsp;</td>
 </tr>
 <tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#splitOpenFileCost-java.lang.Long-">splitOpenFileCost</a></span>(java.lang.Long&nbsp;splitOpenFileCost)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#nameMapping-java.lang.String-">nameMapping</a></span>(java.lang.String&nbsp;nameMapping)</code>&nbsp;</td>
 </tr>
 <tr id="i15" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#splitSize-java.lang.Long-">splitSize</a></span>(java.lang.Long&nbsp;splitSize)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#project-org.apache.flink.table.api.TableSchema-">project</a></span>(org.apache.flink.table.api.TableSchema&nbsp;schema)</code>&nbsp;</td>
 </tr>
 <tr id="i16" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#startSnapshotId-java.lang.Long-">startSnapshotId</a></span>(java.lang.Long&nbsp;startSnapshotId)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#properties-java.util.Map-">properties</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
+<div class="block"><span class="deprecationComment">Use <a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#setAll-java.util.Map-"><code>setAll(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</code></a> instead.</span></div>
+</div>
+</td>
 </tr>
 <tr id="i17" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#streaming-boolean-">streaming</a></span>(boolean&nbsp;streaming)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#set-java.lang.String-java.lang.String-">set</a></span>(java.lang.String&nbsp;property,
+   java.lang.String&nbsp;value)</code>&nbsp;</td>
 </tr>
 <tr id="i18" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#table-org.apache.iceberg.Table-">table</a></span>(<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;newTable)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#setAll-java.util.Map-">setAll</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</code>&nbsp;</td>
 </tr>
 <tr id="i19" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#snapshotId-java.lang.Long-">snapshotId</a></span>(java.lang.Long&nbsp;snapshotId)</code>&nbsp;</td>
+</tr>
+<tr id="i20" class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#splitLookback-java.lang.Integer-">splitLookback</a></span>(java.lang.Integer&nbsp;splitLookback)</code>&nbsp;</td>
+</tr>
+<tr id="i21" class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#splitOpenFileCost-java.lang.Long-">splitOpenFileCost</a></span>(java.lang.Long&nbsp;splitOpenFileCost)</code>&nbsp;</td>
+</tr>
+<tr id="i22" class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#splitSize-java.lang.Long-">splitSize</a></span>(java.lang.Long&nbsp;splitSize)</code>&nbsp;</td>
+</tr>
+<tr id="i23" class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#startSnapshotId-java.lang.Long-">startSnapshotId</a></span>(java.lang.Long&nbsp;startSnapshotId)</code>&nbsp;</td>
+</tr>
+<tr id="i24" class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#startTag-java.lang.String-">startTag</a></span>(java.lang.String&nbsp;startTag)</code>&nbsp;</td>
+</tr>
+<tr id="i25" class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#streaming-boolean-">streaming</a></span>(boolean&nbsp;streaming)</code>&nbsp;</td>
+</tr>
+<tr id="i26" class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#table-org.apache.iceberg.Table-">table</a></span>(<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;newTable)</code>&nbsp;</td>
+</tr>
+<tr id="i27" class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#tableLoader-org.apache.iceberg.flink.TableLoader-">tableLoader</a></span>(<a href="../../../../../org/apache/iceberg/flink/TableLoader.html" title="interface in org.apache.iceberg.flink">TableLoader</a>&nbsp;newLoader)</code>&nbsp;</td>
+</tr>
+<tr id="i28" class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#tag-java.lang.String-">tag</a></span>(java.lang.String&nbsp;tag)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -313,13 +354,32 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a>&nbsp;project(org.apache.flink.table.api.TableSchema&nbsp;schema)</pre>
 </li>
 </ul>
-<a name="limit-long-">
+<a name="limit-java.lang.Long-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>limit</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a>&nbsp;limit(long&nbsp;newLimit)</pre>
+<pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a>&nbsp;limit(java.lang.Long&nbsp;newLimit)</pre>
+</li>
+</ul>
+<a name="set-java.lang.String-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>set</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a>&nbsp;set(java.lang.String&nbsp;property,
+                               java.lang.String&nbsp;value)</pre>
+</li>
+</ul>
+<a name="setAll-java.util.Map-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setAll</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a>&nbsp;setAll(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</pre>
 </li>
 </ul>
 <a name="properties-java.util.Map-">
@@ -328,7 +388,9 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>properties</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a>&nbsp;properties(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</pre>
+<pre>@Deprecated
+public&nbsp;<a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a>&nbsp;properties(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">Use <a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html#setAll-java.util.Map-"><code>setAll(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</code></a> instead.</span></div>
 </li>
 </ul>
 <a name="caseSensitive-boolean-">
@@ -349,6 +411,24 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a>&nbsp;snapshotId(java.lang.Long&nbsp;snapshotId)</pre>
 </li>
 </ul>
+<a name="branch-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>branch</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a>&nbsp;branch(java.lang.String&nbsp;branch)</pre>
+</li>
+</ul>
+<a name="tag-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>tag</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a>&nbsp;tag(java.lang.String&nbsp;tag)</pre>
+</li>
+</ul>
 <a name="startSnapshotId-java.lang.Long-">
 <!--   -->
 </a>
@@ -365,6 +445,24 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>endSnapshotId</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a>&nbsp;endSnapshotId(java.lang.Long&nbsp;endSnapshotId)</pre>
+</li>
+</ul>
+<a name="startTag-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>startTag</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a>&nbsp;startTag(java.lang.String&nbsp;startTag)</pre>
+</li>
+</ul>
+<a name="endTag-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>endTag</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a>&nbsp;endTag(java.lang.String&nbsp;endTag)</pre>
 </li>
 </ul>
 <a name="asOfTimestamp-java.lang.Long-">
@@ -412,6 +510,15 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a>&nbsp;streaming(boolean&nbsp;streaming)</pre>
 </li>
 </ul>
+<a name="exposeLocality-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>exposeLocality</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a>&nbsp;exposeLocality(boolean&nbsp;newExposeLocality)</pre>
+</li>
+</ul>
 <a name="nameMapping-java.lang.String-">
 <!--   -->
 </a>
@@ -419,6 +526,24 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>nameMapping</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a>&nbsp;nameMapping(java.lang.String&nbsp;nameMapping)</pre>
+</li>
+</ul>
+<a name="monitorInterval-java.time.Duration-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>monitorInterval</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a>&nbsp;monitorInterval(java.time.Duration&nbsp;interval)</pre>
+</li>
+</ul>
+<a name="maxPlanningSnapshotCount-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>maxPlanningSnapshotCount</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source">FlinkSource.Builder</a>&nbsp;maxPlanningSnapshotCount(int&nbsp;newMaxPlanningSnapshotCount)</pre>
 </li>
 </ul>
 <a name="flinkConf-org.apache.flink.configuration.ReadableConfig-">

@@ -109,13 +109,11 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public class <span class="typeNameLabel">OSSURI</span>
 extends java.lang.Object</pre>
-<div class="block">This class represents a fully qualified location in OSS for input/output
- operations expressed as as URI.  This implementation is provided to
- ensure compatibility with Hadoop Path implementations that may introduce
- encoding issues with native URI implementation.
+<div class="block">This class represents a fully qualified location in OSS for input/output operations expressed as
+ as URI. This implementation is provided to ensure compatibility with Hadoop Path implementations
+ that may introduce encoding issues with native URI implementation.
 
- Note: Path-style access is deprecated and not supported by this
- implementation.</div>
+ <p>Note: Path-style access is deprecated and not supported by this implementation.</div>
 </li>
 </ul>
 </div>
@@ -135,16 +133,9 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aliyun/oss/OSSURI.html#OSSURI-java.lang.String-">OSSURI</a></span>(java.lang.String&nbsp;location)</code>
-<div class="block">Creates a new OSSURI based on the bucket and key parsed from the location
- The location in string form has the syntax as below, which refers to RFC2396:
- [scheme:][//bucket][object key][#fragment]
- [scheme:][//bucket][object key][?query][#fragment]
-
- It specifies precisely which characters are permitted in the various components of a URI reference
- in Aliyun OSS documentation as below:
- Bucket: https://help.aliyun.com/document_detail/257087.html
- Object: https://help.aliyun.com/document_detail/273129.html
- Scheme: https or oss</div>
+<div class="block">Creates a new OSSURI based on the bucket and key parsed from the location The location in
+ string form has the syntax as below, which refers to RFC2396: [scheme:][//bucket][object
+ key][#fragment] [scheme:][//bucket][object key][?query][#fragment]</div>
 </td>
 </tr>
 </table>
@@ -213,19 +204,16 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>OSSURI</h4>
 <pre>public&nbsp;OSSURI(java.lang.String&nbsp;location)</pre>
-<div class="block">Creates a new OSSURI based on the bucket and key parsed from the location
- The location in string form has the syntax as below, which refers to RFC2396:
- [scheme:][//bucket][object key][#fragment]
- [scheme:][//bucket][object key][?query][#fragment]
+<div class="block">Creates a new OSSURI based on the bucket and key parsed from the location The location in
+ string form has the syntax as below, which refers to RFC2396: [scheme:][//bucket][object
+ key][#fragment] [scheme:][//bucket][object key][?query][#fragment]
 
- It specifies precisely which characters are permitted in the various components of a URI reference
- in Aliyun OSS documentation as below:
- Bucket: https://help.aliyun.com/document_detail/257087.html
- Object: https://help.aliyun.com/document_detail/273129.html
- Scheme: https or oss
+ <p>It specifies precisely which characters are permitted in the various components of a URI
+ reference in Aliyun OSS documentation as below: Bucket:
+ https://help.aliyun.com/document_detail/257087.html Object:
+ https://help.aliyun.com/document_detail/273129.html Scheme: https or oss
 
- <p>
- Supported access styles are https and oss://... URIs.</div>
+ <p>Supported access styles are https and oss://... URIs.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>location</code> - fully qualified URI.</dd>

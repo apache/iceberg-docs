@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,8 +47,8 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/iceberg/spark/source/EqualityDeleteRowReader.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../org/apache/iceberg/spark/source/RowDataRewriter.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/iceberg/spark/source/HasIcebergCatalog.html" title="interface in org.apache.iceberg.spark.source"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/iceberg/spark/source/SerializableTableWithSize.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/iceberg/spark/source/IcebergSource.html" target="_top">Frames</a></li>
@@ -116,17 +116,17 @@ extends java.lang.Object
 implements org.apache.spark.sql.sources.DataSourceRegister, org.apache.spark.sql.connector.catalog.SupportsCatalogOptions</pre>
 <div class="block">The IcebergSource loads/writes tables with format "iceberg". It can load paths and tables.
 
- How paths/tables are loaded when using spark.read().format("iceberg").path(table)
+ <p>How paths/tables are loaded when using spark.read().format("iceberg").load(table)
 
-  table = "file:/path/to/table" -&gt; loads a HadoopTable at given path
-  table = "tablename" -&gt; loads currentCatalog.currentNamespace.tablename
-  table = "catalog.tablename" -&gt; load "tablename" from the specified catalog.
-  table = "namespace.tablename" -&gt; load "namespace.tablename" from current catalog
-  table = "catalog.namespace.tablename" -&gt; "namespace.tablename" from the specified catalog.
-  table = "namespace1.namespace2.tablename" -&gt; load "namespace1.namespace2.tablename" from current catalog
+ <p>table = "file:///path/to/table" -&gt; loads a HadoopTable at given path table = "tablename"
+ -&gt; loads currentCatalog.currentNamespace.tablename table = "catalog.tablename" -&gt; load
+ "tablename" from the specified catalog. table = "namespace.tablename" -&gt; load
+ "namespace.tablename" from current catalog table = "catalog.namespace.tablename" -&gt;
+ "namespace.tablename" from the specified catalog. table = "namespace1.namespace2.tablename" -&gt;
+ load "namespace1.namespace2.tablename" from current catalog
 
- The above list is in order of priority. For example: a matching catalog will take priority over any namespace
- resolution.</div>
+ <p>The above list is in order of priority. For example: a matching catalog will take priority
+ over any namespace resolution.</div>
 </li>
 </ul>
 </div>
@@ -171,24 +171,32 @@ implements org.apache.spark.sql.sources.DataSourceRegister, org.apache.spark.sql
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/IcebergSource.html#extractIdentifier-org.apache.spark.sql.util.CaseInsensitiveStringMap-">extractIdentifier</a></span>(org.apache.spark.sql.util.CaseInsensitiveStringMap&nbsp;options)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>java.util.Optional&lt;java.lang.String&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/IcebergSource.html#extractTimeTravelTimestamp-org.apache.spark.sql.util.CaseInsensitiveStringMap-">extractTimeTravelTimestamp</a></span>(org.apache.spark.sql.util.CaseInsensitiveStringMap&nbsp;options)</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>java.util.Optional&lt;java.lang.String&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/IcebergSource.html#extractTimeTravelVersion-org.apache.spark.sql.util.CaseInsensitiveStringMap-">extractTimeTravelVersion</a></span>(org.apache.spark.sql.util.CaseInsensitiveStringMap&nbsp;options)</code>&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>org.apache.spark.sql.connector.catalog.Table</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/IcebergSource.html#getTable-org.apache.spark.sql.types.StructType-org.apache.spark.sql.connector.expressions.Transform:A-java.util.Map-">getTable</a></span>(org.apache.spark.sql.types.StructType&nbsp;schema,
         org.apache.spark.sql.connector.expressions.Transform[]&nbsp;partitioning,
         java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;options)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>org.apache.spark.sql.connector.expressions.Transform[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/IcebergSource.html#inferPartitioning-org.apache.spark.sql.util.CaseInsensitiveStringMap-">inferPartitioning</a></span>(org.apache.spark.sql.util.CaseInsensitiveStringMap&nbsp;options)</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>org.apache.spark.sql.types.StructType</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/IcebergSource.html#inferSchema-org.apache.spark.sql.util.CaseInsensitiveStringMap-">inferSchema</a></span>(org.apache.spark.sql.util.CaseInsensitiveStringMap&nbsp;options)</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/IcebergSource.html#shortName--">shortName</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/IcebergSource.html#supportsExternalMetadata--">supportsExternalMetadata</a></span>()</code>&nbsp;</td>
 </tr>
@@ -314,13 +322,39 @@ implements org.apache.spark.sql.sources.DataSourceRegister, org.apache.spark.sql
 <a name="extractCatalog-org.apache.spark.sql.util.CaseInsensitiveStringMap-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>extractCatalog</h4>
 <pre>public&nbsp;java.lang.String&nbsp;extractCatalog(org.apache.spark.sql.util.CaseInsensitiveStringMap&nbsp;options)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>extractCatalog</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.catalog.SupportsCatalogOptions</code></dd>
+</dl>
+</li>
+</ul>
+<a name="extractTimeTravelVersion-org.apache.spark.sql.util.CaseInsensitiveStringMap-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>extractTimeTravelVersion</h4>
+<pre>public&nbsp;java.util.Optional&lt;java.lang.String&gt;&nbsp;extractTimeTravelVersion(org.apache.spark.sql.util.CaseInsensitiveStringMap&nbsp;options)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>extractTimeTravelVersion</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.catalog.SupportsCatalogOptions</code></dd>
+</dl>
+</li>
+</ul>
+<a name="extractTimeTravelTimestamp-org.apache.spark.sql.util.CaseInsensitiveStringMap-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>extractTimeTravelTimestamp</h4>
+<pre>public&nbsp;java.util.Optional&lt;java.lang.String&gt;&nbsp;extractTimeTravelTimestamp(org.apache.spark.sql.util.CaseInsensitiveStringMap&nbsp;options)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>extractTimeTravelTimestamp</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.catalog.SupportsCatalogOptions</code></dd>
 </dl>
 </li>
 </ul>
@@ -351,8 +385,8 @@ implements org.apache.spark.sql.sources.DataSourceRegister, org.apache.spark.sql
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/iceberg/spark/source/EqualityDeleteRowReader.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../org/apache/iceberg/spark/source/RowDataRewriter.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/iceberg/spark/source/HasIcebergCatalog.html" title="interface in org.apache.iceberg.spark.source"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/iceberg/spark/source/SerializableTableWithSize.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/iceberg/spark/source/IcebergSource.html" target="_top">Frames</a></li>

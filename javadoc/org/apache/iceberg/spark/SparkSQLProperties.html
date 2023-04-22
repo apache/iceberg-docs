@@ -123,6 +123,14 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkSQLProperties.html#AGGREGATE_PUSH_DOWN_ENABLED">AGGREGATE_PUSH_DOWN_ENABLED</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkSQLProperties.html#AGGREGATE_PUSH_DOWN_ENABLED_DEFAULT">AGGREGATE_PUSH_DOWN_ENABLED_DEFAULT</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkSQLProperties.html#CHECK_NULLABILITY">CHECK_NULLABILITY</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
@@ -139,23 +147,43 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkSQLProperties.html#HANDLE_TIMESTAMP_WITHOUT_TIMEZONE">HANDLE_TIMESTAMP_WITHOUT_TIMEZONE</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkSQLProperties.html#DISTRIBUTION_MODE">DISTRIBUTION_MODE</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkSQLProperties.html#HANDLE_TIMESTAMP_WITHOUT_TIMEZONE">HANDLE_TIMESTAMP_WITHOUT_TIMEZONE</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkSQLProperties.html#HANDLE_TIMESTAMP_WITHOUT_TIMEZONE_DEFAULT">HANDLE_TIMESTAMP_WITHOUT_TIMEZONE_DEFAULT</a></span></code>&nbsp;</td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkSQLProperties.html#PRESERVE_DATA_GROUPING">PRESERVE_DATA_GROUPING</a></span></code>&nbsp;</td>
+</tr>
 <tr class="altColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkSQLProperties.html#PRESERVE_DATA_GROUPING_DEFAULT">PRESERVE_DATA_GROUPING_DEFAULT</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkSQLProperties.html#USE_TIMESTAMP_WITHOUT_TIME_ZONE_IN_NEW_TABLES">USE_TIMESTAMP_WITHOUT_TIME_ZONE_IN_NEW_TABLES</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkSQLProperties.html#USE_TIMESTAMP_WITHOUT_TIME_ZONE_IN_NEW_TABLES_DEFAULT">USE_TIMESTAMP_WITHOUT_TIME_ZONE_IN_NEW_TABLES_DEFAULT</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkSQLProperties.html#VECTORIZATION_ENABLED">VECTORIZATION_ENABLED</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkSQLProperties.html#WAP_BRANCH">WAP_BRANCH</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkSQLProperties.html#WAP_ID">WAP_ID</a></span></code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -294,13 +322,104 @@ extends java.lang.Object</pre>
 <a name="CHECK_ORDERING_DEFAULT">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>CHECK_ORDERING_DEFAULT</h4>
 <pre>public static final&nbsp;boolean CHECK_ORDERING_DEFAULT</pre>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkSQLProperties.CHECK_ORDERING_DEFAULT">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="PRESERVE_DATA_GROUPING">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>PRESERVE_DATA_GROUPING</h4>
+<pre>public static final&nbsp;java.lang.String PRESERVE_DATA_GROUPING</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkSQLProperties.PRESERVE_DATA_GROUPING">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="PRESERVE_DATA_GROUPING_DEFAULT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>PRESERVE_DATA_GROUPING_DEFAULT</h4>
+<pre>public static final&nbsp;boolean PRESERVE_DATA_GROUPING_DEFAULT</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkSQLProperties.PRESERVE_DATA_GROUPING_DEFAULT">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="AGGREGATE_PUSH_DOWN_ENABLED">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>AGGREGATE_PUSH_DOWN_ENABLED</h4>
+<pre>public static final&nbsp;java.lang.String AGGREGATE_PUSH_DOWN_ENABLED</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkSQLProperties.AGGREGATE_PUSH_DOWN_ENABLED">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="AGGREGATE_PUSH_DOWN_ENABLED_DEFAULT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>AGGREGATE_PUSH_DOWN_ENABLED_DEFAULT</h4>
+<pre>public static final&nbsp;boolean AGGREGATE_PUSH_DOWN_ENABLED_DEFAULT</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkSQLProperties.AGGREGATE_PUSH_DOWN_ENABLED_DEFAULT">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="DISTRIBUTION_MODE">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DISTRIBUTION_MODE</h4>
+<pre>public static final&nbsp;java.lang.String DISTRIBUTION_MODE</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkSQLProperties.DISTRIBUTION_MODE">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="WAP_ID">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>WAP_ID</h4>
+<pre>public static final&nbsp;java.lang.String WAP_ID</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkSQLProperties.WAP_ID">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="WAP_BRANCH">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>WAP_BRANCH</h4>
+<pre>public static final&nbsp;java.lang.String WAP_BRANCH</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkSQLProperties.WAP_BRANCH">Constant Field Values</a></dd>
 </dl>
 </li>
 </ul>

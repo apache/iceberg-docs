@@ -110,27 +110,23 @@ var activeTableTab = "activeTableTab";
 <pre>public final class <span class="typeNameLabel">Catalogs</span>
 extends java.lang.Object</pre>
 <div class="block">Class for catalog resolution and accessing the common functions for <a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog"><code>Catalog</code></a> API.
- <p>
- If the catalog name is provided, get the catalog type from iceberg.catalog.<code>catalogName</code>.type config.
- <p>
- In case the catalog name is <a href="../../../../org/apache/iceberg/mr/Catalogs.html#ICEBERG_HADOOP_TABLE_NAME"><code>location_based_table</code></a>,
- type is ignored and tables will be loaded using <a href="../../../../org/apache/iceberg/hadoop/HadoopTables.html" title="class in org.apache.iceberg.hadoop"><code>HadoopTables</code></a>.
- <p>
- In case the value of catalog type is null, iceberg.catalog.<code>catalogName</code>.catalog-impl config
- is used to determine the catalog implementation class.
- <p>
- If catalog name is null, get the catalog type from <a href="../../../../org/apache/iceberg/mr/InputFormatConfig.html#CATALOG"><code>iceberg.mr.catalog</code></a> config:
+
+ <p>If the catalog name is provided, get the catalog type from iceberg.catalog.<code>catalogName
+ </code>.type config.
+
+ <p>In case the catalog name is <a href="../../../../org/apache/iceberg/mr/Catalogs.html#ICEBERG_HADOOP_TABLE_NAME"><code>location_based_table</code></a>, type is
+ ignored and tables will be loaded using <a href="../../../../org/apache/iceberg/hadoop/HadoopTables.html" title="class in org.apache.iceberg.hadoop"><code>HadoopTables</code></a>.
+
+ <p>In case the value of catalog type is null, iceberg.catalog.<code>catalogName</code>
+ .catalog-impl config is used to determine the catalog implementation class.
+
+ <p>If catalog name is null, get the catalog type from <a href="../../../../org/apache/iceberg/CatalogUtil.html#ICEBERG_CATALOG_TYPE"><code>catalog type</code></a> config:
+
  <ul>
-   <li>hive: HiveCatalog</li>
-   <li>location: HadoopTables</li>
-   <li>hadoop: HadoopCatalog</li>
- </ul>
- <p>
- In case the value of catalog type is null,
- <a href="../../../../org/apache/iceberg/mr/InputFormatConfig.html#CATALOG_LOADER_CLASS"><code>iceberg.mr.catalog.loader.class</code></a> is used to determine
- the catalog implementation class.
- <p>
- Note: null catalog name mode is only supported for backwards compatibility. Using this mode is NOT RECOMMENDED.</div>
+   <li>hive: HiveCatalog
+   <li>location: HadoopTables
+   <li>hadoop: HadoopCatalog
+ </ul></div>
 </li>
 </ul>
 </div>
@@ -204,7 +200,8 @@ extends java.lang.Object</pre>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/mr/Catalogs.html#loadTable-org.apache.hadoop.conf.Configuration-">loadTable</a></span>(org.apache.hadoop.conf.Configuration&nbsp;conf)</code>
-<div class="block">Load an Iceberg table using the catalog and table identifier (or table path) specified by the configuration.</div>
+<div class="block">Load an Iceberg table using the catalog and table identifier (or table path) specified by the
+ configuration.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
@@ -303,7 +300,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>loadTable</h4>
 <pre>public static&nbsp;<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;loadTable(org.apache.hadoop.conf.Configuration&nbsp;conf)</pre>
-<div class="block">Load an Iceberg table using the catalog and table identifier (or table path) specified by the configuration.</div>
+<div class="block">Load an Iceberg table using the catalog and table identifier (or table path) specified by the
+ configuration.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>conf</code> - a Hadoop conf</dd>
@@ -321,11 +319,11 @@ extends java.lang.Object</pre>
 <pre>public static&nbsp;<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;loadTable(org.apache.hadoop.conf.Configuration&nbsp;conf,
                               java.util.Properties&nbsp;props)</pre>
 <div class="block">Load an Iceberg table using the catalog specified by the configuration.
- <p>
- The table identifier (<a href="../../../../org/apache/iceberg/mr/Catalogs.html#NAME"><code>NAME</code></a>) and the catalog name (<a href="../../../../org/apache/iceberg/mr/InputFormatConfig.html#CATALOG_NAME"><code>InputFormatConfig.CATALOG_NAME</code></a>),
- or table path (<a href="../../../../org/apache/iceberg/mr/Catalogs.html#LOCATION"><code>LOCATION</code></a>) should be specified by the controlling properties.
- <p>
- Used by HiveIcebergSerDe and HiveIcebergStorageHandler</div>
+
+ <p>The table identifier (<a href="../../../../org/apache/iceberg/mr/Catalogs.html#NAME"><code>NAME</code></a>) and the catalog name (<a href="../../../../org/apache/iceberg/mr/InputFormatConfig.html#CATALOG_NAME"><code>InputFormatConfig.CATALOG_NAME</code></a>), or table path (<a href="../../../../org/apache/iceberg/mr/Catalogs.html#LOCATION"><code>LOCATION</code></a>) should be specified
+ by the controlling properties.
+
+ <p>Used by HiveIcebergSerDe and HiveIcebergStorageHandler</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>conf</code> - a Hadoop</dd>
@@ -344,16 +342,19 @@ extends java.lang.Object</pre>
 <pre>public static&nbsp;<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;createTable(org.apache.hadoop.conf.Configuration&nbsp;conf,
                                 java.util.Properties&nbsp;props)</pre>
 <div class="block">Creates an Iceberg table using the catalog specified by the configuration.
- <p>
- The properties should contain the following values:
+
+ <p>The properties should contain the following values:
+
  <ul>
- <li>Table identifier (<a href="../../../../org/apache/iceberg/mr/Catalogs.html#NAME"><code>NAME</code></a>) or table path (<a href="../../../../org/apache/iceberg/mr/Catalogs.html#LOCATION"><code>LOCATION</code></a>) is required
- <li>Table schema (<a href="../../../../org/apache/iceberg/mr/InputFormatConfig.html#TABLE_SCHEMA"><code>InputFormatConfig.TABLE_SCHEMA</code></a>) is required
- <li>Partition specification (<a href="../../../../org/apache/iceberg/mr/InputFormatConfig.html#PARTITION_SPEC"><code>InputFormatConfig.PARTITION_SPEC</code></a>) is optional. Table will be unpartitioned if
-  not provided
- </ul><p>
- Other properties will be handled over to the Table creation. The controlling properties above will not be
- propagated.</div>
+   <li>Table identifier (<a href="../../../../org/apache/iceberg/mr/Catalogs.html#NAME"><code>NAME</code></a>) or table path (<a href="../../../../org/apache/iceberg/mr/Catalogs.html#LOCATION"><code>LOCATION</code></a>) is
+       required
+   <li>Table schema (<a href="../../../../org/apache/iceberg/mr/InputFormatConfig.html#TABLE_SCHEMA"><code>InputFormatConfig.TABLE_SCHEMA</code></a>) is required
+   <li>Partition specification (<a href="../../../../org/apache/iceberg/mr/InputFormatConfig.html#PARTITION_SPEC"><code>InputFormatConfig.PARTITION_SPEC</code></a>) is optional. Table
+       will be unpartitioned if not provided
+ </ul>
+
+ <p>Other properties will be handled over to the Table creation. The controlling properties
+ above will not be propagated.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>conf</code> - a Hadoop conf</dd>
@@ -372,9 +373,9 @@ extends java.lang.Object</pre>
 <pre>public static&nbsp;boolean&nbsp;dropTable(org.apache.hadoop.conf.Configuration&nbsp;conf,
                                 java.util.Properties&nbsp;props)</pre>
 <div class="block">Drops an Iceberg table using the catalog specified by the configuration.
- <p>
- The table identifier (<a href="../../../../org/apache/iceberg/mr/Catalogs.html#NAME"><code>NAME</code></a>) or table path (<a href="../../../../org/apache/iceberg/mr/Catalogs.html#LOCATION"><code>LOCATION</code></a>) should be specified by
- the controlling properties.</div>
+
+ <p>The table identifier (<a href="../../../../org/apache/iceberg/mr/Catalogs.html#NAME"><code>NAME</code></a>) or table path (<a href="../../../../org/apache/iceberg/mr/Catalogs.html#LOCATION"><code>LOCATION</code></a>)
+ should be specified by the controlling properties.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>conf</code> - a Hadoop conf</dd>

@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/DistributionMode.html" title="enum in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/DeleteFilesTable.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/DeleteFiles.html" target="_top">Frames</a></li>
@@ -101,16 +101,20 @@ var activeTableTab = "activeTableTab";
 <dt>All Superinterfaces:</dt>
 <dd><a href="../../../org/apache/iceberg/PendingUpdate.html" title="interface in org.apache.iceberg">PendingUpdate</a>&lt;<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;, <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interface in org.apache.iceberg">SnapshotUpdate</a>&lt;<a href="../../../org/apache/iceberg/DeleteFiles.html" title="interface in org.apache.iceberg">DeleteFiles</a>&gt;</dd>
 </dl>
+<dl>
+<dt>All Known Implementing Classes:</dt>
+<dd><a href="../../../org/apache/iceberg/StreamingDelete.html" title="class in org.apache.iceberg">StreamingDelete</a></dd>
+</dl>
 <hr>
 <br>
 <pre>public interface <span class="typeNameLabel">DeleteFiles</span>
 extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interface in org.apache.iceberg">SnapshotUpdate</a>&lt;<a href="../../../org/apache/iceberg/DeleteFiles.html" title="interface in org.apache.iceberg">DeleteFiles</a>&gt;</pre>
 <div class="block">API for deleting files from a table.
- <p>
- This API accumulates file deletions, produces a new <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><code>Snapshot</code></a> of the table, and commits
+
+ <p>This API accumulates file deletions, produces a new <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><code>Snapshot</code></a> of the table, and commits
  that snapshot as the current.
- <p>
- When committing, these changes will be applied to the latest table snapshot. Commit conflicts
+
+ <p>When committing, these changes will be applied to the latest table snapshot. Commit conflicts
  will be resolved by applying the changes to the new latest snapshot and reattempting the commit.</div>
 </li>
 </ul>
@@ -160,7 +164,7 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interface in org.apache.iceberg">SnapshotUpdate</a></h3>
-<code><a href="../../../org/apache/iceberg/SnapshotUpdate.html#deleteWith-java.util.function.Consumer-">deleteWith</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#set-java.lang.String-java.lang.String-">set</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#stageOnly--">stageOnly</a></code></li>
+<code><a href="../../../org/apache/iceberg/SnapshotUpdate.html#deleteWith-java.util.function.Consumer-">deleteWith</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#scanManifestsWith-java.util.concurrent.ExecutorService-">scanManifestsWith</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#set-java.lang.String-java.lang.String-">set</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#stageOnly--">stageOnly</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#toBranch-java.lang.String-">toBranch</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.org.apache.iceberg.PendingUpdate">
@@ -191,8 +195,8 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 <h4>deleteFile</h4>
 <pre><a href="../../../org/apache/iceberg/DeleteFiles.html" title="interface in org.apache.iceberg">DeleteFiles</a>&nbsp;deleteFile(java.lang.CharSequence&nbsp;path)</pre>
 <div class="block">Delete a file path from the underlying table.
- <p>
- To remove a file from the table, this path must equal a path in the table's metadata. Paths
+
+ <p>To remove a file from the table, this path must equal a path in the table's metadata. Paths
  that are different but equivalent will not be removed. For example, file:/path/file.avro is
  equivalent to file:///path/file.avro, but would not remove the latter path from the table.</div>
 <dl>
@@ -227,15 +231,14 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 <h4>deleteFromRowFilter</h4>
 <pre><a href="../../../org/apache/iceberg/DeleteFiles.html" title="interface in org.apache.iceberg">DeleteFiles</a>&nbsp;deleteFromRowFilter(<a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr)</pre>
 <div class="block">Delete files that match an <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions"><code>Expression</code></a> on data rows from the table.
- <p>
- A file is selected to be deleted by the expression if it could contain any rows that match the
- expression (candidate files are selected using an
- <a href="../../../org/apache/iceberg/expressions/Projections.html#inclusive-org.apache.iceberg.PartitionSpec-"><code>inclusive projection</code></a>). These candidate files are
- deleted if all of the rows in the file must match the expression (the partition data matches
- the expression's <a href="../../../org/apache/iceberg/expressions/Projections.html#strict-org.apache.iceberg.PartitionSpec-"><code>Projections.strict(PartitionSpec)</code></a> strict projection}). This guarantees
+
+ <p>A file is selected to be deleted by the expression if it could contain any rows that match
+ the expression (candidate files are selected using an <a href="../../../org/apache/iceberg/expressions/Projections.html#inclusive-org.apache.iceberg.PartitionSpec-"><code>inclusive projection</code></a>). These candidate files are deleted
+ if all of the rows in the file must match the expression (the partition data matches the
+ expression's <a href="../../../org/apache/iceberg/expressions/Projections.html#strict-org.apache.iceberg.PartitionSpec-"><code>Projections.strict(PartitionSpec)</code></a> strict projection}). This guarantees
  that files are deleted if and only if all rows in the file must match the expression.
- <p>
- Files that may contain some rows that match the expression and some rows that do not will
+
+ <p>Files that may contain some rows that match the expression and some rows that do not will
  result in a <a href="../../../org/apache/iceberg/exceptions/ValidationException.html" title="class in org.apache.iceberg.exceptions"><code>ValidationException</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -291,7 +294,7 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/DistributionMode.html" title="enum in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/DeleteFilesTable.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/DeleteFiles.html" target="_top">Frames</a></li>

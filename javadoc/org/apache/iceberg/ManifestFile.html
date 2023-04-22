@@ -296,7 +296,8 @@ var activeTableTab = "activeTableTab";
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code>default java.nio.ByteBuffer</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManifestFile.html#keyMetadata--">keyMetadata</a></span>()</code>
-<div class="block">Returns metadata about how this manifest file is encrypted, or null if the file is stored in plain text.</div>
+<div class="block">Returns metadata about how this manifest file is encrypted, or null if the file is stored in
+ plain text.</div>
 </td>
 </tr>
 <tr id="i12" class="altColor">
@@ -308,7 +309,7 @@ var activeTableTab = "activeTableTab";
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManifestFile.html#minSequenceNumber--">minSequenceNumber</a></span>()</code>
-<div class="block">Returns the lowest sequence number of any data file in the manifest.</div>
+<div class="block">Returns the lowest data sequence number of any live file in the manifest.</div>
 </td>
 </tr>
 <tr id="i14" class="altColor">
@@ -587,7 +588,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>minSequenceNumber</h4>
 <pre>long&nbsp;minSequenceNumber()</pre>
-<div class="block">Returns the lowest sequence number of any data file in the manifest.</div>
+<div class="block">Returns the lowest data sequence number of any live file in the manifest.</div>
 </li>
 </ul>
 <a name="snapshotId--">
@@ -710,11 +711,10 @@ var activeTableTab = "activeTableTab";
 <h4>partitions</h4>
 <pre>java.util.List&lt;<a href="../../../org/apache/iceberg/ManifestFile.PartitionFieldSummary.html" title="interface in org.apache.iceberg">ManifestFile.PartitionFieldSummary</a>&gt;&nbsp;partitions()</pre>
 <div class="block">Returns a list of <a href="../../../org/apache/iceberg/ManifestFile.PartitionFieldSummary.html" title="interface in org.apache.iceberg"><code>partition field summaries</code></a>.
- <p>
- Each summary corresponds to a field in the manifest file's partition spec, by ordinal. For
- example, the partition spec [ ts_day=date(ts), type=identity(type) ] will have 2 summaries.
- The first summary is for the ts_day partition field and the second is for the type partition
- field.</div>
+
+ <p>Each summary corresponds to a field in the manifest file's partition spec, by ordinal. For
+ example, the partition spec [ ts_day=date(ts), type=identity(type) ] will have 2 summaries. The
+ first summary is for the ts_day partition field and the second is for the type partition field.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a list of partition field summaries, one for each field in the manifest's spec</dd>
@@ -728,7 +728,8 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>keyMetadata</h4>
 <pre>default&nbsp;java.nio.ByteBuffer&nbsp;keyMetadata()</pre>
-<div class="block">Returns metadata about how this manifest file is encrypted, or null if the file is stored in plain text.</div>
+<div class="block">Returns metadata about how this manifest file is encrypted, or null if the file is stored in
+ plain text.</div>
 </li>
 </ul>
 <a name="copy--">

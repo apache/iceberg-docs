@@ -42,7 +42,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../org/apache/iceberg/flink/sink/package-tree.html">Prev</a></li>
-<li><a href="../../../../../org/apache/iceberg/flink/source/split/package-tree.html">Next</a></li>
+<li><a href="../../../../../org/apache/iceberg/flink/source/assigner/package-tree.html">Next</a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/iceberg/flink/source/package-tree.html" target="_top">Frames</a></li>
@@ -98,11 +98,20 @@
 <li type="circle">org.apache.iceberg.flink.source.<a href="../../../../../org/apache/iceberg/flink/source/StreamingReaderOperator.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">StreamingReaderOperator</span></a> (implements org.apache.flink.streaming.api.operators.OneInputStreamOperator&lt;IN,OUT&gt;)</li>
 </ul>
 </li>
+<li type="circle">org.apache.iceberg.flink.source.<a href="../../../../../org/apache/iceberg/flink/source/AvroGenericRecordFileScanTaskReader.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">AvroGenericRecordFileScanTaskReader</span></a> (implements org.apache.iceberg.flink.source.<a href="../../../../../org/apache/iceberg/flink/source/FileScanTaskReader.html" title="interface in org.apache.iceberg.flink.source">FileScanTaskReader</a>&lt;T&gt;)</li>
 <li type="circle">org.apache.iceberg.flink.source.<a href="../../../../../org/apache/iceberg/flink/source/DataIterator.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">DataIterator</span></a>&lt;T&gt; (implements org.apache.iceberg.io.<a href="../../../../../org/apache/iceberg/io/CloseableIterator.html" title="interface in org.apache.iceberg.io">CloseableIterator</a>&lt;T&gt;)</li>
-<li type="circle">org.apache.iceberg.flink.source.<a href="../../../../../org/apache/iceberg/flink/source/FlinkInputSplit.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">FlinkInputSplit</span></a> (implements org.apache.flink.core.io.InputSplit)</li>
+<li type="circle">org.apache.iceberg.flink.source.<a href="../../../../../org/apache/iceberg/flink/source/DataTaskReader.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">DataTaskReader</span></a> (implements org.apache.iceberg.flink.source.<a href="../../../../../org/apache/iceberg/flink/source/FileScanTaskReader.html" title="interface in org.apache.iceberg.flink.source">FileScanTaskReader</a>&lt;T&gt;)</li>
 <li type="circle">org.apache.iceberg.flink.source.<a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">FlinkSource</span></a></li>
 <li type="circle">org.apache.iceberg.flink.source.<a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">FlinkSource.Builder</span></a></li>
 <li type="circle">org.apache.iceberg.flink.source.<a href="../../../../../org/apache/iceberg/flink/source/FlinkSplitPlanner.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">FlinkSplitPlanner</span></a></li>
+<li type="circle">org.apache.iceberg.flink.source.<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">IcebergSource</span></a>&lt;T&gt; (implements org.apache.flink.api.connector.source.Source&lt;T,SplitT,EnumChkT&gt;)</li>
+<li type="circle">org.apache.iceberg.flink.source.<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">IcebergSource.Builder</span></a>&lt;T&gt;</li>
+<li type="circle">org.apache.iceberg.flink.source.<a href="../../../../../org/apache/iceberg/flink/source/IcebergTableSource.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">IcebergTableSource</span></a> (implements org.apache.flink.table.connector.source.ScanTableSource, org.apache.flink.table.connector.source.abilities.SupportsFilterPushDown, org.apache.flink.table.connector.source.abilities.SupportsLimitPushDown, org.apache.flink.table.connector.source.abilities.SupportsProjectionPushDown)</li>
+<li type="circle">org.apache.flink.core.io.LocatableInputSplit (implements org.apache.flink.core.io.InputSplit, java.io.Serializable)
+<ul>
+<li type="circle">org.apache.iceberg.flink.source.<a href="../../../../../org/apache/iceberg/flink/source/FlinkInputSplit.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">FlinkInputSplit</span></a></li>
+</ul>
+</li>
 <li type="circle">org.apache.flink.api.common.io.RichInputFormat&lt;OT,T&gt; (implements org.apache.flink.api.common.io.InputFormat&lt;OT,T&gt;)
 <ul>
 <li type="circle">org.apache.iceberg.flink.source.<a href="../../../../../org/apache/iceberg/flink/source/FlinkInputFormat.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">FlinkInputFormat</span></a></li>
@@ -110,6 +119,9 @@
 </li>
 <li type="circle">org.apache.iceberg.flink.source.<a href="../../../../../org/apache/iceberg/flink/source/RowDataFileScanTaskReader.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">RowDataFileScanTaskReader</span></a> (implements org.apache.iceberg.flink.source.<a href="../../../../../org/apache/iceberg/flink/source/FileScanTaskReader.html" title="interface in org.apache.iceberg.flink.source">FileScanTaskReader</a>&lt;T&gt;)</li>
 <li type="circle">org.apache.iceberg.flink.source.<a href="../../../../../org/apache/iceberg/flink/source/RowDataRewriter.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">RowDataRewriter</span></a></li>
+<li type="circle">org.apache.iceberg.flink.source.<a href="../../../../../org/apache/iceberg/flink/source/RowDataToAvroGenericRecordConverter.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">RowDataToAvroGenericRecordConverter</span></a> (implements java.util.function.Function&lt;T,R&gt;)</li>
+<li type="circle">org.apache.iceberg.flink.source.<a href="../../../../../org/apache/iceberg/flink/source/ScanContext.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">ScanContext</span></a> (implements java.io.Serializable)</li>
+<li type="circle">org.apache.iceberg.flink.source.<a href="../../../../../org/apache/iceberg/flink/source/ScanContext.Builder.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">ScanContext.Builder</span></a></li>
 </ul>
 </li>
 </ul>
@@ -118,6 +130,18 @@
 <li type="circle">java.io.Serializable
 <ul>
 <li type="circle">org.apache.iceberg.flink.source.<a href="../../../../../org/apache/iceberg/flink/source/FileScanTaskReader.html" title="interface in org.apache.iceberg.flink.source"><span class="typeNameLink">FileScanTaskReader</span></a>&lt;T&gt;</li>
+</ul>
+</li>
+</ul>
+<h2 title="Enum Hierarchy">Enum Hierarchy</h2>
+<ul>
+<li type="circle">java.lang.Object
+<ul>
+<li type="circle">java.lang.Enum&lt;E&gt; (implements java.lang.Comparable&lt;T&gt;, java.io.Serializable)
+<ul>
+<li type="circle">org.apache.iceberg.flink.source.<a href="../../../../../org/apache/iceberg/flink/source/StreamingStartingStrategy.html" title="enum in org.apache.iceberg.flink.source"><span class="typeNameLink">StreamingStartingStrategy</span></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -143,7 +167,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../org/apache/iceberg/flink/sink/package-tree.html">Prev</a></li>
-<li><a href="../../../../../org/apache/iceberg/flink/source/split/package-tree.html">Next</a></li>
+<li><a href="../../../../../org/apache/iceberg/flink/source/assigner/package-tree.html">Next</a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/iceberg/flink/source/package-tree.html" target="_top">Frames</a></li>

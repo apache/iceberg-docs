@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":42,"i2":42,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -149,7 +149,7 @@ implements <a href="../../../../org/apache/iceberg/io/FileWriter.html" title="in
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -159,45 +159,26 @@ implements <a href="../../../../org/apache/iceberg/io/FileWriter.html" title="in
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/deletes/PositionDeleteWriter.html#close--">close</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/deletes/PositionDeleteWriter.html#delete-java.lang.CharSequence-long-">delete</a></span>(java.lang.CharSequence&nbsp;path,
-      long&nbsp;pos)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">since 0.13.0, will be removed in 0.14.0; use <a href="../../../../org/apache/iceberg/deletes/PositionDeleteWriter.html#write-org.apache.iceberg.deletes.PositionDelete-"><code>write(PositionDelete)</code></a> instead.</span></div>
-</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/deletes/PositionDeleteWriter.html#delete-java.lang.CharSequence-long-T-">delete</a></span>(java.lang.CharSequence&nbsp;path,
-      long&nbsp;pos,
-      <a href="../../../../org/apache/iceberg/deletes/PositionDeleteWriter.html" title="type parameter in PositionDeleteWriter">T</a>&nbsp;row)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">since 0.13.0, will be removed in 0.14.0; use <a href="../../../../org/apache/iceberg/deletes/PositionDeleteWriter.html#write-org.apache.iceberg.deletes.PositionDelete-"><code>write(PositionDelete)</code></a> instead.</span></div>
-</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/deletes/PositionDeleteWriter.html#length--">length</a></span>()</code>
 <div class="block">Returns the number of bytes that were currently written by this writer.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/util/CharSequenceSet.html" title="class in org.apache.iceberg.util">CharSequenceSet</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/deletes/PositionDeleteWriter.html#referencedDataFiles--">referencedDataFiles</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/io/DeleteWriteResult.html" title="class in org.apache.iceberg.io">DeleteWriteResult</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/deletes/PositionDeleteWriter.html#result--">result</a></span>()</code>
 <div class="block">Returns a result that contains information about written <a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg"><code>DataFile</code></a>s or <a href="../../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg"><code>DeleteFile</code></a>s.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg">DeleteFile</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/deletes/PositionDeleteWriter.html#toDeleteFile--">toDeleteFile</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/deletes/PositionDeleteWriter.html#write-org.apache.iceberg.deletes.PositionDelete-">write</a></span>(<a href="../../../../org/apache/iceberg/deletes/PositionDelete.html" title="class in org.apache.iceberg.deletes">PositionDelete</a>&lt;<a href="../../../../org/apache/iceberg/deletes/PositionDeleteWriter.html" title="type parameter in PositionDeleteWriter">T</a>&gt;&nbsp;positionDelete)</code>
 <div class="block">Writes a row to a predefined spec/partition.</div>
@@ -271,35 +252,6 @@ implements <a href="../../../../org/apache/iceberg/io/FileWriter.html" title="in
 </dl>
 </li>
 </ul>
-<a name="delete-java.lang.CharSequence-long-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>delete</h4>
-<pre>@Deprecated
-public&nbsp;void&nbsp;delete(java.lang.CharSequence&nbsp;path,
-                               long&nbsp;pos)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">since 0.13.0, will be removed in 0.14.0; use <a href="../../../../org/apache/iceberg/deletes/PositionDeleteWriter.html#write-org.apache.iceberg.deletes.PositionDelete-"><code>write(PositionDelete)</code></a> instead.</span></div>
-<div class="block">Writes a position delete.</div>
-</li>
-</ul>
-<a name="delete-java.lang.CharSequence-long-java.lang.Object-">
-<!--   -->
-</a><a name="delete-java.lang.CharSequence-long-T-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>delete</h4>
-<pre>@Deprecated
-public&nbsp;void&nbsp;delete(java.lang.CharSequence&nbsp;path,
-                               long&nbsp;pos,
-                               <a href="../../../../org/apache/iceberg/deletes/PositionDeleteWriter.html" title="type parameter in PositionDeleteWriter">T</a>&nbsp;row)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">since 0.13.0, will be removed in 0.14.0; use <a href="../../../../org/apache/iceberg/deletes/PositionDeleteWriter.html#write-org.apache.iceberg.deletes.PositionDelete-"><code>write(PositionDelete)</code></a> instead.</span></div>
-<div class="block">Writes a position delete and persists the deleted row.</div>
-</li>
-</ul>
 <a name="length--">
 <!--   -->
 </a>
@@ -361,8 +313,7 @@ public&nbsp;void&nbsp;delete(java.lang.CharSequence&nbsp;path,
 <h4>result</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/io/DeleteWriteResult.html" title="class in org.apache.iceberg.io">DeleteWriteResult</a>&nbsp;result()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/io/FileWriter.html#result--">FileWriter</a></code></span></div>
-<div class="block">Returns a result that contains information about written <a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg"><code>DataFile</code></a>s or <a href="../../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg"><code>DeleteFile</code></a>s.
- The result is valid only after the writer is closed.</div>
+<div class="block">Returns a result that contains information about written <a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg"><code>DataFile</code></a>s or <a href="../../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg"><code>DeleteFile</code></a>s. The result is valid only after the writer is closed.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/io/FileWriter.html#result--">result</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/io/FileWriter.html" title="interface in org.apache.iceberg.io">FileWriter</a>&lt;<a href="../../../../org/apache/iceberg/deletes/PositionDelete.html" title="class in org.apache.iceberg.deletes">PositionDelete</a>&lt;<a href="../../../../org/apache/iceberg/deletes/PositionDeleteWriter.html" title="type parameter in PositionDeleteWriter">T</a>&gt;,<a href="../../../../org/apache/iceberg/io/DeleteWriteResult.html" title="class in org.apache.iceberg.io">DeleteWriteResult</a>&gt;</code></dd>

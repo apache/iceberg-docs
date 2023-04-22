@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
+var methods = {"i0":6,"i1":18,"i2":18,"i3":6,"i4":6,"i5":6,"i6":18};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/actions/ConvertEqualityDeleteStrategy.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.Result.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.PrefixMismatchMode.html" title="enum in org.apache.iceberg.actions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/actions/DeleteOrphanFiles.html" target="_top">Frames</a></li>
@@ -103,17 +103,16 @@ var activeTableTab = "activeTableTab";
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../org/apache/iceberg/spark/actions/BaseDeleteOrphanFilesSparkAction.html" title="class in org.apache.iceberg.spark.actions">BaseDeleteOrphanFilesSparkAction</a></dd>
+<dd><a href="../../../../org/apache/iceberg/spark/actions/DeleteOrphanFilesSparkAction.html" title="class in org.apache.iceberg.spark.actions">DeleteOrphanFilesSparkAction</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public interface <span class="typeNameLabel">DeleteOrphanFiles</span>
 extends <a href="../../../../org/apache/iceberg/actions/Action.html" title="interface in org.apache.iceberg.actions">Action</a>&lt;<a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.html" title="interface in org.apache.iceberg.actions">DeleteOrphanFiles</a>,<a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.Result.html" title="interface in org.apache.iceberg.actions">DeleteOrphanFiles.Result</a>&gt;</pre>
-<div class="block">An action that deletes orphan files in a table.
- <p>
- A metadata or data file is considered orphan if it is not reachable by any valid snapshot.
- The set of actual files is built by listing the underlying storage which makes this operation
- expensive.</div>
+<div class="block">An action that deletes orphan metadata, data and delete files in a table.
+
+ <p>A file is considered orphan if it is not reachable by any valid snapshot. The set of actual
+ files is built by listing the underlying storage which makes this operation expensive.</div>
 </li>
 </ul>
 </div>
@@ -133,6 +132,12 @@ extends <a href="../../../../org/apache/iceberg/actions/Action.html" title="inte
 <th class="colLast" scope="col">Interface and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.PrefixMismatchMode.html" title="enum in org.apache.iceberg.actions">DeleteOrphanFiles.PrefixMismatchMode</a></span></code>
+<div class="block">Defines the action behavior when location prefixes (scheme/authority) mismatch.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>static interface&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.Result.html" title="interface in org.apache.iceberg.actions">DeleteOrphanFiles.Result</a></span></code>
 <div class="block">The action result that contains a summary of the execution.</div>
@@ -148,7 +153,7 @@ extends <a href="../../../../org/apache/iceberg/actions/Action.html" title="inte
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -160,21 +165,40 @@ extends <a href="../../../../org/apache/iceberg/actions/Action.html" title="inte
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>default <a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.html" title="interface in org.apache.iceberg.actions">DeleteOrphanFiles</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.html#equalAuthorities-java.util.Map-">equalAuthorities</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;newEqualAuthorities)</code>
+<div class="block">Passes authorities that should be considered equal.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>default <a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.html" title="interface in org.apache.iceberg.actions">DeleteOrphanFiles</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.html#equalSchemes-java.util.Map-">equalSchemes</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;newEqualSchemes)</code>
+<div class="block">Passes schemes that should be considered equal.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.html" title="interface in org.apache.iceberg.actions">DeleteOrphanFiles</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.html#executeDeleteWith-java.util.concurrent.ExecutorService-">executeDeleteWith</a></span>(java.util.concurrent.ExecutorService&nbsp;executorService)</code>
 <div class="block">Passes an alternative executor service that will be used for removing orphaned files.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.html" title="interface in org.apache.iceberg.actions">DeleteOrphanFiles</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.html#location-java.lang.String-">location</a></span>(java.lang.String&nbsp;location)</code>
 <div class="block">Passes a location which should be scanned for orphan files.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.html" title="interface in org.apache.iceberg.actions">DeleteOrphanFiles</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.html#olderThan-long-">olderThan</a></span>(long&nbsp;olderThanTimestamp)</code>
 <div class="block">Removes orphan files only if they are older than the given timestamp.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>default <a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.html" title="interface in org.apache.iceberg.actions">DeleteOrphanFiles</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.html#prefixMismatchMode-org.apache.iceberg.actions.DeleteOrphanFiles.PrefixMismatchMode-">prefixMismatchMode</a></span>(<a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.PrefixMismatchMode.html" title="enum in org.apache.iceberg.actions">DeleteOrphanFiles.PrefixMismatchMode</a>&nbsp;newPrefixMismatchMode)</code>
+<div class="block">Passes a prefix mismatch mode that determines how this action should handle situations when the
+ metadata references files that match listed/provided files except for authority/scheme.</div>
 </td>
 </tr>
 </table>
@@ -207,9 +231,9 @@ extends <a href="../../../../org/apache/iceberg/actions/Action.html" title="inte
 <h4>location</h4>
 <pre><a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.html" title="interface in org.apache.iceberg.actions">DeleteOrphanFiles</a>&nbsp;location(java.lang.String&nbsp;location)</pre>
 <div class="block">Passes a location which should be scanned for orphan files.
- <p>
- If not set, the root table location will be scanned potentially removing both orphan data and
- metadata files.</div>
+
+ <p>If not set, the root table location will be scanned potentially removing both orphan data
+ and metadata files.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>location</code> - the location where to look for orphan files</dd>
@@ -226,12 +250,12 @@ extends <a href="../../../../org/apache/iceberg/actions/Action.html" title="inte
 <h4>olderThan</h4>
 <pre><a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.html" title="interface in org.apache.iceberg.actions">DeleteOrphanFiles</a>&nbsp;olderThan(long&nbsp;olderThanTimestamp)</pre>
 <div class="block">Removes orphan files only if they are older than the given timestamp.
- <p>
- This is a safety measure to avoid removing files that are being added to the table.
- For example, there may be a concurrent operation adding new files while this action searches
- for orphan files. New files may not be referenced by the metadata yet but they are not orphan.
- <p>
- If not set, defaults to a timestamp 3 days ago.</div>
+
+ <p>This is a safety measure to avoid removing files that are being added to the table. For
+ example, there may be a concurrent operation adding new files while this action searches for
+ orphan files. New files may not be referenced by the metadata yet but they are not orphan.
+
+ <p>If not set, defaults to a timestamp 3 days ago.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>olderThanTimestamp</code> - a long timestamp, as returned by <code>System.currentTimeMillis()</code></dd>
@@ -248,11 +272,12 @@ extends <a href="../../../../org/apache/iceberg/actions/Action.html" title="inte
 <h4>deleteWith</h4>
 <pre><a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.html" title="interface in org.apache.iceberg.actions">DeleteOrphanFiles</a>&nbsp;deleteWith(java.util.function.Consumer&lt;java.lang.String&gt;&nbsp;deleteFunc)</pre>
 <div class="block">Passes an alternative delete implementation that will be used for orphan files.
- <p>
- This method allows users to customize the delete func. For example, one may set a custom delete
- func and collect all orphan files into a set instead of physically removing them.
- <p>
- If not set, defaults to using the table's <a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><code>io</code></a> implementation.</div>
+
+ <p>This method allows users to customize the delete function. For example, one may set a custom
+ delete func and collect all orphan files into a set instead of physically removing them.
+
+ <p>If not set, defaults to using the table's <a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><code>io</code></a>
+ implementation.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>deleteFunc</code> - a function that will be called to delete files</dd>
@@ -264,18 +289,86 @@ extends <a href="../../../../org/apache/iceberg/actions/Action.html" title="inte
 <a name="executeDeleteWith-java.util.concurrent.ExecutorService-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>executeDeleteWith</h4>
 <pre><a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.html" title="interface in org.apache.iceberg.actions">DeleteOrphanFiles</a>&nbsp;executeDeleteWith(java.util.concurrent.ExecutorService&nbsp;executorService)</pre>
-<div class="block">Passes an alternative executor service that will be used for removing orphaned files.
- <p>
- If this method is not called, orphaned manifests and data files will still be deleted in
- the current thread.
- <p></div>
+<div class="block">Passes an alternative executor service that will be used for removing orphaned files. This
+ service will only be used if a custom delete function is provided by <a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.html#deleteWith-java.util.function.Consumer-"><code>deleteWith(Consumer)</code></a> or if the FileIO does not <a href="../../../../org/apache/iceberg/io/SupportsBulkOperations.html" title="interface in org.apache.iceberg.io"><code>support bulk
+ deletes</code></a>. Otherwise, parallelism should be controlled by the IO specific <a href="../../../../org/apache/iceberg/io/SupportsBulkOperations.html#deleteFiles-java.lang.Iterable-"><code>deleteFiles</code></a> method.
+
+ <p>If this method is not called and bulk deletes are not supported, orphaned manifests and data
+ files will still be deleted in the current thread.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>executorService</code> - the service to use</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a name="prefixMismatchMode-org.apache.iceberg.actions.DeleteOrphanFiles.PrefixMismatchMode-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>prefixMismatchMode</h4>
+<pre>default&nbsp;<a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.html" title="interface in org.apache.iceberg.actions">DeleteOrphanFiles</a>&nbsp;prefixMismatchMode(<a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.PrefixMismatchMode.html" title="enum in org.apache.iceberg.actions">DeleteOrphanFiles.PrefixMismatchMode</a>&nbsp;newPrefixMismatchMode)</pre>
+<div class="block">Passes a prefix mismatch mode that determines how this action should handle situations when the
+ metadata references files that match listed/provided files except for authority/scheme.
+
+ <p>Possible values are "ERROR", "IGNORE", "DELETE". The default mismatch mode is "ERROR", which
+ means an exception is thrown whenever there is a mismatch in authority/scheme. It's the
+ recommended mismatch mode and should be changed only in some rare circumstances. If there is a
+ mismatch, use <a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.html#equalSchemes-java.util.Map-"><code>equalSchemes(Map)</code></a> and <a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.html#equalAuthorities-java.util.Map-"><code>equalAuthorities(Map)</code></a> to resolve
+ conflicts by providing equivalent schemes and authorities. If it is impossible to determine
+ whether the conflicting authorities/schemes are equal, set the prefix mismatch mode to "IGNORE"
+ to skip files with mismatches. If you have manually inspected all conflicting
+ authorities/schemes, provided equivalent schemes/authorities and are absolutely confident the
+ remaining ones are different, set the prefix mismatch mode to "DELETE" to consider files with
+ mismatches as orphan. It will be impossible to recover files after deletion, so the "DELETE"
+ prefix mismatch mode must be used with extreme caution.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newPrefixMismatchMode</code> - mode for handling prefix mismatches</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a name="equalSchemes-java.util.Map-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>equalSchemes</h4>
+<pre>default&nbsp;<a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.html" title="interface in org.apache.iceberg.actions">DeleteOrphanFiles</a>&nbsp;equalSchemes(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;newEqualSchemes)</pre>
+<div class="block">Passes schemes that should be considered equal.
+
+ <p>The key may include a comma-separated list of schemes. For instance, Map("s3a,s3,s3n",
+ "s3").</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newEqualSchemes</code> - list of equal schemes</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a name="equalAuthorities-java.util.Map-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>equalAuthorities</h4>
+<pre>default&nbsp;<a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.html" title="interface in org.apache.iceberg.actions">DeleteOrphanFiles</a>&nbsp;equalAuthorities(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;newEqualAuthorities)</pre>
+<div class="block">Passes authorities that should be considered equal.
+
+ <p>The key may include a comma-separate list of authorities. For instance, Map("s1name,s2name",
+ "servicename").</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newEqualAuthorities</code> - list of equal authorities</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>
 </dl>
@@ -309,7 +402,7 @@ extends <a href="../../../../org/apache/iceberg/actions/Action.html" title="inte
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/actions/ConvertEqualityDeleteStrategy.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.Result.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/actions/DeleteOrphanFiles.PrefixMismatchMode.html" title="enum in org.apache.iceberg.actions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/actions/DeleteOrphanFiles.html" target="_top">Frames</a></li>

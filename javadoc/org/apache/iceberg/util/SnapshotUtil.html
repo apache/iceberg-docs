@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -146,29 +146,45 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>static java.lang.Iterable&lt;<a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/SnapshotUtil.html#ancestorsBetween-org.apache.iceberg.Table-long-java.lang.Long-">ancestorsBetween</a></span>(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
+                long&nbsp;latestSnapshotId,
+                java.lang.Long&nbsp;oldestSnapshotId)</code>&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>static java.lang.Iterable&lt;<a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/SnapshotUtil.html#ancestorsOf-long-java.util.function.Function-">ancestorsOf</a></span>(long&nbsp;snapshotId,
            java.util.function.Function&lt;java.lang.Long,<a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;&nbsp;lookup)</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>static java.util.List&lt;java.lang.Long&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/SnapshotUtil.html#currentAncestorIds-org.apache.iceberg.Table-">currentAncestorIds</a></span>(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</code>
 <div class="block">Return the snapshot IDs for the ancestors of the current table state.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>static java.lang.Iterable&lt;<a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/SnapshotUtil.html#currentAncestors-org.apache.iceberg.Table-">currentAncestors</a></span>(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</code>
-<div class="block">Returns an iterable that traverses the table's snapshots from the current to the last known ancestor.</div>
+<div class="block">Returns an iterable that traverses the table's snapshots from the current to the last known
+ ancestor.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/SnapshotUtil.html#isAncestorOf-long-long-java.util.function.Function-">isAncestorOf</a></span>(long&nbsp;snapshotId,
+            long&nbsp;ancestorSnapshotId,
+            java.util.function.Function&lt;java.lang.Long,<a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;&nbsp;lookup)</code>
+<div class="block">Returns whether ancestorSnapshotId is an ancestor of snapshotId using the given lookup
+ function.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/SnapshotUtil.html#isAncestorOf-org.apache.iceberg.Table-long-">isAncestorOf</a></span>(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
             long&nbsp;ancestorSnapshotId)</code>
 <div class="block">Returns whether ancestorSnapshotId is an ancestor of the table's current state.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/SnapshotUtil.html#isAncestorOf-org.apache.iceberg.Table-long-long-">isAncestorOf</a></span>(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
             long&nbsp;snapshotId,
@@ -176,57 +192,107 @@ extends java.lang.Object</pre>
 <div class="block">Returns whether ancestorSnapshotId is an ancestor of snapshotId.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code>static java.util.List&lt;<a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/SnapshotUtil.html#newFiles-java.lang.Long-long-java.util.function.Function-">newFiles</a></span>(java.lang.Long&nbsp;baseSnapshotId,
-        long&nbsp;latestSnapshotId,
-        java.util.function.Function&lt;java.lang.Long,<a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;&nbsp;lookup)</code>&nbsp;</td>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/SnapshotUtil.html#isParentAncestorOf-org.apache.iceberg.Table-long-long-">isParentAncestorOf</a></span>(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
+                  long&nbsp;snapshotId,
+                  long&nbsp;ancestorParentSnapshotId)</code>
+<div class="block">Returns whether some ancestor of snapshotId has parentId matches ancestorParentSnapshotId</div>
+</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/SnapshotUtil.html#latestSnapshot-org.apache.iceberg.TableMetadata-java.lang.String-">latestSnapshot</a></span>(<a href="../../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;metadata,
+              java.lang.String&nbsp;branch)</code>
+<div class="block">Fetch the snapshot at the head of the given branch in the given table.</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/SnapshotUtil.html#latestSnapshot-org.apache.iceberg.Table-java.lang.String-">latestSnapshot</a></span>(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
+              java.lang.String&nbsp;branch)</code>
+<div class="block">Fetch the snapshot at the head of the given branch in the given table.</div>
+</td>
+</tr>
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code>static java.util.List&lt;<a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/SnapshotUtil.html#newFiles-java.lang.Long-long-java.util.function.Function-org.apache.iceberg.io.FileIO-">newFiles</a></span>(java.lang.Long&nbsp;baseSnapshotId,
+        long&nbsp;latestSnapshotId,
+        java.util.function.Function&lt;java.lang.Long,<a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;&nbsp;lookup,
+        <a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io)</code>&nbsp;</td>
+</tr>
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/SnapshotUtil.html#oldestAncestor-org.apache.iceberg.Table-">oldestAncestor</a></span>(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</code>
 <div class="block">Traverses the history of the table's current snapshot and finds the oldest Snapshot.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/SnapshotUtil.html#oldestAncestorAfter-org.apache.iceberg.Table-long-">oldestAncestorAfter</a></span>(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
                    long&nbsp;timestampMillis)</code>
-<div class="block">Traverses the history of the table's current snapshot and finds the first snapshot committed after the given time.</div>
+<div class="block">Traverses the history of the table's current snapshot, finds the oldest snapshot that was
+ committed either at or after a given time.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i16" class="altColor">
+<td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/SnapshotUtil.html#oldestAncestorOf-long-java.util.function.Function-">oldestAncestorOf</a></span>(long&nbsp;snapshotId,
+                java.util.function.Function&lt;java.lang.Long,<a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;&nbsp;lookup)</code>
+<div class="block">Traverses the history and finds the oldest ancestor of the specified snapshot.</div>
+</td>
+</tr>
+<tr id="i17" class="rowColor">
+<td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/SnapshotUtil.html#oldestAncestorOf-org.apache.iceberg.Table-long-">oldestAncestorOf</a></span>(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
+                long&nbsp;snapshotId)</code>&nbsp;</td>
+</tr>
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/SnapshotUtil.html#schemaFor-org.apache.iceberg.Table-long-">schemaFor</a></span>(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
          long&nbsp;snapshotId)</code>
 <div class="block">Returns the schema of the table for the specified snapshot.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/SnapshotUtil.html#schemaFor-org.apache.iceberg.Table-java.lang.Long-java.lang.Long-">schemaFor</a></span>(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
          java.lang.Long&nbsp;snapshotId,
          java.lang.Long&nbsp;timestampMillis)</code>
-<div class="block">Convenience method for returning the schema of the table for a snapshot,
- when we have a snapshot id or a timestamp.</div>
+<div class="block">Convenience method for returning the schema of the table for a snapshot, when we have a
+ snapshot id or a timestamp.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i20" class="altColor">
+<td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/SnapshotUtil.html#schemaFor-org.apache.iceberg.TableMetadata-java.lang.String-">schemaFor</a></span>(<a href="../../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;metadata,
+         java.lang.String&nbsp;branch)</code>
+<div class="block">Return the schema of the snapshot at a given branch.</div>
+</td>
+</tr>
+<tr id="i21" class="rowColor">
+<td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/SnapshotUtil.html#schemaFor-org.apache.iceberg.Table-java.lang.String-">schemaFor</a></span>(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
+         java.lang.String&nbsp;branch)</code>
+<div class="block">Return the schema of the snapshot at a given branch.</div>
+</td>
+</tr>
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/SnapshotUtil.html#snapshotAfter-org.apache.iceberg.Table-long-">snapshotAfter</a></span>(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
              long&nbsp;snapshotId)</code>
-<div class="block">Traverses the history of the table's current snapshot and finds the snapshot with the given snapshot id as its
- parent.</div>
+<div class="block">Traverses the history of the table's current snapshot and finds the snapshot with the given
+ snapshot id as its parent.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>static long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/SnapshotUtil.html#snapshotIdAsOfTime-org.apache.iceberg.Table-long-">snapshotIdAsOfTime</a></span>(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
                   long&nbsp;timestampMillis)</code>
 <div class="block">Returns the ID of the most recent snapshot for the table as of the timestamp.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>static java.util.List&lt;java.lang.Long&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/SnapshotUtil.html#snapshotIdsBetween-org.apache.iceberg.Table-long-long-">snapshotIdsBetween</a></span>(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
                   long&nbsp;fromSnapshotId,
@@ -268,6 +334,19 @@ extends java.lang.Object</pre>
 <div class="block">Returns whether ancestorSnapshotId is an ancestor of snapshotId.</div>
 </li>
 </ul>
+<a name="isAncestorOf-long-long-java.util.function.Function-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isAncestorOf</h4>
+<pre>public static&nbsp;boolean&nbsp;isAncestorOf(long&nbsp;snapshotId,
+                                   long&nbsp;ancestorSnapshotId,
+                                   java.util.function.Function&lt;java.lang.Long,<a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;&nbsp;lookup)</pre>
+<div class="block">Returns whether ancestorSnapshotId is an ancestor of snapshotId using the given lookup
+ function.</div>
+</li>
+</ul>
 <a name="isAncestorOf-org.apache.iceberg.Table-long-">
 <!--   -->
 </a>
@@ -279,6 +358,18 @@ extends java.lang.Object</pre>
 <div class="block">Returns whether ancestorSnapshotId is an ancestor of the table's current state.</div>
 </li>
 </ul>
+<a name="isParentAncestorOf-org.apache.iceberg.Table-long-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isParentAncestorOf</h4>
+<pre>public static&nbsp;boolean&nbsp;isParentAncestorOf(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
+                                         long&nbsp;snapshotId,
+                                         long&nbsp;ancestorParentSnapshotId)</pre>
+<div class="block">Returns whether some ancestor of snapshotId has parentId matches ancestorParentSnapshotId</div>
+</li>
+</ul>
 <a name="currentAncestors-org.apache.iceberg.Table-">
 <!--   -->
 </a>
@@ -286,7 +377,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>currentAncestors</h4>
 <pre>public static&nbsp;java.lang.Iterable&lt;<a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;&nbsp;currentAncestors(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</pre>
-<div class="block">Returns an iterable that traverses the table's snapshots from the current to the last known ancestor.</div>
+<div class="block">Returns an iterable that traverses the table's snapshots from the current to the last known
+ ancestor.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>table</code> - a Table</dd>
@@ -303,9 +395,9 @@ extends java.lang.Object</pre>
 <h4>currentAncestorIds</h4>
 <pre>public static&nbsp;java.util.List&lt;java.lang.Long&gt;&nbsp;currentAncestorIds(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</pre>
 <div class="block">Return the snapshot IDs for the ancestors of the current table state.
- <p>
- Ancestor IDs are ordered by commit time, descending. The first ID is the current snapshot, followed by its parent,
- and so on.</div>
+
+ <p>Ancestor IDs are ordered by commit time, descending. The first ID is the current snapshot,
+ followed by its parent, and so on.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>table</code> - a <a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><code>Table</code></a></dd>
@@ -323,6 +415,38 @@ extends java.lang.Object</pre>
 <pre>public static&nbsp;<a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;oldestAncestor(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</pre>
 <div class="block">Traverses the history of the table's current snapshot and finds the oldest Snapshot.</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>null if there is no current snapshot in the table, else the oldest Snapshot.</dd>
+</dl>
+</li>
+</ul>
+<a name="oldestAncestorOf-org.apache.iceberg.Table-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>oldestAncestorOf</h4>
+<pre>public static&nbsp;<a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;oldestAncestorOf(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
+                                        long&nbsp;snapshotId)</pre>
+</li>
+</ul>
+<a name="oldestAncestorOf-long-java.util.function.Function-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>oldestAncestorOf</h4>
+<pre>public static&nbsp;<a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;oldestAncestorOf(long&nbsp;snapshotId,
+                                        java.util.function.Function&lt;java.lang.Long,<a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;&nbsp;lookup)</pre>
+<div class="block">Traverses the history and finds the oldest ancestor of the specified snapshot.
+
+ <p>Oldest ancestor is defined as the ancestor snapshot whose parent is null or has been
+ expired. If the specified snapshot has no parent or parent has been expired, the specified
+ snapshot itself is returned.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>snapshotId</code> - the ID of the snapshot to find the oldest ancestor</dd>
+<dd><code>lookup</code> - lookup function from snapshot ID to snapshot</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>null if there is no current snapshot in the table, else the oldest Snapshot.</dd>
 </dl>
@@ -346,13 +470,15 @@ extends java.lang.Object</pre>
 <h4>oldestAncestorAfter</h4>
 <pre>public static&nbsp;<a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;oldestAncestorAfter(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
                                            long&nbsp;timestampMillis)</pre>
-<div class="block">Traverses the history of the table's current snapshot and finds the first snapshot committed after the given time.</div>
+<div class="block">Traverses the history of the table's current snapshot, finds the oldest snapshot that was
+ committed either at or after a given time.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>table</code> - a table</dd>
 <dd><code>timestampMillis</code> - a timestamp in milliseconds</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the first snapshot after the given timestamp, or null if the current snapshot is older than the timestamp</dd>
+<dd>the first snapshot after the given timestamp, or null if the current snapshot is older
+     than the timestamp</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.lang.IllegalStateException</code> - if the first ancestor after the given time can't be determined</dd>
 </dl>
@@ -368,8 +494,8 @@ extends java.lang.Object</pre>
                                                                 long&nbsp;fromSnapshotId,
                                                                 long&nbsp;toSnapshotId)</pre>
 <div class="block">Returns list of snapshot ids in the range - (fromSnapshotId, toSnapshotId]
- <p>
- This method assumes that fromSnapshotId is an ancestor of toSnapshotId.</div>
+
+ <p>This method assumes that fromSnapshotId is an ancestor of toSnapshotId.</div>
 </li>
 </ul>
 <a name="ancestorIdsBetween-long-java.lang.Long-java.util.function.Function-">
@@ -381,6 +507,17 @@ extends java.lang.Object</pre>
 <pre>public static&nbsp;java.lang.Iterable&lt;java.lang.Long&gt;&nbsp;ancestorIdsBetween(long&nbsp;latestSnapshotId,
                                                                     java.lang.Long&nbsp;oldestSnapshotId,
                                                                     java.util.function.Function&lt;java.lang.Long,<a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;&nbsp;lookup)</pre>
+</li>
+</ul>
+<a name="ancestorsBetween-org.apache.iceberg.Table-long-java.lang.Long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ancestorsBetween</h4>
+<pre>public static&nbsp;java.lang.Iterable&lt;<a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;&nbsp;ancestorsBetween(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
+                                                            long&nbsp;latestSnapshotId,
+                                                            java.lang.Long&nbsp;oldestSnapshotId)</pre>
 </li>
 </ul>
 <a name="ancestorsBetween-long-java.lang.Long-java.util.function.Function-">
@@ -404,7 +541,7 @@ extends java.lang.Object</pre>
                                                          java.util.function.Function&lt;java.lang.Long,<a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;&nbsp;lookup)</pre>
 </li>
 </ul>
-<a name="newFiles-java.lang.Long-long-java.util.function.Function-">
+<a name="newFiles-java.lang.Long-long-java.util.function.Function-org.apache.iceberg.io.FileIO-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -412,7 +549,8 @@ extends java.lang.Object</pre>
 <h4>newFiles</h4>
 <pre>public static&nbsp;java.util.List&lt;<a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;&nbsp;newFiles(java.lang.Long&nbsp;baseSnapshotId,
                                                 long&nbsp;latestSnapshotId,
-                                                java.util.function.Function&lt;java.lang.Long,<a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;&nbsp;lookup)</pre>
+                                                java.util.function.Function&lt;java.lang.Long,<a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;&nbsp;lookup,
+                                                <a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io)</pre>
 </li>
 </ul>
 <a name="snapshotAfter-org.apache.iceberg.Table-long-">
@@ -423,14 +561,15 @@ extends java.lang.Object</pre>
 <h4>snapshotAfter</h4>
 <pre>public static&nbsp;<a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;snapshotAfter(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
                                      long&nbsp;snapshotId)</pre>
-<div class="block">Traverses the history of the table's current snapshot and finds the snapshot with the given snapshot id as its
- parent.</div>
+<div class="block">Traverses the history of the table's current snapshot and finds the snapshot with the given
+ snapshot id as its parent.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the snapshot for which the given snapshot is the parent</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.lang.IllegalArgumentException</code> - when the given snapshotId is not found in the table</dd>
-<dd><code>java.lang.IllegalStateException</code> - when the given snapshotId is not an ancestor of the current table state</dd>
+<dd><code>java.lang.IllegalStateException</code> - when the given snapshotId is not an ancestor of the current table
+     state</dd>
 </dl>
 </li>
 </ul>
@@ -450,8 +589,8 @@ extends java.lang.Object</pre>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the snapshot ID</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.IllegalArgumentException</code> - when no snapshot is found in the table
- older than the timestamp</dd>
+<dd><code>java.lang.IllegalArgumentException</code> - when no snapshot is found in the table older than the
+     timestamp</dd>
 </dl>
 </li>
 </ul>
@@ -476,15 +615,15 @@ extends java.lang.Object</pre>
 <a name="schemaFor-org.apache.iceberg.Table-java.lang.Long-java.lang.Long-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>schemaFor</h4>
 <pre>public static&nbsp;<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schemaFor(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
                                java.lang.Long&nbsp;snapshotId,
                                java.lang.Long&nbsp;timestampMillis)</pre>
-<div class="block">Convenience method for returning the schema of the table for a snapshot,
- when we have a snapshot id or a timestamp. Only one of them should be specified
- (non-null), or an IllegalArgumentException is thrown.</div>
+<div class="block">Convenience method for returning the schema of the table for a snapshot, when we have a
+ snapshot id or a timestamp. Only one of them should be specified (non-null), or an
+ IllegalArgumentException is thrown.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>table</code> - a <a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><code>Table</code></a></dd>
@@ -494,6 +633,93 @@ extends java.lang.Object</pre>
 <dd>the schema</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.lang.IllegalArgumentException</code> - if both snapshotId and timestampMillis are non-null</dd>
+</dl>
+</li>
+</ul>
+<a name="schemaFor-org.apache.iceberg.Table-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>schemaFor</h4>
+<pre>public static&nbsp;<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schemaFor(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
+                               java.lang.String&nbsp;branch)</pre>
+<div class="block">Return the schema of the snapshot at a given branch.
+
+ <p>If branch does not exist, the table schema is returned because it will be the schema when
+ the new branch is created.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>table</code> - a <a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><code>Table</code></a></dd>
+<dd><code>branch</code> - branch name of the table (nullable)</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>schema of the specific snapshot at the given branch</dd>
+</dl>
+</li>
+</ul>
+<a name="schemaFor-org.apache.iceberg.TableMetadata-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>schemaFor</h4>
+<pre>public static&nbsp;<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schemaFor(<a href="../../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;metadata,
+                               java.lang.String&nbsp;branch)</pre>
+<div class="block">Return the schema of the snapshot at a given branch.
+
+ <p>If branch does not exist, the table schema is returned because it will be the schema when
+ the new branch is created.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>metadata</code> - a <a href="../../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg"><code>TableMetadata</code></a></dd>
+<dd><code>branch</code> - branch name of the table (nullable)</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>schema of the specific snapshot at the given branch</dd>
+</dl>
+</li>
+</ul>
+<a name="latestSnapshot-org.apache.iceberg.Table-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>latestSnapshot</h4>
+<pre>public static&nbsp;<a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;latestSnapshot(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
+                                      java.lang.String&nbsp;branch)</pre>
+<div class="block">Fetch the snapshot at the head of the given branch in the given table.
+
+ <p>This method calls <a href="../../../../org/apache/iceberg/Table.html#currentSnapshot--"><code>Table.currentSnapshot()</code></a> instead of using branch API <a href="../../../../org/apache/iceberg/Table.html#snapshot-java.lang.String-"><code>Table.snapshot(String)</code></a> for the main branch so that existing code still goes through the old
+ code path to ensure backwards compatibility.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>table</code> - a <a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><code>Table</code></a></dd>
+<dd><code>branch</code> - branch name of the table (nullable)</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the latest snapshot for the given branch</dd>
+</dl>
+</li>
+</ul>
+<a name="latestSnapshot-org.apache.iceberg.TableMetadata-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>latestSnapshot</h4>
+<pre>public static&nbsp;<a href="../../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;latestSnapshot(<a href="../../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;metadata,
+                                      java.lang.String&nbsp;branch)</pre>
+<div class="block">Fetch the snapshot at the head of the given branch in the given table.
+
+ <p>This method calls <a href="../../../../org/apache/iceberg/TableMetadata.html#currentSnapshot--"><code>TableMetadata.currentSnapshot()</code></a> instead of using branch API <a href="../../../../org/apache/iceberg/TableMetadata.html#ref-java.lang.String-"><code>TableMetadata.ref(String)</code></a>} for the main branch so that existing code still goes through the
+ old code path to ensure backwards compatibility.
+
+ <p>If branch does not exist, the table's latest snapshot is returned it will be the schema when
+ the new branch is created.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>metadata</code> - a <a href="../../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg"><code>TableMetadata</code></a></dd>
+<dd><code>branch</code> - branch name of the table metadata (nullable)</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the latest snapshot for the given branch</dd>
 </dl>
 </li>
 </ul>

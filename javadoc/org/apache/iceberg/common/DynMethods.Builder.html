@@ -151,43 +151,43 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/common/DynMethods.UnboundMethod.html" title="class in org.apache.iceberg.common">DynMethods.UnboundMethod</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/common/DynMethods.Builder.html#build--">build</a></span>()</code>
-<div class="block">Returns the first valid implementation as a UnboundMethod or throws a
- RuntimeError if there is none.</div>
+<div class="block">Returns the first valid implementation as a UnboundMethod or throws a RuntimeError if there
+ is none.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/common/DynMethods.BoundMethod.html" title="class in org.apache.iceberg.common">DynMethods.BoundMethod</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/common/DynMethods.Builder.html#build-java.lang.Object-">build</a></span>(java.lang.Object&nbsp;receiver)</code>
-<div class="block">Returns the first valid implementation as a BoundMethod or throws a
- RuntimeError if there is none.</div>
+<div class="block">Returns the first valid implementation as a BoundMethod or throws a RuntimeError if there is
+ none.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/common/DynMethods.UnboundMethod.html" title="class in org.apache.iceberg.common">DynMethods.UnboundMethod</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/common/DynMethods.Builder.html#buildChecked--">buildChecked</a></span>()</code>
-<div class="block">Returns the first valid implementation as a UnboundMethod or throws a
- NoSuchMethodException if there is none.</div>
+<div class="block">Returns the first valid implementation as a UnboundMethod or throws a NoSuchMethodException
+ if there is none.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/common/DynMethods.BoundMethod.html" title="class in org.apache.iceberg.common">DynMethods.BoundMethod</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/common/DynMethods.Builder.html#buildChecked-java.lang.Object-">buildChecked</a></span>(java.lang.Object&nbsp;receiver)</code>
-<div class="block">Returns the first valid implementation as a BoundMethod or throws a
- NoSuchMethodException if there is none.</div>
+<div class="block">Returns the first valid implementation as a BoundMethod or throws a NoSuchMethodException if
+ there is none.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/common/DynMethods.StaticMethod.html" title="class in org.apache.iceberg.common">DynMethods.StaticMethod</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/common/DynMethods.Builder.html#buildStatic--">buildStatic</a></span>()</code>
-<div class="block">Returns the first valid implementation as a StaticMethod or throws a
- RuntimeException if there is none.</div>
+<div class="block">Returns the first valid implementation as a StaticMethod or throws a RuntimeException if
+ there is none.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/common/DynMethods.StaticMethod.html" title="class in org.apache.iceberg.common">DynMethods.StaticMethod</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/common/DynMethods.Builder.html#buildStaticChecked--">buildStaticChecked</a></span>()</code>
-<div class="block">Returns the first valid implementation as a StaticMethod or throws a
- NoSuchMethodException if there is none.</div>
+<div class="block">Returns the first valid implementation as a StaticMethod or throws a NoSuchMethodException if
+ there is none.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
@@ -319,8 +319,8 @@ extends java.lang.Object</pre>
 <h4>loader</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/common/DynMethods.Builder.html" title="class in org.apache.iceberg.common">DynMethods.Builder</a>&nbsp;loader(java.lang.ClassLoader&nbsp;newLoader)</pre>
 <div class="block">Set the <code>ClassLoader</code> used to lookup classes by name.
- <p>
- If not set, the current thread's ClassLoader is used.</div>
+
+ <p>If not set, the current thread's ClassLoader is used.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>newLoader</code> - a ClassLoader</dd>
@@ -338,7 +338,7 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/common/DynMethods.Builder.html" title="class in org.apache.iceberg.common">DynMethods.Builder</a>&nbsp;orNoop()</pre>
 <div class="block">If no implementation has been found, adds a NOOP method.
 
- Note: calls to impl will not match after this method is called!</div>
+ <p>Note: calls to impl will not match after this method is called!</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this Builder for method chaining</dd>
@@ -378,7 +378,7 @@ extends java.lang.Object</pre>
                                java.lang.Class&lt;?&gt;...&nbsp;argClasses)</pre>
 <div class="block">Checks for an implementation, first finding the given class by name.
 
- The name passed to the constructor is the method name used.</div>
+ <p>The name passed to the constructor is the method name used.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>className</code> - name of a class</dd>
@@ -424,7 +424,7 @@ extends java.lang.Object</pre>
                                java.lang.Class&lt;?&gt;...&nbsp;argClasses)</pre>
 <div class="block">Checks for a method implementation.
 
- The name passed to the constructor is the method name used.</div>
+ <p>The name passed to the constructor is the method name used.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>targetClass</code> - a class instance</dd>
@@ -490,7 +490,7 @@ extends java.lang.Object</pre>
                                      java.lang.Class&lt;?&gt;...&nbsp;argClasses)</pre>
 <div class="block">Checks for an implementation, first finding the given class by name.
 
- The name passed to the constructor is the method name used.</div>
+ <p>The name passed to the constructor is the method name used.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>className</code> - name of a class</dd>
@@ -536,7 +536,7 @@ extends java.lang.Object</pre>
                                      java.lang.Class&lt;?&gt;...&nbsp;argClasses)</pre>
 <div class="block">Checks for a method implementation.
 
- The name passed to the constructor is the method name used.</div>
+ <p>The name passed to the constructor is the method name used.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>targetClass</code> - a class instance</dd>
@@ -556,8 +556,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>build</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/common/DynMethods.UnboundMethod.html" title="class in org.apache.iceberg.common">DynMethods.UnboundMethod</a>&nbsp;build()</pre>
-<div class="block">Returns the first valid implementation as a UnboundMethod or throws a
- RuntimeError if there is none.</div>
+<div class="block">Returns the first valid implementation as a UnboundMethod or throws a RuntimeError if there
+ is none.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a <a href="../../../../org/apache/iceberg/common/DynMethods.UnboundMethod.html" title="class in org.apache.iceberg.common"><code>DynMethods.UnboundMethod</code></a> with a valid implementation</dd>
@@ -573,8 +573,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>build</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/common/DynMethods.BoundMethod.html" title="class in org.apache.iceberg.common">DynMethods.BoundMethod</a>&nbsp;build(java.lang.Object&nbsp;receiver)</pre>
-<div class="block">Returns the first valid implementation as a BoundMethod or throws a
- RuntimeError if there is none.</div>
+<div class="block">Returns the first valid implementation as a BoundMethod or throws a RuntimeError if there is
+ none.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>receiver</code> - an Object to receive the method invocation</dd>
@@ -595,8 +595,8 @@ extends java.lang.Object</pre>
 <h4>buildChecked</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/common/DynMethods.UnboundMethod.html" title="class in org.apache.iceberg.common">DynMethods.UnboundMethod</a>&nbsp;buildChecked()
                                       throws java.lang.NoSuchMethodException</pre>
-<div class="block">Returns the first valid implementation as a UnboundMethod or throws a
- NoSuchMethodException if there is none.</div>
+<div class="block">Returns the first valid implementation as a UnboundMethod or throws a NoSuchMethodException
+ if there is none.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a <a href="../../../../org/apache/iceberg/common/DynMethods.UnboundMethod.html" title="class in org.apache.iceberg.common"><code>DynMethods.UnboundMethod</code></a> with a valid implementation</dd>
@@ -613,8 +613,8 @@ extends java.lang.Object</pre>
 <h4>buildChecked</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/common/DynMethods.BoundMethod.html" title="class in org.apache.iceberg.common">DynMethods.BoundMethod</a>&nbsp;buildChecked(java.lang.Object&nbsp;receiver)
                                     throws java.lang.NoSuchMethodException</pre>
-<div class="block">Returns the first valid implementation as a BoundMethod or throws a
- NoSuchMethodException if there is none.</div>
+<div class="block">Returns the first valid implementation as a BoundMethod or throws a NoSuchMethodException if
+ there is none.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>receiver</code> - an Object to receive the method invocation</dd>
@@ -635,8 +635,8 @@ extends java.lang.Object</pre>
 <h4>buildStaticChecked</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/common/DynMethods.StaticMethod.html" title="class in org.apache.iceberg.common">DynMethods.StaticMethod</a>&nbsp;buildStaticChecked()
                                            throws java.lang.NoSuchMethodException</pre>
-<div class="block">Returns the first valid implementation as a StaticMethod or throws a
- NoSuchMethodException if there is none.</div>
+<div class="block">Returns the first valid implementation as a StaticMethod or throws a NoSuchMethodException if
+ there is none.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a <a href="../../../../org/apache/iceberg/common/DynMethods.StaticMethod.html" title="class in org.apache.iceberg.common"><code>DynMethods.StaticMethod</code></a> with a valid implementation</dd>
@@ -653,8 +653,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>buildStatic</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/common/DynMethods.StaticMethod.html" title="class in org.apache.iceberg.common">DynMethods.StaticMethod</a>&nbsp;buildStatic()</pre>
-<div class="block">Returns the first valid implementation as a StaticMethod or throws a
- RuntimeException if there is none.</div>
+<div class="block">Returns the first valid implementation as a StaticMethod or throws a RuntimeException if
+ there is none.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a <a href="../../../../org/apache/iceberg/common/DynMethods.StaticMethod.html" title="class in org.apache.iceberg.common"><code>DynMethods.StaticMethod</code></a> with a valid implementation</dd>

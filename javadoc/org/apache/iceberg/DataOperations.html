@@ -41,7 +41,7 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/DataFilesTable.FilesTableScan.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/DataFilesTable.DataFilesTableScan.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../org/apache/iceberg/DataTableScan.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -104,8 +104,8 @@
 <pre>public class <span class="typeNameLabel">DataOperations</span>
 extends java.lang.Object</pre>
 <div class="block">Data operations that produce snapshots.
- <p>
- A snapshot can return the operation that created the snapshot to help other components ignore
+
+ <p>A snapshot can return the operation that created the snapshot to help other components ignore
  snapshots that are not needed for some tasks. For example, snapshot expiration does not need to
  clean up deleted files for appends, which have no deleted files.</div>
 </li>
@@ -188,8 +188,8 @@ extends java.lang.Object</pre>
 <h4>APPEND</h4>
 <pre>public static final&nbsp;java.lang.String APPEND</pre>
 <div class="block">New data is appended to the table and no data is removed or deleted.
- <p>
- This operation is implemented by <a href="../../../org/apache/iceberg/AppendFiles.html" title="interface in org.apache.iceberg"><code>AppendFiles</code></a>.</div>
+
+ <p>This operation is implemented by <a href="../../../org/apache/iceberg/AppendFiles.html" title="interface in org.apache.iceberg"><code>AppendFiles</code></a>.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#org.apache.iceberg.DataOperations.APPEND">Constant Field Values</a></dd>
@@ -204,8 +204,8 @@ extends java.lang.Object</pre>
 <h4>REPLACE</h4>
 <pre>public static final&nbsp;java.lang.String REPLACE</pre>
 <div class="block">Files are removed and replaced, without changing the data in the table.
- <p>
- This operation is implemented by <a href="../../../org/apache/iceberg/RewriteFiles.html" title="interface in org.apache.iceberg"><code>RewriteFiles</code></a>.</div>
+
+ <p>This operation is implemented by <a href="../../../org/apache/iceberg/RewriteFiles.html" title="interface in org.apache.iceberg"><code>RewriteFiles</code></a>.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#org.apache.iceberg.DataOperations.REPLACE">Constant Field Values</a></dd>
@@ -220,8 +220,8 @@ extends java.lang.Object</pre>
 <h4>OVERWRITE</h4>
 <pre>public static final&nbsp;java.lang.String OVERWRITE</pre>
 <div class="block">New data is added to overwrite existing data.
- <p>
- This operation is implemented by <a href="../../../org/apache/iceberg/OverwriteFiles.html" title="interface in org.apache.iceberg"><code>OverwriteFiles</code></a> and <a href="../../../org/apache/iceberg/ReplacePartitions.html" title="interface in org.apache.iceberg"><code>ReplacePartitions</code></a>.</div>
+
+ <p>This operation is implemented by <a href="../../../org/apache/iceberg/OverwriteFiles.html" title="interface in org.apache.iceberg"><code>OverwriteFiles</code></a> and <a href="../../../org/apache/iceberg/ReplacePartitions.html" title="interface in org.apache.iceberg"><code>ReplacePartitions</code></a>.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#org.apache.iceberg.DataOperations.OVERWRITE">Constant Field Values</a></dd>
@@ -236,8 +236,8 @@ extends java.lang.Object</pre>
 <h4>DELETE</h4>
 <pre>public static final&nbsp;java.lang.String DELETE</pre>
 <div class="block">Data is deleted from the table and no data is added.
- <p>
- This operation is implemented by <a href="../../../org/apache/iceberg/DeleteFiles.html" title="interface in org.apache.iceberg"><code>DeleteFiles</code></a>.</div>
+
+ <p>This operation is implemented by <a href="../../../org/apache/iceberg/DeleteFiles.html" title="interface in org.apache.iceberg"><code>DeleteFiles</code></a>.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#org.apache.iceberg.DataOperations.DELETE">Constant Field Values</a></dd>
@@ -271,7 +271,7 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/DataFilesTable.FilesTableScan.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/DataFilesTable.DataFilesTableScan.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../org/apache/iceberg/DataTableScan.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

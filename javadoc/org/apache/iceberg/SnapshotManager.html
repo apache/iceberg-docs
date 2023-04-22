@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10,"i41":10,"i42":10,"i43":10,"i44":10,"i45":10,"i46":10,"i47":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/SnapshotIdGeneratorUtil.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../org/apache/iceberg/SnapshotParser.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -107,7 +107,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a>, <a href="../../../org/apache/iceberg/PendingUpdate.html" title="interface in org.apache.iceberg">PendingUpdate</a>&lt;<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;, <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interface in org.apache.iceberg">SnapshotUpdate</a>&lt;<a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a>&gt;</dd>
+<dd><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a>, <a href="../../../org/apache/iceberg/PendingUpdate.html" title="interface in org.apache.iceberg">PendingUpdate</a>&lt;<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;</dd>
 </dl>
 <hr>
 <br>
@@ -133,265 +133,123 @@ implements <a href="../../../org/apache/iceberg/ManageSnapshots.html" title="int
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#add-org.apache.iceberg.DataFile-">add</a></span>(<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&nbsp;file)</code>
-<div class="block">Add a data file to the new snapshot.</div>
-</td>
-</tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#add-org.apache.iceberg.DeleteFile-">add</a></span>(<a href="../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg">DeleteFile</a>&nbsp;file)</code>
-<div class="block">Add a delete file to the new snapshot.</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#add-org.apache.iceberg.ManifestFile-">add</a></span>(<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&nbsp;manifest)</code>
-<div class="block">Add all files in a manifest to the new snapshot.</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>protected java.util.List&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#addedFiles--">addedFiles</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#apply--">apply</a></span>()</code>
 <div class="block">Apply the pending changes and return the uncommitted changes for validation.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>java.util.List&lt;<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#apply-org.apache.iceberg.TableMetadata-">apply</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base)</code>
-<div class="block">Apply the update's changes to the base table metadata and return the new manifest list.</div>
-</td>
-</tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>ThisT</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#caseSensitive-boolean-">caseSensitive</a></span>(boolean&nbsp;isCaseSensitive)</code>&nbsp;</td>
-</tr>
-<tr id="i7" class="rowColor">
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#cherrypick-long-">cherrypick</a></span>(long&nbsp;snapshotId)</code>
 <div class="block">Apply supported changes in given snapshot and create a new snapshot which will be set as the
  current snapshot on commit.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#cleanAll--">cleanAll</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i9" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#cleanUncommitted-java.util.Set-">cleanUncommitted</a></span>(java.util.Set&lt;<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&gt;&nbsp;committed)</code>
-<div class="block">Clean up any uncommitted manifests that were created.</div>
-</td>
-</tr>
-<tr id="i10" class="altColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#commit--">commit</a></span>()</code>
 <div class="block">Apply the pending changes and commit.</div>
 </td>
 </tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#createBranch-java.lang.String-long-">createBranch</a></span>(java.lang.String&nbsp;name,
+            long&nbsp;snapshotId)</code>
+<div class="block">Create a new branch pointing to the given snapshot id.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#createTag-java.lang.String-long-">createTag</a></span>(java.lang.String&nbsp;name,
+         long&nbsp;snapshotId)</code>
+<div class="block">Create a new tag pointing to the given snapshot id</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#fastForwardBranch-java.lang.String-java.lang.String-">fastForwardBranch</a></span>(java.lang.String&nbsp;name,
+                 java.lang.String&nbsp;source)</code>
+<div class="block">Performs a fast-forward of the given target branch up to the source snapshot if target is an
+ ancestor of source.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#removeBranch-java.lang.String-">removeBranch</a></span>(java.lang.String&nbsp;name)</code>
+<div class="block">Remove a branch by name</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#removeTag-java.lang.String-">removeTag</a></span>(java.lang.String&nbsp;name)</code>
+<div class="block">Remove the tag with the given name.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#renameBranch-java.lang.String-java.lang.String-">renameBranch</a></span>(java.lang.String&nbsp;name,
+            java.lang.String&nbsp;newName)</code>
+<div class="block">Rename a branch</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#replaceBranch-java.lang.String-long-">replaceBranch</a></span>(java.lang.String&nbsp;name,
+             long&nbsp;snapshotId)</code>
+<div class="block">Replaces the branch with the given name to point to the specified snapshot</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#replaceBranch-java.lang.String-java.lang.String-">replaceBranch</a></span>(java.lang.String&nbsp;name,
+             java.lang.String&nbsp;source)</code>
+<div class="block">Replaces the branch with the given name to point to the source snapshot.</div>
+</td>
+</tr>
 <tr id="i11" class="rowColor">
-<td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#current--">current</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#replaceTag-java.lang.String-long-">replaceTag</a></span>(java.lang.String&nbsp;name,
+          long&nbsp;snapshotId)</code>
+<div class="block">Replaces the tag with the given name to point to the specified snapshot.</div>
+</td>
 </tr>
 <tr id="i12" class="altColor">
-<td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#dataSpec--">dataSpec</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i13" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#delete-java.lang.CharSequence-">delete</a></span>(java.lang.CharSequence&nbsp;path)</code>
-<div class="block">Add a specific data path to be deleted in the new snapshot.</div>
-</td>
-</tr>
-<tr id="i14" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#delete-org.apache.iceberg.DataFile-">delete</a></span>(<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&nbsp;file)</code>
-<div class="block">Add a specific data file to be deleted in the new snapshot.</div>
-</td>
-</tr>
-<tr id="i15" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#delete-org.apache.iceberg.DeleteFile-">delete</a></span>(<a href="../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg">DeleteFile</a>&nbsp;file)</code>
-<div class="block">Add a specific delete file to be deleted in the new snapshot.</div>
-</td>
-</tr>
-<tr id="i16" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#deleteByRowFilter-org.apache.iceberg.expressions.Expression-">deleteByRowFilter</a></span>(<a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr)</code>
-<div class="block">Add a filter to match files to delete.</div>
-</td>
-</tr>
-<tr id="i17" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#deleteFile-java.lang.String-">deleteFile</a></span>(java.lang.String&nbsp;path)</code>&nbsp;</td>
-</tr>
-<tr id="i18" class="altColor">
-<td class="colFirst"><code>ThisT</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#deleteWith-java.util.function.Consumer-">deleteWith</a></span>(java.util.function.Consumer&lt;java.lang.String&gt;&nbsp;deleteCallback)</code>
-<div class="block">Set a callback to delete files instead of the table's default.</div>
-</td>
-</tr>
-<tr id="i19" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#dropPartition-int-org.apache.iceberg.StructLike-">dropPartition</a></span>(int&nbsp;specId,
-             <a href="../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&nbsp;partition)</code>
-<div class="block">Add a partition tuple to drop from the table during the delete phase.</div>
-</td>
-</tr>
-<tr id="i20" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#failAnyDelete--">failAnyDelete</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i21" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#failMissingDeletePaths--">failMissingDeletePaths</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i22" class="altColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#isCaseSensitive--">isCaseSensitive</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i23" class="rowColor">
-<td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/io/OutputFile.html" title="interface in org.apache.iceberg.io">OutputFile</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#manifestListPath--">manifestListPath</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i24" class="altColor">
-<td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/ManifestReader.html" title="class in org.apache.iceberg">ManifestReader</a>&lt;<a href="../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg">DeleteFile</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#newDeleteManifestReader-org.apache.iceberg.ManifestFile-">newDeleteManifestReader</a></span>(<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&nbsp;manifest)</code>&nbsp;</td>
-</tr>
-<tr id="i25" class="rowColor">
-<td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/ManifestWriter.html" title="class in org.apache.iceberg">ManifestWriter</a>&lt;<a href="../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg">DeleteFile</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#newDeleteManifestWriter-org.apache.iceberg.PartitionSpec-">newDeleteManifestWriter</a></span>(<a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec)</code>&nbsp;</td>
-</tr>
-<tr id="i26" class="altColor">
-<td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/io/OutputFile.html" title="interface in org.apache.iceberg.io">OutputFile</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#newManifestOutput--">newManifestOutput</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i27" class="rowColor">
-<td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/ManifestReader.html" title="class in org.apache.iceberg">ManifestReader</a>&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#newManifestReader-org.apache.iceberg.ManifestFile-">newManifestReader</a></span>(<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&nbsp;manifest)</code>&nbsp;</td>
-</tr>
-<tr id="i28" class="altColor">
-<td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/ManifestWriter.html" title="class in org.apache.iceberg">ManifestWriter</a>&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#newManifestWriter-org.apache.iceberg.PartitionSpec-">newManifestWriter</a></span>(<a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec)</code>&nbsp;</td>
-</tr>
-<tr id="i29" class="rowColor">
-<td class="colFirst"><code>protected java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#operation--">operation</a></span>()</code>
-<div class="block">A string that describes the action that produced the new snapshot.</div>
-</td>
-</tr>
-<tr id="i30" class="altColor">
-<td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#refresh--">refresh</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i31" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#rollbackTo-long-">rollbackTo</a></span>(long&nbsp;snapshotId)</code>
 <div class="block">Rollback table's state to a specific <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><code>Snapshot</code></a> identified by id.</div>
 </td>
 </tr>
-<tr id="i32" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#rollbackToTime-long-">rollbackToTime</a></span>(long&nbsp;timestampMillis)</code>
 <div class="block">Roll this table's data back to the last <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><code>Snapshot</code></a> before the given timestamp.</div>
 </td>
 </tr>
-<tr id="i33" class="rowColor">
-<td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#rowFilter--">rowFilter</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i34" class="altColor">
-<td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#self--">self</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i35" class="rowColor">
-<td class="colFirst"><code>ThisT</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#set-java.lang.String-java.lang.String-">set</a></span>(java.lang.String&nbsp;property,
-   java.lang.String&nbsp;value)</code>
-<div class="block">Set a summary property in the snapshot produced by this update.</div>
-</td>
-</tr>
-<tr id="i36" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#setCurrentSnapshot-long-">setCurrentSnapshot</a></span>(long&nbsp;snapshotId)</code>
 <div class="block">Roll this table's data back to a specific <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><code>Snapshot</code></a> identified by id.</div>
 </td>
 </tr>
-<tr id="i37" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#setNewFilesSequenceNumber-long-">setNewFilesSequenceNumber</a></span>(long&nbsp;sequenceNumber)</code>&nbsp;</td>
-</tr>
-<tr id="i38" class="altColor">
-<td class="colFirst"><code>protected long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#snapshotId--">snapshotId</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i39" class="rowColor">
-<td class="colFirst"><code>ThisT</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#stageOnly--">stageOnly</a></span>()</code>
-<div class="block">Called to stage a snapshot in table metadata, but not update the current snapshot id.</div>
+<tr id="i15" class="rowColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#setMaxRefAgeMs-java.lang.String-long-">setMaxRefAgeMs</a></span>(java.lang.String&nbsp;name,
+              long&nbsp;maxRefAgeMs)</code>
+<div class="block">Updates the retention policy for a reference.</div>
 </td>
 </tr>
-<tr id="i40" class="altColor">
-<td class="colFirst"><code>protected java.util.Map&lt;java.lang.String,java.lang.String&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#summary--">summary</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i41" class="rowColor">
-<td class="colFirst"><code>java.lang.Object</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#updateEvent--">updateEvent</a></span>()</code>
-<div class="block">Generates update event to notify about metadata changes</div>
+<tr id="i16" class="altColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#setMaxSnapshotAgeMs-java.lang.String-long-">setMaxSnapshotAgeMs</a></span>(java.lang.String&nbsp;name,
+                   long&nbsp;maxSnapshotAgeMs)</code>
+<div class="block">Updates the max snapshot age for a branch.</div>
 </td>
 </tr>
-<tr id="i42" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#validate-org.apache.iceberg.TableMetadata-">validate</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base)</code>
-<div class="block">Validate the current metadata.</div>
-</td>
-</tr>
-<tr id="i43" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#validateAddedDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.expressions.Expression-">validateAddedDataFiles</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                      java.lang.Long&nbsp;startingSnapshotId,
-                      <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;conflictDetectionFilter)</code>
-<div class="block">Validates that no files matching a filter have been added to the table since a starting snapshot.</div>
-</td>
-</tr>
-<tr id="i44" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#validateDataFilesExist-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.util.CharSequenceSet-boolean-org.apache.iceberg.expressions.Expression-">validateDataFilesExist</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                      java.lang.Long&nbsp;startingSnapshotId,
-                      <a href="../../../org/apache/iceberg/util/CharSequenceSet.html" title="class in org.apache.iceberg.util">CharSequenceSet</a>&nbsp;requiredDataFiles,
-                      boolean&nbsp;skipDeletes,
-                      <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;conflictDetectionFilter)</code>&nbsp;</td>
-</tr>
-<tr id="i45" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#validateNoNewDeleteFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.expressions.Expression-">validateNoNewDeleteFiles</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                        java.lang.Long&nbsp;startingSnapshotId,
-                        <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;dataFilter)</code>
-<div class="block">Validates that no delete files matching a filter have been added to the table since a starting snapshot.</div>
-</td>
-</tr>
-<tr id="i46" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#validateNoNewDeletesForDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.expressions.Expression-java.lang.Iterable-">validateNoNewDeletesForDataFiles</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                                java.lang.Long&nbsp;startingSnapshotId,
-                                <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;dataFilter,
-                                java.lang.Iterable&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;&nbsp;dataFiles)</code>
-<div class="block">Validates that no new delete files that must be applied to the given data files have been added to the table since
- a starting snapshot.</div>
-</td>
-</tr>
-<tr id="i47" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#validateNoNewDeletesForDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-java.lang.Iterable-">validateNoNewDeletesForDataFiles</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                                java.lang.Long&nbsp;startingSnapshotId,
-                                java.lang.Iterable&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;&nbsp;dataFiles)</code>
-<div class="block">Validates that no new delete files that must be applied to the given data files have been added to the table since
- a starting snapshot.</div>
+<tr id="i17" class="rowColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#setMinSnapshotsToKeep-java.lang.String-int-">setMinSnapshotsToKeep</a></span>(java.lang.String&nbsp;name,
+                     int&nbsp;minSnapshotsToKeep)</code>
+<div class="block">Updates the minimum number of snapshots to keep for a branch.</div>
 </td>
 </tr>
 </table>
@@ -407,7 +265,7 @@ implements <a href="../../../org/apache/iceberg/ManageSnapshots.html" title="int
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="../../../org/apache/iceberg/PendingUpdate.html" title="interface in org.apache.iceberg">PendingUpdate</a></h3>
-<code><a href="../../../org/apache/iceberg/PendingUpdate.html#commit--">commit</a></code></li>
+<code><a href="../../../org/apache/iceberg/PendingUpdate.html#updateEvent--">updateEvent</a></code></li>
 </ul>
 </li>
 </ul>
@@ -423,29 +281,6 @@ implements <a href="../../../org/apache/iceberg/ManageSnapshots.html" title="int
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="self--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>self</h4>
-<pre>protected&nbsp;<a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a>&nbsp;self()</pre>
-</li>
-</ul>
-<a name="operation--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>operation</h4>
-<pre>protected&nbsp;java.lang.String&nbsp;operation()</pre>
-<div class="block">A string that describes the action that produced the new snapshot.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a string operation</dd>
-</dl>
-</li>
-</ul>
 <a name="cherrypick-long-">
 <!--   -->
 </a>
@@ -517,40 +352,257 @@ implements <a href="../../../org/apache/iceberg/ManageSnapshots.html" title="int
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../org/apache/iceberg/ManageSnapshots.html#rollbackTo-long-">rollbackTo</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>snapshotId</code> - long id of snapshot id to roll back table to. Must be an ancestor of the current snapshot</dd>
+<dd><code>snapshotId</code> - long id of snapshot id to roll back table to. Must be an ancestor of the
+     current snapshot</dd>
 </dl>
 </li>
 </ul>
-<a name="updateEvent--">
+<a name="createBranch-java.lang.String-long-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>updateEvent</h4>
-<pre>public&nbsp;java.lang.Object&nbsp;updateEvent()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/PendingUpdate.html#updateEvent--">PendingUpdate</a></code></span></div>
-<div class="block">Generates update event to notify about metadata changes</div>
+<h4>createBranch</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a>&nbsp;createBranch(java.lang.String&nbsp;name,
+                                    long&nbsp;snapshotId)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html#createBranch-java.lang.String-long-">ManageSnapshots</a></code></span></div>
+<div class="block">Create a new branch pointing to the given snapshot id.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../org/apache/iceberg/PendingUpdate.html#updateEvent--">updateEvent</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/PendingUpdate.html" title="interface in org.apache.iceberg">PendingUpdate</a>&lt;<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;</code></dd>
+<dd><code><a href="../../../org/apache/iceberg/ManageSnapshots.html#createBranch-java.lang.String-long-">createBranch</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - branch name</dd>
+<dd><code>snapshotId</code> - id of the snapshot which will be the head of the branch</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the generated event</dd>
+<dd>this for method chaining</dd>
 </dl>
 </li>
 </ul>
-<a name="validate-org.apache.iceberg.TableMetadata-">
+<a name="createTag-java.lang.String-long-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>validate</h4>
-<pre>protected&nbsp;void&nbsp;validate(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base)</pre>
-<div class="block">Validate the current metadata.
- <p>
- Child operations can override this to add custom validation.</div>
+<h4>createTag</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a>&nbsp;createTag(java.lang.String&nbsp;name,
+                                 long&nbsp;snapshotId)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html#createTag-java.lang.String-long-">ManageSnapshots</a></code></span></div>
+<div class="block">Create a new tag pointing to the given snapshot id</div>
 <dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/ManageSnapshots.html#createTag-java.lang.String-long-">createTag</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>base</code> - current table metadata to validate</dd>
+<dd><code>name</code> - tag name</dd>
+<dd><code>snapshotId</code> - snapshotId for the head of the new branch.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a name="removeBranch-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>removeBranch</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a>&nbsp;removeBranch(java.lang.String&nbsp;name)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html#removeBranch-java.lang.String-">ManageSnapshots</a></code></span></div>
+<div class="block">Remove a branch by name</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/ManageSnapshots.html#removeBranch-java.lang.String-">removeBranch</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - branch name</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a name="removeTag-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>removeTag</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a>&nbsp;removeTag(java.lang.String&nbsp;name)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html#removeTag-java.lang.String-">ManageSnapshots</a></code></span></div>
+<div class="block">Remove the tag with the given name.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/ManageSnapshots.html#removeTag-java.lang.String-">removeTag</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - tag name</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a name="setMinSnapshotsToKeep-java.lang.String-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setMinSnapshotsToKeep</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a>&nbsp;setMinSnapshotsToKeep(java.lang.String&nbsp;name,
+                                             int&nbsp;minSnapshotsToKeep)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html#setMinSnapshotsToKeep-java.lang.String-int-">ManageSnapshots</a></code></span></div>
+<div class="block">Updates the minimum number of snapshots to keep for a branch.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/ManageSnapshots.html#setMinSnapshotsToKeep-java.lang.String-int-">setMinSnapshotsToKeep</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - branch name</dd>
+<dd><code>minSnapshotsToKeep</code> - minimum number of snapshots to retain on the branch</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a name="setMaxSnapshotAgeMs-java.lang.String-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setMaxSnapshotAgeMs</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a>&nbsp;setMaxSnapshotAgeMs(java.lang.String&nbsp;name,
+                                           long&nbsp;maxSnapshotAgeMs)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html#setMaxSnapshotAgeMs-java.lang.String-long-">ManageSnapshots</a></code></span></div>
+<div class="block">Updates the max snapshot age for a branch.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/ManageSnapshots.html#setMaxSnapshotAgeMs-java.lang.String-long-">setMaxSnapshotAgeMs</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - branch name</dd>
+<dd><code>maxSnapshotAgeMs</code> - maximum snapshot age in milliseconds to retain on branch</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a name="setMaxRefAgeMs-java.lang.String-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setMaxRefAgeMs</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a>&nbsp;setMaxRefAgeMs(java.lang.String&nbsp;name,
+                                      long&nbsp;maxRefAgeMs)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html#setMaxRefAgeMs-java.lang.String-long-">ManageSnapshots</a></code></span></div>
+<div class="block">Updates the retention policy for a reference.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/ManageSnapshots.html#setMaxRefAgeMs-java.lang.String-long-">setMaxRefAgeMs</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - branch name</dd>
+<dd><code>maxRefAgeMs</code> - retention age in milliseconds of the tag reference itself</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a name="replaceTag-java.lang.String-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>replaceTag</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a>&nbsp;replaceTag(java.lang.String&nbsp;name,
+                                  long&nbsp;snapshotId)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html#replaceTag-java.lang.String-long-">ManageSnapshots</a></code></span></div>
+<div class="block">Replaces the tag with the given name to point to the specified snapshot.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/ManageSnapshots.html#replaceTag-java.lang.String-long-">replaceTag</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - Tag to replace</dd>
+<dd><code>snapshotId</code> - new snapshot id for the given tag</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a name="replaceBranch-java.lang.String-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>replaceBranch</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a>&nbsp;replaceBranch(java.lang.String&nbsp;name,
+                                     long&nbsp;snapshotId)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html#replaceBranch-java.lang.String-long-">ManageSnapshots</a></code></span></div>
+<div class="block">Replaces the branch with the given name to point to the specified snapshot</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/ManageSnapshots.html#replaceBranch-java.lang.String-long-">replaceBranch</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - Branch to replace</dd>
+<dd><code>snapshotId</code> - new snapshot id for the given branch</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a name="replaceBranch-java.lang.String-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>replaceBranch</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a>&nbsp;replaceBranch(java.lang.String&nbsp;name,
+                                     java.lang.String&nbsp;source)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html#replaceBranch-java.lang.String-java.lang.String-">ManageSnapshots</a></code></span></div>
+<div class="block">Replaces the branch with the given name to point to the source snapshot. The source branch will
+ remain unchanged, the target branch will retain its retention properties.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/ManageSnapshots.html#replaceBranch-java.lang.String-java.lang.String-">replaceBranch</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - Branch to replace</dd>
+<dd><code>source</code> - Source reference for the target to be replaced with</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a name="fastForwardBranch-java.lang.String-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>fastForwardBranch</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a>&nbsp;fastForwardBranch(java.lang.String&nbsp;name,
+                                         java.lang.String&nbsp;source)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html#fastForwardBranch-java.lang.String-java.lang.String-">ManageSnapshots</a></code></span></div>
+<div class="block">Performs a fast-forward of the given target branch up to the source snapshot if target is an
+ ancestor of source. The source branch will remain unchanged, the target branch will retain its
+ retention properties.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/ManageSnapshots.html#fastForwardBranch-java.lang.String-java.lang.String-">fastForwardBranch</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - Branch to fast-forward</dd>
+<dd><code>source</code> - Source reference for the target to be fast forwarded to</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a name="renameBranch-java.lang.String-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>renameBranch</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a>&nbsp;renameBranch(java.lang.String&nbsp;name,
+                                    java.lang.String&nbsp;newName)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html#renameBranch-java.lang.String-java.lang.String-">ManageSnapshots</a></code></span></div>
+<div class="block">Rename a branch</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/ManageSnapshots.html#renameBranch-java.lang.String-java.lang.String-">renameBranch</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - name of branch to rename</dd>
+<dd><code>newName</code> - the desired new name of the branch</dd>
 </dl>
 </li>
 </ul>
@@ -563,8 +615,8 @@ implements <a href="../../../org/apache/iceberg/ManageSnapshots.html" title="int
 <pre>public&nbsp;<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;apply()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/PendingUpdate.html#apply--">PendingUpdate</a></code></span></div>
 <div class="block">Apply the pending changes and return the uncommitted changes for validation.
- <p>
- This does not result in a permanent update.</div>
+
+ <p>This does not result in a permanent update.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../org/apache/iceberg/PendingUpdate.html#apply--">apply</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/PendingUpdate.html" title="interface in org.apache.iceberg">PendingUpdate</a>&lt;<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;</code></dd>
@@ -573,468 +625,23 @@ implements <a href="../../../org/apache/iceberg/ManageSnapshots.html" title="int
 </dl>
 </li>
 </ul>
-<a name="set-java.lang.String-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>set</h4>
-<pre>public&nbsp;ThisT&nbsp;set(java.lang.String&nbsp;property,
-                 java.lang.String&nbsp;value)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/SnapshotUpdate.html#set-java.lang.String-java.lang.String-">SnapshotUpdate</a></code></span></div>
-<div class="block">Set a summary property in the snapshot produced by this update.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>property</code> - a String property name</dd>
-<dd><code>value</code> - a String property value</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>this for method chaining</dd>
-</dl>
-</li>
-</ul>
-<a name="caseSensitive-boolean-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>caseSensitive</h4>
-<pre>public&nbsp;ThisT&nbsp;caseSensitive(boolean&nbsp;isCaseSensitive)</pre>
-</li>
-</ul>
-<a name="isCaseSensitive--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isCaseSensitive</h4>
-<pre>protected&nbsp;boolean&nbsp;isCaseSensitive()</pre>
-</li>
-</ul>
-<a name="dataSpec--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>dataSpec</h4>
-<pre>protected&nbsp;<a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;dataSpec()</pre>
-</li>
-</ul>
-<a name="rowFilter--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>rowFilter</h4>
-<pre>protected&nbsp;<a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;rowFilter()</pre>
-</li>
-</ul>
-<a name="addedFiles--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>addedFiles</h4>
-<pre>protected&nbsp;java.util.List&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;&nbsp;addedFiles()</pre>
-</li>
-</ul>
-<a name="failAnyDelete--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>failAnyDelete</h4>
-<pre>protected&nbsp;void&nbsp;failAnyDelete()</pre>
-</li>
-</ul>
-<a name="failMissingDeletePaths--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>failMissingDeletePaths</h4>
-<pre>protected&nbsp;void&nbsp;failMissingDeletePaths()</pre>
-</li>
-</ul>
-<a name="deleteByRowFilter-org.apache.iceberg.expressions.Expression-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>deleteByRowFilter</h4>
-<pre>protected&nbsp;void&nbsp;deleteByRowFilter(<a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr)</pre>
-<div class="block">Add a filter to match files to delete. A file will be deleted if all of the rows it contains
- match this or any other filter passed to this method.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>expr</code> - an expression to match rows.</dd>
-</dl>
-</li>
-</ul>
-<a name="dropPartition-int-org.apache.iceberg.StructLike-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>dropPartition</h4>
-<pre>protected&nbsp;void&nbsp;dropPartition(int&nbsp;specId,
-                             <a href="../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&nbsp;partition)</pre>
-<div class="block">Add a partition tuple to drop from the table during the delete phase.</div>
-</li>
-</ul>
-<a name="delete-org.apache.iceberg.DataFile-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>delete</h4>
-<pre>protected&nbsp;void&nbsp;delete(<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&nbsp;file)</pre>
-<div class="block">Add a specific data file to be deleted in the new snapshot.</div>
-</li>
-</ul>
-<a name="delete-org.apache.iceberg.DeleteFile-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>delete</h4>
-<pre>protected&nbsp;void&nbsp;delete(<a href="../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg">DeleteFile</a>&nbsp;file)</pre>
-<div class="block">Add a specific delete file to be deleted in the new snapshot.</div>
-</li>
-</ul>
-<a name="delete-java.lang.CharSequence-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>delete</h4>
-<pre>protected&nbsp;void&nbsp;delete(java.lang.CharSequence&nbsp;path)</pre>
-<div class="block">Add a specific data path to be deleted in the new snapshot.</div>
-</li>
-</ul>
-<a name="add-org.apache.iceberg.DataFile-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>add</h4>
-<pre>protected&nbsp;void&nbsp;add(<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&nbsp;file)</pre>
-<div class="block">Add a data file to the new snapshot.</div>
-</li>
-</ul>
-<a name="add-org.apache.iceberg.DeleteFile-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>add</h4>
-<pre>protected&nbsp;void&nbsp;add(<a href="../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg">DeleteFile</a>&nbsp;file)</pre>
-<div class="block">Add a delete file to the new snapshot.</div>
-</li>
-</ul>
-<a name="add-org.apache.iceberg.ManifestFile-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>add</h4>
-<pre>protected&nbsp;void&nbsp;add(<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&nbsp;manifest)</pre>
-<div class="block">Add all files in a manifest to the new snapshot.</div>
-</li>
-</ul>
-<a name="validateAddedDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.expressions.Expression-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>validateAddedDataFiles</h4>
-<pre>protected&nbsp;void&nbsp;validateAddedDataFiles(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                                      java.lang.Long&nbsp;startingSnapshotId,
-                                      <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;conflictDetectionFilter)</pre>
-<div class="block">Validates that no files matching a filter have been added to the table since a starting snapshot.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>base</code> - table metadata to validate</dd>
-<dd><code>startingSnapshotId</code> - id of the snapshot current at the start of the operation</dd>
-<dd><code>conflictDetectionFilter</code> - an expression used to find new conflicting data files</dd>
-</dl>
-</li>
-</ul>
-<a name="validateNoNewDeletesForDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-java.lang.Iterable-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>validateNoNewDeletesForDataFiles</h4>
-<pre>protected&nbsp;void&nbsp;validateNoNewDeletesForDataFiles(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                                                java.lang.Long&nbsp;startingSnapshotId,
-                                                java.lang.Iterable&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;&nbsp;dataFiles)</pre>
-<div class="block">Validates that no new delete files that must be applied to the given data files have been added to the table since
- a starting snapshot.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>base</code> - table metadata to validate</dd>
-<dd><code>startingSnapshotId</code> - id of the snapshot current at the start of the operation</dd>
-<dd><code>dataFiles</code> - data files to validate have no new row deletes</dd>
-</dl>
-</li>
-</ul>
-<a name="validateNoNewDeletesForDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.expressions.Expression-java.lang.Iterable-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>validateNoNewDeletesForDataFiles</h4>
-<pre>protected&nbsp;void&nbsp;validateNoNewDeletesForDataFiles(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                                                java.lang.Long&nbsp;startingSnapshotId,
-                                                <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;dataFilter,
-                                                java.lang.Iterable&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;&nbsp;dataFiles)</pre>
-<div class="block">Validates that no new delete files that must be applied to the given data files have been added to the table since
- a starting snapshot.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>base</code> - table metadata to validate</dd>
-<dd><code>startingSnapshotId</code> - id of the snapshot current at the start of the operation</dd>
-<dd><code>dataFilter</code> - a data filter</dd>
-<dd><code>dataFiles</code> - data files to validate have no new row deletes</dd>
-</dl>
-</li>
-</ul>
-<a name="validateNoNewDeleteFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.expressions.Expression-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>validateNoNewDeleteFiles</h4>
-<pre>protected&nbsp;void&nbsp;validateNoNewDeleteFiles(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                                        java.lang.Long&nbsp;startingSnapshotId,
-                                        <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;dataFilter)</pre>
-<div class="block">Validates that no delete files matching a filter have been added to the table since a starting snapshot.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>base</code> - table metadata to validate</dd>
-<dd><code>startingSnapshotId</code> - id of the snapshot current at the start of the operation</dd>
-<dd><code>dataFilter</code> - an expression used to find new conflicting delete files</dd>
-</dl>
-</li>
-</ul>
-<a name="setNewFilesSequenceNumber-long-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setNewFilesSequenceNumber</h4>
-<pre>protected&nbsp;void&nbsp;setNewFilesSequenceNumber(long&nbsp;sequenceNumber)</pre>
-</li>
-</ul>
-<a name="validateDataFilesExist-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.util.CharSequenceSet-boolean-org.apache.iceberg.expressions.Expression-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>validateDataFilesExist</h4>
-<pre>protected&nbsp;void&nbsp;validateDataFilesExist(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                                      java.lang.Long&nbsp;startingSnapshotId,
-                                      <a href="../../../org/apache/iceberg/util/CharSequenceSet.html" title="class in org.apache.iceberg.util">CharSequenceSet</a>&nbsp;requiredDataFiles,
-                                      boolean&nbsp;skipDeletes,
-                                      <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;conflictDetectionFilter)</pre>
-</li>
-</ul>
-<a name="summary--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>summary</h4>
-<pre>protected&nbsp;java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;summary()</pre>
-</li>
-</ul>
-<a name="apply-org.apache.iceberg.TableMetadata-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>apply</h4>
-<pre>public&nbsp;java.util.List&lt;<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&gt;&nbsp;apply(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base)</pre>
-<div class="block">Apply the update's changes to the base table metadata and return the new manifest list.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>base</code> - the base table metadata to apply changes to</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a manifest list for the new snapshot.</dd>
-</dl>
-</li>
-</ul>
-<a name="cleanUncommitted-java.util.Set-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>cleanUncommitted</h4>
-<pre>protected&nbsp;void&nbsp;cleanUncommitted(java.util.Set&lt;<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&gt;&nbsp;committed)</pre>
-<div class="block">Clean up any uncommitted manifests that were created.
- <p>
- Manifests may not be committed if apply is called more because a commit conflict has occurred.
- Implementations may keep around manifests because the same changes will be made by both apply
- calls. This method instructs the implementation to clean up those manifests and passes the
- paths of the manifests that were actually committed.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>committed</code> - a set of manifest paths that were actually committed</dd>
-</dl>
-</li>
-</ul>
-<a name="stageOnly--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>stageOnly</h4>
-<pre>public&nbsp;ThisT&nbsp;stageOnly()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/SnapshotUpdate.html#stageOnly--">SnapshotUpdate</a></code></span></div>
-<div class="block">Called to stage a snapshot in table metadata, but not update the current snapshot id.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../org/apache/iceberg/SnapshotUpdate.html#stageOnly--">stageOnly</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interface in org.apache.iceberg">SnapshotUpdate</a>&lt;ThisT&gt;</code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>this for method chaining</dd>
-</dl>
-</li>
-</ul>
-<a name="deleteWith-java.util.function.Consumer-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>deleteWith</h4>
-<pre>public&nbsp;ThisT&nbsp;deleteWith(java.util.function.Consumer&lt;java.lang.String&gt;&nbsp;deleteCallback)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/SnapshotUpdate.html#deleteWith-java.util.function.Consumer-">SnapshotUpdate</a></code></span></div>
-<div class="block">Set a callback to delete files instead of the table's default.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../org/apache/iceberg/SnapshotUpdate.html#deleteWith-java.util.function.Consumer-">deleteWith</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interface in org.apache.iceberg">SnapshotUpdate</a>&lt;ThisT&gt;</code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>deleteCallback</code> - a String consumer used to delete locations.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>this for method chaining</dd>
-</dl>
-</li>
-</ul>
-<a name="current--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>current</h4>
-<pre>protected&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;current()</pre>
-</li>
-</ul>
-<a name="refresh--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>refresh</h4>
-<pre>protected&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;refresh()</pre>
-</li>
-</ul>
 <a name="commit--">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>commit</h4>
 <pre>public&nbsp;void&nbsp;commit()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/PendingUpdate.html#commit--">PendingUpdate</a></code></span></div>
 <div class="block">Apply the pending changes and commit.
- <p>
- Changes are committed by calling the underlying table's commit method.
- <p>
- Once the commit is successful, the updated table will be refreshed.</div>
+
+ <p>Changes are committed by calling the underlying table's commit method.
+
+ <p>Once the commit is successful, the updated table will be refreshed.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../org/apache/iceberg/PendingUpdate.html#commit--">commit</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/PendingUpdate.html" title="interface in org.apache.iceberg">PendingUpdate</a>&lt;<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&gt;</code></dd>
 </dl>
-</li>
-</ul>
-<a name="cleanAll--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>cleanAll</h4>
-<pre>protected&nbsp;void&nbsp;cleanAll()</pre>
-</li>
-</ul>
-<a name="deleteFile-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>deleteFile</h4>
-<pre>protected&nbsp;void&nbsp;deleteFile(java.lang.String&nbsp;path)</pre>
-</li>
-</ul>
-<a name="manifestListPath--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>manifestListPath</h4>
-<pre>protected&nbsp;<a href="../../../org/apache/iceberg/io/OutputFile.html" title="interface in org.apache.iceberg.io">OutputFile</a>&nbsp;manifestListPath()</pre>
-</li>
-</ul>
-<a name="newManifestOutput--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>newManifestOutput</h4>
-<pre>protected&nbsp;<a href="../../../org/apache/iceberg/io/OutputFile.html" title="interface in org.apache.iceberg.io">OutputFile</a>&nbsp;newManifestOutput()</pre>
-</li>
-</ul>
-<a name="newManifestWriter-org.apache.iceberg.PartitionSpec-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>newManifestWriter</h4>
-<pre>protected&nbsp;<a href="../../../org/apache/iceberg/ManifestWriter.html" title="class in org.apache.iceberg">ManifestWriter</a>&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;&nbsp;newManifestWriter(<a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec)</pre>
-</li>
-</ul>
-<a name="newDeleteManifestWriter-org.apache.iceberg.PartitionSpec-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>newDeleteManifestWriter</h4>
-<pre>protected&nbsp;<a href="../../../org/apache/iceberg/ManifestWriter.html" title="class in org.apache.iceberg">ManifestWriter</a>&lt;<a href="../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg">DeleteFile</a>&gt;&nbsp;newDeleteManifestWriter(<a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec)</pre>
-</li>
-</ul>
-<a name="newManifestReader-org.apache.iceberg.ManifestFile-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>newManifestReader</h4>
-<pre>protected&nbsp;<a href="../../../org/apache/iceberg/ManifestReader.html" title="class in org.apache.iceberg">ManifestReader</a>&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;&nbsp;newManifestReader(<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&nbsp;manifest)</pre>
-</li>
-</ul>
-<a name="newDeleteManifestReader-org.apache.iceberg.ManifestFile-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>newDeleteManifestReader</h4>
-<pre>protected&nbsp;<a href="../../../org/apache/iceberg/ManifestReader.html" title="class in org.apache.iceberg">ManifestReader</a>&lt;<a href="../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg">DeleteFile</a>&gt;&nbsp;newDeleteManifestReader(<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&nbsp;manifest)</pre>
-</li>
-</ul>
-<a name="snapshotId--">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>snapshotId</h4>
-<pre>protected&nbsp;long&nbsp;snapshotId()</pre>
 </li>
 </ul>
 </li>
@@ -1064,7 +671,7 @@ implements <a href="../../../org/apache/iceberg/ManageSnapshots.html" title="int
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/SnapshotIdGeneratorUtil.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../org/apache/iceberg/SnapshotParser.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

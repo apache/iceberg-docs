@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":17,"i1":17,"i2":17,"i3":6};
+var methods = {"i0":17,"i1":17,"i2":17,"i3":6,"i4":17};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -103,7 +103,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../org/apache/iceberg/flink/CatalogLoader.CustomCatalogLoader.html" title="class in org.apache.iceberg.flink">CatalogLoader.CustomCatalogLoader</a>, <a href="../../../../org/apache/iceberg/flink/CatalogLoader.HadoopCatalogLoader.html" title="class in org.apache.iceberg.flink">CatalogLoader.HadoopCatalogLoader</a>, <a href="../../../../org/apache/iceberg/flink/CatalogLoader.HiveCatalogLoader.html" title="class in org.apache.iceberg.flink">CatalogLoader.HiveCatalogLoader</a></dd>
+<dd><a href="../../../../org/apache/iceberg/flink/CatalogLoader.CustomCatalogLoader.html" title="class in org.apache.iceberg.flink">CatalogLoader.CustomCatalogLoader</a>, <a href="../../../../org/apache/iceberg/flink/CatalogLoader.HadoopCatalogLoader.html" title="class in org.apache.iceberg.flink">CatalogLoader.HadoopCatalogLoader</a>, <a href="../../../../org/apache/iceberg/flink/CatalogLoader.HiveCatalogLoader.html" title="class in org.apache.iceberg.flink">CatalogLoader.HiveCatalogLoader</a>, <a href="../../../../org/apache/iceberg/flink/CatalogLoader.RESTCatalogLoader.html" title="class in org.apache.iceberg.flink">CatalogLoader.RESTCatalogLoader</a></dd>
 </dl>
 <hr>
 <br>
@@ -139,6 +139,10 @@ extends java.io.Serializable</pre>
 <tr class="altColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/CatalogLoader.HiveCatalogLoader.html" title="class in org.apache.iceberg.flink">CatalogLoader.HiveCatalogLoader</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/CatalogLoader.RESTCatalogLoader.html" title="class in org.apache.iceberg.flink">CatalogLoader.RESTCatalogLoader</a></span></code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -180,6 +184,12 @@ extends java.io.Serializable</pre>
 <div class="block">Create a new catalog with the provided properties.</div>
 </td>
 </tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink">CatalogLoader</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/CatalogLoader.html#rest-java.lang.String-org.apache.hadoop.conf.Configuration-java.util.Map-">rest</a></span>(java.lang.String&nbsp;name,
+    org.apache.hadoop.conf.Configuration&nbsp;hadoopConf,
+    java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</code>&nbsp;</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -202,9 +212,10 @@ extends java.io.Serializable</pre>
 <li class="blockList">
 <h4>loadCatalog</h4>
 <pre><a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a>&nbsp;loadCatalog()</pre>
-<div class="block">Create a new catalog with the provided properties. NOTICE: for flink, we may initialize the <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink"><code>CatalogLoader</code></a>
- at flink sql client side or job manager side, and then serialize this catalog loader to task manager, finally
- deserialize it and create a new catalog at task manager side.</div>
+<div class="block">Create a new catalog with the provided properties. NOTICE: for flink, we may initialize the
+ <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink"><code>CatalogLoader</code></a> at flink sql client side or job manager side, and then serialize this
+ catalog loader to task manager, finally deserialize it and create a new catalog at task manager
+ side.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a newly created <a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog"><code>Catalog</code></a></dd>
@@ -229,6 +240,17 @@ extends java.io.Serializable</pre>
 <li class="blockList">
 <h4>hive</h4>
 <pre>static&nbsp;<a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink">CatalogLoader</a>&nbsp;hive(java.lang.String&nbsp;name,
+                          org.apache.hadoop.conf.Configuration&nbsp;hadoopConf,
+                          java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</pre>
+</li>
+</ul>
+<a name="rest-java.lang.String-org.apache.hadoop.conf.Configuration-java.util.Map-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>rest</h4>
+<pre>static&nbsp;<a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink">CatalogLoader</a>&nbsp;rest(java.lang.String&nbsp;name,
                           org.apache.hadoop.conf.Configuration&nbsp;hadoopConf,
                           java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</pre>
 </li>

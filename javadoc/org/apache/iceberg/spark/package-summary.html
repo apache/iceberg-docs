@@ -41,7 +41,7 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/schema/package-summary.html">Prev&nbsp;Package</a></li>
+<li><a href="../../../../org/apache/iceberg/snowflake/package-summary.html">Prev&nbsp;Package</a></li>
 <li><a href="../../../../org/apache/iceberg/spark/actions/package-summary.html">Next&nbsp;Package</a></li>
 </ul>
 <ul class="navList">
@@ -73,6 +73,21 @@
 <div class="contentContainer">
 <ul class="blockList">
 <li class="blockList">
+<table class="typeSummary" border="0" cellpadding="3" cellspacing="0" summary="Interface Summary table, listing interfaces, and an explanation">
+<caption><span>Interface Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Interface</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/ExtendedParser.html" title="interface in org.apache.iceberg.spark">ExtendedParser</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li class="blockList">
 <table class="typeSummary" border="0" cellpadding="3" cellspacing="0" summary="Class Summary table, listing classes, and an explanation">
 <caption><span>Class Summary</span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
@@ -81,45 +96,66 @@
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/FileRewriteCoordinator.html" title="class in org.apache.iceberg.spark">FileRewriteCoordinator</a></td>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/FileScanTaskSetManager.html" title="class in org.apache.iceberg.spark">FileScanTaskSetManager</a></td>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/IcebergSpark.html" title="class in org.apache.iceberg.spark">IcebergSpark</a></td>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/JobGroupInfo.html" title="class in org.apache.iceberg.spark">JobGroupInfo</a></td>
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/ChangelogIterator.html" title="class in org.apache.iceberg.spark">ChangelogIterator</a></td>
 <td class="colLast">
-<div class="block">Captures information about the current job
- which is used for displaying on the UI</div>
+<div class="block">An iterator that transforms rows from changelog tables within a single Spark task.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/CommitMetadata.html" title="class in org.apache.iceberg.spark">CommitMetadata</a></td>
+<td class="colLast">
+<div class="block">utility class to accept thread local commit properties</div>
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/ExtendedParser.RawOrderField.html" title="class in org.apache.iceberg.spark">ExtendedParser.RawOrderField</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/FileRewriteCoordinator.html" title="class in org.apache.iceberg.spark">FileRewriteCoordinator</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/FileScanTaskSetManager.html" title="class in org.apache.iceberg.spark">FileScanTaskSetManager</a></td>
+<td class="colLast">Deprecated
+<div class="block"><span class="deprecationComment">will be removed in 1.3.0, use <a href="../../../../org/apache/iceberg/spark/ScanTaskSetManager.html" title="class in org.apache.iceberg.spark"><code>ScanTaskSetManager</code></a> instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/IcebergSpark.html" title="class in org.apache.iceberg.spark">IcebergSpark</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/JobGroupInfo.html" title="class in org.apache.iceberg.spark">JobGroupInfo</a></td>
+<td class="colLast">
+<div class="block">Captures information about the current job which is used for displaying on the UI</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/JobGroupUtils.html" title="class in org.apache.iceberg.spark">JobGroupUtils</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/PathIdentifier.html" title="class in org.apache.iceberg.spark">PathIdentifier</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/PruneColumnsWithoutReordering.html" title="class in org.apache.iceberg.spark">PruneColumnsWithoutReordering</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/PruneColumnsWithReordering.html" title="class in org.apache.iceberg.spark">PruneColumnsWithReordering</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/RollbackStagedTable.html" title="class in org.apache.iceberg.spark">RollbackStagedTable</a></td>
 <td class="colLast">
 <div class="block">An implementation of StagedTable that mimics the behavior of Spark's non-atomic CTAS and RTAS.</div>
 </td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/ScanTaskSetManager.html" title="class in org.apache.iceberg.spark">ScanTaskSetManager</a></td>
+<td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/Spark3Util.html" title="class in org.apache.iceberg.spark">Spark3Util</a></td>
@@ -134,6 +170,16 @@
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/Spark3Util.DescribeSchemaVisitor.html" title="class in org.apache.iceberg.spark">Spark3Util.DescribeSchemaVisitor</a></td>
 <td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkAggregates.html" title="class in org.apache.iceberg.spark">SparkAggregates</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkCachedTableCatalog.html" title="class in org.apache.iceberg.spark">SparkCachedTableCatalog</a></td>
+<td class="colLast">
+<div class="block">An internal table catalog that is capable of loading tables from a cache.</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkCatalog.html" title="class in org.apache.iceberg.spark">SparkCatalog</a></td>
@@ -190,20 +236,28 @@
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkTableCache.html" title="class in org.apache.iceberg.spark">SparkTableCache</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkTableUtil.html" title="class in org.apache.iceberg.spark">SparkTableUtil</a></td>
 <td class="colLast">
 <div class="block">Java version of the original SparkTableUtil.scala
  https://github.com/apache/iceberg/blob/apache-iceberg-0.8.0-incubating/spark/src/main/scala/org/apache/iceberg/spark/SparkTableUtil.scala</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkTableUtil.SparkPartition.html" title="class in org.apache.iceberg.spark">SparkTableUtil.SparkPartition</a></td>
 <td class="colLast">
 <div class="block">Class representing a table partition.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkUtil.html" title="class in org.apache.iceberg.spark">SparkUtil</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkV2Filters.html" title="class in org.apache.iceberg.spark">SparkV2Filters</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
@@ -249,7 +303,7 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/schema/package-summary.html">Prev&nbsp;Package</a></li>
+<li><a href="../../../../org/apache/iceberg/snowflake/package-summary.html">Prev&nbsp;Package</a></li>
 <li><a href="../../../../org/apache/iceberg/spark/actions/package-summary.html">Next&nbsp;Package</a></li>
 </ul>
 <ul class="navList">

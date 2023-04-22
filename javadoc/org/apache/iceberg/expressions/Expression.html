@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":18,"i1":6};
+var methods = {"i0":18,"i1":18,"i2":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -103,7 +103,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../org/apache/iceberg/expressions/And.html" title="class in org.apache.iceberg.expressions">And</a>, <a href="../../../../org/apache/iceberg/expressions/BoundLiteralPredicate.html" title="class in org.apache.iceberg.expressions">BoundLiteralPredicate</a>, <a href="../../../../org/apache/iceberg/expressions/BoundPredicate.html" title="class in org.apache.iceberg.expressions">BoundPredicate</a>, <a href="../../../../org/apache/iceberg/expressions/BoundSetPredicate.html" title="class in org.apache.iceberg.expressions">BoundSetPredicate</a>, <a href="../../../../org/apache/iceberg/expressions/BoundUnaryPredicate.html" title="class in org.apache.iceberg.expressions">BoundUnaryPredicate</a>, <a href="../../../../org/apache/iceberg/expressions/False.html" title="class in org.apache.iceberg.expressions">False</a>, <a href="../../../../org/apache/iceberg/expressions/Not.html" title="class in org.apache.iceberg.expressions">Not</a>, <a href="../../../../org/apache/iceberg/expressions/Or.html" title="class in org.apache.iceberg.expressions">Or</a>, <a href="../../../../org/apache/iceberg/expressions/Predicate.html" title="class in org.apache.iceberg.expressions">Predicate</a>, <a href="../../../../org/apache/iceberg/expressions/True.html" title="class in org.apache.iceberg.expressions">True</a>, <a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a></dd>
+<dd><a href="../../../../org/apache/iceberg/expressions/Aggregate.html" title="class in org.apache.iceberg.expressions">Aggregate</a>, <a href="../../../../org/apache/iceberg/expressions/And.html" title="class in org.apache.iceberg.expressions">And</a>, <a href="../../../../org/apache/iceberg/expressions/BoundAggregate.html" title="class in org.apache.iceberg.expressions">BoundAggregate</a>, <a href="../../../../org/apache/iceberg/expressions/BoundLiteralPredicate.html" title="class in org.apache.iceberg.expressions">BoundLiteralPredicate</a>, <a href="../../../../org/apache/iceberg/expressions/BoundPredicate.html" title="class in org.apache.iceberg.expressions">BoundPredicate</a>, <a href="../../../../org/apache/iceberg/expressions/BoundSetPredicate.html" title="class in org.apache.iceberg.expressions">BoundSetPredicate</a>, <a href="../../../../org/apache/iceberg/expressions/BoundUnaryPredicate.html" title="class in org.apache.iceberg.expressions">BoundUnaryPredicate</a>, <a href="../../../../org/apache/iceberg/expressions/CountAggregate.html" title="class in org.apache.iceberg.expressions">CountAggregate</a>, <a href="../../../../org/apache/iceberg/expressions/CountNonNull.html" title="class in org.apache.iceberg.expressions">CountNonNull</a>, <a href="../../../../org/apache/iceberg/expressions/CountStar.html" title="class in org.apache.iceberg.expressions">CountStar</a>, <a href="../../../../org/apache/iceberg/expressions/False.html" title="class in org.apache.iceberg.expressions">False</a>, <a href="../../../../org/apache/iceberg/expressions/MaxAggregate.html" title="class in org.apache.iceberg.expressions">MaxAggregate</a>, <a href="../../../../org/apache/iceberg/expressions/MinAggregate.html" title="class in org.apache.iceberg.expressions">MinAggregate</a>, <a href="../../../../org/apache/iceberg/expressions/Not.html" title="class in org.apache.iceberg.expressions">Not</a>, <a href="../../../../org/apache/iceberg/expressions/Or.html" title="class in org.apache.iceberg.expressions">Or</a>, <a href="../../../../org/apache/iceberg/expressions/Predicate.html" title="class in org.apache.iceberg.expressions">Predicate</a>, <a href="../../../../org/apache/iceberg/expressions/True.html" title="class in org.apache.iceberg.expressions">True</a>, <a href="../../../../org/apache/iceberg/expressions/UnboundAggregate.html" title="class in org.apache.iceberg.expressions">UnboundAggregate</a>, <a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a></dd>
 </dl>
 <hr>
 <br>
@@ -148,12 +148,18 @@ extends java.io.Serializable</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>default boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expression.html#isEquivalentTo-org.apache.iceberg.expressions.Expression-">isEquivalentTo</a></span>(<a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;other)</code>
+<div class="block">Returns whether this expression will accept the same values as another.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>default <a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expression.html#negate--">negate</a></span>()</code>
 <div class="block">Returns the negation of this expression, equivalent to not(this).</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/expressions/Expression.Operation.html" title="enum in org.apache.iceberg.expressions">Expression.Operation</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/Expression.html#op--">op</a></span>()</code>
 <div class="block">Returns the operation for an expression node.</div>
@@ -187,11 +193,33 @@ extends java.io.Serializable</pre>
 <a name="negate--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>negate</h4>
 <pre>default&nbsp;<a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;negate()</pre>
 <div class="block">Returns the negation of this expression, equivalent to not(this).</div>
+</li>
+</ul>
+<a name="isEquivalentTo-org.apache.iceberg.expressions.Expression-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>isEquivalentTo</h4>
+<pre>default&nbsp;boolean&nbsp;isEquivalentTo(<a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;other)</pre>
+<div class="block">Returns whether this expression will accept the same values as another.
+
+ <p>If this returns true, the expressions are guaranteed to return the same evaluation for the
+ same input. However, if this returns false the expressions may return the same evaluation for
+ the same input. That is, expressions may be equivalent even if this returns false.
+
+ <p>For best results, rewrite not and bind expressions before calling this method.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>other</code> - another expression</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if the expressions are equivalent</dd>
+</dl>
 </li>
 </ul>
 </li>

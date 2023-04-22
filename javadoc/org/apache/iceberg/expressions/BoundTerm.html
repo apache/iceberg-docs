@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":18,"i1":6};
+var methods = {"i0":18,"i1":6,"i2":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -139,6 +139,12 @@ extends <a href="../../../../org/apache/iceberg/expressions/Bound.html" title="i
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/BoundTerm.html#isEquivalentTo-org.apache.iceberg.expressions.BoundTerm-">isEquivalentTo</a></span>(<a href="../../../../org/apache/iceberg/expressions/BoundTerm.html" title="interface in org.apache.iceberg.expressions">BoundTerm</a>&lt;?&gt;&nbsp;other)</code>
+<div class="block">Returns whether this term is equivalent to another.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types">Type</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/BoundTerm.html#type--">type</a></span>()</code>
 <div class="block">Returns the type produced by this expression.</div>
@@ -179,11 +185,27 @@ extends <a href="../../../../org/apache/iceberg/expressions/Bound.html" title="i
 <a name="comparator--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>comparator</h4>
 <pre>default&nbsp;java.util.Comparator&lt;<a href="../../../../org/apache/iceberg/expressions/BoundTerm.html" title="type parameter in BoundTerm">T</a>&gt;&nbsp;comparator()</pre>
 <div class="block">Returns a <code>Comparator</code> for values produced by this term.</div>
+</li>
+</ul>
+<a name="isEquivalentTo-org.apache.iceberg.expressions.BoundTerm-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>isEquivalentTo</h4>
+<pre>boolean&nbsp;isEquivalentTo(<a href="../../../../org/apache/iceberg/expressions/BoundTerm.html" title="interface in org.apache.iceberg.expressions">BoundTerm</a>&lt;?&gt;&nbsp;other)</pre>
+<div class="block">Returns whether this term is equivalent to another.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>other</code> - a term</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if this term returns the same values as the other, false otherwise</dd>
+</dl>
 </li>
 </ul>
 </li>

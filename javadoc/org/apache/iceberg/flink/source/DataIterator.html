@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,8 +47,8 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
-<li><a href="../../../../../org/apache/iceberg/flink/source/FileScanTaskReader.html" title="interface in org.apache.iceberg.flink.source"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/iceberg/flink/source/AvroGenericRecordFileScanTaskReader.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/iceberg/flink/source/DataTaskReader.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/iceberg/flink/source/DataIterator.html" target="_top">Frames</a></li>
@@ -164,11 +164,31 @@ implements <a href="../../../../../org/apache/iceberg/io/CloseableIterator.html"
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/DataIterator.html#hasNext--">hasNext</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/DataIterator.html#currentFileHasNext--">currentFileHasNext</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/DataIterator.html#fileOffset--">fileOffset</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/DataIterator.html#hasNext--">hasNext</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/DataIterator.html" title="type parameter in DataIterator">T</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/DataIterator.html#next--">next</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/DataIterator.html#recordOffset--">recordOffset</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/DataIterator.html#seek-int-long-">seek</a></span>(int&nbsp;startingFileOffset,
+    long&nbsp;startingRecordOffset)</code>
+<div class="block">(startingFileOffset, startingRecordOffset) points to the next row that reader should resume
+ from.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -183,7 +203,7 @@ implements <a href="../../../../../org/apache/iceberg/io/CloseableIterator.html"
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.iceberg.io.<a href="../../../../../org/apache/iceberg/io/CloseableIterator.html" title="interface in org.apache.iceberg.io">CloseableIterator</a></h3>
-<code><a href="../../../../../org/apache/iceberg/io/CloseableIterator.html#empty--">empty</a>, <a href="../../../../../org/apache/iceberg/io/CloseableIterator.html#transform-org.apache.iceberg.io.CloseableIterator-java.util.function.Function-">transform</a>, <a href="../../../../../org/apache/iceberg/io/CloseableIterator.html#withClose-java.util.Iterator-">withClose</a></code></li>
+<code><a href="../../../../../org/apache/iceberg/io/CloseableIterator.html#count-org.apache.iceberg.metrics.Counter-org.apache.iceberg.io.CloseableIterator-">count</a>, <a href="../../../../../org/apache/iceberg/io/CloseableIterator.html#empty--">empty</a>, <a href="../../../../../org/apache/iceberg/io/CloseableIterator.html#transform-org.apache.iceberg.io.CloseableIterator-java.util.function.Function-">transform</a>, <a href="../../../../../org/apache/iceberg/io/CloseableIterator.html#withClose-java.util.Iterator-">withClose</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.util.Iterator">
@@ -226,6 +246,19 @@ implements <a href="../../../../../org/apache/iceberg/io/CloseableIterator.html"
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="seek-int-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>seek</h4>
+<pre>public&nbsp;void&nbsp;seek(int&nbsp;startingFileOffset,
+                 long&nbsp;startingRecordOffset)</pre>
+<div class="block">(startingFileOffset, startingRecordOffset) points to the next row that reader should resume
+ from. E.g., if the seek position is (file=0, record=1), seek moves the iterator position to the
+ 2nd row in file 0. When next() is called after seek, 2nd row from file 0 should be returned.</div>
+</li>
+</ul>
 <a name="hasNext--">
 <!--   -->
 </a>
@@ -252,10 +285,19 @@ implements <a href="../../../../../org/apache/iceberg/io/CloseableIterator.html"
 </dl>
 </li>
 </ul>
+<a name="currentFileHasNext--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>currentFileHasNext</h4>
+<pre>public&nbsp;boolean&nbsp;currentFileHasNext()</pre>
+</li>
+</ul>
 <a name="close--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>close</h4>
 <pre>public&nbsp;void&nbsp;close()
@@ -268,6 +310,24 @@ implements <a href="../../../../../org/apache/iceberg/io/CloseableIterator.html"
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.io.IOException</code></dd>
 </dl>
+</li>
+</ul>
+<a name="fileOffset--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>fileOffset</h4>
+<pre>public&nbsp;int&nbsp;fileOffset()</pre>
+</li>
+</ul>
+<a name="recordOffset--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>recordOffset</h4>
+<pre>public&nbsp;long&nbsp;recordOffset()</pre>
 </li>
 </ul>
 </li>
@@ -297,8 +357,8 @@ implements <a href="../../../../../org/apache/iceberg/io/CloseableIterator.html"
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
-<li><a href="../../../../../org/apache/iceberg/flink/source/FileScanTaskReader.html" title="interface in org.apache.iceberg.flink.source"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/iceberg/flink/source/AvroGenericRecordFileScanTaskReader.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/iceberg/flink/source/DataTaskReader.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/iceberg/flink/source/DataIterator.html" target="_top">Frames</a></li>

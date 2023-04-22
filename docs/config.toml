@@ -9,8 +9,8 @@ theme= "iceberg-theme"
   siteType = "docs"
   search = true
   versions.iceberg = "" # This is populated by the github deploy workflow and is equal to the branch name
-  versions.nessie = "0.20.0"
-  latestVersions.iceberg = "0.14.0"  # This is used for the version badge on the "latest" site version
+  versions.nessie = "0.50.0"
+  latestVersions.iceberg = "1.2.1"  # This is used for the version badge on the "latest" site version
   BookSection='docs' # This determines which directory will inform the left navigation menu
   disableHome=true
 
@@ -24,6 +24,10 @@ home = [ "HTML", "RSS", "SearchIndex" ]
 [menu]
   versions = [
     { name = "latest", pre = "relative", url = "../latest", weight = 1 },
+    { name = "1.2.0", pre = "relative", url = "../1.2.0", weight = 992 },
+    { name = "1.1.0", pre = "relative", url = "../1.1.0", weight = 993 },
+    { name = "1.0.0", pre = "relative", url = "../1.0.0", weight = 994 },
+    { name = "0.14.1", pre = "relative", url = "../0.14.1", weight = 995 },
     { name = "0.14.0", pre = "relative", url = "../0.14.0", weight = 996 },
     { name = "0.13.2", pre = "relative", url = "../0.13.2", weight = 997 },
     { name = "0.13.1", pre = "relative", url = "../0.13.1", weight = 998 },
@@ -42,6 +46,7 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     { name = "Spec", parent = "Project", pre = "relative", url = "../../spec", weight = 200 },
     { name = "View Spec", parent = "Project", pre = "relative", url = "../../view-spec", weight = 300 },
     { name = "Puffin Spec", parent = "Project", pre = "relative", url = "../../puffin-spec", weight = 400 },
+    { name = "Multi-Engine Support", parent = "Project", pre = "relative", url = "../../multi-engine-support", weight = 450 },
     { name = "How To Release", parent = "Project", pre = "relative", url = "../../how-to-release", weight = 500 },
     { name = "Terms", parent = "Project", pre = "relative", url = "../../terms", weight = 600 },
     { name = "ASF", weight = 1200 },
@@ -63,7 +68,8 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     { name = "Amazon Athena", identifier = "_athena", weight = 800, url = "https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html" },
     { name = "Amazon EMR", identifier = "_emr", weight = 900, url = "https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-iceberg-use-cluster.html" },
     { name = "Impala", identifier = "_impala", weight = 1000, url = "https://impala.apache.org/docs/build/html/topics/impala_iceberg.html" },
-    { name = "Doris", identifier = "_doris", weight = 1001, url = "https://doris.apache.org/docs/ecosystem/external-table/iceberg-of-doris" },
+    { name = "Doris", identifier = "_doris", weight = 1001, url = "https://doris.apache.org/docs/dev/lakehouse/multi-catalog/iceberg" },
+    { name = "PyIceberg", identifier = "_python", weight = 1400, url = "https://py.iceberg.apache.org/"},
     { name = "Integrations", weight = 1100 },
     { name = "API", weight = 1200},
     { name = "Migration", weight = 1300},

@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":18,"i16":6,"i17":6,"i18":6,"i19":6};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":18,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6,"i16":18,"i17":6,"i18":6,"i19":6,"i20":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/apache/iceberg/CombinedScanTask.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/ContentScanTask.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/ContentFile.html" target="_top">Frames</a></li>
@@ -150,102 +150,109 @@ var activeTableTab = "activeTableTab";
 </td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>default <a href="../../../org/apache/iceberg/ContentFile.html" title="type parameter in ContentFile">F</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#copy-boolean-">copy</a></span>(boolean&nbsp;withStats)</code>
+<div class="block">Copies this file (potentially without file stats).</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ContentFile.html" title="type parameter in ContentFile">F</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#copyWithoutStats--">copyWithoutStats</a></span>()</code>
 <div class="block">Copies this file without file stats.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.util.List&lt;java.lang.Integer&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#equalityFieldIds--">equalityFieldIds</a></span>()</code>
 <div class="block">Returns the set of field IDs used for equality comparison, in equality delete files.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#fileSizeInBytes--">fileSizeInBytes</a></span>()</code>
 <div class="block">Returns the file size in bytes.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/FileFormat.html" title="enum in org.apache.iceberg">FileFormat</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#format--">format</a></span>()</code>
 <div class="block">Returns format of the file.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.nio.ByteBuffer</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#keyMetadata--">keyMetadata</a></span>()</code>
 <div class="block">Returns metadata about how this file is encrypted, or null if the file is stored in plain text.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.Integer,java.nio.ByteBuffer&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#lowerBounds--">lowerBounds</a></span>()</code>
 <div class="block">Returns if collected, map from column ID to value lower bounds, null otherwise.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.Integer,java.lang.Long&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#nanValueCounts--">nanValueCounts</a></span>()</code>
 <div class="block">Returns if collected, map from column ID to its NaN value count, null otherwise.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.Integer,java.lang.Long&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#nullValueCounts--">nullValueCounts</a></span>()</code>
 <div class="block">Returns if collected, map from column ID to its null value count, null otherwise.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#partition--">partition</a></span>()</code>
 <div class="block">Returns partition for this file as a <a href="../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg"><code>StructLike</code></a>.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>java.lang.CharSequence</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#path--">path</a></span>()</code>
 <div class="block">Returns fully qualified path to the file, suitable for constructing a Hadoop Path.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>java.lang.Long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#pos--">pos</a></span>()</code>
-<div class="block">Returns the ordinal position of the file in a manifest, or null if it was not read from a manifest.</div>
+<div class="block">Returns the ordinal position of the file in a manifest, or null if it was not read from a
+ manifest.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#recordCount--">recordCount</a></span>()</code>
 <div class="block">Returns the number of top-level records in the file.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>default java.lang.Integer</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#sortOrderId--">sortOrderId</a></span>()</code>
 <div class="block">Returns the sort order id of this file, which describes how the file is ordered.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#specId--">specId</a></span>()</code>
 <div class="block">Returns id of the partition spec used for partition metadata.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;java.lang.Long&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#splitOffsets--">splitOffsets</a></span>()</code>
 <div class="block">Returns list of recommended split locations, if applicable, null otherwise.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.Integer,java.nio.ByteBuffer&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#upperBounds--">upperBounds</a></span>()</code>
 <div class="block">Returns if collected, map from column ID to value upper bounds, null otherwise.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.Integer,java.lang.Long&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#valueCounts--">valueCounts</a></span>()</code>
 <div class="block">Returns if collected, map from column ID to the count of its non-null values, null otherwise.</div>
@@ -273,7 +280,8 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>pos</h4>
 <pre>java.lang.Long&nbsp;pos()</pre>
-<div class="block">Returns the ordinal position of the file in a manifest, or null if it was not read from a manifest.</div>
+<div class="block">Returns the ordinal position of the file in a manifest, or null if it was not read from a
+ manifest.</div>
 </li>
 </ul>
 <a name="specId--">
@@ -424,9 +432,9 @@ var activeTableTab = "activeTableTab";
 <h4>splitOffsets</h4>
 <pre>java.util.List&lt;java.lang.Long&gt;&nbsp;splitOffsets()</pre>
 <div class="block">Returns list of recommended split locations, if applicable, null otherwise.
- <p>
- When available, this information is used for planning scan tasks whose boundaries
- are determined by these offsets. The returned list must be sorted in ascending order.</div>
+
+ <p>When available, this information is used for planning scan tasks whose boundaries are
+ determined by these offsets. The returned list must be sorted in ascending order.</div>
 </li>
 </ul>
 <a name="equalityFieldIds--">
@@ -437,11 +445,11 @@ var activeTableTab = "activeTableTab";
 <h4>equalityFieldIds</h4>
 <pre>java.util.List&lt;java.lang.Integer&gt;&nbsp;equalityFieldIds()</pre>
 <div class="block">Returns the set of field IDs used for equality comparison, in equality delete files.
- <p>
- An equality delete file may contain additional data fields that are not used by equality
+
+ <p>An equality delete file may contain additional data fields that are not used by equality
  comparison. The subset of columns in a delete file to be used in equality comparison are
- tracked by ID. Extra columns can be used to reconstruct changes and metrics from extra
- columns are used during job planning.</div>
+ tracked by ID. Extra columns can be used to reconstruct changes and metrics from extra columns
+ are used during job planning.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>IDs of the fields used in equality comparison with the records in this delete file</dd>
@@ -455,9 +463,9 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>sortOrderId</h4>
 <pre>default&nbsp;java.lang.Integer&nbsp;sortOrderId()</pre>
-<div class="block">Returns the sort order id of this file, which describes how the file is ordered.
- This information will be useful for merging data and equality delete files more efficiently
- when they share the same sort order id.</div>
+<div class="block">Returns the sort order id of this file, which describes how the file is ordered. This
+ information will be useful for merging data and equality delete files more efficiently when
+ they share the same sort order id.</div>
 </li>
 </ul>
 <a name="copy--">
@@ -467,8 +475,8 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>copy</h4>
 <pre><a href="../../../org/apache/iceberg/ContentFile.html" title="type parameter in ContentFile">F</a>&nbsp;copy()</pre>
-<div class="block">Copies this file. Manifest readers can reuse file instances; use
- this method to copy data when collecting files from tasks.</div>
+<div class="block">Copies this file. Manifest readers can reuse file instances; use this method to copy data when
+ collecting files from tasks.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a copy of this data file</dd>
@@ -478,16 +486,35 @@ var activeTableTab = "activeTableTab";
 <a name="copyWithoutStats--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>copyWithoutStats</h4>
 <pre><a href="../../../org/apache/iceberg/ContentFile.html" title="type parameter in ContentFile">F</a>&nbsp;copyWithoutStats()</pre>
-<div class="block">Copies this file without file stats. Manifest readers can reuse file instances; use
- this method to copy data without stats when collecting files.</div>
+<div class="block">Copies this file without file stats. Manifest readers can reuse file instances; use this method
+ to copy data without stats when collecting files.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>a copy of this data file, without lower bounds, upper bounds, value counts,
-         null value counts, or nan value counts</dd>
+<dd>a copy of this data file, without lower bounds, upper bounds, value counts, null value
+     counts, or nan value counts</dd>
+</dl>
+</li>
+</ul>
+<a name="copy-boolean-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>copy</h4>
+<pre>default&nbsp;<a href="../../../org/apache/iceberg/ContentFile.html" title="type parameter in ContentFile">F</a>&nbsp;copy(boolean&nbsp;withStats)</pre>
+<div class="block">Copies this file (potentially without file stats). Manifest readers can reuse file instances;
+ use this method to copy data when collecting files from tasks.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>withStats</code> - Will copy this file without file stats if set to <code>false</code>.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a copy of this data file. If <code>withStats</code> is set to <code>false</code> the
+     file will not contain lower bounds, upper bounds, value counts, null value counts, or nan
+     value counts</dd>
 </dl>
 </li>
 </ul>
@@ -519,7 +546,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/apache/iceberg/CombinedScanTask.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/ContentScanTask.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/ContentFile.html" target="_top">Frames</a></li>

@@ -42,7 +42,7 @@ highlight some powerful features. You can learn more about Iceberg's Spark runti
 
 ### Docker-Compose
 
-The fastest way to get started is to use a docker-compose file that uses the the [tabulario/spark-iceberg](https://hub.docker.com/r/tabulario/spark-iceberg) image
+The fastest way to get started is to use a docker-compose file that uses the [tabulario/spark-iceberg](https://hub.docker.com/r/tabulario/spark-iceberg) image
 which contains a local Spark cluster with a configured Iceberg catalog. To use this, you'll need to install the [Docker CLI](https://docs.docker.com/get-docker/) as well as the [Docker Compose CLI](https://github.com/docker/compose-cli/blob/main/INSTALL.md).
 
 Once you have those, save the yaml below into a file named `docker-compose.yml`:
@@ -53,29 +53,76 @@ version: "3"
 services:
   spark-iceberg:
     image: tabulario/spark-iceberg
-    depends_on:
-      - postgres
     container_name: spark-iceberg
-    environment:
-      - SPARK_HOME=/opt/spark
-      - PYSPARK_PYTON=/usr/bin/python3.9
-      - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/spark/bin
+    build: spark/
+    networks:
+      iceberg_net:
+    depends_on:
+      - rest
+      - minio
     volumes:
       - ./warehouse:/home/iceberg/warehouse
       - ./notebooks:/home/iceberg/notebooks/notebooks
+    environment:
+      - AWS_ACCESS_KEY_ID=admin
+      - AWS_SECRET_ACCESS_KEY=password
+      - AWS_REGION=us-east-1
     ports:
       - 8888:8888
       - 8080:8080
-      - 18080:18080
-  postgres:
-    image: postgres:13.4-bullseye
-    container_name: postgres
+      - 10000:10000
+      - 10001:10001
+  rest:
+    image: tabulario/iceberg-rest
+    container_name: iceberg-rest
+    networks:
+      iceberg_net:
+    ports:
+      - 8181:8181
     environment:
-      - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=demo_catalog
-    volumes:
-      - ./postgres/data:/var/lib/postgresql/data
+      - AWS_ACCESS_KEY_ID=admin
+      - AWS_SECRET_ACCESS_KEY=password
+      - AWS_REGION=us-east-1
+      - CATALOG_WAREHOUSE=s3://warehouse/
+      - CATALOG_IO__IMPL=org.apache.iceberg.aws.s3.S3FileIO
+      - CATALOG_S3_ENDPOINT=http://minio:9000
+  minio:
+    image: minio/minio
+    container_name: minio
+    environment:
+      - MINIO_ROOT_USER=admin
+      - MINIO_ROOT_PASSWORD=password
+      - MINIO_DOMAIN=minio
+    networks:
+      iceberg_net:
+        aliases:
+          - warehouse.minio
+    ports:
+      - 9001:9001
+      - 9000:9000
+    command: ["server", "/data", "--console-address", ":9001"]
+  mc:
+    depends_on:
+      - minio
+    image: minio/mc
+    container_name: mc
+    networks:
+      iceberg_net:
+    environment:
+      - AWS_ACCESS_KEY_ID=admin
+      - AWS_SECRET_ACCESS_KEY=password
+      - AWS_REGION=us-east-1
+    entrypoint: >
+      /bin/sh -c "
+      until (/usr/bin/mc config host add minio http://minio:9000 admin password) do echo '...waiting...' && sleep 1; done;
+      /usr/bin/mc rm -r --force minio/warehouse;
+      /usr/bin/mc mb minio/warehouse;
+      /usr/bin/mc policy set public minio/warehouse;
+      tail -f /dev/null
+      "
+networks:
+  iceberg_net:
+
 ```
 
 Next, start up the docker containers with this command:
@@ -155,8 +202,8 @@ schema = StructType([
   StructField("vendor_id", LongType(), True),
   StructField("trip_id", LongType(), True),
   StructField("trip_distance", FloatType(), True),
-  StructField("fare_amount', DoubleType(), True),
-  StructField("store_and_fwd_flag', StringType(), True)
+  StructField("fare_amount", DoubleType(), True),
+  StructField("store_and_fwd_flag", StringType(), True)
 ])
 
 df = spark.createDataFrame([], schema)
@@ -261,10 +308,10 @@ spark-sql --packages org.apache.iceberg:iceberg-spark-runtime-3.2_2.12:{{% icebe
     --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions \
     --conf spark.sql.catalog.spark_catalog=org.apache.iceberg.spark.SparkSessionCatalog \
     --conf spark.sql.catalog.spark_catalog.type=hive \
-    --conf spark.sql.catalog.demo=org.apache.iceberg.spark.SparkCatalog \
-    --conf spark.sql.catalog.demo.type=hadoop \
-    --conf spark.sql.catalog.demo.warehouse=$PWD/warehouse \
-    --conf spark.sql.defaultCatalog=demo
+    --conf spark.sql.catalog.local=org.apache.iceberg.spark.SparkCatalog \
+    --conf spark.sql.catalog.local.type=hadoop \
+    --conf spark.sql.catalog.local.warehouse=$PWD/warehouse \
+    --conf spark.sql.defaultCatalog=local
 ```
 {{% /tabcontent %}}
 {{% tabcontent "spark-defaults" %}}
@@ -273,17 +320,17 @@ spark.jars.packages                                  org.apache.iceberg:iceberg-
 spark.sql.extensions                                 org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions
 spark.sql.catalog.spark_catalog                      org.apache.iceberg.spark.SparkSessionCatalog
 spark.sql.catalog.spark_catalog.type                 hive
-spark.sql.catalog.demo                               org.apache.iceberg.spark.SparkCatalog
-spark.sql.catalog.demo.type                          hadoop
-spark.sql.catalog.demo.warehouse                     $PWD/warehouse
-spark.sql.defaultCatalog                             demo
+spark.sql.catalog.local                              org.apache.iceberg.spark.SparkCatalog
+spark.sql.catalog.local.type                         hadoop
+spark.sql.catalog.local.warehouse                    $PWD/warehouse
+spark.sql.defaultCatalog                             local
 ```
 {{% /tabcontent %}}
 {{% /codetabs %}}
 
 
 {{< hint info >}}
-If your Iceberg catalog is not set as the default catalog, you will have to switch to it by executing `USE demo;`
+If your Iceberg catalog is not set as the default catalog, you will have to switch to it by executing `USE local;`
 {{< /hint >}}
 
 ### Next steps

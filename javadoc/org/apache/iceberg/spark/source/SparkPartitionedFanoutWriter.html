@@ -199,7 +199,7 @@ extends <a href="../../../../../org/apache/iceberg/io/PartitionedFanoutWriter.ht
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.iceberg.io.<a href="../../../../../org/apache/iceberg/io/BaseTaskWriter.html" title="class in org.apache.iceberg.io">BaseTaskWriter</a></h3>
-<code><a href="../../../../../org/apache/iceberg/io/BaseTaskWriter.html#abort--">abort</a>, <a href="../../../../../org/apache/iceberg/io/BaseTaskWriter.html#complete--">complete</a>, <a href="../../../../../org/apache/iceberg/io/BaseTaskWriter.html#spec--">spec</a></code></li>
+<code><a href="../../../../../org/apache/iceberg/io/BaseTaskWriter.html#abort--">abort</a>, <a href="../../../../../org/apache/iceberg/io/BaseTaskWriter.html#complete--">complete</a>, <a href="../../../../../org/apache/iceberg/io/BaseTaskWriter.html#setFailure-java.lang.Throwable-">setFailure</a>, <a href="../../../../../org/apache/iceberg/io/BaseTaskWriter.html#spec--">spec</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -262,8 +262,8 @@ extends <a href="../../../../../org/apache/iceberg/io/PartitionedFanoutWriter.ht
 <pre>protected&nbsp;<a href="../../../../../org/apache/iceberg/PartitionKey.html" title="class in org.apache.iceberg">PartitionKey</a>&nbsp;partition(org.apache.spark.sql.catalyst.InternalRow&nbsp;row)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../org/apache/iceberg/io/PartitionedFanoutWriter.html#partition-T-">PartitionedFanoutWriter</a></code></span></div>
 <div class="block">Create a PartitionKey from the values in row.
- <p>
- Any PartitionKey returned by this method can be reused by the implementation.</div>
+
+ <p>Any PartitionKey returned by this method can be reused by the implementation.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/iceberg/io/PartitionedFanoutWriter.html#partition-T-">partition</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/iceberg/io/PartitionedFanoutWriter.html" title="class in org.apache.iceberg.io">PartitionedFanoutWriter</a>&lt;org.apache.spark.sql.catalyst.InternalRow&gt;</code></dd>

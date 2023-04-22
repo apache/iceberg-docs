@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/apache/iceberg/ManifestsTable.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/MetadataColumns.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/MergeableScanTask.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/ManifestWriter.html" target="_top">Frames</a></li>
@@ -146,7 +146,7 @@ implements <a href="../../../org/apache/iceberg/io/FileAppender.html" title="int
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManifestWriter.html#add-F-long-">add</a></span>(<a href="../../../org/apache/iceberg/ManifestWriter.html" title="type parameter in ManifestWriter">F</a>&nbsp;addedFile,
-   long&nbsp;sequenceNumber)</code>
+   long&nbsp;dataSequenceNumber)</code>
 <div class="block">Add an added entry for a file with a specific sequence number.</div>
 </td>
 </tr>
@@ -160,15 +160,18 @@ implements <a href="../../../org/apache/iceberg/io/FileAppender.html" title="int
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManifestWriter.html#delete-F-">delete</a></span>(<a href="../../../org/apache/iceberg/ManifestWriter.html" title="type parameter in ManifestWriter">F</a>&nbsp;deletedFile)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManifestWriter.html#delete-F-long-java.lang.Long-">delete</a></span>(<a href="../../../org/apache/iceberg/ManifestWriter.html" title="type parameter in ManifestWriter">F</a>&nbsp;deletedFile,
+      long&nbsp;dataSequenceNumber,
+      java.lang.Long&nbsp;fileSequenceNumber)</code>
 <div class="block">Add a delete entry for a file.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManifestWriter.html#existing-F-long-long-">existing</a></span>(<a href="../../../org/apache/iceberg/ManifestWriter.html" title="type parameter in ManifestWriter">F</a>&nbsp;existingFile,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManifestWriter.html#existing-F-long-long-java.lang.Long-">existing</a></span>(<a href="../../../org/apache/iceberg/ManifestWriter.html" title="type parameter in ManifestWriter">F</a>&nbsp;existingFile,
         long&nbsp;fileSnapshotId,
-        long&nbsp;sequenceNumber)</code>
+        long&nbsp;dataSequenceNumber,
+        java.lang.Long&nbsp;fileSequenceNumber)</code>
 <div class="block">Add an existing entry for a file.</div>
 </td>
 </tr>
@@ -264,8 +267,9 @@ implements <a href="../../../org/apache/iceberg/io/FileAppender.html" title="int
 <h4>add</h4>
 <pre>public&nbsp;void&nbsp;add(<a href="../../../org/apache/iceberg/ManifestWriter.html" title="type parameter in ManifestWriter">F</a>&nbsp;addedFile)</pre>
 <div class="block">Add an added entry for a file.
- <p>
- The entry's snapshot ID will be this manifest's snapshot ID.</div>
+
+ <p>The entry's snapshot ID will be this manifest's snapshot ID. The data and file sequence
+ numbers will be assigned at commit.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../org/apache/iceberg/io/FileAppender.html#add-D-">add</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/io/FileAppender.html" title="interface in org.apache.iceberg.io">FileAppender</a>&lt;<a href="../../../org/apache/iceberg/ManifestWriter.html" title="type parameter in ManifestWriter">F</a> extends <a href="../../../org/apache/iceberg/ContentFile.html" title="interface in org.apache.iceberg">ContentFile</a>&lt;<a href="../../../org/apache/iceberg/ManifestWriter.html" title="type parameter in ManifestWriter">F</a>&gt;&gt;</code></dd>
@@ -283,21 +287,22 @@ implements <a href="../../../org/apache/iceberg/io/FileAppender.html" title="int
 <li class="blockList">
 <h4>add</h4>
 <pre>public&nbsp;void&nbsp;add(<a href="../../../org/apache/iceberg/ManifestWriter.html" title="type parameter in ManifestWriter">F</a>&nbsp;addedFile,
-                long&nbsp;sequenceNumber)</pre>
+                long&nbsp;dataSequenceNumber)</pre>
 <div class="block">Add an added entry for a file with a specific sequence number.
- <p>
- The entry's snapshot ID will be this manifest's snapshot ID.
- The entry's sequence number will be the provided sequence number.</div>
+
+ <p>The entry's snapshot ID will be this manifest's snapshot ID. The entry's data sequence
+ number will be the provided data sequence number. The entry's file sequence number will be
+ assigned at commit.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>addedFile</code> - a data file</dd>
-<dd><code>sequenceNumber</code> - sequence number for the data file</dd>
+<dd><code>dataSequenceNumber</code> - a data sequence number for the file</dd>
 </dl>
 </li>
 </ul>
-<a name="existing-org.apache.iceberg.ContentFile-long-long-">
+<a name="existing-org.apache.iceberg.ContentFile-long-long-java.lang.Long-">
 <!--   -->
-</a><a name="existing-F-long-long-">
+</a><a name="existing-F-long-long-java.lang.Long-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -305,31 +310,41 @@ implements <a href="../../../org/apache/iceberg/io/FileAppender.html" title="int
 <h4>existing</h4>
 <pre>public&nbsp;void&nbsp;existing(<a href="../../../org/apache/iceberg/ManifestWriter.html" title="type parameter in ManifestWriter">F</a>&nbsp;existingFile,
                      long&nbsp;fileSnapshotId,
-                     long&nbsp;sequenceNumber)</pre>
-<div class="block">Add an existing entry for a file.</div>
+                     long&nbsp;dataSequenceNumber,
+                     java.lang.Long&nbsp;fileSequenceNumber)</pre>
+<div class="block">Add an existing entry for a file.
+
+ <p>The original data and file sequence numbers, snapshot ID, which were assigned at commit,
+ must be preserved when adding an existing entry.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>existingFile</code> - a file</dd>
 <dd><code>fileSnapshotId</code> - snapshot ID when the data file was added to the table</dd>
-<dd><code>sequenceNumber</code> - sequence number for the data file</dd>
+<dd><code>dataSequenceNumber</code> - a data sequence number of the file (assigned when the file was added)</dd>
+<dd><code>fileSequenceNumber</code> - a file sequence number (assigned when the file was added)</dd>
 </dl>
 </li>
 </ul>
-<a name="delete-org.apache.iceberg.ContentFile-">
+<a name="delete-org.apache.iceberg.ContentFile-long-java.lang.Long-">
 <!--   -->
-</a><a name="delete-F-">
+</a><a name="delete-F-long-java.lang.Long-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>delete</h4>
-<pre>public&nbsp;void&nbsp;delete(<a href="../../../org/apache/iceberg/ManifestWriter.html" title="type parameter in ManifestWriter">F</a>&nbsp;deletedFile)</pre>
+<pre>public&nbsp;void&nbsp;delete(<a href="../../../org/apache/iceberg/ManifestWriter.html" title="type parameter in ManifestWriter">F</a>&nbsp;deletedFile,
+                   long&nbsp;dataSequenceNumber,
+                   java.lang.Long&nbsp;fileSequenceNumber)</pre>
 <div class="block">Add a delete entry for a file.
- <p>
- The entry's snapshot ID will be this manifest's snapshot ID.</div>
+
+ <p>The entry's snapshot ID will be this manifest's snapshot ID. However, the original data and
+ file sequence numbers of the file must be preserved when the file is marked as deleted.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>deletedFile</code> - a file</dd>
+<dd><code>dataSequenceNumber</code> - a data sequence number of the file (assigned when the file was added)</dd>
+<dd><code>fileSequenceNumber</code> - a file sequence number (assigned when the file was added)</dd>
 </dl>
 </li>
 </ul>
@@ -418,7 +433,7 @@ implements <a href="../../../org/apache/iceberg/io/FileAppender.html" title="int
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/apache/iceberg/ManifestsTable.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/MetadataColumns.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/MergeableScanTask.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/ManifestWriter.html" target="_top">Frames</a></li>

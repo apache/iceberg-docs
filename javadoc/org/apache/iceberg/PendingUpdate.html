@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/apache/iceberg/PartitionsTable.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/ReachableFileUtil.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/PositionDeletesScanTask.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/PendingUpdate.html" target="_top">Frames</a></li>
@@ -103,11 +103,11 @@ var activeTableTab = "activeTableTab";
 </dl>
 <dl>
 <dt>All Known Subinterfaces:</dt>
-<dd><a href="../../../org/apache/iceberg/AppendFiles.html" title="interface in org.apache.iceberg">AppendFiles</a>, <a href="../../../org/apache/iceberg/DeleteFiles.html" title="interface in org.apache.iceberg">DeleteFiles</a>, <a href="../../../org/apache/iceberg/ExpireSnapshots.html" title="interface in org.apache.iceberg">ExpireSnapshots</a>, <a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a>, <a href="../../../org/apache/iceberg/OverwriteFiles.html" title="interface in org.apache.iceberg">OverwriteFiles</a>, <a href="../../../org/apache/iceberg/ReplacePartitions.html" title="interface in org.apache.iceberg">ReplacePartitions</a>, <a href="../../../org/apache/iceberg/ReplaceSortOrder.html" title="interface in org.apache.iceberg">ReplaceSortOrder</a>, <a href="../../../org/apache/iceberg/RewriteFiles.html" title="interface in org.apache.iceberg">RewriteFiles</a>, <a href="../../../org/apache/iceberg/RewriteManifests.html" title="interface in org.apache.iceberg">RewriteManifests</a>, <a href="../../../org/apache/iceberg/Rollback.html" title="interface in org.apache.iceberg">Rollback</a>, <a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg">RowDelta</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interface in org.apache.iceberg">SnapshotUpdate</a>&lt;ThisT&gt;, <a href="../../../org/apache/iceberg/UpdateLocation.html" title="interface in org.apache.iceberg">UpdateLocation</a>, <a href="../../../org/apache/iceberg/UpdatePartitionSpec.html" title="interface in org.apache.iceberg">UpdatePartitionSpec</a>, <a href="../../../org/apache/iceberg/UpdateProperties.html" title="interface in org.apache.iceberg">UpdateProperties</a>, <a href="../../../org/apache/iceberg/UpdateSchema.html" title="interface in org.apache.iceberg">UpdateSchema</a></dd>
+<dd><a href="../../../org/apache/iceberg/AppendFiles.html" title="interface in org.apache.iceberg">AppendFiles</a>, <a href="../../../org/apache/iceberg/DeleteFiles.html" title="interface in org.apache.iceberg">DeleteFiles</a>, <a href="../../../org/apache/iceberg/ExpireSnapshots.html" title="interface in org.apache.iceberg">ExpireSnapshots</a>, <a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a>, <a href="../../../org/apache/iceberg/OverwriteFiles.html" title="interface in org.apache.iceberg">OverwriteFiles</a>, <a href="../../../org/apache/iceberg/ReplacePartitions.html" title="interface in org.apache.iceberg">ReplacePartitions</a>, <a href="../../../org/apache/iceberg/ReplaceSortOrder.html" title="interface in org.apache.iceberg">ReplaceSortOrder</a>, <a href="../../../org/apache/iceberg/RewriteFiles.html" title="interface in org.apache.iceberg">RewriteFiles</a>, <a href="../../../org/apache/iceberg/RewriteManifests.html" title="interface in org.apache.iceberg">RewriteManifests</a>, <a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg">RowDelta</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interface in org.apache.iceberg">SnapshotUpdate</a>&lt;ThisT&gt;, <a href="../../../org/apache/iceberg/UpdateLocation.html" title="interface in org.apache.iceberg">UpdateLocation</a>, <a href="../../../org/apache/iceberg/UpdatePartitionSpec.html" title="interface in org.apache.iceberg">UpdatePartitionSpec</a>, <a href="../../../org/apache/iceberg/UpdateProperties.html" title="interface in org.apache.iceberg">UpdateProperties</a>, <a href="../../../org/apache/iceberg/UpdateSchema.html" title="interface in org.apache.iceberg">UpdateSchema</a>, <a href="../../../org/apache/iceberg/UpdateStatistics.html" title="interface in org.apache.iceberg">UpdateStatistics</a>, <a href="../../../org/apache/iceberg/view/UpdateViewProperties.html" title="interface in org.apache.iceberg.view">UpdateViewProperties</a></dd>
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../org/apache/iceberg/BaseOverwriteFiles.html" title="class in org.apache.iceberg">BaseOverwriteFiles</a>, <a href="../../../org/apache/iceberg/BaseReplacePartitions.html" title="class in org.apache.iceberg">BaseReplacePartitions</a>, <a href="../../../org/apache/iceberg/BaseReplaceSortOrder.html" title="class in org.apache.iceberg">BaseReplaceSortOrder</a>, <a href="../../../org/apache/iceberg/BaseRewriteManifests.html" title="class in org.apache.iceberg">BaseRewriteManifests</a>, <a href="../../../org/apache/iceberg/SetLocation.html" title="class in org.apache.iceberg">SetLocation</a>, <a href="../../../org/apache/iceberg/SnapshotManager.html" title="class in org.apache.iceberg">SnapshotManager</a></dd>
+<dd><a href="../../../org/apache/iceberg/BaseOverwriteFiles.html" title="class in org.apache.iceberg">BaseOverwriteFiles</a>, <a href="../../../org/apache/iceberg/BaseReplacePartitions.html" title="class in org.apache.iceberg">BaseReplacePartitions</a>, <a href="../../../org/apache/iceberg/BaseReplaceSortOrder.html" title="class in org.apache.iceberg">BaseReplaceSortOrder</a>, <a href="../../../org/apache/iceberg/BaseRewriteManifests.html" title="class in org.apache.iceberg">BaseRewriteManifests</a>, <a href="../../../org/apache/iceberg/SetLocation.html" title="class in org.apache.iceberg">SetLocation</a>, <a href="../../../org/apache/iceberg/SetStatistics.html" title="class in org.apache.iceberg">SetStatistics</a>, <a href="../../../org/apache/iceberg/SnapshotManager.html" title="class in org.apache.iceberg">SnapshotManager</a>, <a href="../../../org/apache/iceberg/StreamingDelete.html" title="class in org.apache.iceberg">StreamingDelete</a></dd>
 </dl>
 <hr>
 <br>
@@ -172,8 +172,8 @@ var activeTableTab = "activeTableTab";
 <h4>apply</h4>
 <pre><a href="../../../org/apache/iceberg/PendingUpdate.html" title="type parameter in PendingUpdate">T</a>&nbsp;apply()</pre>
 <div class="block">Apply the pending changes and return the uncommitted changes for validation.
- <p>
- This does not result in a permanent update.</div>
+
+ <p>This does not result in a permanent update.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the uncommitted changes that would be committed by calling <a href="../../../org/apache/iceberg/PendingUpdate.html#commit--"><code>commit()</code></a></dd>
@@ -191,14 +191,16 @@ var activeTableTab = "activeTableTab";
 <h4>commit</h4>
 <pre>void&nbsp;commit()</pre>
 <div class="block">Apply the pending changes and commit.
- <p>
- Changes are committed by calling the underlying table's commit method.
- <p>
- Once the commit is successful, the updated table will be refreshed.</div>
+
+ <p>Changes are committed by calling the underlying table's commit method.
+
+ <p>Once the commit is successful, the updated table will be refreshed.</div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../org/apache/iceberg/exceptions/ValidationException.html" title="class in org.apache.iceberg.exceptions">ValidationException</a></code> - If the update cannot be applied to the current table metadata.</dd>
 <dd><code><a href="../../../org/apache/iceberg/exceptions/CommitFailedException.html" title="class in org.apache.iceberg.exceptions">CommitFailedException</a></code> - If the update cannot be committed due to conflicts.</dd>
+<dd><code><a href="../../../org/apache/iceberg/exceptions/CommitStateUnknownException.html" title="class in org.apache.iceberg.exceptions">CommitStateUnknownException</a></code> - If the update success or failure is unknown, no cleanup
+     should be done in this case.</dd>
 </dl>
 </li>
 </ul>
@@ -244,7 +246,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/apache/iceberg/PartitionsTable.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/ReachableFileUtil.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/PositionDeletesScanTask.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/PendingUpdate.html" target="_top">Frames</a></li>

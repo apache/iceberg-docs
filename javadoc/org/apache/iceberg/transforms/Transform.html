@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":18,"i3":6,"i4":18,"i5":18,"i6":6,"i7":6,"i8":18,"i9":18};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
+var methods = {"i0":50,"i1":18,"i2":6,"i3":18,"i4":6,"i5":18,"i6":18,"i7":18,"i8":6,"i9":6,"i10":18,"i11":50,"i12":18};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -108,15 +108,15 @@ var activeTableTab = "activeTableTab";
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html" title="class in org.apache.iceberg.transforms">UnknownTransform</a></dd>
+<dd><a href="../../../../org/apache/iceberg/transforms/Days.html" title="class in org.apache.iceberg.transforms">Days</a>, <a href="../../../../org/apache/iceberg/transforms/Hours.html" title="class in org.apache.iceberg.transforms">Hours</a>, <a href="../../../../org/apache/iceberg/transforms/Months.html" title="class in org.apache.iceberg.transforms">Months</a>, <a href="../../../../org/apache/iceberg/transforms/UnknownTransform.html" title="class in org.apache.iceberg.transforms">UnknownTransform</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public interface <span class="typeNameLabel">Transform&lt;S,T&gt;</span>
 extends java.io.Serializable</pre>
 <div class="block">A transform function used for partitioning.
- <p>
- Implementations of this interface can be used to transform values, check or types, and project
+
+ <p>Implementations of this interface can be used to transform values, check or types, and project
  <a href="../../../../org/apache/iceberg/expressions/BoundPredicate.html" title="class in org.apache.iceberg.expressions"><code>predicates</code></a> to predicates on partition values.</div>
 </li>
 </ul>
@@ -131,75 +131,97 @@ extends java.io.Serializable</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="../../../../org/apache/iceberg/transforms/Transform.html" title="type parameter in Transform">T</a></code></td>
+<td class="colFirst"><code>default <a href="../../../../org/apache/iceberg/transforms/Transform.html" title="type parameter in Transform">T</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/transforms/Transform.html#apply-S-">apply</a></span>(<a href="../../../../org/apache/iceberg/transforms/Transform.html" title="type parameter in Transform">S</a>&nbsp;value)</code>
-<div class="block">Transforms a value to its corresponding partition value.</div>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
+<div class="block"><span class="deprecationComment">use <a href="../../../../org/apache/iceberg/transforms/Transform.html#bind-org.apache.iceberg.types.Type-"><code>bind(Type)</code></a> instead; will be removed in 2.0.0</span></div>
+</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>default <a href="../../../../org/apache/iceberg/util/SerializableFunction.html" title="interface in org.apache.iceberg.util">SerializableFunction</a>&lt;<a href="../../../../org/apache/iceberg/transforms/Transform.html" title="type parameter in Transform">S</a>,<a href="../../../../org/apache/iceberg/transforms/Transform.html" title="type parameter in Transform">T</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/transforms/Transform.html#bind-org.apache.iceberg.types.Type-">bind</a></span>(<a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types">Type</a>&nbsp;type)</code>
+<div class="block">Returns a function that applies this transform to values of the given <a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types"><code>type</code></a>.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/transforms/Transform.html#canTransform-org.apache.iceberg.types.Type-">canTransform</a></span>(<a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types">Type</a>&nbsp;type)</code>
 <div class="block">Checks whether this function can be applied to the given <a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types"><code>Type</code></a>.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>default java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/transforms/Transform.html#dedupName--">dedupName</a></span>()</code>
-<div class="block">Return the unique transform name to check if similar transforms for the same source field
- are added multiple times in partition spec builder.</div>
+<div class="block">Return the unique transform name to check if similar transforms for the same source field are
+ added multiple times in partition spec builder.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types">Type</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/transforms/Transform.html#getResultType-org.apache.iceberg.types.Type-">getResultType</a></span>(<a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types">Type</a>&nbsp;sourceType)</code>
 <div class="block">Returns the <a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types"><code>Type</code></a> produced by this transform given a source type.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>default boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/transforms/Transform.html#isIdentity--">isIdentity</a></span>()</code>
 <div class="block">Return whether this transform is the identity transform.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>default boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/transforms/Transform.html#isVoid--">isVoid</a></span>()</code>
+<div class="block">Return whether this transform is the void transform.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>default boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/transforms/Transform.html#preservesOrder--">preservesOrder</a></span>()</code>
 <div class="block">Whether the transform preserves the order of values (is monotonic).</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;<a href="../../../../org/apache/iceberg/transforms/Transform.html" title="type parameter in Transform">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/transforms/Transform.html#project-java.lang.String-org.apache.iceberg.expressions.BoundPredicate-">project</a></span>(java.lang.String&nbsp;name,
        <a href="../../../../org/apache/iceberg/expressions/BoundPredicate.html" title="class in org.apache.iceberg.expressions">BoundPredicate</a>&lt;<a href="../../../../org/apache/iceberg/transforms/Transform.html" title="type parameter in Transform">S</a>&gt;&nbsp;predicate)</code>
-<div class="block">Transforms a <a href="../../../../org/apache/iceberg/expressions/BoundPredicate.html" title="class in org.apache.iceberg.expressions"><code>predicate</code></a> to an inclusive predicate on the partition
- values produced by <a href="../../../../org/apache/iceberg/transforms/Transform.html#apply-S-"><code>apply(Object)</code></a>.</div>
+<div class="block">Transforms a <a href="../../../../org/apache/iceberg/expressions/BoundPredicate.html" title="class in org.apache.iceberg.expressions"><code>predicate</code></a> to an inclusive predicate on the partition values
+ produced by the transform.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;<a href="../../../../org/apache/iceberg/transforms/Transform.html" title="type parameter in Transform">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/transforms/Transform.html#projectStrict-java.lang.String-org.apache.iceberg.expressions.BoundPredicate-">projectStrict</a></span>(java.lang.String&nbsp;name,
              <a href="../../../../org/apache/iceberg/expressions/BoundPredicate.html" title="class in org.apache.iceberg.expressions">BoundPredicate</a>&lt;<a href="../../../../org/apache/iceberg/transforms/Transform.html" title="type parameter in Transform">S</a>&gt;&nbsp;predicate)</code>
 <div class="block">Transforms a <a href="../../../../org/apache/iceberg/expressions/BoundPredicate.html" title="class in org.apache.iceberg.expressions"><code>predicate</code></a> to a strict predicate on the partition values
- produced by <a href="../../../../org/apache/iceberg/transforms/Transform.html#apply-S-"><code>apply(Object)</code></a>.</div>
+ produced by the transform.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>default boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/transforms/Transform.html#satisfiesOrderOf-org.apache.iceberg.transforms.Transform-">satisfiesOrderOf</a></span>(<a href="../../../../org/apache/iceberg/transforms/Transform.html" title="interface in org.apache.iceberg.transforms">Transform</a>&lt;?,?&gt;&nbsp;other)</code>
-<div class="block">Whether ordering by this transform's result satisfies the ordering of another transform's result.</div>
+<div class="block">Whether ordering by this transform's result satisfies the ordering of another transform's
+ result.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>default java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/transforms/Transform.html#toHumanString-T-">toHumanString</a></span>(<a href="../../../../org/apache/iceberg/transforms/Transform.html" title="type parameter in Transform">T</a>&nbsp;value)</code>
-<div class="block">Returns a human-readable String representation of a transformed value.</div>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
+<div class="block"><span class="deprecationComment">use <a href="../../../../org/apache/iceberg/transforms/Transform.html#toHumanString-org.apache.iceberg.types.Type-T-"><code>toHumanString(Type, Object)</code></a> instead; will be removed in 2.0.0</span></div>
+</div>
 </td>
+</tr>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>default java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/transforms/Transform.html#toHumanString-org.apache.iceberg.types.Type-T-">toHumanString</a></span>(<a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types">Type</a>&nbsp;type,
+             <a href="../../../../org/apache/iceberg/transforms/Transform.html" title="type parameter in Transform">T</a>&nbsp;value)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -224,13 +246,31 @@ extends java.io.Serializable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>apply</h4>
-<pre><a href="../../../../org/apache/iceberg/transforms/Transform.html" title="type parameter in Transform">T</a>&nbsp;apply(<a href="../../../../org/apache/iceberg/transforms/Transform.html" title="type parameter in Transform">S</a>&nbsp;value)</pre>
+<pre>@Deprecated
+default&nbsp;<a href="../../../../org/apache/iceberg/transforms/Transform.html" title="type parameter in Transform">T</a>&nbsp;apply(<a href="../../../../org/apache/iceberg/transforms/Transform.html" title="type parameter in Transform">S</a>&nbsp;value)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">use <a href="../../../../org/apache/iceberg/transforms/Transform.html#bind-org.apache.iceberg.types.Type-"><code>bind(Type)</code></a> instead; will be removed in 2.0.0</span></div>
 <div class="block">Transforms a value to its corresponding partition value.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>value</code> - a source value</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a transformed partition value</dd>
+</dl>
+</li>
+</ul>
+<a name="bind-org.apache.iceberg.types.Type-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>bind</h4>
+<pre>default&nbsp;<a href="../../../../org/apache/iceberg/util/SerializableFunction.html" title="interface in org.apache.iceberg.util">SerializableFunction</a>&lt;<a href="../../../../org/apache/iceberg/transforms/Transform.html" title="type parameter in Transform">S</a>,<a href="../../../../org/apache/iceberg/transforms/Transform.html" title="type parameter in Transform">T</a>&gt;&nbsp;bind(<a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types">Type</a>&nbsp;type)</pre>
+<div class="block">Returns a function that applies this transform to values of the given <a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types"><code>type</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>type</code> - an Iceberg <a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types"><code>Type</code></a></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a <code>Function</code> that applies this transform to values of the given type.</dd>
 </dl>
 </li>
 </ul>
@@ -274,8 +314,9 @@ extends java.io.Serializable</pre>
 <h4>preservesOrder</h4>
 <pre>default&nbsp;boolean&nbsp;preservesOrder()</pre>
 <div class="block">Whether the transform preserves the order of values (is monotonic).
- <p>
- A transform preserves order for values when for any given a and b, if a &lt; b then apply(a) &lt;= apply(b).</div>
+
+ <p>A transform preserves order for values when for any given a and b, if a &lt; b then apply(a)
+ &lt;= apply(b).</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if the transform preserves the order of values</dd>
@@ -289,10 +330,11 @@ extends java.io.Serializable</pre>
 <li class="blockList">
 <h4>satisfiesOrderOf</h4>
 <pre>default&nbsp;boolean&nbsp;satisfiesOrderOf(<a href="../../../../org/apache/iceberg/transforms/Transform.html" title="interface in org.apache.iceberg.transforms">Transform</a>&lt;?,?&gt;&nbsp;other)</pre>
-<div class="block">Whether ordering by this transform's result satisfies the ordering of another transform's result.
- <p>
- For example, sorting by day(ts) will produce an ordering that is also by month(ts) or year(ts). However, sorting
- by day(ts) will not satisfy the order of hour(ts) or identity(ts).</div>
+<div class="block">Whether ordering by this transform's result satisfies the ordering of another transform's
+ result.
+
+ <p>For example, sorting by day(ts) will produce an ordering that is also by month(ts) or
+ year(ts). However, sorting by day(ts) will not satisfy the order of hour(ts) or identity(ts).</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if ordering by this transform is equivalent to ordering by the other transform</dd>
@@ -307,10 +349,11 @@ extends java.io.Serializable</pre>
 <h4>project</h4>
 <pre><a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;<a href="../../../../org/apache/iceberg/transforms/Transform.html" title="type parameter in Transform">T</a>&gt;&nbsp;project(java.lang.String&nbsp;name,
                             <a href="../../../../org/apache/iceberg/expressions/BoundPredicate.html" title="class in org.apache.iceberg.expressions">BoundPredicate</a>&lt;<a href="../../../../org/apache/iceberg/transforms/Transform.html" title="type parameter in Transform">S</a>&gt;&nbsp;predicate)</pre>
-<div class="block">Transforms a <a href="../../../../org/apache/iceberg/expressions/BoundPredicate.html" title="class in org.apache.iceberg.expressions"><code>predicate</code></a> to an inclusive predicate on the partition
- values produced by <a href="../../../../org/apache/iceberg/transforms/Transform.html#apply-S-"><code>apply(Object)</code></a>.
- <p>
- This inclusive transform guarantees that if pred(v) is true, then projected(apply(v)) is true.</div>
+<div class="block">Transforms a <a href="../../../../org/apache/iceberg/expressions/BoundPredicate.html" title="class in org.apache.iceberg.expressions"><code>predicate</code></a> to an inclusive predicate on the partition values
+ produced by the transform.
+
+ <p>This inclusive transform guarantees that if pred(v) is true, then projected(apply(v)) is
+ true.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - the field name for partition values</dd>
@@ -329,9 +372,10 @@ extends java.io.Serializable</pre>
 <pre><a href="../../../../org/apache/iceberg/expressions/UnboundPredicate.html" title="class in org.apache.iceberg.expressions">UnboundPredicate</a>&lt;<a href="../../../../org/apache/iceberg/transforms/Transform.html" title="type parameter in Transform">T</a>&gt;&nbsp;projectStrict(java.lang.String&nbsp;name,
                                   <a href="../../../../org/apache/iceberg/expressions/BoundPredicate.html" title="class in org.apache.iceberg.expressions">BoundPredicate</a>&lt;<a href="../../../../org/apache/iceberg/transforms/Transform.html" title="type parameter in Transform">S</a>&gt;&nbsp;predicate)</pre>
 <div class="block">Transforms a <a href="../../../../org/apache/iceberg/expressions/BoundPredicate.html" title="class in org.apache.iceberg.expressions"><code>predicate</code></a> to a strict predicate on the partition values
- produced by <a href="../../../../org/apache/iceberg/transforms/Transform.html#apply-S-"><code>apply(Object)</code></a>.
- <p>
- This strict transform guarantees that if strict(apply(v)) is true, then pred(v) is also true.</div>
+ produced by the transform.
+
+ <p>This strict transform guarantees that if strict(apply(v)) is true, then pred(v) is also
+ true.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - the field name for partition values</dd>
@@ -355,6 +399,20 @@ extends java.io.Serializable</pre>
 </dl>
 </li>
 </ul>
+<a name="isVoid--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isVoid</h4>
+<pre>default&nbsp;boolean&nbsp;isVoid()</pre>
+<div class="block">Return whether this transform is the void transform.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if this is a void transform, false otherwise</dd>
+</dl>
+</li>
+</ul>
 <a name="toHumanString-java.lang.Object-">
 <!--   -->
 </a><a name="toHumanString-T-">
@@ -363,16 +421,30 @@ extends java.io.Serializable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>toHumanString</h4>
-<pre>default&nbsp;java.lang.String&nbsp;toHumanString(<a href="../../../../org/apache/iceberg/transforms/Transform.html" title="type parameter in Transform">T</a>&nbsp;value)</pre>
+<pre>@Deprecated
+default&nbsp;java.lang.String&nbsp;toHumanString(<a href="../../../../org/apache/iceberg/transforms/Transform.html" title="type parameter in Transform">T</a>&nbsp;value)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">use <a href="../../../../org/apache/iceberg/transforms/Transform.html#toHumanString-org.apache.iceberg.types.Type-T-"><code>toHumanString(Type, Object)</code></a> instead; will be removed in 2.0.0</span></div>
 <div class="block">Returns a human-readable String representation of a transformed value.
- <p>
- null values will return "null"</div>
+
+ <p>null values will return "null"</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>value</code> - a transformed value</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a human-readable String representation of the value</dd>
 </dl>
+</li>
+</ul>
+<a name="toHumanString-org.apache.iceberg.types.Type-java.lang.Object-">
+<!--   -->
+</a><a name="toHumanString-org.apache.iceberg.types.Type-T-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>toHumanString</h4>
+<pre>default&nbsp;java.lang.String&nbsp;toHumanString(<a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types">Type</a>&nbsp;type,
+                                       <a href="../../../../org/apache/iceberg/transforms/Transform.html" title="type parameter in Transform">T</a>&nbsp;value)</pre>
 </li>
 </ul>
 <a name="dedupName--">
@@ -382,8 +454,8 @@ extends java.io.Serializable</pre>
 <li class="blockList">
 <h4>dedupName</h4>
 <pre>default&nbsp;java.lang.String&nbsp;dedupName()</pre>
-<div class="block">Return the unique transform name to check if similar transforms for the same source field
- are added multiple times in partition spec builder.</div>
+<div class="block">Return the unique transform name to check if similar transforms for the same source field are
+ added multiple times in partition spec builder.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a name used for dedup</dd>

@@ -38,6 +38,7 @@ This includes:
 - REST - a server-side catalog that’s exposed through a REST API
 - Hive Metastore - tracks namespaces and tables using a Hive metastore
 - JDBC - tracks namespaces and tables in a simple JDBC database
+- Nessie - a transactional catalog that tracks namespaces and tables in a database with git-like version control
 
 There are more catalog types in addition to the ones listed here as well as custom catalogs that are developed to include specialized functionality.
 

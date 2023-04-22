@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -150,24 +150,28 @@ implements <a href="../../../../org/apache/iceberg/StructLike.html" title="inter
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/iceberg/data/InternalRecordWrapper.html" title="class in org.apache.iceberg.data">InternalRecordWrapper</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/data/InternalRecordWrapper.html#copyFor-org.apache.iceberg.StructLike-">copyFor</a></span>(<a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&nbsp;record)</code>&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/data/InternalRecordWrapper.html#get--">get</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>&lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/data/InternalRecordWrapper.html#get-int-java.lang.Class-">get</a></span>(int&nbsp;pos,
    java.lang.Class&lt;T&gt;&nbsp;javaClass)</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>&lt;T&gt;&nbsp;void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/data/InternalRecordWrapper.html#set-int-T-">set</a></span>(int&nbsp;pos,
    T&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/data/InternalRecordWrapper.html#size--">size</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/data/InternalRecordWrapper.html" title="class in org.apache.iceberg.data">InternalRecordWrapper</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/data/InternalRecordWrapper.html#wrap-org.apache.iceberg.StructLike-">wrap</a></span>(<a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&nbsp;record)</code>&nbsp;</td>
 </tr>
@@ -217,6 +221,15 @@ implements <a href="../../../../org/apache/iceberg/StructLike.html" title="inter
 <li class="blockList">
 <h4>get</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&nbsp;get()</pre>
+</li>
+</ul>
+<a name="copyFor-org.apache.iceberg.StructLike-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>copyFor</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/iceberg/data/InternalRecordWrapper.html" title="class in org.apache.iceberg.data">InternalRecordWrapper</a>&nbsp;copyFor(<a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&nbsp;record)</pre>
 </li>
 </ul>
 <a name="wrap-org.apache.iceberg.StructLike-">

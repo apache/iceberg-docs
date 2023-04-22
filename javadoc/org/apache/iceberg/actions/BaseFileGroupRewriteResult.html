@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -134,7 +134,18 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.File
 <tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BaseFileGroupRewriteResult.html#BaseFileGroupRewriteResult-org.apache.iceberg.actions.RewriteDataFiles.FileGroupInfo-int-int-">BaseFileGroupRewriteResult</a></span>(<a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.FileGroupInfo.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles.FileGroupInfo</a>&nbsp;info,
                           int&nbsp;addedFilesCount,
-                          int&nbsp;rewrittenFilesCount)</code>&nbsp;</td>
+                          int&nbsp;rewrittenFilesCount)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
+<div class="block"><span class="deprecationComment">Will be removed in 1.3.0; use <code>BaseFileGroupRewriteResult#BaseFileGroupRewriteResult(FileGroupInfo, int, int, long)</code>
+     instead.</span></div>
+</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BaseFileGroupRewriteResult.html#BaseFileGroupRewriteResult-org.apache.iceberg.actions.RewriteDataFiles.FileGroupInfo-int-int-long-">BaseFileGroupRewriteResult</a></span>(<a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.FileGroupInfo.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles.FileGroupInfo</a>&nbsp;info,
+                          int&nbsp;addedFilesCount,
+                          int&nbsp;rewrittenFilesCount,
+                          long&nbsp;rewrittenBytesCount)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -160,6 +171,10 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.File
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BaseFileGroupRewriteResult.html#info--">info</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BaseFileGroupRewriteResult.html#rewrittenBytesCount--">rewrittenBytesCount</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BaseFileGroupRewriteResult.html#rewrittenDataFilesCount--">rewrittenDataFilesCount</a></span>()</code>&nbsp;</td>
 </tr>
@@ -188,12 +203,27 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.File
 <a name="BaseFileGroupRewriteResult-org.apache.iceberg.actions.RewriteDataFiles.FileGroupInfo-int-int-">
 <!--   -->
 </a>
+<ul class="blockList">
+<li class="blockList">
+<h4>BaseFileGroupRewriteResult</h4>
+<pre>@Deprecated
+public&nbsp;BaseFileGroupRewriteResult(<a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.FileGroupInfo.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles.FileGroupInfo</a>&nbsp;info,
+                                              int&nbsp;addedFilesCount,
+                                              int&nbsp;rewrittenFilesCount)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">Will be removed in 1.3.0; use <code>BaseFileGroupRewriteResult#BaseFileGroupRewriteResult(FileGroupInfo, int, int, long)</code>
+     instead.</span></div>
+</li>
+</ul>
+<a name="BaseFileGroupRewriteResult-org.apache.iceberg.actions.RewriteDataFiles.FileGroupInfo-int-int-long-">
+<!--   -->
+</a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>BaseFileGroupRewriteResult</h4>
 <pre>public&nbsp;BaseFileGroupRewriteResult(<a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.FileGroupInfo.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles.FileGroupInfo</a>&nbsp;info,
                                   int&nbsp;addedFilesCount,
-                                  int&nbsp;rewrittenFilesCount)</pre>
+                                  int&nbsp;rewrittenFilesCount,
+                                  long&nbsp;rewrittenBytesCount)</pre>
 </li>
 </ul>
 </li>
@@ -233,13 +263,26 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.File
 <a name="rewrittenDataFilesCount--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>rewrittenDataFilesCount</h4>
 <pre>public&nbsp;int&nbsp;rewrittenDataFilesCount()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.FileGroupRewriteResult.html#rewrittenDataFilesCount--">rewrittenDataFilesCount</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.FileGroupRewriteResult.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles.FileGroupRewriteResult</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="rewrittenBytesCount--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>rewrittenBytesCount</h4>
+<pre>public&nbsp;long&nbsp;rewrittenBytesCount()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.FileGroupRewriteResult.html#rewrittenBytesCount--">rewrittenBytesCount</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.FileGroupRewriteResult.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles.FileGroupRewriteResult</a></code></dd>
 </dl>
 </li>
 </ul>

@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
+<li><a href="../../../../org/apache/iceberg/deletes/DeleteCounter.html" title="class in org.apache.iceberg.deletes"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/deletes/EqualityDeleteWriter.html" title="class in org.apache.iceberg.deletes"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -139,33 +139,57 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/deletes/Deletes.html#filter-org.apache.iceberg.io.CloseableIterable-java.util.function.Function-org.apache.iceberg.deletes.PositionDeleteIndex-">filter</a></span>(<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&nbsp;rows,
-      java.util.function.Function&lt;T,java.lang.Long&gt;&nbsp;rowToPosition,
-      <a href="../../../../org/apache/iceberg/deletes/PositionDeleteIndex.html" title="interface in org.apache.iceberg.deletes">PositionDeleteIndex</a>&nbsp;deleteSet)</code>&nbsp;</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/deletes/Deletes.html#filter-org.apache.iceberg.io.CloseableIterable-java.util.function.Function-org.apache.iceberg.util.StructLikeSet-">filter</a></span>(<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&nbsp;rows,
       java.util.function.Function&lt;T,<a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&gt;&nbsp;rowToDeleteKey,
       <a href="../../../../org/apache/iceberg/util/StructLikeSet.html" title="class in org.apache.iceberg.util">StructLikeSet</a>&nbsp;deleteSet)</code>&nbsp;</td>
 </tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/deletes/Deletes.html#filterDeleted-org.apache.iceberg.io.CloseableIterable-java.util.function.Predicate-org.apache.iceberg.deletes.DeleteCounter-">filterDeleted</a></span>(<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&nbsp;rows,
+             java.util.function.Predicate&lt;T&gt;&nbsp;isDeleted,
+             <a href="../../../../org/apache/iceberg/deletes/DeleteCounter.html" title="class in org.apache.iceberg.deletes">DeleteCounter</a>&nbsp;counter)</code>
+<div class="block">Returns the remaining rows (the ones that are not deleted), while counting the deleted ones.</div>
+</td>
+</tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/deletes/Deletes.html#markDeleted-org.apache.iceberg.io.CloseableIterable-java.util.function.Predicate-java.util.function.Consumer-">markDeleted</a></span>(<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&nbsp;rows,
+           java.util.function.Predicate&lt;T&gt;&nbsp;isDeleted,
+           java.util.function.Consumer&lt;T&gt;&nbsp;deleteMarker)</code>
+<div class="block">Returns the same rows that are input, while marking the deleted ones.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/deletes/Deletes.html#streamingFilter-org.apache.iceberg.io.CloseableIterable-java.util.function.Function-org.apache.iceberg.io.CloseableIterable-">streamingFilter</a></span>(<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&nbsp;rows,
                java.util.function.Function&lt;T,java.lang.Long&gt;&nbsp;rowToPosition,
                <a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;java.lang.Long&gt;&nbsp;posDeletes)</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/deletes/Deletes.html#streamingFilter-org.apache.iceberg.io.CloseableIterable-java.util.function.Function-org.apache.iceberg.io.CloseableIterable-org.apache.iceberg.deletes.DeleteCounter-">streamingFilter</a></span>(<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&nbsp;rows,
+               java.util.function.Function&lt;T,java.lang.Long&gt;&nbsp;rowToPosition,
+               <a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;java.lang.Long&gt;&nbsp;posDeletes,
+               <a href="../../../../org/apache/iceberg/deletes/DeleteCounter.html" title="class in org.apache.iceberg.deletes">DeleteCounter</a>&nbsp;counter)</code>&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/deletes/Deletes.html#streamingMarker-org.apache.iceberg.io.CloseableIterable-java.util.function.Function-org.apache.iceberg.io.CloseableIterable-java.util.function.Consumer-">streamingMarker</a></span>(<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&nbsp;rows,
+               java.util.function.Function&lt;T,java.lang.Long&gt;&nbsp;rowToPosition,
+               <a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;java.lang.Long&gt;&nbsp;posDeletes,
+               java.util.function.Consumer&lt;T&gt;&nbsp;markDeleted)</code>&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/util/StructLikeSet.html" title="class in org.apache.iceberg.util">StructLikeSet</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/deletes/Deletes.html#toEqualitySet-org.apache.iceberg.io.CloseableIterable-org.apache.iceberg.types.Types.StructType-">toEqualitySet</a></span>(<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&gt;&nbsp;eqDeletes,
              <a href="../../../../org/apache/iceberg/types/Types.StructType.html" title="class in org.apache.iceberg.types">Types.StructType</a>&nbsp;eqType)</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>static &lt;T extends <a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&gt;<br><a href="../../../../org/apache/iceberg/deletes/PositionDeleteIndex.html" title="interface in org.apache.iceberg.deletes">PositionDeleteIndex</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/deletes/Deletes.html#toPositionIndex-java.lang.CharSequence-java.util.List-">toPositionIndex</a></span>(java.lang.CharSequence&nbsp;dataLocation,
                java.util.List&lt;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&gt;&nbsp;deleteFiles)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/deletes/PositionDeleteIndex.html" title="interface in org.apache.iceberg.deletes">PositionDeleteIndex</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/deletes/Deletes.html#toPositionIndex-org.apache.iceberg.io.CloseableIterable-">toPositionIndex</a></span>(<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;java.lang.Long&gt;&nbsp;posDeletes)</code>&nbsp;</td>
 </tr>
@@ -202,15 +226,44 @@ extends java.lang.Object</pre>
                                               <a href="../../../../org/apache/iceberg/util/StructLikeSet.html" title="class in org.apache.iceberg.util">StructLikeSet</a>&nbsp;deleteSet)</pre>
 </li>
 </ul>
-<a name="filter-org.apache.iceberg.io.CloseableIterable-java.util.function.Function-org.apache.iceberg.deletes.PositionDeleteIndex-">
+<a name="markDeleted-org.apache.iceberg.io.CloseableIterable-java.util.function.Predicate-java.util.function.Consumer-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>filter</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&nbsp;filter(<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&nbsp;rows,
-                                              java.util.function.Function&lt;T,java.lang.Long&gt;&nbsp;rowToPosition,
-                                              <a href="../../../../org/apache/iceberg/deletes/PositionDeleteIndex.html" title="interface in org.apache.iceberg.deletes">PositionDeleteIndex</a>&nbsp;deleteSet)</pre>
+<h4>markDeleted</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&nbsp;markDeleted(<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&nbsp;rows,
+                                                   java.util.function.Predicate&lt;T&gt;&nbsp;isDeleted,
+                                                   java.util.function.Consumer&lt;T&gt;&nbsp;deleteMarker)</pre>
+<div class="block">Returns the same rows that are input, while marking the deleted ones.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>rows</code> - the rows to process</dd>
+<dd><code>isDeleted</code> - a predicate that determines if a row is deleted</dd>
+<dd><code>deleteMarker</code> - a function that marks a row as deleted</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the processed rows</dd>
+</dl>
+</li>
+</ul>
+<a name="filterDeleted-org.apache.iceberg.io.CloseableIterable-java.util.function.Predicate-org.apache.iceberg.deletes.DeleteCounter-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>filterDeleted</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&nbsp;filterDeleted(<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&nbsp;rows,
+                                                     java.util.function.Predicate&lt;T&gt;&nbsp;isDeleted,
+                                                     <a href="../../../../org/apache/iceberg/deletes/DeleteCounter.html" title="class in org.apache.iceberg.deletes">DeleteCounter</a>&nbsp;counter)</pre>
+<div class="block">Returns the remaining rows (the ones that are not deleted), while counting the deleted ones.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>rows</code> - the rows to process</dd>
+<dd><code>isDeleted</code> - a predicate that determines if a row is deleted</dd>
+<dd><code>counter</code> - a counter that counts deleted rows</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the processed rows</dd>
+</dl>
 </li>
 </ul>
 <a name="toEqualitySet-org.apache.iceberg.io.CloseableIterable-org.apache.iceberg.types.Types.StructType-">
@@ -251,6 +304,30 @@ extends java.lang.Object</pre>
 <pre>public static&nbsp;&lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&nbsp;streamingFilter(<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&nbsp;rows,
                                                        java.util.function.Function&lt;T,java.lang.Long&gt;&nbsp;rowToPosition,
                                                        <a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;java.lang.Long&gt;&nbsp;posDeletes)</pre>
+</li>
+</ul>
+<a name="streamingFilter-org.apache.iceberg.io.CloseableIterable-java.util.function.Function-org.apache.iceberg.io.CloseableIterable-org.apache.iceberg.deletes.DeleteCounter-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>streamingFilter</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&nbsp;streamingFilter(<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&nbsp;rows,
+                                                       java.util.function.Function&lt;T,java.lang.Long&gt;&nbsp;rowToPosition,
+                                                       <a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;java.lang.Long&gt;&nbsp;posDeletes,
+                                                       <a href="../../../../org/apache/iceberg/deletes/DeleteCounter.html" title="class in org.apache.iceberg.deletes">DeleteCounter</a>&nbsp;counter)</pre>
+</li>
+</ul>
+<a name="streamingMarker-org.apache.iceberg.io.CloseableIterable-java.util.function.Function-org.apache.iceberg.io.CloseableIterable-java.util.function.Consumer-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>streamingMarker</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&nbsp;streamingMarker(<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&nbsp;rows,
+                                                       java.util.function.Function&lt;T,java.lang.Long&gt;&nbsp;rowToPosition,
+                                                       <a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;java.lang.Long&gt;&nbsp;posDeletes,
+                                                       java.util.function.Consumer&lt;T&gt;&nbsp;markDeleted)</pre>
 </li>
 </ul>
 <a name="deletePositions-java.lang.CharSequence-org.apache.iceberg.io.CloseableIterable-">
@@ -300,7 +377,7 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
+<li><a href="../../../../org/apache/iceberg/deletes/DeleteCounter.html" title="class in org.apache.iceberg.deletes"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/deletes/EqualityDeleteWriter.html" title="class in org.apache.iceberg.deletes"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

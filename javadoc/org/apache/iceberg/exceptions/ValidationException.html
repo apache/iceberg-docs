@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/exceptions/RuntimeIOException.html" title="class in org.apache.iceberg.exceptions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/exceptions/UnprocessableEntityException.html" title="class in org.apache.iceberg.exceptions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">
@@ -132,10 +132,14 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public class <span class="typeNameLabel">ValidationException</span>
 extends java.lang.RuntimeException</pre>
-<div class="block">Exception raised when validation checks fail.
- <p>
- For example, this is thrown when attempting to create a table with a <a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg"><code>PartitionSpec</code></a> that
- is not compatible with the table <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>Schema</code></a></div>
+<div class="block">Exception which is raised when the arguments are valid in isolation, but not in conjunction with
+ other arguments or state, as opposed to <code>IllegalArgumentException</code> which is raised when an
+ argument value is always invalid.
+
+ <p>A ValidationException will cause the operation to abort.
+
+ <p>For example, this is thrown when attempting to create a table with a <a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg"><code>PartitionSpec</code></a>
+ that is not compatible with the table <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>Schema</code></a></div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../serialized-form.html#org.apache.iceberg.exceptions.ValidationException">Serialized Form</a></dd>
@@ -286,7 +290,7 @@ public static&nbsp;void&nbsp;check(boolean&nbsp;test,
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/exceptions/RuntimeIOException.html" title="class in org.apache.iceberg.exceptions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/exceptions/UnprocessableEntityException.html" title="class in org.apache.iceberg.exceptions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">

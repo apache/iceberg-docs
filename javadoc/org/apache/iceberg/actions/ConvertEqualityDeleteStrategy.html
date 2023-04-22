@@ -132,7 +132,7 @@ var activeTableTab = "activeTableTab";
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteStrategy.html" title="interface in org.apache.iceberg.actions">RewritePositionDeleteStrategy</a></code></td>
+<td class="colFirst"><code><a href="../../../../org/apache/iceberg/actions/ConvertEqualityDeleteStrategy.html" title="interface in org.apache.iceberg.actions">ConvertEqualityDeleteStrategy</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/ConvertEqualityDeleteStrategy.html#options-java.util.Map-">options</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;options)</code>
 <div class="block">Sets options to be used with this strategy</div>
 </td>
@@ -203,8 +203,8 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>validOptions</h4>
 <pre>java.util.Set&lt;java.lang.String&gt;&nbsp;validOptions()</pre>
-<div class="block">Returns a set of options which this convert strategy can use. This is an allowed-list and any options not
- specified here will be rejected at runtime.</div>
+<div class="block">Returns a set of options which this convert strategy can use. This is an allowed-list and any
+ options not specified here will be rejected at runtime.</div>
 </li>
 </ul>
 <a name="options-java.util.Map-">
@@ -213,7 +213,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>options</h4>
-<pre><a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteStrategy.html" title="interface in org.apache.iceberg.actions">RewritePositionDeleteStrategy</a>&nbsp;options(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;options)</pre>
+<pre><a href="../../../../org/apache/iceberg/actions/ConvertEqualityDeleteStrategy.html" title="interface in org.apache.iceberg.actions">ConvertEqualityDeleteStrategy</a>&nbsp;options(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;options)</pre>
 <div class="block">Sets options to be used with this strategy</div>
 </li>
 </ul>
@@ -240,9 +240,9 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>planDeleteFileGroups</h4>
 <pre>java.lang.Iterable&lt;java.lang.Iterable&lt;<a href="../../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;&gt;&nbsp;planDeleteFileGroups(java.lang.Iterable&lt;<a href="../../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;&nbsp;dataFiles)</pre>
-<div class="block">Groups delete files into lists which will be processed in a single executable unit. Each group will end up being
- committed as an independent set of changes. This creates the jobs which will eventually be run as by the underlying
- Action.</div>
+<div class="block">Groups delete files into lists which will be processed in a single executable unit. Each group
+ will end up being committed as an independent set of changes. This creates the jobs which will
+ eventually be run as by the underlying Action.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>dataFiles</code> - iterable of data files that contain the DeleteFile to be converted</dd>

@@ -42,7 +42,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../org/apache/iceberg/spark/procedures/package-tree.html">Prev</a></li>
-<li><a href="../../../../../org/apache/iceberg/transforms/package-tree.html">Next</a></li>
+<li><a href="../../../../../org/apache/iceberg/spark/source/metrics/package-tree.html">Next</a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/iceberg/spark/source/package-tree.html" target="_top">Frames</a></li>
@@ -95,13 +95,35 @@
 </li>
 <li type="circle">org.apache.iceberg.spark.source.<a href="../../../../../org/apache/iceberg/spark/source/EqualityDeleteRowReader.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">EqualityDeleteRowReader</span></a></li>
 <li type="circle">org.apache.iceberg.spark.source.<a href="../../../../../org/apache/iceberg/spark/source/IcebergSource.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">IcebergSource</span></a> (implements org.apache.spark.sql.sources.DataSourceRegister, org.apache.spark.sql.connector.catalog.SupportsCatalogOptions)</li>
-<li type="circle">org.apache.iceberg.spark.source.<a href="../../../../../org/apache/iceberg/spark/source/RowDataRewriter.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">RowDataRewriter</span></a> (implements java.io.Serializable)</li>
+<li type="circle">org.apache.iceberg.<a href="../../../../../org/apache/iceberg/SerializableTable.html" title="class in org.apache.iceberg"><span class="typeNameLink">SerializableTable</span></a> (implements java.io.Serializable, org.apache.iceberg.<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>)
+<ul>
+<li type="circle">org.apache.iceberg.<a href="../../../../../org/apache/iceberg/SerializableTable.SerializableMetadataTable.html" title="class in org.apache.iceberg"><span class="typeNameLink">SerializableTable.SerializableMetadataTable</span></a>
+<ul>
+<li type="circle">org.apache.iceberg.spark.source.<a href="../../../../../org/apache/iceberg/spark/source/SerializableTableWithSize.SerializableMetadataTableWithSize.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">SerializableTableWithSize.SerializableMetadataTableWithSize</span></a> (implements org.apache.spark.util.KnownSizeEstimation)</li>
+</ul>
+</li>
+<li type="circle">org.apache.iceberg.spark.source.<a href="../../../../../org/apache/iceberg/spark/source/SerializableTableWithSize.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">SerializableTableWithSize</span></a> (implements org.apache.spark.util.KnownSizeEstimation)</li>
+</ul>
+</li>
+<li type="circle">org.apache.iceberg.spark.source.<a href="../../../../../org/apache/iceberg/spark/source/SparkChangelogTable.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">SparkChangelogTable</span></a> (implements org.apache.spark.sql.connector.catalog.SupportsRead, org.apache.spark.sql.connector.catalog.Table)</li>
 <li type="circle">org.apache.iceberg.spark.source.<a href="../../../../../org/apache/iceberg/spark/source/SparkMetadataColumn.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">SparkMetadataColumn</span></a> (implements org.apache.spark.sql.connector.catalog.MetadataColumn)</li>
 <li type="circle">org.apache.iceberg.spark.source.<a href="../../../../../org/apache/iceberg/spark/source/SparkMicroBatchStream.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">SparkMicroBatchStream</span></a> (implements org.apache.spark.sql.connector.read.streaming.MicroBatchStream)</li>
-<li type="circle">org.apache.iceberg.spark.source.<a href="../../../../../org/apache/iceberg/spark/source/SparkScanBuilder.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">SparkScanBuilder</span></a> (implements org.apache.spark.sql.connector.read.ScanBuilder, org.apache.spark.sql.connector.read.SupportsPushDownFilters, org.apache.spark.sql.connector.read.SupportsPushDownRequiredColumns)</li>
-<li type="circle">org.apache.iceberg.spark.source.<a href="../../../../../org/apache/iceberg/spark/source/SparkTable.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">SparkTable</span></a> (implements org.apache.spark.sql.connector.catalog.SupportsDelete, org.apache.spark.sql.connector.catalog.SupportsMetadataColumns, org.apache.spark.sql.connector.catalog.SupportsRead, org.apache.spark.sql.connector.iceberg.catalog.<a href="../../../../../org/apache/spark/sql/connector/iceberg/catalog/SupportsRowLevelOperations.html" title="interface in org.apache.spark.sql.connector.iceberg.catalog">SupportsRowLevelOperations</a>, org.apache.spark.sql.connector.catalog.SupportsWrite, org.apache.spark.sql.connector.catalog.Table)
+<li type="circle">org.apache.iceberg.spark.source.<a href="../../../../../org/apache/iceberg/spark/source/SparkScanBuilder.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">SparkScanBuilder</span></a> (implements org.apache.spark.sql.connector.read.ScanBuilder, org.apache.spark.sql.connector.read.SupportsPushDownAggregates, org.apache.spark.sql.connector.read.SupportsPushDownFilters, org.apache.spark.sql.connector.read.SupportsPushDownRequiredColumns, org.apache.spark.sql.connector.read.SupportsReportStatistics)</li>
+<li type="circle">org.apache.iceberg.spark.source.<a href="../../../../../org/apache/iceberg/spark/source/SparkTable.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">SparkTable</span></a> (implements org.apache.spark.sql.connector.catalog.SupportsDelete, org.apache.spark.sql.connector.catalog.SupportsMetadataColumns, org.apache.spark.sql.connector.catalog.SupportsRead, org.apache.spark.sql.connector.catalog.SupportsRowLevelOperations, org.apache.spark.sql.connector.catalog.SupportsWrite, org.apache.spark.sql.connector.catalog.Table)
 <ul>
 <li type="circle">org.apache.iceberg.spark.source.<a href="../../../../../org/apache/iceberg/spark/source/StagedSparkTable.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">StagedSparkTable</span></a> (implements org.apache.spark.sql.connector.catalog.StagedTable)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 title="Interface Hierarchy">Interface Hierarchy</h2>
+<ul>
+<li type="circle">org.apache.spark.sql.connector.catalog.CatalogPlugin
+<ul>
+<li type="circle">org.apache.spark.sql.connector.catalog.TableCatalog
+<ul>
+<li type="circle">org.apache.iceberg.spark.source.<a href="../../../../../org/apache/iceberg/spark/source/HasIcebergCatalog.html" title="interface in org.apache.iceberg.spark.source"><span class="typeNameLink">HasIcebergCatalog</span></a></li>
 </ul>
 </li>
 </ul>
@@ -129,7 +151,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../org/apache/iceberg/spark/procedures/package-tree.html">Prev</a></li>
-<li><a href="../../../../../org/apache/iceberg/transforms/package-tree.html">Next</a></li>
+<li><a href="../../../../../org/apache/iceberg/spark/source/metrics/package-tree.html">Next</a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/iceberg/spark/source/package-tree.html" target="_top">Frames</a></li>

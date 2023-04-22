@@ -24,6 +24,66 @@ disableSidebar: true
 
 Here is a list of company blogs that talk about Iceberg. The blogs are ordered from most recent to oldest.
 
+### [Open Data Lakehouse powered by Iceberg for all your Data Warehouse needs](https://blog.cloudera.com/open-data-lakehouse-powered-by-iceberg-for-all-your-data-warehouse-needs/)
+**Date**: April 3rd, 2023, **Company**: Cloudera
+
+**Authors**: [Zoltan Borok-Nagy](https://www.linkedin.com/in/zoltán-borók-nagy-7370a65b/), [Ayush Saxena](https://www.linkedin.com/in/ayush-saxena151/), [Tamas Mate](https://www.linkedin.com/in/tmater/), [Simhadri Govindappa](https://www.linkedin.com/in/simhadri-govindappa-1a7788148/)
+
+### [Iceberg Tables: Catalog Support Now Available](https://www.snowflake.com/blog/iceberg-tables-catalog-support-available-now/)
+**Date**: March 29th, 2023, **Company**: Snowflake
+
+**Authors**: [Ron Ortloff](https://www.linkedin.com/in/ron-ortloff/), [Dennis Huo](https://www.linkedin.com/in/dennis-huo-2aaba92a/)
+
+### [Understanding Iceberg Table Metadata](https://medium.com/snowflake/understanding-iceberg-table-metadata-b1209fbcc7c3)
+**Date**: January 30st, 2023, **Company**: Snowflake
+
+**Author**: [Phani Raj](https://www.linkedin.com/in/phani-raj-9830a31b/)
+
+### [Creating and managing Apache Iceberg tables using serverless features and without coding](https://medium.com/snowflake/creating-and-managing-apache-iceberg-tables-using-serverless-features-and-without-coding-14d2198cf5b5)
+**Date**: January 27th, 2023, **Company**: Snowflake
+
+**Author**: [Parag Jain](https://www.linkedin.com/in/paragjainsa/)
+
+### [Getting started with Apache Iceberg](https://medium.com/snowflake/getting-started-with-apache-iceberg-80f338921a31)
+**Date**: January 27th, 2023, **Company**: Snowflake
+
+**Author**: [Jedidiah Rajbhushan](https://www.linkedin.com/in/jrajbhushan/)
+
+### [How Apache Iceberg enables ACID compliance for data lakes](https://medium.com/snowflake/how-apache-iceberg-enables-acid-compliance-for-data-lakes-9069ae783b60/)
+**Date**: January 13th, 2023, **Company**: Snowflake
+
+**Authors**: [Sumeet Tandure](https://www.linkedin.com/in/sumeettandure/)
+
+### [Multi-Cloud Open Lakehouse with Apache Iceberg in Cloudera Data Platform](https://blog.cloudera.com/implement-a-multi-cloud-open-lakehouse-with-apache-iceberg-in-cloudera-data-platform/)
+**Date**: December 15th, 2022, **Company**: Cloudera
+
+**Authors**: [Bill Zhang](https://www.linkedin.com/in/billzhang01/), [Shaun Ahmadian](https://www.linkedin.com/in/ssahmadian/), [Zoltan Borok-Nagy](https://www.linkedin.com/in/zoltán-borók-nagy-7370a65b/), [Vincent Kulandaisamy](https://www.linkedin.com/in/vincentkulandaisamy/)
+
+### [Compaction in Apache Iceberg: Fine-Tuning Your Iceberg Table's Data Files](https://www.dremio.com/subsurface/compaction-in-apache-iceberg-fine-tuning-your-iceberg-tables-data-files/)
+**Date**: November 9th, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
+
+### [The Life of a Read Query for Apache Iceberg Tables](https://www.dremio.com/subsurface/the-life-of-a-read-query-for-apache-iceberg-tables/)
+**Date**: October 31st, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
+
+### [Puffins and Icebergs: Additional Stats for Apache Iceberg Tables](https://www.dremio.com/subsurface/puffins-and-icebergs-additional-stats-for-apache-iceberg-tables/)
+**Date**: October 17th, 2022, **Company**: Dremio
+
+**Author**: [Dipankar Mazumdar](https://www.linkedin.com/in/dipankar-mazumdar/)
+
+### [Apache Iceberg and the Right to be Forgotten](https://www.dremio.com/subsurface/apache-iceberg-and-the-right-to-be-forgotten/)
+**Date**: September 30th, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
+
+### [Streaming Data into Apache Iceberg tables using AWS Kinesis and AWS Glue](https://www.dremio.com/subsurface/streaming-data-into-apache-iceberg-tables-using-aws-kinesis-and-aws-glue/)
+**Date**: September 26th, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
+
 ### [Iceberg Flink Sink: Stream Directly into your Data Warehouse Tables](https://tabular.io/blog/flink-sink/)
 **Date**: October 12, 2022, **Company**: Tabular
 

@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/apache/iceberg/CatalogProperties.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/ClientPool.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/ChangelogOperation.html" title="enum in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/CatalogUtil.html" target="_top">Frames</a></li>
@@ -137,18 +137,26 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogUtil.html#ICEBERG_CATALOG_TYPE">ICEBERG_CATALOG_TYPE</a></span></code>
-<div class="block">Shortcut catalog property to load a catalog implementation through a short type name,
- instead of specifying a full java class through <a href="../../../org/apache/iceberg/CatalogProperties.html#CATALOG_IMPL"><code>CatalogProperties.CATALOG_IMPL</code></a>.</div>
-</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogUtil.html#ICEBERG_CATALOG_REST">ICEBERG_CATALOG_REST</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogUtil.html#ICEBERG_CATALOG_TYPE_HADOOP">ICEBERG_CATALOG_TYPE_HADOOP</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogUtil.html#ICEBERG_CATALOG_TYPE">ICEBERG_CATALOG_TYPE</a></span></code>
+<div class="block">Shortcut catalog property to load a catalog implementation through a short type name, instead
+ of specifying a full java class through <a href="../../../org/apache/iceberg/CatalogProperties.html#CATALOG_IMPL"><code>CatalogProperties.CATALOG_IMPL</code></a>.</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogUtil.html#ICEBERG_CATALOG_TYPE_HADOOP">ICEBERG_CATALOG_TYPE_HADOOP</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogUtil.html#ICEBERG_CATALOG_TYPE_HIVE">ICEBERG_CATALOG_TYPE_HIVE</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogUtil.html#ICEBERG_CATALOG_TYPE_REST">ICEBERG_CATALOG_TYPE_REST</a></span></code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -170,7 +178,8 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogUtil.html#buildIcebergCatalog-java.lang.String-java.util.Map-java.lang.Object-">buildIcebergCatalog</a></span>(java.lang.String&nbsp;name,
                    java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;options,
                    java.lang.Object&nbsp;conf)</code>
-<div class="block">Build an Iceberg <a href="../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog"><code>Catalog</code></a> based on a map of catalog properties and optional Hadoop configuration.</div>
+<div class="block">Build an Iceberg <a href="../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog"><code>Catalog</code></a> based on a map of catalog properties and optional Hadoop
+ configuration.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -204,6 +213,12 @@ extends java.lang.Object</pre>
 <div class="block">Load a custom <a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><code>FileIO</code></a> implementation.</div>
 </td>
 </tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>static <a href="../../../org/apache/iceberg/metrics/MetricsReporter.html" title="interface in org.apache.iceberg.metrics">MetricsReporter</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogUtil.html#loadMetricsReporter-java.util.Map-">loadMetricsReporter</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</code>
+<div class="block">Load a custom <a href="../../../org/apache/iceberg/metrics/MetricsReporter.html" title="interface in org.apache.iceberg.metrics"><code>MetricsReporter</code></a> implementation.</div>
+</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -233,12 +248,13 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>ICEBERG_CATALOG_TYPE</h4>
 <pre>public static final&nbsp;java.lang.String ICEBERG_CATALOG_TYPE</pre>
-<div class="block">Shortcut catalog property to load a catalog implementation through a short type name,
- instead of specifying a full java class through <a href="../../../org/apache/iceberg/CatalogProperties.html#CATALOG_IMPL"><code>CatalogProperties.CATALOG_IMPL</code></a>.
- Currently the following type to implementation mappings are supported:
+<div class="block">Shortcut catalog property to load a catalog implementation through a short type name, instead
+ of specifying a full java class through <a href="../../../org/apache/iceberg/CatalogProperties.html#CATALOG_IMPL"><code>CatalogProperties.CATALOG_IMPL</code></a>. Currently the
+ following type to implementation mappings are supported:
+
  <ul>
-   <li>hive: org.apache.iceberg.hive.HiveCatalog</li>
-   <li>hadoop: org.apache.iceberg.hadoop.HadoopCatalog</li>
+   <li>hive: org.apache.iceberg.hive.HiveCatalog
+   <li>hadoop: org.apache.iceberg.hadoop.HadoopCatalog
  </ul></div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -272,6 +288,32 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
+<a name="ICEBERG_CATALOG_TYPE_REST">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ICEBERG_CATALOG_TYPE_REST</h4>
+<pre>public static final&nbsp;java.lang.String ICEBERG_CATALOG_TYPE_REST</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.apache.iceberg.CatalogUtil.ICEBERG_CATALOG_TYPE_REST">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="ICEBERG_CATALOG_HADOOP">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ICEBERG_CATALOG_HADOOP</h4>
+<pre>public static final&nbsp;java.lang.String ICEBERG_CATALOG_HADOOP</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.apache.iceberg.CatalogUtil.ICEBERG_CATALOG_HADOOP">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
 <a name="ICEBERG_CATALOG_HIVE">
 <!--   -->
 </a>
@@ -285,16 +327,16 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="ICEBERG_CATALOG_HADOOP">
+<a name="ICEBERG_CATALOG_REST">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>ICEBERG_CATALOG_HADOOP</h4>
-<pre>public static final&nbsp;java.lang.String ICEBERG_CATALOG_HADOOP</pre>
+<h4>ICEBERG_CATALOG_REST</h4>
+<pre>public static final&nbsp;java.lang.String ICEBERG_CATALOG_REST</pre>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#org.apache.iceberg.CatalogUtil.ICEBERG_CATALOG_HADOOP">Constant Field Values</a></dd>
+<dd><a href="../../../constant-values.html#org.apache.iceberg.CatalogUtil.ICEBERG_CATALOG_REST">Constant Field Values</a></dd>
 </dl>
 </li>
 </ul>
@@ -315,9 +357,9 @@ extends java.lang.Object</pre>
 <pre>public static&nbsp;void&nbsp;dropTableData(<a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io,
                                  <a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;metadata)</pre>
 <div class="block">Drops all data and metadata files referenced by TableMetadata.
- <p>
- This should be called by dropTable implementations to clean up table files once the table has been dropped in the
- metastore.</div>
+
+ <p>This should be called by dropTable implementations to clean up table files once the table
+ has been dropped in the metastore.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>io</code> - a FileIO to use for deletes</dd>
@@ -336,10 +378,10 @@ extends java.lang.Object</pre>
                                   java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties,
                                   java.lang.Object&nbsp;hadoopConf)</pre>
 <div class="block">Load a custom catalog implementation.
- <p>
- The catalog must have a no-arg constructor.
- If the class implements Configurable, a Hadoop config will be passed using Configurable.setConf.
- <a href="../../../org/apache/iceberg/catalog/Catalog.html#initialize-java.lang.String-java.util.Map-"><code>Catalog.initialize(String catalogName, Map options)</code></a> is called to complete the initialization.</div>
+
+ <p>The catalog must have a no-arg constructor. If the class implements Configurable, a Hadoop
+ config will be passed using Configurable.setConf. <a href="../../../org/apache/iceberg/catalog/Catalog.html#initialize-java.lang.String-java.util.Map-"><code>Catalog.initialize(String catalogName,
+ Map options)</code></a> is called to complete the initialization.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>impl</code> - catalog implementation full class name</dd>
@@ -362,11 +404,11 @@ extends java.lang.Object</pre>
 <pre>public static&nbsp;<a href="../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a>&nbsp;buildIcebergCatalog(java.lang.String&nbsp;name,
                                           java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;options,
                                           java.lang.Object&nbsp;conf)</pre>
-<div class="block">Build an Iceberg <a href="../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog"><code>Catalog</code></a> based on a map of catalog properties and optional Hadoop configuration.
- <p>
- This method examines both the <a href="../../../org/apache/iceberg/CatalogUtil.html#ICEBERG_CATALOG_TYPE"><code>ICEBERG_CATALOG_TYPE</code></a> and <a href="../../../org/apache/iceberg/CatalogProperties.html#CATALOG_IMPL"><code>CatalogProperties.CATALOG_IMPL</code></a> properties
- to determine the catalog implementation to load.
- If nothing is specified for both properties, Hive catalog will be loaded by default.</div>
+<div class="block">Build an Iceberg <a href="../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog"><code>Catalog</code></a> based on a map of catalog properties and optional Hadoop
+ configuration.
+
+ <p>This method examines both the <a href="../../../org/apache/iceberg/CatalogUtil.html#ICEBERG_CATALOG_TYPE"><code>ICEBERG_CATALOG_TYPE</code></a> and <a href="../../../org/apache/iceberg/CatalogProperties.html#CATALOG_IMPL"><code>CatalogProperties.CATALOG_IMPL</code></a> properties to determine the catalog implementation to load. If
+ nothing is specified for both properties, Hive catalog will be loaded by default.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - catalog name</dd>
@@ -387,27 +429,27 @@ extends java.lang.Object</pre>
                                 java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties,
                                 java.lang.Object&nbsp;hadoopConf)</pre>
 <div class="block">Load a custom <a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><code>FileIO</code></a> implementation.
- <p>
- The implementation must have a no-arg constructor.
- If the class implements Configurable, a Hadoop config will be passed using Configurable.setConf.
- <a href="../../../org/apache/iceberg/io/FileIO.html#initialize-java.util.Map-"><code>FileIO.initialize(Map properties)</code></a> is called to complete the initialization.</div>
+
+ <p>The implementation must have a no-arg constructor. If the class implements Configurable, a
+ Hadoop config will be passed using Configurable.setConf. <a href="../../../org/apache/iceberg/io/FileIO.html#initialize-java.util.Map-"><code>FileIO.initialize(Map
+ properties)</code></a> is called to complete the initialization.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>impl</code> - full class name of a custom FileIO implementation</dd>
+<dd><code>properties</code> - used to initialize the FileIO implementation</dd>
 <dd><code>hadoopConf</code> - a hadoop Configuration</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>FileIO class</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.IllegalArgumentException</code> - if class path not found or
-  right constructor not found or
-  the loaded class cannot be casted to the given interface type</dd>
+<dd><code>java.lang.IllegalArgumentException</code> - if class path not found or right constructor not found or the
+     loaded class cannot be cast to the given interface type</dd>
 </dl>
 </li>
 </ul>
 <a name="configureHadoopConf-java.lang.Object-java.lang.Object-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>configureHadoopConf</h4>
 <pre>public static&nbsp;void&nbsp;configureHadoopConf(java.lang.Object&nbsp;maybeConfigurable,
@@ -417,6 +459,27 @@ extends java.lang.Object</pre>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>maybeConfigurable</code> - an object that may be Configurable</dd>
 <dd><code>conf</code> - a Configuration</dd>
+</dl>
+</li>
+</ul>
+<a name="loadMetricsReporter-java.util.Map-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>loadMetricsReporter</h4>
+<pre>public static&nbsp;<a href="../../../org/apache/iceberg/metrics/MetricsReporter.html" title="interface in org.apache.iceberg.metrics">MetricsReporter</a>&nbsp;loadMetricsReporter(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</pre>
+<div class="block">Load a custom <a href="../../../org/apache/iceberg/metrics/MetricsReporter.html" title="interface in org.apache.iceberg.metrics"><code>MetricsReporter</code></a> implementation.
+
+ <p>The implementation must have a no-arg constructor.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>properties</code> - catalog properties which contains class name of a custom <a href="../../../org/apache/iceberg/metrics/MetricsReporter.html" title="interface in org.apache.iceberg.metrics"><code>MetricsReporter</code></a> implementation</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>An initialized <a href="../../../org/apache/iceberg/metrics/MetricsReporter.html" title="interface in org.apache.iceberg.metrics"><code>MetricsReporter</code></a>.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.IllegalArgumentException</code> - if class path not found or right constructor not found or the
+     loaded class cannot be cast to the given interface type</dd>
 </dl>
 </li>
 </ul>
@@ -448,7 +511,7 @@ extends java.lang.Object</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/apache/iceberg/CatalogProperties.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/ClientPool.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/ChangelogOperation.html" title="enum in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/CatalogUtil.html" target="_top">Frames</a></li>

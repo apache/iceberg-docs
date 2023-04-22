@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":18,"i1":6,"i2":18,"i3":18};
+var methods = {"i0":18,"i1":6,"i2":18,"i3":18,"i4":18};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -103,14 +103,14 @@ var activeTableTab = "activeTableTab";
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../org/apache/iceberg/spark/actions/BaseRewriteDataFilesSpark3Action.html" title="class in org.apache.iceberg.spark.actions">BaseRewriteDataFilesSpark3Action</a></dd>
+<dd><a href="../../../../org/apache/iceberg/spark/actions/RewriteDataFilesSparkAction.html" title="class in org.apache.iceberg.spark.actions">RewriteDataFilesSparkAction</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public interface <span class="typeNameLabel">RewriteDataFiles</span>
 extends <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" title="interface in org.apache.iceberg.actions">SnapshotUpdate</a>&lt;<a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles</a>,<a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.Result.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles.Result</a>&gt;</pre>
-<div class="block">An action for rewriting data files according to a rewrite strategy.
- Generally used for optimizing the sizing and layout of data files within a table.</div>
+<div class="block">An action for rewriting data files according to a rewrite strategy. Generally used for optimizing
+ the sizing and layout of data files within a table.</div>
 </li>
 </ul>
 </div>
@@ -138,8 +138,8 @@ extends <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" tit
 <tr class="rowColor">
 <td class="colFirst"><code>static interface&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.FileGroupRewriteResult.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles.FileGroupRewriteResult</a></span></code>
-<div class="block">For a particular file group, the number of files which are newly created and the number of files
-  which were formerly part of the table but have been rewritten.</div>
+<div class="block">For a particular file group, the number of files which are newly created and the number of
+ files which were formerly part of the table but have been rewritten.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -176,8 +176,8 @@ extends <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" tit
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.html#MAX_FILE_GROUP_SIZE_BYTES">MAX_FILE_GROUP_SIZE_BYTES</a></span></code>
-<div class="block">The entire rewrite operation is broken down into pieces based on partitioning and within partitions based
- on size into groups.</div>
+<div class="block">The entire rewrite operation is broken down into pieces based on partitioning and within
+ partitions based on size into groups.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -187,7 +187,8 @@ extends <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" tit
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.html#PARTIAL_PROGRESS_ENABLED">PARTIAL_PROGRESS_ENABLED</a></span></code>
-<div class="block">Enable committing groups of files (see max-file-group-size-bytes) prior to the entire rewrite completing.</div>
+<div class="block">Enable committing groups of files (see max-file-group-size-bytes) prior to the entire rewrite
+ completing.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -197,12 +198,23 @@ extends <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" tit
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.html#PARTIAL_PROGRESS_MAX_COMMITS">PARTIAL_PROGRESS_MAX_COMMITS</a></span></code>
-<div class="block">The maximum amount of Iceberg commits that this rewrite is allowed to produce if partial progress is enabled.</div>
+<div class="block">The maximum amount of Iceberg commits that this rewrite is allowed to produce if partial
+ progress is enabled.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.html#PARTIAL_PROGRESS_MAX_COMMITS_DEFAULT">PARTIAL_PROGRESS_MAX_COMMITS_DEFAULT</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.html#REWRITE_JOB_ORDER">REWRITE_JOB_ORDER</a></span></code>
+<div class="block">Forces the rewrite job order based on the value.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.html#REWRITE_JOB_ORDER_DEFAULT">REWRITE_JOB_ORDER_DEFAULT</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
@@ -213,8 +225,8 @@ extends <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" tit
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.html#USE_STARTING_SEQUENCE_NUMBER">USE_STARTING_SEQUENCE_NUMBER</a></span></code>
-<div class="block">If the compaction should use the sequence number of the snapshot at compaction start time for new data files,
- instead of using the sequence number of the newly produced snapshot.</div>
+<div class="block">If the compaction should use the sequence number of the snapshot at compaction start time for
+ new data files, instead of using the sequence number of the newly produced snapshot.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -260,6 +272,12 @@ extends <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" tit
 <div class="block">Choose SORT as a strategy for this rewrite operation and manually specify the sortOrder to use</div>
 </td>
 </tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>default <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.html#zOrder-java.lang.String...-">zOrder</a></span>(java.lang.String...&nbsp;columns)</code>
+<div class="block">Choose Z-ORDER as a strategy for this rewrite operation with a specified list of columns to use</div>
+</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.org.apache.iceberg.actions.SnapshotUpdate">
@@ -296,11 +314,12 @@ extends <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" tit
 <li class="blockList">
 <h4>PARTIAL_PROGRESS_ENABLED</h4>
 <pre>static final&nbsp;java.lang.String PARTIAL_PROGRESS_ENABLED</pre>
-<div class="block">Enable committing groups of files (see max-file-group-size-bytes) prior to the entire rewrite completing.
- This will produce additional commits but allow for progress even if some groups fail to commit. This setting
- will not change the correctness of the rewrite operation as file groups can be compacted independently.
- <p>
- The default is false, which produces a single commit when the entire job has completed.</div>
+<div class="block">Enable committing groups of files (see max-file-group-size-bytes) prior to the entire rewrite
+ completing. This will produce additional commits but allow for progress even if some groups
+ fail to commit. This setting will not change the correctness of the rewrite operation as file
+ groups can be compacted independently.
+
+ <p>The default is false, which produces a single commit when the entire job has completed.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.RewriteDataFiles.PARTIAL_PROGRESS_ENABLED">Constant Field Values</a></dd>
@@ -327,8 +346,8 @@ extends <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" tit
 <li class="blockList">
 <h4>PARTIAL_PROGRESS_MAX_COMMITS</h4>
 <pre>static final&nbsp;java.lang.String PARTIAL_PROGRESS_MAX_COMMITS</pre>
-<div class="block">The maximum amount of Iceberg commits that this rewrite is allowed to produce if partial progress is enabled. This
- setting has no effect if partial progress is disabled.</div>
+<div class="block">The maximum amount of Iceberg commits that this rewrite is allowed to produce if partial
+ progress is enabled. This setting has no effect if partial progress is disabled.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.RewriteDataFiles.PARTIAL_PROGRESS_MAX_COMMITS">Constant Field Values</a></dd>
@@ -355,17 +374,18 @@ extends <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" tit
 <li class="blockList">
 <h4>MAX_FILE_GROUP_SIZE_BYTES</h4>
 <pre>static final&nbsp;java.lang.String MAX_FILE_GROUP_SIZE_BYTES</pre>
-<div class="block">The entire rewrite operation is broken down into pieces based on partitioning and within partitions based
- on size into groups. These sub-units of the rewrite are referred to as file groups. The largest amount of data that
- should be compacted in a single group is controlled by <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.html#MAX_FILE_GROUP_SIZE_BYTES"><code>MAX_FILE_GROUP_SIZE_BYTES</code></a>. This helps with
- breaking down the rewriting of very large partitions which may not be rewritable otherwise due to the resource
- constraints of the cluster. For example a sort based rewrite may not scale to terabyte sized partitions, those
+<div class="block">The entire rewrite operation is broken down into pieces based on partitioning and within
+ partitions based on size into groups. These sub-units of the rewrite are referred to as file
+ groups. The largest amount of data that should be compacted in a single group is controlled by
+ <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.html#MAX_FILE_GROUP_SIZE_BYTES"><code>MAX_FILE_GROUP_SIZE_BYTES</code></a>. This helps with breaking down the rewriting of very large
+ partitions which may not be rewritable otherwise due to the resource constraints of the
+ cluster. For example a sort based rewrite may not scale to terabyte sized partitions, those
  partitions need to be worked on in small subsections to avoid exhaustion of resources.
- <p>
- When grouping files, the underlying rewrite strategy will use this value as to limit the files which
- will be included in a single file group. A group will be processed by a single framework "action". For example,
- in Spark this means that each group would be rewritten in its own Spark action. A group will never contain files
- for multiple output partitions.</div>
+
+ <p>When grouping files, the underlying rewrite strategy will use this value as to limit the
+ files which will be included in a single file group. A group will be processed by a single
+ framework "action". For example, in Spark this means that each group would be rewritten in its
+ own Spark action. A group will never contain files for multiple output partitions.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.RewriteDataFiles.MAX_FILE_GROUP_SIZE_BYTES">Constant Field Values</a></dd>
@@ -392,9 +412,9 @@ extends <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" tit
 <li class="blockList">
 <h4>MAX_CONCURRENT_FILE_GROUP_REWRITES</h4>
 <pre>static final&nbsp;java.lang.String MAX_CONCURRENT_FILE_GROUP_REWRITES</pre>
-<div class="block">The max number of file groups to be simultaneously rewritten by the rewrite strategy. The structure and
- contents of the group is determined by the rewrite strategy. Each file group will be rewritten
- independently and asynchronously.</div>
+<div class="block">The max number of file groups to be simultaneously rewritten by the rewrite strategy. The
+ structure and contents of the group is determined by the rewrite strategy. Each file group will
+ be rewritten independently and asynchronously.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.RewriteDataFiles.MAX_CONCURRENT_FILE_GROUP_REWRITES">Constant Field Values</a></dd>
@@ -421,8 +441,9 @@ extends <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" tit
 <li class="blockList">
 <h4>TARGET_FILE_SIZE_BYTES</h4>
 <pre>static final&nbsp;java.lang.String TARGET_FILE_SIZE_BYTES</pre>
-<div class="block">The output file size that this rewrite strategy will attempt to generate when rewriting files. By default this
- will use the "write.target-file-size-bytes value" in the table properties of the table being updated.</div>
+<div class="block">The output file size that this rewrite strategy will attempt to generate when rewriting files.
+ By default this will use the "write.target-file-size-bytes value" in the table properties of
+ the table being updated.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.RewriteDataFiles.TARGET_FILE_SIZE_BYTES">Constant Field Values</a></dd>
@@ -436,12 +457,13 @@ extends <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" tit
 <li class="blockList">
 <h4>USE_STARTING_SEQUENCE_NUMBER</h4>
 <pre>static final&nbsp;java.lang.String USE_STARTING_SEQUENCE_NUMBER</pre>
-<div class="block">If the compaction should use the sequence number of the snapshot at compaction start time for new data files,
- instead of using the sequence number of the newly produced snapshot.
- <p>
- This avoids commit conflicts with updates that add newer equality deletes at a higher sequence number.
- <p>
- Defaults to true.</div>
+<div class="block">If the compaction should use the sequence number of the snapshot at compaction start time for
+ new data files, instead of using the sequence number of the newly produced snapshot.
+
+ <p>This avoids commit conflicts with updates that add newer equality deletes at a higher
+ sequence number.
+
+ <p>Defaults to true.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.RewriteDataFiles.USE_STARTING_SEQUENCE_NUMBER">Constant Field Values</a></dd>
@@ -451,7 +473,7 @@ extends <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" tit
 <a name="USE_STARTING_SEQUENCE_NUMBER_DEFAULT">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>USE_STARTING_SEQUENCE_NUMBER_DEFAULT</h4>
 <pre>static final&nbsp;boolean USE_STARTING_SEQUENCE_NUMBER_DEFAULT</pre>
@@ -459,6 +481,42 @@ extends <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" tit
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.RewriteDataFiles.USE_STARTING_SEQUENCE_NUMBER_DEFAULT">Constant Field Values</a></dd>
 </dl>
+</li>
+</ul>
+<a name="REWRITE_JOB_ORDER">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>REWRITE_JOB_ORDER</h4>
+<pre>static final&nbsp;java.lang.String REWRITE_JOB_ORDER</pre>
+<div class="block">Forces the rewrite job order based on the value.
+
+ <p>
+
+ <ul>
+   <li>If rewrite-job-order=bytes-asc, then rewrite the smallest job groups first.
+   <li>If rewrite-job-order=bytes-desc, then rewrite the largest job groups first.
+   <li>If rewrite-job-order=files-asc, then rewrite the job groups with the least files first.
+   <li>If rewrite-job-order=files-desc, then rewrite the job groups with the most files first.
+   <li>If rewrite-job-order=none, then rewrite job groups in the order they were planned (no
+       specific ordering).
+ </ul>
+
+ <p>Defaults to none.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.RewriteDataFiles.REWRITE_JOB_ORDER">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="REWRITE_JOB_ORDER_DEFAULT">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>REWRITE_JOB_ORDER_DEFAULT</h4>
+<pre>static final&nbsp;java.lang.String REWRITE_JOB_ORDER_DEFAULT</pre>
 </li>
 </ul>
 </li>
@@ -513,6 +571,22 @@ extends <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" tit
 </dl>
 </li>
 </ul>
+<a name="zOrder-java.lang.String...-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>zOrder</h4>
+<pre>default&nbsp;<a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles</a>&nbsp;zOrder(java.lang.String...&nbsp;columns)</pre>
+<div class="block">Choose Z-ORDER as a strategy for this rewrite operation with a specified list of columns to use</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>columns</code> - Columns to be used to generate Z-Values</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
 <a name="filter-org.apache.iceberg.expressions.Expression-">
 <!--   -->
 </a>
@@ -520,12 +594,13 @@ extends <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" tit
 <li class="blockList">
 <h4>filter</h4>
 <pre><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles</a>&nbsp;filter(<a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expression)</pre>
-<div class="block">A user provided filter for determining which files will be considered by the rewrite strategy. This will be used
- in addition to whatever rules the rewrite strategy generates. For example this would be used for providing a
- restriction to only run rewrite on a specific partition.</div>
+<div class="block">A user provided filter for determining which files will be considered by the rewrite strategy.
+ This will be used in addition to whatever rules the rewrite strategy generates. For example
+ this would be used for providing a restriction to only run rewrite on a specific partition.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>expression</code> - An iceberg expression used to determine which files will be considered for rewriting</dd>
+<dd><code>expression</code> - An iceberg expression used to determine which files will be considered for
+     rewriting</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for chaining</dd>
 </dl>

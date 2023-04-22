@@ -47,8 +47,8 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/RewriteFiles.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/Rollback.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/RewriteJobOrder.html" title="enum in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/RewriteManifests.html" target="_top">Frames</a></li>
@@ -110,16 +110,16 @@ var activeTableTab = "activeTableTab";
 <pre>public interface <span class="typeNameLabel">RewriteManifests</span>
 extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interface in org.apache.iceberg">SnapshotUpdate</a>&lt;<a href="../../../org/apache/iceberg/RewriteManifests.html" title="interface in org.apache.iceberg">RewriteManifests</a>&gt;</pre>
 <div class="block">API for rewriting manifests for a table.
- <p>
- This API accumulates manifest files, produces a new <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><code>Snapshot</code></a> of the table
- described only by the manifest files that were added, and commits that snapshot as the
- current.
- <p>
- This API can be used to rewrite matching manifests according to a clustering function as well as
- to replace specific manifests. Manifests that are deleted or added directly are ignored during
- the rewrite process. The set of active files in replaced manifests must be the same as in new manifests.
- <p>
- When committing, these changes will be applied to the latest table snapshot. Commit conflicts
+
+ <p>This API accumulates manifest files, produces a new <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><code>Snapshot</code></a> of the table described
+ only by the manifest files that were added, and commits that snapshot as the current.
+
+ <p>This API can be used to rewrite matching manifests according to a clustering function as well
+ as to replace specific manifests. Manifests that are deleted or added directly are ignored during
+ the rewrite process. The set of active files in replaced manifests must be the same as in new
+ manifests.
+
+ <p>When committing, these changes will be applied to the latest table snapshot. Commit conflicts
  will be resolved by applying the changes to the new latest snapshot and reattempting the commit.</div>
 </li>
 </ul>
@@ -169,7 +169,7 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interface in org.apache.iceberg">SnapshotUpdate</a></h3>
-<code><a href="../../../org/apache/iceberg/SnapshotUpdate.html#deleteWith-java.util.function.Consumer-">deleteWith</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#set-java.lang.String-java.lang.String-">set</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#stageOnly--">stageOnly</a></code></li>
+<code><a href="../../../org/apache/iceberg/SnapshotUpdate.html#deleteWith-java.util.function.Consumer-">deleteWith</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#scanManifestsWith-java.util.concurrent.ExecutorService-">scanManifestsWith</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#set-java.lang.String-java.lang.String-">set</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#stageOnly--">stageOnly</a>, <a href="../../../org/apache/iceberg/SnapshotUpdate.html#toBranch-java.lang.String-">toBranch</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.org.apache.iceberg.PendingUpdate">
@@ -220,12 +220,12 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 <h4>rewriteIf</h4>
 <pre><a href="../../../org/apache/iceberg/RewriteManifests.html" title="interface in org.apache.iceberg">RewriteManifests</a>&nbsp;rewriteIf(java.util.function.Predicate&lt;<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&gt;&nbsp;predicate)</pre>
 <div class="block">Determines which existing <a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg"><code>ManifestFile</code></a> for the table should be rewritten. Manifests
- that do not match the predicate are kept as-is. If this is not called and no predicate is set, then
- all manifests will be rewritten.</div>
+ that do not match the predicate are kept as-is. If this is not called and no predicate is set,
+ then all manifests will be rewritten.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>predicate</code> - Predicate used to determine which manifests to rewrite. If true then the manifest
-                  file will be included for rewrite. If false then then manifest is kept as-is.</dd>
+<dd><code>predicate</code> - Predicate used to determine which manifests to rewrite. If true then the
+     manifest file will be included for rewrite. If false then then manifest is kept as-is.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>
 </dl>
@@ -256,17 +256,17 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 <pre><a href="../../../org/apache/iceberg/RewriteManifests.html" title="interface in org.apache.iceberg">RewriteManifests</a>&nbsp;addManifest(<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&nbsp;manifest)</pre>
 <div class="block">Adds a <a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg"><code>manifest file</code></a> to the table. The added manifest cannot contain new
  or deleted files.
- <p>
- By default, the manifest will be rewritten to ensure all entries have explicit snapshot IDs.
- In that case, it is always the responsibility of the caller to manage the lifecycle of
- the original manifest.
- <p>
- If manifest entries are allowed to inherit the snapshot ID assigned on commit, the manifest
+
+ <p>By default, the manifest will be rewritten to ensure all entries have explicit snapshot IDs.
+ In that case, it is always the responsibility of the caller to manage the lifecycle of the
+ original manifest.
+
+ <p>If manifest entries are allowed to inherit the snapshot ID assigned on commit, the manifest
  should never be deleted manually if the commit succeeds as it will become part of the table
  metadata and will be cleaned up on expiry. If the manifest gets merged with others while
- preparing a new snapshot, it will be deleted automatically if this operation is successful.
- If the commit fails, the manifest will never be deleted and it is up to the caller whether
- to delete or reuse it.</div>
+ preparing a new snapshot, it will be deleted automatically if this operation is successful. If
+ the commit fails, the manifest will never be deleted and it is up to the caller whether to
+ delete or reuse it.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>manifest</code> - a manifest to add</dd>
@@ -302,8 +302,8 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/RewriteFiles.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/Rollback.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/RewriteJobOrder.html" title="enum in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/RewriteManifests.html" target="_top">Frames</a></li>

@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18};
+var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":18,"i7":18};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/apache/iceberg/ScanSummary.PartitionMetrics.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/ScanTaskGroup.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/ScanTask.html" target="_top">Frames</a></li>
@@ -103,11 +103,11 @@ var activeTableTab = "activeTableTab";
 </dl>
 <dl>
 <dt>All Known Subinterfaces:</dt>
-<dd><a href="../../../org/apache/iceberg/CombinedScanTask.html" title="interface in org.apache.iceberg">CombinedScanTask</a>, <a href="../../../org/apache/iceberg/DataTask.html" title="interface in org.apache.iceberg">DataTask</a>, <a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a></dd>
+<dd><a href="../../../org/apache/iceberg/AddedRowsScanTask.html" title="interface in org.apache.iceberg">AddedRowsScanTask</a>, <a href="../../../org/apache/iceberg/ChangelogScanTask.html" title="interface in org.apache.iceberg">ChangelogScanTask</a>, <a href="../../../org/apache/iceberg/CombinedScanTask.html" title="interface in org.apache.iceberg">CombinedScanTask</a>, <a href="../../../org/apache/iceberg/ContentScanTask.html" title="interface in org.apache.iceberg">ContentScanTask</a>&lt;F&gt;, <a href="../../../org/apache/iceberg/DataTask.html" title="interface in org.apache.iceberg">DataTask</a>, <a href="../../../org/apache/iceberg/DeletedDataFileScanTask.html" title="interface in org.apache.iceberg">DeletedDataFileScanTask</a>, <a href="../../../org/apache/iceberg/DeletedRowsScanTask.html" title="interface in org.apache.iceberg">DeletedRowsScanTask</a>, <a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>, <a href="../../../org/apache/iceberg/MergeableScanTask.html" title="interface in org.apache.iceberg">MergeableScanTask</a>&lt;ThisT&gt;, <a href="../../../org/apache/iceberg/PartitionScanTask.html" title="interface in org.apache.iceberg">PartitionScanTask</a>, <a href="../../../org/apache/iceberg/PositionDeletesScanTask.html" title="interface in org.apache.iceberg">PositionDeletesScanTask</a>, <a href="../../../org/apache/iceberg/ScanTaskGroup.html" title="interface in org.apache.iceberg">ScanTaskGroup</a>&lt;T&gt;, <a href="../../../org/apache/iceberg/SplittableScanTask.html" title="interface in org.apache.iceberg">SplittableScanTask</a>&lt;ThisT&gt;</dd>
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../org/apache/iceberg/BaseCombinedScanTask.html" title="class in org.apache.iceberg">BaseCombinedScanTask</a></dd>
+<dd><a href="../../../org/apache/iceberg/BaseCombinedScanTask.html" title="class in org.apache.iceberg">BaseCombinedScanTask</a>, <a href="../../../org/apache/iceberg/BaseFileScanTask.html" title="class in org.apache.iceberg">BaseFileScanTask</a>, <a href="../../../org/apache/iceberg/BaseScanTaskGroup.html" title="class in org.apache.iceberg">BaseScanTaskGroup</a></dd>
 </dl>
 <hr>
 <br>
@@ -151,15 +151,33 @@ extends java.io.Serializable</pre>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>default long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ScanTask.html#estimatedRowsCount--">estimatedRowsCount</a></span>()</code>
+<div class="block">The estimated number of rows produced by this scan task.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>default int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ScanTask.html#filesCount--">filesCount</a></span>()</code>
+<div class="block">The number of files that will be opened by this scan task.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>default boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ScanTask.html#isDataTask--">isDataTask</a></span>()</code>
 <div class="block">Returns true if this is a <a href="../../../org/apache/iceberg/DataTask.html" title="interface in org.apache.iceberg"><code>DataTask</code></a>, false otherwise.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>default boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ScanTask.html#isFileScanTask--">isFileScanTask</a></span>()</code>
 <div class="block">Returns true if this is a <a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg"><code>FileScanTask</code></a>, false otherwise.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>default long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ScanTask.html#sizeBytes--">sizeBytes</a></span>()</code>
+<div class="block">The number of bytes that should be read by this scan task.</div>
 </td>
 </tr>
 </table>
@@ -177,6 +195,48 @@ extends java.io.Serializable</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="sizeBytes--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>sizeBytes</h4>
+<pre>default&nbsp;long&nbsp;sizeBytes()</pre>
+<div class="block">The number of bytes that should be read by this scan task.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the total number of bytes to read</dd>
+</dl>
+</li>
+</ul>
+<a name="estimatedRowsCount--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>estimatedRowsCount</h4>
+<pre>default&nbsp;long&nbsp;estimatedRowsCount()</pre>
+<div class="block">The estimated number of rows produced by this scan task.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the estimated number of produced rows</dd>
+</dl>
+</li>
+</ul>
+<a name="filesCount--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>filesCount</h4>
+<pre>default&nbsp;int&nbsp;filesCount()</pre>
+<div class="block">The number of files that will be opened by this scan task.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the number of files to open</dd>
+</dl>
+</li>
+</ul>
 <a name="isFileScanTask--">
 <!--   -->
 </a>
@@ -273,7 +333,7 @@ extends java.io.Serializable</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/apache/iceberg/ScanSummary.PartitionMetrics.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/ScanTaskGroup.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/ScanTask.html" target="_top">Frames</a></li>

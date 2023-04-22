@@ -47,8 +47,8 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/SortOrderParser.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/SplittableScanTask.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/StatisticsFile.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/StaticTableOperations.html" target="_top">Frames</a></li>
@@ -114,9 +114,9 @@ var activeTableTab = "activeTableTab";
 <pre>public class <span class="typeNameLabel">StaticTableOperations</span>
 extends java.lang.Object
 implements <a href="../../../org/apache/iceberg/TableOperations.html" title="interface in org.apache.iceberg">TableOperations</a></pre>
-<div class="block">TableOperations implementation that provides access to metadata for a Table at some point in time, using a
- table metadata location. It will never refer to a different Metadata object than the one it was created with
- and cannot be used to create or delete files.</div>
+<div class="block">TableOperations implementation that provides access to metadata for a Table at some point in
+ time, using a table metadata location. It will never refer to a different Metadata object than
+ the one it was created with and cannot be used to create or delete files.</div>
 </li>
 </ul>
 </div>
@@ -195,8 +195,8 @@ implements <a href="../../../org/apache/iceberg/TableOperations.html" title="int
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/StaticTableOperations.html#refresh--">refresh</a></span>()</code>
-<div class="block">StaticTableOperations works on the same version of TableMetadata, and it will never refer a different TableMetadata
- object than the one it was created with.</div>
+<div class="block">StaticTableOperations works on the same version of TableMetadata, and it will never refer a
+ different TableMetadata object than the one it was created with.</div>
 </td>
 </tr>
 </table>
@@ -282,8 +282,8 @@ implements <a href="../../../org/apache/iceberg/TableOperations.html" title="int
 <li class="blockList">
 <h4>refresh</h4>
 <pre>public&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;refresh()</pre>
-<div class="block">StaticTableOperations works on the same version of TableMetadata, and it will never refer a different TableMetadata
- object than the one it was created with.</div>
+<div class="block">StaticTableOperations works on the same version of TableMetadata, and it will never refer a
+ different TableMetadata object than the one it was created with.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../org/apache/iceberg/TableOperations.html#refresh--">refresh</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/TableOperations.html" title="interface in org.apache.iceberg">TableOperations</a></code></dd>
@@ -302,18 +302,18 @@ implements <a href="../../../org/apache/iceberg/TableOperations.html" title="int
                    <a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;metadata)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/TableOperations.html#commit-org.apache.iceberg.TableMetadata-org.apache.iceberg.TableMetadata-">TableOperations</a></code></span></div>
 <div class="block">Replace the base table metadata with a new version.
- <p>
- This method should implement and document atomicity guarantees.
- <p>
- Implementations must check that the base metadata is current to avoid overwriting updates.
+
+ <p>This method should implement and document atomicity guarantees.
+
+ <p>Implementations must check that the base metadata is current to avoid overwriting updates.
  Once the atomic commit operation succeeds, implementations must not perform any operations that
  may fail because failure in this method cannot be distinguished from commit failure.
- <p>
- Implementations must throw a <a href="../../../org/apache/iceberg/exceptions/CommitStateUnknownException.html" title="class in org.apache.iceberg.exceptions"><code>CommitStateUnknownException</code></a>
- in cases where it cannot be determined if the commit succeeded or failed.
- For example if a network partition causes the confirmation of the commit to be lost,
- the implementation should throw a CommitStateUnknownException. This is important because downstream users of
- this API need to know whether they can clean up the commit or not, if the state is unknown then it is not safe
+
+ <p>Implementations must throw a <a href="../../../org/apache/iceberg/exceptions/CommitStateUnknownException.html" title="class in org.apache.iceberg.exceptions"><code>CommitStateUnknownException</code></a> in cases where it cannot be
+ determined if the commit succeeded or failed. For example if a network partition causes the
+ confirmation of the commit to be lost, the implementation should throw a
+ CommitStateUnknownException. This is important because downstream users of this API need to
+ know whether they can clean up the commit or not, if the state is unknown then it is not safe
  to remove any files. All other exceptions will be treated as if the commit has failed.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
@@ -349,9 +349,9 @@ implements <a href="../../../org/apache/iceberg/TableOperations.html" title="int
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/TableOperations.html#metadataFileLocation-java.lang.String-">TableOperations</a></code></span></div>
 <div class="block">Given the name of a metadata file, obtain the full path of that file using an appropriate base
  location of the implementation's choosing.
- <p>
- The file may not exist yet, in which case the path should be returned as if it were to be created
- by e.g. <a href="../../../org/apache/iceberg/io/FileIO.html#newOutputFile-java.lang.String-"><code>FileIO.newOutputFile(String)</code></a>.</div>
+
+ <p>The file may not exist yet, in which case the path should be returned as if it were to be
+ created by e.g. <a href="../../../org/apache/iceberg/io/FileIO.html#newOutputFile-java.lang.String-"><code>FileIO.newOutputFile(String)</code></a>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../org/apache/iceberg/TableOperations.html#metadataFileLocation-java.lang.String-">metadataFileLocation</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/TableOperations.html" title="interface in org.apache.iceberg">TableOperations</a></code></dd>
@@ -402,8 +402,8 @@ implements <a href="../../../org/apache/iceberg/TableOperations.html" title="int
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/SortOrderParser.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/SplittableScanTask.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/StatisticsFile.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/StaticTableOperations.html" target="_top">Frames</a></li>

@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/ScanTask.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/ScanTaskGroup.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../org/apache/iceberg/SchemaParser.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -115,9 +115,9 @@ var activeTableTab = "activeTableTab";
 extends java.lang.Object
 implements java.io.Serializable</pre>
 <div class="block">The schema of a data table.
- <p>
- Schema ID will only be populated when reading from/writing to table metadata,
- otherwise it will be default to 0.</div>
+
+ <p>Schema ID will only be populated when reading from/writing to table metadata, otherwise it
+ will be default to 0.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../serialized-form.html#org.apache.iceberg.Schema">Serialized Form</a></dd>
@@ -271,48 +271,60 @@ implements java.io.Serializable</pre>
 </td>
 </tr>
 <tr id="i13" class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Schema.html#highestFieldId--">highestFieldId</a></span>()</code>
+<div class="block">Returns the highest field ID in this schema, including nested fields.</div>
+</td>
+</tr>
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>java.util.Set&lt;java.lang.Integer&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Schema.html#identifierFieldIds--">identifierFieldIds</a></span>()</code>
 <div class="block">The set of identifier field IDs.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>java.util.Set&lt;java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Schema.html#identifierFieldNames--">identifierFieldNames</a></span>()</code>
 <div class="block">Returns the set of identifier field names.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Schema.html#idToAlias-java.lang.Integer-">idToAlias</a></span>(java.lang.Integer&nbsp;fieldId)</code>
 <div class="block">Returns the full column name in the unconverted data schema for the given column id.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
+<td class="colFirst"><code>java.util.Map&lt;java.lang.Integer,java.lang.String&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Schema.html#idToName--">idToName</a></span>()</code>
+<div class="block">Returns a map for this schema between field id and qualified field names.</div>
+</td>
+</tr>
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Schema.html#sameSchema-org.apache.iceberg.Schema-">sameSchema</a></span>(<a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;anotherSchema)</code>
 <div class="block">Checks whether this schema is equivalent to another schema while ignoring the schema ID.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Schema.html#schemaId--">schemaId</a></span>()</code>
 <div class="block">Returns the schema ID for this schema.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Schema.html#select-java.util.Collection-">select</a></span>(java.util.Collection&lt;java.lang.String&gt;&nbsp;names)</code>
 <div class="block">Creates a projection schema for a subset of columns, selected by name.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Schema.html#select-java.lang.String...-">select</a></span>(java.lang.String...&nbsp;names)</code>
 <div class="block">Creates a projection schema for a subset of columns, selected by name.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Schema.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -446,9 +458,19 @@ implements java.io.Serializable</pre>
 <h4>schemaId</h4>
 <pre>public&nbsp;int&nbsp;schemaId()</pre>
 <div class="block">Returns the schema ID for this schema.
- <p>
- Note that schema ID will only be populated when reading from/writing to table metadata,
+
+ <p>Note that schema ID will only be populated when reading from/writing to table metadata,
  otherwise it will be default to 0.</div>
+</li>
+</ul>
+<a name="highestFieldId--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>highestFieldId</h4>
+<pre>public&nbsp;int&nbsp;highestFieldId()</pre>
+<div class="block">Returns the highest field ID in this schema, including nested fields.</div>
 </li>
 </ul>
 <a name="getAliases--">
@@ -459,12 +481,26 @@ implements java.io.Serializable</pre>
 <h4>getAliases</h4>
 <pre>public&nbsp;java.util.Map&lt;java.lang.String,java.lang.Integer&gt;&nbsp;getAliases()</pre>
 <div class="block">Returns an alias map for this schema, if set.
- <p>
- Alias maps are created when translating an external schema, like an Avro Schema, to this
+
+ <p>Alias maps are created when translating an external schema, like an Avro Schema, to this
  format. The original column names can be provided in a Map when constructing this Schema.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a Map of column aliases to field ids</dd>
+</dl>
+</li>
+</ul>
+<a name="idToName--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>idToName</h4>
+<pre>public&nbsp;java.util.Map&lt;java.lang.Integer,java.lang.String&gt;&nbsp;idToName()</pre>
+<div class="block">Returns a map for this schema between field id and qualified field names.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a map of field id to qualified field names</dd>
 </dl>
 </li>
 </ul>
@@ -500,19 +536,21 @@ implements java.io.Serializable</pre>
 <h4>identifierFieldIds</h4>
 <pre>public&nbsp;java.util.Set&lt;java.lang.Integer&gt;&nbsp;identifierFieldIds()</pre>
 <div class="block">The set of identifier field IDs.
- <p>
- Identifier is a concept similar to primary key in a relational database system.
- It consists of a unique set of primitive fields in the schema.
- An identifier field must be at root, or nested in a chain of structs (no maps or lists).
- A row should be unique in a table based on the values of the identifier fields.
- Optional, float and double columns cannot be used as identifier fields.
- However, Iceberg identifier differs from primary key in the following ways:
+
+ <p>Identifier is a concept similar to primary key in a relational database system. It consists
+ of a unique set of primitive fields in the schema. An identifier field must be at root, or
+ nested in a chain of structs (no maps or lists). A row should be unique in a table based on the
+ values of the identifier fields. Optional, float and double columns cannot be used as
+ identifier fields. However, Iceberg identifier differs from primary key in the following ways:
+
  <ul>
- <li>Iceberg does not enforce the uniqueness of a row based on this identifier information.
- It is used for operations like upsert to define the default upsert key.</li>
- <li>A nested field in a struct can be used as an identifier. For example, if there is a "last_name" field
- inside a "user" struct in a schema, field "user.last_name" can be set as a part of the identifier field.</li>
+   <li>Iceberg does not enforce the uniqueness of a row based on this identifier information. It
+       is used for operations like upsert to define the default upsert key.
+   <li>A nested field in a struct can be used as an identifier. For example, if there is a
+       "last_name" field inside a "user" struct in a schema, field "user.last_name" can be set
+       as a part of the identifier field.
  </ul>
+
  <p></div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -586,8 +624,8 @@ implements java.io.Serializable</pre>
 <h4>findField</h4>
 <pre>public&nbsp;<a href="../../../org/apache/iceberg/types/Types.NestedField.html" title="class in org.apache.iceberg.types">Types.NestedField</a>&nbsp;findField(java.lang.String&nbsp;name)</pre>
 <div class="block">Returns a sub-field by name as a <a href="../../../org/apache/iceberg/types/Types.NestedField.html" title="class in org.apache.iceberg.types"><code>Types.NestedField</code></a>.
- <p>
- The result may be a top-level or a nested field.</div>
+
+ <p>The result may be a top-level or a nested field.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - a String name</dd>
@@ -604,8 +642,8 @@ implements java.io.Serializable</pre>
 <h4>caseInsensitiveFindField</h4>
 <pre>public&nbsp;<a href="../../../org/apache/iceberg/types/Types.NestedField.html" title="class in org.apache.iceberg.types">Types.NestedField</a>&nbsp;caseInsensitiveFindField(java.lang.String&nbsp;name)</pre>
 <div class="block">Returns a sub-field by name as a <a href="../../../org/apache/iceberg/types/Types.NestedField.html" title="class in org.apache.iceberg.types"><code>Types.NestedField</code></a>.
- <p>
- The result may be a top-level or a nested field.</div>
+
+ <p>The result may be a top-level or a nested field.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - a String name</dd>
@@ -637,8 +675,8 @@ implements java.io.Serializable</pre>
 <li class="blockList">
 <h4>aliasToId</h4>
 <pre>public&nbsp;java.lang.Integer&nbsp;aliasToId(java.lang.String&nbsp;alias)</pre>
-<div class="block">Returns the column id for the given column alias. Column aliases are set
- by conversions from Parquet or Avro to this Schema type.</div>
+<div class="block">Returns the column id for the given column alias. Column aliases are set by conversions from
+ Parquet or Avro to this Schema type.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>alias</code> - a full column name in the unconverted data schema</dd>
@@ -654,8 +692,8 @@ implements java.io.Serializable</pre>
 <li class="blockList">
 <h4>idToAlias</h4>
 <pre>public&nbsp;java.lang.String&nbsp;idToAlias(java.lang.Integer&nbsp;fieldId)</pre>
-<div class="block">Returns the full column name in the unconverted data schema for the given column id.
- Column aliases are set by conversions from Parquet or Avro to this Schema type.</div>
+<div class="block">Returns the full column name in the unconverted data schema for the given column id. Column
+ aliases are set by conversions from Parquet or Avro to this Schema type.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>fieldId</code> - a column id in this schema</dd>
@@ -672,8 +710,8 @@ implements java.io.Serializable</pre>
 <h4>accessorForField</h4>
 <pre>public&nbsp;<a href="../../../org/apache/iceberg/Accessor.html" title="interface in org.apache.iceberg">Accessor</a>&lt;<a href="../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&gt;&nbsp;accessorForField(int&nbsp;id)</pre>
 <div class="block">Returns an accessor for retrieving the data from <a href="../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg"><code>StructLike</code></a>.
- <p>
- Accessors do not retrieve data contained in lists or maps.</div>
+
+ <p>Accessors do not retrieve data contained in lists or maps.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>id</code> - a column id in this schema</dd>
@@ -690,8 +728,8 @@ implements java.io.Serializable</pre>
 <h4>select</h4>
 <pre>public&nbsp;<a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;select(java.lang.String...&nbsp;names)</pre>
 <div class="block">Creates a projection schema for a subset of columns, selected by name.
- <p>
- Names that identify nested fields will select part or all of the field's top-level column.</div>
+
+ <p>Names that identify nested fields will select part or all of the field's top-level column.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>names</code> - String names for selected columns</dd>
@@ -708,8 +746,8 @@ implements java.io.Serializable</pre>
 <h4>select</h4>
 <pre>public&nbsp;<a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;select(java.util.Collection&lt;java.lang.String&gt;&nbsp;names)</pre>
 <div class="block">Creates a projection schema for a subset of columns, selected by name.
- <p>
- Names that identify nested fields will select part or all of the field's top-level column.</div>
+
+ <p>Names that identify nested fields will select part or all of the field's top-level column.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>names</code> - a List of String names for selected columns</dd>
@@ -726,8 +764,8 @@ implements java.io.Serializable</pre>
 <h4>caseInsensitiveSelect</h4>
 <pre>public&nbsp;<a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;caseInsensitiveSelect(java.lang.String...&nbsp;names)</pre>
 <div class="block">Creates a projection schema for a subset of columns, selected by case insensitive names
- <p>
- Names that identify nested fields will select part or all of the field's top-level column.</div>
+
+ <p>Names that identify nested fields will select part or all of the field's top-level column.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>names</code> - a List of String names for selected columns</dd>
@@ -744,8 +782,8 @@ implements java.io.Serializable</pre>
 <h4>caseInsensitiveSelect</h4>
 <pre>public&nbsp;<a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;caseInsensitiveSelect(java.util.Collection&lt;java.lang.String&gt;&nbsp;names)</pre>
 <div class="block">Creates a projection schema for a subset of columns, selected by case insensitive names
- <p>
- Names that identify nested fields will select part or all of the field's top-level column.</div>
+
+ <p>Names that identify nested fields will select part or all of the field's top-level column.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>names</code> - a List of String names for selected columns</dd>
@@ -810,7 +848,7 @@ implements java.io.Serializable</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/ScanTask.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/ScanTaskGroup.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../org/apache/iceberg/SchemaParser.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

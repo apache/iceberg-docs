@@ -42,7 +42,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/types/package-summary.html">Prev&nbsp;Package</a></li>
-<li><a href="../../../../org/apache/spark/sql/catalyst/analysis/package-summary.html">Next&nbsp;Package</a></li>
+<li><a href="../../../../org/apache/iceberg/view/package-summary.html">Next&nbsp;Package</a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/util/package-summary.html" target="_top">Frames</a></li>
@@ -93,14 +93,28 @@
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><a href="../../../../org/apache/iceberg/util/SerializableSupplier.html" title="interface in org.apache.iceberg.util">SerializableSupplier</a>&lt;T&gt;</td>
+<td class="colFirst"><a href="../../../../org/apache/iceberg/util/JsonUtil.FromJson.html" title="interface in org.apache.iceberg.util">JsonUtil.FromJson</a>&lt;T&gt;</td>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><a href="../../../../org/apache/iceberg/util/Tasks.FailureTask.html" title="interface in org.apache.iceberg.util">Tasks.FailureTask</a>&lt;I,E extends java.lang.Exception&gt;</td>
+<td class="colFirst"><a href="../../../../org/apache/iceberg/util/JsonUtil.ToJson.html" title="interface in org.apache.iceberg.util">JsonUtil.ToJson</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/util/SerializableFunction.html" title="interface in org.apache.iceberg.util">SerializableFunction</a>&lt;S,T&gt;</td>
+<td class="colLast">
+<div class="block">A concrete transform function that applies a transform to values of a certain type.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/util/SerializableSupplier.html" title="interface in org.apache.iceberg.util">SerializableSupplier</a>&lt;T&gt;</td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/util/Tasks.FailureTask.html" title="interface in org.apache.iceberg.util">Tasks.FailureTask</a>&lt;I,E extends java.lang.Exception&gt;</td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/Tasks.Task.html" title="interface in org.apache.iceberg.util">Tasks.Task</a>&lt;I,E extends java.lang.Exception&gt;</td>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -136,25 +150,36 @@
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/util/BucketUtil.html" title="class in org.apache.iceberg.util">BucketUtil</a></td>
+<td class="colLast">
+<div class="block">Contains the logic for hashing various types for use with the <code>bucket</code> partition
+ transformations</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/ByteBuffers.html" title="class in org.apache.iceberg.util">ByteBuffers</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/CharSequenceSet.html" title="class in org.apache.iceberg.util">CharSequenceSet</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/CharSequenceWrapper.html" title="class in org.apache.iceberg.util">CharSequenceWrapper</a></td>
 <td class="colLast">
 <div class="block">Wrapper class to adapt CharSequence for use in maps and sets.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/DateTimeUtil.html" title="class in org.apache.iceberg.util">DateTimeUtil</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/DecimalUtil.html" title="class in org.apache.iceberg.util">DecimalUtil</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/util/EnvironmentUtil.html" title="class in org.apache.iceberg.util">EnvironmentUtil</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
@@ -176,96 +201,106 @@
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/util/LocationUtil.html" title="class in org.apache.iceberg.util">LocationUtil</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/LockManagers.html" title="class in org.apache.iceberg.util">LockManagers</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/LockManagers.BaseLockManager.html" title="class in org.apache.iceberg.util">LockManagers.BaseLockManager</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/ManifestFileUtil.html" title="class in org.apache.iceberg.util">ManifestFileUtil</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/NaNUtil.html" title="class in org.apache.iceberg.util">NaNUtil</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/Pair.html" title="class in org.apache.iceberg.util">Pair</a>&lt;X,Y&gt;</td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/ParallelIterable.html" title="class in org.apache.iceberg.util">ParallelIterable</a>&lt;T&gt;</td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/PartitionSet.html" title="class in org.apache.iceberg.util">PartitionSet</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/PartitionUtil.html" title="class in org.apache.iceberg.util">PartitionUtil</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/PropertyUtil.html" title="class in org.apache.iceberg.util">PropertyUtil</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/SerializableMap.html" title="class in org.apache.iceberg.util">SerializableMap</a>&lt;K,V&gt;</td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/SerializationUtil.html" title="class in org.apache.iceberg.util">SerializationUtil</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/SnapshotUtil.html" title="class in org.apache.iceberg.util">SnapshotUtil</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/SortedMerge.html" title="class in org.apache.iceberg.util">SortedMerge</a>&lt;T&gt;</td>
 <td class="colLast">
 <div class="block">An Iterable that merges the items from other Iterables in order.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/SortOrderUtil.html" title="class in org.apache.iceberg.util">SortOrderUtil</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/StructLikeMap.html" title="class in org.apache.iceberg.util">StructLikeMap</a>&lt;T&gt;</td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/StructLikeSet.html" title="class in org.apache.iceberg.util">StructLikeSet</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/StructLikeWrapper.html" title="class in org.apache.iceberg.util">StructLikeWrapper</a></td>
 <td class="colLast">
 <div class="block">Wrapper to adapt StructLike for use in maps and sets by implementing equals and hashCode.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/StructProjection.html" title="class in org.apache.iceberg.util">StructProjection</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/TableScanUtil.html" title="class in org.apache.iceberg.util">TableScanUtil</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/Tasks.html" title="class in org.apache.iceberg.util">Tasks</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="class in org.apache.iceberg.util">Tasks.Builder</a>&lt;I&gt;</td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/ThreadPools.html" title="class in org.apache.iceberg.util">ThreadPools</a></td>
 <td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/util/TruncateUtil.html" title="class in org.apache.iceberg.util">TruncateUtil</a></td>
+<td class="colLast">
+<div class="block">Contains the logic for various <code>truncate</code> transformations for various types.</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/UnicodeUtil.html" title="class in org.apache.iceberg.util">UnicodeUtil</a></td>
@@ -278,6 +313,13 @@
 <tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/util/WapUtil.html" title="class in org.apache.iceberg.util">WapUtil</a></td>
 <td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/util/ZOrderByteUtils.html" title="class in org.apache.iceberg.util">ZOrderByteUtils</a></td>
+<td class="colLast">
+<div class="block">Within Z-Ordering the byte representations of objects being compared must be ordered, this
+ requires several types to be transformed when converted to bytes.</div>
+</td>
 </tr>
 </tbody>
 </table>
@@ -320,7 +362,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/types/package-summary.html">Prev&nbsp;Package</a></li>
-<li><a href="../../../../org/apache/spark/sql/catalyst/analysis/package-summary.html">Next&nbsp;Package</a></li>
+<li><a href="../../../../org/apache/iceberg/view/package-summary.html">Next&nbsp;Package</a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/util/package-summary.html" target="_top">Frames</a></li>

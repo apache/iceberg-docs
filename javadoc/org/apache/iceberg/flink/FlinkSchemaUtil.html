@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/flink/FlinkFilters.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/flink/FlinkReadOptions.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/flink/FlinkTypeVisitor.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -109,20 +109,22 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public class <span class="typeNameLabel">FlinkSchemaUtil</span>
 extends java.lang.Object</pre>
-<div class="block">Converter between Flink types and Iceberg type.
- The conversion is not a 1:1 mapping that not allows back-and-forth conversion. So some information might get lost
- during the back-and-forth conversion.
- <p>
- This inconsistent types:
+<div class="block">Converter between Flink types and Iceberg type. The conversion is not a 1:1 mapping that not
+ allows back-and-forth conversion. So some information might get lost during the back-and-forth
+ conversion.
+
+ <p>This inconsistent types:
+
  <ul>
-   <li>map Iceberg UUID type to Flink BinaryType(16)</li>
-   <li>map Flink VarCharType(_) and CharType(_) to Iceberg String type</li>
-   <li>map Flink VarBinaryType(_) to Iceberg Binary type</li>
-   <li>map Flink TimeType(_) to Iceberg Time type (microseconds)</li>
-   <li>map Flink TimestampType(_) to Iceberg Timestamp without zone type (microseconds)</li>
-   <li>map Flink LocalZonedTimestampType(_) to Iceberg Timestamp with zone type (microseconds)</li>
-   <li>map Flink MultiSetType to Iceberg Map type(element, int)</li>
+   <li>map Iceberg UUID type to Flink BinaryType(16)
+   <li>map Flink VarCharType(_) and CharType(_) to Iceberg String type
+   <li>map Flink VarBinaryType(_) to Iceberg Binary type
+   <li>map Flink TimeType(_) to Iceberg Time type (microseconds)
+   <li>map Flink TimestampType(_) to Iceberg Timestamp without zone type (microseconds)
+   <li>map Flink LocalZonedTimestampType(_) to Iceberg Timestamp with zone type (microseconds)
+   <li>map Flink MultiSetType to Iceberg Map type(element, int)
  </ul>
+
  <p></div>
 </li>
 </ul>
@@ -220,11 +222,11 @@ extends java.lang.Object</pre>
 <pre>public static&nbsp;<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;convert(<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;baseSchema,
                              org.apache.flink.table.api.TableSchema&nbsp;flinkSchema)</pre>
 <div class="block">Convert a Flink <code>TableSchema</code> to a <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>Schema</code></a> based on the given schema.
- <p>
- This conversion does not assign new ids; it uses ids from the base schema.
- <p>
- Data types, field order, and nullability will match the Flink type. This conversion may return
- a schema that is not compatible with base schema.</div>
+
+ <p>This conversion does not assign new ids; it uses ids from the base schema.
+
+ <p>Data types, field order, and nullability will match the Flink type. This conversion may
+ return a schema that is not compatible with base schema.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>baseSchema</code> - a Schema on which conversion is based</dd>
@@ -331,7 +333,7 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/flink/FlinkFilters.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/flink/FlinkReadOptions.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/flink/FlinkTypeVisitor.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

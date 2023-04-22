@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/flink/CatalogLoader.HadoopCatalogLoader.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/flink/CatalogLoader.RESTCatalogLoader.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/flink/CatalogLoader.HiveCatalogLoader.html" target="_top">Frames</a></li>
@@ -139,7 +139,7 @@ implements <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" tit
 <!--   -->
 </a>
 <h3>Nested classes/interfaces inherited from interface&nbsp;org.apache.iceberg.flink.<a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink">CatalogLoader</a></h3>
-<code><a href="../../../../org/apache/iceberg/flink/CatalogLoader.CustomCatalogLoader.html" title="class in org.apache.iceberg.flink">CatalogLoader.CustomCatalogLoader</a>, <a href="../../../../org/apache/iceberg/flink/CatalogLoader.HadoopCatalogLoader.html" title="class in org.apache.iceberg.flink">CatalogLoader.HadoopCatalogLoader</a>, <a href="../../../../org/apache/iceberg/flink/CatalogLoader.HiveCatalogLoader.html" title="class in org.apache.iceberg.flink">CatalogLoader.HiveCatalogLoader</a></code></li>
+<code><a href="../../../../org/apache/iceberg/flink/CatalogLoader.CustomCatalogLoader.html" title="class in org.apache.iceberg.flink">CatalogLoader.CustomCatalogLoader</a>, <a href="../../../../org/apache/iceberg/flink/CatalogLoader.HadoopCatalogLoader.html" title="class in org.apache.iceberg.flink">CatalogLoader.HadoopCatalogLoader</a>, <a href="../../../../org/apache/iceberg/flink/CatalogLoader.HiveCatalogLoader.html" title="class in org.apache.iceberg.flink">CatalogLoader.HiveCatalogLoader</a>, <a href="../../../../org/apache/iceberg/flink/CatalogLoader.RESTCatalogLoader.html" title="class in org.apache.iceberg.flink">CatalogLoader.RESTCatalogLoader</a></code></li>
 </ul>
 </li>
 </ul>
@@ -178,7 +178,7 @@ implements <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" tit
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.iceberg.flink.<a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink">CatalogLoader</a></h3>
-<code><a href="../../../../org/apache/iceberg/flink/CatalogLoader.html#custom-java.lang.String-java.util.Map-org.apache.hadoop.conf.Configuration-java.lang.String-">custom</a>, <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html#hadoop-java.lang.String-org.apache.hadoop.conf.Configuration-java.util.Map-">hadoop</a>, <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html#hive-java.lang.String-org.apache.hadoop.conf.Configuration-java.util.Map-">hive</a></code></li>
+<code><a href="../../../../org/apache/iceberg/flink/CatalogLoader.html#custom-java.lang.String-java.util.Map-org.apache.hadoop.conf.Configuration-java.lang.String-">custom</a>, <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html#hadoop-java.lang.String-org.apache.hadoop.conf.Configuration-java.util.Map-">hadoop</a>, <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html#hive-java.lang.String-org.apache.hadoop.conf.Configuration-java.util.Map-">hive</a>, <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html#rest-java.lang.String-org.apache.hadoop.conf.Configuration-java.util.Map-">rest</a></code></li>
 </ul>
 </li>
 </ul>
@@ -202,9 +202,10 @@ implements <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" tit
 <h4>loadCatalog</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a>&nbsp;loadCatalog()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/flink/CatalogLoader.html#loadCatalog--">CatalogLoader</a></code></span></div>
-<div class="block">Create a new catalog with the provided properties. NOTICE: for flink, we may initialize the <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink"><code>CatalogLoader</code></a>
- at flink sql client side or job manager side, and then serialize this catalog loader to task manager, finally
- deserialize it and create a new catalog at task manager side.</div>
+<div class="block">Create a new catalog with the provided properties. NOTICE: for flink, we may initialize the
+ <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink"><code>CatalogLoader</code></a> at flink sql client side or job manager side, and then serialize this
+ catalog loader to task manager, finally deserialize it and create a new catalog at task manager
+ side.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/flink/CatalogLoader.html#loadCatalog--">loadCatalog</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink">CatalogLoader</a></code></dd>
@@ -254,7 +255,7 @@ implements <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" tit
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/flink/CatalogLoader.HadoopCatalogLoader.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/flink/CatalogLoader.RESTCatalogLoader.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/flink/CatalogLoader.HiveCatalogLoader.html" target="_top">Frames</a></li>

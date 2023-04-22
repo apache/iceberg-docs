@@ -161,9 +161,21 @@ implements <a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.ht
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/hive/HiveCatalog.html#LIST_ALL_TABLES">LIST_ALL_TABLES</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/hive/HiveCatalog.html#HMS_DB_OWNER">HMS_DB_OWNER</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/hive/HiveCatalog.html#HMS_DB_OWNER_TYPE">HMS_DB_OWNER_TYPE</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/hive/HiveCatalog.html#HMS_TABLE_OWNER">HMS_TABLE_OWNER</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/hive/HiveCatalog.html#LIST_ALL_TABLES">LIST_ALL_TABLES</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/hive/HiveCatalog.html#LIST_ALL_TABLES_DEFAULT">LIST_ALL_TABLES_DEFAULT</a></span></code>&nbsp;</td>
 </tr>
@@ -267,11 +279,8 @@ implements <a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.ht
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/hive/HiveCatalog.html#newTableOps-org.apache.iceberg.catalog.TableIdentifier-">newTableOps</a></span>(<a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;tableIdentifier)</code>&nbsp;</td>
 </tr>
 <tr id="i12" class="altColor">
-<td class="colFirst"><code><a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/hive/HiveCatalog.html#registerTable-org.apache.iceberg.catalog.TableIdentifier-java.lang.String-">registerTable</a></span>(<a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;identifier,
-             java.lang.String&nbsp;metadataFileLocation)</code>
-<div class="block">Register a table with the catalog if it does not exist.</div>
-</td>
+<td class="colFirst"><code>protected java.util.Map&lt;java.lang.String,java.lang.String&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/hive/HiveCatalog.html#properties--">properties</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
@@ -308,7 +317,7 @@ implements <a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.ht
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.iceberg.<a href="../../../../org/apache/iceberg/BaseMetastoreCatalog.html" title="class in org.apache.iceberg">BaseMetastoreCatalog</a></h3>
-<code><a href="../../../../org/apache/iceberg/BaseMetastoreCatalog.html#buildTable-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-">buildTable</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreCatalog.html#fullTableName-java.lang.String-org.apache.iceberg.catalog.TableIdentifier-">fullTableName</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreCatalog.html#loadTable-org.apache.iceberg.catalog.TableIdentifier-">loadTable</a></code></li>
+<code><a href="../../../../org/apache/iceberg/BaseMetastoreCatalog.html#buildTable-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.Schema-">buildTable</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreCatalog.html#fullTableName-java.lang.String-org.apache.iceberg.catalog.TableIdentifier-">fullTableName</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreCatalog.html#loadTable-org.apache.iceberg.catalog.TableIdentifier-">loadTable</a>, <a href="../../../../org/apache/iceberg/BaseMetastoreCatalog.html#registerTable-org.apache.iceberg.catalog.TableIdentifier-java.lang.String-">registerTable</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -361,13 +370,52 @@ implements <a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.ht
 <a name="LIST_ALL_TABLES_DEFAULT">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>LIST_ALL_TABLES_DEFAULT</h4>
 <pre>public static final&nbsp;java.lang.String LIST_ALL_TABLES_DEFAULT</pre>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.hive.HiveCatalog.LIST_ALL_TABLES_DEFAULT">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="HMS_TABLE_OWNER">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>HMS_TABLE_OWNER</h4>
+<pre>public static final&nbsp;java.lang.String HMS_TABLE_OWNER</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.hive.HiveCatalog.HMS_TABLE_OWNER">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="HMS_DB_OWNER">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>HMS_DB_OWNER</h4>
+<pre>public static final&nbsp;java.lang.String HMS_DB_OWNER</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.hive.HiveCatalog.HMS_DB_OWNER">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="HMS_DB_OWNER_TYPE">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>HMS_DB_OWNER_TYPE</h4>
+<pre>public static final&nbsp;java.lang.String HMS_DB_OWNER_TYPE</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.hive.HiveCatalog.HMS_DB_OWNER_TYPE">Constant Field Values</a></dd>
 </dl>
 </li>
 </ul>
@@ -406,10 +454,10 @@ implements <a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.ht
                        java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/catalog/Catalog.html#initialize-java.lang.String-java.util.Map-">Catalog</a></code></span></div>
 <div class="block">Initialize a catalog given a custom name and a map of catalog properties.
- <p>
- A custom Catalog implementation must have a no-arg constructor.
- A compute engine like Spark or Flink will first initialize the catalog without any arguments,
- and then call this method to complete catalog initialization with properties passed into the engine.</div>
+
+ <p>A custom Catalog implementation must have a no-arg constructor. A compute engine like Spark
+ or Flink will first initialize the catalog without any arguments, and then call this method to
+ complete catalog initialization with properties passed into the engine.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/catalog/Catalog.html#initialize-java.lang.String-java.util.Map-">initialize</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a></code></dd>
@@ -465,8 +513,8 @@ implements <a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.ht
                          boolean&nbsp;purge)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/catalog/Catalog.html#dropTable-org.apache.iceberg.catalog.TableIdentifier-boolean-">Catalog</a></code></span></div>
 <div class="block">Drop a table; optionally delete data and metadata files.
- <p>
- If purge is set to true the implementation should delete all data and metadata files.</div>
+
+ <p>If purge is set to true the implementation should delete all data and metadata files.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/catalog/Catalog.html#dropTable-org.apache.iceberg.catalog.TableIdentifier-boolean-">dropTable</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a></code></dd>
@@ -494,27 +542,6 @@ implements <a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.ht
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>from</code> - identifier of the table to rename</dd>
 <dd><code>originalTo</code> - new table name</dd>
-</dl>
-</li>
-</ul>
-<a name="registerTable-org.apache.iceberg.catalog.TableIdentifier-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>registerTable</h4>
-<pre>public&nbsp;<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;registerTable(<a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;identifier,
-                           java.lang.String&nbsp;metadataFileLocation)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/catalog/Catalog.html#registerTable-org.apache.iceberg.catalog.TableIdentifier-java.lang.String-">Catalog</a></code></span></div>
-<div class="block">Register a table with the catalog if it does not exist.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../org/apache/iceberg/catalog/Catalog.html#registerTable-org.apache.iceberg.catalog.TableIdentifier-java.lang.String-">registerTable</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>identifier</code> - a table identifier</dd>
-<dd><code>metadataFileLocation</code> - the location of a metadata file</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a Table instance</dd>
 </dl>
 </li>
 </ul>
@@ -546,9 +573,9 @@ implements <a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.ht
 <pre>public&nbsp;java.util.List&lt;<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&gt;&nbsp;listNamespaces(<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.html#listNamespaces-org.apache.iceberg.catalog.Namespace-">SupportsNamespaces</a></code></span></div>
 <div class="block">List namespaces from the namespace.
- <p>
- For example, if table a.b.t exists, use 'SELECT NAMESPACE IN a' this method
- must return Namepace.of("a","b") <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>Namespace</code></a>.</div>
+
+ <p>For example, if table a.b.t exists, use 'SELECT NAMESPACE IN a' this method must return
+ Namepace.of("a","b") <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>Namespace</code></a>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.html#listNamespaces-org.apache.iceberg.catalog.Namespace-">listNamespaces</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.html" title="interface in org.apache.iceberg.catalog">SupportsNamespaces</a></code></dd>
@@ -586,8 +613,8 @@ implements <a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.ht
                              java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.html#setProperties-org.apache.iceberg.catalog.Namespace-java.util.Map-">SupportsNamespaces</a></code></span></div>
 <div class="block">Set a collection of properties on a namespace in the catalog.
- <p>
- Properties that are not in the given map are not modified or removed by this method.</div>
+
+ <p>Properties that are not in the given map are not modified or removed by this method.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.html#setProperties-org.apache.iceberg.catalog.Namespace-java.util.Map-">setProperties</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.html" title="interface in org.apache.iceberg.catalog">SupportsNamespaces</a></code></dd>
@@ -607,8 +634,8 @@ implements <a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.ht
                                 java.util.Set&lt;java.lang.String&gt;&nbsp;properties)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.html#removeProperties-org.apache.iceberg.catalog.Namespace-java.util.Set-">SupportsNamespaces</a></code></span></div>
 <div class="block">Remove a set of property keys from a namespace in the catalog.
- <p>
- Properties that are not in the given set are not modified or removed by this method.</div>
+
+ <p>Properties that are not in the given set are not modified or removed by this method.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.html#removeProperties-org.apache.iceberg.catalog.Namespace-java.util.Set-">removeProperties</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.html" title="interface in org.apache.iceberg.catalog">SupportsNamespaces</a></code></dd>
@@ -705,13 +732,26 @@ implements <a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.ht
 <a name="getConf--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getConf</h4>
 <pre>public&nbsp;org.apache.hadoop.conf.Configuration&nbsp;getConf()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>getConf</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.conf.Configurable</code></dd>
+</dl>
+</li>
+</ul>
+<a name="properties--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>properties</h4>
+<pre>protected&nbsp;java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../org/apache/iceberg/BaseMetastoreCatalog.html#properties--">properties</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/iceberg/BaseMetastoreCatalog.html" title="class in org.apache.iceberg">BaseMetastoreCatalog</a></code></dd>
 </dl>
 </li>
 </ul>

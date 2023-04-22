@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10};
+var methods = {"i0":10,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/iceberg/spark/procedures/AncestorsOfProcedure.html" title="class in org.apache.iceberg.spark.procedures"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/iceberg/spark/procedures/CreateChangelogViewProcedure.html" title="class in org.apache.iceberg.spark.procedures"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../../org/apache/iceberg/spark/procedures/RemoveOrphanFilesProcedure.html" title="class in org.apache.iceberg.spark.procedures"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -116,7 +116,7 @@ extends java.lang.Object</pre>
 <div class="block">A procedure that expires snapshots in a table.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><code>BaseSparkActions.expireSnapshots(Table)</code></dd>
+<dd><a href="../../../../../org/apache/iceberg/spark/actions/SparkActions.html#expireSnapshots-org.apache.iceberg.Table-"><code>SparkActions.expireSnapshots(Table)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -157,6 +157,10 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected static org.apache.spark.sql.types.DataType</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/ExpireSnapshotsProcedure.html#STRING_ARRAY">STRING_ARRAY</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static org.apache.spark.sql.types.DataType</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/ExpireSnapshotsProcedure.html#STRING_MAP">STRING_MAP</a></span></code>&nbsp;</td>
 </tr>
 </table>
@@ -189,61 +193,79 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/ExpireSnapshotsProcedure.html#closeService--">closeService</a></span>()</code>
+<div class="block">Closes this procedure's executor service if a new one was created with <a href="../../../../../org/apache/iceberg/spark/procedures/ExpireSnapshotsProcedure.html#executorService-int-java.lang.String-"><code>executorService(int, String)</code></a>.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/ExpireSnapshotsProcedure.html#description--">description</a></span>()</code>
 <div class="block">Returns the description of this procedure.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>protected java.util.concurrent.ExecutorService</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/ExpireSnapshotsProcedure.html#executorService-int-java.lang.String-">executorService</a></span>(int&nbsp;threadPoolSize,
+               java.lang.String&nbsp;nameFormat)</code>
+<div class="block">Starts a new executor service which can be used by this procedure in its work.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>protected org.apache.spark.sql.Dataset&lt;org.apache.spark.sql.Row&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/ExpireSnapshotsProcedure.html#loadRows-org.apache.spark.sql.connector.catalog.Identifier-java.util.Map-">loadRows</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;tableIdent,
+        java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;options)</code>&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../../org/apache/iceberg/spark/source/SparkTable.html" title="class in org.apache.iceberg.spark.source">SparkTable</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/ExpireSnapshotsProcedure.html#loadSparkTable-org.apache.spark.sql.connector.catalog.Identifier-">loadSparkTable</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident)</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>protected &lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/ExpireSnapshotsProcedure.html#modifyIcebergTable-org.apache.spark.sql.connector.catalog.Identifier-java.util.function.Function-">modifyIcebergTable</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident,
                   java.util.function.Function&lt;<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>,T&gt;&nbsp;func)</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.catalyst.InternalRow</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/ExpireSnapshotsProcedure.html#newInternalRow-java.lang.Object...-">newInternalRow</a></span>(java.lang.Object...&nbsp;values)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>org.apache.spark.sql.types.StructType</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/ExpireSnapshotsProcedure.html#outputType--">outputType</a></span>()</code>
 <div class="block">Returns the type of rows produced by this procedure.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/spark/sql/connector/iceberg/catalog/ProcedureParameter.html" title="interface in org.apache.spark.sql.connector.iceberg.catalog">ProcedureParameter</a>[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/ExpireSnapshotsProcedure.html#parameters--">parameters</a></span>()</code>
 <div class="block">Returns the input parameters of this procedure.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/ExpireSnapshotsProcedure.html#refreshSparkCache-org.apache.spark.sql.connector.catalog.Identifier-org.apache.spark.sql.connector.catalog.Table-">refreshSparkCache</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident,
                  org.apache.spark.sql.connector.catalog.Table&nbsp;table)</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.SparkSession</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/ExpireSnapshotsProcedure.html#spark--">spark</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.connector.catalog.TableCatalog</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/ExpireSnapshotsProcedure.html#tableCatalog--">tableCatalog</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../../org/apache/iceberg/spark/Spark3Util.CatalogAndIdentifier.html" title="class in org.apache.iceberg.spark">Spark3Util.CatalogAndIdentifier</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/ExpireSnapshotsProcedure.html#toCatalogAndIdentifier-java.lang.String-java.lang.String-org.apache.spark.sql.connector.catalog.CatalogPlugin-">toCatalogAndIdentifier</a></span>(java.lang.String&nbsp;identifierAsString,
                       java.lang.String&nbsp;argName,
                       org.apache.spark.sql.connector.catalog.CatalogPlugin&nbsp;catalog)</code>&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.connector.catalog.Identifier</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/ExpireSnapshotsProcedure.html#toIdentifier-java.lang.String-java.lang.String-">toIdentifier</a></span>(java.lang.String&nbsp;identifierAsString,
             java.lang.String&nbsp;argName)</code>&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>protected &lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/ExpireSnapshotsProcedure.html#withIcebergTable-org.apache.spark.sql.connector.catalog.Identifier-java.util.function.Function-">withIcebergTable</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident,
                 java.util.function.Function&lt;<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>,T&gt;&nbsp;func)</code>&nbsp;</td>
@@ -273,10 +295,19 @@ extends java.lang.Object</pre>
 <a name="STRING_MAP">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>STRING_MAP</h4>
 <pre>protected static final&nbsp;org.apache.spark.sql.types.DataType STRING_MAP</pre>
+</li>
+</ul>
+<a name="STRING_ARRAY">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>STRING_ARRAY</h4>
+<pre>protected static final&nbsp;org.apache.spark.sql.types.DataType STRING_ARRAY</pre>
 </li>
 </ul>
 </li>
@@ -327,13 +358,11 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;org.apache.spark.sql.catalyst.InternalRow[]&nbsp;call(org.apache.spark.sql.catalyst.InternalRow&nbsp;args)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/spark/sql/connector/iceberg/catalog/Procedure.html#call-org.apache.spark.sql.catalyst.InternalRow-">Procedure</a></code></span></div>
 <div class="block">Executes this procedure.
- <p>
- Spark will align the provided arguments according to the input parameters
- defined in <a href="../../../../../org/apache/spark/sql/connector/iceberg/catalog/Procedure.html#parameters--"><code>Procedure.parameters()</code></a> either by position or by name before execution.
- <p>
- Implementations may provide a summary of execution by returning one or many rows
- as a result. The schema of output rows must match the defined output type
- in <a href="../../../../../org/apache/spark/sql/connector/iceberg/catalog/Procedure.html#outputType--"><code>Procedure.outputType()</code></a>.</div>
+
+ <p>Spark will align the provided arguments according to the input parameters defined in <a href="../../../../../org/apache/spark/sql/connector/iceberg/catalog/Procedure.html#parameters--"><code>Procedure.parameters()</code></a> either by position or by name before execution.
+
+ <p>Implementations may provide a summary of execution by returning one or many rows as a
+ result. The schema of output rows must match the defined output type in <a href="../../../../../org/apache/spark/sql/connector/iceberg/catalog/Procedure.html#outputType--"><code>Procedure.outputType()</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>args</code> - input arguments</dd>
@@ -430,6 +459,16 @@ extends java.lang.Object</pre>
 <pre>protected&nbsp;<a href="../../../../../org/apache/iceberg/spark/source/SparkTable.html" title="class in org.apache.iceberg.spark.source">SparkTable</a>&nbsp;loadSparkTable(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident)</pre>
 </li>
 </ul>
+<a name="loadRows-org.apache.spark.sql.connector.catalog.Identifier-java.util.Map-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>loadRows</h4>
+<pre>protected&nbsp;org.apache.spark.sql.Dataset&lt;org.apache.spark.sql.Row&gt;&nbsp;loadRows(org.apache.spark.sql.connector.catalog.Identifier&nbsp;tableIdent,
+                                                                          java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;options)</pre>
+</li>
+</ul>
 <a name="refreshSparkCache-org.apache.spark.sql.connector.catalog.Identifier-org.apache.spark.sql.connector.catalog.Table-">
 <!--   -->
 </a>
@@ -443,10 +482,41 @@ extends java.lang.Object</pre>
 <a name="newInternalRow-java.lang.Object...-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>newInternalRow</h4>
 <pre>protected&nbsp;org.apache.spark.sql.catalyst.InternalRow&nbsp;newInternalRow(java.lang.Object...&nbsp;values)</pre>
+</li>
+</ul>
+<a name="closeService--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>closeService</h4>
+<pre>protected&nbsp;void&nbsp;closeService()</pre>
+<div class="block">Closes this procedure's executor service if a new one was created with <a href="../../../../../org/apache/iceberg/spark/procedures/ExpireSnapshotsProcedure.html#executorService-int-java.lang.String-"><code>executorService(int, String)</code></a>. Does not block for any remaining tasks.</div>
+</li>
+</ul>
+<a name="executorService-int-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>executorService</h4>
+<pre>protected&nbsp;java.util.concurrent.ExecutorService&nbsp;executorService(int&nbsp;threadPoolSize,
+                                                               java.lang.String&nbsp;nameFormat)</pre>
+<div class="block">Starts a new executor service which can be used by this procedure in its work. The pool will be
+ automatically shut down if <a href="../../../../../org/apache/iceberg/spark/procedures/ExpireSnapshotsProcedure.html#withIcebergTable-org.apache.spark.sql.connector.catalog.Identifier-java.util.function.Function-"><code>withIcebergTable(Identifier, Function)</code></a> or <a href="../../../../../org/apache/iceberg/spark/procedures/ExpireSnapshotsProcedure.html#modifyIcebergTable-org.apache.spark.sql.connector.catalog.Identifier-java.util.function.Function-"><code>modifyIcebergTable(Identifier, Function)</code></a> are called. If these methods are not used then the
+ service can be shut down with <a href="../../../../../org/apache/iceberg/spark/procedures/ExpireSnapshotsProcedure.html#closeService--"><code>closeService()</code></a> or left to be closed when this class is
+ finalized.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>threadPoolSize</code> - number of threads in the service</dd>
+<dd><code>nameFormat</code> - name prefix for threads created in this service</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the new executor service owned by this procedure</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -476,7 +546,7 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/iceberg/spark/procedures/AncestorsOfProcedure.html" title="class in org.apache.iceberg.spark.procedures"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/iceberg/spark/procedures/CreateChangelogViewProcedure.html" title="class in org.apache.iceberg.spark.procedures"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../../org/apache/iceberg/spark/procedures/RemoveOrphanFilesProcedure.html" title="class in org.apache.iceberg.spark.procedures"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

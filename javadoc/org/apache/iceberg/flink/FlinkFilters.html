@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/flink/FlinkDynamicTableFactory.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/flink/FlinkSchemaUtil.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/flink/FlinkReadConf.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/flink/FlinkFilters.html" target="_top">Frames</a></li>
@@ -163,10 +163,10 @@ extends java.lang.Object</pre>
 <h4>convert</h4>
 <pre>public static&nbsp;java.util.Optional&lt;<a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&gt;&nbsp;convert(org.apache.flink.table.expressions.Expression&nbsp;flinkExpression)</pre>
 <div class="block">Convert flink expression to iceberg expression.
- <p>
- the BETWEEN, NOT_BETWEEN, IN expression will be converted by flink automatically. the BETWEEN will be converted to
- (GT_EQ AND LT_EQ), the NOT_BETWEEN will be converted to (LT_EQ OR GT_EQ), the IN will be converted to OR, so we do
- not add the conversion here</div>
+
+ <p>the BETWEEN, NOT_BETWEEN, IN expression will be converted by flink automatically. the
+ BETWEEN will be converted to (GT_EQ AND LT_EQ), the NOT_BETWEEN will be converted to (LT_EQ OR
+ GT_EQ), the IN will be converted to OR, so we do not add the conversion here</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>flinkExpression</code> - the flink expression</dd>
@@ -203,7 +203,7 @@ extends java.lang.Object</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/flink/FlinkDynamicTableFactory.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/flink/FlinkSchemaUtil.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/flink/FlinkReadConf.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/flink/FlinkFilters.html" target="_top">Frames</a></li>

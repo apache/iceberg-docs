@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/hive/HiveClientPool.html" title="class in org.apache.iceberg.hive"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/hive/HiveHadoopUtil.html" title="class in org.apache.iceberg.hive"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/hive/HiveTableOperations.html" title="class in org.apache.iceberg.hive"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -227,8 +227,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>convert</h4>
 <pre>public static&nbsp;<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;convert(java.util.List&lt;org.apache.hadoop.hive.metastore.api.FieldSchema&gt;&nbsp;fieldSchemas)</pre>
-<div class="block">Converts a Hive schema (list of FieldSchema objects) to an Iceberg schema. If some of the types are not convertible
- then exception is thrown.</div>
+<div class="block">Converts a Hive schema (list of FieldSchema objects) to an Iceberg schema. If some of the types
+ are not convertible then exception is thrown.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>fieldSchemas</code> - The list of the columns</dd>
@@ -249,9 +249,9 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>fieldSchemas</code> - The list of the columns</dd>
-<dd><code>autoConvert</code> - If <code>true</code> then TINYINT and SMALLINT is converted to INTEGER and VARCHAR and CHAR is
-                    converted to STRING. Otherwise if these types are used in the Hive schema then exception is
-                    thrown.</dd>
+<dd><code>autoConvert</code> - If <code>true</code> then TINYINT and SMALLINT is converted to INTEGER and
+     VARCHAR and CHAR is converted to STRING. Otherwise if these types are used in the Hive
+     schema then exception is thrown.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>An equivalent Iceberg Schema</dd>
 </dl>
@@ -284,8 +284,8 @@ extends java.lang.Object</pre>
 <pre>public static&nbsp;<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;convert(java.util.List&lt;java.lang.String&gt;&nbsp;names,
                              java.util.List&lt;org.apache.hadoop.hive.serde2.typeinfo.TypeInfo&gt;&nbsp;types,
                              java.util.List&lt;java.lang.String&gt;&nbsp;comments)</pre>
-<div class="block">Converts the Hive list of column names and column types to an Iceberg schema. If some of the types are not
- convertible then exception is thrown.</div>
+<div class="block">Converts the Hive list of column names and column types to an Iceberg schema. If some of the
+ types are not convertible then exception is thrown.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>names</code> - The list of the Hive column names</dd>
@@ -312,9 +312,9 @@ extends java.lang.Object</pre>
 <dd><code>names</code> - The list of the Hive column names</dd>
 <dd><code>types</code> - The list of the Hive column types</dd>
 <dd><code>comments</code> - The list of the Hive column comments, can be null</dd>
-<dd><code>autoConvert</code> - If <code>true</code> then TINYINT and SMALLINT is converted to INTEGER and VARCHAR and CHAR is
-                    converted to STRING. Otherwise if these types are used in the Hive schema then exception is
-                    thrown.</dd>
+<dd><code>autoConvert</code> - If <code>true</code> then TINYINT and SMALLINT is converted to INTEGER and
+     VARCHAR and CHAR is converted to STRING. Otherwise if these types are used in the Hive
+     schema then exception is thrown.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The Iceberg schema</dd>
 </dl>
@@ -379,7 +379,7 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/hive/HiveClientPool.html" title="class in org.apache.iceberg.hive"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/hive/HiveHadoopUtil.html" title="class in org.apache.iceberg.hive"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/hive/HiveTableOperations.html" title="class in org.apache.iceberg.hive"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

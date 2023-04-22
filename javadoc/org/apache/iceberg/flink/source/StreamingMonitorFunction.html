@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/iceberg/flink/source/RowDataRewriter.RewriteMap.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/iceberg/flink/source/ScanContext.Builder.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../../org/apache/iceberg/flink/source/StreamingReaderOperator.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -124,17 +124,17 @@ var activeTableTab = "activeTableTab";
 <pre>public class <span class="typeNameLabel">StreamingMonitorFunction</span>
 extends org.apache.flink.streaming.api.functions.source.RichSourceFunction&lt;<a href="../../../../../org/apache/iceberg/flink/source/FlinkInputSplit.html" title="class in org.apache.iceberg.flink.source">FlinkInputSplit</a>&gt;
 implements org.apache.flink.streaming.api.checkpoint.CheckpointedFunction</pre>
-<div class="block">This is the single (non-parallel) monitoring task which takes a <a href="../../../../../org/apache/iceberg/flink/source/FlinkInputFormat.html" title="class in org.apache.iceberg.flink.source"><code>FlinkInputFormat</code></a>,
- it is responsible for:
+<div class="block">This is the single (non-parallel) monitoring task which takes a <a href="../../../../../org/apache/iceberg/flink/source/FlinkInputFormat.html" title="class in org.apache.iceberg.flink.source"><code>FlinkInputFormat</code></a>, it is
+ responsible for:
 
  <ol>
-     <li>Monitoring snapshots of the Iceberg table.</li>
-     <li>Creating the <a href="../../../../../org/apache/iceberg/flink/source/FlinkInputSplit.html" title="class in org.apache.iceberg.flink.source"><code>splits</code></a> corresponding to the incremental files</li>
-     <li>Assigning them to downstream tasks for further processing.</li>
+   <li>Monitoring snapshots of the Iceberg table.
+   <li>Creating the <a href="../../../../../org/apache/iceberg/flink/source/FlinkInputSplit.html" title="class in org.apache.iceberg.flink.source"><code>splits</code></a> corresponding to the incremental files
+   <li>Assigning them to downstream tasks for further processing.
  </ol>
 
- <p>The splits to be read are forwarded to the downstream <a href="../../../../../org/apache/iceberg/flink/source/StreamingReaderOperator.html" title="class in org.apache.iceberg.flink.source"><code>StreamingReaderOperator</code></a>
- which can have parallelism greater than one.</div>
+ <p>The splits to be read are forwarded to the downstream <a href="../../../../../org/apache/iceberg/flink/source/StreamingReaderOperator.html" title="class in org.apache.iceberg.flink.source"><code>StreamingReaderOperator</code></a> which
+ can have parallelism greater than one.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../../serialized-form.html#org.apache.iceberg.flink.source.StreamingMonitorFunction">Serialized Form</a></dd>
@@ -173,7 +173,7 @@ implements org.apache.flink.streaming.api.checkpoint.CheckpointedFunction</pre>
 </tr>
 <tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/StreamingMonitorFunction.html#StreamingMonitorFunction-org.apache.iceberg.flink.TableLoader-org.apache.iceberg.flink.source.ScanContext-">StreamingMonitorFunction</a></span>(<a href="../../../../../org/apache/iceberg/flink/TableLoader.html" title="interface in org.apache.iceberg.flink">TableLoader</a>&nbsp;tableLoader,
-                        org.apache.iceberg.flink.source.ScanContext&nbsp;scanContext)</code>&nbsp;</td>
+                        <a href="../../../../../org/apache/iceberg/flink/source/ScanContext.html" title="class in org.apache.iceberg.flink.source">ScanContext</a>&nbsp;scanContext)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -204,9 +204,13 @@ implements org.apache.flink.streaming.api.checkpoint.CheckpointedFunction</pre>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/StreamingMonitorFunction.html#run-org.apache.flink.streaming.api.functions.source.SourceFunction.SourceContext-">run</a></span>(org.apache.flink.streaming.api.functions.source.SourceFunction.SourceContext&lt;<a href="../../../../../org/apache/iceberg/flink/source/FlinkInputSplit.html" title="class in org.apache.iceberg.flink.source">FlinkInputSplit</a>&gt;&nbsp;ctx)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/StreamingMonitorFunction.html#open-org.apache.flink.configuration.Configuration-">open</a></span>(org.apache.flink.configuration.Configuration&nbsp;parameters)</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/StreamingMonitorFunction.html#run-org.apache.flink.streaming.api.functions.source.SourceFunction.SourceContext-">run</a></span>(org.apache.flink.streaming.api.functions.source.SourceFunction.SourceContext&lt;<a href="../../../../../org/apache/iceberg/flink/source/FlinkInputSplit.html" title="class in org.apache.iceberg.flink.source">FlinkInputSplit</a>&gt;&nbsp;ctx)</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/StreamingMonitorFunction.html#snapshotState-org.apache.flink.runtime.state.FunctionSnapshotContext-">snapshotState</a></span>(org.apache.flink.runtime.state.FunctionSnapshotContext&nbsp;context)</code>&nbsp;</td>
 </tr>
@@ -216,7 +220,7 @@ implements org.apache.flink.streaming.api.checkpoint.CheckpointedFunction</pre>
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.flink.api.common.functions.AbstractRichFunction</h3>
-<code>getIterationRuntimeContext, getRuntimeContext, open, setRuntimeContext</code></li>
+<code>getIterationRuntimeContext, getRuntimeContext, setRuntimeContext</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -246,7 +250,7 @@ implements org.apache.flink.streaming.api.checkpoint.CheckpointedFunction</pre>
 <li class="blockList">
 <h4>StreamingMonitorFunction</h4>
 <pre>public&nbsp;StreamingMonitorFunction(<a href="../../../../../org/apache/iceberg/flink/TableLoader.html" title="interface in org.apache.iceberg.flink">TableLoader</a>&nbsp;tableLoader,
-                                org.apache.iceberg.flink.source.ScanContext&nbsp;scanContext)</pre>
+                                <a href="../../../../../org/apache/iceberg/flink/source/ScanContext.html" title="class in org.apache.iceberg.flink.source">ScanContext</a>&nbsp;scanContext)</pre>
 </li>
 </ul>
 </li>
@@ -257,6 +261,24 @@ implements org.apache.flink.streaming.api.checkpoint.CheckpointedFunction</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="open-org.apache.flink.configuration.Configuration-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>open</h4>
+<pre>public&nbsp;void&nbsp;open(org.apache.flink.configuration.Configuration&nbsp;parameters)
+          throws java.lang.Exception</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>open</code>&nbsp;in interface&nbsp;<code>org.apache.flink.api.common.functions.RichFunction</code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code>open</code>&nbsp;in class&nbsp;<code>org.apache.flink.api.common.functions.AbstractRichFunction</code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.Exception</code></dd>
+</dl>
+</li>
+</ul>
 <a name="initializeState-org.apache.flink.runtime.state.FunctionInitializationContext-">
 <!--   -->
 </a>
@@ -360,7 +382,7 @@ implements org.apache.flink.streaming.api.checkpoint.CheckpointedFunction</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/iceberg/flink/source/RowDataRewriter.RewriteMap.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/iceberg/flink/source/ScanContext.Builder.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../../org/apache/iceberg/flink/source/StreamingReaderOperator.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

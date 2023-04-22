@@ -203,8 +203,8 @@ implements <a href="../../../org/apache/iceberg/ReplaceSortOrder.html" title="in
 <pre>public&nbsp;<a href="../../../org/apache/iceberg/SortOrder.html" title="class in org.apache.iceberg">SortOrder</a>&nbsp;apply()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/PendingUpdate.html#apply--">PendingUpdate</a></code></span></div>
 <div class="block">Apply the pending changes and return the uncommitted changes for validation.
- <p>
- This does not result in a permanent update.</div>
+
+ <p>This does not result in a permanent update.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../org/apache/iceberg/PendingUpdate.html#apply--">apply</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/PendingUpdate.html" title="interface in org.apache.iceberg">PendingUpdate</a>&lt;<a href="../../../org/apache/iceberg/SortOrder.html" title="class in org.apache.iceberg">SortOrder</a>&gt;</code></dd>
@@ -222,10 +222,10 @@ implements <a href="../../../org/apache/iceberg/ReplaceSortOrder.html" title="in
 <pre>public&nbsp;void&nbsp;commit()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/PendingUpdate.html#commit--">PendingUpdate</a></code></span></div>
 <div class="block">Apply the pending changes and commit.
- <p>
- Changes are committed by calling the underlying table's commit method.
- <p>
- Once the commit is successful, the updated table will be refreshed.</div>
+
+ <p>Changes are committed by calling the underlying table's commit method.
+
+ <p>Once the commit is successful, the updated table will be refreshed.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../org/apache/iceberg/PendingUpdate.html#commit--">commit</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/PendingUpdate.html" title="interface in org.apache.iceberg">PendingUpdate</a>&lt;<a href="../../../org/apache/iceberg/SortOrder.html" title="class in org.apache.iceberg">SortOrder</a>&gt;</code></dd>

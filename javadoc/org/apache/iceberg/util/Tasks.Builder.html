@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -154,77 +154,81 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="class in org.apache.iceberg.util">Tasks.Builder</a>&lt;<a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="type parameter in Tasks.Builder">I</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html#executeWith-java.util.concurrent.ExecutorService-">executeWith</a></span>(java.util.concurrent.ExecutorService&nbsp;svc)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html#countAttempts-org.apache.iceberg.metrics.Counter-">countAttempts</a></span>(<a href="../../../../org/apache/iceberg/metrics/Counter.html" title="interface in org.apache.iceberg.metrics">Counter</a>&nbsp;counter)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="class in org.apache.iceberg.util">Tasks.Builder</a>&lt;<a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="type parameter in Tasks.Builder">I</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html#executeWith-java.util.concurrent.ExecutorService-">executeWith</a></span>(java.util.concurrent.ExecutorService&nbsp;svc)</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="class in org.apache.iceberg.util">Tasks.Builder</a>&lt;<a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="type parameter in Tasks.Builder">I</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html#exponentialBackoff-long-long-long-double-">exponentialBackoff</a></span>(long&nbsp;backoffMinSleepTimeMs,
                   long&nbsp;backoffMaxSleepTimeMs,
                   long&nbsp;backoffMaxRetryTimeMs,
                   double&nbsp;backoffScaleFactor)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="class in org.apache.iceberg.util">Tasks.Builder</a>&lt;<a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="type parameter in Tasks.Builder">I</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html#noRetry--">noRetry</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="class in org.apache.iceberg.util">Tasks.Builder</a>&lt;<a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="type parameter in Tasks.Builder">I</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html#onFailure-org.apache.iceberg.util.Tasks.FailureTask-">onFailure</a></span>(<a href="../../../../org/apache/iceberg/util/Tasks.FailureTask.html" title="interface in org.apache.iceberg.util">Tasks.FailureTask</a>&lt;<a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="type parameter in Tasks.Builder">I</a>,?&gt;&nbsp;task)</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="class in org.apache.iceberg.util">Tasks.Builder</a>&lt;<a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="type parameter in Tasks.Builder">I</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html#onlyRetryOn-java.lang.Class...-">onlyRetryOn</a></span>(java.lang.Class&lt;? extends java.lang.Exception&gt;...&nbsp;exceptions)</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="class in org.apache.iceberg.util">Tasks.Builder</a>&lt;<a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="type parameter in Tasks.Builder">I</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html#onlyRetryOn-java.lang.Class-">onlyRetryOn</a></span>(java.lang.Class&lt;? extends java.lang.Exception&gt;&nbsp;exception)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="class in org.apache.iceberg.util">Tasks.Builder</a>&lt;<a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="type parameter in Tasks.Builder">I</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html#retry-int-">retry</a></span>(int&nbsp;nTimes)</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="class in org.apache.iceberg.util">Tasks.Builder</a>&lt;<a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="type parameter in Tasks.Builder">I</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html#revertWith-org.apache.iceberg.util.Tasks.Task-">revertWith</a></span>(<a href="../../../../org/apache/iceberg/util/Tasks.Task.html" title="interface in org.apache.iceberg.util">Tasks.Task</a>&lt;<a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="type parameter in Tasks.Builder">I</a>,?&gt;&nbsp;task)</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>&lt;E extends java.lang.Exception&gt;<br>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html#run-org.apache.iceberg.util.Tasks.Task-java.lang.Class-">run</a></span>(<a href="../../../../org/apache/iceberg/util/Tasks.Task.html" title="interface in org.apache.iceberg.util">Tasks.Task</a>&lt;<a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="type parameter in Tasks.Builder">I</a>,E&gt;&nbsp;task,
    java.lang.Class&lt;E&gt;&nbsp;exceptionClass)</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html#run-org.apache.iceberg.util.Tasks.Task-">run</a></span>(<a href="../../../../org/apache/iceberg/util/Tasks.Task.html" title="interface in org.apache.iceberg.util">Tasks.Task</a>&lt;<a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="type parameter in Tasks.Builder">I</a>,java.lang.RuntimeException&gt;&nbsp;task)</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="class in org.apache.iceberg.util">Tasks.Builder</a>&lt;<a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="type parameter in Tasks.Builder">I</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html#shouldRetryTest-java.util.function.Predicate-">shouldRetryTest</a></span>(java.util.function.Predicate&lt;java.lang.Exception&gt;&nbsp;shouldRetry)</code>&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="class in org.apache.iceberg.util">Tasks.Builder</a>&lt;<a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="type parameter in Tasks.Builder">I</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html#stopAbortsOnFailure--">stopAbortsOnFailure</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="class in org.apache.iceberg.util">Tasks.Builder</a>&lt;<a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="type parameter in Tasks.Builder">I</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html#stopOnFailure--">stopOnFailure</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="class in org.apache.iceberg.util">Tasks.Builder</a>&lt;<a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="type parameter in Tasks.Builder">I</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html#stopRetryOn-java.lang.Class...-">stopRetryOn</a></span>(java.lang.Class&lt;? extends java.lang.Exception&gt;...&nbsp;exceptions)</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="class in org.apache.iceberg.util">Tasks.Builder</a>&lt;<a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="type parameter in Tasks.Builder">I</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html#stopRevertsOnFailure--">stopRevertsOnFailure</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="class in org.apache.iceberg.util">Tasks.Builder</a>&lt;<a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="type parameter in Tasks.Builder">I</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html#suppressFailureWhenFinished--">suppressFailureWhenFinished</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="class in org.apache.iceberg.util">Tasks.Builder</a>&lt;<a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="type parameter in Tasks.Builder">I</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html#throwFailureWhenFinished--">throwFailureWhenFinished</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="class in org.apache.iceberg.util">Tasks.Builder</a>&lt;<a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="type parameter in Tasks.Builder">I</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/Tasks.Builder.html#throwFailureWhenFinished-boolean-">throwFailureWhenFinished</a></span>(boolean&nbsp;throwWhenFinished)</code>&nbsp;</td>
 </tr>
@@ -411,6 +415,15 @@ public final&nbsp;<a href="../../../../org/apache/iceberg/util/Tasks.Builder.htm
 <h4>onlyRetryOn</h4>
 <pre>@SafeVarargs
 public final&nbsp;<a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="class in org.apache.iceberg.util">Tasks.Builder</a>&lt;<a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="type parameter in Tasks.Builder">I</a>&gt;&nbsp;onlyRetryOn(java.lang.Class&lt;? extends java.lang.Exception&gt;...&nbsp;exceptions)</pre>
+</li>
+</ul>
+<a name="countAttempts-org.apache.iceberg.metrics.Counter-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>countAttempts</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="class in org.apache.iceberg.util">Tasks.Builder</a>&lt;<a href="../../../../org/apache/iceberg/util/Tasks.Builder.html" title="type parameter in Tasks.Builder">I</a>&gt;&nbsp;countAttempts(<a href="../../../../org/apache/iceberg/metrics/Counter.html" title="interface in org.apache.iceberg.metrics">Counter</a>&nbsp;counter)</pre>
 </li>
 </ul>
 <a name="exponentialBackoff-long-long-long-double-">

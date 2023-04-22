@@ -110,8 +110,8 @@ var activeTableTab = "activeTableTab";
 <pre>public interface <span class="typeNameLabel">EncryptionManager</span>
 extends java.io.Serializable</pre>
 <div class="block">Module for encrypting and decrypting table data files.
- <p>
- This must be serializable because an instance may be instantiated in one place and sent across
+
+ <p>This must be serializable because an instance may be instantiated in one place and sent across
  the wire in some Iceberg integrations, notably Spark.</div>
 </li>
 </ul>
@@ -135,16 +135,15 @@ extends java.io.Serializable</pre>
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/encryption/EncryptionManager.html#decrypt-org.apache.iceberg.encryption.EncryptedInputFile-">decrypt</a></span>(<a href="../../../../org/apache/iceberg/encryption/EncryptedInputFile.html" title="interface in org.apache.iceberg.encryption">EncryptedInputFile</a>&nbsp;encrypted)</code>
 <div class="block">Given an <a href="../../../../org/apache/iceberg/encryption/EncryptedInputFile.html#encryptedInputFile--"><code>EncryptedInputFile.encryptedInputFile()</code></a> representing the raw encrypted bytes
- from the underlying file system, and given metadata about how the file was encrypted via
- <a href="../../../../org/apache/iceberg/encryption/EncryptedInputFile.html#keyMetadata--"><code>EncryptedInputFile.keyMetadata()</code></a>, return an <a href="../../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io"><code>InputFile</code></a> that returns decrypted
- input streams.</div>
+ from the underlying file system, and given metadata about how the file was encrypted via <a href="../../../../org/apache/iceberg/encryption/EncryptedInputFile.html#keyMetadata--"><code>EncryptedInputFile.keyMetadata()</code></a>, return an <a href="../../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io"><code>InputFile</code></a> that returns decrypted input
+ streams.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>default java.lang.Iterable&lt;<a href="../../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/encryption/EncryptionManager.html#decrypt-java.lang.Iterable-">decrypt</a></span>(java.lang.Iterable&lt;<a href="../../../../org/apache/iceberg/encryption/EncryptedInputFile.html" title="interface in org.apache.iceberg.encryption">EncryptedInputFile</a>&gt;&nbsp;encrypted)</code>
-<div class="block">Variant of <a href="../../../../org/apache/iceberg/encryption/EncryptionManager.html#decrypt-org.apache.iceberg.encryption.EncryptedInputFile-"><code>decrypt(EncryptedInputFile)</code></a> that provides a sequence of files that all
- need to be decrypted in a single context.</div>
+<div class="block">Variant of <a href="../../../../org/apache/iceberg/encryption/EncryptionManager.html#decrypt-org.apache.iceberg.encryption.EncryptedInputFile-"><code>decrypt(EncryptedInputFile)</code></a> that provides a sequence of files that all need
+ to be decrypted in a single context.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -186,9 +185,8 @@ extends java.io.Serializable</pre>
 <h4>decrypt</h4>
 <pre><a href="../../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a>&nbsp;decrypt(<a href="../../../../org/apache/iceberg/encryption/EncryptedInputFile.html" title="interface in org.apache.iceberg.encryption">EncryptedInputFile</a>&nbsp;encrypted)</pre>
 <div class="block">Given an <a href="../../../../org/apache/iceberg/encryption/EncryptedInputFile.html#encryptedInputFile--"><code>EncryptedInputFile.encryptedInputFile()</code></a> representing the raw encrypted bytes
- from the underlying file system, and given metadata about how the file was encrypted via
- <a href="../../../../org/apache/iceberg/encryption/EncryptedInputFile.html#keyMetadata--"><code>EncryptedInputFile.keyMetadata()</code></a>, return an <a href="../../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io"><code>InputFile</code></a> that returns decrypted
- input streams.</div>
+ from the underlying file system, and given metadata about how the file was encrypted via <a href="../../../../org/apache/iceberg/encryption/EncryptedInputFile.html#keyMetadata--"><code>EncryptedInputFile.keyMetadata()</code></a>, return an <a href="../../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io"><code>InputFile</code></a> that returns decrypted input
+ streams.</div>
 </li>
 </ul>
 <a name="decrypt-java.lang.Iterable-">
@@ -198,10 +196,10 @@ extends java.io.Serializable</pre>
 <li class="blockList">
 <h4>decrypt</h4>
 <pre>default&nbsp;java.lang.Iterable&lt;<a href="../../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a>&gt;&nbsp;decrypt(java.lang.Iterable&lt;<a href="../../../../org/apache/iceberg/encryption/EncryptedInputFile.html" title="interface in org.apache.iceberg.encryption">EncryptedInputFile</a>&gt;&nbsp;encrypted)</pre>
-<div class="block">Variant of <a href="../../../../org/apache/iceberg/encryption/EncryptionManager.html#decrypt-org.apache.iceberg.encryption.EncryptedInputFile-"><code>decrypt(EncryptedInputFile)</code></a> that provides a sequence of files that all
- need to be decrypted in a single context.
- <p>
- By default this calls the single-file decryption method for each element in the iterator.
+<div class="block">Variant of <a href="../../../../org/apache/iceberg/encryption/EncryptionManager.html#decrypt-org.apache.iceberg.encryption.EncryptedInputFile-"><code>decrypt(EncryptedInputFile)</code></a> that provides a sequence of files that all need
+ to be decrypted in a single context.
+
+ <p>By default this calls the single-file decryption method for each element in the iterator.
  Implementations can override this for a variety of optimizations. For example, an
  implementation can perform lookahead on the input iterator and fetch encryption keys in batch.</div>
 </li>
@@ -228,8 +226,8 @@ extends java.io.Serializable</pre>
 <pre>default&nbsp;java.lang.Iterable&lt;<a href="../../../../org/apache/iceberg/encryption/EncryptedOutputFile.html" title="interface in org.apache.iceberg.encryption">EncryptedOutputFile</a>&gt;&nbsp;encrypt(java.lang.Iterable&lt;<a href="../../../../org/apache/iceberg/io/OutputFile.html" title="interface in org.apache.iceberg.io">OutputFile</a>&gt;&nbsp;rawOutput)</pre>
 <div class="block">Variant of <a href="../../../../org/apache/iceberg/encryption/EncryptionManager.html#encrypt-org.apache.iceberg.io.OutputFile-"><code>encrypt(OutputFile)</code></a> that provides a sequence of files that all need to be
  encrypted in a single context.
- <p>
- By default this calls the single-file encryption method for each element in the iterator.
+
+ <p>By default this calls the single-file encryption method for each element in the iterator.
  Implementations can override this for a variety of optimizations. For example, an
  implementation can perform lookahead on the input iterator and fetch encryption keys in batch.</div>
 </li>

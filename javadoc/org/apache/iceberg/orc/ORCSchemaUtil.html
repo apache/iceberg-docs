@@ -154,15 +154,15 @@ extends java.lang.Object</pre>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/orc/ORCSchemaUtil.html#ICEBERG_BINARY_TYPE_ATTRIBUTE">ICEBERG_BINARY_TYPE_ATTRIBUTE</a></span></code>
-<div class="block">The name of the ORC <code>TypeDescription</code> attribute indicating the Iceberg type corresponding to an
- ORC binary type.</div>
+<div class="block">The name of the ORC <code>TypeDescription</code> attribute indicating the Iceberg type corresponding
+ to an ORC binary type.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/orc/ORCSchemaUtil.html#ICEBERG_LONG_TYPE_ATTRIBUTE">ICEBERG_LONG_TYPE_ATTRIBUTE</a></span></code>
-<div class="block">The name of the ORC <code>TypeDescription</code> attribute indicating the Iceberg type corresponding to an
- ORC long type.</div>
+<div class="block">The name of the ORC <code>TypeDescription</code> attribute indicating the Iceberg type corresponding
+ to an ORC long type.</div>
 </td>
 </tr>
 </table>
@@ -184,8 +184,8 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>static org.apache.orc.TypeDescription</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/orc/ORCSchemaUtil.html#buildOrcProjection-org.apache.iceberg.Schema-org.apache.orc.TypeDescription-">buildOrcProjection</a></span>(<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema,
                   org.apache.orc.TypeDescription&nbsp;originalOrcSchema)</code>
-<div class="block">Converts an Iceberg schema to a corresponding ORC schema within the context of an existing
- ORC file schema.</div>
+<div class="block">Converts an Iceberg schema to a corresponding ORC schema within the context of an existing ORC
+ file schema.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -237,8 +237,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>ICEBERG_BINARY_TYPE_ATTRIBUTE</h4>
 <pre>public static final&nbsp;java.lang.String ICEBERG_BINARY_TYPE_ATTRIBUTE</pre>
-<div class="block">The name of the ORC <code>TypeDescription</code> attribute indicating the Iceberg type corresponding to an
- ORC binary type. The values for this attribute are denoted in <code>BinaryType</code>.</div>
+<div class="block">The name of the ORC <code>TypeDescription</code> attribute indicating the Iceberg type corresponding
+ to an ORC binary type. The values for this attribute are denoted in <code>BinaryType</code>.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.orc.ORCSchemaUtil.ICEBERG_BINARY_TYPE_ATTRIBUTE">Constant Field Values</a></dd>
@@ -252,8 +252,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>ICEBERG_LONG_TYPE_ATTRIBUTE</h4>
 <pre>public static final&nbsp;java.lang.String ICEBERG_LONG_TYPE_ATTRIBUTE</pre>
-<div class="block">The name of the ORC <code>TypeDescription</code> attribute indicating the Iceberg type corresponding to an
- ORC long type. The values for this attribute are denoted in <code>LongType</code>.</div>
+<div class="block">The name of the ORC <code>TypeDescription</code> attribute indicating the Iceberg type corresponding
+ to an ORC long type. The values for this attribute are denoted in <code>LongType</code>.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.orc.ORCSchemaUtil.ICEBERG_LONG_TYPE_ATTRIBUTE">Constant Field Values</a></dd>
@@ -284,9 +284,9 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>convert</h4>
 <pre>public static&nbsp;<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;convert(org.apache.orc.TypeDescription&nbsp;orcSchema)</pre>
-<div class="block">Convert an ORC schema to an Iceberg schema. This method handles the convertion from the original
- Iceberg column mapping IDs if present in the ORC column attributes, otherwise, ORC columns with no
- Iceberg IDs will be ignored and skipped in the conversion.</div>
+<div class="block">Convert an ORC schema to an Iceberg schema. This method handles the convertion from the
+ original Iceberg column mapping IDs if present in the ORC column attributes, otherwise, ORC
+ columns with no Iceberg IDs will be ignored and skipped in the conversion.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the Iceberg schema</dd>
@@ -303,22 +303,17 @@ extends java.lang.Object</pre>
 <h4>buildOrcProjection</h4>
 <pre>public static&nbsp;org.apache.orc.TypeDescription&nbsp;buildOrcProjection(<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema,
                                                                 org.apache.orc.TypeDescription&nbsp;originalOrcSchema)</pre>
-<div class="block">Converts an Iceberg schema to a corresponding ORC schema within the context of an existing
- ORC file schema.
- This method also handles schema evolution from the original ORC file schema
- to the given Iceberg schema. It builds the desired reader schema with the schema
- evolution rules and pass that down to the ORC reader,
- which would then use its schema evolution to map that to the writer’s schema.
+<div class="block">Converts an Iceberg schema to a corresponding ORC schema within the context of an existing ORC
+ file schema. This method also handles schema evolution from the original ORC file schema to the
+ given Iceberg schema. It builds the desired reader schema with the schema evolution rules and
+ pass that down to the ORC reader, which would then use its schema evolution to map that to the
+ writer’s schema.
 
- Example:
- <code>
+ <p>Example: <code>
  Iceberg writer                                        ORC writer
  struct&lt;a (1): int, b (2): string&gt;                     struct&lt;a: int, b: string&gt;
  struct&lt;a (1): struct&lt;b (2): string, c (3): date&gt;&gt;     struct&lt;a: struct&lt;b:string, c:date&gt;&gt;
- </code>
-
- Iceberg reader                                        ORC reader
- <code>
+ </code> Iceberg reader ORC reader <code>
  struct&lt;a (2): string, c (3): date&gt;                    struct&lt;b: string, c: date&gt;
  struct&lt;aa (1): struct&lt;cc (3): date, bb (2): string&gt;&gt;  struct&lt;a: struct&lt;c:date, b:string&gt;&gt;
  </code></div>

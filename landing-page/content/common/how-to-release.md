@@ -21,6 +21,18 @@ disableSidebar: true
  - limitations under the License.
  -->
 
+## Introduction
+
+This page walks you through the release process of the Iceberg project. [Here](https://www.apache.org/legal/release-policy.html) you can read about the release process in general for an Apache project.
+
+Decisions about releases are made by three groups:
+
+* Release Manager: Does the work of creating the release, signing it, counting [votes](/how-to-release/#voting), announcing the release and so on. Requires the assistance of a committer for some steps.
+* The community: Performs the discussion of whether it is the right time to create a release and what that release should contain. The community can also cast non-binding votes on the release.
+* PMC: Gives binding votes on the release.
+
+This page describes the procedures that the release manager and voting PMC members take during the release process.
+
 ## Setup
 
 To create a release candidate, you will need:
@@ -68,6 +80,16 @@ The release should be executed against `https://github.com/apache/iceberg.git` i
 Set it as remote with name `apache` for release if it is not already set up.
 
 ## Creating a release candidate
+
+### Initiate a discussion about the release with the community
+
+This step can be useful to gather ongoing patches that the community thinks should be in the upcoming release.
+
+The communication can be started via a [DISCUSS] mail on the dev@ channel and the desired tickets can be added to the github milestone of the next release.
+
+Note, creating a milestone in github requires a committer. However, a non-committer can assign tasks to a milestone if added to the list of collaborators in [.asf.yaml](https://github.com/apache/iceberg/blob/master/.asf.yaml)
+
+The release status is discussed during each community sync meeting. Release manager should join the meeting to report status and discuss any release blocker.
 
 ### Build the source release
 
@@ -192,11 +214,15 @@ This release includes important changes that I should have summarized here, but 
 
 Please download, verify, and test.
 
-Please vote in the next 72 hours.
+Please vote in the next 72 hours. (Weekends excluded)
 
 [ ] +1 Release this as Apache Iceberg <VERSION>
 [ ] +0
 [ ] -1 Do not release this because...
+
+Only PMC members have binding votes, but other community members are encouraged to cast
+non-binding votes. This vote will pass if there are 3 binding +1 votes and more binding
++1 votes than -1 votes.
 ```
 
 When a candidate is passed or rejected, reply with the voting result:
@@ -222,6 +248,12 @@ Therefore, the release candidate is passed/rejected.
 
 After the release vote has passed, you need to release the last candidate's artifacts.
 
+But note that releasing the artifacts should happen around the same time the new docs are released
+so make sure the [documentation changes](/how-to-release/#documentation-release)
+are prepared when going through the below steps.
+
+#### Publishing the release
+
 First, copy the source release directory to releases:
 
 ```bash
@@ -235,6 +267,9 @@ svn add apache-iceberg-<VERSION>
 svn ci -m 'Iceberg: Add release <VERSION>'
 ```
 
+!!! Note
+The above step requires PMC privileges to execute.
+
 Next, add a release tag to the git repository based on the passing candidate tag:
 
 ```bash
@@ -242,6 +277,8 @@ git tag -am 'Release Apache Iceberg <VERSION>' apache-iceberg-<VERSION> apache-i
 ```
 
 Then release the candidate repository in [Nexus](https://repository.apache.org/#stagingRepositories).
+
+#### Announcing the release
 
 To announce the release, wait until Maven central has mirrored the Apache binaries, then update the Iceberg site and send an announcement email:
 
@@ -263,6 +300,14 @@ Java artifacts are available from Maven Central.
 Thanks to everyone for contributing!
 ```
 
+#### Update revapi
+
+Create a PR in the `iceberg` repo to make revapi run on the new release. For an example see [this PR](https://github.com/apache/iceberg/pull/6275).
+
+#### Update github issue template
+
+Create a PR in the `iceberg` repo to add the new version to the github issue template. For an example see [this PR](https://github.com/apache/iceberg/pull/6287).
+
 ### Documentation Release
 
 Documentation needs to be updated as a part of an Iceberg release after a release candidate is passed.
@@ -270,12 +315,6 @@ The commands described below assume you are in a directory containing a local cl
 repository and `iceberg` repository. Adjust the commands accordingly if it is not the case. Note that all
 changes in `iceberg` need to happen against the `master` branch and changes in `iceberg-docs` need to happen
 against the `main` branch. 
-
-#### iceberg repository preparations
-
-A PR needs to be published in the `iceberg` repository with the following changes:
-
-1. Create a new folder called `docs/releases/<VERSION NUMBER>` with an `_index.md` file. See the existing folders under `docs/releases` for more details.
 
 #### Common documentation update
 
@@ -334,10 +373,12 @@ git push apache latest
 The last step is to update the `main` branch in `iceberg-docs` to set the latest version.
 A PR needs to be published in the `iceberg-docs` repository with the following changes:
 1. Update variable `latestVersions.iceberg` to the new release version in `landing-page/config.toml`
-2. Update variable `latestVersions.iceberg` to the new release version in `docs/config.toml`
-3. Mark the current latest release notes to past releases under `landing-page/content/common/release-notes.md`
-4. Add release notes for the new release version in `landing-page/content/common/release-notes.md`
-
+2. Update variable `latestVersions.iceberg` to the new release version and 
+`versions.nessie` to the version of `org.projectnessie.nessie:*` from [versions.props](https://github.com/apache/iceberg/blob/master/versions.props) in `docs/config.toml`
+3. Update list `versions` with the new release in `landing-page/config.toml`
+4. Update list `versions` with the new release in `docs/config.toml`
+5. Mark the current latest release notes to past releases under `landing-page/content/common/release-notes.md`
+6. Add release notes for the new release version in `landing-page/content/common/release-notes.md`
 
 # How to Verify a Release
 

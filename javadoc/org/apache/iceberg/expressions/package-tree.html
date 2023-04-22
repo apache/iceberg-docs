@@ -79,13 +79,34 @@
 <ul>
 <li type="circle">java.lang.Object
 <ul>
+<li type="circle">org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/Aggregate.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">Aggregate</span></a>&lt;C&gt; (implements org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>)
+<ul>
+<li type="circle">org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/BoundAggregate.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">BoundAggregate</span></a>&lt;T,C&gt; (implements org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/Bound.html" title="interface in org.apache.iceberg.expressions">Bound</a>&lt;T&gt;)
+<ul>
+<li type="circle">org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/CountAggregate.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">CountAggregate</span></a>&lt;T&gt;
+<ul>
+<li type="circle">org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/CountNonNull.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">CountNonNull</span></a>&lt;T&gt;</li>
+<li type="circle">org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/CountStar.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">CountStar</span></a>&lt;T&gt;</li>
+</ul>
+</li>
+<li type="circle">org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/MaxAggregate.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">MaxAggregate</span></a>&lt;T&gt;</li>
+<li type="circle">org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/MinAggregate.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">MinAggregate</span></a>&lt;T&gt;</li>
+</ul>
+</li>
+<li type="circle">org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/UnboundAggregate.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">UnboundAggregate</span></a>&lt;T&gt; (implements org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/Unbound.html" title="interface in org.apache.iceberg.expressions">Unbound</a>&lt;T,B&gt;)</li>
+</ul>
+</li>
+<li type="circle">org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/AggregateEvaluator.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">AggregateEvaluator</span></a></li>
 <li type="circle">org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/And.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">And</span></a> (implements org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>)</li>
 <li type="circle">org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/Binder.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">Binder</span></a></li>
 <li type="circle">org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/BoundReference.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">BoundReference</span></a>&lt;T&gt; (implements org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/BoundTerm.html" title="interface in org.apache.iceberg.expressions">BoundTerm</a>&lt;T&gt;, org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/Reference.html" title="interface in org.apache.iceberg.expressions">Reference</a>&lt;T&gt;)</li>
 <li type="circle">org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/BoundTransform.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">BoundTransform</span></a>&lt;S,T&gt; (implements org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/BoundTerm.html" title="interface in org.apache.iceberg.expressions">BoundTerm</a>&lt;T&gt;)</li>
 <li type="circle">org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/Evaluator.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">Evaluator</span></a> (implements java.io.Serializable)</li>
+<li type="circle">org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/ExpressionParser.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">ExpressionParser</span></a></li>
 <li type="circle">org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/Expressions.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">Expressions</span></a></li>
+<li type="circle">org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/ExpressionUtil.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">ExpressionUtil</span></a></li>
 <li type="circle">org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">ExpressionVisitors</span></a></li>
+<li type="circle">org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.CustomOrderExpressionVisitor.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">ExpressionVisitors.CustomOrderExpressionVisitor</span></a>&lt;R&gt;</li>
 <li type="circle">org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.ExpressionVisitor.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">ExpressionVisitors.ExpressionVisitor</span></a>&lt;R&gt;
 <ul>
 <li type="circle">org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/ExpressionVisitors.BoundExpressionVisitor.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">ExpressionVisitors.BoundExpressionVisitor</span></a>&lt;R&gt;</li>
@@ -116,6 +137,7 @@
 <li type="circle">org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/StrictMetricsEvaluator.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">StrictMetricsEvaluator</span></a></li>
 <li type="circle">org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/True.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">True</span></a> (implements org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>)</li>
 <li type="circle">org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/UnboundTransform.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">UnboundTransform</span></a>&lt;S,T&gt; (implements org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/Term.html" title="interface in org.apache.iceberg.expressions">Term</a>, org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;)</li>
+<li type="circle">org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/Zorder.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">Zorder</span></a> (implements org.apache.iceberg.expressions.<a href="../../../../org/apache/iceberg/expressions/Term.html" title="interface in org.apache.iceberg.expressions">Term</a>)</li>
 </ul>
 </li>
 </ul>

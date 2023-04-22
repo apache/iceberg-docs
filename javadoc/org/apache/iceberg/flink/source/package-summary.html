@@ -42,7 +42,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../org/apache/iceberg/flink/sink/package-summary.html">Prev&nbsp;Package</a></li>
-<li><a href="../../../../../org/apache/iceberg/flink/source/split/package-summary.html">Next&nbsp;Package</a></li>
+<li><a href="../../../../../org/apache/iceberg/flink/source/assigner/package-summary.html">Next&nbsp;Package</a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/iceberg/flink/source/package-summary.html" target="_top">Frames</a></li>
@@ -98,10 +98,18 @@
 </tr>
 <tbody>
 <tr class="altColor">
+<td class="colFirst"><a href="../../../../../org/apache/iceberg/flink/source/AvroGenericRecordFileScanTaskReader.html" title="class in org.apache.iceberg.flink.source">AvroGenericRecordFileScanTaskReader</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../org/apache/iceberg/flink/source/DataIterator.html" title="class in org.apache.iceberg.flink.source">DataIterator</a>&lt;T&gt;</td>
 <td class="colLast">
 <div class="block">Flink data iterator that reads <a href="../../../../../org/apache/iceberg/CombinedScanTask.html" title="interface in org.apache.iceberg"><code>CombinedScanTask</code></a> into a <a href="../../../../../org/apache/iceberg/io/CloseableIterator.html" title="interface in org.apache.iceberg.io"><code>CloseableIterator</code></a></div>
 </td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../../org/apache/iceberg/flink/source/DataTaskReader.html" title="class in org.apache.iceberg.flink.source">DataTaskReader</a></td>
+<td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../../org/apache/iceberg/flink/source/FlinkInputFormat.html" title="class in org.apache.iceberg.flink.source">FlinkInputFormat</a></td>
@@ -111,9 +119,7 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><a href="../../../../../org/apache/iceberg/flink/source/FlinkInputSplit.html" title="class in org.apache.iceberg.flink.source">FlinkInputSplit</a></td>
-<td class="colLast">
-<div class="block">TODO Implement <code>LocatableInputSplit</code>.</div>
-</td>
+<td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../../org/apache/iceberg/flink/source/FlinkSource.html" title="class in org.apache.iceberg.flink.source">FlinkSource</a></td>
@@ -130,34 +136,79 @@
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><a href="../../../../../org/apache/iceberg/flink/source/RowDataFileScanTaskReader.html" title="class in org.apache.iceberg.flink.source">RowDataFileScanTaskReader</a></td>
+<td class="colFirst"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.html" title="class in org.apache.iceberg.flink.source">IcebergSource</a>&lt;T&gt;</td>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><a href="../../../../../org/apache/iceberg/flink/source/RowDataRewriter.html" title="class in org.apache.iceberg.flink.source">RowDataRewriter</a></td>
+<td class="colFirst"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source">IcebergSource.Builder</a>&lt;T&gt;</td>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><a href="../../../../../org/apache/iceberg/flink/source/IcebergTableSource.html" title="class in org.apache.iceberg.flink.source">IcebergTableSource</a></td>
+<td class="colLast">
+<div class="block">Flink Iceberg table source.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../../org/apache/iceberg/flink/source/RowDataFileScanTaskReader.html" title="class in org.apache.iceberg.flink.source">RowDataFileScanTaskReader</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../../org/apache/iceberg/flink/source/RowDataRewriter.html" title="class in org.apache.iceberg.flink.source">RowDataRewriter</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../org/apache/iceberg/flink/source/RowDataRewriter.RewriteMap.html" title="class in org.apache.iceberg.flink.source">RowDataRewriter.RewriteMap</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../../org/apache/iceberg/flink/source/RowDataToAvroGenericRecordConverter.html" title="class in org.apache.iceberg.flink.source">RowDataToAvroGenericRecordConverter</a></td>
+<td class="colLast">
+<div class="block">This is not serializable because Avro <code>Schema</code> is not actually serializable, even though it
+ implements <code>Serializable</code> interface.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../../org/apache/iceberg/flink/source/ScanContext.html" title="class in org.apache.iceberg.flink.source">ScanContext</a></td>
+<td class="colLast">
+<div class="block">Context object with optional arguments for a Flink Scan.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../../org/apache/iceberg/flink/source/ScanContext.Builder.html" title="class in org.apache.iceberg.flink.source">ScanContext.Builder</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../../org/apache/iceberg/flink/source/StreamingMonitorFunction.html" title="class in org.apache.iceberg.flink.source">StreamingMonitorFunction</a></td>
 <td class="colLast">
-<div class="block">This is the single (non-parallel) monitoring task which takes a <a href="../../../../../org/apache/iceberg/flink/source/FlinkInputFormat.html" title="class in org.apache.iceberg.flink.source"><code>FlinkInputFormat</code></a>,
- it is responsible for:
+<div class="block">This is the single (non-parallel) monitoring task which takes a <a href="../../../../../org/apache/iceberg/flink/source/FlinkInputFormat.html" title="class in org.apache.iceberg.flink.source"><code>FlinkInputFormat</code></a>, it is
+ responsible for:
 
  
-     Monitoring snapshots of the Iceberg table.
-     Creating the <a href="../../../../../org/apache/iceberg/flink/source/FlinkInputSplit.html" title="class in org.apache.iceberg.flink.source"><code>splits</code></a> corresponding to the incremental files
-     Assigning them to downstream tasks for further processing.
- </div>
+   Monitoring snapshots of the Iceberg table.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><a href="../../../../../org/apache/iceberg/flink/source/StreamingReaderOperator.html" title="class in org.apache.iceberg.flink.source">StreamingReaderOperator</a></td>
 <td class="colLast">
 <div class="block">The operator that reads the <a href="../../../../../org/apache/iceberg/flink/source/FlinkInputSplit.html" title="class in org.apache.iceberg.flink.source"><code>splits</code></a> received from the preceding <a href="../../../../../org/apache/iceberg/flink/source/StreamingMonitorFunction.html" title="class in org.apache.iceberg.flink.source"><code>StreamingMonitorFunction</code></a>.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li class="blockList">
+<table class="typeSummary" border="0" cellpadding="3" cellspacing="0" summary="Enum Summary table, listing enums, and an explanation">
+<caption><span>Enum Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Enum</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../../org/apache/iceberg/flink/source/StreamingStartingStrategy.html" title="enum in org.apache.iceberg.flink.source">StreamingStartingStrategy</a></td>
+<td class="colLast">
+<div class="block">Starting strategy for streaming execution.</div>
 </td>
 </tr>
 </tbody>
@@ -186,7 +237,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../org/apache/iceberg/flink/sink/package-summary.html">Prev&nbsp;Package</a></li>
-<li><a href="../../../../../org/apache/iceberg/flink/source/split/package-summary.html">Next&nbsp;Package</a></li>
+<li><a href="../../../../../org/apache/iceberg/flink/source/assigner/package-summary.html">Next&nbsp;Package</a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/iceberg/flink/source/package-summary.html" target="_top">Frames</a></li>

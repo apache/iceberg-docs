@@ -103,7 +103,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../org/apache/iceberg/ManifestWriter.html" title="class in org.apache.iceberg">ManifestWriter</a>, <a href="../../../../org/apache/iceberg/parquet/ParquetWriteAdapter.html" title="class in org.apache.iceberg.parquet">ParquetWriteAdapter</a></dd>
+<dd><a href="../../../../org/apache/iceberg/ManifestWriter.html" title="class in org.apache.iceberg">ManifestWriter</a>, <a href="../../../../org/apache/iceberg/parquet/ParquetWriteAdapter.html" title="class in org.apache.iceberg.parquet">ParquetWriteAdapter</a>, <a href="../../../../org/apache/iceberg/puffin/PuffinWriter.html" title="class in org.apache.iceberg.puffin">PuffinWriter</a></dd>
 </dl>
 <hr>
 <br>
@@ -236,10 +236,10 @@ extends java.io.Closeable</pre>
 <h4>splitOffsets</h4>
 <pre>default&nbsp;java.util.List&lt;java.lang.Long&gt;&nbsp;splitOffsets()</pre>
 <div class="block">Returns a list of recommended split locations, if applicable, null otherwise.
- <p>
- When available, this information is used for planning scan tasks whose boundaries
- are determined by these offsets. The returned list must be sorted in ascending order.
- Only valid after the file is closed.</div>
+
+ <p>When available, this information is used for planning scan tasks whose boundaries are
+ determined by these offsets. The returned list must be sorted in ascending order. Only valid
+ after the file is closed.</div>
 </li>
 </ul>
 </li>

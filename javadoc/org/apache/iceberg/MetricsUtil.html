@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/apache/iceberg/MetricsModes.Truncate.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/MicroBatches.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/MetricsUtil.ReadableColMetricsStruct.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/MetricsUtil.html" target="_top">Frames</a></li>
@@ -72,14 +72,14 @@ var activeTableTab = "activeTableTab";
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -115,6 +115,63 @@ extends java.lang.Object</pre>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="nested.class.summary">
+<!--   -->
+</a>
+<h3>Nested Class Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Nested Class Summary table, listing nested classes, and an explanation">
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Class and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetricsUtil.ReadableColMetricsStruct.html" title="class in org.apache.iceberg">MetricsUtil.ReadableColMetricsStruct</a></span></code>
+<div class="block">A struct of readable metric values for a primitive column</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetricsUtil.ReadableMetricColDefinition.html" title="class in org.apache.iceberg">MetricsUtil.ReadableMetricColDefinition</a></span></code>
+<div class="block">Fixed definition of a readable metric column, ie a mapping of a raw metric to a readable metric</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetricsUtil.ReadableMetricsStruct.html" title="class in org.apache.iceberg">MetricsUtil.ReadableMetricsStruct</a></span></code>
+<div class="block">A struct, consisting of all <a href="../../../org/apache/iceberg/MetricsUtil.ReadableColMetricsStruct.html" title="class in org.apache.iceberg"><code>MetricsUtil.ReadableColMetricsStruct</code></a> for all primitive columns of the
+ table</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
+<!-- =========== FIELD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field.summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.util.List&lt;<a href="../../../org/apache/iceberg/MetricsUtil.ReadableMetricColDefinition.html" title="class in org.apache.iceberg">MetricsUtil.ReadableMetricColDefinition</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetricsUtil.html#READABLE_METRIC_COLS">READABLE_METRIC_COLS</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetricsUtil.html#READABLE_METRICS">READABLE_METRICS</a></span></code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.summary">
@@ -132,7 +189,8 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetricsUtil.html#createNanValueCounts-java.util.stream.Stream-org.apache.iceberg.MetricsConfig-org.apache.iceberg.Schema-">createNanValueCounts</a></span>(java.util.stream.Stream&lt;<a href="../../../org/apache/iceberg/FieldMetrics.html" title="class in org.apache.iceberg">FieldMetrics</a>&lt;?&gt;&gt;&nbsp;fieldMetrics,
                     <a href="../../../org/apache/iceberg/MetricsConfig.html" title="class in org.apache.iceberg">MetricsConfig</a>&nbsp;metricsConfig,
                     <a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;inputSchema)</code>
-<div class="block">Construct mapping relationship between column id to NaN value counts from input metrics and metrics config.</div>
+<div class="block">Construct mapping relationship between column id to NaN value counts from input metrics and
+ metrics config.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -141,6 +199,21 @@ extends java.lang.Object</pre>
            <a href="../../../org/apache/iceberg/MetricsConfig.html" title="class in org.apache.iceberg">MetricsConfig</a>&nbsp;metricsConfig,
            int&nbsp;fieldId)</code>
 <div class="block">Extract MetricsMode for the given field id from metrics config.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>static <a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetricsUtil.html#readableMetricsSchema-org.apache.iceberg.Schema-org.apache.iceberg.Schema-">readableMetricsSchema</a></span>(<a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;dataTableSchema,
+                     <a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;metadataTableSchema)</code>
+<div class="block">Calculates a dynamic schema for readable_metrics to add to metadata tables.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>static <a href="../../../org/apache/iceberg/MetricsUtil.ReadableMetricsStruct.html" title="class in org.apache.iceberg">MetricsUtil.ReadableMetricsStruct</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetricsUtil.html#readableMetricsStruct-org.apache.iceberg.Schema-org.apache.iceberg.ContentFile-org.apache.iceberg.types.Types.StructType-">readableMetricsStruct</a></span>(<a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema,
+                     <a href="../../../org/apache/iceberg/ContentFile.html" title="interface in org.apache.iceberg">ContentFile</a>&lt;?&gt;&nbsp;file,
+                     <a href="../../../org/apache/iceberg/types/Types.StructType.html" title="class in org.apache.iceberg.types">Types.StructType</a>&nbsp;projectedSchema)</code>
+<div class="block">Return a readable metrics struct row from file metadata</div>
 </td>
 </tr>
 </table>
@@ -159,6 +232,36 @@ extends java.lang.Object</pre>
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a name="READABLE_METRIC_COLS">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>READABLE_METRIC_COLS</h4>
+<pre>public static final&nbsp;java.util.List&lt;<a href="../../../org/apache/iceberg/MetricsUtil.ReadableMetricColDefinition.html" title="class in org.apache.iceberg">MetricsUtil.ReadableMetricColDefinition</a>&gt; READABLE_METRIC_COLS</pre>
+</li>
+</ul>
+<a name="READABLE_METRICS">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>READABLE_METRICS</h4>
+<pre>public static final&nbsp;java.lang.String READABLE_METRICS</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.apache.iceberg.MetricsUtil.READABLE_METRICS">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.detail">
@@ -174,19 +277,60 @@ extends java.lang.Object</pre>
 <pre>public static&nbsp;java.util.Map&lt;java.lang.Integer,java.lang.Long&gt;&nbsp;createNanValueCounts(java.util.stream.Stream&lt;<a href="../../../org/apache/iceberg/FieldMetrics.html" title="class in org.apache.iceberg">FieldMetrics</a>&lt;?&gt;&gt;&nbsp;fieldMetrics,
                                                                                    <a href="../../../org/apache/iceberg/MetricsConfig.html" title="class in org.apache.iceberg">MetricsConfig</a>&nbsp;metricsConfig,
                                                                                    <a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;inputSchema)</pre>
-<div class="block">Construct mapping relationship between column id to NaN value counts from input metrics and metrics config.</div>
+<div class="block">Construct mapping relationship between column id to NaN value counts from input metrics and
+ metrics config.</div>
 </li>
 </ul>
 <a name="metricsMode-org.apache.iceberg.Schema-org.apache.iceberg.MetricsConfig-int-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>metricsMode</h4>
 <pre>public static&nbsp;<a href="../../../org/apache/iceberg/MetricsModes.MetricsMode.html" title="interface in org.apache.iceberg">MetricsModes.MetricsMode</a>&nbsp;metricsMode(<a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;inputSchema,
                                                    <a href="../../../org/apache/iceberg/MetricsConfig.html" title="class in org.apache.iceberg">MetricsConfig</a>&nbsp;metricsConfig,
                                                    int&nbsp;fieldId)</pre>
 <div class="block">Extract MetricsMode for the given field id from metrics config.</div>
+</li>
+</ul>
+<a name="readableMetricsSchema-org.apache.iceberg.Schema-org.apache.iceberg.Schema-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>readableMetricsSchema</h4>
+<pre>public static&nbsp;<a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;readableMetricsSchema(<a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;dataTableSchema,
+                                           <a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;metadataTableSchema)</pre>
+<div class="block">Calculates a dynamic schema for readable_metrics to add to metadata tables. The type will be
+ the struct <a href="../../../org/apache/iceberg/MetricsUtil.ReadableColMetricsStruct.html" title="class in org.apache.iceberg"><code>MetricsUtil.ReadableColMetricsStruct</code></a>, composed of <a href="../../../org/apache/iceberg/MetricsUtil.ReadableMetricsStruct.html" title="class in org.apache.iceberg"><code>MetricsUtil.ReadableMetricsStruct</code></a> for all
+ primitive columns in the data table</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>dataTableSchema</code> - schema of data table</dd>
+<dd><code>metadataTableSchema</code> - schema of existing metadata table (to ensure id uniqueness)</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>schema of readable_metrics struct</dd>
+</dl>
+</li>
+</ul>
+<a name="readableMetricsStruct-org.apache.iceberg.Schema-org.apache.iceberg.ContentFile-org.apache.iceberg.types.Types.StructType-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>readableMetricsStruct</h4>
+<pre>public static&nbsp;<a href="../../../org/apache/iceberg/MetricsUtil.ReadableMetricsStruct.html" title="class in org.apache.iceberg">MetricsUtil.ReadableMetricsStruct</a>&nbsp;readableMetricsStruct(<a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema,
+                                                                      <a href="../../../org/apache/iceberg/ContentFile.html" title="interface in org.apache.iceberg">ContentFile</a>&lt;?&gt;&nbsp;file,
+                                                                      <a href="../../../org/apache/iceberg/types/Types.StructType.html" title="class in org.apache.iceberg.types">Types.StructType</a>&nbsp;projectedSchema)</pre>
+<div class="block">Return a readable metrics struct row from file metadata</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>schema</code> - schema of original data table</dd>
+<dd><code>file</code> - content file with metrics</dd>
+<dd><code>projectedSchema</code> - user requested projection</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd><a href="../../../org/apache/iceberg/MetricsUtil.ReadableMetricsStruct.html" title="class in org.apache.iceberg"><code>MetricsUtil.ReadableMetricsStruct</code></a></dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -217,7 +361,7 @@ extends java.lang.Object</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/apache/iceberg/MetricsModes.Truncate.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/MicroBatches.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/MetricsUtil.ReadableColMetricsStruct.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/MetricsUtil.html" target="_top">Frames</a></li>
@@ -241,14 +385,14 @@ extends java.lang.Object</pre>
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

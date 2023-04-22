@@ -47,8 +47,8 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/ManifestWriter.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/MetadataTableType.html" title="enum in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/MergeableScanTask.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/MetadataLogEntriesTable.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/MetadataColumns.html" target="_top">Frames</a></li>
@@ -129,51 +129,79 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="../../../org/apache/iceberg/types/Types.NestedField.html" title="class in org.apache.iceberg.types">Types.NestedField</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataColumns.html#DELETE_FILE_PATH">DELETE_FILE_PATH</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataColumns.html#CHANGE_ORDINAL">CHANGE_ORDINAL</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>static <a href="../../../org/apache/iceberg/types/Types.NestedField.html" title="class in org.apache.iceberg.types">Types.NestedField</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataColumns.html#CHANGE_TYPE">CHANGE_TYPE</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="../../../org/apache/iceberg/types/Types.NestedField.html" title="class in org.apache.iceberg.types">Types.NestedField</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataColumns.html#COMMIT_SNAPSHOT_ID">COMMIT_SNAPSHOT_ID</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="../../../org/apache/iceberg/types/Types.NestedField.html" title="class in org.apache.iceberg.types">Types.NestedField</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataColumns.html#DELETE_FILE_PATH">DELETE_FILE_PATH</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="../../../org/apache/iceberg/types/Types.NestedField.html" title="class in org.apache.iceberg.types">Types.NestedField</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataColumns.html#DELETE_FILE_POS">DELETE_FILE_POS</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataColumns.html#DELETE_FILE_ROW_DOC">DELETE_FILE_ROW_DOC</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataColumns.html#DELETE_FILE_ROW_FIELD_ID">DELETE_FILE_ROW_FIELD_ID</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataColumns.html#DELETE_FILE_ROW_FIELD_NAME">DELETE_FILE_ROW_FIELD_NAME</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="../../../org/apache/iceberg/types/Types.NestedField.html" title="class in org.apache.iceberg.types">Types.NestedField</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataColumns.html#FILE_PATH">FILE_PATH</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
-<td class="colFirst"><code>static <a href="../../../org/apache/iceberg/types/Types.NestedField.html" title="class in org.apache.iceberg.types">Types.NestedField</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataColumns.html#IS_DELETED">IS_DELETED</a></span></code>&nbsp;</td>
-</tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataColumns.html#PARTITION_COLUMN_DOC">PARTITION_COLUMN_DOC</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataColumns.html#FILE_PATH_COLUMN_DOC">FILE_PATH_COLUMN_DOC</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataColumns.html#PARTITION_COLUMN_ID">PARTITION_COLUMN_ID</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataColumns.html#FILE_PATH_COLUMN_ID">FILE_PATH_COLUMN_ID</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>static <a href="../../../org/apache/iceberg/types/Types.NestedField.html" title="class in org.apache.iceberg.types">Types.NestedField</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataColumns.html#IS_DELETED">IS_DELETED</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataColumns.html#PARTITION_COLUMN_DOC">PARTITION_COLUMN_DOC</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataColumns.html#PARTITION_COLUMN_ID">PARTITION_COLUMN_ID</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataColumns.html#PARTITION_COLUMN_NAME">PARTITION_COLUMN_NAME</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="../../../org/apache/iceberg/types/Types.NestedField.html" title="class in org.apache.iceberg.types">Types.NestedField</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataColumns.html#ROW_POSITION">ROW_POSITION</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="../../../org/apache/iceberg/types/Types.NestedField.html" title="class in org.apache.iceberg.types">Types.NestedField</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataColumns.html#SPEC_ID">SPEC_ID</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataColumns.html#SPEC_ID_COLUMN_DOC">SPEC_ID_COLUMN_DOC</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataColumns.html#SPEC_ID_COLUMN_ID">SPEC_ID_COLUMN_ID</a></span></code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -229,6 +257,32 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Field Detail</h3>
+<a name="FILE_PATH_COLUMN_ID">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>FILE_PATH_COLUMN_ID</h4>
+<pre>public static final&nbsp;int FILE_PATH_COLUMN_ID</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.apache.iceberg.MetadataColumns.FILE_PATH_COLUMN_ID">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="FILE_PATH_COLUMN_DOC">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>FILE_PATH_COLUMN_DOC</h4>
+<pre>public static final&nbsp;java.lang.String FILE_PATH_COLUMN_DOC</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.apache.iceberg.MetadataColumns.FILE_PATH_COLUMN_DOC">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
 <a name="FILE_PATH">
 <!--   -->
 </a>
@@ -254,6 +308,32 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>IS_DELETED</h4>
 <pre>public static final&nbsp;<a href="../../../org/apache/iceberg/types/Types.NestedField.html" title="class in org.apache.iceberg.types">Types.NestedField</a> IS_DELETED</pre>
+</li>
+</ul>
+<a name="SPEC_ID_COLUMN_ID">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>SPEC_ID_COLUMN_ID</h4>
+<pre>public static final&nbsp;int SPEC_ID_COLUMN_ID</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.apache.iceberg.MetadataColumns.SPEC_ID_COLUMN_ID">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="SPEC_ID_COLUMN_DOC">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>SPEC_ID_COLUMN_DOC</h4>
+<pre>public static final&nbsp;java.lang.String SPEC_ID_COLUMN_DOC</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.apache.iceberg.MetadataColumns.SPEC_ID_COLUMN_DOC">Constant Field Values</a></dd>
+</dl>
 </li>
 </ul>
 <a name="SPEC_ID">
@@ -351,7 +431,7 @@ extends java.lang.Object</pre>
 <a name="DELETE_FILE_ROW_DOC">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>DELETE_FILE_ROW_DOC</h4>
 <pre>public static final&nbsp;java.lang.String DELETE_FILE_ROW_DOC</pre>
@@ -359,6 +439,33 @@ extends java.lang.Object</pre>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#org.apache.iceberg.MetadataColumns.DELETE_FILE_ROW_DOC">Constant Field Values</a></dd>
 </dl>
+</li>
+</ul>
+<a name="CHANGE_TYPE">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>CHANGE_TYPE</h4>
+<pre>public static final&nbsp;<a href="../../../org/apache/iceberg/types/Types.NestedField.html" title="class in org.apache.iceberg.types">Types.NestedField</a> CHANGE_TYPE</pre>
+</li>
+</ul>
+<a name="CHANGE_ORDINAL">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>CHANGE_ORDINAL</h4>
+<pre>public static final&nbsp;<a href="../../../org/apache/iceberg/types/Types.NestedField.html" title="class in org.apache.iceberg.types">Types.NestedField</a> CHANGE_ORDINAL</pre>
+</li>
+</ul>
+<a name="COMMIT_SNAPSHOT_ID">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>COMMIT_SNAPSHOT_ID</h4>
+<pre>public static final&nbsp;<a href="../../../org/apache/iceberg/types/Types.NestedField.html" title="class in org.apache.iceberg.types">Types.NestedField</a> COMMIT_SNAPSHOT_ID</pre>
 </li>
 </ul>
 </li>
@@ -433,8 +540,8 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/ManifestWriter.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/MetadataTableType.html" title="enum in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/MergeableScanTask.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/MetadataLogEntriesTable.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/MetadataColumns.html" target="_top">Frames</a></li>

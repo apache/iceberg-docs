@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":17,"i1":17,"i2":17,"i3":17,"i4":6,"i5":17,"i6":17,"i7":17};
+var methods = {"i0":17,"i1":17,"i2":17,"i3":17,"i4":17,"i5":17,"i6":6,"i7":17,"i8":17,"i9":17,"i10":17};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -156,30 +156,53 @@ extends java.lang.Iterable&lt;T&gt;, java.io.Closeable</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/CloseableIterable.html#concat-java.lang.Iterable-">concat</a></span>(java.lang.Iterable&lt;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;E&gt;&gt;&nbsp;iterable)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/CloseableIterable.html#count-org.apache.iceberg.metrics.Counter-org.apache.iceberg.io.CloseableIterable-">count</a></span>(<a href="../../../../org/apache/iceberg/metrics/Counter.html" title="interface in org.apache.iceberg.metrics">Counter</a>&nbsp;counter,
+     <a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&nbsp;iterable)</code>
+<div class="block">Counts the number of elements in the given <a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io"><code>CloseableIterable</code></a> by incrementing the <a href="../../../../org/apache/iceberg/metrics/Counter.html" title="interface in org.apache.iceberg.metrics"><code>Counter</code></a> instance for each <code>Iterator.next()</code> call.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>static &lt;E&gt;&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;E&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/CloseableIterable.html#empty--">empty</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>static &lt;E&gt;&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;E&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/CloseableIterable.html#filter-org.apache.iceberg.io.CloseableIterable-java.util.function.Predicate-">filter</a></span>(<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;E&gt;&nbsp;iterable,
       java.util.function.Predicate&lt;E&gt;&nbsp;pred)</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code><a href="../../../../org/apache/iceberg/io/CloseableIterator.html" title="interface in org.apache.iceberg.io">CloseableIterator</a>&lt;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="type parameter in CloseableIterable">T</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/CloseableIterable.html#iterator--">iterator</a></span>()</code>
-<div class="block">Returns an closeable iterator over elements of type <code>T</code>.</div>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>static &lt;E&gt;&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;E&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/CloseableIterable.html#filter-org.apache.iceberg.metrics.Counter-org.apache.iceberg.io.CloseableIterable-java.util.function.Predicate-">filter</a></span>(<a href="../../../../org/apache/iceberg/metrics/Counter.html" title="interface in org.apache.iceberg.metrics">Counter</a>&nbsp;skipCounter,
+      <a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;E&gt;&nbsp;iterable,
+      java.util.function.Predicate&lt;E&gt;&nbsp;pred)</code>
+<div class="block">Filters the given <a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io"><code>CloseableIterable</code></a> and counts the number of elements that do not match
+ the predicate by incrementing the <a href="../../../../org/apache/iceberg/metrics/Counter.html" title="interface in org.apache.iceberg.metrics"><code>Counter</code></a>.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/iceberg/io/CloseableIterator.html" title="interface in org.apache.iceberg.io">CloseableIterator</a>&lt;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="type parameter in CloseableIterable">T</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/CloseableIterable.html#iterator--">iterator</a></span>()</code>
+<div class="block">Returns a closeable iterator over elements of type <code>T</code>.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static &lt;I,O&gt;&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;O&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/CloseableIterable.html#transform-org.apache.iceberg.io.CloseableIterable-java.util.function.Function-">transform</a></span>(<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;I&gt;&nbsp;iterable,
          java.util.function.Function&lt;I,O&gt;&nbsp;transform)</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>static &lt;E&gt;&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;E&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/CloseableIterable.html#whenComplete-org.apache.iceberg.io.CloseableIterable-java.lang.Runnable-">whenComplete</a></span>(<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;E&gt;&nbsp;iterable,
+            java.lang.Runnable&nbsp;onCompletionRunnable)</code>
+<div class="block">Will run the given runnable when <code>Closeable.close()</code> has been called.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>static &lt;E&gt;&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;E&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/CloseableIterable.html#withNoopClose-E-">withNoopClose</a></span>(E&nbsp;entry)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>static &lt;E&gt;&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;E&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/CloseableIterable.html#withNoopClose-java.lang.Iterable-">withNoopClose</a></span>(java.lang.Iterable&lt;E&gt;&nbsp;iterable)</code>&nbsp;</td>
 </tr>
@@ -219,7 +242,7 @@ extends java.lang.Iterable&lt;T&gt;, java.io.Closeable</pre>
 <li class="blockList">
 <h4>iterator</h4>
 <pre><a href="../../../../org/apache/iceberg/io/CloseableIterator.html" title="interface in org.apache.iceberg.io">CloseableIterator</a>&lt;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="type parameter in CloseableIterable">T</a>&gt;&nbsp;iterator()</pre>
-<div class="block">Returns an closeable iterator over elements of type <code>T</code>.</div>
+<div class="block">Returns a closeable iterator over elements of type <code>T</code>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>iterator</code>&nbsp;in interface&nbsp;<code>java.lang.Iterable&lt;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="type parameter in CloseableIterable">T</a>&gt;</code></dd>
@@ -267,6 +290,27 @@ extends java.lang.Iterable&lt;T&gt;, java.io.Closeable</pre>
                                         java.io.Closeable&nbsp;closeable)</pre>
 </li>
 </ul>
+<a name="whenComplete-org.apache.iceberg.io.CloseableIterable-java.lang.Runnable-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>whenComplete</h4>
+<pre>static&nbsp;&lt;E&gt;&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;E&gt;&nbsp;whenComplete(<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;E&gt;&nbsp;iterable,
+                                             java.lang.Runnable&nbsp;onCompletionRunnable)</pre>
+<div class="block">Will run the given runnable when <code>Closeable.close()</code> has been called.</div>
+<dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>E</code> - The type of the underlying iterable</dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>iterable</code> - The underlying <a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io"><code>CloseableIterable</code></a> to iterate over</dd>
+<dd><code>onCompletionRunnable</code> - The runnable to run after the underlying iterable was closed</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>A new <a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io"><code>CloseableIterable</code></a> where the runnable will be executed as the final step
+     after <code>Closeable.close()</code> has been called</dd>
+</dl>
+</li>
+</ul>
 <a name="filter-org.apache.iceberg.io.CloseableIterable-java.util.function.Predicate-">
 <!--   -->
 </a>
@@ -275,6 +319,50 @@ extends java.lang.Iterable&lt;T&gt;, java.io.Closeable</pre>
 <h4>filter</h4>
 <pre>static&nbsp;&lt;E&gt;&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;E&gt;&nbsp;filter(<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;E&gt;&nbsp;iterable,
                                        java.util.function.Predicate&lt;E&gt;&nbsp;pred)</pre>
+</li>
+</ul>
+<a name="filter-org.apache.iceberg.metrics.Counter-org.apache.iceberg.io.CloseableIterable-java.util.function.Predicate-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>filter</h4>
+<pre>static&nbsp;&lt;E&gt;&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;E&gt;&nbsp;filter(<a href="../../../../org/apache/iceberg/metrics/Counter.html" title="interface in org.apache.iceberg.metrics">Counter</a>&nbsp;skipCounter,
+                                       <a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;E&gt;&nbsp;iterable,
+                                       java.util.function.Predicate&lt;E&gt;&nbsp;pred)</pre>
+<div class="block">Filters the given <a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io"><code>CloseableIterable</code></a> and counts the number of elements that do not match
+ the predicate by incrementing the <a href="../../../../org/apache/iceberg/metrics/Counter.html" title="interface in org.apache.iceberg.metrics"><code>Counter</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>E</code> - The underlying type to be iterated.</dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>skipCounter</code> - The <a href="../../../../org/apache/iceberg/metrics/Counter.html" title="interface in org.apache.iceberg.metrics"><code>Counter</code></a> instance to increment on each skipped item during
+     filtering.</dd>
+<dd><code>iterable</code> - The underlying <a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io"><code>CloseableIterable</code></a> to filter.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>A filtered <a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io"><code>CloseableIterable</code></a> where the given skipCounter is incremented
+     whenever the predicate does not match.</dd>
+</dl>
+</li>
+</ul>
+<a name="count-org.apache.iceberg.metrics.Counter-org.apache.iceberg.io.CloseableIterable-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>count</h4>
+<pre>static&nbsp;&lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&nbsp;count(<a href="../../../../org/apache/iceberg/metrics/Counter.html" title="interface in org.apache.iceberg.metrics">Counter</a>&nbsp;counter,
+                                      <a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;T&gt;&nbsp;iterable)</pre>
+<div class="block">Counts the number of elements in the given <a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io"><code>CloseableIterable</code></a> by incrementing the <a href="../../../../org/apache/iceberg/metrics/Counter.html" title="interface in org.apache.iceberg.metrics"><code>Counter</code></a> instance for each <code>Iterator.next()</code> call.</div>
+<dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The underlying type to be iterated.</dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>counter</code> - The <a href="../../../../org/apache/iceberg/metrics/Counter.html" title="interface in org.apache.iceberg.metrics"><code>Counter</code></a> instance to increment on each <code>Iterator.next()</code> call.</dd>
+<dd><code>iterable</code> - The underlying <a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io"><code>CloseableIterable</code></a> to count</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>A <a href="../../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io"><code>CloseableIterable</code></a> that increments the given counter on each <code>Iterator.next()</code> call.</dd>
+</dl>
 </li>
 </ul>
 <a name="transform-org.apache.iceberg.io.CloseableIterable-java.util.function.Function-">

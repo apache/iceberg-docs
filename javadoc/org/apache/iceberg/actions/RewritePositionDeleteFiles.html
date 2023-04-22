@@ -106,8 +106,8 @@ var activeTableTab = "activeTableTab";
 <pre>public interface <span class="typeNameLabel">RewritePositionDeleteFiles</span>
 extends <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" title="interface in org.apache.iceberg.actions">SnapshotUpdate</a>&lt;<a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.html" title="interface in org.apache.iceberg.actions">RewritePositionDeleteFiles</a>,<a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.Result.html" title="interface in org.apache.iceberg.actions">RewritePositionDeleteFiles.Result</a>&gt;</pre>
 <div class="block">An action for rewriting position delete files.
- <p>
- Generally used for optimizing the size and layout of position delete files within a table.</div>
+
+ <p>Generally used for optimizing the size and layout of position delete files within a table.</div>
 </li>
 </ul>
 </div>
@@ -190,9 +190,10 @@ extends <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" tit
 <h4>filter</h4>
 <pre><a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.html" title="interface in org.apache.iceberg.actions">RewritePositionDeleteFiles</a>&nbsp;filter(<a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expression)</pre>
 <div class="block">A filter for finding deletes to rewrite.
- <p>
- The filter will be converted to a partition filter with an inclusive projection. Any file that may contain rows
- matching this filter will be used by the action. The matching delete files will be rewritten.</div>
+
+ <p>The filter will be converted to a partition filter with an inclusive projection. Any file
+ that may contain rows matching this filter will be used by the action. The matching delete
+ files will be rewritten.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>expression</code> - An iceberg expression used to find deletes.</dd>

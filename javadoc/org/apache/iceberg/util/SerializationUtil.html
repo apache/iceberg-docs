@@ -181,8 +181,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>serializeToBytes</h4>
 <pre>public static&nbsp;byte[]&nbsp;serializeToBytes(java.lang.Object&nbsp;obj)</pre>
-<div class="block">Serialize an object to bytes. If the object implements <a href="../../../../org/apache/iceberg/hadoop/HadoopConfigurable.html" title="interface in org.apache.iceberg.hadoop"><code>HadoopConfigurable</code></a>, its Hadoop configuration will
- be serialized into a <a href="../../../../org/apache/iceberg/hadoop/SerializableConfiguration.html" title="class in org.apache.iceberg.hadoop"><code>SerializableConfiguration</code></a>.</div>
+<div class="block">Serialize an object to bytes. If the object implements <a href="../../../../org/apache/iceberg/hadoop/HadoopConfigurable.html" title="interface in org.apache.iceberg.hadoop"><code>HadoopConfigurable</code></a>, its Hadoop
+ configuration will be serialized into a <a href="../../../../org/apache/iceberg/hadoop/SerializableConfiguration.html" title="class in org.apache.iceberg.hadoop"><code>SerializableConfiguration</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>obj</code> - object to serialize</dd>
@@ -199,8 +199,8 @@ extends java.lang.Object</pre>
 <h4>serializeToBytes</h4>
 <pre>public static&nbsp;byte[]&nbsp;serializeToBytes(java.lang.Object&nbsp;obj,
                                       java.util.function.Function&lt;org.apache.hadoop.conf.Configuration,<a href="../../../../org/apache/iceberg/util/SerializableSupplier.html" title="interface in org.apache.iceberg.util">SerializableSupplier</a>&lt;org.apache.hadoop.conf.Configuration&gt;&gt;&nbsp;confSerializer)</pre>
-<div class="block">Serialize an object to bytes. If the object implements <a href="../../../../org/apache/iceberg/hadoop/HadoopConfigurable.html" title="interface in org.apache.iceberg.hadoop"><code>HadoopConfigurable</code></a>, the confSerializer will be used
- to serialize Hadoop configuration used by the object.</div>
+<div class="block">Serialize an object to bytes. If the object implements <a href="../../../../org/apache/iceberg/hadoop/HadoopConfigurable.html" title="interface in org.apache.iceberg.hadoop"><code>HadoopConfigurable</code></a>, the
+ confSerializer will be used to serialize Hadoop configuration used by the object.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>obj</code> - object to serialize</dd>

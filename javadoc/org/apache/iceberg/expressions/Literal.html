@@ -316,18 +316,18 @@ extends java.io.Serializable</pre>
 <h4>to</h4>
 <pre>&lt;X&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/Literal.html" title="interface in org.apache.iceberg.expressions">Literal</a>&lt;X&gt;&nbsp;to(<a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types">Type</a>&nbsp;type)</pre>
 <div class="block">Converts this literal to a literal of the given type.
- <p>
- When a predicate is bound to a concrete data column, literals are converted to match the bound
- column's type. This conversion process is more narrow than a cast and is only intended for
- cases where substituting one type is a common mistake (e.g. 34 instead of 34L) or where this
- API avoids requiring a concrete class (e.g., dates).
- <p>
- If conversion to a target type is not supported, this method returns null.
- <p>
- This method may return <code>Literals.aboveMax()</code> or <code>Literals.belowMin()</code> when the target
- type is not as wide as the original type. These values indicate that the containing predicate
- can be simplified. For example, Integer.MAX_VALUE+1 converted to an int will result in
- <code>aboveMax</code> and can simplify a &lt; Integer.MAX_VALUE+1 to <a href="../../../../org/apache/iceberg/expressions/Expressions.html#alwaysTrue--"><code>Expressions.alwaysTrue()</code></a></div>
+
+ <p>When a predicate is bound to a concrete data column, literals are converted to match the
+ bound column's type. This conversion process is more narrow than a cast and is only intended
+ for cases where substituting one type is a common mistake (e.g. 34 instead of 34L) or where
+ this API avoids requiring a concrete class (e.g., dates).
+
+ <p>If conversion to a target type is not supported, this method returns null.
+
+ <p>This method may return <code>Literals.aboveMax()</code> or <code>Literals.belowMin()</code> when the
+ target type is not as wide as the original type. These values indicate that the containing
+ predicate can be simplified. For example, Integer.MAX_VALUE+1 converted to an int will result
+ in <code>aboveMax</code> and can simplify a &lt; Integer.MAX_VALUE+1 to <a href="../../../../org/apache/iceberg/expressions/Expressions.html#alwaysTrue--"><code>Expressions.alwaysTrue()</code></a></div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
 <dd><code>X</code> - The Java type of value the new literal contains</dd>
