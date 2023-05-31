@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -128,49 +128,55 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>static long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/parquet/ParquetUtil.html#extractTimestampInt96-java.nio.ByteBuffer-">extractTimestampInt96</a></span>(java.nio.ByteBuffer&nbsp;buffer)</code>
+<div class="block">Method to read timestamp (parquet Int96) from bytebuffer.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Metrics.html" title="class in org.apache.iceberg">Metrics</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/parquet/ParquetUtil.html#fileMetrics-org.apache.iceberg.io.InputFile-org.apache.iceberg.MetricsConfig-">fileMetrics</a></span>(<a href="../../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a>&nbsp;file,
            <a href="../../../../org/apache/iceberg/MetricsConfig.html" title="class in org.apache.iceberg">MetricsConfig</a>&nbsp;metricsConfig)</code>&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Metrics.html" title="class in org.apache.iceberg">Metrics</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/parquet/ParquetUtil.html#fileMetrics-org.apache.iceberg.io.InputFile-org.apache.iceberg.MetricsConfig-org.apache.iceberg.mapping.NameMapping-">fileMetrics</a></span>(<a href="../../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a>&nbsp;file,
            <a href="../../../../org/apache/iceberg/MetricsConfig.html" title="class in org.apache.iceberg">MetricsConfig</a>&nbsp;metricsConfig,
            <a href="../../../../org/apache/iceberg/mapping/NameMapping.html" title="class in org.apache.iceberg.mapping">NameMapping</a>&nbsp;nameMapping)</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Metrics.html" title="class in org.apache.iceberg">Metrics</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/parquet/ParquetUtil.html#footerMetrics-org.apache.parquet.hadoop.metadata.ParquetMetadata-java.util.stream.Stream-org.apache.iceberg.MetricsConfig-">footerMetrics</a></span>(org.apache.parquet.hadoop.metadata.ParquetMetadata&nbsp;metadata,
              java.util.stream.Stream&lt;<a href="../../../../org/apache/iceberg/FieldMetrics.html" title="class in org.apache.iceberg">FieldMetrics</a>&lt;?&gt;&gt;&nbsp;fieldMetrics,
              <a href="../../../../org/apache/iceberg/MetricsConfig.html" title="class in org.apache.iceberg">MetricsConfig</a>&nbsp;metricsConfig)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Metrics.html" title="class in org.apache.iceberg">Metrics</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/parquet/ParquetUtil.html#footerMetrics-org.apache.parquet.hadoop.metadata.ParquetMetadata-java.util.stream.Stream-org.apache.iceberg.MetricsConfig-org.apache.iceberg.mapping.NameMapping-">footerMetrics</a></span>(org.apache.parquet.hadoop.metadata.ParquetMetadata&nbsp;metadata,
              java.util.stream.Stream&lt;<a href="../../../../org/apache/iceberg/FieldMetrics.html" title="class in org.apache.iceberg">FieldMetrics</a>&lt;?&gt;&gt;&nbsp;fieldMetrics,
              <a href="../../../../org/apache/iceberg/MetricsConfig.html" title="class in org.apache.iceberg">MetricsConfig</a>&nbsp;metricsConfig,
              <a href="../../../../org/apache/iceberg/mapping/NameMapping.html" title="class in org.apache.iceberg.mapping">NameMapping</a>&nbsp;nameMapping)</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>static java.util.List&lt;java.lang.Long&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/parquet/ParquetUtil.html#getSplitOffsets-org.apache.parquet.hadoop.metadata.ParquetMetadata-">getSplitOffsets</a></span>(org.apache.parquet.hadoop.metadata.ParquetMetadata&nbsp;md)</code>
 <div class="block">Returns a list of offsets in ascending order determined by the starting position of the row
  groups.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/parquet/ParquetUtil.html#hasNoBloomFilterPages-org.apache.parquet.hadoop.metadata.ColumnChunkMetaData-">hasNoBloomFilterPages</a></span>(org.apache.parquet.hadoop.metadata.ColumnChunkMetaData&nbsp;meta)</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/parquet/ParquetUtil.html#hasNonDictionaryPages-org.apache.parquet.hadoop.metadata.ColumnChunkMetaData-">hasNonDictionaryPages</a></span>(org.apache.parquet.hadoop.metadata.ColumnChunkMetaData&nbsp;meta)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/parquet/ParquetUtil.html#isIntType-org.apache.parquet.schema.PrimitiveType-">isIntType</a></span>(org.apache.parquet.schema.PrimitiveType&nbsp;primitiveType)</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>static org.apache.parquet.column.Dictionary</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/parquet/ParquetUtil.html#readDictionary-org.apache.parquet.column.ColumnDescriptor-org.apache.parquet.column.page.PageReader-">readDictionary</a></span>(org.apache.parquet.column.ColumnDescriptor&nbsp;desc,
               org.apache.parquet.column.page.PageReader&nbsp;pageSource)</code>&nbsp;</td>
@@ -283,10 +289,21 @@ extends java.lang.Object</pre>
 <a name="isIntType-org.apache.parquet.schema.PrimitiveType-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>isIntType</h4>
 <pre>public static&nbsp;boolean&nbsp;isIntType(org.apache.parquet.schema.PrimitiveType&nbsp;primitiveType)</pre>
+</li>
+</ul>
+<a name="extractTimestampInt96-java.nio.ByteBuffer-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>extractTimestampInt96</h4>
+<pre>public static&nbsp;long&nbsp;extractTimestampInt96(java.nio.ByteBuffer&nbsp;buffer)</pre>
+<div class="block">Method to read timestamp (parquet Int96) from bytebuffer. Read 12 bytes in byteBuffer: 8 bytes
+ (time of day nanos) + 4 bytes(julianDay)</div>
 </li>
 </ul>
 </li>

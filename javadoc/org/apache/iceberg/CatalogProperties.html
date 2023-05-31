@@ -127,29 +127,21 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#AUTH_DEFAULT_REFRESH_ENABLED">AUTH_DEFAULT_REFRESH_ENABLED</a></span></code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">Will be removed in 1.3.0; Use <a href="../../../org/apache/iceberg/rest/auth/OAuth2Properties.html#TOKEN_REFRESH_ENABLED"><code>OAuth2Properties.TOKEN_REFRESH_ENABLED</code></a> to control token
-     refresh behavior.</span></div>
-</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#AUTH_DEFAULT_REFRESH_ENABLED_DEFAULT">AUTH_DEFAULT_REFRESH_ENABLED_DEFAULT</a></span></code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">Will be removed in 1.3.0; Use <a href="../../../org/apache/iceberg/rest/auth/OAuth2Properties.html#TOKEN_REFRESH_ENABLED_DEFAULT"><code>OAuth2Properties.TOKEN_REFRESH_ENABLED_DEFAULT</code></a> to control
-     default token refresh behavior.</span></div>
-</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#AUTH_SESSION_TIMEOUT_MS">AUTH_SESSION_TIMEOUT_MS</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#AUTH_SESSION_TIMEOUT_MS_DEFAULT">AUTH_SESSION_TIMEOUT_MS_DEFAULT</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#CACHE_CASE_SENSITIVE">CACHE_CASE_SENSITIVE</a></span></code>
+<div class="block">Controls whether the caching catalog will cache table entries using case sensitive keys.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#CACHE_CASE_SENSITIVE_DEFAULT">CACHE_CASE_SENSITIVE_DEFAULT</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
@@ -189,125 +181,132 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#CLIENT_POOL_SIZE">CLIENT_POOL_SIZE</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#CLIENT_POOL_CACHE_KEYS">CLIENT_POOL_CACHE_KEYS</a></span></code>
+<div class="block">A comma separated list of elements used, in addition to the <a href="../../../org/apache/iceberg/CatalogProperties.html#URI"><code>URI</code></a>, to compose the key of
+ the client pool cache.</div>
+</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#CLIENT_POOL_SIZE">CLIENT_POOL_SIZE</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#CLIENT_POOL_SIZE_DEFAULT">CLIENT_POOL_SIZE_DEFAULT</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#FILE_IO_IMPL">FILE_IO_IMPL</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#IO_MANIFEST_CACHE_ENABLED">IO_MANIFEST_CACHE_ENABLED</a></span></code>
 <div class="block">Controls whether to use caching during manifest reads or not.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#IO_MANIFEST_CACHE_ENABLED_DEFAULT">IO_MANIFEST_CACHE_ENABLED_DEFAULT</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#IO_MANIFEST_CACHE_EXPIRATION_INTERVAL_MS">IO_MANIFEST_CACHE_EXPIRATION_INTERVAL_MS</a></span></code>
 <div class="block">Controls the maximum duration for which an entry stays in the manifest cache.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#IO_MANIFEST_CACHE_EXPIRATION_INTERVAL_MS_DEFAULT">IO_MANIFEST_CACHE_EXPIRATION_INTERVAL_MS_DEFAULT</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#IO_MANIFEST_CACHE_MAX_CONTENT_LENGTH">IO_MANIFEST_CACHE_MAX_CONTENT_LENGTH</a></span></code>
 <div class="block">Controls the maximum length of file to be considered for caching.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#IO_MANIFEST_CACHE_MAX_CONTENT_LENGTH_DEFAULT">IO_MANIFEST_CACHE_MAX_CONTENT_LENGTH_DEFAULT</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#IO_MANIFEST_CACHE_MAX_TOTAL_BYTES">IO_MANIFEST_CACHE_MAX_TOTAL_BYTES</a></span></code>
 <div class="block">Controls the maximum total amount of bytes to cache in manifest cache.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#IO_MANIFEST_CACHE_MAX_TOTAL_BYTES_DEFAULT">IO_MANIFEST_CACHE_MAX_TOTAL_BYTES_DEFAULT</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#LOCK_ACQUIRE_INTERVAL_MS">LOCK_ACQUIRE_INTERVAL_MS</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#LOCK_ACQUIRE_INTERVAL_MS_DEFAULT">LOCK_ACQUIRE_INTERVAL_MS_DEFAULT</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#LOCK_ACQUIRE_TIMEOUT_MS">LOCK_ACQUIRE_TIMEOUT_MS</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#LOCK_ACQUIRE_TIMEOUT_MS_DEFAULT">LOCK_ACQUIRE_TIMEOUT_MS_DEFAULT</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#LOCK_HEARTBEAT_INTERVAL_MS">LOCK_HEARTBEAT_INTERVAL_MS</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#LOCK_HEARTBEAT_INTERVAL_MS_DEFAULT">LOCK_HEARTBEAT_INTERVAL_MS_DEFAULT</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#LOCK_HEARTBEAT_THREADS">LOCK_HEARTBEAT_THREADS</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#LOCK_HEARTBEAT_THREADS_DEFAULT">LOCK_HEARTBEAT_THREADS_DEFAULT</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#LOCK_HEARTBEAT_TIMEOUT_MS">LOCK_HEARTBEAT_TIMEOUT_MS</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#LOCK_HEARTBEAT_TIMEOUT_MS_DEFAULT">LOCK_HEARTBEAT_TIMEOUT_MS_DEFAULT</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#LOCK_IMPL">LOCK_IMPL</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#LOCK_TABLE">LOCK_TABLE</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#METRICS_REPORTER_IMPL">METRICS_REPORTER_IMPL</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#TABLE_DEFAULT_PREFIX">TABLE_DEFAULT_PREFIX</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#TABLE_OVERRIDE_PREFIX">TABLE_OVERRIDE_PREFIX</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#URI">URI</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#USER">USER</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/CatalogProperties.html#WAREHOUSE_LOCATION">WAREHOUSE_LOCATION</a></span></code>&nbsp;</td>
 </tr>
@@ -446,6 +445,33 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#org.apache.iceberg.CatalogProperties.CACHE_ENABLED_DEFAULT">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="CACHE_CASE_SENSITIVE">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>CACHE_CASE_SENSITIVE</h4>
+<pre>public static final&nbsp;java.lang.String CACHE_CASE_SENSITIVE</pre>
+<div class="block">Controls whether the caching catalog will cache table entries using case sensitive keys.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.apache.iceberg.CatalogProperties.CACHE_CASE_SENSITIVE">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="CACHE_CASE_SENSITIVE_DEFAULT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>CACHE_CASE_SENSITIVE_DEFAULT</h4>
+<pre>public static final&nbsp;boolean CACHE_CASE_SENSITIVE_DEFAULT</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.apache.iceberg.CatalogProperties.CACHE_CASE_SENSITIVE_DEFAULT">Constant Field Values</a></dd>
 </dl>
 </li>
 </ul>
@@ -680,6 +706,23 @@ extends java.lang.Object</pre>
 <pre>public static final&nbsp;long CLIENT_POOL_CACHE_EVICTION_INTERVAL_MS_DEFAULT</pre>
 </li>
 </ul>
+<a name="CLIENT_POOL_CACHE_KEYS">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>CLIENT_POOL_CACHE_KEYS</h4>
+<pre>public static final&nbsp;java.lang.String CLIENT_POOL_CACHE_KEYS</pre>
+<div class="block">A comma separated list of elements used, in addition to the <a href="../../../org/apache/iceberg/CatalogProperties.html#URI"><code>URI</code></a>, to compose the key of
+ the client pool cache.
+
+ <p>Supported key elements in a Catalog are implementation-dependent.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.apache.iceberg.CatalogProperties.CLIENT_POOL_CACHE_KEYS">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
 <a name="LOCK_IMPL">
 <!--   -->
 </a>
@@ -843,38 +886,6 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#org.apache.iceberg.CatalogProperties.USER">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="AUTH_DEFAULT_REFRESH_ENABLED">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>AUTH_DEFAULT_REFRESH_ENABLED</h4>
-<pre>@Deprecated
-public static final&nbsp;java.lang.String AUTH_DEFAULT_REFRESH_ENABLED</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">Will be removed in 1.3.0; Use <a href="../../../org/apache/iceberg/rest/auth/OAuth2Properties.html#TOKEN_REFRESH_ENABLED"><code>OAuth2Properties.TOKEN_REFRESH_ENABLED</code></a> to control token
-     refresh behavior.</span></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#org.apache.iceberg.CatalogProperties.AUTH_DEFAULT_REFRESH_ENABLED">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="AUTH_DEFAULT_REFRESH_ENABLED_DEFAULT">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>AUTH_DEFAULT_REFRESH_ENABLED_DEFAULT</h4>
-<pre>@Deprecated
-public static final&nbsp;boolean AUTH_DEFAULT_REFRESH_ENABLED_DEFAULT</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">Will be removed in 1.3.0; Use <a href="../../../org/apache/iceberg/rest/auth/OAuth2Properties.html#TOKEN_REFRESH_ENABLED_DEFAULT"><code>OAuth2Properties.TOKEN_REFRESH_ENABLED_DEFAULT</code></a> to control
-     default token refresh behavior.</span></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#org.apache.iceberg.CatalogProperties.AUTH_DEFAULT_REFRESH_ENABLED_DEFAULT">Constant Field Values</a></dd>
 </dl>
 </li>
 </ul>

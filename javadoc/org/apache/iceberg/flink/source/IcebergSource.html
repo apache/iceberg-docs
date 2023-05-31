@@ -107,7 +107,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>java.io.Serializable, org.apache.flink.api.connector.source.Source&lt;T,<a href="../../../../../org/apache/iceberg/flink/source/split/IcebergSourceSplit.html" title="class in org.apache.iceberg.flink.source.split">IcebergSourceSplit</a>,<a href="../../../../../org/apache/iceberg/flink/source/enumerator/IcebergEnumeratorState.html" title="class in org.apache.iceberg.flink.source.enumerator">IcebergEnumeratorState</a>&gt;</dd>
+<dd>java.io.Serializable, org.apache.flink.api.connector.source.Source&lt;T,<a href="../../../../../org/apache/iceberg/flink/source/split/IcebergSourceSplit.html" title="class in org.apache.iceberg.flink.source.split">IcebergSourceSplit</a>,<a href="../../../../../org/apache/iceberg/flink/source/enumerator/IcebergEnumeratorState.html" title="class in org.apache.iceberg.flink.source.enumerator">IcebergEnumeratorState</a>&gt;, org.apache.flink.api.connector.source.SourceReaderFactory&lt;T,<a href="../../../../../org/apache/iceberg/flink/source/split/IcebergSourceSplit.html" title="class in org.apache.iceberg.flink.source.split">IcebergSourceSplit</a>&gt;</dd>
 </dl>
 <hr>
 <br>
@@ -233,7 +233,7 @@ implements org.apache.flink.api.connector.source.Source&lt;T,<a href="../../../.
 <pre>public&nbsp;org.apache.flink.api.connector.source.SourceReader&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.html" title="type parameter in IcebergSource">T</a>,<a href="../../../../../org/apache/iceberg/flink/source/split/IcebergSourceSplit.html" title="class in org.apache.iceberg.flink.source.split">IcebergSourceSplit</a>&gt;&nbsp;createReader(org.apache.flink.api.connector.source.SourceReaderContext&nbsp;readerContext)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>createReader</code>&nbsp;in interface&nbsp;<code>org.apache.flink.api.connector.source.Source&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.html" title="type parameter in IcebergSource">T</a>,<a href="../../../../../org/apache/iceberg/flink/source/split/IcebergSourceSplit.html" title="class in org.apache.iceberg.flink.source.split">IcebergSourceSplit</a>,<a href="../../../../../org/apache/iceberg/flink/source/enumerator/IcebergEnumeratorState.html" title="class in org.apache.iceberg.flink.source.enumerator">IcebergEnumeratorState</a>&gt;</code></dd>
+<dd><code>createReader</code>&nbsp;in interface&nbsp;<code>org.apache.flink.api.connector.source.SourceReaderFactory&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.html" title="type parameter in IcebergSource">T</a>,<a href="../../../../../org/apache/iceberg/flink/source/split/IcebergSourceSplit.html" title="class in org.apache.iceberg.flink.source.split">IcebergSourceSplit</a>&gt;</code></dd>
 </dl>
 </li>
 </ul>

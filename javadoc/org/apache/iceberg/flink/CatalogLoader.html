@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":17,"i1":17,"i2":17,"i3":6,"i4":17};
+var methods = {"i0":6,"i1":17,"i2":17,"i3":17,"i4":6,"i5":17};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -99,7 +99,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Superinterfaces:</dt>
-<dd>java.io.Serializable</dd>
+<dd>java.lang.Cloneable, java.io.Serializable</dd>
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
@@ -108,7 +108,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public interface <span class="typeNameLabel">CatalogLoader</span>
-extends java.io.Serializable</pre>
+extends java.io.Serializable, java.lang.Cloneable</pre>
 <div class="block">Serializable loader to load an Iceberg <a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog"><code>Catalog</code></a>.</div>
 </li>
 </ul>
@@ -160,31 +160,37 @@ extends java.io.Serializable</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink">CatalogLoader</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/CatalogLoader.html#clone--">clone</a></span>()</code>
+<div class="block">Clone a CatalogLoader.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink">CatalogLoader</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/CatalogLoader.html#custom-java.lang.String-java.util.Map-org.apache.hadoop.conf.Configuration-java.lang.String-">custom</a></span>(java.lang.String&nbsp;name,
       java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties,
       org.apache.hadoop.conf.Configuration&nbsp;hadoopConf,
       java.lang.String&nbsp;impl)</code>&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink">CatalogLoader</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/CatalogLoader.html#hadoop-java.lang.String-org.apache.hadoop.conf.Configuration-java.util.Map-">hadoop</a></span>(java.lang.String&nbsp;name,
       org.apache.hadoop.conf.Configuration&nbsp;hadoopConf,
       java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink">CatalogLoader</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/CatalogLoader.html#hive-java.lang.String-org.apache.hadoop.conf.Configuration-java.util.Map-">hive</a></span>(java.lang.String&nbsp;name,
     org.apache.hadoop.conf.Configuration&nbsp;hadoopConf,
     java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/CatalogLoader.html#loadCatalog--">loadCatalog</a></span>()</code>
 <div class="block">Create a new catalog with the provided properties.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink">CatalogLoader</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/CatalogLoader.html#rest-java.lang.String-org.apache.hadoop.conf.Configuration-java.util.Map-">rest</a></span>(java.lang.String&nbsp;name,
     org.apache.hadoop.conf.Configuration&nbsp;hadoopConf,
@@ -220,6 +226,16 @@ extends java.io.Serializable</pre>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a newly created <a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog"><code>Catalog</code></a></dd>
 </dl>
+</li>
+</ul>
+<a name="clone--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>clone</h4>
+<pre><a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink">CatalogLoader</a>&nbsp;clone()</pre>
+<div class="block">Clone a CatalogLoader.</div>
 </li>
 </ul>
 <a name="hadoop-java.lang.String-org.apache.hadoop.conf.Configuration-java.util.Map-">

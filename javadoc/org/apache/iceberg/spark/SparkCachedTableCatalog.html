@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":18,"i6":18,"i7":18,"i8":10,"i9":18,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -160,7 +160,7 @@ implements org.apache.spark.sql.connector.catalog.TableCatalog</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -191,32 +191,48 @@ implements org.apache.spark.sql.connector.catalog.TableCatalog</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCachedTableCatalog.html#invalidateTable-org.apache.spark.sql.connector.catalog.Identifier-">invalidateTable</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident)</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
+<td class="colFirst"><code>default boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCachedTableCatalog.html#isExistingNamespace-java.lang.String:A-">isExistingNamespace</a></span>(java.lang.String[]&nbsp;namespace)</code>&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>default boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCachedTableCatalog.html#isFunctionNamespace-java.lang.String:A-">isFunctionNamespace</a></span>(java.lang.String[]&nbsp;namespace)</code>&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>default org.apache.spark.sql.connector.catalog.Identifier[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCachedTableCatalog.html#listFunctions-java.lang.String:A-">listFunctions</a></span>(java.lang.String[]&nbsp;namespace)</code>&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>org.apache.spark.sql.connector.catalog.Identifier[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCachedTableCatalog.html#listTables-java.lang.String:A-">listTables</a></span>(java.lang.String[]&nbsp;namespace)</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>default org.apache.spark.sql.connector.catalog.functions.UnboundFunction</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCachedTableCatalog.html#loadFunction-org.apache.spark.sql.connector.catalog.Identifier-">loadFunction</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident)</code>&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/spark/source/SparkTable.html" title="class in org.apache.iceberg.spark.source">SparkTable</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCachedTableCatalog.html#loadTable-org.apache.spark.sql.connector.catalog.Identifier-">loadTable</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/spark/source/SparkTable.html" title="class in org.apache.iceberg.spark.source">SparkTable</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCachedTableCatalog.html#loadTable-org.apache.spark.sql.connector.catalog.Identifier-long-">loadTable</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident,
          long&nbsp;timestampMicros)</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/spark/source/SparkTable.html" title="class in org.apache.iceberg.spark.source">SparkTable</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCachedTableCatalog.html#loadTable-org.apache.spark.sql.connector.catalog.Identifier-java.lang.String-">loadTable</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident,
          java.lang.String&nbsp;version)</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCachedTableCatalog.html#name--">name</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCachedTableCatalog.html#purgeTable-org.apache.spark.sql.connector.catalog.Identifier-">purgeTable</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident)</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkCachedTableCatalog.html#renameTable-org.apache.spark.sql.connector.catalog.Identifier-org.apache.spark.sql.connector.catalog.Identifier-">renameTable</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;oldIdent,
            org.apache.spark.sql.connector.catalog.Identifier&nbsp;newIdent)</code>&nbsp;</td>
@@ -234,7 +250,14 @@ implements org.apache.spark.sql.connector.catalog.TableCatalog</pre>
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.spark.sql.connector.catalog.TableCatalog</h3>
-<code>tableExists</code></li>
+<code>capabilities, createTable, tableExists</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.org.apache.spark.sql.connector.catalog.FunctionCatalog">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;org.apache.spark.sql.connector.catalog.FunctionCatalog</h3>
+<code>functionExists</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.org.apache.spark.sql.connector.catalog.CatalogPlugin">
@@ -443,13 +466,63 @@ implements org.apache.spark.sql.connector.catalog.TableCatalog</pre>
 <a name="name--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>name</h4>
 <pre>public&nbsp;java.lang.String&nbsp;name()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>name</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.catalog.CatalogPlugin</code></dd>
+</dl>
+</li>
+</ul>
+<a name="isFunctionNamespace-java.lang.String:A-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isFunctionNamespace</h4>
+<pre>public&nbsp;boolean&nbsp;isFunctionNamespace(java.lang.String[]&nbsp;namespace)</pre>
+</li>
+</ul>
+<a name="isExistingNamespace-java.lang.String:A-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isExistingNamespace</h4>
+<pre>public&nbsp;boolean&nbsp;isExistingNamespace(java.lang.String[]&nbsp;namespace)</pre>
+</li>
+</ul>
+<a name="listFunctions-java.lang.String:A-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>listFunctions</h4>
+<pre>public&nbsp;org.apache.spark.sql.connector.catalog.Identifier[]&nbsp;listFunctions(java.lang.String[]&nbsp;namespace)
+                                                                  throws org.apache.spark.sql.catalyst.analysis.NoSuchNamespaceException</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>listFunctions</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.catalog.FunctionCatalog</code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>org.apache.spark.sql.catalyst.analysis.NoSuchNamespaceException</code></dd>
+</dl>
+</li>
+</ul>
+<a name="loadFunction-org.apache.spark.sql.connector.catalog.Identifier-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>loadFunction</h4>
+<pre>public&nbsp;org.apache.spark.sql.connector.catalog.functions.UnboundFunction&nbsp;loadFunction(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident)
+                                                                              throws org.apache.spark.sql.catalyst.analysis.NoSuchFunctionException</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>loadFunction</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.catalog.FunctionCatalog</code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>org.apache.spark.sql.catalyst.analysis.NoSuchFunctionException</code></dd>
 </dl>
 </li>
 </ul>

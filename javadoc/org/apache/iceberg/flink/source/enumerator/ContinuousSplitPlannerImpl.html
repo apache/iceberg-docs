@@ -133,7 +133,7 @@ implements <a href="../../../../../../org/apache/iceberg/flink/source/enumerator
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../org/apache/iceberg/flink/source/enumerator/ContinuousSplitPlannerImpl.html#ContinuousSplitPlannerImpl-org.apache.iceberg.Table-org.apache.iceberg.flink.source.ScanContext-java.lang.String-">ContinuousSplitPlannerImpl</a></span>(<a href="../../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../org/apache/iceberg/flink/source/enumerator/ContinuousSplitPlannerImpl.html#ContinuousSplitPlannerImpl-org.apache.iceberg.flink.TableLoader-org.apache.iceberg.flink.source.ScanContext-java.lang.String-">ContinuousSplitPlannerImpl</a></span>(<a href="../../../../../../org/apache/iceberg/flink/TableLoader.html" title="interface in org.apache.iceberg.flink">TableLoader</a>&nbsp;tableLoader,
                           <a href="../../../../../../org/apache/iceberg/flink/source/ScanContext.html" title="class in org.apache.iceberg.flink.source">ScanContext</a>&nbsp;scanContext,
                           java.lang.String&nbsp;threadName)</code>&nbsp;</td>
 </tr>
@@ -184,17 +184,18 @@ implements <a href="../../../../../../org/apache/iceberg/flink/source/enumerator
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="ContinuousSplitPlannerImpl-org.apache.iceberg.Table-org.apache.iceberg.flink.source.ScanContext-java.lang.String-">
+<a name="ContinuousSplitPlannerImpl-org.apache.iceberg.flink.TableLoader-org.apache.iceberg.flink.source.ScanContext-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ContinuousSplitPlannerImpl</h4>
-<pre>public&nbsp;ContinuousSplitPlannerImpl(<a href="../../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
+<pre>public&nbsp;ContinuousSplitPlannerImpl(<a href="../../../../../../org/apache/iceberg/flink/TableLoader.html" title="interface in org.apache.iceberg.flink">TableLoader</a>&nbsp;tableLoader,
                                   <a href="../../../../../../org/apache/iceberg/flink/source/ScanContext.html" title="class in org.apache.iceberg.flink.source">ScanContext</a>&nbsp;scanContext,
                                   java.lang.String&nbsp;threadName)</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>tableLoader</code> - A cloned tableLoader.</dd>
 <dd><code>threadName</code> - thread name prefix for worker pool to run the split planning. If null, a
      shared worker pool will be used.</dd>
 </dl>

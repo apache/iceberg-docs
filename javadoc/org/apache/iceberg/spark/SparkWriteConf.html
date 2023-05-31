@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -185,86 +185,72 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html#checkOrdering--">checkOrdering</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code><a href="../../../../org/apache/iceberg/DistributionMode.html" title="enum in org.apache.iceberg">DistributionMode</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html#copyOnWriteMergeDistributionMode--">copyOnWriteMergeDistributionMode</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code><a href="../../../../org/apache/iceberg/spark/SparkWriteRequirements.html" title="class in org.apache.iceberg.spark">SparkWriteRequirements</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html#copyOnWriteRequirements-org.apache.spark.sql.connector.write.RowLevelOperation.Command-">copyOnWriteRequirements</a></span>(org.apache.spark.sql.connector.write.RowLevelOperation.Command&nbsp;command)</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/FileFormat.html" title="enum in org.apache.iceberg">FileFormat</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html#dataFileFormat--">dataFileFormat</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code><a href="../../../../org/apache/iceberg/DistributionMode.html" title="enum in org.apache.iceberg">DistributionMode</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html#deleteDistributionMode--">deleteDistributionMode</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/FileFormat.html" title="enum in org.apache.iceberg">FileFormat</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html#deleteFileFormat--">deleteFileFormat</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code><a href="../../../../org/apache/iceberg/DistributionMode.html" title="enum in org.apache.iceberg">DistributionMode</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html#distributionMode--">distributionMode</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i9" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.String,java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html#extraSnapshotMetadata--">extraSnapshotMetadata</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html#fanoutWriterEnabled--">fanoutWriterEnabled</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html#handleTimestampWithoutZone--">handleTimestampWithoutZone</a></span>()</code>
-<div class="block">Enables writing a timestamp with time zone as a timestamp without time zone.</div>
-</td>
-</tr>
-<tr id="i12" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/IsolationLevel.html" title="enum in org.apache.iceberg">IsolationLevel</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html#isolationLevel--">isolationLevel</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html#mergeSchema--">mergeSchema</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html#outputSpecId--">outputSpecId</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html#overwriteMode--">overwriteMode</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
-<td class="colFirst"><code><a href="../../../../org/apache/iceberg/DistributionMode.html" title="enum in org.apache.iceberg">DistributionMode</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html#positionDeltaMergeDistributionMode--">positionDeltaMergeDistributionMode</a></span>()</code>&nbsp;</td>
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code><a href="../../../../org/apache/iceberg/spark/SparkWriteRequirements.html" title="class in org.apache.iceberg.spark">SparkWriteRequirements</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html#positionDeltaRequirements-org.apache.spark.sql.connector.write.RowLevelOperation.Command-">positionDeltaRequirements</a></span>(org.apache.spark.sql.connector.write.RowLevelOperation.Command&nbsp;command)</code>&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html#rewrittenFileSetId--">rewrittenFileSetId</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html#targetDataFileSize--">targetDataFileSize</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html#targetDeleteFileSize--">targetDeleteFileSize</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i19" class="rowColor">
-<td class="colFirst"><code><a href="../../../../org/apache/iceberg/DistributionMode.html" title="enum in org.apache.iceberg">DistributionMode</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html#updateDistributionMode--">updateDistributionMode</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i20" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html#useTableDistributionAndOrdering--">useTableDistributionAndOrdering</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i21" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>java.lang.Long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html#validateFromSnapshotId--">validateFromSnapshotId</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html#wapEnabled--">wapEnabled</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html#wapId--">wapId</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i20" class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/iceberg/spark/SparkWriteRequirements.html" title="class in org.apache.iceberg.spark">SparkWriteRequirements</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html#writeRequirements--">writeRequirements</a></span>()</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -337,28 +323,6 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;boolean&nbsp;checkOrdering()</pre>
 </li>
 </ul>
-<a name="handleTimestampWithoutZone--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>handleTimestampWithoutZone</h4>
-<pre>public&nbsp;boolean&nbsp;handleTimestampWithoutZone()</pre>
-<div class="block">Enables writing a timestamp with time zone as a timestamp without time zone.
-
- <p>Generally, this is not safe as a timestamp without time zone is supposed to represent the
- wall-clock time, i.e. no matter the reader/writer timezone 3PM should always be read as 3PM,
- but a timestamp with time zone represents instant semantics, i.e. the timestamp is adjusted so
- that the corresponding time in the reader timezone is displayed.
-
- <p>When set to false (default), an exception must be thrown if the table contains a timestamp
- without time zone.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>boolean indicating if writing timestamps without timezone is allowed</dd>
-</dl>
-</li>
-</ul>
 <a name="overwriteMode--">
 <!--   -->
 </a>
@@ -393,6 +357,15 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>mergeSchema</h4>
 <pre>public&nbsp;boolean&nbsp;mergeSchema()</pre>
+</li>
+</ul>
+<a name="outputSpecId--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>outputSpecId</h4>
+<pre>public&nbsp;int&nbsp;outputSpecId()</pre>
 </li>
 </ul>
 <a name="dataFileFormat--">
@@ -458,58 +431,31 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;java.lang.String&nbsp;rewrittenFileSetId()</pre>
 </li>
 </ul>
-<a name="distributionMode--">
+<a name="writeRequirements--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>distributionMode</h4>
-<pre>public&nbsp;<a href="../../../../org/apache/iceberg/DistributionMode.html" title="enum in org.apache.iceberg">DistributionMode</a>&nbsp;distributionMode()</pre>
+<h4>writeRequirements</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/iceberg/spark/SparkWriteRequirements.html" title="class in org.apache.iceberg.spark">SparkWriteRequirements</a>&nbsp;writeRequirements()</pre>
 </li>
 </ul>
-<a name="deleteDistributionMode--">
+<a name="copyOnWriteRequirements-org.apache.spark.sql.connector.write.RowLevelOperation.Command-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>deleteDistributionMode</h4>
-<pre>public&nbsp;<a href="../../../../org/apache/iceberg/DistributionMode.html" title="enum in org.apache.iceberg">DistributionMode</a>&nbsp;deleteDistributionMode()</pre>
+<h4>copyOnWriteRequirements</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/iceberg/spark/SparkWriteRequirements.html" title="class in org.apache.iceberg.spark">SparkWriteRequirements</a>&nbsp;copyOnWriteRequirements(org.apache.spark.sql.connector.write.RowLevelOperation.Command&nbsp;command)</pre>
 </li>
 </ul>
-<a name="updateDistributionMode--">
+<a name="positionDeltaRequirements-org.apache.spark.sql.connector.write.RowLevelOperation.Command-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>updateDistributionMode</h4>
-<pre>public&nbsp;<a href="../../../../org/apache/iceberg/DistributionMode.html" title="enum in org.apache.iceberg">DistributionMode</a>&nbsp;updateDistributionMode()</pre>
-</li>
-</ul>
-<a name="copyOnWriteMergeDistributionMode--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>copyOnWriteMergeDistributionMode</h4>
-<pre>public&nbsp;<a href="../../../../org/apache/iceberg/DistributionMode.html" title="enum in org.apache.iceberg">DistributionMode</a>&nbsp;copyOnWriteMergeDistributionMode()</pre>
-</li>
-</ul>
-<a name="positionDeltaMergeDistributionMode--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>positionDeltaMergeDistributionMode</h4>
-<pre>public&nbsp;<a href="../../../../org/apache/iceberg/DistributionMode.html" title="enum in org.apache.iceberg">DistributionMode</a>&nbsp;positionDeltaMergeDistributionMode()</pre>
-</li>
-</ul>
-<a name="useTableDistributionAndOrdering--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>useTableDistributionAndOrdering</h4>
-<pre>public&nbsp;boolean&nbsp;useTableDistributionAndOrdering()</pre>
+<h4>positionDeltaRequirements</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/iceberg/spark/SparkWriteRequirements.html" title="class in org.apache.iceberg.spark">SparkWriteRequirements</a>&nbsp;positionDeltaRequirements(org.apache.spark.sql.connector.write.RowLevelOperation.Command&nbsp;command)</pre>
 </li>
 </ul>
 <a name="validateFromSnapshotId--">

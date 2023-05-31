@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -148,6 +148,11 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>static java.nio.ByteBuffer</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/UUIDUtil.html#convertToByteBuffer-java.util.UUID-">convertToByteBuffer</a></span>(java.util.UUID&nbsp;value)</code>&nbsp;</td>
 </tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>static java.nio.ByteBuffer</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/UUIDUtil.html#convertToByteBuffer-java.util.UUID-java.nio.ByteBuffer-">convertToByteBuffer</a></span>(java.util.UUID&nbsp;value,
+                   java.nio.ByteBuffer&nbsp;reuse)</code>&nbsp;</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -210,10 +215,20 @@ extends java.lang.Object</pre>
 <a name="convertToByteBuffer-java.util.UUID-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>convertToByteBuffer</h4>
 <pre>public static&nbsp;java.nio.ByteBuffer&nbsp;convertToByteBuffer(java.util.UUID&nbsp;value)</pre>
+</li>
+</ul>
+<a name="convertToByteBuffer-java.util.UUID-java.nio.ByteBuffer-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>convertToByteBuffer</h4>
+<pre>public static&nbsp;java.nio.ByteBuffer&nbsp;convertToByteBuffer(java.util.UUID&nbsp;value,
+                                                      java.nio.ByteBuffer&nbsp;reuse)</pre>
 </li>
 </ul>
 </li>

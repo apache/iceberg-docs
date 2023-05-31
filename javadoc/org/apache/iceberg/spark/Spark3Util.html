@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":41,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9,"i25":9,"i26":9,"i27":9,"i28":9};
-var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9,"i25":9,"i26":9,"i27":9,"i28":9};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -147,7 +147,7 @@ extends java.lang.Object</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -230,18 +230,6 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i14" class="altColor">
 <td class="colFirst"><code>static java.util.List&lt;<a href="../../../../org/apache/iceberg/spark/SparkTableUtil.SparkPartition.html" title="class in org.apache.iceberg.spark">SparkTableUtil.SparkPartition</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/Spark3Util.html#getPartitions-org.apache.spark.sql.SparkSession-org.apache.hadoop.fs.Path-java.lang.String-java.util.Map-">getPartitions</a></span>(org.apache.spark.sql.SparkSession&nbsp;spark,
-             org.apache.hadoop.fs.Path&nbsp;rootPath,
-             java.lang.String&nbsp;format,
-             java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;partitionFilter)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">use <a href="../../../../org/apache/iceberg/spark/Spark3Util.html#getPartitions-org.apache.spark.sql.SparkSession-org.apache.hadoop.fs.Path-java.lang.String-java.util.Map-org.apache.iceberg.PartitionSpec-"><code>getPartitions(SparkSession, Path, String, Map,
-     PartitionSpec)</code></a></span></div>
-</div>
-</td>
-</tr>
-<tr id="i15" class="rowColor">
-<td class="colFirst"><code>static java.util.List&lt;<a href="../../../../org/apache/iceberg/spark/SparkTableUtil.SparkPartition.html" title="class in org.apache.iceberg.spark">SparkTableUtil.SparkPartition</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/Spark3Util.html#getPartitions-org.apache.spark.sql.SparkSession-org.apache.hadoop.fs.Path-java.lang.String-java.util.Map-org.apache.iceberg.PartitionSpec-">getPartitions</a></span>(org.apache.spark.sql.SparkSession&nbsp;spark,
              org.apache.hadoop.fs.Path&nbsp;rootPath,
              java.lang.String&nbsp;format,
@@ -250,50 +238,54 @@ extends java.lang.Object</pre>
 <div class="block">Use Spark to list all partitions in the table.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/Spark3Util.html#identifierToTableIdentifier-org.apache.spark.sql.connector.catalog.Identifier-">identifierToTableIdentifier</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;identifier)</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/Spark3Util.html#loadIcebergCatalog-org.apache.spark.sql.SparkSession-java.lang.String-">loadIcebergCatalog</a></span>(org.apache.spark.sql.SparkSession&nbsp;spark,
                   java.lang.String&nbsp;catalogName)</code>
 <div class="block">Returns the underlying Iceberg Catalog object represented by a Spark Catalog</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/Spark3Util.html#loadIcebergTable-org.apache.spark.sql.SparkSession-java.lang.String-">loadIcebergTable</a></span>(org.apache.spark.sql.SparkSession&nbsp;spark,
                 java.lang.String&nbsp;name)</code>
 <div class="block">Returns an Iceberg Table by its name from a Spark V2 Catalog.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/Spark3Util.html#quotedFullIdentifier-java.lang.String-org.apache.spark.sql.connector.catalog.Identifier-">quotedFullIdentifier</a></span>(java.lang.String&nbsp;catalogName,
                     org.apache.spark.sql.connector.catalog.Identifier&nbsp;identifier)</code>&nbsp;</td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>static java.util.Map&lt;java.lang.String,java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/Spark3Util.html#rebuildCreateProperties-java.util.Map-">rebuildCreateProperties</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;createProperties)</code>&nbsp;</td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>static org.apache.spark.sql.util.CaseInsensitiveStringMap</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/Spark3Util.html#setOption-java.lang.String-java.lang.String-org.apache.spark.sql.util.CaseInsensitiveStringMap-">setOption</a></span>(java.lang.String&nbsp;key,
          java.lang.String&nbsp;value,
          org.apache.spark.sql.util.CaseInsensitiveStringMap&nbsp;options)</code>&nbsp;</td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/Spark3Util.html#toIcebergTable-org.apache.spark.sql.connector.catalog.Table-">toIcebergTable</a></span>(org.apache.spark.sql.connector.catalog.Table&nbsp;table)</code>&nbsp;</td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/expressions/Term.html" title="interface in org.apache.iceberg.expressions">Term</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/Spark3Util.html#toIcebergTerm-org.apache.spark.sql.connector.expressions.Expression-">toIcebergTerm</a></span>(org.apache.spark.sql.connector.expressions.Expression&nbsp;expr)</code>&nbsp;</td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>static org.apache.spark.sql.connector.expressions.NamedReference</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/Spark3Util.html#toNamedReference-java.lang.String-">toNamedReference</a></span>(java.lang.String&nbsp;name)</code>&nbsp;</td>
+</tr>
+<tr id="i24" class="altColor">
+<td class="colFirst"><code>static org.apache.spark.sql.connector.expressions.SortOrder[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/Spark3Util.html#toOrdering-org.apache.iceberg.SortOrder-">toOrdering</a></span>(<a href="../../../../org/apache/iceberg/SortOrder.html" title="class in org.apache.iceberg">SortOrder</a>&nbsp;sortOrder)</code>&nbsp;</td>
 </tr>
 <tr id="i25" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a></code></td>
@@ -402,6 +394,15 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>toIcebergTable</h4>
 <pre>public static&nbsp;<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;toIcebergTable(org.apache.spark.sql.connector.catalog.Table&nbsp;table)</pre>
+</li>
+</ul>
+<a name="toOrdering-org.apache.iceberg.SortOrder-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>toOrdering</h4>
+<pre>public static&nbsp;org.apache.spark.sql.connector.expressions.SortOrder[]&nbsp;toOrdering(<a href="../../../../org/apache/iceberg/SortOrder.html" title="class in org.apache.iceberg">SortOrder</a>&nbsp;sortOrder)</pre>
 </li>
 </ul>
 <a name="toTransforms-org.apache.iceberg.Schema-java.util.List-">
@@ -664,31 +665,6 @@ extends java.lang.Object</pre>
 <h4>quotedFullIdentifier</h4>
 <pre>public static&nbsp;java.lang.String&nbsp;quotedFullIdentifier(java.lang.String&nbsp;catalogName,
                                                     org.apache.spark.sql.connector.catalog.Identifier&nbsp;identifier)</pre>
-</li>
-</ul>
-<a name="getPartitions-org.apache.spark.sql.SparkSession-org.apache.hadoop.fs.Path-java.lang.String-java.util.Map-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getPartitions</h4>
-<pre>@Deprecated
-public static&nbsp;java.util.List&lt;<a href="../../../../org/apache/iceberg/spark/SparkTableUtil.SparkPartition.html" title="class in org.apache.iceberg.spark">SparkTableUtil.SparkPartition</a>&gt;&nbsp;getPartitions(org.apache.spark.sql.SparkSession&nbsp;spark,
-                                                                                      org.apache.hadoop.fs.Path&nbsp;rootPath,
-                                                                                      java.lang.String&nbsp;format,
-                                                                                      java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;partitionFilter)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">use <a href="../../../../org/apache/iceberg/spark/Spark3Util.html#getPartitions-org.apache.spark.sql.SparkSession-org.apache.hadoop.fs.Path-java.lang.String-java.util.Map-org.apache.iceberg.PartitionSpec-"><code>getPartitions(SparkSession, Path, String, Map,
-     PartitionSpec)</code></a></span></div>
-<div class="block">Use Spark to list all partitions in the table.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>spark</code> - a Spark session</dd>
-<dd><code>rootPath</code> - a table identifier</dd>
-<dd><code>format</code> - format of the file</dd>
-<dd><code>partitionFilter</code> - partitionFilter of the file</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>all table's partitions</dd>
-</dl>
 </li>
 </ul>
 <a name="getPartitions-org.apache.spark.sql.SparkSession-org.apache.hadoop.fs.Path-java.lang.String-java.util.Map-org.apache.iceberg.PartitionSpec-">

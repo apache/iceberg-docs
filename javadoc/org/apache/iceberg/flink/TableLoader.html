@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":17,"i1":17,"i2":17,"i3":6,"i4":6};
+var methods = {"i0":6,"i1":17,"i2":17,"i3":17,"i4":6,"i5":6};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -99,7 +99,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Superinterfaces:</dt>
-<dd>java.lang.AutoCloseable, java.io.Closeable, java.io.Serializable</dd>
+<dd>java.lang.AutoCloseable, java.lang.Cloneable, java.io.Closeable, java.io.Serializable</dd>
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
@@ -108,7 +108,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public interface <span class="typeNameLabel">TableLoader</span>
-extends java.io.Closeable, java.io.Serializable</pre>
+extends java.io.Closeable, java.io.Serializable, java.lang.Cloneable</pre>
 <div class="block">Serializable loader to load an Iceberg <a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><code>Table</code></a>. Flink needs to get <a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><code>Table</code></a> objects in
  the cluster (for example, to get splits), not just on the client side. So we need an Iceberg
  table loader to get the <a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><code>Table</code></a> object.</div>
@@ -154,24 +154,30 @@ extends java.io.Closeable, java.io.Serializable</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/iceberg/flink/TableLoader.html" title="interface in org.apache.iceberg.flink">TableLoader</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/TableLoader.html#clone--">clone</a></span>()</code>
+<div class="block">Clone a TableLoader</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/flink/TableLoader.html" title="interface in org.apache.iceberg.flink">TableLoader</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/TableLoader.html#fromCatalog-org.apache.iceberg.flink.CatalogLoader-org.apache.iceberg.catalog.TableIdentifier-">fromCatalog</a></span>(<a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink">CatalogLoader</a>&nbsp;catalogLoader,
            <a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;identifier)</code>&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/flink/TableLoader.html" title="interface in org.apache.iceberg.flink">TableLoader</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/TableLoader.html#fromHadoopTable-java.lang.String-">fromHadoopTable</a></span>(java.lang.String&nbsp;location)</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/flink/TableLoader.html" title="interface in org.apache.iceberg.flink">TableLoader</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/TableLoader.html#fromHadoopTable-java.lang.String-org.apache.hadoop.conf.Configuration-">fromHadoopTable</a></span>(java.lang.String&nbsp;location,
                org.apache.hadoop.conf.Configuration&nbsp;hadoopConf)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/TableLoader.html#loadTable--">loadTable</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/TableLoader.html#open--">open</a></span>()</code>&nbsp;</td>
 </tr>
@@ -213,6 +219,16 @@ extends java.io.Closeable, java.io.Serializable</pre>
 <li class="blockList">
 <h4>loadTable</h4>
 <pre><a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;loadTable()</pre>
+</li>
+</ul>
+<a name="clone--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>clone</h4>
+<pre><a href="../../../../org/apache/iceberg/flink/TableLoader.html" title="interface in org.apache.iceberg.flink">TableLoader</a>&nbsp;clone()</pre>
+<div class="block">Clone a TableLoader</div>
 </li>
 </ul>
 <a name="fromCatalog-org.apache.iceberg.flink.CatalogLoader-org.apache.iceberg.catalog.TableIdentifier-">
