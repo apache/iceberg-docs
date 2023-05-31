@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":10,"i2":10};
+var methods = {"i0":10,"i1":9,"i2":10,"i3":9,"i4":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -73,14 +73,14 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
@@ -109,42 +109,73 @@ var activeTableTab = "activeTableTab";
 <dt>All Implemented Interfaces:</dt>
 <dd>java.util.Iterator&lt;org.apache.spark.sql.Row&gt;</dd>
 </dl>
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><a href="../../../../org/apache/iceberg/spark/ComputeUpdateIterator.html" title="class in org.apache.iceberg.spark">ComputeUpdateIterator</a></dd>
+</dl>
 <hr>
 <br>
-<pre>public class <span class="typeNameLabel">ChangelogIterator</span>
+<pre>public abstract class <span class="typeNameLabel">ChangelogIterator</span>
 extends java.lang.Object
 implements java.util.Iterator&lt;org.apache.spark.sql.Row&gt;</pre>
-<div class="block">An iterator that transforms rows from changelog tables within a single Spark task. It assumes
- that rows are sorted by identifier columns and change type.
-
- <p>It removes the carry-over rows. Carry-over rows are the result of a removal and insertion of
- the same row within an operation because of the copy-on-write mechanism. For example, given a
- file which contains row1 (id=1, data='a') and row2 (id=2, data='b'). A copy-on-write delete of
- row2 would require erasing this file and preserving row1 in a new file. The change-log table
- would report this as (id=1, data='a', op='DELETE') and (id=1, data='a', op='INSERT'), despite it
- not being an actual change to the table. The iterator finds the carry-over rows and removes them
- from the result.
-
- <p>This iterator also finds delete/insert rows which represent an update, and converts them into
- update records. For example, these two rows
-
- <ul>
-   <li>(id=1, data='a', op='DELETE')
-   <li>(id=1, data='b', op='INSERT')
- </ul>
-
- <p>will be marked as update-rows:
-
- <ul>
-   <li>(id=1, data='a', op='UPDATE_BEFORE')
-   <li>(id=1, data='b', op='UPDATE_AFTER')
- </ul></div>
+<div class="block">An iterator that transforms rows from changelog tables within a single Spark task.</div>
 </li>
 </ul>
 </div>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- =========== FIELD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field.summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/ChangelogIterator.html#DELETE">DELETE</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/ChangelogIterator.html#INSERT">INSERT</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/ChangelogIterator.html#UPDATE_AFTER">UPDATE_AFTER</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/ChangelogIterator.html#UPDATE_BEFORE">UPDATE_BEFORE</a></span></code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor.summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier</th>
+<th class="colLast" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected </code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/ChangelogIterator.html#ChangelogIterator-java.util.Iterator-org.apache.spark.sql.types.StructType-">ChangelogIterator</a></span>(java.util.Iterator&lt;org.apache.spark.sql.Row&gt;&nbsp;rowIterator,
+                 org.apache.spark.sql.types.StructType&nbsp;rowType)</code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.summary">
@@ -158,20 +189,34 @@ implements java.util.Iterator&lt;org.apache.spark.sql.Row&gt;</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>static java.util.Iterator&lt;org.apache.spark.sql.Row&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/ChangelogIterator.html#create-java.util.Iterator-org.apache.spark.sql.types.StructType-java.lang.String:A-">create</a></span>(java.util.Iterator&lt;org.apache.spark.sql.Row&gt;&nbsp;rowIterator,
-      org.apache.spark.sql.types.StructType&nbsp;rowType,
-      java.lang.String[]&nbsp;identifierFields)</code>
-<div class="block">Creates an iterator for records of a changelog table.</div>
-</td>
+<td class="colFirst"><code>protected int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/ChangelogIterator.html#changeTypeIndex--">changeTypeIndex</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/ChangelogIterator.html#hasNext--">hasNext</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>static java.util.Iterator&lt;org.apache.spark.sql.Row&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/ChangelogIterator.html#computeUpdates-java.util.Iterator-org.apache.spark.sql.types.StructType-java.lang.String:A-">computeUpdates</a></span>(java.util.Iterator&lt;org.apache.spark.sql.Row&gt;&nbsp;rowIterator,
+              org.apache.spark.sql.types.StructType&nbsp;rowType,
+              java.lang.String[]&nbsp;identifierFields)</code>
+<div class="block">Creates an iterator composing <code>RemoveCarryoverIterator</code> and <a href="../../../../org/apache/iceberg/spark/ComputeUpdateIterator.html" title="class in org.apache.iceberg.spark"><code>ComputeUpdateIterator</code></a>
+ to remove carry-over rows and compute update rows</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>org.apache.spark.sql.Row</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/ChangelogIterator.html#next--">next</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/ChangelogIterator.html#isDifferentValue-org.apache.spark.sql.Row-org.apache.spark.sql.Row-int-">isDifferentValue</a></span>(org.apache.spark.sql.Row&nbsp;currentRow,
+                org.apache.spark.sql.Row&nbsp;nextRow,
+                int&nbsp;idx)</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>static java.util.Iterator&lt;org.apache.spark.sql.Row&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/ChangelogIterator.html#removeCarryovers-java.util.Iterator-org.apache.spark.sql.types.StructType-">removeCarryovers</a></span>(java.util.Iterator&lt;org.apache.spark.sql.Row&gt;&nbsp;rowIterator,
+                org.apache.spark.sql.types.StructType&nbsp;rowType)</code>
+<div class="block">Creates an iterator that removes carry-over rows from a changelog table.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>protected java.util.Iterator&lt;org.apache.spark.sql.Row&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/ChangelogIterator.html#rowIterator--">rowIterator</a></span>()</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -186,7 +231,7 @@ implements java.util.Iterator&lt;org.apache.spark.sql.Row&gt;</pre>
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;java.util.Iterator</h3>
-<code>forEachRemaining, remove</code></li>
+<code>forEachRemaining, hasNext, next, remove</code></li>
 </ul>
 </li>
 </ul>
@@ -196,22 +241,103 @@ implements java.util.Iterator&lt;org.apache.spark.sql.Row&gt;</pre>
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a name="DELETE">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DELETE</h4>
+<pre>protected static final&nbsp;java.lang.String DELETE</pre>
+</li>
+</ul>
+<a name="INSERT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>INSERT</h4>
+<pre>protected static final&nbsp;java.lang.String INSERT</pre>
+</li>
+</ul>
+<a name="UPDATE_BEFORE">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>UPDATE_BEFORE</h4>
+<pre>protected static final&nbsp;java.lang.String UPDATE_BEFORE</pre>
+</li>
+</ul>
+<a name="UPDATE_AFTER">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>UPDATE_AFTER</h4>
+<pre>protected static final&nbsp;java.lang.String UPDATE_AFTER</pre>
+</li>
+</ul>
+</li>
+</ul>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor.detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="ChangelogIterator-java.util.Iterator-org.apache.spark.sql.types.StructType-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>ChangelogIterator</h4>
+<pre>protected&nbsp;ChangelogIterator(java.util.Iterator&lt;org.apache.spark.sql.Row&gt;&nbsp;rowIterator,
+                            org.apache.spark.sql.types.StructType&nbsp;rowType)</pre>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.detail">
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="create-java.util.Iterator-org.apache.spark.sql.types.StructType-java.lang.String:A-">
+<a name="changeTypeIndex--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>create</h4>
-<pre>public static&nbsp;java.util.Iterator&lt;org.apache.spark.sql.Row&gt;&nbsp;create(java.util.Iterator&lt;org.apache.spark.sql.Row&gt;&nbsp;rowIterator,
-                                                                  org.apache.spark.sql.types.StructType&nbsp;rowType,
-                                                                  java.lang.String[]&nbsp;identifierFields)</pre>
-<div class="block">Creates an iterator for records of a changelog table.</div>
+<h4>changeTypeIndex</h4>
+<pre>protected&nbsp;int&nbsp;changeTypeIndex()</pre>
+</li>
+</ul>
+<a name="rowIterator--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>rowIterator</h4>
+<pre>protected&nbsp;java.util.Iterator&lt;org.apache.spark.sql.Row&gt;&nbsp;rowIterator()</pre>
+</li>
+</ul>
+<a name="computeUpdates-java.util.Iterator-org.apache.spark.sql.types.StructType-java.lang.String:A-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>computeUpdates</h4>
+<pre>public static&nbsp;java.util.Iterator&lt;org.apache.spark.sql.Row&gt;&nbsp;computeUpdates(java.util.Iterator&lt;org.apache.spark.sql.Row&gt;&nbsp;rowIterator,
+                                                                          org.apache.spark.sql.types.StructType&nbsp;rowType,
+                                                                          java.lang.String[]&nbsp;identifierFields)</pre>
+<div class="block">Creates an iterator composing <code>RemoveCarryoverIterator</code> and <a href="../../../../org/apache/iceberg/spark/ComputeUpdateIterator.html" title="class in org.apache.iceberg.spark"><code>ComputeUpdateIterator</code></a>
+ to remove carry-over rows and compute update rows</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>rowIterator</code> - the iterator of rows from a changelog table</dd>
@@ -219,34 +345,37 @@ implements java.util.Iterator&lt;org.apache.spark.sql.Row&gt;</pre>
 <dd><code>identifierFields</code> - the names of the identifier columns, which determine if rows are the
      same</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>a new <a href="../../../../org/apache/iceberg/spark/ChangelogIterator.html" title="class in org.apache.iceberg.spark"><code>ChangelogIterator</code></a> instance concatenated with the null-removal iterator</dd>
+<dd>a new iterator instance</dd>
 </dl>
 </li>
 </ul>
-<a name="hasNext--">
+<a name="removeCarryovers-java.util.Iterator-org.apache.spark.sql.types.StructType-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>hasNext</h4>
-<pre>public&nbsp;boolean&nbsp;hasNext()</pre>
+<h4>removeCarryovers</h4>
+<pre>public static&nbsp;java.util.Iterator&lt;org.apache.spark.sql.Row&gt;&nbsp;removeCarryovers(java.util.Iterator&lt;org.apache.spark.sql.Row&gt;&nbsp;rowIterator,
+                                                                            org.apache.spark.sql.types.StructType&nbsp;rowType)</pre>
+<div class="block">Creates an iterator that removes carry-over rows from a changelog table.</div>
 <dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>hasNext</code>&nbsp;in interface&nbsp;<code>java.util.Iterator&lt;org.apache.spark.sql.Row&gt;</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>rowIterator</code> - the iterator of rows from a changelog table</dd>
+<dd><code>rowType</code> - the schema of the rows</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a new iterator instance</dd>
 </dl>
 </li>
 </ul>
-<a name="next--">
+<a name="isDifferentValue-org.apache.spark.sql.Row-org.apache.spark.sql.Row-int-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>next</h4>
-<pre>public&nbsp;org.apache.spark.sql.Row&nbsp;next()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>next</code>&nbsp;in interface&nbsp;<code>java.util.Iterator&lt;org.apache.spark.sql.Row&gt;</code></dd>
-</dl>
+<h4>isDifferentValue</h4>
+<pre>protected&nbsp;boolean&nbsp;isDifferentValue(org.apache.spark.sql.Row&nbsp;currentRow,
+                                   org.apache.spark.sql.Row&nbsp;nextRow,
+                                   int&nbsp;idx)</pre>
 </li>
 </ul>
 </li>
@@ -302,14 +431,14 @@ implements java.util.Iterator&lt;org.apache.spark.sql.Row&gt;</pre>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>

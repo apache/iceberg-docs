@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":41,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
-var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var methods = {"i0":9,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -147,35 +147,27 @@ implements <a href="../../../../org/apache/iceberg/rest/RESTClient.html" title="
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/rest/HTTPClient.Builder.html" title="class in org.apache.iceberg.rest">HTTPClient.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/HTTPClient.html#builder--">builder</a></span>()</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use <a href="../../../../org/apache/iceberg/rest/HTTPClient.html#builder-java.util.Map-"><code>builder(Map)</code></a></span></div>
-</div>
-</td>
-</tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/rest/HTTPClient.Builder.html" title="class in org.apache.iceberg.rest">HTTPClient.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/HTTPClient.html#builder-java.util.Map-">builder</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/HTTPClient.html#close--">close</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>&lt;T extends <a href="../../../../org/apache/iceberg/rest/RESTResponse.html" title="interface in org.apache.iceberg.rest">RESTResponse</a>&gt;<br>T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/HTTPClient.html#delete-java.lang.String-java.lang.Class-java.util.Map-java.util.function.Consumer-">delete</a></span>(java.lang.String&nbsp;path,
       java.lang.Class&lt;T&gt;&nbsp;responseType,
       java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;headers,
       java.util.function.Consumer&lt;<a href="../../../../org/apache/iceberg/rest/responses/ErrorResponse.html" title="class in org.apache.iceberg.rest.responses">ErrorResponse</a>&gt;&nbsp;errorHandler)</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>&lt;T extends <a href="../../../../org/apache/iceberg/rest/RESTResponse.html" title="interface in org.apache.iceberg.rest">RESTResponse</a>&gt;<br>T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/HTTPClient.html#delete-java.lang.String-java.util.Map-java.lang.Class-java.util.Map-java.util.function.Consumer-">delete</a></span>(java.lang.String&nbsp;path,
       java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;queryParams,
@@ -183,7 +175,7 @@ implements <a href="../../../../org/apache/iceberg/rest/RESTClient.html" title="
       java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;headers,
       java.util.function.Consumer&lt;<a href="../../../../org/apache/iceberg/rest/responses/ErrorResponse.html" title="class in org.apache.iceberg.rest.responses">ErrorResponse</a>&gt;&nbsp;errorHandler)</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>&lt;T extends <a href="../../../../org/apache/iceberg/rest/RESTResponse.html" title="interface in org.apache.iceberg.rest">RESTResponse</a>&gt;<br>T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/HTTPClient.html#get-java.lang.String-java.util.Map-java.lang.Class-java.util.Map-java.util.function.Consumer-">get</a></span>(java.lang.String&nbsp;path,
    java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;queryParams,
@@ -191,13 +183,13 @@ implements <a href="../../../../org/apache/iceberg/rest/RESTClient.html" title="
    java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;headers,
    java.util.function.Consumer&lt;<a href="../../../../org/apache/iceberg/rest/responses/ErrorResponse.html" title="class in org.apache.iceberg.rest.responses">ErrorResponse</a>&gt;&nbsp;errorHandler)</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/HTTPClient.html#head-java.lang.String-java.util.Map-java.util.function.Consumer-">head</a></span>(java.lang.String&nbsp;path,
     java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;headers,
     java.util.function.Consumer&lt;<a href="../../../../org/apache/iceberg/rest/responses/ErrorResponse.html" title="class in org.apache.iceberg.rest.responses">ErrorResponse</a>&gt;&nbsp;errorHandler)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>&lt;T extends <a href="../../../../org/apache/iceberg/rest/RESTResponse.html" title="interface in org.apache.iceberg.rest">RESTResponse</a>&gt;<br>T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/HTTPClient.html#post-java.lang.String-org.apache.iceberg.rest.RESTRequest-java.lang.Class-java.util.Map-java.util.function.Consumer-">post</a></span>(java.lang.String&nbsp;path,
     <a href="../../../../org/apache/iceberg/rest/RESTRequest.html" title="interface in org.apache.iceberg.rest">RESTRequest</a>&nbsp;body,
@@ -205,7 +197,7 @@ implements <a href="../../../../org/apache/iceberg/rest/RESTClient.html" title="
     java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;headers,
     java.util.function.Consumer&lt;<a href="../../../../org/apache/iceberg/rest/responses/ErrorResponse.html" title="class in org.apache.iceberg.rest.responses">ErrorResponse</a>&gt;&nbsp;errorHandler)</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>&lt;T extends <a href="../../../../org/apache/iceberg/rest/RESTResponse.html" title="interface in org.apache.iceberg.rest">RESTResponse</a>&gt;<br>T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/HTTPClient.html#post-java.lang.String-org.apache.iceberg.rest.RESTRequest-java.lang.Class-java.util.Map-java.util.function.Consumer-java.util.function.Consumer-">post</a></span>(java.lang.String&nbsp;path,
     <a href="../../../../org/apache/iceberg/rest/RESTRequest.html" title="interface in org.apache.iceberg.rest">RESTRequest</a>&nbsp;body,
@@ -214,7 +206,7 @@ implements <a href="../../../../org/apache/iceberg/rest/RESTClient.html" title="
     java.util.function.Consumer&lt;<a href="../../../../org/apache/iceberg/rest/responses/ErrorResponse.html" title="class in org.apache.iceberg.rest.responses">ErrorResponse</a>&gt;&nbsp;errorHandler,
     java.util.function.Consumer&lt;java.util.Map&lt;java.lang.String,java.lang.String&gt;&gt;&nbsp;responseHeaders)</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>&lt;T extends <a href="../../../../org/apache/iceberg/rest/RESTResponse.html" title="interface in org.apache.iceberg.rest">RESTResponse</a>&gt;<br>T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/HTTPClient.html#postForm-java.lang.String-java.util.Map-java.lang.Class-java.util.Map-java.util.function.Consumer-">postForm</a></span>(java.lang.String&nbsp;path,
         java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;formData,
@@ -383,21 +375,6 @@ implements <a href="../../../../org/apache/iceberg/rest/RESTClient.html" title="
 <dd><code>close</code>&nbsp;in interface&nbsp;<code>java.lang.AutoCloseable</code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.io.IOException</code></dd>
-</dl>
-</li>
-</ul>
-<a name="builder--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>builder</h4>
-<pre>@Deprecated
-public static&nbsp;<a href="../../../../org/apache/iceberg/rest/HTTPClient.Builder.html" title="class in org.apache.iceberg.rest">HTTPClient.Builder</a>&nbsp;builder()</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">will be removed in 1.3.0; use <a href="../../../../org/apache/iceberg/rest/HTTPClient.html#builder-java.util.Map-"><code>builder(Map)</code></a></span></div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>http client builder</dd>
 </dl>
 </li>
 </ul>

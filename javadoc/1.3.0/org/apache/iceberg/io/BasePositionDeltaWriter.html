@@ -132,6 +132,10 @@ implements <a href="../../../../org/apache/iceberg/io/PositionDeltaWriter.html" 
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html#BasePositionDeltaWriter-org.apache.iceberg.io.PartitioningWriter-org.apache.iceberg.io.PartitioningWriter-">BasePositionDeltaWriter</a></span>(<a href="../../../../org/apache/iceberg/io/PartitioningWriter.html" title="interface in org.apache.iceberg.io">PartitioningWriter</a>&lt;<a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html" title="type parameter in BasePositionDeltaWriter">T</a>,<a href="../../../../org/apache/iceberg/io/DataWriteResult.html" title="class in org.apache.iceberg.io">DataWriteResult</a>&gt;&nbsp;dataWriter,
+                       <a href="../../../../org/apache/iceberg/io/PartitioningWriter.html" title="interface in org.apache.iceberg.io">PartitioningWriter</a>&lt;<a href="../../../../org/apache/iceberg/deletes/PositionDelete.html" title="class in org.apache.iceberg.deletes">PositionDelete</a>&lt;<a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html" title="type parameter in BasePositionDeltaWriter">T</a>&gt;,<a href="../../../../org/apache/iceberg/io/DeleteWriteResult.html" title="class in org.apache.iceberg.io">DeleteWriteResult</a>&gt;&nbsp;deleteWriter)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html#BasePositionDeltaWriter-org.apache.iceberg.io.PartitioningWriter-org.apache.iceberg.io.PartitioningWriter-org.apache.iceberg.io.PartitioningWriter-">BasePositionDeltaWriter</a></span>(<a href="../../../../org/apache/iceberg/io/PartitioningWriter.html" title="interface in org.apache.iceberg.io">PartitioningWriter</a>&lt;<a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html" title="type parameter in BasePositionDeltaWriter">T</a>,<a href="../../../../org/apache/iceberg/io/DataWriteResult.html" title="class in org.apache.iceberg.io">DataWriteResult</a>&gt;&nbsp;insertWriter,
                        <a href="../../../../org/apache/iceberg/io/PartitioningWriter.html" title="interface in org.apache.iceberg.io">PartitioningWriter</a>&lt;<a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html" title="type parameter in BasePositionDeltaWriter">T</a>,<a href="../../../../org/apache/iceberg/io/DataWriteResult.html" title="class in org.apache.iceberg.io">DataWriteResult</a>&gt;&nbsp;updateWriter,
                        <a href="../../../../org/apache/iceberg/io/PartitioningWriter.html" title="interface in org.apache.iceberg.io">PartitioningWriter</a>&lt;<a href="../../../../org/apache/iceberg/deletes/PositionDelete.html" title="class in org.apache.iceberg.deletes">PositionDelete</a>&lt;<a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html" title="type parameter in BasePositionDeltaWriter">T</a>&gt;,<a href="../../../../org/apache/iceberg/io/DeleteWriteResult.html" title="class in org.apache.iceberg.io">DeleteWriteResult</a>&gt;&nbsp;deleteWriter)</code>&nbsp;</td>
@@ -217,6 +221,16 @@ implements <a href="../../../../org/apache/iceberg/io/PositionDeltaWriter.html" 
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
+<a name="BasePositionDeltaWriter-org.apache.iceberg.io.PartitioningWriter-org.apache.iceberg.io.PartitioningWriter-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>BasePositionDeltaWriter</h4>
+<pre>public&nbsp;BasePositionDeltaWriter(<a href="../../../../org/apache/iceberg/io/PartitioningWriter.html" title="interface in org.apache.iceberg.io">PartitioningWriter</a>&lt;<a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html" title="type parameter in BasePositionDeltaWriter">T</a>,<a href="../../../../org/apache/iceberg/io/DataWriteResult.html" title="class in org.apache.iceberg.io">DataWriteResult</a>&gt;&nbsp;dataWriter,
+                               <a href="../../../../org/apache/iceberg/io/PartitioningWriter.html" title="interface in org.apache.iceberg.io">PartitioningWriter</a>&lt;<a href="../../../../org/apache/iceberg/deletes/PositionDelete.html" title="class in org.apache.iceberg.deletes">PositionDelete</a>&lt;<a href="../../../../org/apache/iceberg/io/BasePositionDeltaWriter.html" title="type parameter in BasePositionDeltaWriter">T</a>&gt;,<a href="../../../../org/apache/iceberg/io/DeleteWriteResult.html" title="class in org.apache.iceberg.io">DeleteWriteResult</a>&gt;&nbsp;deleteWriter)</pre>
+</li>
+</ul>
 <a name="BasePositionDeltaWriter-org.apache.iceberg.io.PartitioningWriter-org.apache.iceberg.io.PartitioningWriter-org.apache.iceberg.io.PartitioningWriter-">
 <!--   -->
 </a>

@@ -383,7 +383,8 @@ extends java.io.Serializable</pre>
 <div class="block">Return all data files added to the table in this snapshot.
 
  <p>The files returned include the following columns: file_path, file_format, partition,
- record_count, and file_size_in_bytes. Other columns will be null.</div>
+ record_count, and file_size_in_bytes. Data and file sequence number are populated. Other
+ columns will be null.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>io</code> - a <a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><code>FileIO</code></a> instance used for reading files from storage</dd>
@@ -402,7 +403,8 @@ extends java.io.Serializable</pre>
 <div class="block">Return all data files removed from the table in this snapshot.
 
  <p>The files returned include the following columns: file_path, file_format, partition,
- record_count, and file_size_in_bytes. Other columns will be null.</div>
+ record_count, and file_size_in_bytes. Data and file sequence number are populated. Other
+ columns will be null.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>io</code> - a <a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><code>FileIO</code></a> instance used for reading files from storage</dd>

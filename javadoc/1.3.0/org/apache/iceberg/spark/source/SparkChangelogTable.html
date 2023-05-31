@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -107,13 +107,13 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>org.apache.spark.sql.connector.catalog.SupportsRead, org.apache.spark.sql.connector.catalog.Table</dd>
+<dd>org.apache.spark.sql.connector.catalog.SupportsMetadataColumns, org.apache.spark.sql.connector.catalog.SupportsRead, org.apache.spark.sql.connector.catalog.Table</dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">SparkChangelogTable</span>
 extends java.lang.Object
-implements org.apache.spark.sql.connector.catalog.Table, org.apache.spark.sql.connector.catalog.SupportsRead</pre>
+implements org.apache.spark.sql.connector.catalog.Table, org.apache.spark.sql.connector.catalog.SupportsRead, org.apache.spark.sql.connector.catalog.SupportsMetadataColumns</pre>
 </li>
 </ul>
 </div>
@@ -174,14 +174,18 @@ implements org.apache.spark.sql.connector.catalog.Table, org.apache.spark.sql.co
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/SparkChangelogTable.html#capabilities--">capabilities</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>org.apache.spark.sql.connector.catalog.MetadataColumn[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/SparkChangelogTable.html#metadataColumns--">metadataColumns</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/SparkChangelogTable.html#name--">name</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>org.apache.spark.sql.connector.read.ScanBuilder</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/SparkChangelogTable.html#newScanBuilder-org.apache.spark.sql.util.CaseInsensitiveStringMap-">newScanBuilder</a></span>(org.apache.spark.sql.util.CaseInsensitiveStringMap&nbsp;options)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>org.apache.spark.sql.types.StructType</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/SparkChangelogTable.html#schema--">schema</a></span>()</code>&nbsp;</td>
 </tr>
@@ -198,7 +202,7 @@ implements org.apache.spark.sql.connector.catalog.Table, org.apache.spark.sql.co
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.spark.sql.connector.catalog.Table</h3>
-<code>partitioning, properties</code></li>
+<code>columns, partitioning, properties</code></li>
 </ul>
 </li>
 </ul>
@@ -295,13 +299,26 @@ implements org.apache.spark.sql.connector.catalog.Table, org.apache.spark.sql.co
 <a name="newScanBuilder-org.apache.spark.sql.util.CaseInsensitiveStringMap-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>newScanBuilder</h4>
 <pre>public&nbsp;org.apache.spark.sql.connector.read.ScanBuilder&nbsp;newScanBuilder(org.apache.spark.sql.util.CaseInsensitiveStringMap&nbsp;options)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>newScanBuilder</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.catalog.SupportsRead</code></dd>
+</dl>
+</li>
+</ul>
+<a name="metadataColumns--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>metadataColumns</h4>
+<pre>public&nbsp;org.apache.spark.sql.connector.catalog.MetadataColumn[]&nbsp;metadataColumns()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>metadataColumns</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.catalog.SupportsMetadataColumns</code></dd>
 </dl>
 </li>
 </ul>

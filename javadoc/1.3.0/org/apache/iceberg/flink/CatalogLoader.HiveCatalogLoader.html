@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10};
+var methods = {"i0":10,"i1":10,"i2":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -107,7 +107,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>java.io.Serializable, <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink">CatalogLoader</a></dd>
+<dd>java.io.Serializable, java.lang.Cloneable, <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink">CatalogLoader</a></dd>
 </dl>
 <dl>
 <dt>Enclosing interface:</dt>
@@ -156,12 +156,18 @@ implements <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" tit
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink">CatalogLoader</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/CatalogLoader.HiveCatalogLoader.html#clone--">clone</a></span>()</code>
+<div class="block">Clone a CatalogLoader.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/CatalogLoader.HiveCatalogLoader.html#loadCatalog--">loadCatalog</a></span>()</code>
 <div class="block">Create a new catalog with the provided properties.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/CatalogLoader.HiveCatalogLoader.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -171,7 +177,7 @@ implements <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" tit
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, wait, wait, wait</code></li>
+<code>equals, finalize, getClass, hashCode, notify, notifyAll, wait, wait, wait</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.org.apache.iceberg.flink.CatalogLoader">
@@ -211,6 +217,23 @@ implements <a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" tit
 <dd><code><a href="../../../../org/apache/iceberg/flink/CatalogLoader.html#loadCatalog--">loadCatalog</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink">CatalogLoader</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a newly created <a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog"><code>Catalog</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="clone--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>clone</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink">CatalogLoader</a>&nbsp;clone()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/flink/CatalogLoader.html#clone--">CatalogLoader</a></code></span></div>
+<div class="block">Clone a CatalogLoader.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../org/apache/iceberg/flink/CatalogLoader.html#clone--">clone</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink">CatalogLoader</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code>clone</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
 </dl>
 </li>
 </ul>

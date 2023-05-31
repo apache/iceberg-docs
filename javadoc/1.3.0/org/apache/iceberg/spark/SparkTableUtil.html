@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":41,"i11":41,"i12":41,"i13":9,"i14":9,"i15":9,"i16":9};
-var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -145,7 +145,7 @@ extends java.lang.Object</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -238,61 +238,26 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i10" class="altColor">
-<td class="colFirst"><code>static java.util.List&lt;<a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkTableUtil.html#listPartition-org.apache.iceberg.spark.SparkTableUtil.SparkPartition-org.apache.iceberg.PartitionSpec-org.apache.iceberg.hadoop.SerializableConfiguration-org.apache.iceberg.MetricsConfig-">listPartition</a></span>(<a href="../../../../org/apache/iceberg/spark/SparkTableUtil.SparkPartition.html" title="class in org.apache.iceberg.spark">SparkTableUtil.SparkPartition</a>&nbsp;partition,
-             <a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec,
-             <a href="../../../../org/apache/iceberg/hadoop/SerializableConfiguration.html" title="class in org.apache.iceberg.hadoop">SerializableConfiguration</a>&nbsp;conf,
-             <a href="../../../../org/apache/iceberg/MetricsConfig.html" title="class in org.apache.iceberg">MetricsConfig</a>&nbsp;metricsConfig)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">use <a href="../../../../org/apache/iceberg/data/TableMigrationUtil.html#listPartition-java.util.Map-java.lang.String-java.lang.String-org.apache.iceberg.PartitionSpec-org.apache.hadoop.conf.Configuration-org.apache.iceberg.MetricsConfig-org.apache.iceberg.mapping.NameMapping-"><code>TableMigrationUtil.listPartition(Map, String, String, PartitionSpec,
-     Configuration, MetricsConfig, NameMapping)</code></a></span></div>
-</div>
-</td>
-</tr>
-<tr id="i11" class="rowColor">
-<td class="colFirst"><code>static java.util.List&lt;<a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkTableUtil.html#listPartition-org.apache.iceberg.spark.SparkTableUtil.SparkPartition-org.apache.iceberg.PartitionSpec-org.apache.iceberg.hadoop.SerializableConfiguration-org.apache.iceberg.MetricsConfig-org.apache.iceberg.mapping.NameMapping-">listPartition</a></span>(<a href="../../../../org/apache/iceberg/spark/SparkTableUtil.SparkPartition.html" title="class in org.apache.iceberg.spark">SparkTableUtil.SparkPartition</a>&nbsp;partition,
-             <a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec,
-             <a href="../../../../org/apache/iceberg/hadoop/SerializableConfiguration.html" title="class in org.apache.iceberg.hadoop">SerializableConfiguration</a>&nbsp;conf,
-             <a href="../../../../org/apache/iceberg/MetricsConfig.html" title="class in org.apache.iceberg">MetricsConfig</a>&nbsp;metricsConfig,
-             <a href="../../../../org/apache/iceberg/mapping/NameMapping.html" title="class in org.apache.iceberg.mapping">NameMapping</a>&nbsp;mapping)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">use <a href="../../../../org/apache/iceberg/data/TableMigrationUtil.html#listPartition-java.util.Map-java.lang.String-java.lang.String-org.apache.iceberg.PartitionSpec-org.apache.hadoop.conf.Configuration-org.apache.iceberg.MetricsConfig-org.apache.iceberg.mapping.NameMapping-"><code>TableMigrationUtil.listPartition(Map, String, String, PartitionSpec,
-     Configuration, MetricsConfig, NameMapping)</code></a></span></div>
-</div>
-</td>
-</tr>
-<tr id="i12" class="altColor">
-<td class="colFirst"><code>static org.apache.spark.sql.Dataset&lt;org.apache.spark.sql.Row&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkTableUtil.html#loadCatalogMetadataTable-org.apache.spark.sql.SparkSession-org.apache.iceberg.Table-org.apache.iceberg.MetadataTableType-">loadCatalogMetadataTable</a></span>(org.apache.spark.sql.SparkSession&nbsp;spark,
-                        <a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
-                        <a href="../../../../org/apache/iceberg/MetadataTableType.html" title="enum in org.apache.iceberg">MetadataTableType</a>&nbsp;type)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">since 0.14.0, will be removed in 0.15.0; use <a href="../../../../org/apache/iceberg/spark/SparkTableUtil.html#loadMetadataTable-org.apache.spark.sql.SparkSession-org.apache.iceberg.Table-org.apache.iceberg.MetadataTableType-"><code>loadMetadataTable(SparkSession, Table, MetadataTableType)</code></a>.</span></div>
-</div>
-</td>
-</tr>
-<tr id="i13" class="rowColor">
 <td class="colFirst"><code>static org.apache.spark.sql.Dataset&lt;org.apache.spark.sql.Row&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkTableUtil.html#loadMetadataTable-org.apache.spark.sql.SparkSession-org.apache.iceberg.Table-org.apache.iceberg.MetadataTableType-">loadMetadataTable</a></span>(org.apache.spark.sql.SparkSession&nbsp;spark,
                  <a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
                  <a href="../../../../org/apache/iceberg/MetadataTableType.html" title="enum in org.apache.iceberg">MetadataTableType</a>&nbsp;type)</code>&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>static org.apache.spark.sql.Dataset&lt;org.apache.spark.sql.Row&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkTableUtil.html#loadMetadataTable-org.apache.spark.sql.SparkSession-org.apache.iceberg.Table-org.apache.iceberg.MetadataTableType-java.util.Map-">loadMetadataTable</a></span>(org.apache.spark.sql.SparkSession&nbsp;spark,
                  <a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
                  <a href="../../../../org/apache/iceberg/MetadataTableType.html" title="enum in org.apache.iceberg">MetadataTableType</a>&nbsp;type,
                  java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;extraOptions)</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>static org.apache.spark.sql.Dataset&lt;org.apache.spark.sql.Row&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkTableUtil.html#partitionDF-org.apache.spark.sql.SparkSession-java.lang.String-">partitionDF</a></span>(org.apache.spark.sql.SparkSession&nbsp;spark,
            java.lang.String&nbsp;table)</code>
 <div class="block">Returns a DataFrame with a row for each partition in the table.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>static org.apache.spark.sql.Dataset&lt;org.apache.spark.sql.Row&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkTableUtil.html#partitionDFByFilter-org.apache.spark.sql.SparkSession-java.lang.String-java.lang.String-">partitionDFByFilter</a></span>(org.apache.spark.sql.SparkSession&nbsp;spark,
                    java.lang.String&nbsp;table,
@@ -441,62 +406,6 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="listPartition-org.apache.iceberg.spark.SparkTableUtil.SparkPartition-org.apache.iceberg.PartitionSpec-org.apache.iceberg.hadoop.SerializableConfiguration-org.apache.iceberg.MetricsConfig-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>listPartition</h4>
-<pre>@Deprecated
-public static&nbsp;java.util.List&lt;<a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;&nbsp;listPartition(<a href="../../../../org/apache/iceberg/spark/SparkTableUtil.SparkPartition.html" title="class in org.apache.iceberg.spark">SparkTableUtil.SparkPartition</a>&nbsp;partition,
-                                                                 <a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec,
-                                                                 <a href="../../../../org/apache/iceberg/hadoop/SerializableConfiguration.html" title="class in org.apache.iceberg.hadoop">SerializableConfiguration</a>&nbsp;conf,
-                                                                 <a href="../../../../org/apache/iceberg/MetricsConfig.html" title="class in org.apache.iceberg">MetricsConfig</a>&nbsp;metricsConfig)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">use <a href="../../../../org/apache/iceberg/data/TableMigrationUtil.html#listPartition-java.util.Map-java.lang.String-java.lang.String-org.apache.iceberg.PartitionSpec-org.apache.hadoop.conf.Configuration-org.apache.iceberg.MetricsConfig-org.apache.iceberg.mapping.NameMapping-"><code>TableMigrationUtil.listPartition(Map, String, String, PartitionSpec,
-     Configuration, MetricsConfig, NameMapping)</code></a></span></div>
-<div class="block">Returns the data files in a partition by listing the partition location.
-
- <p>For Parquet and ORC partitions, this will read metrics from the file footer. For Avro
- partitions, metrics are set to null.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>partition</code> - a partition</dd>
-<dd><code>conf</code> - a serializable Hadoop conf</dd>
-<dd><code>metricsConfig</code> - a metrics conf</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a List of DataFile</dd>
-</dl>
-</li>
-</ul>
-<a name="listPartition-org.apache.iceberg.spark.SparkTableUtil.SparkPartition-org.apache.iceberg.PartitionSpec-org.apache.iceberg.hadoop.SerializableConfiguration-org.apache.iceberg.MetricsConfig-org.apache.iceberg.mapping.NameMapping-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>listPartition</h4>
-<pre>@Deprecated
-public static&nbsp;java.util.List&lt;<a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;&nbsp;listPartition(<a href="../../../../org/apache/iceberg/spark/SparkTableUtil.SparkPartition.html" title="class in org.apache.iceberg.spark">SparkTableUtil.SparkPartition</a>&nbsp;partition,
-                                                                 <a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec,
-                                                                 <a href="../../../../org/apache/iceberg/hadoop/SerializableConfiguration.html" title="class in org.apache.iceberg.hadoop">SerializableConfiguration</a>&nbsp;conf,
-                                                                 <a href="../../../../org/apache/iceberg/MetricsConfig.html" title="class in org.apache.iceberg">MetricsConfig</a>&nbsp;metricsConfig,
-                                                                 <a href="../../../../org/apache/iceberg/mapping/NameMapping.html" title="class in org.apache.iceberg.mapping">NameMapping</a>&nbsp;mapping)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">use <a href="../../../../org/apache/iceberg/data/TableMigrationUtil.html#listPartition-java.util.Map-java.lang.String-java.lang.String-org.apache.iceberg.PartitionSpec-org.apache.hadoop.conf.Configuration-org.apache.iceberg.MetricsConfig-org.apache.iceberg.mapping.NameMapping-"><code>TableMigrationUtil.listPartition(Map, String, String, PartitionSpec,
-     Configuration, MetricsConfig, NameMapping)</code></a></span></div>
-<div class="block">Returns the data files in a partition by listing the partition location.
-
- <p>For Parquet and ORC partitions, this will read metrics from the file footer. For Avro
- partitions, metrics are set to null.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>partition</code> - a partition</dd>
-<dd><code>conf</code> - a serializable Hadoop conf</dd>
-<dd><code>metricsConfig</code> - a metrics conf</dd>
-<dd><code>mapping</code> - a name mapping</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a List of DataFile</dd>
-</dl>
-</li>
-</ul>
 <a name="importSparkTable-org.apache.spark.sql.SparkSession-org.apache.spark.sql.catalyst.TableIdentifier-org.apache.iceberg.Table-java.lang.String-java.util.Map-boolean-">
 <!--   -->
 </a>
@@ -627,20 +536,6 @@ public static&nbsp;java.util.List&lt;<a href="../../../../org/apache/iceberg/Dat
 <h4>filterPartitions</h4>
 <pre>public static&nbsp;java.util.List&lt;<a href="../../../../org/apache/iceberg/spark/SparkTableUtil.SparkPartition.html" title="class in org.apache.iceberg.spark">SparkTableUtil.SparkPartition</a>&gt;&nbsp;filterPartitions(java.util.List&lt;<a href="../../../../org/apache/iceberg/spark/SparkTableUtil.SparkPartition.html" title="class in org.apache.iceberg.spark">SparkTableUtil.SparkPartition</a>&gt;&nbsp;partitions,
                                                                              java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;partitionFilter)</pre>
-</li>
-</ul>
-<a name="loadCatalogMetadataTable-org.apache.spark.sql.SparkSession-org.apache.iceberg.Table-org.apache.iceberg.MetadataTableType-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>loadCatalogMetadataTable</h4>
-<pre>@Deprecated
-public static&nbsp;org.apache.spark.sql.Dataset&lt;org.apache.spark.sql.Row&gt;&nbsp;loadCatalogMetadataTable(org.apache.spark.sql.SparkSession&nbsp;spark,
-                                                                                                          <a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
-                                                                                                          <a href="../../../../org/apache/iceberg/MetadataTableType.html" title="enum in org.apache.iceberg">MetadataTableType</a>&nbsp;type)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">since 0.14.0, will be removed in 0.15.0; use <a href="../../../../org/apache/iceberg/spark/SparkTableUtil.html#loadMetadataTable-org.apache.spark.sql.SparkSession-org.apache.iceberg.Table-org.apache.iceberg.MetadataTableType-"><code>loadMetadataTable(SparkSession, Table, MetadataTableType)</code></a>.</span></div>
-<div class="block">Loads a metadata table.</div>
 </li>
 </ul>
 <a name="loadMetadataTable-org.apache.spark.sql.SparkSession-org.apache.iceberg.Table-org.apache.iceberg.MetadataTableType-">

@@ -147,21 +147,33 @@
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/actions/FileRewriter.html" title="interface in org.apache.iceberg.actions">FileRewriter</a>&lt;T extends <a href="../../../../org/apache/iceberg/ContentScanTask.html" title="interface in org.apache.iceberg">ContentScanTask</a>&lt;F&gt;,F extends <a href="../../../../org/apache/iceberg/ContentFile.html" title="interface in org.apache.iceberg">ContentFile</a>&lt;F&gt;&gt;</td>
+<td class="colLast">
+<div class="block">A class for rewriting content files.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/actions/MigrateTable.html" title="interface in org.apache.iceberg.actions">MigrateTable</a></td>
 <td class="colLast">
 <div class="block">An action that migrates an existing table to Iceberg.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/actions/MigrateTable.Result.html" title="interface in org.apache.iceberg.actions">MigrateTable.Result</a></td>
 <td class="colLast">
 <div class="block">The action result that contains a summary of the execution.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles</a></td>
 <td class="colLast">
 <div class="block">An action for rewriting data files according to a rewrite strategy.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.FileGroupFailureResult.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles.FileGroupFailureResult</a></td>
+<td class="colLast">
+<div class="block">For a file group that failed to rewrite.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -202,6 +214,21 @@
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.FileGroupInfo.html" title="interface in org.apache.iceberg.actions">RewritePositionDeleteFiles.FileGroupInfo</a></td>
+<td class="colLast">
+<div class="block">A description of a position delete file group, when it was processed, and within which
+ partition.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.FileGroupRewriteResult.html" title="interface in org.apache.iceberg.actions">RewritePositionDeleteFiles.FileGroupRewriteResult</a></td>
+<td class="colLast">
+<div class="block">For a particular position delete file group, the number of position delete files which are
+ newly created and the number of files which were formerly part of the table but have been
+ rewritten.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.Result.html" title="interface in org.apache.iceberg.actions">RewritePositionDeleteFiles.Result</a></td>
 <td class="colLast">
 <div class="block">The action result that contains a summary of the execution.</div>
@@ -209,13 +236,15 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteStrategy.html" title="interface in org.apache.iceberg.actions">RewritePositionDeleteStrategy</a></td>
-<td class="colLast">
-<div class="block">A strategy for an action to rewrite position delete files.</div>
+<td class="colLast">Deprecated
+<div class="block"><span class="deprecationComment">since 1.3.0, will be removed in 1.4.0; Use <a href="../../../../org/apache/iceberg/actions/SizeBasedFileRewriter.html" title="class in org.apache.iceberg.actions"><code>SizeBasedFileRewriter</code></a> instead</span></div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/actions/RewriteStrategy.html" title="interface in org.apache.iceberg.actions">RewriteStrategy</a></td>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">Deprecated
+<div class="block"><span class="deprecationComment">since 1.3.0, will be removed in 1.4.0; use <a href="../../../../org/apache/iceberg/actions/FileRewriter.html" title="interface in org.apache.iceberg.actions"><code>FileRewriter</code></a> instead.</span></div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/actions/SnapshotTable.html" title="interface in org.apache.iceberg.actions">SnapshotTable</a></td>
@@ -252,74 +281,115 @@
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/actions/BaseDeleteOrphanFilesActionResult.html" title="class in org.apache.iceberg.actions">BaseDeleteOrphanFilesActionResult</a></td>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">Deprecated
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0; use <code>ImmutableDeleteOrphanFiles.Result.builder()</code>
+     instead.</span></div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/actions/BaseDeleteReachableFilesActionResult.html" title="class in org.apache.iceberg.actions">BaseDeleteReachableFilesActionResult</a></td>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">Deprecated
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0; use <code>ImmutableDeleteReachableFiles.Result.builder()</code>
+     instead.</span></div>
+</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><a href="../../../../org/apache/iceberg/actions/BaseExpireSnapshotsActionResult.html" title="class in org.apache.iceberg.actions">BaseExpireSnapshotsActionResult</a></td>
+<td class="colFirst"><a href="../../../../org/apache/iceberg/actions/BaseFileGroupRewriteResult.html" title="class in org.apache.iceberg.actions">BaseFileGroupRewriteResult</a></td>
 <td class="colLast">Deprecated
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0.</span></div>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0; use <code>ImmutableRewriteDataFiles.FileGroupRewriteResult.builder()</code> instead.</span></div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><a href="../../../../org/apache/iceberg/actions/BaseFileGroupRewriteResult.html" title="class in org.apache.iceberg.actions">BaseFileGroupRewriteResult</a></td>
-<td class="colLast">&nbsp;</td>
+<td class="colFirst"><a href="../../../../org/apache/iceberg/actions/BaseMigrateTableActionResult.html" title="class in org.apache.iceberg.actions">BaseMigrateTableActionResult</a></td>
+<td class="colLast">Deprecated
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0; use <code>ImmutableMigrateTable.Result.builder()</code> instead.</span></div>
+</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><a href="../../../../org/apache/iceberg/actions/BaseMigrateTableActionResult.html" title="class in org.apache.iceberg.actions">BaseMigrateTableActionResult</a></td>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/actions/BaseRewriteDataFilesAction.html" title="class in org.apache.iceberg.actions">BaseRewriteDataFilesAction</a>&lt;ThisT&gt;</td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/actions/BaseRewriteDataFilesFileGroupInfo.html" title="class in org.apache.iceberg.actions">BaseRewriteDataFilesFileGroupInfo</a></td>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">Deprecated
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0; use <code>ImmutableRewriteDataFiles.FileGroupInfo.builder()</code> instead.</span></div>
+</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/actions/BaseRewriteDataFilesResult.html" title="class in org.apache.iceberg.actions">BaseRewriteDataFilesResult</a></td>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><a href="../../../../org/apache/iceberg/actions/BaseRewriteManifestsActionResult.html" title="class in org.apache.iceberg.actions">BaseRewriteManifestsActionResult</a></td>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><a href="../../../../org/apache/iceberg/actions/BaseSnapshotTableActionResult.html" title="class in org.apache.iceberg.actions">BaseSnapshotTableActionResult</a></td>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html" title="class in org.apache.iceberg.actions">BinPackStrategy</a></td>
-<td class="colLast">
-<div class="block">A rewrite strategy for data files which determines which files to rewrite based on their size.</div>
+<td class="colLast">Deprecated
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0; use <code>ImmutableRewriteDataFiles.Result.builder()</code>
+     instead.</span></div>
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/actions/BaseRewriteManifestsActionResult.html" title="class in org.apache.iceberg.actions">BaseRewriteManifestsActionResult</a></td>
+<td class="colLast">Deprecated
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0; use <code>ImmutableRewriteManifests.Result.builder()</code>
+     instead.</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/actions/BaseSnapshotTableActionResult.html" title="class in org.apache.iceberg.actions">BaseSnapshotTableActionResult</a></td>
+<td class="colLast">Deprecated
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0; use <code>ImmutableSnapshotTable.Result.builder()</code>
+     instead.</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/actions/BinPackStrategy.html" title="class in org.apache.iceberg.actions">BinPackStrategy</a></td>
+<td class="colLast">Deprecated
+<div class="block"><span class="deprecationComment">since 1.3.0, will be removed in 1.4.0; use <a href="../../../../org/apache/iceberg/actions/SizeBasedFileRewriter.html" title="class in org.apache.iceberg.actions"><code>SizeBasedFileRewriter</code></a> instead.</span></div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/actions/RewriteDataFilesActionResult.html" title="class in org.apache.iceberg.actions">RewriteDataFilesActionResult</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/actions/RewriteDataFilesCommitManager.html" title="class in org.apache.iceberg.actions">RewriteDataFilesCommitManager</a></td>
 <td class="colLast">
 <div class="block">Functionality used by RewriteDataFile Actions from different platforms to handle commits.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/actions/RewriteFileGroup.html" title="class in org.apache.iceberg.actions">RewriteFileGroup</a></td>
 <td class="colLast">
 <div class="block">Container class representing a set of files to be rewritten by a RewriteAction and the new files
  which have been written by the action.</div>
 </td>
 </tr>
-<tr class="rowColor">
-<td class="colFirst"><a href="../../../../org/apache/iceberg/actions/SortStrategy.html" title="class in org.apache.iceberg.actions">SortStrategy</a></td>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/actions/RewritePositionDeletesCommitManager.html" title="class in org.apache.iceberg.actions">RewritePositionDeletesCommitManager</a></td>
 <td class="colLast">
-<div class="block">A rewrite strategy for data files which aims to reorder data with data files to optimally lay
- them out in relation to a column.</div>
+<div class="block">Functionality used by <a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.html" title="interface in org.apache.iceberg.actions"><code>RewritePositionDeleteFiles</code></a> from different platforms to handle
+ commits.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/actions/RewritePositionDeletesGroup.html" title="class in org.apache.iceberg.actions">RewritePositionDeletesGroup</a></td>
+<td class="colLast">
+<div class="block">Container class representing a set of position delete files to be rewritten by a <a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.html" title="interface in org.apache.iceberg.actions"><code>RewritePositionDeleteFiles</code></a> and the new files which have been written by the action.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/actions/SizeBasedDataRewriter.html" title="class in org.apache.iceberg.actions">SizeBasedDataRewriter</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/actions/SizeBasedFileRewriter.html" title="class in org.apache.iceberg.actions">SizeBasedFileRewriter</a>&lt;T extends <a href="../../../../org/apache/iceberg/ContentScanTask.html" title="interface in org.apache.iceberg">ContentScanTask</a>&lt;F&gt;,F extends <a href="../../../../org/apache/iceberg/ContentFile.html" title="interface in org.apache.iceberg">ContentFile</a>&lt;F&gt;&gt;</td>
+<td class="colLast">
+<div class="block">A file rewriter that determines which files to rewrite based on their size.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/actions/SizeBasedPositionDeletesRewriter.html" title="class in org.apache.iceberg.actions">SizeBasedPositionDeletesRewriter</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/actions/SortStrategy.html" title="class in org.apache.iceberg.actions">SortStrategy</a></td>
+<td class="colLast">Deprecated
+<div class="block"><span class="deprecationComment">since 1.3.0, will be removed in 1.4.0; use <a href="../../../../org/apache/iceberg/actions/SizeBasedFileRewriter.html" title="class in org.apache.iceberg.actions"><code>SizeBasedFileRewriter</code></a> instead.</span></div>
 </td>
 </tr>
 </tbody>

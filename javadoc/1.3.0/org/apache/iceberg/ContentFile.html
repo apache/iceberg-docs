@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":18,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6,"i16":18,"i17":6,"i18":6,"i19":6,"i20":6};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":18,"i4":6,"i5":18,"i6":6,"i7":18,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6,"i16":6,"i17":6,"i18":18,"i19":6,"i20":6,"i21":6,"i22":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -162,97 +162,109 @@ var activeTableTab = "activeTableTab";
 </td>
 </tr>
 <tr id="i5" class="rowColor">
+<td class="colFirst"><code>default java.lang.Long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#dataSequenceNumber--">dataSequenceNumber</a></span>()</code>
+<div class="block">Returns the data sequence number of the file.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;java.lang.Integer&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#equalityFieldIds--">equalityFieldIds</a></span>()</code>
 <div class="block">Returns the set of field IDs used for equality comparison, in equality delete files.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>default java.lang.Long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#fileSequenceNumber--">fileSequenceNumber</a></span>()</code>
+<div class="block">Returns the file sequence number.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#fileSizeInBytes--">fileSizeInBytes</a></span>()</code>
 <div class="block">Returns the file size in bytes.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/FileFormat.html" title="enum in org.apache.iceberg">FileFormat</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#format--">format</a></span>()</code>
 <div class="block">Returns format of the file.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.nio.ByteBuffer</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#keyMetadata--">keyMetadata</a></span>()</code>
 <div class="block">Returns metadata about how this file is encrypted, or null if the file is stored in plain text.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.Integer,java.nio.ByteBuffer&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#lowerBounds--">lowerBounds</a></span>()</code>
 <div class="block">Returns if collected, map from column ID to value lower bounds, null otherwise.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.Integer,java.lang.Long&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#nanValueCounts--">nanValueCounts</a></span>()</code>
 <div class="block">Returns if collected, map from column ID to its NaN value count, null otherwise.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.Integer,java.lang.Long&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#nullValueCounts--">nullValueCounts</a></span>()</code>
 <div class="block">Returns if collected, map from column ID to its null value count, null otherwise.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#partition--">partition</a></span>()</code>
 <div class="block">Returns partition for this file as a <a href="../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg"><code>StructLike</code></a>.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>java.lang.CharSequence</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#path--">path</a></span>()</code>
 <div class="block">Returns fully qualified path to the file, suitable for constructing a Hadoop Path.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>java.lang.Long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#pos--">pos</a></span>()</code>
 <div class="block">Returns the ordinal position of the file in a manifest, or null if it was not read from a
  manifest.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#recordCount--">recordCount</a></span>()</code>
 <div class="block">Returns the number of top-level records in the file.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>default java.lang.Integer</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#sortOrderId--">sortOrderId</a></span>()</code>
 <div class="block">Returns the sort order id of this file, which describes how the file is ordered.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#specId--">specId</a></span>()</code>
 <div class="block">Returns id of the partition spec used for partition metadata.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;java.lang.Long&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#splitOffsets--">splitOffsets</a></span>()</code>
 <div class="block">Returns list of recommended split locations, if applicable, null otherwise.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.Integer,java.nio.ByteBuffer&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#upperBounds--">upperBounds</a></span>()</code>
 <div class="block">Returns if collected, map from column ID to value upper bounds, null otherwise.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.Integer,java.lang.Long&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ContentFile.html#valueCounts--">valueCounts</a></span>()</code>
 <div class="block">Returns if collected, map from column ID to the count of its non-null values, null otherwise.</div>
@@ -466,6 +478,46 @@ var activeTableTab = "activeTableTab";
 <div class="block">Returns the sort order id of this file, which describes how the file is ordered. This
  information will be useful for merging data and equality delete files more efficiently when
  they share the same sort order id.</div>
+</li>
+</ul>
+<a name="dataSequenceNumber--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>dataSequenceNumber</h4>
+<pre>default&nbsp;java.lang.Long&nbsp;dataSequenceNumber()</pre>
+<div class="block">Returns the data sequence number of the file.
+
+ <p>This method represents the sequence number to which the file should apply. Note the data
+ sequence number may differ from the sequence number of the snapshot in which the underlying
+ file was added (a.k.a the file sequence number). New snapshots can add files that belong to
+ older sequence numbers (e.g. compaction). The data sequence number also does not change when
+ the file is marked as deleted.
+
+ <p>This method can return null if the data sequence number is unknown. This may happen while
+ reading a v2 manifest that did not persist the data sequence number for manifest entries with
+ status DELETED (older Iceberg versions).</div>
+</li>
+</ul>
+<a name="fileSequenceNumber--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>fileSequenceNumber</h4>
+<pre>default&nbsp;java.lang.Long&nbsp;fileSequenceNumber()</pre>
+<div class="block">Returns the file sequence number.
+
+ <p>The file sequence number represents the sequence number of the snapshot in which the
+ underlying file was added. The file sequence number is always assigned at commit and cannot be
+ provided explicitly, unlike the data sequence number. The file sequence number does not change
+ upon assigning. In case of rewrite (like compaction), file sequence number can be higher than
+ the data sequence number.
+
+ <p>This method can return null if the file sequence number is unknown. This may happen while
+ reading a v2 manifest that did not persist the file sequence number for manifest entries with
+ status EXISTING or DELETED (older Iceberg versions).</div>
 </li>
 </ul>
 <a name="copy--">

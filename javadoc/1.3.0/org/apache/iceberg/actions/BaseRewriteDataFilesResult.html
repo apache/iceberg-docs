@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var methods = {"i0":42};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -110,8 +110,13 @@ var activeTableTab = "activeTableTab";
 <dd><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.Result.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles.Result</a></dd>
 </dl>
 <hr>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0; use <code>ImmutableRewriteDataFiles.Result.builder()</code>
+     instead.</span></div>
+</div>
 <br>
-<pre>public class <span class="typeNameLabel">BaseRewriteDataFilesResult</span>
+<pre>@Deprecated
+public class <span class="typeNameLabel">BaseRewriteDataFilesResult</span>
 extends java.lang.Object
 implements <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.Result.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles.Result</a></pre>
 </li>
@@ -132,7 +137,9 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.Resu
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BaseRewriteDataFilesResult.html#BaseRewriteDataFilesResult-java.util.List-">BaseRewriteDataFilesResult</a></span>(java.util.List&lt;<a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.FileGroupRewriteResult.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles.FileGroupRewriteResult</a>&gt;&nbsp;rewriteResults)</code>&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BaseRewriteDataFilesResult.html#BaseRewriteDataFilesResult-java.util.List-">BaseRewriteDataFilesResult</a></span>(java.util.List&lt;<a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.FileGroupRewriteResult.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles.FileGroupRewriteResult</a>&gt;&nbsp;rewriteResults)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -144,14 +151,16 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.Resu
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.FileGroupRewriteResult.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles.FileGroupRewriteResult</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BaseRewriteDataFilesResult.html#rewriteResults--">rewriteResults</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BaseRewriteDataFilesResult.html#rewriteResults--">rewriteResults</a></span>()</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -166,7 +175,7 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.Resu
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.iceberg.actions.<a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.Result.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles.Result</a></h3>
-<code><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.Result.html#addedDataFilesCount--">addedDataFilesCount</a>, <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.Result.html#rewrittenBytesCount--">rewrittenBytesCount</a>, <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.Result.html#rewrittenDataFilesCount--">rewrittenDataFilesCount</a></code></li>
+<code><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.Result.html#addedDataFilesCount--">addedDataFilesCount</a>, <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.Result.html#failedDataFilesCount--">failedDataFilesCount</a>, <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.Result.html#rewriteFailures--">rewriteFailures</a>, <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.Result.html#rewrittenBytesCount--">rewrittenBytesCount</a>, <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.Result.html#rewrittenDataFilesCount--">rewrittenDataFilesCount</a></code></li>
 </ul>
 </li>
 </ul>
@@ -189,6 +198,7 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.Resu
 <li class="blockList">
 <h4>BaseRewriteDataFilesResult</h4>
 <pre>public&nbsp;BaseRewriteDataFilesResult(java.util.List&lt;<a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.FileGroupRewriteResult.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles.FileGroupRewriteResult</a>&gt;&nbsp;rewriteResults)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </li>
 </ul>
 </li>
@@ -206,6 +216,7 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.Resu
 <li class="blockList">
 <h4>rewriteResults</h4>
 <pre>public&nbsp;java.util.List&lt;<a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.FileGroupRewriteResult.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles.FileGroupRewriteResult</a>&gt;&nbsp;rewriteResults()</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.Result.html#rewriteResults--">rewriteResults</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.Result.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles.Result</a></code></dd>
