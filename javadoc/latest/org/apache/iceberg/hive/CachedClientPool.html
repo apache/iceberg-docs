@@ -114,6 +114,21 @@ var activeTableTab = "activeTableTab";
 <pre>public class <span class="typeNameLabel">CachedClientPool</span>
 extends java.lang.Object
 implements <a href="../../../../org/apache/iceberg/ClientPool.html" title="interface in org.apache.iceberg">ClientPool</a>&lt;org.apache.hadoop.hive.metastore.IMetaStoreClient,org.apache.thrift.TException&gt;</pre>
+<div class="block">A ClientPool that caches the underlying HiveClientPool instances.
+
+ <p>The following key elements are supported and can be specified via <a href="../../../../org/apache/iceberg/CatalogProperties.html#CLIENT_POOL_CACHE_KEYS"><code>CatalogProperties.CLIENT_POOL_CACHE_KEYS</code></a>:
+
+ <ul>
+   <li>ugi - the Hadoop UserGroupInformation instance that represents the current user using the
+       cache.
+   <li>user_name - similar to UGI but only includes the user's name determined by
+       UserGroupInformation#getUserName.
+   <li>conf - name of an arbitrary configuration. The value of the configuration will be extracted
+       from catalog properties and added to the cache key. A conf element should start with a
+       "conf:" prefix which is followed by the configuration name. E.g. specifying "conf:a.b.c"
+       will add "a.b.c" to the key, and so that configurations with different default catalog
+       wouldn't share the same client pool. Multiple conf elements can be specified.
+ </ul></div>
 </li>
 </ul>
 </div>

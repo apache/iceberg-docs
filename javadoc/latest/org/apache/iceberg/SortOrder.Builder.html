@@ -152,7 +152,9 @@ implements <a href="../../../org/apache/iceberg/SortOrderBuilder.html" title="in
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/SortOrder.Builder.html" title="class in org.apache.iceberg">SortOrder.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SortOrder.Builder.html#caseSensitive-boolean-">caseSensitive</a></span>(boolean&nbsp;sortCaseSensitive)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SortOrder.Builder.html#caseSensitive-boolean-">caseSensitive</a></span>(boolean&nbsp;sortCaseSensitive)</code>
+<div class="block">Set case sensitivity of sort column name resolution.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/SortOrder.Builder.html" title="class in org.apache.iceberg">SortOrder.Builder</a></code></td>
@@ -284,6 +286,16 @@ implements <a href="../../../org/apache/iceberg/SortOrderBuilder.html" title="in
 <li class="blockList">
 <h4>caseSensitive</h4>
 <pre>public&nbsp;<a href="../../../org/apache/iceberg/SortOrder.Builder.html" title="class in org.apache.iceberg">SortOrder.Builder</a>&nbsp;caseSensitive(boolean&nbsp;sortCaseSensitive)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/SortOrderBuilder.html#caseSensitive-boolean-">SortOrderBuilder</a></code></span></div>
+<div class="block">Set case sensitivity of sort column name resolution.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/SortOrderBuilder.html#caseSensitive-boolean-">caseSensitive</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/SortOrderBuilder.html" title="interface in org.apache.iceberg">SortOrderBuilder</a>&lt;<a href="../../../org/apache/iceberg/SortOrder.Builder.html" title="class in org.apache.iceberg">SortOrder.Builder</a>&gt;</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sortCaseSensitive</code> - when true, column name resolution is case-sensitive</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
 </li>
 </ul>
 <a name="build--">
