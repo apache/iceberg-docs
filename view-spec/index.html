@@ -3,130 +3,147 @@
 <span class=icon-bar></span>
 <span class=icon-bar></span>
 <span class=icon-bar></span></button>
-<a class="page-scroll navbar-brand" href=https://iceberg.apache.org/><img class=top-navbar-logo src=https://iceberg.apache.org//img/iceberg-logo-icon.png> Apache Iceberg</a></div><div><input type=search class=form-control id=search-input placeholder=Search... maxlength=64 data-hotkeys=s/></div><div class=versions-dropdown><span>1.2.1</span> <i class="fa fa-chevron-down"></i><div class=versions-dropdown-content><ul><li class=versions-dropdown-selection><a href=/docs/latest>latest</a></li><li class=versions-dropdown-selection><a href=/docs/1.2.1>1.2.1</a></li><li class=versions-dropdown-selection><a href=/docs/1.2.0>1.2.0</a></li><li class=versions-dropdown-selection><a href=/docs/1.1.0>1.1.0</a></li><li class=versions-dropdown-selection><a href=/docs/1.0.0>1.0.0</a></li><li class=versions-dropdown-selection><a href=/docs/0.14.1>0.14.1</a></li><li class=versions-dropdown-selection><a href=/docs/0.14.0>0.14.0</a></li><li class=versions-dropdown-selection><a href=/docs/0.13.2>0.13.2</a></li><li class=versions-dropdown-selection><a href=/docs/0.13.1>0.13.1</a></li><li class=versions-dropdown-selection><a href=/docs/0.13.0>0.13.0</a></li><li class=versions-dropdown-selection><a href=/docs/0.12.1>0.12.1</a></li></ul></div></div></div><div class="navbar-menu-fixed-top navbar-pages-group"><div class=topnav-page-selection><a href=/spark-quickstart>Quickstart</a></div class="topnav-page-selection"><div class=topnav-page-selection><a href=/docs/latest>Docs</a></div class="topnav-page-selection"><div class=topnav-page-selection><a href=/releases>Releases</a></div class="topnav-page-selection"><div class=topnav-page-selection><a href=/roadmap>Roadmap</a></div class="topnav-page-selection"><div class=topnav-page-selection><a href=/blogs>Blogs</a></div class="topnav-page-selection"><div class=topnav-page-selection><a href=/talks>Talks</a></div class="topnav-page-selection"><div class=topnav-page-selection><a href=/vendors>Vendors</a></div class="topnav-page-selection"><div class=versions-dropdown><div class=topnav-page-selection><a href>Project</a> <i class="fa fa-chevron-down"></i></div class="topnav-page-selection"><div class=versions-dropdown-content><ul><li class=topnav-page-selection><a href=/community>Join</a></li class="topnav-page-selection"><li class=topnav-page-selection><a href=/spec>Spec</a></li class="topnav-page-selection"><li class=topnav-page-selection><a id=active href=/view-spec>View Spec</a></li class="topnav-page-selection"><li class=topnav-page-selection><a href=/puffin-spec>Puffin Spec</a></li class="topnav-page-selection"><li class=topnav-page-selection><a href=/multi-engine-support>Multi-Engine Support</a></li class="topnav-page-selection"><li class=topnav-page-selection><a href=/how-to-release>How To Release</a></li class="topnav-page-selection"><li class=topnav-page-selection><a href=/terms>Terms</a></li class="topnav-page-selection"></ul></div></div><div class=versions-dropdown><div class=topnav-page-selection><a href>ASF</a> <i class="fa fa-chevron-down"></i></div class="topnav-page-selection"><div class=versions-dropdown-content><ul><li class=topnav-page-selection><a target=_blank href=https://www.apache.org/foundation/sponsorship.html>Donate</a></li class="topnav-page-selection"><li class=topnav-page-selection><a target=_blank href=https://www.apache.org/events/current-event.html>Events</a></li class="topnav-page-selection"><li class=topnav-page-selection><a target=_blank href=https://www.apache.org/licenses/>License</a></li class="topnav-page-selection"><li class=topnav-page-selection><a target=_blank href=https://www.apache.org/security/>Security</a></li class="topnav-page-selection"><li class=topnav-page-selection><a target=_blank href=https://www.apache.org/foundation/thanks.html>Sponsors</a></li class="topnav-page-selection"></ul></div></div><div class=topnav-page-selection><a href=https://github.com/apache/iceberg target=_blank><img src=https://iceberg.apache.org//img/GitHub-Mark.png target=_blank class=top-navbar-logo></a></div><div class=topnav-page-selection><a href=https://join.slack.com/t/apache-iceberg/shared_invite/zt-1uva9gyp1-TrLQl7o~nZ5PsTVgl6uoEQ target=_blank><img src=https://iceberg.apache.org//img/Slack_Mark_Web.png target=_blank class=top-navbar-logo></a></div></div></topsection></nav><section><div id=search-results-container><ul id=search-results></ul></div></section><body dir=" ltr"><section><div class="grid-container toc-only"><div id=content class=markdown-body><div class=margin-for-toc><h1 id=iceberg-view-spec>Iceberg View Spec</h1><h2 id=background-and-motivation>Background and Motivation</h2><p>Most compute engines (e.g. Trino and Apache Spark) support views. A view is a logical table that can be referenced by future queries. Views do not contain any data. Instead, the query stored by the view is executed every time the view is referenced by another query.</p><p>Each compute engine stores the metadata of the view in its proprietary format in the metastore of choice. Thus, views created from one engine can not be read or altered easily from another engine even when engines share the metastore as well as the storage system. This document standardizes the view metadata for ease of sharing the views across engines.</p><h2 id=goals>Goals</h2><ul><li>A common metadata format for view metadata, similar to how Iceberg supports a common table format for tables.</li></ul><h2 id=overview>Overview</h2><p>View metadata storage mirrors how Iceberg table metadata is stored and retrieved. View metadata is maintained in metadata files. All changes to view state create a new view metadata file and completely replace the old metadata using an atomic swap. Like Iceberg tables, this atomic swap is delegated to the metastore that tracks tables and/or views by name. The view metadata file tracks the view schema, custom properties, current and past versions, as well as other metadata.
-Each metadata file is self-sufficient. It contains the history of the last few operations performed on the view and can be used to roll back the view to a previous version.</p><h3 id=metadata-location>Metadata Location</h3><p>An atomic swap of one view metadata file for another provides the basis for making atomic changes. Readers use the version of the view that was current when they loaded the view metadata and are not affected by changes until they refresh and pick up a new metadata location.</p><p>Writers create view metadata files optimistically, assuming that the current metadata location will not be changed before the writer’s commit. Once a writer has created an update, it commits by swapping the view&rsquo;s metadata file pointer from the base location to the new location.</p><h2 id=specification>Specification</h2><h3 id=terms>Terms</h3><ul><li><strong>Schema</strong> &ndash; Names and types of fields in a view.</li><li><strong>Version</strong> &ndash; The state of a view at some point in time.</li></ul><h3 id=view-metadata>View Metadata</h3><p>The view version metadata file has the following fields:</p><table><thead><tr><th>Required/Optional</th><th>Field Name</th><th>Description</th></tr></thead><tbody><tr><td>Required</td><td>format-version</td><td>An integer version number for the view format. Currently, this must be 1. Implementations must throw an exception if the view&rsquo;s version is higher than the supported version.</td></tr><tr><td>Required</td><td>location</td><td>The view&rsquo;s base location. This is used to determine where to store view metadata files.</td></tr><tr><td>Required</td><td>current-version-id</td><td>Current version of the view. Set to ‘1’ when the view is first created.</td></tr><tr><td>Optional</td><td>properties</td><td>A string to string map of view properties. This is used for metadata such as &ldquo;comment&rdquo; and for settings that affect view maintenance. This is not intended to be used for arbitrary metadata.</td></tr><tr><td>Required</td><td>versions</td><td>An array of structs describing the known versions of the view. The number of versions to retain is controlled by the table property: “version.history.num-entries”. See section <a href=#versions>Versions</a>.</td></tr><tr><td>Required</td><td>version-log</td><td>A list of timestamp and version ID pairs that encodes changes to the current version for the view. Each time the current-version-id is changed, a new entry should be added with the last-updated-ms and the new current-version-id.</td></tr><tr><td>Optional</td><td>schemas</td><td>A list of schemas, the same as the ‘schemas’ field from Iceberg table spec.</td></tr><tr><td>Optional</td><td>current-schema-id</td><td>ID of the current schema of the view</td></tr></tbody></table><h4 id=versions>Versions</h4><p>Field &ldquo;versions&rdquo; is an array of structs with the following fields:</p><table><thead><tr><th>Required/Optional</th><th>Field Name</th><th>Description</th></tr></thead><tbody><tr><td>Required</td><td>version-id</td><td>Monotonically increasing id indicating the version of the view. Starts with 1.</td></tr><tr><td>Required</td><td>timestamp-ms</td><td>Timestamp expressed in ms since epoch at which the version of the view was created.</td></tr><tr><td>Required</td><td>summary</td><td>A string map summarizes the version changes, including <code>operation</code>, described in <a href=#summary>Summary</a>.</td></tr><tr><td>Required</td><td>representations</td><td>A list of &ldquo;representations&rdquo; as described in <a href=#representations>Representations</a>.</td></tr></tbody></table><h4 id=version-log>Version Log</h4><p>Field “version-log” is an array of structs that describe when each version was considered &ldquo;current&rdquo;. Creation time is different and is stored in each version&rsquo;s metadata. This allows you to reconstruct what someone would have seen at some point in time. If the view has been updated and rolled back, this will show it. The struct has the following fields:</p><table><thead><tr><th>Required/Optional</th><th>Field Name</th><th>Description</th></tr></thead><tbody><tr><td>Required</td><td>timestamp-ms</td><td>The timestamp when the referenced version was made the current version</td></tr><tr><td>Required</td><td>version-id</td><td>Version id of the view</td></tr></tbody></table><h4 id=summary>Summary</h4><p>Field “summary” is a string map with the following keys. Only <code>operation</code> is required. Engines may store additional key-value pairs in this map.</p><table><thead><tr><th>Required/Optional</th><th>Key</th><th>Value</th></tr></thead><tbody><tr><td>Required</td><td>operation</td><td>A string value indicating the view operation that caused this metadata to be created. Allowed values are “create” and “replace”.</td></tr><tr><td>Optional</td><td>engine-version</td><td>A string value indicating the version of the engine that performed the operation</td></tr></tbody></table><h4 id=representations>Representations</h4><p>Each representation is stored as an object with only one common field &ldquo;type&rdquo;.
-The rest of the fields are interpreted based on the type.</p><h5 id=original-view-definition-in-sql>Original View Definition in SQL</h5><p>This type of representation stores the original view definition in SQL and its SQL dialect.</p><table><thead><tr><th>Required/Optional</th><th>Field Name</th><th>Description</th></tr></thead><tbody><tr><td>Required</td><td>type</td><td>A string indicating the type of representation. It is set to &ldquo;sql&rdquo; for this type.</td></tr><tr><td>Required</td><td>sql</td><td>A string representing the original view definition in SQL</td></tr><tr><td>Required</td><td>dialect</td><td>A string specifying the dialect of the ‘sql’ field. It can be used by the engines to detect the SQL dialect.</td></tr><tr><td>Optional</td><td>schema-id</td><td>ID of the view&rsquo;s schema when the version was created</td></tr><tr><td>Optional</td><td>default-catalog</td><td>A string specifying the catalog to use when the table or view references in the view definition do not contain an explicit catalog.</td></tr><tr><td>Optional</td><td>default-namespace</td><td>The namespace to use when the table or view references in the view definition do not contain an explicit namespace. Since the namespace may contain multiple parts, it is serialized as a list of strings.</td></tr><tr><td>Optional</td><td>field-aliases</td><td>A list of strings of field aliases optionally specified in the create view statement. The list should have the same length as the schema&rsquo;s top level fields. See the example below.</td></tr><tr><td>Optional</td><td>field-docs</td><td>A list of strings of field comments optionally specified in the create view statement. The list should have the same length as the schema&rsquo;s top level fields. See the example below.</td></tr></tbody></table><p>For <code>CREATE VIEW v (alias_name COMMENT 'docs', alias_name2, ...) AS SELECT col1, col2, ...</code>,
-the field aliases are &lsquo;alias_name&rsquo;, &lsquo;alias_name2&rsquo;, and etc., and the field docs are &lsquo;docs&rsquo;, null, and etc.</p><h2 id=appendix-a-an-example>Appendix A: An Example</h2><p>The JSON metadata file format is described using an example below.</p><p>Imagine the following sequence of operations:</p><ul><li><code>CREATE TABLE base_tab(c1 int, c2 varchar);</code></li><li><code>INSERT INTO base_tab VALUES (1,’one’), (2,’two’);</code></li><li><code>CREATE VIEW common_view AS SELECT * FROM base_tab;</code></li><li><code>CREATE OR REPLACE VIEW common_view AS SELECT count(*) AS my_cnt FROM base_tab;</code></li></ul><p>The metadata JSON file created at the end of step 3 looks as follows. The file path looks like:
-<code>s3://my_company/my/warehouse/anorwood.db/common_view</code></p><p>The path is intentionally similar to the path for iceberg tables and contains a ‘metadata’ directory. (<code>METASTORE_WAREHOUSE_DIR/&lt;dbname>.db/&lt;viewname>/metadata</code>)</p><p>The metadata directory contains View Version Metadata files. The text after &lsquo;=>&rsquo; symbols describes the fields.</p><pre tabindex=0><code>{
-  &#34;format-version&#34; : 1, =&gt; JSON format. Will change as format evolves.
-  &#34;location&#34; : &#34;s3n://my_company/my/warehouse/anorwood.db/common_view&#34;,
-  &#34;current-version-id&#34; : 1, =&gt; current / latest version of the view. ‘1’ here since this metadata was created when the view was created.
-  &#34;properties&#34; : {  =&gt; shows properties of the view
-    &#34;comment&#34; : &#34;View captures all the data from the table&#34; =&gt; View comment
-  },
-  &#34;versions&#34; : [ { =&gt; Last few versions of the view.
-    &#34;version-id&#34; : 1,
-    &#34;timestamp-ms&#34; : 1573518431292,
-    &#34;summary&#34; : {
-      &#34;operation&#34; : &#34;create&#34;, =&gt; View operation that caused this metadata to be created
-      &#34;engineVersion&#34; : &#34;presto-350&#34; =&gt; Version of the engine that performed the operation (create / replace)
-    },
-    &#34;representations&#34; : [ { =&gt; SQL metadata of the view
-      &#34;type&#34; : &#34;sql&#34;,
-      &#34;sql&#34; : &#34;SELECT *\nFROM\n  base_tab\n&#34;, =&gt; original view SQL
-      &#34;dialect&#34; : &#34;presto&#34;,
-      &#34;schema-id&#34; : 1,
-      &#34;default-catalog&#34; : &#34;iceberg&#34;,
-      &#34;default-namespace&#34; : [ &#34;anorwood&#34; ]
-    } ]
-  } ],
-  &#34;version-log&#34; : [ { =&gt; Log of the created versions
-    &#34;timestamp-ms&#34; : 1573518431292,
-    &#34;version-id&#34; : 1
-  } ],
-  &#34;schemas&#34;: [ { =&gt; Schema of the view expressed in Iceberg types
-    &#34;schema-id&#34;: 1,
-    &#34;type&#34; : &#34;struct&#34;,
-    &#34;fields&#34; : [ {
-      &#34;id&#34; : 0,
-      &#34;name&#34; : &#34;c1&#34;,
-      &#34;required&#34; : false,
-      &#34;type&#34; : &#34;int&#34;,
-      &#34;doc&#34; : &#34;&#34; =&gt; Column comment
-    }, {
-      &#34;id&#34; : 1,
-      &#34;name&#34; : &#34;c2&#34;,
-      &#34;required&#34; : false,
-      &#34;type&#34; : &#34;string&#34;,
-      &#34;doc&#34; : &#34;&#34;
-    } ]
-  } ],
-  &#34;current-schema-id&#34;: 1
-}
-</code></pre><p>The Iceberg / view library creates a new metadata JSON file every time the view undergoes a DDL change. This way the history of how the view evolved can be maintained. Following metadata JSON file was created at the end of Step 4.</p><pre tabindex=0><code>{
+<a class="page-scroll navbar-brand" href=https://iceberg.apache.org/><img class=top-navbar-logo src=https://iceberg.apache.org//img/iceberg-logo-icon.png> Apache Iceberg</a></div><div><input type=search class=form-control id=search-input placeholder=Search... maxlength=64 data-hotkeys=s/></div><div class=versions-dropdown><span>1.2.1</span> <i class="fa fa-chevron-down"></i><div class=versions-dropdown-content><ul><li class=versions-dropdown-selection><a href=/docs/latest>latest</a></li><li class=versions-dropdown-selection><a href=/docs/1.2.1>1.2.1</a></li><li class=versions-dropdown-selection><a href=/docs/1.2.0>1.2.0</a></li><li class=versions-dropdown-selection><a href=/docs/1.1.0>1.1.0</a></li><li class=versions-dropdown-selection><a href=/docs/1.0.0>1.0.0</a></li><li class=versions-dropdown-selection><a href=/docs/0.14.1>0.14.1</a></li><li class=versions-dropdown-selection><a href=/docs/0.14.0>0.14.0</a></li><li class=versions-dropdown-selection><a href=/docs/0.13.2>0.13.2</a></li><li class=versions-dropdown-selection><a href=/docs/0.13.1>0.13.1</a></li><li class=versions-dropdown-selection><a href=/docs/0.13.0>0.13.0</a></li><li class=versions-dropdown-selection><a href=/docs/0.12.1>0.12.1</a></li></ul></div></div></div><div class="navbar-menu-fixed-top navbar-pages-group"><div class=topnav-page-selection><a href=/spark-quickstart>Quickstart</a></div class="topnav-page-selection"><div class=topnav-page-selection><a href=/docs/latest>Docs</a></div class="topnav-page-selection"><div class=topnav-page-selection><a href=/releases>Releases</a></div class="topnav-page-selection"><div class=topnav-page-selection><a href=/roadmap>Roadmap</a></div class="topnav-page-selection"><div class=topnav-page-selection><a href=/blogs>Blogs</a></div class="topnav-page-selection"><div class=topnav-page-selection><a href=/talks>Talks</a></div class="topnav-page-selection"><div class=topnav-page-selection><a href=/vendors>Vendors</a></div class="topnav-page-selection"><div class=versions-dropdown><div class=topnav-page-selection><a href>Project</a> <i class="fa fa-chevron-down"></i></div class="topnav-page-selection"><div class=versions-dropdown-content><ul><li class=topnav-page-selection><a href=/community>Join</a></li class="topnav-page-selection"><li class=topnav-page-selection><a href=/spec>Spec</a></li class="topnav-page-selection"><li class=topnav-page-selection><a id=active href=/view-spec>View Spec</a></li class="topnav-page-selection"><li class=topnav-page-selection><a href=/puffin-spec>Puffin Spec</a></li class="topnav-page-selection"><li class=topnav-page-selection><a href=/multi-engine-support>Multi-Engine Support</a></li class="topnav-page-selection"><li class=topnav-page-selection><a href=/how-to-release>How To Release</a></li class="topnav-page-selection"><li class=topnav-page-selection><a href=/terms>Terms</a></li class="topnav-page-selection"></ul></div></div><div class=versions-dropdown><div class=topnav-page-selection><a href>ASF</a> <i class="fa fa-chevron-down"></i></div class="topnav-page-selection"><div class=versions-dropdown-content><ul><li class=topnav-page-selection><a target=_blank href=https://www.apache.org/foundation/sponsorship.html>Donate</a></li class="topnav-page-selection"><li class=topnav-page-selection><a target=_blank href=https://www.apache.org/events/current-event.html>Events</a></li class="topnav-page-selection"><li class=topnav-page-selection><a target=_blank href=https://www.apache.org/licenses/>License</a></li class="topnav-page-selection"><li class=topnav-page-selection><a target=_blank href=https://www.apache.org/security/>Security</a></li class="topnav-page-selection"><li class=topnav-page-selection><a target=_blank href=https://www.apache.org/foundation/thanks.html>Sponsors</a></li class="topnav-page-selection"></ul></div></div><div class=topnav-page-selection><a href=https://github.com/apache/iceberg target=_blank><img src=https://iceberg.apache.org//img/GitHub-Mark.png target=_blank class=top-navbar-logo></a></div><div class=topnav-page-selection><a href=https://join.slack.com/t/apache-iceberg/shared_invite/zt-1uva9gyp1-TrLQl7o~nZ5PsTVgl6uoEQ target=_blank><img src=https://iceberg.apache.org//img/Slack_Mark_Web.png target=_blank class=top-navbar-logo></a></div></div></topsection></nav><section><div id=search-results-container><ul id=search-results></ul></div></section><body dir=" ltr"><section><div class="grid-container toc-only"><div id=content class=markdown-body><div class=margin-for-toc><h1 id=iceberg-view-spec>Iceberg View Spec</h1><h2 id=background-and-motivation>Background and Motivation</h2><p>Most compute engines (e.g. Trino and Apache Spark) support views. A view is a logical table that can be referenced by future queries. Views do not contain any data. Instead, the query stored by the view is executed every time the view is referenced by another query.</p><p>Each compute engine stores the metadata of the view in its proprietary format in the metastore of choice. Thus, views created from one engine can not be read or altered easily from another engine even when engines share the metastore as well as the storage system. This document standardizes the view metadata for ease of sharing the views across engines.</p><h2 id=goals>Goals</h2><ul><li>A common metadata format for view metadata, similar to how Iceberg supports a common table format for tables.</li></ul><h2 id=overview>Overview</h2><p>View metadata storage mirrors how Iceberg table metadata is stored and retrieved. View metadata is maintained in metadata files. All changes to view state create a new view metadata file and completely replace the old metadata using an atomic swap. Like Iceberg tables, this atomic swap is delegated to the metastore that tracks tables and/or views by name. The view metadata file tracks the view schema, custom properties, current and past versions, as well as other metadata.</p><p>Each metadata file is self-sufficient. It contains the history of the last few versions of the view and can be used to roll back the view to a previous version.</p><h3 id=metadata-location>Metadata Location</h3><p>An atomic swap of one view metadata file for another provides the basis for making atomic changes. Readers use the version of the view that was current when they loaded the view metadata and are not affected by changes until they refresh and pick up a new metadata location.</p><p>Writers create view metadata files optimistically, assuming that the current metadata location will not be changed before the writer&rsquo;s commit. Once a writer has created an update, it commits by swapping the view&rsquo;s metadata file pointer from the base location to the new location.</p><h2 id=specification>Specification</h2><h3 id=terms>Terms</h3><ul><li><strong>Schema</strong> &ndash; Names and types of fields in a view.</li><li><strong>Version</strong> &ndash; The state of a view at some point in time.</li></ul><h3 id=view-metadata>View Metadata</h3><p>The view version metadata file has the following fields:</p><table><thead><tr><th>Requirement</th><th>Field name</th><th>Description</th></tr></thead><tbody><tr><td><em>required</em></td><td><code>format-version</code></td><td>An integer version number for the view format; must be 1</td></tr><tr><td><em>required</em></td><td><code>location</code></td><td>The view&rsquo;s base location; used to create metadata file locations</td></tr><tr><td><em>required</em></td><td><code>current-schema-id</code></td><td>ID of the current schema of the view, if known</td></tr><tr><td><em>required</em></td><td><code>schemas</code></td><td>A list of known schemas</td></tr><tr><td><em>required</em></td><td><code>current-version-id</code></td><td>ID of the current version of the view (<code>version-id</code>)</td></tr><tr><td><em>required</em></td><td><code>versions</code></td><td>A list of known <a href=#versions>versions</a> of the view [1]</td></tr><tr><td><em>required</em></td><td><code>version-log</code></td><td>A list of <a href=#version-log>version log</a> entries with the timestamp and <code>version-id</code> for every change to <code>current-version-id</code></td></tr><tr><td><em>optional</em></td><td><code>properties</code></td><td>A string to string map of view properties [2]</td></tr></tbody></table><p>Notes:</p><ol><li>The number of versions to retain is controlled by the table property: <code>version.history.num-entries</code>.</li><li>Properties are used for metadata such as <code>comment</code> and for settings that affect view maintenance. This is not intended to be used for arbitrary metadata.</li></ol><h4 id=versions>Versions</h4><p>Each version in <code>versions</code> is a struct with the following fields:</p><table><thead><tr><th>Requirement</th><th>Field name</th><th>Description</th></tr></thead><tbody><tr><td><em>required</em></td><td><code>version-id</code></td><td>ID for the version</td></tr><tr><td><em>required</em></td><td><code>schema-id</code></td><td>ID of the schema for the view version</td></tr><tr><td><em>required</em></td><td><code>timestamp-ms</code></td><td>Timestamp when the version was created (ms from epoch)</td></tr><tr><td><em>required</em></td><td><code>summary</code></td><td>A string to string map of <a href=#summary>summary metadata</a> about the version</td></tr><tr><td><em>required</em></td><td><code>representations</code></td><td>A list of <a href=#representations>representations</a> for the view definition</td></tr></tbody></table><h4 id=summary>Summary</h4><p>Summary is a string to string map of metadata about a view version. Common metadata keys are documented here.</p><table><thead><tr><th>Requirement</th><th>Key</th><th>Value</th></tr></thead><tbody><tr><td><em>required</em></td><td><code>operation</code></td><td>Operation that caused this metadata to be created; must be <code>create</code> or <code>replace</code></td></tr><tr><td><em>optional</em></td><td><code>engine-name</code></td><td>Name of the engine that created the view version</td></tr><tr><td><em>optional</em></td><td><code>engine-version</code></td><td>Version of the engine that created the view version</td></tr></tbody></table><h4 id=representations>Representations</h4><p>View definitions can be represented in multiple ways. Representations are documented ways to express a view definition.</p><p>A view version can have more than one representation. All representations for a version must express the same underlying definition. Engines are free to choose the representation to use.</p><p>View versions are immutable. Once a version is created, it cannot be changed. This means that representations for a version cannot be changed. If a view definition changes (or new representations are to be added), a new version must be created.</p><p>Each representation is an object with at least one common field, <code>type</code>, that is one of the following:</p><ul><li><code>sql</code>: a SQL SELECT statement that defines the view</li></ul><p>Representations further define metadata for each type.</p><h5 id=sql-representation>SQL representation</h5><p>The SQL representation stores the view definition as a SQL SELECT, with metadata such as the SQL dialect.</p><p>A view version can have multiple SQL representations of different dialects, but only one SQL representation per dialect.</p><table><thead><tr><th>Requirement</th><th>Field name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><em>required</em></td><td><code>type</code></td><td><code>string</code></td><td>Must be <code>sql</code></td></tr><tr><td><em>required</em></td><td><code>sql</code></td><td><code>string</code></td><td>A SQL SELECT statement</td></tr><tr><td><em>required</em></td><td><code>dialect</code></td><td><code>string</code></td><td>The dialect of the <code>sql</code> SELECT statement (e.g., &ldquo;trino&rdquo; or &ldquo;spark&rdquo;)</td></tr><tr><td><em>optional</em></td><td><code>default-catalog</code></td><td><code>string</code></td><td>Catalog name to use when a reference in the SELECT does not contain a catalog</td></tr><tr><td><em>optional</em></td><td><code>default-namespace</code></td><td><code>list&lt;string></code></td><td>Namespace to use when a reference in the SELECT is a single identifier</td></tr><tr><td><em>optional</em></td><td><code>field-aliases</code></td><td><code>list&lt;string></code></td><td>Column names optionally specified in the create statement</td></tr><tr><td><em>optional</em></td><td><code>field-comments</code></td><td><code>list&lt;string></code></td><td>Column descriptions (COMMENT) optionally specified in the create statement</td></tr></tbody></table><p>For example:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span>USE prod.<span style=color:#66d9ef>default</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>VIEW</span> event_agg (
+</span></span><span style=display:flex><span>    event_count <span style=color:#66d9ef>COMMENT</span> <span style=color:#e6db74>&#39;Count of events&#39;</span>,
+</span></span><span style=display:flex><span>    event_date) <span style=color:#66d9ef>AS</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>COUNT</span>(<span style=color:#ae81ff>1</span>), <span style=color:#66d9ef>CAST</span>(event_ts <span style=color:#66d9ef>AS</span> DATE)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> events
+</span></span><span style=display:flex><span><span style=color:#66d9ef>GROUP</span> <span style=color:#66d9ef>BY</span> <span style=color:#ae81ff>2</span>
+</span></span></code></pre></div><p>This create statement would produce the following <code>sql</code> representation metadata:</p><table><thead><tr><th>Field name</th><th>Value</th></tr></thead><tbody><tr><td><code>type</code></td><td><code>"sql"</code></td></tr><tr><td><code>sql</code></td><td><code>"SELECT\n COUNT(1), CAST(event_ts AS DATE)\nFROM events\nGROUP BY 2"</code></td></tr><tr><td><code>dialect</code></td><td><code>"spark"</code></td></tr><tr><td><code>default-catalog</code></td><td><code>"prod"</code></td></tr><tr><td><code>default-namespace</code></td><td><code>["default"]</code></td></tr><tr><td><code>field-aliases</code></td><td><code>["event_count", "event_date"]</code></td></tr><tr><td><code>field-comments</code></td><td><code>["Count of events", null]</code></td></tr></tbody></table><p>If a create statement does not include column names or comments before <code>AS</code>, the fields should be omitted.</p><h4 id=version-log>Version log</h4><p>The version log tracks changes to the view&rsquo;s current version. This is the view&rsquo;s history and allows reconstructing what version of the view would have been used at some point in time.</p><p>Note that this is not the version&rsquo;s creation time, which is stored in each version&rsquo;s metadata. A version can appear multiple times in the version log, indicating that the view definition was rolled back.</p><p>Each entry in <code>version-log</code> is a struct with the following fields:</p><table><thead><tr><th>Requirement</th><th>Field name</th><th>Description</th></tr></thead><tbody><tr><td><em>required</em></td><td><code>timestamp-ms</code></td><td>Timestamp when the view&rsquo;s <code>current-version-id</code> was updated (ms from epoch)</td></tr><tr><td><em>required</em></td><td><code>version-id</code></td><td>ID that <code>current-version-id</code> was set to</td></tr></tbody></table><h2 id=appendix-a-an-example>Appendix A: An Example</h2><p>The JSON metadata file format is described using an example below.</p><p>Imagine the following sequence of operations:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span>USE prod.<span style=color:#66d9ef>default</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>VIEW</span> event_agg (
+</span></span><span style=display:flex><span>    event_count <span style=color:#66d9ef>COMMENT</span> <span style=color:#e6db74>&#39;Count of events&#39;</span>,
+</span></span><span style=display:flex><span>    event_date)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>COMMENT</span> <span style=color:#e6db74>&#39;Daily event counts&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>AS</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>COUNT</span>(<span style=color:#ae81ff>1</span>), <span style=color:#66d9ef>CAST</span>(event_ts <span style=color:#66d9ef>AS</span> DATE)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> events
+</span></span><span style=display:flex><span><span style=color:#66d9ef>GROUP</span> <span style=color:#66d9ef>BY</span> <span style=color:#ae81ff>2</span>
+</span></span></code></pre></div><p>The metadata JSON file created looks as follows.</p><p>The path is intentionally similar to the path for Iceberg tables and uses a <code>metadata</code> directory.</p><pre tabindex=0><code>s3://bucket/warehouse/default.db/event_agg/metadata/00001-(uuid).metadata.json
+</code></pre><pre tabindex=0><code>{
   &#34;format-version&#34; : 1,
-  &#34;location&#34; : &#34;s3n://my_company/my/warehouse/anorwood.db/common_view&#34;,
-  &#34;current-version-id&#34; : 2,
-  &#34;properties&#34; : {  =&gt; shows properties of the view
-    &#34;comment&#34; : &#34;View captures count of the data from the table&#34;
+  &#34;location&#34; : &#34;s3://bucket/warehouse/default.db/event_agg&#34;,
+  &#34;current-version-id&#34; : 1,
+  &#34;properties&#34; : {
+    &#34;comment&#34; : &#34;Daily event counts&#34;
   },
   &#34;versions&#34; : [ {
     &#34;version-id&#34; : 1,
     &#34;timestamp-ms&#34; : 1573518431292,
+    &#34;schema-id&#34; : 1,
     &#34;summary&#34; : {
       &#34;operation&#34; : &#34;create&#34;,
-      &#34;engineVersion&#34; : &#34;presto-350&#34;
+      &#34;engine-name&#34; : &#34;Spark&#34;,
+      &#34;engineVersion&#34; : &#34;3.3.2&#34;
     },
     &#34;representations&#34; : [ {
       &#34;type&#34; : &#34;sql&#34;,
-      &#34;sql&#34; : &#34;SELECT *\nFROM\n  base_tab\n&#34;,
-      &#34;dialect&#34; : &#34;presto&#34;,
-      &#34;schema-id&#34; : 1,
-      &#34;default-catalog&#34; : &#34;iceberg&#34;,
-      &#34;default-namespace&#34; : [ &#34;anorwood&#34; ]
-    } ],
-    &#34;properties&#34; : { }
+      &#34;sql&#34; : &#34;SELECT\n    COUNT(1), CAST(event_ts AS DATE)\nFROM events\nGROUP BY 2&#34;,
+      &#34;dialect&#34; : &#34;spark&#34;,
+      &#34;default-catalog&#34; : &#34;prod&#34;,
+      &#34;default-namespace&#34; : [ &#34;default&#34; ],
+      &#34;field-aliases&#34; : [&#34;event_count&#34;, &#34;event_date&#34;],
+      &#34;field-comments&#34; : [&#34;Count of events&#34;, null]
+    } ]
+  } ],
+  &#34;current-schema-id&#34;: 1,
+  &#34;schemas&#34;: [ {
+    &#34;schema-id&#34;: 1,
+    &#34;type&#34; : &#34;struct&#34;,
+    &#34;fields&#34; : [ {
+      &#34;id&#34; : 1,
+      &#34;name&#34; : &#34;col1&#34;,
+      &#34;required&#34; : false,
+      &#34;type&#34; : &#34;int&#34;
+    }, {
+      &#34;id&#34; : 2,
+      &#34;name&#34; : &#34;col2&#34;,
+      &#34;required&#34; : false,
+      &#34;type&#34; : &#34;date&#34;
+    } ]
+  } ],
+  &#34;version-log&#34; : [ {
+    &#34;timestamp-ms&#34; : 1573518431292,
+    &#34;version-id&#34; : 1
+  } ]
+}
+</code></pre><p>Each change creates a new metadata JSON file.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span>USE prod.other_db;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>VIEW</span> <span style=color:#66d9ef>default</span>.event_agg (
+</span></span><span style=display:flex><span>    event_count,
+</span></span><span style=display:flex><span>    event_date)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>AS</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>COUNT</span>(<span style=color:#ae81ff>1</span>), <span style=color:#66d9ef>CAST</span>(event_ts <span style=color:#66d9ef>AS</span> DATE)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> prod.<span style=color:#66d9ef>default</span>.events
+</span></span><span style=display:flex><span><span style=color:#66d9ef>GROUP</span> <span style=color:#66d9ef>BY</span> <span style=color:#ae81ff>2</span>
+</span></span></code></pre></div><p>Updating the view produces a new metadata file that completely replaces the old:</p><pre tabindex=0><code>s3://bucket/warehouse/default.db/event_agg/metadata/00002-(uuid).metadata.json
+</code></pre><pre tabindex=0><code>{
+  &#34;format-version&#34; : 1,
+  &#34;location&#34; : &#34;s3://bucket/warehouse/default.db/event_agg&#34;,
+  &#34;current-version-id&#34; : 1,
+  &#34;properties&#34; : {
+    &#34;comment&#34; : &#34;Daily event counts&#34;
+  },
+  &#34;versions&#34; : [ {
+    &#34;version-id&#34; : 1,
+    &#34;timestamp-ms&#34; : 1573518431292,
+    &#34;schema-id&#34; : 1,
+    &#34;summary&#34; : {
+      &#34;operation&#34; : &#34;create&#34;,
+      &#34;engine-name&#34; : &#34;Spark&#34;,
+      &#34;engineVersion&#34; : &#34;3.3.2&#34;
+    },
+    &#34;representations&#34; : [ {
+      &#34;type&#34; : &#34;sql&#34;,
+      &#34;sql&#34; : &#34;SELECT\n    COUNT(1), CAST(event_ts AS DATE)\nFROM events\nGROUP BY 2&#34;,
+      &#34;dialect&#34; : &#34;spark&#34;,
+      &#34;default-catalog&#34; : &#34;prod&#34;,
+      &#34;default-namespace&#34; : [ &#34;default&#34; ],
+      &#34;field-aliases&#34; : [&#34;event_count&#34;, &#34;event_date&#34;],
+      &#34;field-comments&#34; : [&#34;Count of events&#34;, null]
+    } ]
   }, {
     &#34;version-id&#34; : 2,
-    &#34;timestamp-ms&#34; : 1573518440265,
+    &#34;timestamp-ms&#34; : 1573518981593,
     &#34;summary&#34; : {
-      &#34;operation&#34; : &#34;replace&#34;, =&gt; The ‘replace’ operation caused this latest version creation
-      &#34;engineVersion&#34; : &#34;spark-2.4.4&#34;
+      &#34;operation&#34; : &#34;create&#34;,
+      &#34;engine-name&#34; : &#34;Spark&#34;,
+      &#34;engineVersion&#34; : &#34;3.3.2&#34;
     },
     &#34;representations&#34; : [ {
       &#34;type&#34; : &#34;sql&#34;,
-      &#34;sql&#34; : &#34;SELECT \&#34;count\&#34;(*) my_cnt\nFROM\n  base_tab\n&#34;, =&gt; Note the updated text from the ‘replace’ view statement
+      &#34;sql&#34; : &#34;SELECT\n    COUNT(1), CAST(event_ts AS DATE)\nFROM prod.default.events\nGROUP BY 2&#34;,
       &#34;dialect&#34; : &#34;spark&#34;,
-      &#34;schema-id&#34; : 2,
-      &#34;default-catalog&#34; : &#34;iceberg&#34;,
-      &#34;default-namespace&#34; : [ &#34;anorwood&#34; ]
+      &#34;default-catalog&#34; : &#34;prod&#34;,
+      &#34;default-namespace&#34; : [ &#34;default&#34; ],
+      &#34;field-aliases&#34; : [&#34;event_count&#34;, &#34;event_date&#34;]
+    } ]
+  } ],
+  &#34;current-schema-id&#34;: 1,
+  &#34;schemas&#34;: [ {
+    &#34;schema-id&#34;: 1,
+    &#34;type&#34; : &#34;struct&#34;,
+    &#34;fields&#34; : [ {
+      &#34;id&#34; : 1,
+      &#34;name&#34; : &#34;col1&#34;,
+      &#34;required&#34; : false,
+      &#34;type&#34; : &#34;int&#34;
+    }, {
+      &#34;id&#34; : 2,
+      &#34;name&#34; : &#34;col2&#34;,
+      &#34;required&#34; : false,
+      &#34;type&#34; : &#34;date&#34;
     } ]
   } ],
   &#34;version-log&#34; : [ {
     &#34;timestamp-ms&#34; : 1573518431292,
     &#34;version-id&#34; : 1
   }, {
-    &#34;timestamp-ms&#34; : 1573518440265,
+    &#34;timestamp-ms&#34; : 1573518981593,
     &#34;version-id&#34; : 2
-  } ],
-  &#34;schemas&#34;: [ { =&gt; Schema of the view expressed in Iceberg types
-    &#34;schema-id&#34;: 1,
-    &#34;type&#34; : &#34;struct&#34;,
-    &#34;fields&#34; : [ {
-      &#34;id&#34; : 0,
-      &#34;name&#34; : &#34;c1&#34;,
-      &#34;required&#34; : false,
-      &#34;type&#34; : &#34;int&#34;,
-      &#34;doc&#34; : &#34;&#34; =&gt; Column comment
-    }, {
-      &#34;id&#34; : 1,
-      &#34;name&#34; : &#34;c2&#34;,
-      &#34;required&#34; : false,
-      &#34;type&#34; : &#34;string&#34;,
-      &#34;doc&#34; : &#34;&#34;
-    } ]
-  }, { =&gt; Schema change is reflected here
-    &#34;schema-id&#34;: 2,
-    &#34;type&#34; : &#34;struct&#34;,
-    &#34;fields&#34; : [ {
-      &#34;id&#34; : 0,
-      &#34;name&#34; : &#34;my_cnt&#34;,
-      &#34;required&#34; : false,
-      &#34;type&#34; : &#34;long&#34;,
-      &#34;doc&#34; : &#34;&#34;
-    } ]
-  } ],
-  &#34;current-schema-id&#34;: 2
+  } ]
 }
 </code></pre></div><div id=toc class=markdown-body><div id=full><nav id=TableOfContents><ul><li><a href=#background-and-motivation>Background and Motivation</a></li><li><a href=#goals>Goals</a></li><li><a href=#overview>Overview</a><ul><li><a href=#metadata-location>Metadata Location</a></li></ul></li><li><a href=#specification>Specification</a><ul><li><a href=#terms>Terms</a></li><li><a href=#view-metadata>View Metadata</a></li></ul></li><li><a href=#appendix-a-an-example>Appendix A: An Example</a></li></ul></nav></div></div></div></div></section></body><script src=https://iceberg.apache.org//js/jquery-1.11.0.js></script>
 <script src=https://iceberg.apache.org//js/jquery.easing.min.js></script>
