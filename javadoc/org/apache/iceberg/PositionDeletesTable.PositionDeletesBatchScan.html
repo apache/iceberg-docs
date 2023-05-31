@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":42,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":42,"i25":10,"i26":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -149,6 +149,10 @@ implements <a href="../../../org/apache/iceberg/BatchScan.html" title="interface
 <td class="colFirst"><code>protected static java.util.List&lt;java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/PositionDeletesTable.PositionDeletesBatchScan.html#DELETE_SCAN_WITH_STATS_COLUMNS">DELETE_SCAN_WITH_STATS_COLUMNS</a></span></code>&nbsp;</td>
 </tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static java.util.List&lt;java.lang.String&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/PositionDeletesTable.PositionDeletesBatchScan.html#SCAN_COLUMNS">SCAN_COLUMNS</a></span></code>&nbsp;</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -185,7 +189,7 @@ implements <a href="../../../org/apache/iceberg/BatchScan.html" title="interface
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -237,15 +241,10 @@ implements <a href="../../../org/apache/iceberg/BatchScan.html" title="interface
 </td>
 </tr>
 <tr id="i8" class="altColor">
-<td class="colFirst"><code>protected ThisT</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/PositionDeletesTable.PositionDeletesBatchScan.html#newRefinedScan-org.apache.iceberg.TableOperations-org.apache.iceberg.Table-org.apache.iceberg.Schema-org.apache.iceberg.TableScanContext-">newRefinedScan</a></span>(<a href="../../../org/apache/iceberg/TableOperations.html" title="interface in org.apache.iceberg">TableOperations</a>&nbsp;ignored,
-              <a href="../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;newTable,
-              <a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;newSchema,
-              org.apache.iceberg.TableScanContext&nbsp;newContext)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use newRefinedScan(Table, Schema, TableScanContext)
-     instead.</span></div>
-</div>
+<td class="colFirst"><code>ThisT</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/PositionDeletesTable.PositionDeletesBatchScan.html#metricsReporter-org.apache.iceberg.metrics.MetricsReporter-">metricsReporter</a></span>(<a href="../../../org/apache/iceberg/metrics/MetricsReporter.html" title="interface in org.apache.iceberg.metrics">MetricsReporter</a>&nbsp;reporter)</code>
+<div class="block">Create a new scan that will report scan metrics to the provided reporter in addition to
+ reporters maintained by the scan.</div>
 </td>
 </tr>
 <tr id="i9" class="rowColor">
@@ -329,18 +328,10 @@ implements <a href="../../../org/apache/iceberg/BatchScan.html" title="interface
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/PositionDeletesTable.PositionDeletesBatchScan.html#table--">table</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i24" class="altColor">
-<td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/TableOperations.html" title="interface in org.apache.iceberg">TableOperations</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/PositionDeletesTable.PositionDeletesBatchScan.html#tableOps--">tableOps</a></span>()</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; avoid using TableOperations for scans or use BaseTable</span></div>
-</div>
-</td>
-</tr>
-<tr id="i25" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/PositionDeletesTable.PositionDeletesBatchScan.html#tableSchema--">tableSchema</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/PositionDeletesTable.PositionDeletesBatchScan.html#targetSplitSize--">targetSplitSize</a></span>()</code>
 <div class="block">Returns the target split size for this scan.</div>
@@ -373,7 +364,7 @@ implements <a href="../../../org/apache/iceberg/BatchScan.html" title="interface
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="../../../org/apache/iceberg/Scan.html" title="interface in org.apache.iceberg">Scan</a></h3>
-<code><a href="../../../org/apache/iceberg/Scan.html#caseSensitive-boolean-">caseSensitive</a>, <a href="../../../org/apache/iceberg/Scan.html#filter--">filter</a>, <a href="../../../org/apache/iceberg/Scan.html#filter-org.apache.iceberg.expressions.Expression-">filter</a>, <a href="../../../org/apache/iceberg/Scan.html#ignoreResiduals--">ignoreResiduals</a>, <a href="../../../org/apache/iceberg/Scan.html#includeColumnStats--">includeColumnStats</a>, <a href="../../../org/apache/iceberg/Scan.html#isCaseSensitive--">isCaseSensitive</a>, <a href="../../../org/apache/iceberg/Scan.html#option-java.lang.String-java.lang.String-">option</a>, <a href="../../../org/apache/iceberg/Scan.html#planFiles--">planFiles</a>, <a href="../../../org/apache/iceberg/Scan.html#planWith-java.util.concurrent.ExecutorService-">planWith</a>, <a href="../../../org/apache/iceberg/Scan.html#project-org.apache.iceberg.Schema-">project</a>, <a href="../../../org/apache/iceberg/Scan.html#schema--">schema</a>, <a href="../../../org/apache/iceberg/Scan.html#select-java.util.Collection-">select</a>, <a href="../../../org/apache/iceberg/Scan.html#select-java.lang.String...-">select</a>, <a href="../../../org/apache/iceberg/Scan.html#splitLookback--">splitLookback</a>, <a href="../../../org/apache/iceberg/Scan.html#splitOpenFileCost--">splitOpenFileCost</a>, <a href="../../../org/apache/iceberg/Scan.html#targetSplitSize--">targetSplitSize</a></code></li>
+<code><a href="../../../org/apache/iceberg/Scan.html#caseSensitive-boolean-">caseSensitive</a>, <a href="../../../org/apache/iceberg/Scan.html#filter--">filter</a>, <a href="../../../org/apache/iceberg/Scan.html#filter-org.apache.iceberg.expressions.Expression-">filter</a>, <a href="../../../org/apache/iceberg/Scan.html#ignoreResiduals--">ignoreResiduals</a>, <a href="../../../org/apache/iceberg/Scan.html#includeColumnStats--">includeColumnStats</a>, <a href="../../../org/apache/iceberg/Scan.html#isCaseSensitive--">isCaseSensitive</a>, <a href="../../../org/apache/iceberg/Scan.html#metricsReporter-org.apache.iceberg.metrics.MetricsReporter-">metricsReporter</a>, <a href="../../../org/apache/iceberg/Scan.html#option-java.lang.String-java.lang.String-">option</a>, <a href="../../../org/apache/iceberg/Scan.html#planFiles--">planFiles</a>, <a href="../../../org/apache/iceberg/Scan.html#planWith-java.util.concurrent.ExecutorService-">planWith</a>, <a href="../../../org/apache/iceberg/Scan.html#project-org.apache.iceberg.Schema-">project</a>, <a href="../../../org/apache/iceberg/Scan.html#schema--">schema</a>, <a href="../../../org/apache/iceberg/Scan.html#select-java.util.Collection-">select</a>, <a href="../../../org/apache/iceberg/Scan.html#select-java.lang.String...-">select</a>, <a href="../../../org/apache/iceberg/Scan.html#splitLookback--">splitLookback</a>, <a href="../../../org/apache/iceberg/Scan.html#splitOpenFileCost--">splitOpenFileCost</a>, <a href="../../../org/apache/iceberg/Scan.html#targetSplitSize--">targetSplitSize</a></code></li>
 </ul>
 </li>
 </ul>
@@ -389,6 +380,15 @@ implements <a href="../../../org/apache/iceberg/BatchScan.html" title="interface
 <!--   -->
 </a>
 <h3>Field Detail</h3>
+<a name="SCAN_COLUMNS">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>SCAN_COLUMNS</h4>
+<pre>protected static final&nbsp;java.util.List&lt;java.lang.String&gt; SCAN_COLUMNS</pre>
+</li>
+</ul>
 <a name="DELETE_SCAN_COLUMNS">
 <!--   -->
 </a>
@@ -497,17 +497,6 @@ implements <a href="../../../org/apache/iceberg/BatchScan.html" title="interface
 </dl>
 </li>
 </ul>
-<a name="tableOps--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>tableOps</h4>
-<pre>@Deprecated
-protected&nbsp;<a href="../../../org/apache/iceberg/TableOperations.html" title="interface in org.apache.iceberg">TableOperations</a>&nbsp;tableOps()</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">will be removed in 1.3.0; avoid using TableOperations for scans or use BaseTable</span></div>
-</li>
-</ul>
 <a name="table--">
 <!--   -->
 </a>
@@ -569,21 +558,6 @@ protected&nbsp;<a href="../../../org/apache/iceberg/TableOperations.html" title=
 <li class="blockList">
 <h4>planExecutor</h4>
 <pre>protected&nbsp;java.util.concurrent.ExecutorService&nbsp;planExecutor()</pre>
-</li>
-</ul>
-<a name="newRefinedScan-org.apache.iceberg.TableOperations-org.apache.iceberg.Table-org.apache.iceberg.Schema-org.apache.iceberg.TableScanContext-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>newRefinedScan</h4>
-<pre>@Deprecated
-protected&nbsp;ThisT&nbsp;newRefinedScan(<a href="../../../org/apache/iceberg/TableOperations.html" title="interface in org.apache.iceberg">TableOperations</a>&nbsp;ignored,
-                                           <a href="../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;newTable,
-                                           <a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;newSchema,
-                                           org.apache.iceberg.TableScanContext&nbsp;newContext)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">will be removed in 1.3.0; use newRefinedScan(Table, Schema, TableScanContext)
-     instead.</span></div>
 </li>
 </ul>
 <a name="option-java.lang.String-java.lang.String-">
@@ -833,7 +807,7 @@ protected&nbsp;ThisT&nbsp;newRefinedScan(<a href="../../../org/apache/iceberg/Ta
 <a name="splitOpenFileCost--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>splitOpenFileCost</h4>
 <pre>public&nbsp;long&nbsp;splitOpenFileCost()</pre>
@@ -842,6 +816,22 @@ protected&nbsp;ThisT&nbsp;newRefinedScan(<a href="../../../org/apache/iceberg/Ta
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../org/apache/iceberg/Scan.html#splitOpenFileCost--">splitOpenFileCost</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/Scan.html" title="interface in org.apache.iceberg">Scan</a>&lt;ThisT,T extends <a href="../../../org/apache/iceberg/ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a>,G extends <a href="../../../org/apache/iceberg/ScanTaskGroup.html" title="interface in org.apache.iceberg">ScanTaskGroup</a>&lt;T&gt;&gt;</code></dd>
+</dl>
+</li>
+</ul>
+<a name="metricsReporter-org.apache.iceberg.metrics.MetricsReporter-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>metricsReporter</h4>
+<pre>public&nbsp;ThisT&nbsp;metricsReporter(<a href="../../../org/apache/iceberg/metrics/MetricsReporter.html" title="interface in org.apache.iceberg.metrics">MetricsReporter</a>&nbsp;reporter)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/Scan.html#metricsReporter-org.apache.iceberg.metrics.MetricsReporter-">Scan</a></code></span></div>
+<div class="block">Create a new scan that will report scan metrics to the provided reporter in addition to
+ reporters maintained by the scan.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/Scan.html#metricsReporter-org.apache.iceberg.metrics.MetricsReporter-">metricsReporter</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/Scan.html" title="interface in org.apache.iceberg">Scan</a>&lt;ThisT,T extends <a href="../../../org/apache/iceberg/ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a>,G extends <a href="../../../org/apache/iceberg/ScanTaskGroup.html" title="interface in org.apache.iceberg">ScanTaskGroup</a>&lt;T&gt;&gt;</code></dd>
 </dl>
 </li>
 </ul>

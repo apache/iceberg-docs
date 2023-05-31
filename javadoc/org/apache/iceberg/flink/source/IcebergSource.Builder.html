@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":42,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":42,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -181,25 +181,29 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source">IcebergSource.Builder</a>&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="type parameter in IcebergSource.Builder">T</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#monitorInterval-java.time.Duration-">monitorInterval</a></span>(java.time.Duration&nbsp;newMonitorInterval)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#maxAllowedPlanningFailures-int-">maxAllowedPlanningFailures</a></span>(int&nbsp;maxAllowedPlanningFailures)</code>&nbsp;</td>
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source">IcebergSource.Builder</a>&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="type parameter in IcebergSource.Builder">T</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#nameMapping-java.lang.String-">nameMapping</a></span>(java.lang.String&nbsp;newNameMapping)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#monitorInterval-java.time.Duration-">monitorInterval</a></span>(java.time.Duration&nbsp;newMonitorInterval)</code>&nbsp;</td>
 </tr>
 <tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source">IcebergSource.Builder</a>&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="type parameter in IcebergSource.Builder">T</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#planParallelism-int-">planParallelism</a></span>(int&nbsp;planParallelism)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#nameMapping-java.lang.String-">nameMapping</a></span>(java.lang.String&nbsp;newNameMapping)</code>&nbsp;</td>
 </tr>
 <tr id="i15" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source">IcebergSource.Builder</a>&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="type parameter in IcebergSource.Builder">T</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#project-org.apache.iceberg.Schema-">project</a></span>(<a href="../../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;newProjectedSchema)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#planParallelism-int-">planParallelism</a></span>(int&nbsp;planParallelism)</code>&nbsp;</td>
 </tr>
 <tr id="i16" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source">IcebergSource.Builder</a>&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="type parameter in IcebergSource.Builder">T</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#project-org.apache.flink.table.api.TableSchema-">project</a></span>(org.apache.flink.table.api.TableSchema&nbsp;newProjectedFlinkSchema)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#project-org.apache.iceberg.Schema-">project</a></span>(<a href="../../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;newProjectedSchema)</code>&nbsp;</td>
 </tr>
 <tr id="i17" class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source">IcebergSource.Builder</a>&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="type parameter in IcebergSource.Builder">T</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#project-org.apache.flink.table.api.TableSchema-">project</a></span>(org.apache.flink.table.api.TableSchema&nbsp;newProjectedFlinkSchema)</code>&nbsp;</td>
+</tr>
+<tr id="i18" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source">IcebergSource.Builder</a>&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="type parameter in IcebergSource.Builder">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#properties-java.util.Map-">properties</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</code>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
@@ -207,68 +211,68 @@ extends java.lang.Object</pre>
 </div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source">IcebergSource.Builder</a>&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="type parameter in IcebergSource.Builder">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#readerFunction-org.apache.iceberg.flink.source.reader.ReaderFunction-">readerFunction</a></span>(<a href="../../../../../org/apache/iceberg/flink/source/reader/ReaderFunction.html" title="interface in org.apache.iceberg.flink.source.reader">ReaderFunction</a>&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="type parameter in IcebergSource.Builder">T</a>&gt;&nbsp;newReaderFunction)</code>&nbsp;</td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source">IcebergSource.Builder</a>&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="type parameter in IcebergSource.Builder">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#set-java.lang.String-java.lang.String-">set</a></span>(java.lang.String&nbsp;property,
    java.lang.String&nbsp;value)</code>
 <div class="block">Set the read properties for Flink source.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source">IcebergSource.Builder</a>&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="type parameter in IcebergSource.Builder">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#setAll-java.util.Map-">setAll</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</code>
 <div class="block">Set the read properties for Flink source.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source">IcebergSource.Builder</a>&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="type parameter in IcebergSource.Builder">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#splitLookback-java.lang.Integer-">splitLookback</a></span>(java.lang.Integer&nbsp;newSplitLookback)</code>&nbsp;</td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source">IcebergSource.Builder</a>&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="type parameter in IcebergSource.Builder">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#splitOpenFileCost-java.lang.Long-">splitOpenFileCost</a></span>(java.lang.Long&nbsp;newSplitOpenFileCost)</code>&nbsp;</td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source">IcebergSource.Builder</a>&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="type parameter in IcebergSource.Builder">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#splitSize-java.lang.Long-">splitSize</a></span>(java.lang.Long&nbsp;newSplitSize)</code>&nbsp;</td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source">IcebergSource.Builder</a>&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="type parameter in IcebergSource.Builder">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#startSnapshotId-java.lang.Long-">startSnapshotId</a></span>(java.lang.Long&nbsp;newStartSnapshotId)</code>&nbsp;</td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source">IcebergSource.Builder</a>&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="type parameter in IcebergSource.Builder">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#startSnapshotTimestamp-java.lang.Long-">startSnapshotTimestamp</a></span>(java.lang.Long&nbsp;newStartSnapshotTimestamp)</code>&nbsp;</td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source">IcebergSource.Builder</a>&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="type parameter in IcebergSource.Builder">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#startTag-java.lang.String-">startTag</a></span>(java.lang.String&nbsp;startTag)</code>&nbsp;</td>
 </tr>
-<tr id="i27" class="rowColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source">IcebergSource.Builder</a>&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="type parameter in IcebergSource.Builder">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#streaming-boolean-">streaming</a></span>(boolean&nbsp;streaming)</code>&nbsp;</td>
 </tr>
-<tr id="i28" class="altColor">
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source">IcebergSource.Builder</a>&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="type parameter in IcebergSource.Builder">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#streamingStartingStrategy-org.apache.iceberg.flink.source.StreamingStartingStrategy-">streamingStartingStrategy</a></span>(<a href="../../../../../org/apache/iceberg/flink/source/StreamingStartingStrategy.html" title="enum in org.apache.iceberg.flink.source">StreamingStartingStrategy</a>&nbsp;newStartingStrategy)</code>&nbsp;</td>
 </tr>
-<tr id="i29" class="rowColor">
+<tr id="i30" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source">IcebergSource.Builder</a>&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="type parameter in IcebergSource.Builder">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#table-org.apache.iceberg.Table-">table</a></span>(<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;newTable)</code>&nbsp;</td>
 </tr>
-<tr id="i30" class="altColor">
+<tr id="i31" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source">IcebergSource.Builder</a>&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="type parameter in IcebergSource.Builder">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#tableLoader-org.apache.iceberg.flink.TableLoader-">tableLoader</a></span>(<a href="../../../../../org/apache/iceberg/flink/TableLoader.html" title="interface in org.apache.iceberg.flink">TableLoader</a>&nbsp;loader)</code>&nbsp;</td>
 </tr>
-<tr id="i31" class="rowColor">
+<tr id="i32" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source">IcebergSource.Builder</a>&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="type parameter in IcebergSource.Builder">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#tag-java.lang.String-">tag</a></span>(java.lang.String&nbsp;tag)</code>&nbsp;</td>
 </tr>
-<tr id="i32" class="altColor">
+<tr id="i33" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source">IcebergSource.Builder</a>&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="type parameter in IcebergSource.Builder">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html#useSnapshotId-java.lang.Long-">useSnapshotId</a></span>(java.lang.Long&nbsp;newSnapshotId)</code>&nbsp;</td>
 </tr>
@@ -553,6 +557,15 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>exposeLocality</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source">IcebergSource.Builder</a>&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="type parameter in IcebergSource.Builder">T</a>&gt;&nbsp;exposeLocality(boolean&nbsp;newExposeLocality)</pre>
+</li>
+</ul>
+<a name="maxAllowedPlanningFailures-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>maxAllowedPlanningFailures</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="class in org.apache.iceberg.flink.source">IcebergSource.Builder</a>&lt;<a href="../../../../../org/apache/iceberg/flink/source/IcebergSource.Builder.html" title="type parameter in IcebergSource.Builder">T</a>&gt;&nbsp;maxAllowedPlanningFailures(int&nbsp;maxAllowedPlanningFailures)</pre>
 </li>
 </ul>
 <a name="set-java.lang.String-java.lang.String-">

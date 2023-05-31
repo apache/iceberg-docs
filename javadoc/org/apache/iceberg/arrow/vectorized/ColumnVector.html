@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -132,6 +132,7 @@ implements java.lang.AutoCloseable</pre>
    <li><code>Types.DateType</code>
    <li><code>Types.TimeType</code>
    <li><code>Types.UUIDType</code>
+   <li><code>Types.DecimalType</code>
  </ul></div>
 </li>
 </ul>
@@ -156,46 +157,60 @@ implements java.lang.AutoCloseable</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnVector.html#close--">close</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>org.apache.arrow.vector.FieldVector</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnVector.html#getArrowVector--">getArrowVector</a></span>()</code>
+<div class="block">Decodes a dict-encoded vector and returns the actual arrow vector.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>byte[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnVector.html#getBinary-int-">getBinary</a></span>(int&nbsp;rowId)</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnVector.html#getBoolean-int-">getBoolean</a></span>(int&nbsp;rowId)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>java.math.BigDecimal</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnVector.html#getDecimal-int-int-int-">getDecimal</a></span>(int&nbsp;rowId,
+          int&nbsp;precision,
+          int&nbsp;scale)</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnVector.html#getDouble-int-">getDouble</a></span>(int&nbsp;rowId)</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>org.apache.arrow.vector.FieldVector</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnVector.html#getFieldVector--">getFieldVector</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnVector.html#getFieldVector--">getFieldVector</a></span>()</code>
+<div class="block">Returns the potentially dict-encoded <code>FieldVector</code>.</div>
+</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>float</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnVector.html#getFloat-int-">getFloat</a></span>(int&nbsp;rowId)</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnVector.html#getInt-int-">getInt</a></span>(int&nbsp;rowId)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnVector.html#getLong-int-">getLong</a></span>(int&nbsp;rowId)</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnVector.html#getString-int-">getString</a></span>(int&nbsp;rowId)</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnVector.html#hasNull--">hasNull</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnVector.html#isNullAt-int-">isNullAt</a></span>(int&nbsp;rowId)</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/ColumnVector.html#numNulls--">numNulls</a></span>()</code>&nbsp;</td>
 </tr>
@@ -228,6 +243,25 @@ implements java.lang.AutoCloseable</pre>
 <li class="blockList">
 <h4>getFieldVector</h4>
 <pre>public&nbsp;org.apache.arrow.vector.FieldVector&nbsp;getFieldVector()</pre>
+<div class="block">Returns the potentially dict-encoded <code>FieldVector</code>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>instance of <code>FieldVector</code></dd>
+</dl>
+</li>
+</ul>
+<a name="getArrowVector--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getArrowVector</h4>
+<pre>public&nbsp;org.apache.arrow.vector.FieldVector&nbsp;getArrowVector()</pre>
+<div class="block">Decodes a dict-encoded vector and returns the actual arrow vector.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>instance of <code>FieldVector</code></dd>
+</dl>
 </li>
 </ul>
 <a name="hasNull--">
@@ -327,10 +361,21 @@ implements java.lang.AutoCloseable</pre>
 <a name="getBinary-int-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getBinary</h4>
 <pre>public&nbsp;byte[]&nbsp;getBinary(int&nbsp;rowId)</pre>
+</li>
+</ul>
+<a name="getDecimal-int-int-int-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getDecimal</h4>
+<pre>public&nbsp;java.math.BigDecimal&nbsp;getDecimal(int&nbsp;rowId,
+                                       int&nbsp;precision,
+                                       int&nbsp;scale)</pre>
 </li>
 </ul>
 </li>

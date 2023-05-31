@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -162,26 +162,19 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkSchemaUtil.html#convert-org.apache.spark.sql.types.StructType-boolean-">convert</a></span>(org.apache.spark.sql.types.StructType&nbsp;sparkType,
-       boolean&nbsp;useTimestampWithoutZone)</code>
-<div class="block">Convert a Spark <code>struct</code> to a <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>Schema</code></a> with new field ids.</div>
-</td>
-</tr>
-<tr id="i6" class="altColor">
 <td class="colFirst"><code>static org.apache.spark.sql.types.DataType</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkSchemaUtil.html#convert-org.apache.iceberg.types.Type-">convert</a></span>(<a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types">Type</a>&nbsp;type)</code>
 <div class="block">Convert a <a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types"><code>Type</code></a> to a <code>Spark type</code>.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkSchemaUtil.html#convertWithFreshIds-org.apache.iceberg.Schema-org.apache.spark.sql.types.StructType-">convertWithFreshIds</a></span>(<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;baseSchema,
                    org.apache.spark.sql.types.StructType&nbsp;sparkType)</code>
 <div class="block">Convert a Spark <code>struct</code> to a <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>Schema</code></a> based on the given schema.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkSchemaUtil.html#convertWithFreshIds-org.apache.iceberg.Schema-org.apache.spark.sql.types.StructType-boolean-">convertWithFreshIds</a></span>(<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;baseSchema,
                    org.apache.spark.sql.types.StructType&nbsp;sparkType,
@@ -189,25 +182,25 @@ extends java.lang.Object</pre>
 <div class="block">Convert a Spark <code>struct</code> to a <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>Schema</code></a> based on the given schema.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>static long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkSchemaUtil.html#estimateSize-org.apache.spark.sql.types.StructType-long-">estimateSize</a></span>(org.apache.spark.sql.types.StructType&nbsp;tableSchema,
             long&nbsp;totalRecords)</code>
 <div class="block">Estimate approximate table size based on Spark schema and total records.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>static java.util.Map&lt;java.lang.Integer,java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkSchemaUtil.html#indexQuotedNameById-org.apache.iceberg.Schema-">indexQuotedNameById</a></span>(<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema)</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkSchemaUtil.html#prune-org.apache.iceberg.Schema-org.apache.spark.sql.types.StructType-">prune</a></span>(<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema,
      org.apache.spark.sql.types.StructType&nbsp;requestedType)</code>
 <div class="block">Prune columns from a <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>Schema</code></a> using a <code>Spark type</code> projection.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkSchemaUtil.html#prune-org.apache.iceberg.Schema-org.apache.spark.sql.types.StructType-org.apache.iceberg.expressions.Expression-boolean-">prune</a></span>(<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema,
      org.apache.spark.sql.types.StructType&nbsp;requestedType,
@@ -216,7 +209,7 @@ extends java.lang.Object</pre>
 <div class="block">Prune columns from a <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>Schema</code></a> using a <code>Spark type</code> projection.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkSchemaUtil.html#prune-org.apache.iceberg.Schema-org.apache.spark.sql.types.StructType-java.util.List-">prune</a></span>(<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema,
      org.apache.spark.sql.types.StructType&nbsp;requestedType,
@@ -224,21 +217,21 @@ extends java.lang.Object</pre>
 <div class="block">Prune columns from a <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>Schema</code></a> using a <code>Spark type</code> projection.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkSchemaUtil.html#schemaForTable-org.apache.spark.sql.SparkSession-java.lang.String-">schemaForTable</a></span>(org.apache.spark.sql.SparkSession&nbsp;spark,
               java.lang.String&nbsp;name)</code>
 <div class="block">Returns a <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>Schema</code></a> for the given table with fresh field ids.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkSchemaUtil.html#specForTable-org.apache.spark.sql.SparkSession-java.lang.String-">specForTable</a></span>(org.apache.spark.sql.SparkSession&nbsp;spark,
             java.lang.String&nbsp;name)</code>
 <div class="block">Returns a <a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg"><code>PartitionSpec</code></a> for the given table.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkSchemaUtil.html#validateMetadataColumnReferences-org.apache.iceberg.Schema-org.apache.iceberg.Schema-">validateMetadataColumnReferences</a></span>(<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;tableSchema,
                                 <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;readSchema)</code>&nbsp;</td>
@@ -364,34 +357,6 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>sparkType</code> - a Spark StructType</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the equivalent Schema</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.IllegalArgumentException</code> - if the type cannot be converted</dd>
-</dl>
-</li>
-</ul>
-<a name="convert-org.apache.spark.sql.types.StructType-boolean-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>convert</h4>
-<pre>public static&nbsp;<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;convert(org.apache.spark.sql.types.StructType&nbsp;sparkType,
-                             boolean&nbsp;useTimestampWithoutZone)</pre>
-<div class="block">Convert a Spark <code>struct</code> to a <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>Schema</code></a> with new field ids.
-
- <p>This conversion assigns fresh ids.
-
- <p>Some data types are represented as the same Spark type. These are converted to a default
- type.
-
- <p>To convert using a reference schema for field ids and ambiguous types, use <a href="../../../../org/apache/iceberg/spark/SparkSchemaUtil.html#convert-org.apache.iceberg.Schema-org.apache.spark.sql.types.StructType-"><code>convert(Schema, StructType)</code></a>.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>sparkType</code> - a Spark StructType</dd>
-<dd><code>useTimestampWithoutZone</code> - boolean flag indicates that timestamp should be stored without
-     timezone</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the equivalent Schema</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>

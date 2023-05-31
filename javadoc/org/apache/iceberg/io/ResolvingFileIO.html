@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -169,26 +169,30 @@ implements <a href="../../../../org/apache/iceberg/io/FileIO.html" title="interf
 </td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/ResolvingFileIO.html#finalize--">finalize</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>org.apache.hadoop.conf.Configuration</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/ResolvingFileIO.html#getConf--">getConf</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/ResolvingFileIO.html#initialize-java.util.Map-">initialize</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;newProperties)</code>
 <div class="block">Initialize File IO from catalog properties.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.Class&lt;?&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/ResolvingFileIO.html#ioClass-java.lang.String-">ioClass</a></span>(java.lang.String&nbsp;location)</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/ResolvingFileIO.html#newInputFile-java.lang.String-">newInputFile</a></span>(java.lang.String&nbsp;location)</code>
 <div class="block">Get a <a href="../../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io"><code>InputFile</code></a> instance to read bytes from the file at the given path.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/ResolvingFileIO.html#newInputFile-java.lang.String-long-">newInputFile</a></span>(java.lang.String&nbsp;location,
             long&nbsp;length)</code>
@@ -196,25 +200,25 @@ implements <a href="../../../../org/apache/iceberg/io/FileIO.html" title="interf
  file length.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/io/OutputFile.html" title="interface in org.apache.iceberg.io">OutputFile</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/ResolvingFileIO.html#newOutputFile-java.lang.String-">newOutputFile</a></span>(java.lang.String&nbsp;location)</code>
 <div class="block">Get a <a href="../../../../org/apache/iceberg/io/OutputFile.html" title="interface in org.apache.iceberg.io"><code>OutputFile</code></a> instance to write bytes to the file at the given path.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.String,java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/ResolvingFileIO.html#properties--">properties</a></span>()</code>
 <div class="block">Returns the property map used to configure this FileIO</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/ResolvingFileIO.html#serializeConfWith-java.util.function.Function-">serializeConfWith</a></span>(java.util.function.Function&lt;org.apache.hadoop.conf.Configuration,<a href="../../../../org/apache/iceberg/util/SerializableSupplier.html" title="interface in org.apache.iceberg.util">SerializableSupplier</a>&lt;org.apache.hadoop.conf.Configuration&gt;&gt;&nbsp;confSerializer)</code>
 <div class="block">Take a function that serializes Hadoop configuration into a supplier.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/ResolvingFileIO.html#setConf-org.apache.hadoop.conf.Configuration-">setConf</a></span>(org.apache.hadoop.conf.Configuration&nbsp;conf)</code>&nbsp;</td>
 </tr>
@@ -224,7 +228,7 @@ implements <a href="../../../../org/apache/iceberg/io/FileIO.html" title="interf
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+<code>clone, equals, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.org.apache.iceberg.io.FileIO">
@@ -432,10 +436,26 @@ implements <a href="../../../../org/apache/iceberg/io/FileIO.html" title="interf
 <a name="ioClass-java.lang.String-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>ioClass</h4>
 <pre>public&nbsp;java.lang.Class&lt;?&gt;&nbsp;ioClass(java.lang.String&nbsp;location)</pre>
+</li>
+</ul>
+<a name="finalize--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>finalize</h4>
+<pre>protected&nbsp;void&nbsp;finalize()
+                 throws java.lang.Throwable</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code>finalize</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.Throwable</code></dd>
+</dl>
 </li>
 </ul>
 </li>

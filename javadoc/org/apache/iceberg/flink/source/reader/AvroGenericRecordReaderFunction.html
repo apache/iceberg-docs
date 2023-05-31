@@ -141,14 +141,15 @@ extends <a href="../../../../../../org/apache/iceberg/flink/source/reader/DataIt
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../org/apache/iceberg/flink/source/reader/AvroGenericRecordReaderFunction.html#AvroGenericRecordReaderFunction-java.lang.String-org.apache.flink.configuration.ReadableConfig-org.apache.iceberg.Schema-org.apache.iceberg.Schema-java.lang.String-boolean-org.apache.iceberg.io.FileIO-org.apache.iceberg.encryption.EncryptionManager-">AvroGenericRecordReaderFunction</a></span>(java.lang.String&nbsp;tableName,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../org/apache/iceberg/flink/source/reader/AvroGenericRecordReaderFunction.html#AvroGenericRecordReaderFunction-java.lang.String-org.apache.flink.configuration.ReadableConfig-org.apache.iceberg.Schema-org.apache.iceberg.Schema-java.lang.String-boolean-org.apache.iceberg.io.FileIO-org.apache.iceberg.encryption.EncryptionManager-java.util.List-">AvroGenericRecordReaderFunction</a></span>(java.lang.String&nbsp;tableName,
                                org.apache.flink.configuration.ReadableConfig&nbsp;config,
                                <a href="../../../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;tableSchema,
                                <a href="../../../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;projectedSchema,
                                java.lang.String&nbsp;nameMapping,
                                boolean&nbsp;caseSensitive,
                                <a href="../../../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io,
-                               <a href="../../../../../../org/apache/iceberg/encryption/EncryptionManager.html" title="interface in org.apache.iceberg.encryption">EncryptionManager</a>&nbsp;encryption)</code>&nbsp;</td>
+                               <a href="../../../../../../org/apache/iceberg/encryption/EncryptionManager.html" title="interface in org.apache.iceberg.encryption">EncryptionManager</a>&nbsp;encryption,
+                               java.util.List&lt;<a href="../../../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&gt;&nbsp;filters)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -211,7 +212,7 @@ extends <a href="../../../../../../org/apache/iceberg/flink/source/reader/DataIt
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="AvroGenericRecordReaderFunction-java.lang.String-org.apache.flink.configuration.ReadableConfig-org.apache.iceberg.Schema-org.apache.iceberg.Schema-java.lang.String-boolean-org.apache.iceberg.io.FileIO-org.apache.iceberg.encryption.EncryptionManager-">
+<a name="AvroGenericRecordReaderFunction-java.lang.String-org.apache.flink.configuration.ReadableConfig-org.apache.iceberg.Schema-org.apache.iceberg.Schema-java.lang.String-boolean-org.apache.iceberg.io.FileIO-org.apache.iceberg.encryption.EncryptionManager-java.util.List-">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -224,7 +225,8 @@ extends <a href="../../../../../../org/apache/iceberg/flink/source/reader/DataIt
                                        java.lang.String&nbsp;nameMapping,
                                        boolean&nbsp;caseSensitive,
                                        <a href="../../../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io,
-                                       <a href="../../../../../../org/apache/iceberg/encryption/EncryptionManager.html" title="interface in org.apache.iceberg.encryption">EncryptionManager</a>&nbsp;encryption)</pre>
+                                       <a href="../../../../../../org/apache/iceberg/encryption/EncryptionManager.html" title="interface in org.apache.iceberg.encryption">EncryptionManager</a>&nbsp;encryption,
+                                       java.util.List&lt;<a href="../../../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&gt;&nbsp;filters)</pre>
 </li>
 </ul>
 </li>

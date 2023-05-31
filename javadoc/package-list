@@ -13,6 +13,7 @@ org.apache.iceberg.aws.glue
 org.apache.iceberg.aws.lakeformation
 org.apache.iceberg.aws.s3
 org.apache.iceberg.aws.s3.signer
+org.apache.iceberg.aws.util
 org.apache.iceberg.catalog
 org.apache.iceberg.common
 org.apache.iceberg.data
@@ -41,6 +42,7 @@ org.apache.iceberg.gcp
 org.apache.iceberg.gcp.gcs
 org.apache.iceberg.hadoop
 org.apache.iceberg.hive
+org.apache.iceberg.inmemory
 org.apache.iceberg.io
 org.apache.iceberg.jdbc
 org.apache.iceberg.mapping
@@ -76,4 +78,3 @@ org.apache.iceberg.view
 org.apache.spark.sql.catalyst.analysis
 org.apache.spark.sql.catalyst.parser.extensions
 org.apache.spark.sql.connector.iceberg.catalog
-org.apache.spark.sql.connector.iceberg.write

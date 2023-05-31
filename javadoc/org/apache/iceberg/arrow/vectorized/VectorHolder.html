@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":10,"i3":10,"i4":9,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
+var methods = {"i0":9,"i1":9,"i2":10,"i3":10,"i4":9,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -163,12 +163,12 @@ extends java.lang.Object</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#VectorHolder-org.apache.parquet.column.ColumnDescriptor-org.apache.arrow.vector.FieldVector-boolean-org.apache.parquet.column.Dictionary-org.apache.iceberg.arrow.vectorized.NullabilityHolder-org.apache.iceberg.types.Type-">VectorHolder</a></span>(org.apache.parquet.column.ColumnDescriptor&nbsp;columnDescriptor,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#VectorHolder-org.apache.parquet.column.ColumnDescriptor-org.apache.arrow.vector.FieldVector-boolean-org.apache.parquet.column.Dictionary-org.apache.iceberg.arrow.vectorized.NullabilityHolder-org.apache.iceberg.types.Types.NestedField-">VectorHolder</a></span>(org.apache.parquet.column.ColumnDescriptor&nbsp;columnDescriptor,
             org.apache.arrow.vector.FieldVector&nbsp;vector,
             boolean&nbsp;isDictionaryEncoded,
             org.apache.parquet.column.Dictionary&nbsp;dictionary,
             <a href="../../../../../org/apache/iceberg/arrow/vectorized/NullabilityHolder.html" title="class in org.apache.iceberg.arrow.vectorized">NullabilityHolder</a>&nbsp;holder,
-            <a href="../../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types">Type</a>&nbsp;type)</code>&nbsp;</td>
+            <a href="../../../../../org/apache/iceberg/types/Types.NestedField.html" title="class in org.apache.iceberg.types">Types.NestedField</a>&nbsp;icebergField)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -207,26 +207,30 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#dummyHolder-int-">dummyHolder</a></span>(int&nbsp;numRows)</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/iceberg/types/Types.NestedField.html" title="class in org.apache.iceberg.types">Types.NestedField</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#icebergField--">icebergField</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types">Type</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#icebergType--">icebergType</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#isDictionaryEncoded--">isDictionaryEncoded</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#isDummy--">isDummy</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/arrow/vectorized/NullabilityHolder.html" title="class in org.apache.iceberg.arrow.vectorized">NullabilityHolder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#nullabilityHolder--">nullabilityHolder</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#numValues--">numValues</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>org.apache.arrow.vector.FieldVector</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#vector--">vector</a></span>()</code>&nbsp;</td>
 </tr>
@@ -252,7 +256,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="VectorHolder-org.apache.parquet.column.ColumnDescriptor-org.apache.arrow.vector.FieldVector-boolean-org.apache.parquet.column.Dictionary-org.apache.iceberg.arrow.vectorized.NullabilityHolder-org.apache.iceberg.types.Type-">
+<a name="VectorHolder-org.apache.parquet.column.ColumnDescriptor-org.apache.arrow.vector.FieldVector-boolean-org.apache.parquet.column.Dictionary-org.apache.iceberg.arrow.vectorized.NullabilityHolder-org.apache.iceberg.types.Types.NestedField-">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -263,7 +267,7 @@ extends java.lang.Object</pre>
                     boolean&nbsp;isDictionaryEncoded,
                     org.apache.parquet.column.Dictionary&nbsp;dictionary,
                     <a href="../../../../../org/apache/iceberg/arrow/vectorized/NullabilityHolder.html" title="class in org.apache.iceberg.arrow.vectorized">NullabilityHolder</a>&nbsp;holder,
-                    <a href="../../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types">Type</a>&nbsp;type)</pre>
+                    <a href="../../../../../org/apache/iceberg/types/Types.NestedField.html" title="class in org.apache.iceberg.types">Types.NestedField</a>&nbsp;icebergField)</pre>
 </li>
 </ul>
 </li>
@@ -326,6 +330,15 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>icebergType</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types">Type</a>&nbsp;icebergType()</pre>
+</li>
+</ul>
+<a name="icebergField--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>icebergField</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/iceberg/types/Types.NestedField.html" title="class in org.apache.iceberg.types">Types.NestedField</a>&nbsp;icebergField()</pre>
 </li>
 </ul>
 <a name="numValues--">
