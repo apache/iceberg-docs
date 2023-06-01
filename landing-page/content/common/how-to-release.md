@@ -345,7 +345,7 @@ The following fields need to be updated:
 
 Raise a PR with the specific changes against `main` branch and merge.
 
-### update release notes
+### Update release notes
 
 In page `landing-page/content/common/release-notes.md`:
 1. Mark the current latest release notes to past releases
