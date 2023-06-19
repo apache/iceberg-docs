@@ -27,6 +27,8 @@ github:
     - iceberg
     - apache
     - docs
+  collaborators:  # Note: the number of collaborators is limited to 20
+    - bitsondatadev
 
 notifications:
     commits:      commits@iceberg.apache.org
