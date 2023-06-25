@@ -1,0 +1,70 @@
+baseURL = "" # This is populated by the github deploy workflow and is equal to "<domainName>"
+languageCode = "en-us"
+title = "Apache Iceberg"
+theme = "iceberg-theme"
+sectionPagesMenu = "main"
+
+[params]
+  siteType = "landing-page"
+  search = true
+  description = "The open table format for analytic datasets."
+  latestVersions.iceberg = "0.14.1"
+  docsBaseURL = ""
+
+[[params.social]]
+  title = "Community"
+  icon = "comments"
+  rel_url = "community"
+[[params.social]]
+  title = "github"
+  icon = "github"
+  url = "https://github.com/apache/iceberg"
+[[params.social]]
+  title = "slack"
+  icon = "slack"
+  url = "https://join.slack.com/t/apache-iceberg/shared_invite/zt-tlv0zjz6-jGJEkHfb1~heMCJA3Uycrg"  
+
+[outputFormats.SearchIndex]
+baseName = "search"
+mediaType = "application/json"
+
+[outputs]
+home = [ "HTML", "RSS", "SearchIndex" ]
+
+[menu]
+  versions = [
+    { name = "latest", url = "/docs/latest", weight = 1 },
+    { name = "0.14.1", url = "/docs/0.14.1", weight = 995 },
+    { name = "0.14.0", url = "/docs/0.14.0", weight = 996 },
+    { name = "0.13.2", url = "/docs/0.13.2", weight = 997 },
+    { name = "0.13.1", url = "/docs/0.13.1", weight = 998 },
+    { name = "0.13.0", url = "/docs/0.13.0", weight = 999 },
+    { name = "0.12.1", url = "/docs/0.12.1", weight = 1000 }
+  ]
+  topnav = [
+    { name = "Quickstart", url = "/spark-quickstart", weight = 100 },
+    { name = "Docs", url = "/docs/latest", weight = 200 },
+    { name = "Releases", url = "/releases", weight = 600 },
+    { name = "Blogs", url = "/blogs", weight = 998 },
+    { name = "Talks", url = "/talks", weight = 999 },
+    { name = "Roadmap", url = "/roadmap", weight = 997 },
+    { name = "Project", weight = 1100 },
+    { name = "Join", parent = "Project", url = "/community", weight = 100 },
+    { name = "Spec", url = "/spec", parent = "Project", weight = 200 },
+    { name = "View Spec", url = "/view-spec", parent = "Project", weight = 300 },
+    { name = "Puffin Spec", url = "/puffin-spec", parent = "Project", weight = 400 },
+    { name = "How To Release", parent = "Project", url = "/how-to-release", weight = 500 },
+    { name = "Terms", url = "/terms", parent = "Project", weight = 600 },
+    { name = "ASF", weight = 1200 },
+    { name = "License", identifier = "_license", parent = "ASF", url = "https://www.apache.org/licenses/" },
+    { name = "Security", identifier = "_security", parent = "ASF", url = "https://www.apache.org/security/" },
+    { name = "Sponsors", identifier = "_sponsors", parent = "ASF", url = "https://www.apache.org/foundation/thanks.html" },
+    { name = "Donate", identifier = "_donate", parent = "ASF", url = "https://www.apache.org/foundation/sponsorship.html" },
+    { name = "Events", identifier = "_events", parent = "ASF", url = "https://www.apache.org/events/current-event.html" },
+  ]
+  quickstarts = [
+    { name = "Spark and Iceberg Quickstart", weight = 100, url = "spark-quickstart", post = "This quickstart will get you up and running with an Iceberg and Spark environment, including sample notebooks." }
+  ]
+
+[markup.goldmark.renderer]
+unsafe= true
