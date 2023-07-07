@@ -65,6 +65,7 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     { name = "Flink", weight = 300},
     { name = "Trino", identifier = "_trino", weight = 500, url = "https://trino.io/docs/current/connector/iceberg.html" },
     { name = "Presto", identifier = "_presto", weight = 600, url = "https://prestodb.io/docs/current/connector/iceberg.html" },
+    { name = "ClickHouse", identifier = "_clickhouse", weight = 600, url = "https://clickhouse.com/docs/en/engines/table-engines/integrations/iceberg" },
     { name = "Dremio", identifier = "_dremio", weight = 700, url = "https://docs.dremio.com/data-formats/apache-iceberg/" },
     { name = "StarRocks", identifier = "_starrocks", weight = 701, url = "https://docs.starrocks.com/en-us/main/using_starrocks/External_table#apache-iceberg-external-table" },
     { name = "Amazon Athena", identifier = "_athena", weight = 800, url = "https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html" },
