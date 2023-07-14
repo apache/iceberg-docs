@@ -24,6 +24,11 @@ disableSidebar: true
 
 Here is a list of company blogs that talk about Iceberg. The blogs are ordered from most recent to oldest.
 
+### [12 Times Faster Query Planning With Iceberg Manifest Caching in Impala](https://blog.cloudera.com/12-times-faster-query-planning-with-iceberg-manifest-caching-in-impala/)
+**Date**: July 13rd, 2023, **Company**: Cloudera
+
+**Authors**: [Riza Suminto](https://www.linkedin.com/in/rizasuminto/))
+
 ### [Open Data Lakehouse powered by Iceberg for all your Data Warehouse needs](https://blog.cloudera.com/open-data-lakehouse-powered-by-iceberg-for-all-your-data-warehouse-needs/)
 **Date**: April 3rd, 2023, **Company**: Cloudera
 
