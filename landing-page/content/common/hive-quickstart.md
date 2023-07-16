@@ -33,45 +33,53 @@ disableToc: true
 This guide will get you up and running with an Iceberg and Hive environment, including sample code to
 highlight some powerful features. You can learn more about Iceberg's Hive runtime by checking out the [Hive](../docs/latest/hive/) section.
 
-- [Feature-support](#feature-support)
-- [Enabling Iceberg support in Hive](#enabling-iceberg-support-in-hive)
-- [Catalog Management](#catalog-management)
-- [DDL Commands](#ddl-commands)
-- [DML Commands](#dml-commands)
+- [Docker Images](#docker-images)
+- [Creating a Table](#creating-a-table)
+- [Writing Data to a Table](#writing-data-to-a-table)
+- [Reading Data from a Table](#reading-data-from-a-table)
+- [Next Steps](#next-steps)
 
-### Docker images
+### Docker Images
 
 The fastest way to get started is to use [Apache Hive images](https://hub.docker.com/r/apache/hive) 
-which provides a SQL-like interface to create and query Iceberg tables from your laptop. You need to install the [Docker Desktop](https://www.docker.com/products/docker-desktop/), choosing the Intel or Apple M1 chip if you have a Mac, or choosing Linux.
+which provides a SQL-like interface to create and query Iceberg tables from your laptop. You need to install the [Docker Desktop](https://www.docker.com/products/docker-desktop/).
 
-Set the version variable:
-```export HIVE_VERSION=4.0.0-alpha-2```
+Take a look at the Tags tab in [Apache Hive docker images](https://hub.docker.com/r/apache/hive/tags?page=1&ordering=-last_updated) to see the available Hive versions.
 
-Start the container, using the option --platform linux/amd64 for a Mac M1:
-```docker run -d --platform linux/amd64 -p 10000:10000 -p 10002:10002 --env SERVICE_NAME=hiveserver2 --name hive4 apache/hive:${HIVE_VERSION}
+Set the version variable. For example:
+```sh
+export HIVE_VERSION=4.0.0-alpha-2
 ```
 
-This command configures Hive to use the embedded derby database for Hive Metastore. Hive Metastore functions as the Iceberg catalog to locate Iceberg files, which can be anywhere. 
+Start the container, using the option --platform linux/amd64 for a Mac with an M-Series chip:
+```sh
+docker run -d --platform linux/amd64 -p 10000:10000 -p 10002:10002 --env SERVICE_NAME=hiveserver2 --name hive4 apache/hive:${HIVE_VERSION}
+```
 
-Give HS2 a little time to come up in the docker container, and then start Hive using beeline as follows:
-```docker exec -it hive4 beeline -u 'jdbc:hive2://localhost:10000/'
+The docker run command above configures Hive to use the embedded derby database for Hive Metastore. Hive Metastore functions as the Iceberg catalog to locate Iceberg files, which can be anywhere. 
+
+Give HiveServer (HS2) a little time to come up in the docker container, and then start the Hive Beeline client using the following command to connect with the HS2 containers you already started:
+```sh
+docker exec -it hive4 beeline -u 'jdbc:hive2://localhost:10000/'
 ```
 
 The hive prompt appears:
-```0: jdbc:hive2://localhost:10000>
+```sh
+0: jdbc:hive2://localhost:10000>
 ```
 
-You can now run SQL queries, such as ```show databases;```, create Iceberg tables, and query the tables.
+You can now run SQL queries to create Iceberg tables and query the tables. For example:
+```sql
+show databases;
+```
 
-### Creating a table
+### Creating a Table
 
 To create your first Iceberg table in Hive, run a [`CREATE TABLE`](../hive#create-table) command. Let's create a table
 using `nyc.taxis` where `nyc` is the database name and `taxis` is the table name.
-
 ```sql
 CREATE DATABASE nyc;
 ```
-
 ```sql
 CREATE TABLE nyc.taxis
 (
@@ -84,16 +92,15 @@ PARTITIONED BY (vendor_id bigint) STORED BY ICEBERG;
 ```
 Iceberg catalogs support the full range of SQL DDL commands, including:
 
-* [`CREATE TABLE ... PARTITIONED BY`](../hive#create-table)
-* [`CREATE TABLE ... AS SELECT`](../hive#create-table-as-select)
-* [`CREATE TABLE ... LIKE`](../hive/#create-table-like-table)
+* [`CREATE TABLE`](../hive#create-table)
+* [`CREATE TABLE AS SELECT`](../hive#create-table-as-select)
+* [`CREATE TABLE LIKE TABLE`](../hive#create-table-like-table)
 * [`ALTER TABLE`](../hive#alter-table)
 * [`DROP TABLE`](../hive#drop-table)
 
 ### Writing Data to a Table
 
 After your table is created, you can insert records.
-
 ```sql
 INSERT INTO nyc.taxis
 VALUES (1000371, 1.8, 15.32, 'N', 1), (1000372, 2.5, 22.15, 'N', 2), (1000373, 0.9, 9.01, 'N', 2), (1000374, 8.4, 42.13, 'Y', 1);
@@ -102,7 +109,6 @@ VALUES (1000371, 1.8, 15.32, 'N', 1), (1000372, 2.5, 22.15, 'N', 2), (1000373, 0
 ### Reading Data from a Table
 
 To read a table, simply use the Iceberg table's name.
-
 ```sql
 SELECT * FROM nyc.taxis;
 ```
@@ -111,7 +117,7 @@ SELECT * FROM nyc.taxis;
 
 #### Adding Iceberg to Hive
 
-If you already have a Hive 4.0.0-alpha-1, or later, environment, it comes with the Iceberg 0.13.1 included. No additional downloads or jars are needed. If you have a Hive 2.3.x or Hive 3.1.x environment see [`Enabling Iceberg support in Hive`](../hive##enabling-iceberg-support-in-hive).
+If you already have a Hive 4.0.0-alpha-1, or later, environment, it comes with the Iceberg 0.13.1 included. No additional downloads or jars are needed. If you have a Hive 2.3.x or Hive 3.1.x environment see [`Enabling Iceberg support in Hive`](../hive#enabling-iceberg-support-in-hive).
 
 #### Learn More
 
