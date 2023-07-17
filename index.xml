@@ -4,8 +4,9 @@ Docker-Compose Creating a table Writing Data to a Table Reading Data from a Tabl
 Running Benchmarks on GitHub It is possible to run one or more Benchmarks via the JMH Benchmarks GH action on your own fork of the Iceberg repo.</description></item><item><title>Blogs</title><link>https://iceberg.apache.org/blogs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://iceberg.apache.org/blogs/</guid><description>Iceberg Blogs Here is a list of company blogs that talk about Iceberg. The blogs are ordered from most recent to oldest.
 12 Times Faster Query Planning With Iceberg Manifest Caching in Impala Date: July 13rd, 2023, Company: Cloudera
 Authors: Riza Suminto)
-Open Data Lakehouse powered by Iceberg for all your Data Warehouse needs Date: April 3rd, 2023, Company: Cloudera
-Authors: Zoltan Borok-Nagy, Ayush Saxena, Tamas Mate, Simhadri Govindappa</description></item><item><title>Community</title><link>https://iceberg.apache.org/community/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://iceberg.apache.org/community/</guid><description>Welcome! Apache Iceberg tracks issues in GitHub and prefers to receive contributions as pull requests.
+How Bilibili Builds OLAP Data Lakehouse with Apache Iceberg Date: June 14th, 2023, Company: Bilibili
+Authors: Rui Li
+Open Data Lakehouse powered by Iceberg for all your Data Warehouse needs Date: April 3rd, 2023, Company: Cloudera</description></item><item><title>Community</title><link>https://iceberg.apache.org/community/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://iceberg.apache.org/community/</guid><description>Welcome! Apache Iceberg tracks issues in GitHub and prefers to receive contributions as pull requests.
 Community discussions happen primarily on the dev mailing list, on apache-iceberg Slack workspace, and on specific GitHub issues.
 Contribute See Contributing for more details on how to contribute to Iceberg.
 Issues Issues are tracked in GitHub:
