@@ -121,4 +121,4 @@ If you already have a Hive 4.0.0-alpha-1, or later, environment, it comes with t
 
 #### Learn More
 
-To learn more about setting up a database other than Derby, see [Apache Hive Quick Start](https://hive.apache.org/developement/quickstart/). You can also [set up a standalone metastore, HS2 and Postgres](https://github.com/apache/hive/blob/master/packaging/src/docker/docker-compose.yml). Now that you're up an running with Iceberg and Hive, check out the [Iceberg-Hive docs](../docs/latest/hive/) to learn more!
+To learn more about setting up a database other than Derby, see [Apache Hive Quick Start](https://hive.apache.org/developement/quickstart/). You can also [set up a standalone metastore, HS2 and Postgres](https://github.com/apache/hive/blob/master/packaging/src/docker/docker-compose.yml). Now that you're up and running with Iceberg and Hive, check out the [Iceberg-Hive docs](../docs/latest/hive/) to learn more!
