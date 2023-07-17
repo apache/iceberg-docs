@@ -47,7 +47,9 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     { name = "0.12.1", url = "/docs/0.12.1", weight = 1000 }
   ]
   topnav = [
-    { name = "Quickstart", url = "/spark-quickstart", weight = 100 },
+    { name = "Quickstart", weight = 100 },
+    { name = "Hive", parent = "Quickstart", url = "/hive-quickstart", weight = 100 },
+    { name = "Spark", parent = "Quickstart", url = "/spark-quickstart", weight = 200 },
     { name = "Docs", url = "/docs/latest", weight = 200 },
     { name = "Releases", url = "/releases", weight = 600 },
     { name = "Roadmap", url = "/roadmap", weight = 997 },
