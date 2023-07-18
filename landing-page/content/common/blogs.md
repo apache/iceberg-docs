@@ -24,10 +24,16 @@ disableSidebar: true
 
 Here is a list of company blogs that talk about Iceberg. The blogs are ordered from most recent to oldest.
 
-### [12 Times Faster Query Planning With Iceberg Manifest Caching in Impala](https://blog.cloudera.com/12-times-faster-query-planning-with-iceberg-manifest-caching-in-impala/)
-**Date**: July 13rd, 2023, **Company**: Cloudera
 
-**Authors**: [Riza Suminto](https://www.linkedin.com/in/rizasuminto/))
+### [From Hive Tables to Iceberg Tables: Hassle-Free](https://blog.cloudera.com/from-hive-tables-to-iceberg-tables-hassle-free/)
+**Date**: July 14th, 2023, **Company**: Cloudera
+
+**Authors**: [Srinivas Rishindra Pothireddi](https://www.linkedin.com/in/srinivas-rishindra/)
+
+### [12 Times Faster Query Planning With Iceberg Manifest Caching in Impala](https://blog.cloudera.com/12-times-faster-query-planning-with-iceberg-manifest-caching-in-impala/)
+**Date**: July 13th, 2023, **Company**: Cloudera
+
+**Authors**: [Riza Suminto](https://www.linkedin.com/in/rizasuminto/)
 
 ### [How Bilibili Builds OLAP Data Lakehouse with Apache Iceberg](https://medium.com/@lirui.fudan/how-bilibili-builds-olap-data-lakehouse-with-apache-iceberg-9f3408e53f9)
 **Date**: June 14th, 2023, **Company**: Bilibili
