@@ -38,7 +38,7 @@ Cloudera Data Platform integrates Apache Iceberg to the following components:
 * Hive metastore, which plays a lightweight role in providing the Iceberg Catalog
 * Data Visualization to visualize data stored in Apache Iceberg
 
-https://docs.cloudera.com/cdp/latest/cdp-iceberg/topics/iceberg-in-cdp.html
+https://docs.cloudera.com/cdp-public-cloud/cloud/cdp-iceberg/topics/iceberg-in-cdp.html
 
 ### [Dremio](https://www.dremio.com/)
 
