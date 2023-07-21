@@ -46,12 +46,12 @@ which provides a SQL-like interface to create and query Iceberg tables from your
 
 Take a look at the Tags tab in [Apache Hive docker images](https://hub.docker.com/r/apache/hive/tags?page=1&ordering=-last_updated) to see the available Hive versions.
 
-Set the version variable. For example:
+Set the version variable.
 ```sh
 export HIVE_VERSION=4.0.0-alpha-2
 ```
 
-Start the container, using the option --platform linux/amd64 for a Mac with an M-Series chip:
+Start the container, using the option `--platform linux/amd64` for a Mac with an M-Series chip:
 ```sh
 docker run -d --platform linux/amd64 -p 10000:10000 -p 10002:10002 --env SERVICE_NAME=hiveserver2 --name hive4 apache/hive:${HIVE_VERSION}
 ```
@@ -68,7 +68,7 @@ The hive prompt appears:
 0: jdbc:hive2://localhost:10000>
 ```
 
-You can now run SQL queries to create Iceberg tables and query the tables. For example:
+You can now run SQL queries to create Iceberg tables and query the tables.
 ```sql
 show databases;
 ```
@@ -117,7 +117,7 @@ SELECT * FROM nyc.taxis;
 
 #### Adding Iceberg to Hive
 
-If you already have a Hive 4.0.0-alpha-1, or later, environment, it comes with the Iceberg 0.13.1 included. No additional downloads or jars are needed. If you have a Hive 2.3.x or Hive 3.1.x environment see [`Enabling Iceberg support in Hive`](../hive#enabling-iceberg-support-in-hive).
+If you already have a Hive 4.0.0-alpha-1, or later, environment, it comes with the Iceberg 0.13.1 included. No additional downloads or jars are needed. If you have a Hive 2.3.x or Hive 3.1.x environment see [Enabling Iceberg support in Hive](../hive#enabling-iceberg-support-in-hive).
 
 #### Learn More
 
