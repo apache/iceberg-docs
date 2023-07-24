@@ -37,7 +37,9 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     { name = "0.12.1", pre = "relative", url = "../0.12.1", weight = 1000 }
   ]
   topnav = [
-    { name = "Quickstart", pre = "relative", url = "../../spark-quickstart", weight = 100 },
+    { name = "Quickstart", weight = 100 },
+    { name = "Hive", parent = "Quickstart", pre = "relative", url = "../../hive-quickstart", weight = 100 },
+    { name = "Spark", parent = "Quickstart", pre = "relative", url = "../../spark-quickstart", weight = 200 },
     { name = "Docs", pre = "relative", url = "../../docs/latest", weight = 200 },
     { name = "Releases", pre = "relative", url = "../../releases", weight = 600 },
     { name = "Blogs", pre = "relative", url = "../../blogs", weight = 998 },
