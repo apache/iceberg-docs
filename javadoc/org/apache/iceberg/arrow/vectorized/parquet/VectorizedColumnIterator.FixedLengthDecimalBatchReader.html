@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var methods = {"i0":42};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -115,8 +115,12 @@ var activeTableTab = "activeTableTab";
 <dd><a href="../../../../../../org/apache/iceberg/arrow/vectorized/parquet/VectorizedColumnIterator.html" title="class in org.apache.iceberg.arrow.vectorized.parquet">VectorizedColumnIterator</a></dd>
 </dl>
 <hr>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0</span></div>
+</div>
 <br>
-<pre>public class <span class="typeNameLabel">VectorizedColumnIterator.FixedLengthDecimalBatchReader</span>
+<pre>@Deprecated
+public class <span class="typeNameLabel">VectorizedColumnIterator.FixedLengthDecimalBatchReader</span>
 extends <a href="../../../../../../org/apache/iceberg/arrow/vectorized/parquet/VectorizedColumnIterator.BatchReader.html" title="class in org.apache.iceberg.arrow.vectorized.parquet">VectorizedColumnIterator.BatchReader</a></pre>
 </li>
 </ul>
@@ -136,7 +140,9 @@ extends <a href="../../../../../../org/apache/iceberg/arrow/vectorized/parquet/V
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../org/apache/iceberg/arrow/vectorized/parquet/VectorizedColumnIterator.FixedLengthDecimalBatchReader.html#FixedLengthDecimalBatchReader--">FixedLengthDecimalBatchReader</a></span>()</code>&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../org/apache/iceberg/arrow/vectorized/parquet/VectorizedColumnIterator.FixedLengthDecimalBatchReader.html#FixedLengthDecimalBatchReader--">FixedLengthDecimalBatchReader</a></span>()</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -148,7 +154,7 @@ extends <a href="../../../../../../org/apache/iceberg/arrow/vectorized/parquet/V
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -159,7 +165,9 @@ extends <a href="../../../../../../org/apache/iceberg/arrow/vectorized/parquet/V
            int&nbsp;expectedBatchSize,
            int&nbsp;numValsInVector,
            int&nbsp;typeWidth,
-           <a href="../../../../../../org/apache/iceberg/arrow/vectorized/NullabilityHolder.html" title="class in org.apache.iceberg.arrow.vectorized">NullabilityHolder</a>&nbsp;holder)</code>&nbsp;</td>
+           <a href="../../../../../../org/apache/iceberg/arrow/vectorized/NullabilityHolder.html" title="class in org.apache.iceberg.arrow.vectorized">NullabilityHolder</a>&nbsp;holder)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -197,6 +205,7 @@ extends <a href="../../../../../../org/apache/iceberg/arrow/vectorized/parquet/V
 <li class="blockList">
 <h4>FixedLengthDecimalBatchReader</h4>
 <pre>public&nbsp;FixedLengthDecimalBatchReader()</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </li>
 </ul>
 </li>
@@ -218,6 +227,7 @@ extends <a href="../../../../../../org/apache/iceberg/arrow/vectorized/parquet/V
                           int&nbsp;numValsInVector,
                           int&nbsp;typeWidth,
                           <a href="../../../../../../org/apache/iceberg/arrow/vectorized/NullabilityHolder.html" title="class in org.apache.iceberg.arrow.vectorized">NullabilityHolder</a>&nbsp;holder)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../../org/apache/iceberg/arrow/vectorized/parquet/VectorizedColumnIterator.BatchReader.html#nextBatchOf-org.apache.arrow.vector.FieldVector-int-int-int-org.apache.iceberg.arrow.vectorized.NullabilityHolder-">nextBatchOf</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../org/apache/iceberg/arrow/vectorized/parquet/VectorizedColumnIterator.BatchReader.html" title="class in org.apache.iceberg.arrow.vectorized.parquet">VectorizedColumnIterator.BatchReader</a></code></dd>

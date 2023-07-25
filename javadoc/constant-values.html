@@ -136,25 +136,25 @@
 <td class="colLast"><code>"app-id"</code></td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.AUTH_DEFAULT_REFRESH_ENABLED">
-<!--   -->
-</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
-<td><code><a href="org/apache/iceberg/CatalogProperties.html#AUTH_DEFAULT_REFRESH_ENABLED">AUTH_DEFAULT_REFRESH_ENABLED</a></code></td>
-<td class="colLast"><code>"auth.default-refresh-enabled"</code></td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.AUTH_DEFAULT_REFRESH_ENABLED_DEFAULT">
-<!--   -->
-</a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
-<td><code><a href="org/apache/iceberg/CatalogProperties.html#AUTH_DEFAULT_REFRESH_ENABLED_DEFAULT">AUTH_DEFAULT_REFRESH_ENABLED_DEFAULT</a></code></td>
-<td class="colLast"><code>false</code></td>
-</tr>
-<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.AUTH_SESSION_TIMEOUT_MS">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/CatalogProperties.html#AUTH_SESSION_TIMEOUT_MS">AUTH_SESSION_TIMEOUT_MS</a></code></td>
 <td class="colLast"><code>"auth.session-timeout-ms"</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.CACHE_CASE_SENSITIVE">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/CatalogProperties.html#CACHE_CASE_SENSITIVE">CACHE_CASE_SENSITIVE</a></code></td>
+<td class="colLast"><code>"cache.case-sensitive"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.CACHE_CASE_SENSITIVE_DEFAULT">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
+<td><code><a href="org/apache/iceberg/CatalogProperties.html#CACHE_CASE_SENSITIVE_DEFAULT">CACHE_CASE_SENSITIVE_DEFAULT</a></code></td>
+<td class="colLast"><code>true</code></td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.CACHE_ENABLED">
@@ -199,167 +199,174 @@
 <td class="colLast"><code>"client.pool.cache.eviction-interval-ms"</code></td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.CLIENT_POOL_CACHE_KEYS">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/CatalogProperties.html#CLIENT_POOL_CACHE_KEYS">CLIENT_POOL_CACHE_KEYS</a></code></td>
+<td class="colLast"><code>"client-pool-cache-keys"</code></td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.CLIENT_POOL_SIZE">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/CatalogProperties.html#CLIENT_POOL_SIZE">CLIENT_POOL_SIZE</a></code></td>
 <td class="colLast"><code>"clients"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.CLIENT_POOL_SIZE_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
 <td><code><a href="org/apache/iceberg/CatalogProperties.html#CLIENT_POOL_SIZE_DEFAULT">CLIENT_POOL_SIZE_DEFAULT</a></code></td>
 <td class="colLast"><code>2</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.FILE_IO_IMPL">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/CatalogProperties.html#FILE_IO_IMPL">FILE_IO_IMPL</a></code></td>
 <td class="colLast"><code>"io-impl"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.IO_MANIFEST_CACHE_ENABLED">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/CatalogProperties.html#IO_MANIFEST_CACHE_ENABLED">IO_MANIFEST_CACHE_ENABLED</a></code></td>
 <td class="colLast"><code>"io.manifest.cache-enabled"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.IO_MANIFEST_CACHE_ENABLED_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
 <td><code><a href="org/apache/iceberg/CatalogProperties.html#IO_MANIFEST_CACHE_ENABLED_DEFAULT">IO_MANIFEST_CACHE_ENABLED_DEFAULT</a></code></td>
 <td class="colLast"><code>false</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.IO_MANIFEST_CACHE_EXPIRATION_INTERVAL_MS">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/CatalogProperties.html#IO_MANIFEST_CACHE_EXPIRATION_INTERVAL_MS">IO_MANIFEST_CACHE_EXPIRATION_INTERVAL_MS</a></code></td>
 <td class="colLast"><code>"io.manifest.cache.expiration-interval-ms"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.IO_MANIFEST_CACHE_MAX_CONTENT_LENGTH">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/CatalogProperties.html#IO_MANIFEST_CACHE_MAX_CONTENT_LENGTH">IO_MANIFEST_CACHE_MAX_CONTENT_LENGTH</a></code></td>
 <td class="colLast"><code>"io.manifest.cache.max-content-length"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.IO_MANIFEST_CACHE_MAX_CONTENT_LENGTH_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;long</code></td>
 <td><code><a href="org/apache/iceberg/CatalogProperties.html#IO_MANIFEST_CACHE_MAX_CONTENT_LENGTH_DEFAULT">IO_MANIFEST_CACHE_MAX_CONTENT_LENGTH_DEFAULT</a></code></td>
 <td class="colLast"><code>8388608L</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.IO_MANIFEST_CACHE_MAX_TOTAL_BYTES">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/CatalogProperties.html#IO_MANIFEST_CACHE_MAX_TOTAL_BYTES">IO_MANIFEST_CACHE_MAX_TOTAL_BYTES</a></code></td>
 <td class="colLast"><code>"io.manifest.cache.max-total-bytes"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.IO_MANIFEST_CACHE_MAX_TOTAL_BYTES_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;long</code></td>
 <td><code><a href="org/apache/iceberg/CatalogProperties.html#IO_MANIFEST_CACHE_MAX_TOTAL_BYTES_DEFAULT">IO_MANIFEST_CACHE_MAX_TOTAL_BYTES_DEFAULT</a></code></td>
 <td class="colLast"><code>104857600L</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.LOCK_ACQUIRE_INTERVAL_MS">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/CatalogProperties.html#LOCK_ACQUIRE_INTERVAL_MS">LOCK_ACQUIRE_INTERVAL_MS</a></code></td>
 <td class="colLast"><code>"lock.acquire-interval-ms"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.LOCK_ACQUIRE_TIMEOUT_MS">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/CatalogProperties.html#LOCK_ACQUIRE_TIMEOUT_MS">LOCK_ACQUIRE_TIMEOUT_MS</a></code></td>
 <td class="colLast"><code>"lock.acquire-timeout-ms"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.LOCK_HEARTBEAT_INTERVAL_MS">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/CatalogProperties.html#LOCK_HEARTBEAT_INTERVAL_MS">LOCK_HEARTBEAT_INTERVAL_MS</a></code></td>
 <td class="colLast"><code>"lock.heartbeat-interval-ms"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.LOCK_HEARTBEAT_THREADS">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/CatalogProperties.html#LOCK_HEARTBEAT_THREADS">LOCK_HEARTBEAT_THREADS</a></code></td>
 <td class="colLast"><code>"lock.heartbeat-threads"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.LOCK_HEARTBEAT_THREADS_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
 <td><code><a href="org/apache/iceberg/CatalogProperties.html#LOCK_HEARTBEAT_THREADS_DEFAULT">LOCK_HEARTBEAT_THREADS_DEFAULT</a></code></td>
 <td class="colLast"><code>4</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.LOCK_HEARTBEAT_TIMEOUT_MS">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/CatalogProperties.html#LOCK_HEARTBEAT_TIMEOUT_MS">LOCK_HEARTBEAT_TIMEOUT_MS</a></code></td>
 <td class="colLast"><code>"lock.heartbeat-timeout-ms"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.LOCK_IMPL">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/CatalogProperties.html#LOCK_IMPL">LOCK_IMPL</a></code></td>
 <td class="colLast"><code>"lock-impl"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.LOCK_TABLE">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/CatalogProperties.html#LOCK_TABLE">LOCK_TABLE</a></code></td>
 <td class="colLast"><code>"lock.table"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.METRICS_REPORTER_IMPL">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/CatalogProperties.html#METRICS_REPORTER_IMPL">METRICS_REPORTER_IMPL</a></code></td>
 <td class="colLast"><code>"metrics-reporter-impl"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.TABLE_DEFAULT_PREFIX">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/CatalogProperties.html#TABLE_DEFAULT_PREFIX">TABLE_DEFAULT_PREFIX</a></code></td>
 <td class="colLast"><code>"table-default."</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.TABLE_OVERRIDE_PREFIX">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/CatalogProperties.html#TABLE_OVERRIDE_PREFIX">TABLE_OVERRIDE_PREFIX</a></code></td>
 <td class="colLast"><code>"table-override."</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.URI">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/CatalogProperties.html#URI">URI</a></code></td>
 <td class="colLast"><code>"uri"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.USER">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/CatalogProperties.html#USER">USER</a></code></td>
 <td class="colLast"><code>"user"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.CatalogProperties.WAREHOUSE_LOCATION">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
@@ -626,6 +633,39 @@
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/MetricsUtil.html#READABLE_METRICS">READABLE_METRICS</a></code></td>
 <td class="colLast"><code>"readable_metrics"</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li class="blockList">
+<table class="constantsSummary" border="0" cellpadding="3" cellspacing="0" summary="Constant Field Values table, listing constant fields, and values">
+<caption><span>org.apache.iceberg.<a href="org/apache/iceberg/PositionDeletesTable.html" title="class in org.apache.iceberg">PositionDeletesTable</a></span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th scope="col">Constant Field</th>
+<th class="colLast" scope="col">Value</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.PositionDeletesTable.DELETE_FILE_PATH">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/PositionDeletesTable.html#DELETE_FILE_PATH">DELETE_FILE_PATH</a></code></td>
+<td class="colLast"><code>"delete_file_path"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.PositionDeletesTable.PARTITION">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/PositionDeletesTable.html#PARTITION">PARTITION</a></code></td>
+<td class="colLast"><code>"partition"</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.PositionDeletesTable.SPEC_ID">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/PositionDeletesTable.html#SPEC_ID">SPEC_ID</a></code></td>
+<td class="colLast"><code>"spec_id"</code></td>
 </tr>
 </tbody>
 </table>
@@ -1327,762 +1367,769 @@
 <td class="colLast"><code>true</code></td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><a name="org.apache.iceberg.TableProperties.HMS_TABLE_OWNER">
+<td class="colFirst"><a name="org.apache.iceberg.TableProperties.HIVE_LOCK_ENABLED">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
-<td><code><a href="org/apache/iceberg/TableProperties.html#HMS_TABLE_OWNER">HMS_TABLE_OWNER</a></code></td>
-<td class="colLast"><code>"hive.metastore.table.owner"</code></td>
+<td><code><a href="org/apache/iceberg/TableProperties.html#HIVE_LOCK_ENABLED">HIVE_LOCK_ENABLED</a></code></td>
+<td class="colLast"><code>"engine.hive.lock-enabled"</code></td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.TableProperties.HIVE_LOCK_ENABLED_DEFAULT">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
+<td><code><a href="org/apache/iceberg/TableProperties.html#HIVE_LOCK_ENABLED_DEFAULT">HIVE_LOCK_ENABLED_DEFAULT</a></code></td>
+<td class="colLast"><code>true</code></td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.MANIFEST_LISTS_ENABLED">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#MANIFEST_LISTS_ENABLED">MANIFEST_LISTS_ENABLED</a></code></td>
 <td class="colLast"><code>"write.manifest-lists.enabled"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.MANIFEST_LISTS_ENABLED_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#MANIFEST_LISTS_ENABLED_DEFAULT">MANIFEST_LISTS_ENABLED_DEFAULT</a></code></td>
 <td class="colLast"><code>true</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.MANIFEST_MERGE_ENABLED">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#MANIFEST_MERGE_ENABLED">MANIFEST_MERGE_ENABLED</a></code></td>
 <td class="colLast"><code>"commit.manifest-merge.enabled"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.MANIFEST_MERGE_ENABLED_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#MANIFEST_MERGE_ENABLED_DEFAULT">MANIFEST_MERGE_ENABLED_DEFAULT</a></code></td>
 <td class="colLast"><code>true</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.MANIFEST_MIN_MERGE_COUNT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#MANIFEST_MIN_MERGE_COUNT">MANIFEST_MIN_MERGE_COUNT</a></code></td>
 <td class="colLast"><code>"commit.manifest.min-count-to-merge"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.MANIFEST_MIN_MERGE_COUNT_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#MANIFEST_MIN_MERGE_COUNT_DEFAULT">MANIFEST_MIN_MERGE_COUNT_DEFAULT</a></code></td>
 <td class="colLast"><code>100</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.MANIFEST_TARGET_SIZE_BYTES">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#MANIFEST_TARGET_SIZE_BYTES">MANIFEST_TARGET_SIZE_BYTES</a></code></td>
 <td class="colLast"><code>"commit.manifest.target-size-bytes"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.MANIFEST_TARGET_SIZE_BYTES_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;long</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#MANIFEST_TARGET_SIZE_BYTES_DEFAULT">MANIFEST_TARGET_SIZE_BYTES_DEFAULT</a></code></td>
 <td class="colLast"><code>8388608L</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.MAX_REF_AGE_MS">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#MAX_REF_AGE_MS">MAX_REF_AGE_MS</a></code></td>
 <td class="colLast"><code>"history.expire.max-ref-age-ms"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.MAX_REF_AGE_MS_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;long</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#MAX_REF_AGE_MS_DEFAULT">MAX_REF_AGE_MS_DEFAULT</a></code></td>
 <td class="colLast"><code>9223372036854775807L</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.MAX_SNAPSHOT_AGE_MS">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#MAX_SNAPSHOT_AGE_MS">MAX_SNAPSHOT_AGE_MS</a></code></td>
 <td class="colLast"><code>"history.expire.max-snapshot-age-ms"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.MAX_SNAPSHOT_AGE_MS_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;long</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#MAX_SNAPSHOT_AGE_MS_DEFAULT">MAX_SNAPSHOT_AGE_MS_DEFAULT</a></code></td>
 <td class="colLast"><code>432000000L</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.MERGE_CARDINALITY_CHECK_ENABLED">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#MERGE_CARDINALITY_CHECK_ENABLED">MERGE_CARDINALITY_CHECK_ENABLED</a></code></td>
 <td class="colLast"><code>"write.merge.cardinality-check.enabled"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.MERGE_CARDINALITY_CHECK_ENABLED_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#MERGE_CARDINALITY_CHECK_ENABLED_DEFAULT">MERGE_CARDINALITY_CHECK_ENABLED_DEFAULT</a></code></td>
 <td class="colLast"><code>true</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.MERGE_DISTRIBUTION_MODE">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#MERGE_DISTRIBUTION_MODE">MERGE_DISTRIBUTION_MODE</a></code></td>
 <td class="colLast"><code>"write.merge.distribution-mode"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.MERGE_ISOLATION_LEVEL">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#MERGE_ISOLATION_LEVEL">MERGE_ISOLATION_LEVEL</a></code></td>
 <td class="colLast"><code>"write.merge.isolation-level"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.MERGE_ISOLATION_LEVEL_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#MERGE_ISOLATION_LEVEL_DEFAULT">MERGE_ISOLATION_LEVEL_DEFAULT</a></code></td>
 <td class="colLast"><code>"serializable"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.MERGE_MODE">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#MERGE_MODE">MERGE_MODE</a></code></td>
 <td class="colLast"><code>"write.merge.mode"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.METADATA_COMPRESSION">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#METADATA_COMPRESSION">METADATA_COMPRESSION</a></code></td>
 <td class="colLast"><code>"write.metadata.compression-codec"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.METADATA_COMPRESSION_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#METADATA_COMPRESSION_DEFAULT">METADATA_COMPRESSION_DEFAULT</a></code></td>
 <td class="colLast"><code>"none"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.METADATA_DELETE_AFTER_COMMIT_ENABLED">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#METADATA_DELETE_AFTER_COMMIT_ENABLED">METADATA_DELETE_AFTER_COMMIT_ENABLED</a></code></td>
 <td class="colLast"><code>"write.metadata.delete-after-commit.enabled"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.METADATA_DELETE_AFTER_COMMIT_ENABLED_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#METADATA_DELETE_AFTER_COMMIT_ENABLED_DEFAULT">METADATA_DELETE_AFTER_COMMIT_ENABLED_DEFAULT</a></code></td>
 <td class="colLast"><code>false</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.METADATA_PREVIOUS_VERSIONS_MAX">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#METADATA_PREVIOUS_VERSIONS_MAX">METADATA_PREVIOUS_VERSIONS_MAX</a></code></td>
 <td class="colLast"><code>"write.metadata.previous-versions-max"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.METADATA_PREVIOUS_VERSIONS_MAX_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#METADATA_PREVIOUS_VERSIONS_MAX_DEFAULT">METADATA_PREVIOUS_VERSIONS_MAX_DEFAULT</a></code></td>
 <td class="colLast"><code>100</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.METADATA_SPLIT_SIZE">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#METADATA_SPLIT_SIZE">METADATA_SPLIT_SIZE</a></code></td>
 <td class="colLast"><code>"read.split.metadata-target-size"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.METADATA_SPLIT_SIZE_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;long</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#METADATA_SPLIT_SIZE_DEFAULT">METADATA_SPLIT_SIZE_DEFAULT</a></code></td>
 <td class="colLast"><code>33554432L</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.METRICS_MAX_INFERRED_COLUMN_DEFAULTS">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#METRICS_MAX_INFERRED_COLUMN_DEFAULTS">METRICS_MAX_INFERRED_COLUMN_DEFAULTS</a></code></td>
 <td class="colLast"><code>"write.metadata.metrics.max-inferred-column-defaults"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.METRICS_MAX_INFERRED_COLUMN_DEFAULTS_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#METRICS_MAX_INFERRED_COLUMN_DEFAULTS_DEFAULT">METRICS_MAX_INFERRED_COLUMN_DEFAULTS_DEFAULT</a></code></td>
 <td class="colLast"><code>100</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.METRICS_MODE_COLUMN_CONF_PREFIX">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#METRICS_MODE_COLUMN_CONF_PREFIX">METRICS_MODE_COLUMN_CONF_PREFIX</a></code></td>
 <td class="colLast"><code>"write.metadata.metrics.column."</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.MIN_SNAPSHOTS_TO_KEEP">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#MIN_SNAPSHOTS_TO_KEEP">MIN_SNAPSHOTS_TO_KEEP</a></code></td>
 <td class="colLast"><code>"history.expire.min-snapshots-to-keep"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.MIN_SNAPSHOTS_TO_KEEP_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#MIN_SNAPSHOTS_TO_KEEP_DEFAULT">MIN_SNAPSHOTS_TO_KEEP_DEFAULT</a></code></td>
 <td class="colLast"><code>1</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.OBJECT_STORE_ENABLED">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#OBJECT_STORE_ENABLED">OBJECT_STORE_ENABLED</a></code></td>
 <td class="colLast"><code>"write.object-storage.enabled"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.OBJECT_STORE_ENABLED_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#OBJECT_STORE_ENABLED_DEFAULT">OBJECT_STORE_ENABLED_DEFAULT</a></code></td>
 <td class="colLast"><code>false</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.OBJECT_STORE_PATH">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#OBJECT_STORE_PATH">OBJECT_STORE_PATH</a></code></td>
 <td class="colLast"><code>"write.object-storage.path"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.ORC_BATCH_SIZE">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#ORC_BATCH_SIZE">ORC_BATCH_SIZE</a></code></td>
 <td class="colLast"><code>"read.orc.vectorization.batch-size"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.ORC_BATCH_SIZE_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#ORC_BATCH_SIZE_DEFAULT">ORC_BATCH_SIZE_DEFAULT</a></code></td>
 <td class="colLast"><code>5000</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.ORC_BLOCK_SIZE_BYTES">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#ORC_BLOCK_SIZE_BYTES">ORC_BLOCK_SIZE_BYTES</a></code></td>
 <td class="colLast"><code>"write.orc.block-size-bytes"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.ORC_BLOCK_SIZE_BYTES_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;long</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#ORC_BLOCK_SIZE_BYTES_DEFAULT">ORC_BLOCK_SIZE_BYTES_DEFAULT</a></code></td>
 <td class="colLast"><code>268435456L</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.ORC_BLOOM_FILTER_COLUMNS">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#ORC_BLOOM_FILTER_COLUMNS">ORC_BLOOM_FILTER_COLUMNS</a></code></td>
 <td class="colLast"><code>"write.orc.bloom.filter.columns"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.ORC_BLOOM_FILTER_COLUMNS_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#ORC_BLOOM_FILTER_COLUMNS_DEFAULT">ORC_BLOOM_FILTER_COLUMNS_DEFAULT</a></code></td>
 <td class="colLast"><code>""</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.ORC_BLOOM_FILTER_FPP">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#ORC_BLOOM_FILTER_FPP">ORC_BLOOM_FILTER_FPP</a></code></td>
 <td class="colLast"><code>"write.orc.bloom.filter.fpp"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.ORC_BLOOM_FILTER_FPP_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;double</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#ORC_BLOOM_FILTER_FPP_DEFAULT">ORC_BLOOM_FILTER_FPP_DEFAULT</a></code></td>
 <td class="colLast"><code>0.05</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.ORC_COMPRESSION">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#ORC_COMPRESSION">ORC_COMPRESSION</a></code></td>
 <td class="colLast"><code>"write.orc.compression-codec"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.ORC_COMPRESSION_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#ORC_COMPRESSION_DEFAULT">ORC_COMPRESSION_DEFAULT</a></code></td>
 <td class="colLast"><code>"zlib"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.ORC_COMPRESSION_STRATEGY">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#ORC_COMPRESSION_STRATEGY">ORC_COMPRESSION_STRATEGY</a></code></td>
 <td class="colLast"><code>"write.orc.compression-strategy"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.ORC_COMPRESSION_STRATEGY_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#ORC_COMPRESSION_STRATEGY_DEFAULT">ORC_COMPRESSION_STRATEGY_DEFAULT</a></code></td>
 <td class="colLast"><code>"speed"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.ORC_STRIPE_SIZE_BYTES">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#ORC_STRIPE_SIZE_BYTES">ORC_STRIPE_SIZE_BYTES</a></code></td>
 <td class="colLast"><code>"write.orc.stripe-size-bytes"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.ORC_STRIPE_SIZE_BYTES_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;long</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#ORC_STRIPE_SIZE_BYTES_DEFAULT">ORC_STRIPE_SIZE_BYTES_DEFAULT</a></code></td>
 <td class="colLast"><code>67108864L</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.ORC_VECTORIZATION_ENABLED">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#ORC_VECTORIZATION_ENABLED">ORC_VECTORIZATION_ENABLED</a></code></td>
 <td class="colLast"><code>"read.orc.vectorization.enabled"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.ORC_VECTORIZATION_ENABLED_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#ORC_VECTORIZATION_ENABLED_DEFAULT">ORC_VECTORIZATION_ENABLED_DEFAULT</a></code></td>
 <td class="colLast"><code>false</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.ORC_WRITE_BATCH_SIZE">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#ORC_WRITE_BATCH_SIZE">ORC_WRITE_BATCH_SIZE</a></code></td>
 <td class="colLast"><code>"write.orc.vectorized.batch-size"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.ORC_WRITE_BATCH_SIZE_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#ORC_WRITE_BATCH_SIZE_DEFAULT">ORC_WRITE_BATCH_SIZE_DEFAULT</a></code></td>
 <td class="colLast"><code>1024</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.PARQUET_BATCH_SIZE">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#PARQUET_BATCH_SIZE">PARQUET_BATCH_SIZE</a></code></td>
 <td class="colLast"><code>"read.parquet.vectorization.batch-size"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.PARQUET_BATCH_SIZE_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#PARQUET_BATCH_SIZE_DEFAULT">PARQUET_BATCH_SIZE_DEFAULT</a></code></td>
 <td class="colLast"><code>5000</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.PARQUET_BLOOM_FILTER_COLUMN_ENABLED_PREFIX">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#PARQUET_BLOOM_FILTER_COLUMN_ENABLED_PREFIX">PARQUET_BLOOM_FILTER_COLUMN_ENABLED_PREFIX</a></code></td>
 <td class="colLast"><code>"write.parquet.bloom-filter-enabled.column."</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.PARQUET_BLOOM_FILTER_MAX_BYTES">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#PARQUET_BLOOM_FILTER_MAX_BYTES">PARQUET_BLOOM_FILTER_MAX_BYTES</a></code></td>
 <td class="colLast"><code>"write.parquet.bloom-filter-max-bytes"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.PARQUET_BLOOM_FILTER_MAX_BYTES_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#PARQUET_BLOOM_FILTER_MAX_BYTES_DEFAULT">PARQUET_BLOOM_FILTER_MAX_BYTES_DEFAULT</a></code></td>
 <td class="colLast"><code>1048576</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.PARQUET_COMPRESSION">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#PARQUET_COMPRESSION">PARQUET_COMPRESSION</a></code></td>
 <td class="colLast"><code>"write.parquet.compression-codec"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.PARQUET_COMPRESSION_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#PARQUET_COMPRESSION_DEFAULT">PARQUET_COMPRESSION_DEFAULT</a></code></td>
 <td class="colLast"><code>"gzip"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.PARQUET_COMPRESSION_LEVEL">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#PARQUET_COMPRESSION_LEVEL">PARQUET_COMPRESSION_LEVEL</a></code></td>
 <td class="colLast"><code>"write.parquet.compression-level"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.PARQUET_DICT_SIZE_BYTES">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#PARQUET_DICT_SIZE_BYTES">PARQUET_DICT_SIZE_BYTES</a></code></td>
 <td class="colLast"><code>"write.parquet.dict-size-bytes"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.PARQUET_DICT_SIZE_BYTES_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#PARQUET_DICT_SIZE_BYTES_DEFAULT">PARQUET_DICT_SIZE_BYTES_DEFAULT</a></code></td>
 <td class="colLast"><code>2097152</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.PARQUET_PAGE_ROW_LIMIT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#PARQUET_PAGE_ROW_LIMIT">PARQUET_PAGE_ROW_LIMIT</a></code></td>
 <td class="colLast"><code>"write.parquet.page-row-limit"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.PARQUET_PAGE_ROW_LIMIT_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#PARQUET_PAGE_ROW_LIMIT_DEFAULT">PARQUET_PAGE_ROW_LIMIT_DEFAULT</a></code></td>
 <td class="colLast"><code>20000</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.PARQUET_PAGE_SIZE_BYTES">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#PARQUET_PAGE_SIZE_BYTES">PARQUET_PAGE_SIZE_BYTES</a></code></td>
 <td class="colLast"><code>"write.parquet.page-size-bytes"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.PARQUET_PAGE_SIZE_BYTES_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#PARQUET_PAGE_SIZE_BYTES_DEFAULT">PARQUET_PAGE_SIZE_BYTES_DEFAULT</a></code></td>
 <td class="colLast"><code>1048576</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.PARQUET_ROW_GROUP_CHECK_MAX_RECORD_COUNT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#PARQUET_ROW_GROUP_CHECK_MAX_RECORD_COUNT">PARQUET_ROW_GROUP_CHECK_MAX_RECORD_COUNT</a></code></td>
 <td class="colLast"><code>"write.parquet.row-group-check-max-record-count"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.PARQUET_ROW_GROUP_CHECK_MAX_RECORD_COUNT_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#PARQUET_ROW_GROUP_CHECK_MAX_RECORD_COUNT_DEFAULT">PARQUET_ROW_GROUP_CHECK_MAX_RECORD_COUNT_DEFAULT</a></code></td>
 <td class="colLast"><code>10000</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.PARQUET_ROW_GROUP_CHECK_MIN_RECORD_COUNT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#PARQUET_ROW_GROUP_CHECK_MIN_RECORD_COUNT">PARQUET_ROW_GROUP_CHECK_MIN_RECORD_COUNT</a></code></td>
 <td class="colLast"><code>"write.parquet.row-group-check-min-record-count"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.PARQUET_ROW_GROUP_CHECK_MIN_RECORD_COUNT_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#PARQUET_ROW_GROUP_CHECK_MIN_RECORD_COUNT_DEFAULT">PARQUET_ROW_GROUP_CHECK_MIN_RECORD_COUNT_DEFAULT</a></code></td>
 <td class="colLast"><code>100</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.PARQUET_ROW_GROUP_SIZE_BYTES">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#PARQUET_ROW_GROUP_SIZE_BYTES">PARQUET_ROW_GROUP_SIZE_BYTES</a></code></td>
 <td class="colLast"><code>"write.parquet.row-group-size-bytes"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.PARQUET_ROW_GROUP_SIZE_BYTES_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#PARQUET_ROW_GROUP_SIZE_BYTES_DEFAULT">PARQUET_ROW_GROUP_SIZE_BYTES_DEFAULT</a></code></td>
 <td class="colLast"><code>134217728</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.PARQUET_VECTORIZATION_ENABLED">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#PARQUET_VECTORIZATION_ENABLED">PARQUET_VECTORIZATION_ENABLED</a></code></td>
 <td class="colLast"><code>"read.parquet.vectorization.enabled"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.PARQUET_VECTORIZATION_ENABLED_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#PARQUET_VECTORIZATION_ENABLED_DEFAULT">PARQUET_VECTORIZATION_ENABLED_DEFAULT</a></code></td>
 <td class="colLast"><code>true</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.SNAPSHOT_COUNT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#SNAPSHOT_COUNT">SNAPSHOT_COUNT</a></code></td>
 <td class="colLast"><code>"snapshot-count"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.SNAPSHOT_ID_INHERITANCE_ENABLED">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#SNAPSHOT_ID_INHERITANCE_ENABLED">SNAPSHOT_ID_INHERITANCE_ENABLED</a></code></td>
 <td class="colLast"><code>"compatibility.snapshot-id-inheritance.enabled"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.SNAPSHOT_ID_INHERITANCE_ENABLED_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#SNAPSHOT_ID_INHERITANCE_ENABLED_DEFAULT">SNAPSHOT_ID_INHERITANCE_ENABLED_DEFAULT</a></code></td>
 <td class="colLast"><code>false</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.SPARK_WRITE_ACCEPT_ANY_SCHEMA">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#SPARK_WRITE_ACCEPT_ANY_SCHEMA">SPARK_WRITE_ACCEPT_ANY_SCHEMA</a></code></td>
 <td class="colLast"><code>"write.spark.accept-any-schema"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.SPARK_WRITE_ACCEPT_ANY_SCHEMA_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#SPARK_WRITE_ACCEPT_ANY_SCHEMA_DEFAULT">SPARK_WRITE_ACCEPT_ANY_SCHEMA_DEFAULT</a></code></td>
 <td class="colLast"><code>false</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.SPARK_WRITE_PARTITIONED_FANOUT_ENABLED">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#SPARK_WRITE_PARTITIONED_FANOUT_ENABLED">SPARK_WRITE_PARTITIONED_FANOUT_ENABLED</a></code></td>
 <td class="colLast"><code>"write.spark.fanout.enabled"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.SPARK_WRITE_PARTITIONED_FANOUT_ENABLED_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#SPARK_WRITE_PARTITIONED_FANOUT_ENABLED_DEFAULT">SPARK_WRITE_PARTITIONED_FANOUT_ENABLED_DEFAULT</a></code></td>
 <td class="colLast"><code>false</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.SPLIT_LOOKBACK">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#SPLIT_LOOKBACK">SPLIT_LOOKBACK</a></code></td>
 <td class="colLast"><code>"read.split.planning-lookback"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.SPLIT_LOOKBACK_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#SPLIT_LOOKBACK_DEFAULT">SPLIT_LOOKBACK_DEFAULT</a></code></td>
 <td class="colLast"><code>10</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.SPLIT_OPEN_FILE_COST">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#SPLIT_OPEN_FILE_COST">SPLIT_OPEN_FILE_COST</a></code></td>
 <td class="colLast"><code>"read.split.open-file-cost"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.SPLIT_OPEN_FILE_COST_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;long</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#SPLIT_OPEN_FILE_COST_DEFAULT">SPLIT_OPEN_FILE_COST_DEFAULT</a></code></td>
 <td class="colLast"><code>4194304L</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.SPLIT_SIZE">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#SPLIT_SIZE">SPLIT_SIZE</a></code></td>
 <td class="colLast"><code>"read.split.target-size"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.SPLIT_SIZE_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;long</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#SPLIT_SIZE_DEFAULT">SPLIT_SIZE_DEFAULT</a></code></td>
 <td class="colLast"><code>134217728L</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.UPDATE_DISTRIBUTION_MODE">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#UPDATE_DISTRIBUTION_MODE">UPDATE_DISTRIBUTION_MODE</a></code></td>
 <td class="colLast"><code>"write.update.distribution-mode"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.UPDATE_ISOLATION_LEVEL">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#UPDATE_ISOLATION_LEVEL">UPDATE_ISOLATION_LEVEL</a></code></td>
 <td class="colLast"><code>"write.update.isolation-level"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.UPDATE_ISOLATION_LEVEL_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#UPDATE_ISOLATION_LEVEL_DEFAULT">UPDATE_ISOLATION_LEVEL_DEFAULT</a></code></td>
 <td class="colLast"><code>"serializable"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.UPDATE_MODE">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#UPDATE_MODE">UPDATE_MODE</a></code></td>
 <td class="colLast"><code>"write.update.mode"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.UPSERT_ENABLED">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#UPSERT_ENABLED">UPSERT_ENABLED</a></code></td>
 <td class="colLast"><code>"write.upsert.enabled"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.UPSERT_ENABLED_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#UPSERT_ENABLED_DEFAULT">UPSERT_ENABLED_DEFAULT</a></code></td>
 <td class="colLast"><code>false</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.UUID">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#UUID">UUID</a></code></td>
 <td class="colLast"><code>"uuid"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.WRITE_AUDIT_PUBLISH_ENABLED">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#WRITE_AUDIT_PUBLISH_ENABLED">WRITE_AUDIT_PUBLISH_ENABLED</a></code></td>
 <td class="colLast"><code>"write.wap.enabled"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.WRITE_AUDIT_PUBLISH_ENABLED_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#WRITE_AUDIT_PUBLISH_ENABLED_DEFAULT">WRITE_AUDIT_PUBLISH_ENABLED_DEFAULT</a></code></td>
 <td class="colLast"><code>"false"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.WRITE_DATA_LOCATION">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#WRITE_DATA_LOCATION">WRITE_DATA_LOCATION</a></code></td>
 <td class="colLast"><code>"write.data.path"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.WRITE_DISTRIBUTION_MODE">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#WRITE_DISTRIBUTION_MODE">WRITE_DISTRIBUTION_MODE</a></code></td>
 <td class="colLast"><code>"write.distribution-mode"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.WRITE_DISTRIBUTION_MODE_HASH">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#WRITE_DISTRIBUTION_MODE_HASH">WRITE_DISTRIBUTION_MODE_HASH</a></code></td>
 <td class="colLast"><code>"hash"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.WRITE_DISTRIBUTION_MODE_NONE">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#WRITE_DISTRIBUTION_MODE_NONE">WRITE_DISTRIBUTION_MODE_NONE</a></code></td>
 <td class="colLast"><code>"none"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.WRITE_DISTRIBUTION_MODE_RANGE">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#WRITE_DISTRIBUTION_MODE_RANGE">WRITE_DISTRIBUTION_MODE_RANGE</a></code></td>
 <td class="colLast"><code>"range"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.WRITE_FOLDER_STORAGE_LOCATION">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#WRITE_FOLDER_STORAGE_LOCATION">WRITE_FOLDER_STORAGE_LOCATION</a></code></td>
 <td class="colLast"><code>"write.folder-storage.path"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.WRITE_LOCATION_PROVIDER_IMPL">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#WRITE_LOCATION_PROVIDER_IMPL">WRITE_LOCATION_PROVIDER_IMPL</a></code></td>
 <td class="colLast"><code>"write.location-provider.impl"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.WRITE_METADATA_LOCATION">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#WRITE_METADATA_LOCATION">WRITE_METADATA_LOCATION</a></code></td>
 <td class="colLast"><code>"write.metadata.path"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.WRITE_PARTITION_SUMMARY_LIMIT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#WRITE_PARTITION_SUMMARY_LIMIT">WRITE_PARTITION_SUMMARY_LIMIT</a></code></td>
 <td class="colLast"><code>"write.summary.partition-limit"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.WRITE_PARTITION_SUMMARY_LIMIT_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#WRITE_PARTITION_SUMMARY_LIMIT_DEFAULT">WRITE_PARTITION_SUMMARY_LIMIT_DEFAULT</a></code></td>
 <td class="colLast"><code>0</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.WRITE_TARGET_FILE_SIZE_BYTES">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/TableProperties.html#WRITE_TARGET_FILE_SIZE_BYTES">WRITE_TARGET_FILE_SIZE_BYTES</a></code></td>
 <td class="colLast"><code>"write.target-file-size-bytes"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.TableProperties.WRITE_TARGET_FILE_SIZE_BYTES_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;long</code></td>
@@ -2197,7 +2244,7 @@
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
 <td><code><a href="org/apache/iceberg/actions/RewriteDataFiles.html#MAX_CONCURRENT_FILE_GROUP_REWRITES_DEFAULT">MAX_CONCURRENT_FILE_GROUP_REWRITES_DEFAULT</a></code></td>
-<td class="colLast"><code>1</code></td>
+<td class="colLast"><code>5</code></td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.actions.RewriteDataFiles.MAX_FILE_GROUP_SIZE_BYTES">
@@ -2268,6 +2315,182 @@
 </a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
 <td><code><a href="org/apache/iceberg/actions/RewriteDataFiles.html#USE_STARTING_SEQUENCE_NUMBER_DEFAULT">USE_STARTING_SEQUENCE_NUMBER_DEFAULT</a></code></td>
 <td class="colLast"><code>true</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li class="blockList">
+<table class="constantsSummary" border="0" cellpadding="3" cellspacing="0" summary="Constant Field Values table, listing constant fields, and values">
+<caption><span>org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/RewritePositionDeleteFiles.html" title="interface in org.apache.iceberg.actions">RewritePositionDeleteFiles</a></span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th scope="col">Constant Field</th>
+<th class="colLast" scope="col">Value</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.actions.RewritePositionDeleteFiles.MAX_CONCURRENT_FILE_GROUP_REWRITES">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/actions/RewritePositionDeleteFiles.html#MAX_CONCURRENT_FILE_GROUP_REWRITES">MAX_CONCURRENT_FILE_GROUP_REWRITES</a></code></td>
+<td class="colLast"><code>"max-concurrent-file-group-rewrites"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.actions.RewritePositionDeleteFiles.MAX_CONCURRENT_FILE_GROUP_REWRITES_DEFAULT">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
+<td><code><a href="org/apache/iceberg/actions/RewritePositionDeleteFiles.html#MAX_CONCURRENT_FILE_GROUP_REWRITES_DEFAULT">MAX_CONCURRENT_FILE_GROUP_REWRITES_DEFAULT</a></code></td>
+<td class="colLast"><code>5</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.actions.RewritePositionDeleteFiles.PARTIAL_PROGRESS_ENABLED">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/actions/RewritePositionDeleteFiles.html#PARTIAL_PROGRESS_ENABLED">PARTIAL_PROGRESS_ENABLED</a></code></td>
+<td class="colLast"><code>"partial-progress.enabled"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.actions.RewritePositionDeleteFiles.PARTIAL_PROGRESS_ENABLED_DEFAULT">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
+<td><code><a href="org/apache/iceberg/actions/RewritePositionDeleteFiles.html#PARTIAL_PROGRESS_ENABLED_DEFAULT">PARTIAL_PROGRESS_ENABLED_DEFAULT</a></code></td>
+<td class="colLast"><code>false</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.actions.RewritePositionDeleteFiles.PARTIAL_PROGRESS_MAX_COMMITS">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/actions/RewritePositionDeleteFiles.html#PARTIAL_PROGRESS_MAX_COMMITS">PARTIAL_PROGRESS_MAX_COMMITS</a></code></td>
+<td class="colLast"><code>"partial-progress.max-commits"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.actions.RewritePositionDeleteFiles.PARTIAL_PROGRESS_MAX_COMMITS_DEFAULT">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
+<td><code><a href="org/apache/iceberg/actions/RewritePositionDeleteFiles.html#PARTIAL_PROGRESS_MAX_COMMITS_DEFAULT">PARTIAL_PROGRESS_MAX_COMMITS_DEFAULT</a></code></td>
+<td class="colLast"><code>10</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.actions.RewritePositionDeleteFiles.REWRITE_JOB_ORDER">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/actions/RewritePositionDeleteFiles.html#REWRITE_JOB_ORDER">REWRITE_JOB_ORDER</a></code></td>
+<td class="colLast"><code>"rewrite-job-order"</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li class="blockList">
+<table class="constantsSummary" border="0" cellpadding="3" cellspacing="0" summary="Constant Field Values table, listing constant fields, and values">
+<caption><span>org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/SizeBasedDataRewriter.html" title="class in org.apache.iceberg.actions">SizeBasedDataRewriter</a></span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th scope="col">Constant Field</th>
+<th class="colLast" scope="col">Value</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.actions.SizeBasedDataRewriter.DELETE_FILE_THRESHOLD">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/actions/SizeBasedDataRewriter.html#DELETE_FILE_THRESHOLD">DELETE_FILE_THRESHOLD</a></code></td>
+<td class="colLast"><code>"delete-file-threshold"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.actions.SizeBasedDataRewriter.DELETE_FILE_THRESHOLD_DEFAULT">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
+<td><code><a href="org/apache/iceberg/actions/SizeBasedDataRewriter.html#DELETE_FILE_THRESHOLD_DEFAULT">DELETE_FILE_THRESHOLD_DEFAULT</a></code></td>
+<td class="colLast"><code>2147483647</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li class="blockList">
+<table class="constantsSummary" border="0" cellpadding="3" cellspacing="0" summary="Constant Field Values table, listing constant fields, and values">
+<caption><span>org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/SizeBasedFileRewriter.html" title="class in org.apache.iceberg.actions">SizeBasedFileRewriter</a>&lt;<a href="org/apache/iceberg/actions/SizeBasedFileRewriter.html" title="type parameter in SizeBasedFileRewriter">T</a> extends <a href="org/apache/iceberg/ContentScanTask.html" title="interface in org.apache.iceberg">ContentScanTask</a>&lt;<a href="org/apache/iceberg/actions/SizeBasedFileRewriter.html" title="type parameter in SizeBasedFileRewriter">F</a>&gt;,<a href="org/apache/iceberg/actions/SizeBasedFileRewriter.html" title="type parameter in SizeBasedFileRewriter">F</a> extends <a href="org/apache/iceberg/ContentFile.html" title="interface in org.apache.iceberg">ContentFile</a>&lt;<a href="org/apache/iceberg/actions/SizeBasedFileRewriter.html" title="type parameter in SizeBasedFileRewriter">F</a>&gt;&gt;</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th scope="col">Constant Field</th>
+<th class="colLast" scope="col">Value</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.actions.SizeBasedFileRewriter.MAX_FILE_GROUP_SIZE_BYTES">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/actions/SizeBasedFileRewriter.html#MAX_FILE_GROUP_SIZE_BYTES">MAX_FILE_GROUP_SIZE_BYTES</a></code></td>
+<td class="colLast"><code>"max-file-group-size-bytes"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.actions.SizeBasedFileRewriter.MAX_FILE_GROUP_SIZE_BYTES_DEFAULT">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;long</code></td>
+<td><code><a href="org/apache/iceberg/actions/SizeBasedFileRewriter.html#MAX_FILE_GROUP_SIZE_BYTES_DEFAULT">MAX_FILE_GROUP_SIZE_BYTES_DEFAULT</a></code></td>
+<td class="colLast"><code>107374182400L</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.actions.SizeBasedFileRewriter.MAX_FILE_SIZE_BYTES">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/actions/SizeBasedFileRewriter.html#MAX_FILE_SIZE_BYTES">MAX_FILE_SIZE_BYTES</a></code></td>
+<td class="colLast"><code>"max-file-size-bytes"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.actions.SizeBasedFileRewriter.MAX_FILE_SIZE_DEFAULT_RATIO">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;double</code></td>
+<td><code><a href="org/apache/iceberg/actions/SizeBasedFileRewriter.html#MAX_FILE_SIZE_DEFAULT_RATIO">MAX_FILE_SIZE_DEFAULT_RATIO</a></code></td>
+<td class="colLast"><code>1.8</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.actions.SizeBasedFileRewriter.MIN_FILE_SIZE_BYTES">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/actions/SizeBasedFileRewriter.html#MIN_FILE_SIZE_BYTES">MIN_FILE_SIZE_BYTES</a></code></td>
+<td class="colLast"><code>"min-file-size-bytes"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.actions.SizeBasedFileRewriter.MIN_FILE_SIZE_DEFAULT_RATIO">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;double</code></td>
+<td><code><a href="org/apache/iceberg/actions/SizeBasedFileRewriter.html#MIN_FILE_SIZE_DEFAULT_RATIO">MIN_FILE_SIZE_DEFAULT_RATIO</a></code></td>
+<td class="colLast"><code>0.75</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.actions.SizeBasedFileRewriter.MIN_INPUT_FILES">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/actions/SizeBasedFileRewriter.html#MIN_INPUT_FILES">MIN_INPUT_FILES</a></code></td>
+<td class="colLast"><code>"min-input-files"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.actions.SizeBasedFileRewriter.MIN_INPUT_FILES_DEFAULT">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
+<td><code><a href="org/apache/iceberg/actions/SizeBasedFileRewriter.html#MIN_INPUT_FILES_DEFAULT">MIN_INPUT_FILES_DEFAULT</a></code></td>
+<td class="colLast"><code>5</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.actions.SizeBasedFileRewriter.REWRITE_ALL">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/actions/SizeBasedFileRewriter.html#REWRITE_ALL">REWRITE_ALL</a></code></td>
+<td class="colLast"><code>"rewrite-all"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.actions.SizeBasedFileRewriter.REWRITE_ALL_DEFAULT">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
+<td><code><a href="org/apache/iceberg/actions/SizeBasedFileRewriter.html#REWRITE_ALL_DEFAULT">REWRITE_ALL_DEFAULT</a></code></td>
+<td class="colLast"><code>false</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.actions.SizeBasedFileRewriter.TARGET_FILE_SIZE_BYTES">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/actions/SizeBasedFileRewriter.html#TARGET_FILE_SIZE_BYTES">TARGET_FILE_SIZE_BYTES</a></code></td>
+<td class="colLast"><code>"target-file-size-bytes"</code></td>
 </tr>
 </tbody>
 </table>
@@ -2400,6 +2623,32 @@
 </li>
 </ul>
 <ul class="blockList">
+<li class="blockList">
+<table class="constantsSummary" border="0" cellpadding="3" cellspacing="0" summary="Constant Field Values table, listing constant fields, and values">
+<caption><span>org.apache.iceberg.aws.<a href="org/apache/iceberg/aws/AwsClientProperties.html" title="class in org.apache.iceberg.aws">AwsClientProperties</a></span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th scope="col">Constant Field</th>
+<th class="colLast" scope="col">Value</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.AwsClientProperties.CLIENT_CREDENTIALS_PROVIDER">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/AwsClientProperties.html#CLIENT_CREDENTIALS_PROVIDER">CLIENT_CREDENTIALS_PROVIDER</a></code></td>
+<td class="colLast"><code>"client.credentials-provider"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.AwsClientProperties.CLIENT_REGION">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/AwsClientProperties.html#CLIENT_REGION">CLIENT_REGION</a></code></td>
+<td class="colLast"><code>"client.region"</code></td>
+</tr>
+</tbody>
+</table>
+</li>
 <li class="blockList">
 <table class="constantsSummary" border="0" cellpadding="3" cellspacing="0" summary="Constant Field Values table, listing constant fields, and values">
 <caption><span>org.apache.iceberg.aws.<a href="org/apache/iceberg/aws/AwsProperties.html" title="class in org.apache.iceberg.aws">AwsProperties</a></span><span class="tabEnd">&nbsp;</span></caption>
@@ -2645,7 +2894,7 @@
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/aws/AwsProperties.html#HTTP_CLIENT_TYPE_DEFAULT">HTTP_CLIENT_TYPE_DEFAULT</a></code></td>
-<td class="colLast"><code>"urlconnection"</code></td>
+<td class="colLast"><code>"apache"</code></td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.aws.AwsProperties.HTTP_CLIENT_TYPE_URLCONNECTION">
@@ -3063,6 +3312,123 @@
 </tbody>
 </table>
 </li>
+<li class="blockList">
+<table class="constantsSummary" border="0" cellpadding="3" cellspacing="0" summary="Constant Field Values table, listing constant fields, and values">
+<caption><span>org.apache.iceberg.aws.<a href="org/apache/iceberg/aws/HttpClientProperties.html" title="class in org.apache.iceberg.aws">HttpClientProperties</a></span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th scope="col">Constant Field</th>
+<th class="colLast" scope="col">Value</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.HttpClientProperties.APACHE_CONNECTION_ACQUISITION_TIMEOUT_MS">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/HttpClientProperties.html#APACHE_CONNECTION_ACQUISITION_TIMEOUT_MS">APACHE_CONNECTION_ACQUISITION_TIMEOUT_MS</a></code></td>
+<td class="colLast"><code>"http-client.apache.connection-acquisition-timeout-ms"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.HttpClientProperties.APACHE_CONNECTION_MAX_IDLE_TIME_MS">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/HttpClientProperties.html#APACHE_CONNECTION_MAX_IDLE_TIME_MS">APACHE_CONNECTION_MAX_IDLE_TIME_MS</a></code></td>
+<td class="colLast"><code>"http-client.apache.connection-max-idle-time-ms"</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.HttpClientProperties.APACHE_CONNECTION_TIME_TO_LIVE_MS">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/HttpClientProperties.html#APACHE_CONNECTION_TIME_TO_LIVE_MS">APACHE_CONNECTION_TIME_TO_LIVE_MS</a></code></td>
+<td class="colLast"><code>"http-client.apache.connection-time-to-live-ms"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.HttpClientProperties.APACHE_CONNECTION_TIMEOUT_MS">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/HttpClientProperties.html#APACHE_CONNECTION_TIMEOUT_MS">APACHE_CONNECTION_TIMEOUT_MS</a></code></td>
+<td class="colLast"><code>"http-client.apache.connection-timeout-ms"</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.HttpClientProperties.APACHE_EXPECT_CONTINUE_ENABLED">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/HttpClientProperties.html#APACHE_EXPECT_CONTINUE_ENABLED">APACHE_EXPECT_CONTINUE_ENABLED</a></code></td>
+<td class="colLast"><code>"http-client.apache.expect-continue-enabled"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.HttpClientProperties.APACHE_MAX_CONNECTIONS">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/HttpClientProperties.html#APACHE_MAX_CONNECTIONS">APACHE_MAX_CONNECTIONS</a></code></td>
+<td class="colLast"><code>"http-client.apache.max-connections"</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.HttpClientProperties.APACHE_SOCKET_TIMEOUT_MS">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/HttpClientProperties.html#APACHE_SOCKET_TIMEOUT_MS">APACHE_SOCKET_TIMEOUT_MS</a></code></td>
+<td class="colLast"><code>"http-client.apache.socket-timeout-ms"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.HttpClientProperties.APACHE_TCP_KEEP_ALIVE_ENABLED">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/HttpClientProperties.html#APACHE_TCP_KEEP_ALIVE_ENABLED">APACHE_TCP_KEEP_ALIVE_ENABLED</a></code></td>
+<td class="colLast"><code>"http-client.apache.tcp-keep-alive-enabled"</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.HttpClientProperties.APACHE_USE_IDLE_CONNECTION_REAPER_ENABLED">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/HttpClientProperties.html#APACHE_USE_IDLE_CONNECTION_REAPER_ENABLED">APACHE_USE_IDLE_CONNECTION_REAPER_ENABLED</a></code></td>
+<td class="colLast"><code>"http-client.apache.use-idle-connection-reaper-enabled"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.HttpClientProperties.CLIENT_TYPE">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/HttpClientProperties.html#CLIENT_TYPE">CLIENT_TYPE</a></code></td>
+<td class="colLast"><code>"http-client.type"</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.HttpClientProperties.CLIENT_TYPE_APACHE">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/HttpClientProperties.html#CLIENT_TYPE_APACHE">CLIENT_TYPE_APACHE</a></code></td>
+<td class="colLast"><code>"apache"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.HttpClientProperties.CLIENT_TYPE_DEFAULT">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/HttpClientProperties.html#CLIENT_TYPE_DEFAULT">CLIENT_TYPE_DEFAULT</a></code></td>
+<td class="colLast"><code>"apache"</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.HttpClientProperties.CLIENT_TYPE_URLCONNECTION">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/HttpClientProperties.html#CLIENT_TYPE_URLCONNECTION">CLIENT_TYPE_URLCONNECTION</a></code></td>
+<td class="colLast"><code>"urlconnection"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.HttpClientProperties.URLCONNECTION_CONNECTION_TIMEOUT_MS">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/HttpClientProperties.html#URLCONNECTION_CONNECTION_TIMEOUT_MS">URLCONNECTION_CONNECTION_TIMEOUT_MS</a></code></td>
+<td class="colLast"><code>"http-client.urlconnection.connection-timeout-ms"</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.HttpClientProperties.URLCONNECTION_SOCKET_TIMEOUT_MS">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/HttpClientProperties.html#URLCONNECTION_SOCKET_TIMEOUT_MS">URLCONNECTION_SOCKET_TIMEOUT_MS</a></code></td>
+<td class="colLast"><code>"http-client.urlconnection.socket-timeout-ms"</code></td>
+</tr>
+</tbody>
+</table>
+</li>
 </ul>
 <ul class="blockList">
 <li class="blockList">
@@ -3080,6 +3446,363 @@
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/aws/lakeformation/LakeFormationAwsClientFactory.html#LF_AUTHORIZED_CALLER">LF_AUTHORIZED_CALLER</a></code></td>
 <td class="colLast"><code>"LakeFormationAuthorizedCaller"</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul class="blockList">
+<li class="blockList">
+<table class="constantsSummary" border="0" cellpadding="3" cellspacing="0" summary="Constant Field Values table, listing constant fields, and values">
+<caption><span>org.apache.iceberg.aws.s3.<a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3">S3FileIOProperties</a></span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th scope="col">Constant Field</th>
+<th class="colLast" scope="col">Value</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.ACCELERATION_ENABLED">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#ACCELERATION_ENABLED">ACCELERATION_ENABLED</a></code></td>
+<td class="colLast"><code>"s3.acceleration-enabled"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.ACCELERATION_ENABLED_DEFAULT">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#ACCELERATION_ENABLED_DEFAULT">ACCELERATION_ENABLED_DEFAULT</a></code></td>
+<td class="colLast"><code>false</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.ACCESS_KEY_ID">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#ACCESS_KEY_ID">ACCESS_KEY_ID</a></code></td>
+<td class="colLast"><code>"s3.access-key-id"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.ACCESS_POINTS_PREFIX">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#ACCESS_POINTS_PREFIX">ACCESS_POINTS_PREFIX</a></code></td>
+<td class="colLast"><code>"s3.access-points."</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.ACL">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#ACL">ACL</a></code></td>
+<td class="colLast"><code>"s3.acl"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.CHECKSUM_ENABLED">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#CHECKSUM_ENABLED">CHECKSUM_ENABLED</a></code></td>
+<td class="colLast"><code>"s3.checksum-enabled"</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.CHECKSUM_ENABLED_DEFAULT">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#CHECKSUM_ENABLED_DEFAULT">CHECKSUM_ENABLED_DEFAULT</a></code></td>
+<td class="colLast"><code>false</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.CLIENT_FACTORY">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#CLIENT_FACTORY">CLIENT_FACTORY</a></code></td>
+<td class="colLast"><code>"s3.client-factory-impl"</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.DELETE_BATCH_SIZE">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#DELETE_BATCH_SIZE">DELETE_BATCH_SIZE</a></code></td>
+<td class="colLast"><code>"s3.delete.batch-size"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.DELETE_BATCH_SIZE_DEFAULT">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#DELETE_BATCH_SIZE_DEFAULT">DELETE_BATCH_SIZE_DEFAULT</a></code></td>
+<td class="colLast"><code>250</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.DELETE_BATCH_SIZE_MAX">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#DELETE_BATCH_SIZE_MAX">DELETE_BATCH_SIZE_MAX</a></code></td>
+<td class="colLast"><code>1000</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.DELETE_ENABLED">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#DELETE_ENABLED">DELETE_ENABLED</a></code></td>
+<td class="colLast"><code>"s3.delete-enabled"</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.DELETE_ENABLED_DEFAULT">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#DELETE_ENABLED_DEFAULT">DELETE_ENABLED_DEFAULT</a></code></td>
+<td class="colLast"><code>true</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.DELETE_TAGS_PREFIX">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#DELETE_TAGS_PREFIX">DELETE_TAGS_PREFIX</a></code></td>
+<td class="colLast"><code>"s3.delete.tags."</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.DELETE_THREADS">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#DELETE_THREADS">DELETE_THREADS</a></code></td>
+<td class="colLast"><code>"s3.delete.num-threads"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.DUALSTACK_ENABLED">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#DUALSTACK_ENABLED">DUALSTACK_ENABLED</a></code></td>
+<td class="colLast"><code>"s3.dualstack-enabled"</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.DUALSTACK_ENABLED_DEFAULT">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#DUALSTACK_ENABLED_DEFAULT">DUALSTACK_ENABLED_DEFAULT</a></code></td>
+<td class="colLast"><code>false</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.ENDPOINT">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#ENDPOINT">ENDPOINT</a></code></td>
+<td class="colLast"><code>"s3.endpoint"</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.MULTIPART_SIZE">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#MULTIPART_SIZE">MULTIPART_SIZE</a></code></td>
+<td class="colLast"><code>"s3.multipart.part-size-bytes"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.MULTIPART_SIZE_DEFAULT">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#MULTIPART_SIZE_DEFAULT">MULTIPART_SIZE_DEFAULT</a></code></td>
+<td class="colLast"><code>33554432</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.MULTIPART_SIZE_MIN">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;int</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#MULTIPART_SIZE_MIN">MULTIPART_SIZE_MIN</a></code></td>
+<td class="colLast"><code>5242880</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.MULTIPART_THRESHOLD_FACTOR">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#MULTIPART_THRESHOLD_FACTOR">MULTIPART_THRESHOLD_FACTOR</a></code></td>
+<td class="colLast"><code>"s3.multipart.threshold"</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.MULTIPART_THRESHOLD_FACTOR_DEFAULT">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;double</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#MULTIPART_THRESHOLD_FACTOR_DEFAULT">MULTIPART_THRESHOLD_FACTOR_DEFAULT</a></code></td>
+<td class="colLast"><code>1.5</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.MULTIPART_UPLOAD_THREADS">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#MULTIPART_UPLOAD_THREADS">MULTIPART_UPLOAD_THREADS</a></code></td>
+<td class="colLast"><code>"s3.multipart.num-threads"</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.PATH_STYLE_ACCESS">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#PATH_STYLE_ACCESS">PATH_STYLE_ACCESS</a></code></td>
+<td class="colLast"><code>"s3.path-style-access"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.PATH_STYLE_ACCESS_DEFAULT">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#PATH_STYLE_ACCESS_DEFAULT">PATH_STYLE_ACCESS_DEFAULT</a></code></td>
+<td class="colLast"><code>false</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.PRELOAD_CLIENT_ENABLED">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#PRELOAD_CLIENT_ENABLED">PRELOAD_CLIENT_ENABLED</a></code></td>
+<td class="colLast"><code>"s3.preload-client-enabled"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.PRELOAD_CLIENT_ENABLED_DEFAULT">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#PRELOAD_CLIENT_ENABLED_DEFAULT">PRELOAD_CLIENT_ENABLED_DEFAULT</a></code></td>
+<td class="colLast"><code>false</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.REMOTE_SIGNING_ENABLED">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#REMOTE_SIGNING_ENABLED">REMOTE_SIGNING_ENABLED</a></code></td>
+<td class="colLast"><code>"s3.remote-signing-enabled"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.REMOTE_SIGNING_ENABLED_DEFAULT">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#REMOTE_SIGNING_ENABLED_DEFAULT">REMOTE_SIGNING_ENABLED_DEFAULT</a></code></td>
+<td class="colLast"><code>false</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.S3_TAG_ICEBERG_NAMESPACE">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#S3_TAG_ICEBERG_NAMESPACE">S3_TAG_ICEBERG_NAMESPACE</a></code></td>
+<td class="colLast"><code>"iceberg.namespace"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.S3_TAG_ICEBERG_TABLE">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#S3_TAG_ICEBERG_TABLE">S3_TAG_ICEBERG_TABLE</a></code></td>
+<td class="colLast"><code>"iceberg.table"</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.SECRET_ACCESS_KEY">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#SECRET_ACCESS_KEY">SECRET_ACCESS_KEY</a></code></td>
+<td class="colLast"><code>"s3.secret-access-key"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.SESSION_TOKEN">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#SESSION_TOKEN">SESSION_TOKEN</a></code></td>
+<td class="colLast"><code>"s3.session-token"</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.SSE_KEY">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#SSE_KEY">SSE_KEY</a></code></td>
+<td class="colLast"><code>"s3.sse.key"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.SSE_MD5">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#SSE_MD5">SSE_MD5</a></code></td>
+<td class="colLast"><code>"s3.sse.md5"</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.SSE_TYPE">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#SSE_TYPE">SSE_TYPE</a></code></td>
+<td class="colLast"><code>"s3.sse.type"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.SSE_TYPE_CUSTOM">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#SSE_TYPE_CUSTOM">SSE_TYPE_CUSTOM</a></code></td>
+<td class="colLast"><code>"custom"</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.SSE_TYPE_KMS">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#SSE_TYPE_KMS">SSE_TYPE_KMS</a></code></td>
+<td class="colLast"><code>"kms"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.SSE_TYPE_NONE">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#SSE_TYPE_NONE">SSE_TYPE_NONE</a></code></td>
+<td class="colLast"><code>"none"</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.SSE_TYPE_S3">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#SSE_TYPE_S3">SSE_TYPE_S3</a></code></td>
+<td class="colLast"><code>"s3"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.STAGING_DIRECTORY">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#STAGING_DIRECTORY">STAGING_DIRECTORY</a></code></td>
+<td class="colLast"><code>"s3.staging-dir"</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.USE_ARN_REGION_ENABLED">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#USE_ARN_REGION_ENABLED">USE_ARN_REGION_ENABLED</a></code></td>
+<td class="colLast"><code>"s3.use-arn-region-enabled"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.USE_ARN_REGION_ENABLED_DEFAULT">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#USE_ARN_REGION_ENABLED_DEFAULT">USE_ARN_REGION_ENABLED_DEFAULT</a></code></td>
+<td class="colLast"><code>false</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.WRITE_NAMESPACE_TAG_ENABLED">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#WRITE_NAMESPACE_TAG_ENABLED">WRITE_NAMESPACE_TAG_ENABLED</a></code></td>
+<td class="colLast"><code>"s3.write.namespace-tag-enabled"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.WRITE_NAMESPACE_TAG_ENABLED_DEFAULT">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#WRITE_NAMESPACE_TAG_ENABLED_DEFAULT">WRITE_NAMESPACE_TAG_ENABLED_DEFAULT</a></code></td>
+<td class="colLast"><code>false</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.WRITE_TABLE_TAG_ENABLED">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#WRITE_TABLE_TAG_ENABLED">WRITE_TABLE_TAG_ENABLED</a></code></td>
+<td class="colLast"><code>"s3.write.table-tag-enabled"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.WRITE_TABLE_TAG_ENABLED_DEFAULT">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#WRITE_TABLE_TAG_ENABLED_DEFAULT">WRITE_TABLE_TAG_ENABLED_DEFAULT</a></code></td>
+<td class="colLast"><code>false</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties.WRITE_TAGS_PREFIX">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#WRITE_TAGS_PREFIX">WRITE_TAGS_PREFIX</a></code></td>
+<td class="colLast"><code>"s3.write.tags."</code></td>
 </tr>
 </tbody>
 </table>
@@ -3297,48 +4020,55 @@
 <td class="colLast"><code>"limit"</code></td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.flink.FlinkReadOptions.MAX_ALLOWED_PLANNING_FAILURES">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/flink/FlinkReadOptions.html#MAX_ALLOWED_PLANNING_FAILURES">MAX_ALLOWED_PLANNING_FAILURES</a></code></td>
+<td class="colLast"><code>"max-allowed-planning-failures"</code></td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.flink.FlinkReadOptions.MAX_PLANNING_SNAPSHOT_COUNT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/flink/FlinkReadOptions.html#MAX_PLANNING_SNAPSHOT_COUNT">MAX_PLANNING_SNAPSHOT_COUNT</a></code></td>
 <td class="colLast"><code>"max-planning-snapshot-count"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.flink.FlinkReadOptions.MONITOR_INTERVAL">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/flink/FlinkReadOptions.html#MONITOR_INTERVAL">MONITOR_INTERVAL</a></code></td>
 <td class="colLast"><code>"monitor-interval"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.flink.FlinkReadOptions.SPLIT_FILE_OPEN_COST">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/flink/FlinkReadOptions.html#SPLIT_FILE_OPEN_COST">SPLIT_FILE_OPEN_COST</a></code></td>
 <td class="colLast"><code>"split-file-open-cost"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.flink.FlinkReadOptions.SPLIT_LOOKBACK">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/flink/FlinkReadOptions.html#SPLIT_LOOKBACK">SPLIT_LOOKBACK</a></code></td>
 <td class="colLast"><code>"split-lookback"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.flink.FlinkReadOptions.SPLIT_SIZE">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/flink/FlinkReadOptions.html#SPLIT_SIZE">SPLIT_SIZE</a></code></td>
 <td class="colLast"><code>"split-size"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.flink.FlinkReadOptions.STARTING_STRATEGY">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/flink/FlinkReadOptions.html#STARTING_STRATEGY">STARTING_STRATEGY</a></code></td>
 <td class="colLast"><code>"starting-strategy"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.flink.FlinkReadOptions.STREAMING">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
@@ -3442,6 +4172,13 @@
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/hadoop/ConfigProperties.html#KEEP_HIVE_STATS">KEEP_HIVE_STATS</a></code></td>
 <td class="colLast"><code>"iceberg.hive.keep.stats"</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.hadoop.ConfigProperties.LOCK_HIVE_ENABLED">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/hadoop/ConfigProperties.html#LOCK_HIVE_ENABLED">LOCK_HIVE_ENABLED</a></code></td>
+<td class="colLast"><code>"iceberg.engine.hive.lock-enabled"</code></td>
 </tr>
 </tbody>
 </table>
@@ -4604,139 +5341,146 @@
 <td class="colLast"><code>"file-open-cost"</code></td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><a name="org.apache.iceberg.spark.SparkReadOptions.FILE_SCAN_TASK_SET_ID">
-<!--   -->
-</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
-<td><code><a href="org/apache/iceberg/spark/SparkReadOptions.html#FILE_SCAN_TASK_SET_ID">FILE_SCAN_TASK_SET_ID</a></code></td>
-<td class="colLast"><code>"file-scan-task-set-id"</code></td>
-</tr>
-<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkReadOptions.HANDLE_TIMESTAMP_WITHOUT_TIMEZONE">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkReadOptions.html#HANDLE_TIMESTAMP_WITHOUT_TIMEZONE">HANDLE_TIMESTAMP_WITHOUT_TIMEZONE</a></code></td>
 <td class="colLast"><code>"handle-timestamp-without-timezone"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkReadOptions.LOCALITY">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkReadOptions.html#LOCALITY">LOCALITY</a></code></td>
 <td class="colLast"><code>"locality"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkReadOptions.LOOKBACK">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkReadOptions.html#LOOKBACK">LOOKBACK</a></code></td>
 <td class="colLast"><code>"lookback"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkReadOptions.PATH">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkReadOptions.html#PATH">PATH</a></code></td>
 <td class="colLast"><code>"path"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkReadOptions.SCAN_TASK_SET_ID">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkReadOptions.html#SCAN_TASK_SET_ID">SCAN_TASK_SET_ID</a></code></td>
 <td class="colLast"><code>"scan-task-set-id"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkReadOptions.SNAPSHOT_ID">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkReadOptions.html#SNAPSHOT_ID">SNAPSHOT_ID</a></code></td>
 <td class="colLast"><code>"snapshot-id"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkReadOptions.SPLIT_SIZE">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkReadOptions.html#SPLIT_SIZE">SPLIT_SIZE</a></code></td>
 <td class="colLast"><code>"split-size"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkReadOptions.START_SNAPSHOT_ID">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkReadOptions.html#START_SNAPSHOT_ID">START_SNAPSHOT_ID</a></code></td>
 <td class="colLast"><code>"start-snapshot-id"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkReadOptions.START_TIMESTAMP">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkReadOptions.html#START_TIMESTAMP">START_TIMESTAMP</a></code></td>
 <td class="colLast"><code>"start-timestamp"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkReadOptions.STREAM_FROM_TIMESTAMP">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkReadOptions.html#STREAM_FROM_TIMESTAMP">STREAM_FROM_TIMESTAMP</a></code></td>
 <td class="colLast"><code>"stream-from-timestamp"</code></td>
 </tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.spark.SparkReadOptions.STREAMING_MAX_FILES_PER_MICRO_BATCH">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/spark/SparkReadOptions.html#STREAMING_MAX_FILES_PER_MICRO_BATCH">STREAMING_MAX_FILES_PER_MICRO_BATCH</a></code></td>
+<td class="colLast"><code>"streaming-max-files-per-micro-batch"</code></td>
+</tr>
 <tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.spark.SparkReadOptions.STREAMING_MAX_ROWS_PER_MICRO_BATCH">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/spark/SparkReadOptions.html#STREAMING_MAX_ROWS_PER_MICRO_BATCH">STREAMING_MAX_ROWS_PER_MICRO_BATCH</a></code></td>
+<td class="colLast"><code>"streaming-max-rows-per-micro-batch"</code></td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkReadOptions.STREAMING_SKIP_DELETE_SNAPSHOTS">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkReadOptions.html#STREAMING_SKIP_DELETE_SNAPSHOTS">STREAMING_SKIP_DELETE_SNAPSHOTS</a></code></td>
 <td class="colLast"><code>"streaming-skip-delete-snapshots"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkReadOptions.STREAMING_SKIP_DELETE_SNAPSHOTS_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkReadOptions.html#STREAMING_SKIP_DELETE_SNAPSHOTS_DEFAULT">STREAMING_SKIP_DELETE_SNAPSHOTS_DEFAULT</a></code></td>
 <td class="colLast"><code>false</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkReadOptions.STREAMING_SKIP_OVERWRITE_SNAPSHOTS">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkReadOptions.html#STREAMING_SKIP_OVERWRITE_SNAPSHOTS">STREAMING_SKIP_OVERWRITE_SNAPSHOTS</a></code></td>
 <td class="colLast"><code>"streaming-skip-overwrite-snapshots"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkReadOptions.STREAMING_SKIP_OVERWRITE_SNAPSHOTS_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkReadOptions.html#STREAMING_SKIP_OVERWRITE_SNAPSHOTS_DEFAULT">STREAMING_SKIP_OVERWRITE_SNAPSHOTS_DEFAULT</a></code></td>
 <td class="colLast"><code>false</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkReadOptions.TAG">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkReadOptions.html#TAG">TAG</a></code></td>
 <td class="colLast"><code>"tag"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkReadOptions.TIMESTAMP_AS_OF">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkReadOptions.html#TIMESTAMP_AS_OF">TIMESTAMP_AS_OF</a></code></td>
 <td class="colLast"><code>"timestampAsOf"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkReadOptions.VECTORIZATION_BATCH_SIZE">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkReadOptions.html#VECTORIZATION_BATCH_SIZE">VECTORIZATION_BATCH_SIZE</a></code></td>
 <td class="colLast"><code>"batch-size"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkReadOptions.VECTORIZATION_ENABLED">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkReadOptions.html#VECTORIZATION_ENABLED">VECTORIZATION_ENABLED</a></code></td>
 <td class="colLast"><code>"vectorization-enabled"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkReadOptions.VERSION_AS_OF">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
@@ -4812,39 +5556,25 @@
 <td class="colLast"><code>"spark.sql.iceberg.handle-timestamp-without-timezone"</code></td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><a name="org.apache.iceberg.spark.SparkSQLProperties.HANDLE_TIMESTAMP_WITHOUT_TIMEZONE_DEFAULT">
-<!--   -->
-</a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
-<td><code><a href="org/apache/iceberg/spark/SparkSQLProperties.html#HANDLE_TIMESTAMP_WITHOUT_TIMEZONE_DEFAULT">HANDLE_TIMESTAMP_WITHOUT_TIMEZONE_DEFAULT</a></code></td>
-<td class="colLast"><code>false</code></td>
-</tr>
-<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkSQLProperties.PRESERVE_DATA_GROUPING">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkSQLProperties.html#PRESERVE_DATA_GROUPING">PRESERVE_DATA_GROUPING</a></code></td>
 <td class="colLast"><code>"spark.sql.iceberg.planning.preserve-data-grouping"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkSQLProperties.PRESERVE_DATA_GROUPING_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkSQLProperties.html#PRESERVE_DATA_GROUPING_DEFAULT">PRESERVE_DATA_GROUPING_DEFAULT</a></code></td>
 <td class="colLast"><code>false</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkSQLProperties.USE_TIMESTAMP_WITHOUT_TIME_ZONE_IN_NEW_TABLES">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkSQLProperties.html#USE_TIMESTAMP_WITHOUT_TIME_ZONE_IN_NEW_TABLES">USE_TIMESTAMP_WITHOUT_TIME_ZONE_IN_NEW_TABLES</a></code></td>
 <td class="colLast"><code>"spark.sql.iceberg.use-timestamp-without-timezone-in-new-tables"</code></td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><a name="org.apache.iceberg.spark.SparkSQLProperties.USE_TIMESTAMP_WITHOUT_TIME_ZONE_IN_NEW_TABLES_DEFAULT">
-<!--   -->
-</a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
-<td><code><a href="org/apache/iceberg/spark/SparkSQLProperties.html#USE_TIMESTAMP_WITHOUT_TIME_ZONE_IN_NEW_TABLES_DEFAULT">USE_TIMESTAMP_WITHOUT_TIME_ZONE_IN_NEW_TABLES_DEFAULT</a></code></td>
-<td class="colLast"><code>false</code></td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkSQLProperties.VECTORIZATION_ENABLED">
@@ -4943,69 +5673,76 @@
 <td class="colLast"><code>false</code></td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.spark.SparkWriteOptions.OUTPUT_SPEC_ID">
+<!--   -->
+</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code><a href="org/apache/iceberg/spark/SparkWriteOptions.html#OUTPUT_SPEC_ID">OUTPUT_SPEC_ID</a></code></td>
+<td class="colLast"><code>"output-spec-id"</code></td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkWriteOptions.OVERWRITE_MODE">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkWriteOptions.html#OVERWRITE_MODE">OVERWRITE_MODE</a></code></td>
 <td class="colLast"><code>"overwrite-mode"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkWriteOptions.REWRITTEN_FILE_SCAN_TASK_SET_ID">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkWriteOptions.html#REWRITTEN_FILE_SCAN_TASK_SET_ID">REWRITTEN_FILE_SCAN_TASK_SET_ID</a></code></td>
 <td class="colLast"><code>"rewritten-file-scan-task-set-id"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkWriteOptions.SNAPSHOT_PROPERTY_PREFIX">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkWriteOptions.html#SNAPSHOT_PROPERTY_PREFIX">SNAPSHOT_PROPERTY_PREFIX</a></code></td>
 <td class="colLast"><code>"snapshot-property"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkWriteOptions.SPARK_MERGE_SCHEMA">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkWriteOptions.html#SPARK_MERGE_SCHEMA">SPARK_MERGE_SCHEMA</a></code></td>
 <td class="colLast"><code>"mergeSchema"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkWriteOptions.TARGET_DELETE_FILE_SIZE_BYTES">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkWriteOptions.html#TARGET_DELETE_FILE_SIZE_BYTES">TARGET_DELETE_FILE_SIZE_BYTES</a></code></td>
 <td class="colLast"><code>"target-delete-file-size-bytes"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkWriteOptions.TARGET_FILE_SIZE_BYTES">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkWriteOptions.html#TARGET_FILE_SIZE_BYTES">TARGET_FILE_SIZE_BYTES</a></code></td>
 <td class="colLast"><code>"target-file-size-bytes"</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkWriteOptions.USE_TABLE_DISTRIBUTION_AND_ORDERING">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkWriteOptions.html#USE_TABLE_DISTRIBUTION_AND_ORDERING">USE_TABLE_DISTRIBUTION_AND_ORDERING</a></code></td>
 <td class="colLast"><code>"use-table-distribution-and-ordering"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkWriteOptions.USE_TABLE_DISTRIBUTION_AND_ORDERING_DEFAULT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;boolean</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkWriteOptions.html#USE_TABLE_DISTRIBUTION_AND_ORDERING_DEFAULT">USE_TABLE_DISTRIBUTION_AND_ORDERING_DEFAULT</a></code></td>
 <td class="colLast"><code>true</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkWriteOptions.VALIDATE_FROM_SNAPSHOT_ID">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code><a href="org/apache/iceberg/spark/SparkWriteOptions.html#VALIDATE_FROM_SNAPSHOT_ID">VALIDATE_FROM_SNAPSHOT_ID</a></code></td>
 <td class="colLast"><code>"validate-from-snapshot-id"</code></td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a name="org.apache.iceberg.spark.SparkWriteOptions.WRITE_FORMAT">
 <!--   -->
 </a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
@@ -5399,6 +6136,60 @@
 </li>
 <li class="blockList">
 <table class="constantsSummary" border="0" cellpadding="3" cellspacing="0" summary="Constant Field Values table, listing constant fields, and values">
+<caption><span>org.apache.iceberg.spark.actions.<a href="org/apache/iceberg/spark/actions/RewritePositionDeleteFilesSparkAction.html" title="class in org.apache.iceberg.spark.actions">RewritePositionDeleteFilesSparkAction</a></span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th scope="col">Constant Field</th>
+<th class="colLast" scope="col">Value</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.spark.actions.RewritePositionDeleteFilesSparkAction.FILE_PATH">
+<!--   -->
+</a><code>protected&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code>FILE_PATH</code></td>
+<td class="colLast"><code>"file_path"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.spark.actions.RewritePositionDeleteFilesSparkAction.LAST_MODIFIED">
+<!--   -->
+</a><code>protected&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code>LAST_MODIFIED</code></td>
+<td class="colLast"><code>"last_modified"</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.spark.actions.RewritePositionDeleteFilesSparkAction.MANIFEST">
+<!--   -->
+</a><code>protected&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code>MANIFEST</code></td>
+<td class="colLast"><code>"Manifest"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.spark.actions.RewritePositionDeleteFilesSparkAction.MANIFEST_LIST">
+<!--   -->
+</a><code>protected&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code>MANIFEST_LIST</code></td>
+<td class="colLast"><code>"Manifest List"</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a name="org.apache.iceberg.spark.actions.RewritePositionDeleteFilesSparkAction.OTHERS">
+<!--   -->
+</a><code>protected&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code>OTHERS</code></td>
+<td class="colLast"><code>"Others"</code></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a name="org.apache.iceberg.spark.actions.RewritePositionDeleteFilesSparkAction.STATISTICS_FILES">
+<!--   -->
+</a><code>protected&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
+<td><code>STATISTICS_FILES</code></td>
+<td class="colLast"><code>"Statistics Files"</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li class="blockList">
+<table class="constantsSummary" border="0" cellpadding="3" cellspacing="0" summary="Constant Field Values table, listing constant fields, and values">
 <caption><span>org.apache.iceberg.spark.actions.<a href="org/apache/iceberg/spark/actions/SnapshotTableSparkAction.html" title="class in org.apache.iceberg.spark.actions">SnapshotTableSparkAction</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
@@ -5461,25 +6252,6 @@
 </a><code>protected&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
 <td><code>STATISTICS_FILES</code></td>
 <td class="colLast"><code>"Statistics Files"</code></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li class="blockList">
-<table class="constantsSummary" border="0" cellpadding="3" cellspacing="0" summary="Constant Field Values table, listing constant fields, and values">
-<caption><span>org.apache.iceberg.spark.actions.<a href="org/apache/iceberg/spark/actions/SparkSortStrategy.html" title="class in org.apache.iceberg.spark.actions">SparkSortStrategy</a></span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th scope="col">Constant Field</th>
-<th class="colLast" scope="col">Value</th>
-</tr>
-<tbody>
-<tr class="altColor">
-<td class="colFirst"><a name="org.apache.iceberg.spark.actions.SparkSortStrategy.COMPRESSION_FACTOR">
-<!--   -->
-</a><code>public&nbsp;static&nbsp;final&nbsp;java.lang.String</code></td>
-<td><code><a href="org/apache/iceberg/spark/actions/SparkSortStrategy.html#COMPRESSION_FACTOR">COMPRESSION_FACTOR</a></code></td>
-<td class="colLast"><code>"compression-factor"</code></td>
 </tr>
 </tbody>
 </table>

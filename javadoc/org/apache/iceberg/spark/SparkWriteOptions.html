@@ -42,7 +42,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li>Next&nbsp;Class</li>
+<li><a href="../../../../org/apache/iceberg/spark/SparkWriteRequirements.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/spark/SparkWriteOptions.html" target="_top">Frames</a></li>
@@ -144,7 +144,9 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#HANDLE_TIMESTAMP_WITHOUT_TIMEZONE">HANDLE_TIMESTAMP_WITHOUT_TIMEZONE</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#HANDLE_TIMESTAMP_WITHOUT_TIMEZONE">HANDLE_TIMESTAMP_WITHOUT_TIMEZONE</a></span></code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
@@ -160,41 +162,45 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#OVERWRITE_MODE">OVERWRITE_MODE</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#OUTPUT_SPEC_ID">OUTPUT_SPEC_ID</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#OVERWRITE_MODE">OVERWRITE_MODE</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#REWRITTEN_FILE_SCAN_TASK_SET_ID">REWRITTEN_FILE_SCAN_TASK_SET_ID</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#SNAPSHOT_PROPERTY_PREFIX">SNAPSHOT_PROPERTY_PREFIX</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#SPARK_MERGE_SCHEMA">SPARK_MERGE_SCHEMA</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#TARGET_DELETE_FILE_SIZE_BYTES">TARGET_DELETE_FILE_SIZE_BYTES</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#TARGET_FILE_SIZE_BYTES">TARGET_FILE_SIZE_BYTES</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#USE_TABLE_DISTRIBUTION_AND_ORDERING">USE_TABLE_DISTRIBUTION_AND_ORDERING</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#USE_TABLE_DISTRIBUTION_AND_ORDERING_DEFAULT">USE_TABLE_DISTRIBUTION_AND_ORDERING_DEFAULT</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#VALIDATE_FROM_SNAPSHOT_ID">VALIDATE_FROM_SNAPSHOT_ID</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#WRITE_FORMAT">WRITE_FORMAT</a></span></code>&nbsp;</td>
 </tr>
@@ -351,10 +357,25 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>HANDLE_TIMESTAMP_WITHOUT_TIMEZONE</h4>
-<pre>public static final&nbsp;java.lang.String HANDLE_TIMESTAMP_WITHOUT_TIMEZONE</pre>
+<pre>@Deprecated
+public static final&nbsp;java.lang.String HANDLE_TIMESTAMP_WITHOUT_TIMEZONE</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkWriteOptions.HANDLE_TIMESTAMP_WITHOUT_TIMEZONE">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="OUTPUT_SPEC_ID">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>OUTPUT_SPEC_ID</h4>
+<pre>public static final&nbsp;java.lang.String OUTPUT_SPEC_ID</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkWriteOptions.OUTPUT_SPEC_ID">Constant Field Values</a></dd>
 </dl>
 </li>
 </ul>
@@ -503,7 +524,7 @@ extends java.lang.Object</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li>Next&nbsp;Class</li>
+<li><a href="../../../../org/apache/iceberg/spark/SparkWriteRequirements.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/spark/SparkWriteOptions.html" target="_top">Frames</a></li>

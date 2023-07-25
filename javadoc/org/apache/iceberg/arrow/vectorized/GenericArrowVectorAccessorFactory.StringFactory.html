@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":18,"i4":6};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -122,7 +122,7 @@ var activeTableTab = "activeTableTab";
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -146,6 +146,13 @@ var activeTableTab = "activeTableTab";
 </td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>default <a href="../../../../../org/apache/iceberg/arrow/vectorized/GenericArrowVectorAccessorFactory.StringFactory.html" title="type parameter in GenericArrowVectorAccessorFactory.StringFactory">Utf8StringT</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/GenericArrowVectorAccessorFactory.StringFactory.html#ofRow-org.apache.arrow.vector.FixedSizeBinaryVector-int-">ofRow</a></span>(org.apache.arrow.vector.FixedSizeBinaryVector&nbsp;vector,
+     int&nbsp;rowId)</code>
+<div class="block">Create a UTF8 String from the row value in the FixedSizeBinaryVector vector.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/arrow/vectorized/GenericArrowVectorAccessorFactory.StringFactory.html" title="type parameter in GenericArrowVectorAccessorFactory.StringFactory">Utf8StringT</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/GenericArrowVectorAccessorFactory.StringFactory.html#ofRow-org.apache.arrow.vector.VarCharVector-int-">ofRow</a></span>(org.apache.arrow.vector.VarCharVector&nbsp;vector,
      int&nbsp;rowId)</code>
@@ -186,6 +193,17 @@ var activeTableTab = "activeTableTab";
 <pre><a href="../../../../../org/apache/iceberg/arrow/vectorized/GenericArrowVectorAccessorFactory.StringFactory.html" title="type parameter in GenericArrowVectorAccessorFactory.StringFactory">Utf8StringT</a>&nbsp;ofRow(org.apache.arrow.vector.VarCharVector&nbsp;vector,
                   int&nbsp;rowId)</pre>
 <div class="block">Create a UTF8 String from the row value in the arrow vector.</div>
+</li>
+</ul>
+<a name="ofRow-org.apache.arrow.vector.FixedSizeBinaryVector-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ofRow</h4>
+<pre>default&nbsp;<a href="../../../../../org/apache/iceberg/arrow/vectorized/GenericArrowVectorAccessorFactory.StringFactory.html" title="type parameter in GenericArrowVectorAccessorFactory.StringFactory">Utf8StringT</a>&nbsp;ofRow(org.apache.arrow.vector.FixedSizeBinaryVector&nbsp;vector,
+                          int&nbsp;rowId)</pre>
+<div class="block">Create a UTF8 String from the row value in the FixedSizeBinaryVector vector.</div>
 </li>
 </ul>
 <a name="ofBytes-byte:A-">

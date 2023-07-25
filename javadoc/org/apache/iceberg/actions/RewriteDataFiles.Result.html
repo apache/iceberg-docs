@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":18,"i1":6,"i2":18,"i3":18};
+var methods = {"i0":18,"i1":18,"i2":18,"i3":6,"i4":18,"i5":18};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -107,7 +107,8 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public static interface <span class="typeNameLabel">RewriteDataFiles.Result</span></pre>
+<pre>@Value.Immutable
+public static interface <span class="typeNameLabel">RewriteDataFiles.Result</span></pre>
 <div class="block">A map of file group information to the results of rewriting that file group. If the results are
  null then that particular file group failed. We should only have failed groups if partial
  progress is enabled otherwise we will report a total failure for the job.</div>
@@ -134,14 +135,22 @@ var activeTableTab = "activeTableTab";
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.Result.html#addedDataFilesCount--">addedDataFilesCount</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>default int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.Result.html#failedDataFilesCount--">failedDataFilesCount</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>default java.util.List&lt;<a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.FileGroupFailureResult.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles.FileGroupFailureResult</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.Result.html#rewriteFailures--">rewriteFailures</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.FileGroupRewriteResult.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles.FileGroupRewriteResult</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.Result.html#rewriteResults--">rewriteResults</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>default long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.Result.html#rewrittenBytesCount--">rewrittenBytesCount</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>default int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.Result.html#rewrittenDataFilesCount--">rewrittenDataFilesCount</a></span>()</code>&nbsp;</td>
 </tr>
@@ -169,13 +178,24 @@ var activeTableTab = "activeTableTab";
 <pre>java.util.List&lt;<a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.FileGroupRewriteResult.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles.FileGroupRewriteResult</a>&gt;&nbsp;rewriteResults()</pre>
 </li>
 </ul>
+<a name="rewriteFailures--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>rewriteFailures</h4>
+<pre>@Value.Default
+default&nbsp;java.util.List&lt;<a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.FileGroupFailureResult.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles.FileGroupFailureResult</a>&gt;&nbsp;rewriteFailures()</pre>
+</li>
+</ul>
 <a name="addedDataFilesCount--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>addedDataFilesCount</h4>
-<pre>default&nbsp;int&nbsp;addedDataFilesCount()</pre>
+<pre>@Value.Default
+default&nbsp;int&nbsp;addedDataFilesCount()</pre>
 </li>
 </ul>
 <a name="rewrittenDataFilesCount--">
@@ -184,16 +204,28 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>rewrittenDataFilesCount</h4>
-<pre>default&nbsp;int&nbsp;rewrittenDataFilesCount()</pre>
+<pre>@Value.Default
+default&nbsp;int&nbsp;rewrittenDataFilesCount()</pre>
 </li>
 </ul>
 <a name="rewrittenBytesCount--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>rewrittenBytesCount</h4>
-<pre>default&nbsp;long&nbsp;rewrittenBytesCount()</pre>
+<pre>@Value.Default
+default&nbsp;long&nbsp;rewrittenBytesCount()</pre>
+</li>
+</ul>
+<a name="failedDataFilesCount--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>failedDataFilesCount</h4>
+<pre>@Value.Default
+default&nbsp;int&nbsp;failedDataFilesCount()</pre>
 </li>
 </ul>
 </li>

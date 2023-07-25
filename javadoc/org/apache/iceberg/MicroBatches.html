@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9};
+var methods = {"i0":9,"i1":9,"i2":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -155,6 +155,22 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MicroBatches.html#from-org.apache.iceberg.Snapshot-org.apache.iceberg.io.FileIO-">from</a></span>(<a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;snapshot,
     <a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io)</code>&nbsp;</td>
 </tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>static <a href="../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MicroBatches.html#openManifestFile-org.apache.iceberg.io.FileIO-java.util.Map-boolean-org.apache.iceberg.Snapshot-org.apache.iceberg.ManifestFile-boolean-">openManifestFile</a></span>(<a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io,
+                java.util.Map&lt;java.lang.Integer,<a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&gt;&nbsp;specsById,
+                boolean&nbsp;caseSensitive,
+                <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;snapshot,
+                <a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&nbsp;manifestFile,
+                boolean&nbsp;scanAllFiles)</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>static java.util.List&lt;<a href="../../../org/apache/iceberg/util/Pair.html" title="class in org.apache.iceberg.util">Pair</a>&lt;<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>,java.lang.Integer&gt;&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MicroBatches.html#skippedManifestIndexesFromSnapshot-org.apache.iceberg.io.FileIO-org.apache.iceberg.Snapshot-long-boolean-">skippedManifestIndexesFromSnapshot</a></span>(<a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io,
+                                  <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;snapshot,
+                                  long&nbsp;startFileIndex,
+                                  boolean&nbsp;scanAllFiles)</code>&nbsp;</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -177,6 +193,32 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="skippedManifestIndexesFromSnapshot-org.apache.iceberg.io.FileIO-org.apache.iceberg.Snapshot-long-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>skippedManifestIndexesFromSnapshot</h4>
+<pre>public static&nbsp;java.util.List&lt;<a href="../../../org/apache/iceberg/util/Pair.html" title="class in org.apache.iceberg.util">Pair</a>&lt;<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>,java.lang.Integer&gt;&gt;&nbsp;skippedManifestIndexesFromSnapshot(<a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io,
+                                                                                                      <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;snapshot,
+                                                                                                      long&nbsp;startFileIndex,
+                                                                                                      boolean&nbsp;scanAllFiles)</pre>
+</li>
+</ul>
+<a name="openManifestFile-org.apache.iceberg.io.FileIO-java.util.Map-boolean-org.apache.iceberg.Snapshot-org.apache.iceberg.ManifestFile-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>openManifestFile</h4>
+<pre>public static&nbsp;<a href="../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&gt;&nbsp;openManifestFile(<a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io,
+                                                               java.util.Map&lt;java.lang.Integer,<a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&gt;&nbsp;specsById,
+                                                               boolean&nbsp;caseSensitive,
+                                                               <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;snapshot,
+                                                               <a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&nbsp;manifestFile,
+                                                               boolean&nbsp;scanAllFiles)</pre>
+</li>
+</ul>
 <a name="from-org.apache.iceberg.Snapshot-org.apache.iceberg.io.FileIO-">
 <!--   -->
 </a>
