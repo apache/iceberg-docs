@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":9,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":9,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -205,6 +205,10 @@ implements java.util.Map&lt;<a href="../../../../org/apache/iceberg/StructLike.h
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/StructLikeMap.html#size--">size</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i11" class="rowColor">
+<td class="colFirst"><code>&lt;U&gt;&nbsp;<a href="../../../../org/apache/iceberg/util/StructLikeMap.html" title="class in org.apache.iceberg.util">StructLikeMap</a>&lt;U&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/StructLikeMap.html#transformValues-java.util.function.Function-">transformValues</a></span>(java.util.function.Function&lt;<a href="../../../../org/apache/iceberg/util/StructLikeMap.html" title="type parameter in StructLikeMap">T</a>,U&gt;&nbsp;func)</code>&nbsp;</td>
+</tr>
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>java.util.Collection&lt;<a href="../../../../org/apache/iceberg/util/StructLikeMap.html" title="type parameter in StructLikeMap">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/util/StructLikeMap.html#values--">values</a></span>()</code>&nbsp;</td>
 </tr>
@@ -409,7 +413,7 @@ implements java.util.Map&lt;<a href="../../../../org/apache/iceberg/StructLike.h
 <a name="entrySet--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>entrySet</h4>
 <pre>public&nbsp;java.util.Set&lt;java.util.Map.Entry&lt;<a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>,<a href="../../../../org/apache/iceberg/util/StructLikeMap.html" title="type parameter in StructLikeMap">T</a>&gt;&gt;&nbsp;entrySet()</pre>
@@ -419,6 +423,15 @@ implements java.util.Map&lt;<a href="../../../../org/apache/iceberg/StructLike.h
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>entrySet</code>&nbsp;in class&nbsp;<code>java.util.AbstractMap&lt;<a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>,<a href="../../../../org/apache/iceberg/util/StructLikeMap.html" title="type parameter in StructLikeMap">T</a>&gt;</code></dd>
 </dl>
+</li>
+</ul>
+<a name="transformValues-java.util.function.Function-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>transformValues</h4>
+<pre>public&nbsp;&lt;U&gt;&nbsp;<a href="../../../../org/apache/iceberg/util/StructLikeMap.html" title="class in org.apache.iceberg.util">StructLikeMap</a>&lt;U&gt;&nbsp;transformValues(java.util.function.Function&lt;<a href="../../../../org/apache/iceberg/util/StructLikeMap.html" title="type parameter in StructLikeMap">T</a>,U&gt;&nbsp;func)</pre>
 </li>
 </ul>
 </li>

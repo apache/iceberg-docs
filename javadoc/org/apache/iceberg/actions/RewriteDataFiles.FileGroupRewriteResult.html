@@ -107,7 +107,8 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public static interface <span class="typeNameLabel">RewriteDataFiles.FileGroupRewriteResult</span></pre>
+<pre>@Value.Immutable
+public static interface <span class="typeNameLabel">RewriteDataFiles.FileGroupRewriteResult</span></pre>
 <div class="block">For a particular file group, the number of files which are newly created and the number of
  files which were formerly part of the table but have been rewritten.</div>
 </li>
@@ -192,7 +193,8 @@ var activeTableTab = "activeTableTab";
 <ul class="blockListLast">
 <li class="blockList">
 <h4>rewrittenBytesCount</h4>
-<pre>default&nbsp;long&nbsp;rewrittenBytesCount()</pre>
+<pre>@Value.Default
+default&nbsp;long&nbsp;rewrittenBytesCount()</pre>
 </li>
 </ul>
 </li>

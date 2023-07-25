@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":18,"i1":18,"i2":18,"i3":6,"i4":18,"i5":18,"i6":18,"i7":6};
+var methods = {"i0":18,"i1":18,"i2":18,"i3":6,"i4":18,"i5":18,"i6":18,"i7":18,"i8":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -155,24 +155,30 @@ var activeTableTab = "activeTableTab";
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>default <a href="../../../org/apache/iceberg/SortOrderBuilder.html" title="type parameter in SortOrderBuilder">R</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SortOrderBuilder.html#caseSensitive-boolean-">caseSensitive</a></span>(boolean&nbsp;caseSensitive)</code>
+<div class="block">Set case sensitivity of sort column name resolution.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>default <a href="../../../org/apache/iceberg/SortOrderBuilder.html" title="type parameter in SortOrderBuilder">R</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SortOrderBuilder.html#desc-java.lang.String-">desc</a></span>(java.lang.String&nbsp;name)</code>
 <div class="block">Add a field to the sort by field name, ascending with nulls first.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>default <a href="../../../org/apache/iceberg/SortOrderBuilder.html" title="type parameter in SortOrderBuilder">R</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SortOrderBuilder.html#desc-java.lang.String-org.apache.iceberg.NullOrder-">desc</a></span>(java.lang.String&nbsp;name,
     <a href="../../../org/apache/iceberg/NullOrder.html" title="enum in org.apache.iceberg">NullOrder</a>&nbsp;nullOrder)</code>
 <div class="block">Add a field to the sort by field name, ascending with the given null order.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>default <a href="../../../org/apache/iceberg/SortOrderBuilder.html" title="type parameter in SortOrderBuilder">R</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SortOrderBuilder.html#desc-org.apache.iceberg.expressions.Term-">desc</a></span>(<a href="../../../org/apache/iceberg/expressions/Term.html" title="interface in org.apache.iceberg.expressions">Term</a>&nbsp;term)</code>
 <div class="block">Add an expression term to the sort, ascending with nulls first.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/SortOrderBuilder.html" title="type parameter in SortOrderBuilder">R</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SortOrderBuilder.html#desc-org.apache.iceberg.expressions.Term-org.apache.iceberg.NullOrder-">desc</a></span>(<a href="../../../org/apache/iceberg/expressions/Term.html" title="interface in org.apache.iceberg.expressions">Term</a>&nbsp;term,
     <a href="../../../org/apache/iceberg/NullOrder.html" title="enum in org.apache.iceberg">NullOrder</a>&nbsp;nullOrder)</code>
@@ -315,7 +321,7 @@ var activeTableTab = "activeTableTab";
 <a name="desc-org.apache.iceberg.expressions.Term-org.apache.iceberg.NullOrder-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>desc</h4>
 <pre><a href="../../../org/apache/iceberg/SortOrderBuilder.html" title="type parameter in SortOrderBuilder">R</a>&nbsp;desc(<a href="../../../org/apache/iceberg/expressions/Term.html" title="interface in org.apache.iceberg.expressions">Term</a>&nbsp;term,
@@ -325,6 +331,22 @@ var activeTableTab = "activeTableTab";
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>term</code> - an expression term</dd>
 <dd><code>nullOrder</code> - a null order (first or last)</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a name="caseSensitive-boolean-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>caseSensitive</h4>
+<pre>default&nbsp;<a href="../../../org/apache/iceberg/SortOrderBuilder.html" title="type parameter in SortOrderBuilder">R</a>&nbsp;caseSensitive(boolean&nbsp;caseSensitive)</pre>
+<div class="block">Set case sensitivity of sort column name resolution.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>caseSensitive</code> - when true, column name resolution is case-sensitive</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>
 </dl>

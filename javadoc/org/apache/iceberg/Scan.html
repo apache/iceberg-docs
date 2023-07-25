@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":18,"i14":6,"i15":6,"i16":6};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":18,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":18,"i15":6,"i16":6,"i17":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -172,6 +172,13 @@ var activeTableTab = "activeTableTab";
 </td>
 </tr>
 <tr id="i6" class="altColor">
+<td class="colFirst"><code>default <a href="../../../org/apache/iceberg/Scan.html" title="type parameter in Scan">ThisT</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Scan.html#metricsReporter-org.apache.iceberg.metrics.MetricsReporter-">metricsReporter</a></span>(<a href="../../../org/apache/iceberg/metrics/MetricsReporter.html" title="interface in org.apache.iceberg.metrics">MetricsReporter</a>&nbsp;reporter)</code>
+<div class="block">Create a new scan that will report scan metrics to the provided reporter in addition to
+ reporters maintained by the scan.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/Scan.html" title="type parameter in Scan">ThisT</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Scan.html#option-java.lang.String-java.lang.String-">option</a></span>(java.lang.String&nbsp;property,
       java.lang.String&nbsp;value)</code>
@@ -179,61 +186,61 @@ var activeTableTab = "activeTableTab";
  behavior based on the incoming pair.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../../../org/apache/iceberg/Scan.html" title="type parameter in Scan">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Scan.html#planFiles--">planFiles</a></span>()</code>
 <div class="block">Plan tasks for this scan where each task reads a single file.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io">CloseableIterable</a>&lt;<a href="../../../org/apache/iceberg/Scan.html" title="type parameter in Scan">G</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Scan.html#planTasks--">planTasks</a></span>()</code>
 <div class="block">Plan balanced task groups for this scan by splitting large and combining small tasks.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/Scan.html" title="type parameter in Scan">ThisT</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Scan.html#planWith-java.util.concurrent.ExecutorService-">planWith</a></span>(java.util.concurrent.ExecutorService&nbsp;executorService)</code>
 <div class="block">Create a new scan to use a particular executor to plan.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/Scan.html" title="type parameter in Scan">ThisT</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Scan.html#project-org.apache.iceberg.Schema-">project</a></span>(<a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema)</code>
 <div class="block">Create a new scan from this with the schema as its projection.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Scan.html#schema--">schema</a></span>()</code>
 <div class="block">Returns this scan's projection <a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>Schema</code></a>.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/Scan.html" title="type parameter in Scan">ThisT</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Scan.html#select-java.util.Collection-">select</a></span>(java.util.Collection&lt;java.lang.String&gt;&nbsp;columns)</code>
 <div class="block">Create a new scan from this that will read the given data columns.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>default <a href="../../../org/apache/iceberg/Scan.html" title="type parameter in Scan">ThisT</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Scan.html#select-java.lang.String...-">select</a></span>(java.lang.String...&nbsp;columns)</code>
 <div class="block">Create a new scan from this that will read the given columns.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Scan.html#splitLookback--">splitLookback</a></span>()</code>
 <div class="block">Returns the split lookback for this scan.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Scan.html#splitOpenFileCost--">splitOpenFileCost</a></span>()</code>
 <div class="block">Returns the split open file cost for this scan.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/Scan.html#targetSplitSize--">targetSplitSize</a></span>()</code>
 <div class="block">Returns the target split size for this scan.</div>
@@ -509,11 +516,22 @@ var activeTableTab = "activeTableTab";
 <a name="splitOpenFileCost--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>splitOpenFileCost</h4>
 <pre>long&nbsp;splitOpenFileCost()</pre>
 <div class="block">Returns the split open file cost for this scan.</div>
+</li>
+</ul>
+<a name="metricsReporter-org.apache.iceberg.metrics.MetricsReporter-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>metricsReporter</h4>
+<pre>default&nbsp;<a href="../../../org/apache/iceberg/Scan.html" title="type parameter in Scan">ThisT</a>&nbsp;metricsReporter(<a href="../../../org/apache/iceberg/metrics/MetricsReporter.html" title="interface in org.apache.iceberg.metrics">MetricsReporter</a>&nbsp;reporter)</pre>
+<div class="block">Create a new scan that will report scan metrics to the provided reporter in addition to
+ reporters maintained by the scan.</div>
 </li>
 </ul>
 </li>

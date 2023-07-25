@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9};
+var methods = {"i0":9,"i1":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/hive/HiveVersion.html" title="enum in org.apache.iceberg.hive"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/hive/RuntimeMetaException.html" title="class in org.apache.iceberg.hive"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/hive/NoLock.html" title="class in org.apache.iceberg.hive"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/hive/MetastoreUtil.html" target="_top">Frames</a></li>
@@ -136,6 +136,16 @@ extends java.lang.Object</pre>
 <div class="block">Calls alter_table method using the metastore client.</div>
 </td>
 </tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/hive/MetastoreUtil.html#alterTable-org.apache.hadoop.hive.metastore.IMetaStoreClient-java.lang.String-java.lang.String-org.apache.hadoop.hive.metastore.api.Table-java.util.Map-">alterTable</a></span>(org.apache.hadoop.hive.metastore.IMetaStoreClient&nbsp;client,
+          java.lang.String&nbsp;databaseName,
+          java.lang.String&nbsp;tblName,
+          org.apache.hadoop.hive.metastore.api.Table&nbsp;table,
+          java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;extraEnv)</code>
+<div class="block">Calls alter_table method using the metastore client.</div>
+</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -161,15 +171,30 @@ extends java.lang.Object</pre>
 <a name="alterTable-org.apache.hadoop.hive.metastore.IMetaStoreClient-java.lang.String-java.lang.String-org.apache.hadoop.hive.metastore.api.Table-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>alterTable</h4>
 <pre>public static&nbsp;void&nbsp;alterTable(org.apache.hadoop.hive.metastore.IMetaStoreClient&nbsp;client,
                               java.lang.String&nbsp;databaseName,
                               java.lang.String&nbsp;tblName,
                               org.apache.hadoop.hive.metastore.api.Table&nbsp;table)</pre>
-<div class="block">Calls alter_table method using the metastore client. If possible, an environmental context will
- be used that turns off stats updates to avoid recursive listing.</div>
+<div class="block">Calls alter_table method using the metastore client. If the HMS supports it, environmental
+ context will be set in a way that turns off stats updates to avoid recursive file listing.</div>
+</li>
+</ul>
+<a name="alterTable-org.apache.hadoop.hive.metastore.IMetaStoreClient-java.lang.String-java.lang.String-org.apache.hadoop.hive.metastore.api.Table-java.util.Map-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>alterTable</h4>
+<pre>public static&nbsp;void&nbsp;alterTable(org.apache.hadoop.hive.metastore.IMetaStoreClient&nbsp;client,
+                              java.lang.String&nbsp;databaseName,
+                              java.lang.String&nbsp;tblName,
+                              org.apache.hadoop.hive.metastore.api.Table&nbsp;table,
+                              java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;extraEnv)</pre>
+<div class="block">Calls alter_table method using the metastore client. If the HMS supports it, environmental
+ context will be set in a way that turns off stats updates to avoid recursive file listing.</div>
 </li>
 </ul>
 </li>
@@ -200,7 +225,7 @@ extends java.lang.Object</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/hive/HiveVersion.html" title="enum in org.apache.iceberg.hive"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/hive/RuntimeMetaException.html" title="class in org.apache.iceberg.hive"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/hive/NoLock.html" title="class in org.apache.iceberg.hive"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/hive/MetastoreUtil.html" target="_top">Frames</a></li>

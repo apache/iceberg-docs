@@ -137,10 +137,11 @@ implements <a href="../../../../../org/apache/iceberg/flink/source/FileScanTaskR
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/RowDataFileScanTaskReader.html#RowDataFileScanTaskReader-org.apache.iceberg.Schema-org.apache.iceberg.Schema-java.lang.String-boolean-">RowDataFileScanTaskReader</a></span>(<a href="../../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;tableSchema,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/source/RowDataFileScanTaskReader.html#RowDataFileScanTaskReader-org.apache.iceberg.Schema-org.apache.iceberg.Schema-java.lang.String-boolean-java.util.List-">RowDataFileScanTaskReader</a></span>(<a href="../../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;tableSchema,
                          <a href="../../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;projectedSchema,
                          java.lang.String&nbsp;nameMapping,
-                         boolean&nbsp;caseSensitive)</code>&nbsp;</td>
+                         boolean&nbsp;caseSensitive,
+                         java.util.List&lt;<a href="../../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&gt;&nbsp;filters)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -184,7 +185,7 @@ implements <a href="../../../../../org/apache/iceberg/flink/source/FileScanTaskR
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="RowDataFileScanTaskReader-org.apache.iceberg.Schema-org.apache.iceberg.Schema-java.lang.String-boolean-">
+<a name="RowDataFileScanTaskReader-org.apache.iceberg.Schema-org.apache.iceberg.Schema-java.lang.String-boolean-java.util.List-">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -193,7 +194,8 @@ implements <a href="../../../../../org/apache/iceberg/flink/source/FileScanTaskR
 <pre>public&nbsp;RowDataFileScanTaskReader(<a href="../../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;tableSchema,
                                  <a href="../../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;projectedSchema,
                                  java.lang.String&nbsp;nameMapping,
-                                 boolean&nbsp;caseSensitive)</pre>
+                                 boolean&nbsp;caseSensitive,
+                                 java.util.List&lt;<a href="../../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&gt;&nbsp;filters)</pre>
 </li>
 </ul>
 </li>

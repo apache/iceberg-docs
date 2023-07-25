@@ -1289,9 +1289,13 @@
 <li class="blockList">
 <h3>Serialized Fields</h3>
 <ul class="blockList">
-<li class="blockListLast">
+<li class="blockList">
 <h4>schema</h4>
 <pre><a href="org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a> schema</pre>
+</li>
+<li class="blockListLast">
+<h4>unpartitionedTable</h4>
+<pre>boolean unpartitionedTable</pre>
 </li>
 </ul>
 </li>
@@ -1683,30 +1687,37 @@
 <li class="blockList">
 <h4>minInputFiles</h4>
 <pre>int minInputFiles</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </li>
 <li class="blockList">
 <h4>deleteFileThreshold</h4>
 <pre>int deleteFileThreshold</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </li>
 <li class="blockList">
 <h4>minFileSize</h4>
 <pre>long minFileSize</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </li>
 <li class="blockList">
 <h4>maxFileSize</h4>
 <pre>long maxFileSize</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </li>
 <li class="blockList">
 <h4>targetFileSize</h4>
 <pre>long targetFileSize</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </li>
 <li class="blockList">
 <h4>maxGroupSize</h4>
 <pre>long maxGroupSize</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </li>
 <li class="blockListLast">
 <h4>rewriteAll</h4>
 <pre>boolean rewriteAll</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </li>
 </ul>
 </li>
@@ -1723,6 +1734,7 @@
 <li class="blockListLast">
 <h4>sortOrder</h4>
 <pre><a href="org/apache/iceberg/SortOrder.html" title="class in org.apache.iceberg">SortOrder</a> sortOrder</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </li>
 </ul>
 </li>
@@ -1814,6 +1826,30 @@
 <li class="blockListLast">
 <h4>roleSessionName</h4>
 <pre>java.lang.String roleSessionName</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="org.apache.iceberg.aws.AwsClientProperties">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/aws/AwsClientProperties.html" title="class in org.apache.iceberg.aws">org.apache.iceberg.aws.AwsClientProperties</a> extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>clientRegion</h4>
+<pre>java.lang.String clientRegion</pre>
+</li>
+<li class="blockList">
+<h4>clientCredentialsProvider</h4>
+<pre>java.lang.String clientCredentialsProvider</pre>
+</li>
+<li class="blockListLast">
+<h4>clientCredentialsProviderProperties</h4>
+<pre>java.util.Map&lt;K,V&gt; clientCredentialsProviderProperties</pre>
 </li>
 </ul>
 </li>
@@ -2035,6 +2071,26 @@
 </li>
 </ul>
 </li>
+<li class="blockList"><a name="org.apache.iceberg.aws.HttpClientProperties">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/aws/HttpClientProperties.html" title="class in org.apache.iceberg.aws">org.apache.iceberg.aws.HttpClientProperties</a> extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>httpClientType</h4>
+<pre>java.lang.String httpClientType</pre>
+</li>
+<li class="blockListLast">
+<h4>httpClientProperties</h4>
+<pre>java.util.Map&lt;K,V&gt; httpClientProperties</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="blockList">
@@ -2090,8 +2146,8 @@
 <pre><a href="org/apache/iceberg/util/SerializableSupplier.html" title="interface in org.apache.iceberg.util">SerializableSupplier</a>&lt;<a href="org/apache/iceberg/util/SerializableSupplier.html" title="type parameter in SerializableSupplier">T</a>&gt; s3</pre>
 </li>
 <li class="blockList">
-<h4>awsProperties</h4>
-<pre><a href="org/apache/iceberg/aws/AwsProperties.html" title="class in org.apache.iceberg.aws">AwsProperties</a> awsProperties</pre>
+<h4>s3FileIOProperties</h4>
+<pre><a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3">S3FileIOProperties</a> s3FileIOProperties</pre>
 </li>
 <li class="blockList">
 <h4>properties</h4>
@@ -2104,6 +2160,130 @@
 <li class="blockListLast">
 <h4>isResourceClosed</h4>
 <pre>java.util.concurrent.atomic.AtomicBoolean isResourceClosed</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="org.apache.iceberg.aws.s3.S3FileIOProperties">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3">org.apache.iceberg.aws.s3.S3FileIOProperties</a> extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>sseType</h4>
+<pre>java.lang.String sseType</pre>
+</li>
+<li class="blockList">
+<h4>sseKey</h4>
+<pre>java.lang.String sseKey</pre>
+</li>
+<li class="blockList">
+<h4>sseMd5</h4>
+<pre>java.lang.String sseMd5</pre>
+</li>
+<li class="blockList">
+<h4>accessKeyId</h4>
+<pre>java.lang.String accessKeyId</pre>
+</li>
+<li class="blockList">
+<h4>secretAccessKey</h4>
+<pre>java.lang.String secretAccessKey</pre>
+</li>
+<li class="blockList">
+<h4>sessionToken</h4>
+<pre>java.lang.String sessionToken</pre>
+</li>
+<li class="blockList">
+<h4>multipartUploadThreads</h4>
+<pre>int multipartUploadThreads</pre>
+</li>
+<li class="blockList">
+<h4>multiPartSize</h4>
+<pre>int multiPartSize</pre>
+</li>
+<li class="blockList">
+<h4>deleteBatchSize</h4>
+<pre>int deleteBatchSize</pre>
+</li>
+<li class="blockList">
+<h4>multipartThresholdFactor</h4>
+<pre>double multipartThresholdFactor</pre>
+</li>
+<li class="blockList">
+<h4>stagingDirectory</h4>
+<pre>java.lang.String stagingDirectory</pre>
+</li>
+<li class="blockList">
+<h4>acl</h4>
+<pre>software.amazon.awssdk.services.s3.model.ObjectCannedACL acl</pre>
+</li>
+<li class="blockList">
+<h4>isChecksumEnabled</h4>
+<pre>boolean isChecksumEnabled</pre>
+</li>
+<li class="blockList">
+<h4>writeTags</h4>
+<pre>java.util.Set&lt;E&gt; writeTags</pre>
+</li>
+<li class="blockList">
+<h4>isWriteTableTagEnabled</h4>
+<pre>boolean isWriteTableTagEnabled</pre>
+</li>
+<li class="blockList">
+<h4>isWriteNamespaceTagEnabled</h4>
+<pre>boolean isWriteNamespaceTagEnabled</pre>
+</li>
+<li class="blockList">
+<h4>deleteTags</h4>
+<pre>java.util.Set&lt;E&gt; deleteTags</pre>
+</li>
+<li class="blockList">
+<h4>deleteThreads</h4>
+<pre>int deleteThreads</pre>
+</li>
+<li class="blockList">
+<h4>isDeleteEnabled</h4>
+<pre>boolean isDeleteEnabled</pre>
+</li>
+<li class="blockList">
+<h4>bucketToAccessPointMapping</h4>
+<pre>java.util.Map&lt;K,V&gt; bucketToAccessPointMapping</pre>
+</li>
+<li class="blockList">
+<h4>isPreloadClientEnabled</h4>
+<pre>boolean isPreloadClientEnabled</pre>
+</li>
+<li class="blockList">
+<h4>isDualStackEnabled</h4>
+<pre>boolean isDualStackEnabled</pre>
+</li>
+<li class="blockList">
+<h4>isPathStyleAccess</h4>
+<pre>boolean isPathStyleAccess</pre>
+</li>
+<li class="blockList">
+<h4>isUseArnRegionEnabled</h4>
+<pre>boolean isUseArnRegionEnabled</pre>
+</li>
+<li class="blockList">
+<h4>isAccelerationEnabled</h4>
+<pre>boolean isAccelerationEnabled</pre>
+</li>
+<li class="blockList">
+<h4>endpoint</h4>
+<pre>java.lang.String endpoint</pre>
+</li>
+<li class="blockList">
+<h4>isRemoteSigningEnabled</h4>
+<pre>boolean isRemoteSigningEnabled</pre>
+</li>
+<li class="blockListLast">
+<h4>allProperties</h4>
+<pre>java.util.Map&lt;K,V&gt; allProperties</pre>
 </li>
 </ul>
 </li>
@@ -2840,6 +3020,34 @@
 </li>
 </ul>
 </li>
+<li class="blockList"><a name="org.apache.iceberg.flink.FlinkSourceFilter">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/flink/FlinkSourceFilter.html" title="class in org.apache.iceberg.flink">org.apache.iceberg.flink.FlinkSourceFilter</a> extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>rowType</h4>
+<pre>org.apache.flink.table.types.logical.RowType rowType</pre>
+</li>
+<li class="blockList">
+<h4>evaluator</h4>
+<pre><a href="org/apache/iceberg/expressions/Evaluator.html" title="class in org.apache.iceberg.expressions">Evaluator</a> evaluator</pre>
+</li>
+<li class="blockList">
+<h4>struct</h4>
+<pre><a href="org/apache/iceberg/types/Types.StructType.html" title="class in org.apache.iceberg.types">Types.StructType</a> struct</pre>
+</li>
+<li class="blockListLast">
+<h4>wrapper</h4>
+<pre><a href="org/apache/iceberg/flink/RowDataWrapper.html" title="class in org.apache.iceberg.flink">RowDataWrapper</a> wrapper</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="blockList"><a name="org.apache.iceberg.flink.TableLoader.CatalogTableLoader">
 <!--   -->
 </a>
@@ -3154,9 +3362,13 @@
 <h4>nameMapping</h4>
 <pre>java.lang.String nameMapping</pre>
 </li>
-<li class="blockListLast">
+<li class="blockList">
 <h4>caseSensitive</h4>
 <pre>boolean caseSensitive</pre>
+</li>
+<li class="blockListLast">
+<h4>rowFilter</h4>
+<pre><a href="org/apache/iceberg/flink/FlinkSourceFilter.html" title="class in org.apache.iceberg.flink">FlinkSourceFilter</a> rowFilter</pre>
 </li>
 </ul>
 </li>
@@ -3318,9 +3530,13 @@
 <h4>planParallelism</h4>
 <pre>java.lang.Integer planParallelism</pre>
 </li>
-<li class="blockListLast">
+<li class="blockList">
 <h4>maxPlanningSnapshotCount</h4>
 <pre>int maxPlanningSnapshotCount</pre>
+</li>
+<li class="blockListLast">
+<h4>maxAllowedPlanningFailures</h4>
+<pre>int maxAllowedPlanningFailures</pre>
 </li>
 </ul>
 </li>
@@ -3518,9 +3734,13 @@
 <h4>io</h4>
 <pre><a href="org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a> io</pre>
 </li>
-<li class="blockListLast">
+<li class="blockList">
 <h4>encryption</h4>
 <pre><a href="org/apache/iceberg/encryption/EncryptionManager.html" title="interface in org.apache.iceberg.encryption">EncryptionManager</a> encryption</pre>
+</li>
+<li class="blockListLast">
+<h4>filters</h4>
+<pre>java.util.List&lt;E&gt; filters</pre>
 </li>
 </ul>
 </li>
@@ -3760,6 +3980,31 @@
 </ul>
 </li>
 <li class="blockList">
+<h2 title="Package">Package&nbsp;org.apache.iceberg.inmemory</h2>
+<ul class="blockList">
+<li class="blockList"><a name="org.apache.iceberg.inmemory.InMemoryFileIO">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/inmemory/InMemoryFileIO.html" title="class in org.apache.iceberg.inmemory">org.apache.iceberg.inmemory.InMemoryFileIO</a> extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>inMemoryFiles</h4>
+<pre>java.util.Map&lt;K,V&gt; inMemoryFiles</pre>
+</li>
+<li class="blockListLast">
+<h4>closed</h4>
+<pre>boolean closed</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList">
 <h2 title="Package">Package&nbsp;org.apache.iceberg.io</h2>
 <ul class="blockList">
 <li class="blockList"><a name="org.apache.iceberg.io.BulkDeletionFailureException">
@@ -3789,6 +4034,10 @@
 <li class="blockList">
 <h4>ioInstances</h4>
 <pre>java.util.Map&lt;K,V&gt; ioInstances</pre>
+</li>
+<li class="blockList">
+<h4>isClosed</h4>
+<pre>java.util.concurrent.atomic.AtomicBoolean isClosed</pre>
 </li>
 <li class="blockList">
 <h4>properties</h4>
@@ -3962,98 +4211,6 @@
 </li>
 </ul>
 </li>
-<li class="blockList"><a name="org.apache.iceberg.spark.actions.SparkBinPackStrategy">
-<!--   -->
-</a>
-<h3>Class <a href="org/apache/iceberg/spark/actions/SparkBinPackStrategy.html" title="class in org.apache.iceberg.spark.actions">org.apache.iceberg.spark.actions.SparkBinPackStrategy</a> extends <a href="org/apache/iceberg/actions/BinPackStrategy.html" title="class in org.apache.iceberg.actions">BinPackStrategy</a> implements Serializable</h3>
-<ul class="blockList">
-<li class="blockList">
-<h3>Serialized Fields</h3>
-<ul class="blockList">
-<li class="blockList">
-<h4>table</h4>
-<pre><a href="org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a> table</pre>
-</li>
-<li class="blockList">
-<h4>spark</h4>
-<pre>org.apache.spark.sql.SparkSession spark</pre>
-</li>
-<li class="blockList">
-<h4>tableCache</h4>
-<pre><a href="org/apache/iceberg/spark/SparkTableCache.html" title="class in org.apache.iceberg.spark">SparkTableCache</a> tableCache</pre>
-</li>
-<li class="blockList">
-<h4>manager</h4>
-<pre><a href="org/apache/iceberg/spark/FileScanTaskSetManager.html" title="class in org.apache.iceberg.spark">FileScanTaskSetManager</a> manager</pre>
-</li>
-<li class="blockListLast">
-<h4>rewriteCoordinator</h4>
-<pre><a href="org/apache/iceberg/spark/FileRewriteCoordinator.html" title="class in org.apache.iceberg.spark">FileRewriteCoordinator</a> rewriteCoordinator</pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="blockList"><a name="org.apache.iceberg.spark.actions.SparkSortStrategy">
-<!--   -->
-</a>
-<h3>Class <a href="org/apache/iceberg/spark/actions/SparkSortStrategy.html" title="class in org.apache.iceberg.spark.actions">org.apache.iceberg.spark.actions.SparkSortStrategy</a> extends <a href="org/apache/iceberg/actions/SortStrategy.html" title="class in org.apache.iceberg.actions">SortStrategy</a> implements Serializable</h3>
-<ul class="blockList">
-<li class="blockList">
-<h3>Serialized Fields</h3>
-<ul class="blockList">
-<li class="blockList">
-<h4>table</h4>
-<pre><a href="org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a> table</pre>
-</li>
-<li class="blockList">
-<h4>spark</h4>
-<pre>org.apache.spark.sql.SparkSession spark</pre>
-</li>
-<li class="blockList">
-<h4>tableCache</h4>
-<pre><a href="org/apache/iceberg/spark/SparkTableCache.html" title="class in org.apache.iceberg.spark">SparkTableCache</a> tableCache</pre>
-</li>
-<li class="blockList">
-<h4>manager</h4>
-<pre><a href="org/apache/iceberg/spark/FileScanTaskSetManager.html" title="class in org.apache.iceberg.spark">FileScanTaskSetManager</a> manager</pre>
-</li>
-<li class="blockList">
-<h4>rewriteCoordinator</h4>
-<pre><a href="org/apache/iceberg/spark/FileRewriteCoordinator.html" title="class in org.apache.iceberg.spark">FileRewriteCoordinator</a> rewriteCoordinator</pre>
-</li>
-<li class="blockListLast">
-<h4>sizeEstimateMultiple</h4>
-<pre>double sizeEstimateMultiple</pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="blockList"><a name="org.apache.iceberg.spark.actions.SparkZOrderStrategy">
-<!--   -->
-</a>
-<h3>Class <a href="org/apache/iceberg/spark/actions/SparkZOrderStrategy.html" title="class in org.apache.iceberg.spark.actions">org.apache.iceberg.spark.actions.SparkZOrderStrategy</a> extends <a href="org/apache/iceberg/spark/actions/SparkSortStrategy.html" title="class in org.apache.iceberg.spark.actions">SparkSortStrategy</a> implements Serializable</h3>
-<ul class="blockList">
-<li class="blockList">
-<h3>Serialized Fields</h3>
-<ul class="blockList">
-<li class="blockList">
-<h4>zOrderColNames</h4>
-<pre>java.util.List&lt;E&gt; zOrderColNames</pre>
-</li>
-<li class="blockList">
-<h4>maxOutputSize</h4>
-<pre>int maxOutputSize</pre>
-</li>
-<li class="blockListLast">
-<h4>varLengthContribution</h4>
-<pre>int varLengthContribution</pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 </li>
 <li class="blockList">
@@ -4145,6 +4302,11 @@
 </a>
 <h3>Class <a href="org/apache/iceberg/spark/functions/DaysFunction.DateToDaysFunction.html" title="class in org.apache.iceberg.spark.functions">org.apache.iceberg.spark.functions.DaysFunction.DateToDaysFunction</a> extends org.apache.iceberg.spark.functions.DaysFunction.BaseToDaysFunction implements Serializable</h3>
 </li>
+<li class="blockList"><a name="org.apache.iceberg.spark.functions.DaysFunction.TimestampNtzToDaysFunction">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/spark/functions/DaysFunction.TimestampNtzToDaysFunction.html" title="class in org.apache.iceberg.spark.functions">org.apache.iceberg.spark.functions.DaysFunction.TimestampNtzToDaysFunction</a> extends org.apache.iceberg.spark.functions.DaysFunction.BaseToDaysFunction implements Serializable</h3>
+</li>
 <li class="blockList"><a name="org.apache.iceberg.spark.functions.DaysFunction.TimestampToDaysFunction">
 <!--   -->
 </a>
@@ -4154,6 +4316,11 @@
 <!--   -->
 </a>
 <h3>Class <a href="org/apache/iceberg/spark/functions/HoursFunction.html" title="class in org.apache.iceberg.spark.functions">org.apache.iceberg.spark.functions.HoursFunction</a> extends org.apache.iceberg.spark.functions.UnaryUnboundFunction implements Serializable</h3>
+</li>
+<li class="blockList"><a name="org.apache.iceberg.spark.functions.HoursFunction.TimestampNtzToHoursFunction">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/spark/functions/HoursFunction.TimestampNtzToHoursFunction.html" title="class in org.apache.iceberg.spark.functions">org.apache.iceberg.spark.functions.HoursFunction.TimestampNtzToHoursFunction</a> extends java.lang.Object implements Serializable</h3>
 </li>
 <li class="blockList"><a name="org.apache.iceberg.spark.functions.HoursFunction.TimestampToHoursFunction">
 <!--   -->
@@ -4174,6 +4341,11 @@
 <!--   -->
 </a>
 <h3>Class <a href="org/apache/iceberg/spark/functions/MonthsFunction.DateToMonthsFunction.html" title="class in org.apache.iceberg.spark.functions">org.apache.iceberg.spark.functions.MonthsFunction.DateToMonthsFunction</a> extends org.apache.iceberg.spark.functions.MonthsFunction.BaseToMonthsFunction implements Serializable</h3>
+</li>
+<li class="blockList"><a name="org.apache.iceberg.spark.functions.MonthsFunction.TimestampNtzToMonthsFunction">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/spark/functions/MonthsFunction.TimestampNtzToMonthsFunction.html" title="class in org.apache.iceberg.spark.functions">org.apache.iceberg.spark.functions.MonthsFunction.TimestampNtzToMonthsFunction</a> extends org.apache.iceberg.spark.functions.MonthsFunction.BaseToMonthsFunction implements Serializable</h3>
 </li>
 <li class="blockList"><a name="org.apache.iceberg.spark.functions.MonthsFunction.TimestampToMonthsFunction">
 <!--   -->
@@ -4250,6 +4422,11 @@
 </a>
 <h3>Class <a href="org/apache/iceberg/spark/functions/YearsFunction.DateToYearsFunction.html" title="class in org.apache.iceberg.spark.functions">org.apache.iceberg.spark.functions.YearsFunction.DateToYearsFunction</a> extends org.apache.iceberg.spark.functions.YearsFunction.BaseToYearsFunction implements Serializable</h3>
 </li>
+<li class="blockList"><a name="org.apache.iceberg.spark.functions.YearsFunction.TimestampNtzToYearsFunction">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/spark/functions/YearsFunction.TimestampNtzToYearsFunction.html" title="class in org.apache.iceberg.spark.functions">org.apache.iceberg.spark.functions.YearsFunction.TimestampNtzToYearsFunction</a> extends org.apache.iceberg.spark.functions.YearsFunction.BaseToYearsFunction implements Serializable</h3>
+</li>
 <li class="blockList"><a name="org.apache.iceberg.spark.functions.YearsFunction.TimestampToYearsFunction">
 <!--   -->
 </a>
@@ -4269,6 +4446,22 @@
 <!--   -->
 </a>
 <h3>Class <a href="org/apache/iceberg/spark/source/SerializableTableWithSize.SerializableMetadataTableWithSize.html" title="class in org.apache.iceberg.spark.source">org.apache.iceberg.spark.source.SerializableTableWithSize.SerializableMetadataTableWithSize</a> extends <a href="org/apache/iceberg/SerializableTable.SerializableMetadataTable.html" title="class in org.apache.iceberg">SerializableTable.SerializableMetadataTable</a> implements Serializable</h3>
+</li>
+<li class="blockList"><a name="org.apache.iceberg.spark.source.SparkPositionDeletesRewrite.DeleteTaskCommit">
+<!--   -->
+</a>
+<h3>Class <a href="org/apache/iceberg/spark/source/SparkPositionDeletesRewrite.DeleteTaskCommit.html" title="class in org.apache.iceberg.spark.source">org.apache.iceberg.spark.source.SparkPositionDeletesRewrite.DeleteTaskCommit</a> extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>taskFiles</h4>
+<pre><a href="org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg">DeleteFile</a>[] taskFiles</pre>
+</li>
+</ul>
+</li>
+</ul>
 </li>
 <li class="blockList"><a name="org.apache.iceberg.spark.source.SparkPositionDeltaWrite.DeltaTaskCommit">
 <!--   -->
@@ -4763,50 +4956,39 @@
 </li>
 </ul>
 </li>
-<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.Analyzer.ResolveNamespace">
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.Analyzer.ExtractGenerator:D.AliasedGenerator:D">
 <!--   -->
 </a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.Analyzer.ResolveNamespace extends org.apache.spark.sql.catalyst.rules.Rule&lt;org.apache.spark.sql.catalyst.plans.logical.LogicalPlan&gt; implements Serializable</h3>
+<h3>Class org.apache.spark.sql.catalyst.analysis.Analyzer.ExtractGenerator$.AliasedGenerator$ extends java.lang.Object implements Serializable</h3>
+</li>
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.Analyzer.ResolveReferences:D.MergeResolvePolicy:D">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.Analyzer.ResolveReferences$.MergeResolvePolicy$ extends java.lang.Object implements Serializable</h3>
+</li>
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.Analyzer:DResolveReferences:DMergeResolvePolicy:D">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.Analyzer$ResolveReferences$MergeResolvePolicy$ extends scala.Enumeration implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialized Fields</h3>
 <ul class="blockList">
 <li class="blockList">
-<h4>catalogManager</h4>
-<pre>org.apache.spark.sql.connector.catalog.CatalogManager catalogManager</pre>
+<h4>BOTH</h4>
+<pre>scala.Enumeration.Value BOTH</pre>
 </li>
 <li class="blockList">
-<h4>CatalogAndMultipartIdentifier$module</h4>
-<pre>org.apache.spark.sql.connector.catalog.LookupCatalog.CatalogAndMultipartIdentifier$ CatalogAndMultipartIdentifier$module</pre>
-</li>
-<li class="blockList">
-<h4>SessionCatalogAndIdentifier$module</h4>
-<pre>org.apache.spark.sql.connector.catalog.LookupCatalog.SessionCatalogAndIdentifier$ SessionCatalogAndIdentifier$module</pre>
-</li>
-<li class="blockList">
-<h4>NonSessionCatalogAndIdentifier$module</h4>
-<pre>org.apache.spark.sql.connector.catalog.LookupCatalog.NonSessionCatalogAndIdentifier$ NonSessionCatalogAndIdentifier$module</pre>
-</li>
-<li class="blockList">
-<h4>CatalogAndNamespace$module</h4>
-<pre>org.apache.spark.sql.connector.catalog.LookupCatalog.CatalogAndNamespace$ CatalogAndNamespace$module</pre>
-</li>
-<li class="blockList">
-<h4>CatalogAndIdentifier$module</h4>
-<pre>org.apache.spark.sql.connector.catalog.LookupCatalog.CatalogAndIdentifier$ CatalogAndIdentifier$module</pre>
+<h4>SOURCE</h4>
+<pre>scala.Enumeration.Value SOURCE</pre>
 </li>
 <li class="blockListLast">
-<h4>AsTableIdentifier$module</h4>
-<pre>org.apache.spark.sql.connector.catalog.LookupCatalog.AsTableIdentifier$ AsTableIdentifier$module</pre>
+<h4>TARGET</h4>
+<pre>scala.Enumeration.Value TARGET</pre>
 </li>
 </ul>
 </li>
 </ul>
-</li>
-<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.Analyzer:DResolveNamespace:D">
-<!--   -->
-</a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.Analyzer$ResolveNamespace$ extends scala.runtime.AbstractFunction1&lt;org.apache.spark.sql.connector.catalog.CatalogManager,org.apache.spark.sql.catalyst.analysis.Analyzer.ResolveNamespace&gt; implements Serializable</h3>
 </li>
 <li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.AsOfTimestamp">
 <!--   -->
@@ -5149,26 +5331,11 @@
 <!--   -->
 </a>
 <h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchFunctionException extends org.apache.spark.sql.AnalysisException implements Serializable</h3>
-<ul class="blockList">
-<li class="blockList">
-<h3>Serialized Fields</h3>
-<ul class="blockList">
-<li class="blockList">
-<h4>message</h4>
-<pre>java.lang.String message</pre>
-</li>
-<li class="blockListLast">
-<h4>cause</h4>
-<pre>scala.Option&lt;A&gt; cause</pre>
-</li>
-</ul>
-</li>
-</ul>
 </li>
 <li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.NoSuchFunctionException:D">
 <!--   -->
 </a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchFunctionException$ extends scala.runtime.AbstractFunction2&lt;java.lang.String,scala.Option&lt;java.lang.Throwable&gt;,org.apache.spark.sql.catalyst.analysis.NoSuchFunctionException&gt; implements Serializable</h3>
+<h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchFunctionException$ extends java.lang.Object implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialization Methods</h3>
@@ -5206,26 +5373,11 @@
 <!--   -->
 </a>
 <h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchNamespaceException extends org.apache.spark.sql.AnalysisException implements Serializable</h3>
-<ul class="blockList">
-<li class="blockList">
-<h3>Serialized Fields</h3>
-<ul class="blockList">
-<li class="blockList">
-<h4>message</h4>
-<pre>java.lang.String message</pre>
-</li>
-<li class="blockListLast">
-<h4>cause</h4>
-<pre>scala.Option&lt;A&gt; cause</pre>
-</li>
-</ul>
-</li>
-</ul>
 </li>
 <li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.NoSuchNamespaceException:D">
 <!--   -->
 </a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchNamespaceException$ extends scala.runtime.AbstractFunction2&lt;java.lang.String,scala.Option&lt;java.lang.Throwable&gt;,org.apache.spark.sql.catalyst.analysis.NoSuchNamespaceException&gt; implements Serializable</h3>
+<h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchNamespaceException$ extends java.lang.Object implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialization Methods</h3>
@@ -5243,78 +5395,15 @@
 </a>
 <h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchPartitionException extends org.apache.spark.sql.AnalysisException implements Serializable</h3>
 </li>
-<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.NoSuchPartitionException:D">
-<!--   -->
-</a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchPartitionException$ extends scala.runtime.AbstractFunction1&lt;java.lang.String,org.apache.spark.sql.catalyst.analysis.NoSuchPartitionException&gt; implements Serializable</h3>
-<ul class="blockList">
-<li class="blockList">
-<h3>Serialization Methods</h3>
-<ul class="blockList">
-<li class="blockListLast">
-<h4>readResolve</h4>
-<pre>private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.NoSuchPartitionsException">
 <!--   -->
 </a>
 <h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchPartitionsException extends org.apache.spark.sql.AnalysisException implements Serializable</h3>
 </li>
-<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.NoSuchPartitionsException:D">
-<!--   -->
-</a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchPartitionsException$ extends scala.runtime.AbstractFunction1&lt;java.lang.String,org.apache.spark.sql.catalyst.analysis.NoSuchPartitionsException&gt; implements Serializable</h3>
-<ul class="blockList">
-<li class="blockList">
-<h3>Serialization Methods</h3>
-<ul class="blockList">
-<li class="blockListLast">
-<h4>readResolve</h4>
-<pre>private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.NoSuchPermanentFunctionException">
 <!--   -->
 </a>
 <h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchPermanentFunctionException extends org.apache.spark.sql.AnalysisException implements Serializable</h3>
-<ul class="blockList">
-<li class="blockList">
-<h3>Serialized Fields</h3>
-<ul class="blockList">
-<li class="blockList">
-<h4>db</h4>
-<pre>java.lang.String db</pre>
-</li>
-<li class="blockListLast">
-<h4>func</h4>
-<pre>java.lang.String func</pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.NoSuchPermanentFunctionException:D">
-<!--   -->
-</a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchPermanentFunctionException$ extends scala.runtime.AbstractFunction2&lt;java.lang.String,java.lang.String,org.apache.spark.sql.catalyst.analysis.NoSuchPermanentFunctionException&gt; implements Serializable</h3>
-<ul class="blockList">
-<li class="blockList">
-<h3>Serialization Methods</h3>
-<ul class="blockList">
-<li class="blockListLast">
-<h4>readResolve</h4>
-<pre>private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
-</li>
-</ul>
-</li>
-</ul>
 </li>
 <li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.NoSuchProcedureException">
 <!--   -->
@@ -5325,26 +5414,11 @@
 <!--   -->
 </a>
 <h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchTableException extends org.apache.spark.sql.AnalysisException implements Serializable</h3>
-<ul class="blockList">
-<li class="blockList">
-<h3>Serialized Fields</h3>
-<ul class="blockList">
-<li class="blockList">
-<h4>message</h4>
-<pre>java.lang.String message</pre>
-</li>
-<li class="blockListLast">
-<h4>cause</h4>
-<pre>scala.Option&lt;A&gt; cause</pre>
-</li>
-</ul>
-</li>
-</ul>
 </li>
 <li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.NoSuchTableException:D">
 <!--   -->
 </a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchTableException$ extends scala.runtime.AbstractFunction2&lt;java.lang.String,scala.Option&lt;java.lang.Throwable&gt;,org.apache.spark.sql.catalyst.analysis.NoSuchTableException&gt; implements Serializable</h3>
+<h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchTableException$ extends java.lang.Object implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialization Methods</h3>
@@ -5361,22 +5435,96 @@
 <!--   -->
 </a>
 <h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchTempFunctionException extends org.apache.spark.sql.AnalysisException implements Serializable</h3>
+</li>
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.NoSuchViewException">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchViewException extends org.apache.spark.sql.AnalysisException implements Serializable</h3>
+</li>
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.Parameter">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.Parameter extends org.apache.spark.sql.catalyst.expressions.LeafExpression implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialized Fields</h3>
 <ul class="blockList">
+<li class="blockList">
+<h4>resolved</h4>
+<pre>boolean resolved</pre>
+</li>
+<li class="blockList">
+<h4>name</h4>
+<pre>java.lang.String name</pre>
+</li>
+<li class="blockList">
+<h4>nodePatterns</h4>
+<pre>scala.collection.Seq&lt;A&gt; nodePatterns</pre>
+</li>
 <li class="blockListLast">
-<h4>func</h4>
-<pre>java.lang.String func</pre>
+<h4>bitmap$0</h4>
+<pre>boolean bitmap$0</pre>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.NoSuchTempFunctionException:D">
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.Parameter:D">
 <!--   -->
 </a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.NoSuchTempFunctionException$ extends scala.runtime.AbstractFunction1&lt;java.lang.String,org.apache.spark.sql.catalyst.analysis.NoSuchTempFunctionException&gt; implements Serializable</h3>
+<h3>Class org.apache.spark.sql.catalyst.analysis.Parameter$ extends scala.runtime.AbstractFunction1&lt;java.lang.String,org.apache.spark.sql.catalyst.analysis.Parameter&gt; implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>readResolve</h4>
+<pre>private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.ParameterizedQuery">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.ParameterizedQuery extends org.apache.spark.sql.catalyst.plans.logical.LogicalPlan implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>resolved</h4>
+<pre>boolean resolved</pre>
+</li>
+<li class="blockList">
+<h4>child</h4>
+<pre>org.apache.spark.sql.catalyst.plans.logical.LogicalPlan child</pre>
+</li>
+<li class="blockList">
+<h4>args</h4>
+<pre>scala.collection.immutable.Map&lt;K,V&gt; args</pre>
+</li>
+<li class="blockList">
+<h4>nodePatterns</h4>
+<pre>scala.collection.Seq&lt;A&gt; nodePatterns</pre>
+</li>
+<li class="blockList">
+<h4>validConstraints</h4>
+<pre>org.apache.spark.sql.catalyst.expressions.ExpressionSet validConstraints</pre>
+</li>
+<li class="blockListLast">
+<h4>bitmap$0</h4>
+<pre>byte bitmap$0</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.ParameterizedQuery:D">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.ParameterizedQuery$ extends scala.runtime.AbstractFunction2&lt;org.apache.spark.sql.catalyst.plans.logical.LogicalPlan,scala.collection.immutable.Map&lt;java.lang.String,org.apache.spark.sql.catalyst.expressions.Expression&gt;,org.apache.spark.sql.catalyst.analysis.ParameterizedQuery&gt; implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialization Methods</h3>
@@ -5487,30 +5635,30 @@
 </li>
 </ul>
 </li>
-<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.ResolvedDBObjectName">
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.ResolveDefaultColumns">
 <!--   -->
 </a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.ResolvedDBObjectName extends org.apache.spark.sql.catalyst.plans.logical.LogicalPlan implements Serializable</h3>
+<h3>Class org.apache.spark.sql.catalyst.analysis.ResolveDefaultColumns extends org.apache.spark.sql.catalyst.rules.Rule&lt;org.apache.spark.sql.catalyst.plans.logical.LogicalPlan&gt; implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialized Fields</h3>
 <ul class="blockList">
 <li class="blockList">
-<h4>catalog</h4>
-<pre>org.apache.spark.sql.connector.catalog.CatalogPlugin catalog</pre>
+<h4>CommandType$module</h4>
+<pre>org.apache.spark.sql.catalyst.analysis.ResolveDefaultColumns.CommandType$ CommandType$module</pre>
 </li>
 <li class="blockListLast">
-<h4>nameParts</h4>
-<pre>scala.collection.Seq&lt;A&gt; nameParts</pre>
+<h4>catalog</h4>
+<pre>org.apache.spark.sql.catalyst.catalog.SessionCatalog catalog</pre>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.ResolvedDBObjectName:D">
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.ResolveDefaultColumns:D">
 <!--   -->
 </a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.ResolvedDBObjectName$ extends scala.runtime.AbstractFunction2&lt;org.apache.spark.sql.connector.catalog.CatalogPlugin,scala.collection.Seq&lt;java.lang.String&gt;,org.apache.spark.sql.catalyst.analysis.ResolvedDBObjectName&gt; implements Serializable</h3>
+<h3>Class org.apache.spark.sql.catalyst.analysis.ResolveDefaultColumns$ extends scala.runtime.AbstractFunction1&lt;org.apache.spark.sql.catalyst.catalog.SessionCatalog,org.apache.spark.sql.catalyst.analysis.ResolveDefaultColumns&gt; implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialization Methods</h3>
@@ -5579,6 +5727,42 @@
 <!--   -->
 </a>
 <h3>Class org.apache.spark.sql.catalyst.analysis.ResolvedFieldPosition$ extends scala.runtime.AbstractFunction1&lt;org.apache.spark.sql.connector.catalog.TableChange.ColumnPosition,org.apache.spark.sql.catalyst.analysis.ResolvedFieldPosition&gt; implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>readResolve</h4>
+<pre>private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.ResolvedIdentifier">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.ResolvedIdentifier extends org.apache.spark.sql.catalyst.plans.logical.LogicalPlan implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>catalog</h4>
+<pre>org.apache.spark.sql.connector.catalog.CatalogPlugin catalog</pre>
+</li>
+<li class="blockListLast">
+<h4>identifier</h4>
+<pre>org.apache.spark.sql.connector.catalog.Identifier identifier</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.ResolvedIdentifier:D">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.ResolvedIdentifier$ extends scala.runtime.AbstractFunction2&lt;org.apache.spark.sql.connector.catalog.CatalogPlugin,org.apache.spark.sql.connector.catalog.Identifier,org.apache.spark.sql.catalyst.analysis.ResolvedIdentifier&gt; implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialization Methods</h3>
@@ -5743,6 +5927,46 @@
 </li>
 </ul>
 </li>
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.ResolvedPersistentView">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.ResolvedPersistentView extends org.apache.spark.sql.catalyst.plans.logical.LogicalPlan implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>catalog</h4>
+<pre>org.apache.spark.sql.connector.catalog.CatalogPlugin catalog</pre>
+</li>
+<li class="blockList">
+<h4>identifier</h4>
+<pre>org.apache.spark.sql.connector.catalog.Identifier identifier</pre>
+</li>
+<li class="blockListLast">
+<h4>viewSchema</h4>
+<pre>org.apache.spark.sql.types.StructType viewSchema</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.ResolvedPersistentView:D">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.ResolvedPersistentView$ extends scala.runtime.AbstractFunction3&lt;org.apache.spark.sql.connector.catalog.CatalogPlugin,org.apache.spark.sql.connector.catalog.Identifier,org.apache.spark.sql.types.StructType,org.apache.spark.sql.catalyst.analysis.ResolvedPersistentView&gt; implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>readResolve</h4>
+<pre>private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.ResolvedStar">
 <!--   -->
 </a>
@@ -5819,10 +6043,10 @@
 </li>
 </ul>
 </li>
-<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.ResolvedView">
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.ResolvedTempView">
 <!--   -->
 </a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.ResolvedView extends org.apache.spark.sql.catalyst.plans.logical.LogicalPlan implements Serializable</h3>
+<h3>Class org.apache.spark.sql.catalyst.analysis.ResolvedTempView extends org.apache.spark.sql.catalyst.plans.logical.LogicalPlan implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialized Fields</h3>
@@ -5832,17 +6056,53 @@
 <pre>org.apache.spark.sql.connector.catalog.Identifier identifier</pre>
 </li>
 <li class="blockListLast">
-<h4>isTemp</h4>
-<pre>boolean isTemp</pre>
+<h4>viewSchema</h4>
+<pre>org.apache.spark.sql.types.StructType viewSchema</pre>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.ResolvedView:D">
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.ResolvedTempView:D">
 <!--   -->
 </a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.ResolvedView$ extends scala.runtime.AbstractFunction2&lt;org.apache.spark.sql.connector.catalog.Identifier,java.lang.Object,org.apache.spark.sql.catalyst.analysis.ResolvedView&gt; implements Serializable</h3>
+<h3>Class org.apache.spark.sql.catalyst.analysis.ResolvedTempView$ extends scala.runtime.AbstractFunction2&lt;org.apache.spark.sql.connector.catalog.Identifier,org.apache.spark.sql.types.StructType,org.apache.spark.sql.catalyst.analysis.ResolvedTempView&gt; implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>readResolve</h4>
+<pre>private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.ResolveLateralColumnAliasReference.AliasEntry">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.ResolveLateralColumnAliasReference.AliasEntry extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>alias</h4>
+<pre>org.apache.spark.sql.catalyst.expressions.Alias alias</pre>
+</li>
+<li class="blockListLast">
+<h4>index</h4>
+<pre>int index</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.ResolveLateralColumnAliasReference.AliasEntry:D">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.ResolveLateralColumnAliasReference.AliasEntry$ extends scala.runtime.AbstractFunction2&lt;org.apache.spark.sql.catalyst.expressions.Alias,java.lang.Object,org.apache.spark.sql.catalyst.analysis.ResolveLateralColumnAliasReference.AliasEntry&gt; implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialization Methods</h3>
@@ -5959,38 +6219,6 @@
 </li>
 </ul>
 </li>
-<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.ResolveTableValuedFunctions">
-<!--   -->
-</a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.ResolveTableValuedFunctions extends org.apache.spark.sql.catalyst.rules.Rule&lt;org.apache.spark.sql.catalyst.plans.logical.LogicalPlan&gt; implements Serializable</h3>
-<ul class="blockList">
-<li class="blockList">
-<h3>Serialized Fields</h3>
-<ul class="blockList">
-<li class="blockListLast">
-<h4>catalog</h4>
-<pre>org.apache.spark.sql.catalyst.catalog.SessionCatalog catalog</pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.ResolveTableValuedFunctions:D">
-<!--   -->
-</a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.ResolveTableValuedFunctions$ extends scala.runtime.AbstractFunction1&lt;org.apache.spark.sql.catalyst.catalog.SessionCatalog,org.apache.spark.sql.catalyst.analysis.ResolveTableValuedFunctions&gt; implements Serializable</h3>
-<ul class="blockList">
-<li class="blockList">
-<h3>Serialization Methods</h3>
-<ul class="blockList">
-<li class="blockListLast">
-<h4>readResolve</h4>
-<pre>private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.TableAlreadyExistsException">
 <!--   -->
 </a>
@@ -6021,6 +6249,10 @@
 <h3>Serialized Fields</h3>
 <ul class="blockList">
 <li class="blockList">
+<h4>resolved</h4>
+<pre>boolean resolved</pre>
+</li>
+<li class="blockList">
 <h4>canonicalized</h4>
 <pre>org.apache.spark.sql.catalyst.expressions.Expression canonicalized</pre>
 </li>
@@ -6032,9 +6264,17 @@
 <h4>nameParts</h4>
 <pre>scala.collection.Seq&lt;A&gt; nameParts</pre>
 </li>
+<li class="blockList">
+<h4>hasTried</h4>
+<pre>boolean hasTried</pre>
+</li>
+<li class="blockList">
+<h4>nodePatterns</h4>
+<pre>scala.collection.Seq&lt;A&gt; nodePatterns</pre>
+</li>
 <li class="blockListLast">
 <h4>bitmap$0</h4>
-<pre>boolean bitmap$0</pre>
+<pre>byte bitmap$0</pre>
 </li>
 </ul>
 </li>
@@ -6043,7 +6283,7 @@
 <li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.TempResolvedColumn:D">
 <!--   -->
 </a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.TempResolvedColumn$ extends scala.runtime.AbstractFunction2&lt;org.apache.spark.sql.catalyst.expressions.Expression,scala.collection.Seq&lt;java.lang.String&gt;,org.apache.spark.sql.catalyst.analysis.TempResolvedColumn&gt; implements Serializable</h3>
+<h3>Class org.apache.spark.sql.catalyst.analysis.TempResolvedColumn$ extends scala.runtime.AbstractFunction3&lt;org.apache.spark.sql.catalyst.expressions.Expression,scala.collection.Seq&lt;java.lang.String&gt;,java.lang.Object,org.apache.spark.sql.catalyst.analysis.TempResolvedColumn&gt; implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialization Methods</h3>
@@ -6059,7 +6299,95 @@
 <li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.TempTableAlreadyExistsException">
 <!--   -->
 </a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.TempTableAlreadyExistsException extends org.apache.spark.sql.catalyst.analysis.TableAlreadyExistsException implements Serializable</h3>
+<h3>Class org.apache.spark.sql.catalyst.analysis.TempTableAlreadyExistsException extends org.apache.spark.sql.AnalysisException implements Serializable</h3>
+</li>
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.TempTableAlreadyExistsException:D">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.TempTableAlreadyExistsException$ extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>readResolve</h4>
+<pre>private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.TypeCheckResult.DataTypeMismatch">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.TypeCheckResult.DataTypeMismatch extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>errorSubClass</h4>
+<pre>java.lang.String errorSubClass</pre>
+</li>
+<li class="blockListLast">
+<h4>messageParameters</h4>
+<pre>scala.collection.immutable.Map&lt;K,V&gt; messageParameters</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.TypeCheckResult.DataTypeMismatch:D">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.TypeCheckResult.DataTypeMismatch$ extends scala.runtime.AbstractFunction2&lt;java.lang.String,scala.collection.immutable.Map&lt;java.lang.String,java.lang.String&gt;,org.apache.spark.sql.catalyst.analysis.TypeCheckResult.DataTypeMismatch&gt; implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>readResolve</h4>
+<pre>private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.TypeCheckResult.InvalidFormat">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.TypeCheckResult.InvalidFormat extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>errorSubClass</h4>
+<pre>java.lang.String errorSubClass</pre>
+</li>
+<li class="blockListLast">
+<h4>messageParameters</h4>
+<pre>scala.collection.immutable.Map&lt;K,V&gt; messageParameters</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.TypeCheckResult.InvalidFormat:D">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.TypeCheckResult.InvalidFormat$ extends scala.runtime.AbstractFunction2&lt;java.lang.String,scala.collection.immutable.Map&lt;java.lang.String,java.lang.String&gt;,org.apache.spark.sql.catalyst.analysis.TypeCheckResult.InvalidFormat&gt; implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>readResolve</h4>
+<pre>private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
+</li>
+</ul>
+</li>
+</ul>
 </li>
 <li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.TypeCheckResult.TypeCheckFailure">
 <!--   -->
@@ -6077,10 +6405,10 @@
 </li>
 </ul>
 </li>
-<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.TypeCheckResult:DTypeCheckFailure:D">
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.TypeCheckResult.TypeCheckFailure:D">
 <!--   -->
 </a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.TypeCheckResult$TypeCheckFailure$ extends scala.runtime.AbstractFunction1&lt;java.lang.String,org.apache.spark.sql.catalyst.analysis.TypeCheckResult.TypeCheckFailure&gt; implements Serializable</h3>
+<h3>Class org.apache.spark.sql.catalyst.analysis.TypeCheckResult.TypeCheckFailure$ extends scala.runtime.AbstractFunction1&lt;java.lang.String,org.apache.spark.sql.catalyst.analysis.TypeCheckResult.TypeCheckFailure&gt; implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialization Methods</h3>
@@ -6173,50 +6501,6 @@
 <!--   -->
 </a>
 <h3>Class org.apache.spark.sql.catalyst.analysis.UnresolvedAttribute$ extends java.lang.Object implements Serializable</h3>
-<ul class="blockList">
-<li class="blockList">
-<h3>Serialization Methods</h3>
-<ul class="blockList">
-<li class="blockListLast">
-<h4>readResolve</h4>
-<pre>private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.UnresolvedDBObjectName">
-<!--   -->
-</a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.UnresolvedDBObjectName extends org.apache.spark.sql.catalyst.plans.logical.LogicalPlan implements Serializable</h3>
-<ul class="blockList">
-<li class="blockList">
-<h3>Serialized Fields</h3>
-<ul class="blockList">
-<li class="blockList">
-<h4>resolved</h4>
-<pre>boolean resolved</pre>
-</li>
-<li class="blockList">
-<h4>nameParts</h4>
-<pre>scala.collection.Seq&lt;A&gt; nameParts</pre>
-</li>
-<li class="blockList">
-<h4>isNamespace</h4>
-<pre>boolean isNamespace</pre>
-</li>
-<li class="blockListLast">
-<h4>bitmap$0</h4>
-<pre>boolean bitmap$0</pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.UnresolvedDBObjectName:D">
-<!--   -->
-</a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.UnresolvedDBObjectName$ extends scala.runtime.AbstractFunction2&lt;scala.collection.Seq&lt;java.lang.String&gt;,java.lang.Object,org.apache.spark.sql.catalyst.analysis.UnresolvedDBObjectName&gt; implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialization Methods</h3>
@@ -6406,66 +6690,6 @@
 </li>
 </ul>
 </li>
-<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.UnresolvedFunc">
-<!--   -->
-</a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.UnresolvedFunc extends org.apache.spark.sql.catalyst.plans.logical.LogicalPlan implements Serializable</h3>
-<ul class="blockList">
-<li class="blockList">
-<h3>Serialized Fields</h3>
-<ul class="blockList">
-<li class="blockList">
-<h4>resolved</h4>
-<pre>boolean resolved</pre>
-</li>
-<li class="blockList">
-<h4>multipartIdentifier</h4>
-<pre>scala.collection.Seq&lt;A&gt; multipartIdentifier</pre>
-</li>
-<li class="blockList">
-<h4>commandName</h4>
-<pre>java.lang.String commandName</pre>
-</li>
-<li class="blockList">
-<h4>requirePersistent</h4>
-<pre>boolean requirePersistent</pre>
-</li>
-<li class="blockList">
-<h4>funcTypeMismatchHint</h4>
-<pre>scala.Option&lt;A&gt; funcTypeMismatchHint</pre>
-</li>
-<li class="blockList">
-<h4>possibleQualifiedName</h4>
-<pre>scala.Option&lt;A&gt; possibleQualifiedName</pre>
-</li>
-<li class="blockList">
-<h4>nodePatterns</h4>
-<pre>scala.collection.Seq&lt;A&gt; nodePatterns</pre>
-</li>
-<li class="blockListLast">
-<h4>bitmap$0</h4>
-<pre>boolean bitmap$0</pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.UnresolvedFunc:D">
-<!--   -->
-</a>
-<h3>Class org.apache.spark.sql.catalyst.analysis.UnresolvedFunc$ extends scala.runtime.AbstractFunction5&lt;scala.collection.Seq&lt;java.lang.String&gt;,java.lang.String,java.lang.Object,scala.Option&lt;java.lang.String&gt;,scala.Option&lt;scala.collection.Seq&lt;java.lang.String&gt;&gt;,org.apache.spark.sql.catalyst.analysis.UnresolvedFunc&gt; implements Serializable</h3>
-<ul class="blockList">
-<li class="blockList">
-<h3>Serialization Methods</h3>
-<ul class="blockList">
-<li class="blockListLast">
-<h4>readResolve</h4>
-<pre>private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.UnresolvedFunction">
 <!--   -->
 </a>
@@ -6514,6 +6738,66 @@
 <!--   -->
 </a>
 <h3>Class org.apache.spark.sql.catalyst.analysis.UnresolvedFunction$ extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>readResolve</h4>
+<pre>private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.UnresolvedFunctionName">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.UnresolvedFunctionName extends org.apache.spark.sql.catalyst.plans.logical.LogicalPlan implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>resolved</h4>
+<pre>boolean resolved</pre>
+</li>
+<li class="blockList">
+<h4>multipartIdentifier</h4>
+<pre>scala.collection.Seq&lt;A&gt; multipartIdentifier</pre>
+</li>
+<li class="blockList">
+<h4>commandName</h4>
+<pre>java.lang.String commandName</pre>
+</li>
+<li class="blockList">
+<h4>requirePersistent</h4>
+<pre>boolean requirePersistent</pre>
+</li>
+<li class="blockList">
+<h4>funcTypeMismatchHint</h4>
+<pre>scala.Option&lt;A&gt; funcTypeMismatchHint</pre>
+</li>
+<li class="blockList">
+<h4>possibleQualifiedName</h4>
+<pre>scala.Option&lt;A&gt; possibleQualifiedName</pre>
+</li>
+<li class="blockList">
+<h4>nodePatterns</h4>
+<pre>scala.collection.Seq&lt;A&gt; nodePatterns</pre>
+</li>
+<li class="blockListLast">
+<h4>bitmap$0</h4>
+<pre>boolean bitmap$0</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.UnresolvedFunctionName:D">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.UnresolvedFunctionName$ extends scala.runtime.AbstractFunction5&lt;scala.collection.Seq&lt;java.lang.String&gt;,java.lang.String,java.lang.Object,scala.Option&lt;java.lang.String&gt;,scala.Option&lt;scala.collection.Seq&lt;java.lang.String&gt;&gt;,org.apache.spark.sql.catalyst.analysis.UnresolvedFunctionName&gt; implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialization Methods</h3>
@@ -6595,6 +6879,10 @@
 <pre>org.apache.spark.sql.catalyst.plans.logical.LogicalPlan child</pre>
 </li>
 <li class="blockList">
+<h4>nodePatterns</h4>
+<pre>scala.collection.Seq&lt;A&gt; nodePatterns</pre>
+</li>
+<li class="blockList">
 <h4>validConstraints</h4>
 <pre>org.apache.spark.sql.catalyst.expressions.ExpressionSet validConstraints</pre>
 </li>
@@ -6610,6 +6898,50 @@
 <!--   -->
 </a>
 <h3>Class org.apache.spark.sql.catalyst.analysis.UnresolvedHaving$ extends scala.runtime.AbstractFunction2&lt;org.apache.spark.sql.catalyst.expressions.Expression,org.apache.spark.sql.catalyst.plans.logical.LogicalPlan,org.apache.spark.sql.catalyst.analysis.UnresolvedHaving&gt; implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>readResolve</h4>
+<pre>private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.UnresolvedIdentifier">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.UnresolvedIdentifier extends org.apache.spark.sql.catalyst.plans.logical.LogicalPlan implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>resolved</h4>
+<pre>boolean resolved</pre>
+</li>
+<li class="blockList">
+<h4>nameParts</h4>
+<pre>scala.collection.Seq&lt;A&gt; nameParts</pre>
+</li>
+<li class="blockList">
+<h4>allowTemp</h4>
+<pre>boolean allowTemp</pre>
+</li>
+<li class="blockListLast">
+<h4>bitmap$0</h4>
+<pre>boolean bitmap$0</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.UnresolvedIdentifier:D">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.UnresolvedIdentifier$ extends scala.runtime.AbstractFunction2&lt;scala.collection.Seq&lt;java.lang.String&gt;,java.lang.Object,org.apache.spark.sql.catalyst.analysis.UnresolvedIdentifier&gt; implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialization Methods</h3>
@@ -7113,15 +7445,15 @@
 </li>
 <li class="blockList">
 <h4>name</h4>
-<pre>org.apache.spark.sql.catalyst.FunctionIdentifier name</pre>
+<pre>scala.collection.Seq&lt;A&gt; name</pre>
 </li>
 <li class="blockList">
 <h4>functionArgs</h4>
 <pre>scala.collection.Seq&lt;A&gt; functionArgs</pre>
 </li>
 <li class="blockList">
-<h4>outputNames</h4>
-<pre>scala.collection.Seq&lt;A&gt; outputNames</pre>
+<h4>nodePatterns</h4>
+<pre>scala.collection.Seq&lt;A&gt; nodePatterns</pre>
 </li>
 <li class="blockListLast">
 <h4>bitmap$0</h4>
@@ -7135,6 +7467,62 @@
 <!--   -->
 </a>
 <h3>Class org.apache.spark.sql.catalyst.analysis.UnresolvedTableValuedFunction$ extends java.lang.Object implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialization Methods</h3>
+<ul class="blockList">
+<li class="blockListLast">
+<h4>readResolve</h4>
+<pre>private&nbsp;java.lang.Object&nbsp;readResolve()</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.UnresolvedTVFAliases">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.UnresolvedTVFAliases extends org.apache.spark.sql.catalyst.plans.logical.LogicalPlan implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<h3>Serialized Fields</h3>
+<ul class="blockList">
+<li class="blockList">
+<h4>resolved</h4>
+<pre>boolean resolved</pre>
+</li>
+<li class="blockList">
+<h4>name</h4>
+<pre>scala.collection.Seq&lt;A&gt; name</pre>
+</li>
+<li class="blockList">
+<h4>child</h4>
+<pre>org.apache.spark.sql.catalyst.plans.logical.LogicalPlan child</pre>
+</li>
+<li class="blockList">
+<h4>outputNames</h4>
+<pre>scala.collection.Seq&lt;A&gt; outputNames</pre>
+</li>
+<li class="blockList">
+<h4>nodePatterns</h4>
+<pre>scala.collection.Seq&lt;A&gt; nodePatterns</pre>
+</li>
+<li class="blockList">
+<h4>validConstraints</h4>
+<pre>org.apache.spark.sql.catalyst.expressions.ExpressionSet validConstraints</pre>
+</li>
+<li class="blockListLast">
+<h4>bitmap$0</h4>
+<pre>byte bitmap$0</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.UnresolvedTVFAliases:D">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.UnresolvedTVFAliases$ extends java.lang.Object implements Serializable</h3>
 <ul class="blockList">
 <li class="blockList">
 <h3>Serialization Methods</h3>
@@ -7199,6 +7587,11 @@
 </li>
 </ul>
 </li>
+<li class="blockList"><a name="org.apache.spark.sql.catalyst.analysis.ViewAlreadyExistsException">
+<!--   -->
+</a>
+<h3>Class org.apache.spark.sql.catalyst.analysis.ViewAlreadyExistsException extends org.apache.spark.sql.AnalysisException implements Serializable</h3>
+</li>
 </ul>
 </li>
 <li class="blockList">
@@ -7261,9 +7654,6 @@
 </ul>
 </li>
 </ul>
-</li>
-<li class="blockList">
-<h2 title="Package">Package&nbsp;org.apache.spark.sql.connector.iceberg.write</h2>
 </li>
 </ul>
 </div>

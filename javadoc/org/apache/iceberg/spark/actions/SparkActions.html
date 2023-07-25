@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":9,"i4":9,"i5":10,"i6":10,"i7":10,"i8":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":9,"i4":9,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../org/apache/iceberg/spark/actions/SnapshotTableSparkAction.html" title="class in org.apache.iceberg.spark.actions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../org/apache/iceberg/spark/actions/SparkBinPackStrategy.html" title="class in org.apache.iceberg.spark.actions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/iceberg/spark/actions/SparkActions.html" target="_top">Frames</a></li>
@@ -181,6 +181,12 @@ implements <a href="../../../../../org/apache/iceberg/actions/ActionsProvider.ht
 </td>
 </tr>
 <tr id="i8" class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/iceberg/spark/actions/RewritePositionDeleteFilesSparkAction.html" title="class in org.apache.iceberg.spark.actions">RewritePositionDeleteFilesSparkAction</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/SparkActions.html#rewritePositionDeletes-org.apache.iceberg.Table-">rewritePositionDeletes</a></span>(<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</code>
+<div class="block">Instantiates an action to rewrite position delete files</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/spark/actions/SnapshotTableSparkAction.html" title="class in org.apache.iceberg.spark.actions">SnapshotTableSparkAction</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/SparkActions.html#snapshotTable-java.lang.String-">snapshotTable</a></span>(java.lang.String&nbsp;tableIdent)</code>
 <div class="block">Instantiates an action to snapshot an existing table as a new Iceberg table.</div>
@@ -319,7 +325,7 @@ implements <a href="../../../../../org/apache/iceberg/actions/ActionsProvider.ht
 <a name="deleteReachableFiles-java.lang.String-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>deleteReachableFiles</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/iceberg/spark/actions/DeleteReachableFilesSparkAction.html" title="class in org.apache.iceberg.spark.actions">DeleteReachableFilesSparkAction</a>&nbsp;deleteReachableFiles(java.lang.String&nbsp;metadataLocation)</pre>
@@ -328,6 +334,21 @@ implements <a href="../../../../../org/apache/iceberg/actions/ActionsProvider.ht
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/iceberg/actions/ActionsProvider.html#deleteReachableFiles-java.lang.String-">deleteReachableFiles</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/iceberg/actions/ActionsProvider.html" title="interface in org.apache.iceberg.actions">ActionsProvider</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="rewritePositionDeletes-org.apache.iceberg.Table-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>rewritePositionDeletes</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/iceberg/spark/actions/RewritePositionDeleteFilesSparkAction.html" title="class in org.apache.iceberg.spark.actions">RewritePositionDeleteFilesSparkAction</a>&nbsp;rewritePositionDeletes(<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/iceberg/actions/ActionsProvider.html#rewritePositionDeletes-org.apache.iceberg.Table-">ActionsProvider</a></code></span></div>
+<div class="block">Instantiates an action to rewrite position delete files</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../org/apache/iceberg/actions/ActionsProvider.html#rewritePositionDeletes-org.apache.iceberg.Table-">rewritePositionDeletes</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/iceberg/actions/ActionsProvider.html" title="interface in org.apache.iceberg.actions">ActionsProvider</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -359,7 +380,7 @@ implements <a href="../../../../../org/apache/iceberg/actions/ActionsProvider.ht
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../org/apache/iceberg/spark/actions/SnapshotTableSparkAction.html" title="class in org.apache.iceberg.spark.actions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../org/apache/iceberg/spark/actions/SparkBinPackStrategy.html" title="class in org.apache.iceberg.spark.actions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/iceberg/spark/actions/SparkActions.html" target="_top">Frames</a></li>
