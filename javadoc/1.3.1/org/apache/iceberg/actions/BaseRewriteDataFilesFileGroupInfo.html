@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var methods = {"i0":42,"i1":42,"i2":42,"i3":42};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -110,8 +110,12 @@ var activeTableTab = "activeTableTab";
 <dd><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.FileGroupInfo.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles.FileGroupInfo</a></dd>
 </dl>
 <hr>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0; use <code>ImmutableRewriteDataFiles.FileGroupInfo.builder()</code> instead.</span></div>
+</div>
 <br>
-<pre>public class <span class="typeNameLabel">BaseRewriteDataFilesFileGroupInfo</span>
+<pre>@Deprecated
+public class <span class="typeNameLabel">BaseRewriteDataFilesFileGroupInfo</span>
 extends java.lang.Object
 implements <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.FileGroupInfo.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles.FileGroupInfo</a></pre>
 </li>
@@ -134,7 +138,9 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.File
 <tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BaseRewriteDataFilesFileGroupInfo.html#BaseRewriteDataFilesFileGroupInfo-int-int-org.apache.iceberg.StructLike-">BaseRewriteDataFilesFileGroupInfo</a></span>(int&nbsp;globalIndex,
                                  int&nbsp;partitionIndex,
-                                 <a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&nbsp;partition)</code>&nbsp;</td>
+                                 <a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&nbsp;partition)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -146,7 +152,7 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.File
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -154,24 +160,29 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.File
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BaseRewriteDataFilesFileGroupInfo.html#globalIndex--">globalIndex</a></span>()</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">returns which file group this is out of the total set of file groups for this rewrite</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BaseRewriteDataFilesFileGroupInfo.html#partition--">partition</a></span>()</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">returns which partition this file group contains files from</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BaseRewriteDataFilesFileGroupInfo.html#partitionIndex--">partitionIndex</a></span>()</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">returns which file group this is out of the set of file groups for this partition</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BaseRewriteDataFilesFileGroupInfo.html#toString--">toString</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/BaseRewriteDataFilesFileGroupInfo.html#toString--">toString</a></span>()</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -204,6 +215,7 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.File
 <pre>public&nbsp;BaseRewriteDataFilesFileGroupInfo(int&nbsp;globalIndex,
                                          int&nbsp;partitionIndex,
                                          <a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&nbsp;partition)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </li>
 </ul>
 </li>
@@ -221,6 +233,7 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.File
 <li class="blockList">
 <h4>globalIndex</h4>
 <pre>public&nbsp;int&nbsp;globalIndex()</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.FileGroupInfo.html#globalIndex--">RewriteDataFiles.FileGroupInfo</a></code></span></div>
 <div class="block">returns which file group this is out of the total set of file groups for this rewrite</div>
 <dl>
@@ -236,6 +249,7 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.File
 <li class="blockList">
 <h4>partitionIndex</h4>
 <pre>public&nbsp;int&nbsp;partitionIndex()</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.FileGroupInfo.html#partitionIndex--">RewriteDataFiles.FileGroupInfo</a></code></span></div>
 <div class="block">returns which file group this is out of the set of file groups for this partition</div>
 <dl>
@@ -251,6 +265,7 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.File
 <li class="blockList">
 <h4>partition</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&nbsp;partition()</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.FileGroupInfo.html#partition--">RewriteDataFiles.FileGroupInfo</a></code></span></div>
 <div class="block">returns which partition this file group contains files from</div>
 <dl>
@@ -266,6 +281,7 @@ implements <a href="../../../../org/apache/iceberg/actions/RewriteDataFiles.File
 <li class="blockList">
 <h4>toString</h4>
 <pre>public&nbsp;java.lang.String&nbsp;toString()</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>

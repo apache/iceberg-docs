@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":6,"i2":10,"i3":6,"i4":10,"i5":6,"i6":10,"i7":10};
+var methods = {"i0":10,"i1":6,"i2":10,"i3":10,"i4":6,"i5":10,"i6":6,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -179,26 +179,30 @@ implements java.io.Closeable, <a href="../../../org/apache/iceberg/ClientPool.ht
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ClientPoolImpl.html#close-C-">close</a></span>(<a href="../../../org/apache/iceberg/ClientPoolImpl.html" title="type parameter in ClientPoolImpl">C</a>&nbsp;client)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ClientPoolImpl.html#isClosed--">isClosed</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ClientPoolImpl.html#isConnectionException-java.lang.Exception-">isConnectionException</a></span>(java.lang.Exception&nbsp;exc)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected abstract <a href="../../../org/apache/iceberg/ClientPoolImpl.html" title="type parameter in ClientPoolImpl">C</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ClientPoolImpl.html#newClient--">newClient</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ClientPoolImpl.html#poolSize--">poolSize</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected abstract <a href="../../../org/apache/iceberg/ClientPoolImpl.html" title="type parameter in ClientPoolImpl">C</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ClientPoolImpl.html#reconnect-C-">reconnect</a></span>(<a href="../../../org/apache/iceberg/ClientPoolImpl.html" title="type parameter in ClientPoolImpl">C</a>&nbsp;client)</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>&lt;R&gt;&nbsp;R</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ClientPoolImpl.html#run-org.apache.iceberg.ClientPool.Action-">run</a></span>(<a href="../../../org/apache/iceberg/ClientPool.Action.html" title="interface in org.apache.iceberg">ClientPool.Action</a>&lt;R,<a href="../../../org/apache/iceberg/ClientPoolImpl.html" title="type parameter in ClientPoolImpl">C</a>,<a href="../../../org/apache/iceberg/ClientPoolImpl.html" title="type parameter in ClientPoolImpl">E</a>&gt;&nbsp;action)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>&lt;R&gt;&nbsp;R</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ClientPoolImpl.html#run-org.apache.iceberg.ClientPool.Action-boolean-">run</a></span>(<a href="../../../org/apache/iceberg/ClientPool.Action.html" title="interface in org.apache.iceberg">ClientPool.Action</a>&lt;R,<a href="../../../org/apache/iceberg/ClientPoolImpl.html" title="type parameter in ClientPoolImpl">C</a>,<a href="../../../org/apache/iceberg/ClientPoolImpl.html" title="type parameter in ClientPoolImpl">E</a>&gt;&nbsp;action,
    boolean&nbsp;retry)</code>&nbsp;</td>
@@ -339,10 +343,19 @@ implements java.io.Closeable, <a href="../../../org/apache/iceberg/ClientPool.ht
 <a name="poolSize--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>poolSize</h4>
 <pre>public&nbsp;int&nbsp;poolSize()</pre>
+</li>
+</ul>
+<a name="isClosed--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>isClosed</h4>
+<pre>public&nbsp;boolean&nbsp;isClosed()</pre>
 </li>
 </ul>
 </li>

@@ -76,7 +76,6 @@
 <li><a href="#exception">Deprecated Exceptions</a></li>
 <li><a href="#field">Deprecated Fields</a></li>
 <li><a href="#method">Deprecated Methods</a></li>
-<li><a href="#constructor">Deprecated Constructors</a></li>
 </ul>
 </div>
 <div class="contentContainer"><a name="interface">
@@ -100,6 +99,16 @@
 <div class="block"><span class="deprecationComment">will be removed in 2.0.0, use <a href="org/apache/iceberg/metrics/Counter.html" title="interface in org.apache.iceberg.metrics"><code>Counter</code></a> instead.</span></div>
 </td>
 </tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/actions/RewritePositionDeleteStrategy.html" title="interface in org.apache.iceberg.actions">org.apache.iceberg.actions.RewritePositionDeleteStrategy</a>
+<div class="block"><span class="deprecationComment">since 1.3.0, will be removed in 1.4.0; Use <a href="org/apache/iceberg/actions/SizeBasedFileRewriter.html" title="class in org.apache.iceberg.actions"><code>SizeBasedFileRewriter</code></a> instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/actions/RewriteStrategy.html" title="interface in org.apache.iceberg.actions">org.apache.iceberg.actions.RewriteStrategy</a>
+<div class="block"><span class="deprecationComment">since 1.3.0, will be removed in 1.4.0; use <a href="org/apache/iceberg/actions/FileRewriter.html" title="interface in org.apache.iceberg.actions"><code>FileRewriter</code></a> instead.</span></div>
+</td>
+</tr>
 </tbody>
 </table>
 </li>
@@ -116,18 +125,78 @@
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/actions/BaseExpireSnapshotsActionResult.html" title="class in org.apache.iceberg.actions">org.apache.iceberg.actions.BaseExpireSnapshotsActionResult</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0.</span></div>
+<td class="colOne"><a href="org/apache/iceberg/actions/BaseDeleteOrphanFilesActionResult.html" title="class in org.apache.iceberg.actions">org.apache.iceberg.actions.BaseDeleteOrphanFilesActionResult</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0; use <code>ImmutableDeleteOrphanFiles.Result.builder()</code>
+     instead.</span></div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="org/apache/iceberg/spark/FileScanTaskSetManager.html" title="class in org.apache.iceberg.spark">org.apache.iceberg.spark.FileScanTaskSetManager</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0, use <a href="org/apache/iceberg/spark/ScanTaskSetManager.html" title="class in org.apache.iceberg.spark"><code>ScanTaskSetManager</code></a> instead</span></div>
+<td class="colOne"><a href="org/apache/iceberg/actions/BaseDeleteReachableFilesActionResult.html" title="class in org.apache.iceberg.actions">org.apache.iceberg.actions.BaseDeleteReachableFilesActionResult</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0; use <code>ImmutableDeleteReachableFiles.Result.builder()</code>
+     instead.</span></div>
 </td>
 </tr>
 <tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/actions/BaseFileGroupRewriteResult.html" title="class in org.apache.iceberg.actions">org.apache.iceberg.actions.BaseFileGroupRewriteResult</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0; use <code>ImmutableRewriteDataFiles.FileGroupRewriteResult.builder()</code> instead.</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/actions/BaseMigrateTableActionResult.html" title="class in org.apache.iceberg.actions">org.apache.iceberg.actions.BaseMigrateTableActionResult</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0; use <code>ImmutableMigrateTable.Result.builder()</code> instead.</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/actions/BaseRewriteDataFilesFileGroupInfo.html" title="class in org.apache.iceberg.actions">org.apache.iceberg.actions.BaseRewriteDataFilesFileGroupInfo</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0; use <code>ImmutableRewriteDataFiles.FileGroupInfo.builder()</code> instead.</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/actions/BaseRewriteDataFilesResult.html" title="class in org.apache.iceberg.actions">org.apache.iceberg.actions.BaseRewriteDataFilesResult</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0; use <code>ImmutableRewriteDataFiles.Result.builder()</code>
+     instead.</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/actions/BaseRewriteManifestsActionResult.html" title="class in org.apache.iceberg.actions">org.apache.iceberg.actions.BaseRewriteManifestsActionResult</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0; use <code>ImmutableRewriteManifests.Result.builder()</code>
+     instead.</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/actions/BaseSnapshotTableActionResult.html" title="class in org.apache.iceberg.actions">org.apache.iceberg.actions.BaseSnapshotTableActionResult</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0; use <code>ImmutableSnapshotTable.Result.builder()</code>
+     instead.</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/actions/BinPackStrategy.html" title="class in org.apache.iceberg.actions">org.apache.iceberg.actions.BinPackStrategy</a>
+<div class="block"><span class="deprecationComment">since 1.3.0, will be removed in 1.4.0; use <a href="org/apache/iceberg/actions/SizeBasedFileRewriter.html" title="class in org.apache.iceberg.actions"><code>SizeBasedFileRewriter</code></a> instead.</span></div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/iceberg/parquet/ParquetWriteAdapter.html" title="class in org.apache.iceberg.parquet">org.apache.iceberg.parquet.ParquetWriteAdapter</a>
 <div class="block"><span class="deprecationComment">use <code>ParquetWriter</code></span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/actions/SortStrategy.html" title="class in org.apache.iceberg.actions">org.apache.iceberg.actions.SortStrategy</a>
+<div class="block"><span class="deprecationComment">since 1.3.0, will be removed in 1.4.0; use <a href="org/apache/iceberg/actions/SizeBasedFileRewriter.html" title="class in org.apache.iceberg.actions"><code>SizeBasedFileRewriter</code></a> instead.</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/arrow/vectorized/parquet/VectorizedColumnIterator.FixedLengthDecimalBatchReader.html" title="class in org.apache.iceberg.arrow.vectorized.parquet">org.apache.iceberg.arrow.vectorized.parquet.VectorizedColumnIterator.FixedLengthDecimalBatchReader</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/arrow/vectorized/parquet/VectorizedColumnIterator.IntBackedDecimalBatchReader.html" title="class in org.apache.iceberg.arrow.vectorized.parquet">org.apache.iceberg.arrow.vectorized.parquet.VectorizedColumnIterator.IntBackedDecimalBatchReader</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/arrow/vectorized/parquet/VectorizedColumnIterator.LongBackedDecimalBatchReader.html" title="class in org.apache.iceberg.arrow.vectorized.parquet">org.apache.iceberg.arrow.vectorized.parquet.VectorizedColumnIterator.LongBackedDecimalBatchReader</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0</span></div>
 </td>
 </tr>
 </tbody>
@@ -167,25 +236,114 @@
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/CatalogProperties.html#AUTH_DEFAULT_REFRESH_ENABLED">org.apache.iceberg.CatalogProperties.AUTH_DEFAULT_REFRESH_ENABLED</a>
-<div class="block"><span class="deprecationComment">Will be removed in 1.3.0; Use <a href="org/apache/iceberg/rest/auth/OAuth2Properties.html#TOKEN_REFRESH_ENABLED"><code>OAuth2Properties.TOKEN_REFRESH_ENABLED</code></a> to control token
-     refresh behavior.</span></div>
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#CLIENT_CREDENTIALS_PROVIDER">org.apache.iceberg.aws.AwsProperties.CLIENT_CREDENTIALS_PROVIDER</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/AwsClientProperties.html" title="class in org.apache.iceberg.aws"><code>AwsClientProperties</code></a>
+     instead</span></div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="org/apache/iceberg/CatalogProperties.html#AUTH_DEFAULT_REFRESH_ENABLED_DEFAULT">org.apache.iceberg.CatalogProperties.AUTH_DEFAULT_REFRESH_ENABLED_DEFAULT</a>
-<div class="block"><span class="deprecationComment">Will be removed in 1.3.0; Use <a href="org/apache/iceberg/rest/auth/OAuth2Properties.html#TOKEN_REFRESH_ENABLED_DEFAULT"><code>OAuth2Properties.TOKEN_REFRESH_ENABLED_DEFAULT</code></a> to control
-     default token refresh behavior.</span></div>
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#CLIENT_REGION">org.apache.iceberg.aws.AwsProperties.CLIENT_REGION</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/AwsClientProperties.html" title="class in org.apache.iceberg.aws"><code>AwsClientProperties</code></a>
+     instead</span></div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/spark/SparkReadOptions.html#FILE_SCAN_TASK_SET_ID">org.apache.iceberg.spark.SparkReadOptions.FILE_SCAN_TASK_SET_ID</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0, use SCAN_TASK_SET_ID instead</span></div>
+<td class="colOne"><a href="org/apache/iceberg/spark/SparkReadOptions.html#HANDLE_TIMESTAMP_WITHOUT_TIMEZONE">org.apache.iceberg.spark.SparkReadOptions.HANDLE_TIMESTAMP_WITHOUT_TIMEZONE</a></td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/spark/SparkSQLProperties.html#HANDLE_TIMESTAMP_WITHOUT_TIMEZONE">org.apache.iceberg.spark.SparkSQLProperties.HANDLE_TIMESTAMP_WITHOUT_TIMEZONE</a></td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/spark/SparkWriteOptions.html#HANDLE_TIMESTAMP_WITHOUT_TIMEZONE">org.apache.iceberg.spark.SparkWriteOptions.HANDLE_TIMESTAMP_WITHOUT_TIMEZONE</a></td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#HTTP_CLIENT_APACHE_CONNECTION_ACQUISITION_TIMEOUT_MS">org.apache.iceberg.aws.AwsProperties.HTTP_CLIENT_APACHE_CONNECTION_ACQUISITION_TIMEOUT_MS</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/HttpClientProperties.html" title="class in org.apache.iceberg.aws"><code>HttpClientProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#HTTP_CLIENT_APACHE_CONNECTION_MAX_IDLE_TIME_MS">org.apache.iceberg.aws.AwsProperties.HTTP_CLIENT_APACHE_CONNECTION_MAX_IDLE_TIME_MS</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/HttpClientProperties.html" title="class in org.apache.iceberg.aws"><code>HttpClientProperties</code></a>
+     instead</span></div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="org/apache/iceberg/TableProperties.html#HMS_TABLE_OWNER">org.apache.iceberg.TableProperties.HMS_TABLE_OWNER</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0, use the HMS_TABLE_OWNER constant from HiveCatalog</span></div>
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#HTTP_CLIENT_APACHE_CONNECTION_TIME_TO_LIVE_MS">org.apache.iceberg.aws.AwsProperties.HTTP_CLIENT_APACHE_CONNECTION_TIME_TO_LIVE_MS</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/HttpClientProperties.html" title="class in org.apache.iceberg.aws"><code>HttpClientProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#HTTP_CLIENT_APACHE_CONNECTION_TIMEOUT_MS">org.apache.iceberg.aws.AwsProperties.HTTP_CLIENT_APACHE_CONNECTION_TIMEOUT_MS</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/HttpClientProperties.html" title="class in org.apache.iceberg.aws"><code>HttpClientProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#HTTP_CLIENT_APACHE_EXPECT_CONTINUE_ENABLED">org.apache.iceberg.aws.AwsProperties.HTTP_CLIENT_APACHE_EXPECT_CONTINUE_ENABLED</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/HttpClientProperties.html" title="class in org.apache.iceberg.aws"><code>HttpClientProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#HTTP_CLIENT_APACHE_MAX_CONNECTIONS">org.apache.iceberg.aws.AwsProperties.HTTP_CLIENT_APACHE_MAX_CONNECTIONS</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/HttpClientProperties.html" title="class in org.apache.iceberg.aws"><code>HttpClientProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#HTTP_CLIENT_APACHE_SOCKET_TIMEOUT_MS">org.apache.iceberg.aws.AwsProperties.HTTP_CLIENT_APACHE_SOCKET_TIMEOUT_MS</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/HttpClientProperties.html" title="class in org.apache.iceberg.aws"><code>HttpClientProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#HTTP_CLIENT_APACHE_TCP_KEEP_ALIVE_ENABLED">org.apache.iceberg.aws.AwsProperties.HTTP_CLIENT_APACHE_TCP_KEEP_ALIVE_ENABLED</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/HttpClientProperties.html" title="class in org.apache.iceberg.aws"><code>HttpClientProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#HTTP_CLIENT_APACHE_USE_IDLE_CONNECTION_REAPER_ENABLED">org.apache.iceberg.aws.AwsProperties.HTTP_CLIENT_APACHE_USE_IDLE_CONNECTION_REAPER_ENABLED</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/HttpClientProperties.html" title="class in org.apache.iceberg.aws"><code>HttpClientProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#HTTP_CLIENT_TYPE">org.apache.iceberg.aws.AwsProperties.HTTP_CLIENT_TYPE</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/HttpClientProperties.html" title="class in org.apache.iceberg.aws"><code>HttpClientProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#HTTP_CLIENT_TYPE_APACHE">org.apache.iceberg.aws.AwsProperties.HTTP_CLIENT_TYPE_APACHE</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/HttpClientProperties.html" title="class in org.apache.iceberg.aws"><code>HttpClientProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#HTTP_CLIENT_TYPE_DEFAULT">org.apache.iceberg.aws.AwsProperties.HTTP_CLIENT_TYPE_DEFAULT</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/HttpClientProperties.html" title="class in org.apache.iceberg.aws"><code>HttpClientProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#HTTP_CLIENT_TYPE_URLCONNECTION">org.apache.iceberg.aws.AwsProperties.HTTP_CLIENT_TYPE_URLCONNECTION</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/HttpClientProperties.html" title="class in org.apache.iceberg.aws"><code>HttpClientProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#HTTP_CLIENT_URLCONNECTION_CONNECTION_TIMEOUT_MS">org.apache.iceberg.aws.AwsProperties.HTTP_CLIENT_URLCONNECTION_CONNECTION_TIMEOUT_MS</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/HttpClientProperties.html" title="class in org.apache.iceberg.aws"><code>HttpClientProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#HTTP_CLIENT_URLCONNECTION_SOCKET_TIMEOUT_MS">org.apache.iceberg.aws.AwsProperties.HTTP_CLIENT_URLCONNECTION_SOCKET_TIMEOUT_MS</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/HttpClientProperties.html" title="class in org.apache.iceberg.aws"><code>HttpClientProperties</code></a>
+     instead</span></div>
 </td>
 </tr>
 <tr class="altColor">
@@ -216,6 +374,294 @@
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3_ACCELERATION_ENABLED">org.apache.iceberg.aws.AwsProperties.S3_ACCELERATION_ENABLED</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3_ACCELERATION_ENABLED_DEFAULT">org.apache.iceberg.aws.AwsProperties.S3_ACCELERATION_ENABLED_DEFAULT</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3_ACCESS_POINTS_PREFIX">org.apache.iceberg.aws.AwsProperties.S3_ACCESS_POINTS_PREFIX</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3_CHECKSUM_ENABLED">org.apache.iceberg.aws.AwsProperties.S3_CHECKSUM_ENABLED</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3_CHECKSUM_ENABLED_DEFAULT">org.apache.iceberg.aws.AwsProperties.S3_CHECKSUM_ENABLED_DEFAULT</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3_DELETE_ENABLED">org.apache.iceberg.aws.AwsProperties.S3_DELETE_ENABLED</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3_DELETE_ENABLED_DEFAULT">org.apache.iceberg.aws.AwsProperties.S3_DELETE_ENABLED_DEFAULT</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3_DELETE_TAGS_PREFIX">org.apache.iceberg.aws.AwsProperties.S3_DELETE_TAGS_PREFIX</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3_DUALSTACK_ENABLED">org.apache.iceberg.aws.AwsProperties.S3_DUALSTACK_ENABLED</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3_DUALSTACK_ENABLED_DEFAULT">org.apache.iceberg.aws.AwsProperties.S3_DUALSTACK_ENABLED_DEFAULT</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3_PRELOAD_CLIENT_ENABLED">org.apache.iceberg.aws.AwsProperties.S3_PRELOAD_CLIENT_ENABLED</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3_PRELOAD_CLIENT_ENABLED_DEFAULT">org.apache.iceberg.aws.AwsProperties.S3_PRELOAD_CLIENT_ENABLED_DEFAULT</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3_REMOTE_SIGNING_ENABLED">org.apache.iceberg.aws.AwsProperties.S3_REMOTE_SIGNING_ENABLED</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3_REMOTE_SIGNING_ENABLED_DEFAULT">org.apache.iceberg.aws.AwsProperties.S3_REMOTE_SIGNING_ENABLED_DEFAULT</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3_TAG_ICEBERG_NAMESPACE">org.apache.iceberg.aws.AwsProperties.S3_TAG_ICEBERG_NAMESPACE</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3_TAG_ICEBERG_TABLE">org.apache.iceberg.aws.AwsProperties.S3_TAG_ICEBERG_TABLE</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3_USE_ARN_REGION_ENABLED">org.apache.iceberg.aws.AwsProperties.S3_USE_ARN_REGION_ENABLED</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3_USE_ARN_REGION_ENABLED_DEFAULT">org.apache.iceberg.aws.AwsProperties.S3_USE_ARN_REGION_ENABLED_DEFAULT</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3_WRITE_NAMESPACE_TAG_ENABLED">org.apache.iceberg.aws.AwsProperties.S3_WRITE_NAMESPACE_TAG_ENABLED</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3_WRITE_NAMESPACE_TAG_ENABLED_DEFAULT">org.apache.iceberg.aws.AwsProperties.S3_WRITE_NAMESPACE_TAG_ENABLED_DEFAULT</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3_WRITE_TABLE_TAG_ENABLED">org.apache.iceberg.aws.AwsProperties.S3_WRITE_TABLE_TAG_ENABLED</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3_WRITE_TABLE_TAG_ENABLED_DEFAULT">org.apache.iceberg.aws.AwsProperties.S3_WRITE_TABLE_TAG_ENABLED_DEFAULT</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3_WRITE_TAGS_PREFIX">org.apache.iceberg.aws.AwsProperties.S3_WRITE_TAGS_PREFIX</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3FILEIO_ACCESS_KEY_ID">org.apache.iceberg.aws.AwsProperties.S3FILEIO_ACCESS_KEY_ID</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3FILEIO_ACL">org.apache.iceberg.aws.AwsProperties.S3FILEIO_ACL</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3FILEIO_DELETE_BATCH_SIZE">org.apache.iceberg.aws.AwsProperties.S3FILEIO_DELETE_BATCH_SIZE</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3FILEIO_DELETE_BATCH_SIZE_DEFAULT">org.apache.iceberg.aws.AwsProperties.S3FILEIO_DELETE_BATCH_SIZE_DEFAULT</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3FILEIO_DELETE_BATCH_SIZE_MAX">org.apache.iceberg.aws.AwsProperties.S3FILEIO_DELETE_BATCH_SIZE_MAX</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3FILEIO_DELETE_THREADS">org.apache.iceberg.aws.AwsProperties.S3FILEIO_DELETE_THREADS</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3FILEIO_ENDPOINT">org.apache.iceberg.aws.AwsProperties.S3FILEIO_ENDPOINT</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3FILEIO_MULTIPART_SIZE">org.apache.iceberg.aws.AwsProperties.S3FILEIO_MULTIPART_SIZE</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3FILEIO_MULTIPART_SIZE_DEFAULT">org.apache.iceberg.aws.AwsProperties.S3FILEIO_MULTIPART_SIZE_DEFAULT</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3FILEIO_MULTIPART_SIZE_MIN">org.apache.iceberg.aws.AwsProperties.S3FILEIO_MULTIPART_SIZE_MIN</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3FILEIO_MULTIPART_THRESHOLD_FACTOR">org.apache.iceberg.aws.AwsProperties.S3FILEIO_MULTIPART_THRESHOLD_FACTOR</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3FILEIO_MULTIPART_THRESHOLD_FACTOR_DEFAULT">org.apache.iceberg.aws.AwsProperties.S3FILEIO_MULTIPART_THRESHOLD_FACTOR_DEFAULT</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3FILEIO_MULTIPART_UPLOAD_THREADS">org.apache.iceberg.aws.AwsProperties.S3FILEIO_MULTIPART_UPLOAD_THREADS</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3FILEIO_PATH_STYLE_ACCESS">org.apache.iceberg.aws.AwsProperties.S3FILEIO_PATH_STYLE_ACCESS</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3FILEIO_PATH_STYLE_ACCESS_DEFAULT">org.apache.iceberg.aws.AwsProperties.S3FILEIO_PATH_STYLE_ACCESS_DEFAULT</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3FILEIO_SECRET_ACCESS_KEY">org.apache.iceberg.aws.AwsProperties.S3FILEIO_SECRET_ACCESS_KEY</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3FILEIO_SESSION_TOKEN">org.apache.iceberg.aws.AwsProperties.S3FILEIO_SESSION_TOKEN</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3FILEIO_SSE_KEY">org.apache.iceberg.aws.AwsProperties.S3FILEIO_SSE_KEY</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3FILEIO_SSE_MD5">org.apache.iceberg.aws.AwsProperties.S3FILEIO_SSE_MD5</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3FILEIO_SSE_TYPE">org.apache.iceberg.aws.AwsProperties.S3FILEIO_SSE_TYPE</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3FILEIO_SSE_TYPE_CUSTOM">org.apache.iceberg.aws.AwsProperties.S3FILEIO_SSE_TYPE_CUSTOM</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3FILEIO_SSE_TYPE_KMS">org.apache.iceberg.aws.AwsProperties.S3FILEIO_SSE_TYPE_KMS</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3FILEIO_SSE_TYPE_NONE">org.apache.iceberg.aws.AwsProperties.S3FILEIO_SSE_TYPE_NONE</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3FILEIO_SSE_TYPE_S3">org.apache.iceberg.aws.AwsProperties.S3FILEIO_SSE_TYPE_S3</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#S3FILEIO_STAGING_DIRECTORY">org.apache.iceberg.aws.AwsProperties.S3FILEIO_STAGING_DIRECTORY</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsParser.html#tokenNames">org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.tokenNames</a>
 <div class="block"><span class="deprecationComment">Use <a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsParser.html#VOCABULARY"><code>IcebergSqlExtensionsParser.VOCABULARY</code></a> instead.</span></div>
 </td>
@@ -226,6 +672,9 @@
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/spark/SparkSQLProperties.html#USE_TIMESTAMP_WITHOUT_TIME_ZONE_IN_NEW_TABLES">org.apache.iceberg.spark.SparkSQLProperties.USE_TIMESTAMP_WITHOUT_TIME_ZONE_IN_NEW_TABLES</a></td>
+</tr>
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/iceberg/TableProperties.html#WRITE_FOLDER_STORAGE_LOCATION">org.apache.iceberg.TableProperties.WRITE_FOLDER_STORAGE_LOCATION</a>
 <div class="block"><span class="deprecationComment">Use <a href="org/apache/iceberg/TableProperties.html#WRITE_DATA_LOCATION"><code>TableProperties.WRITE_DATA_LOCATION</code></a> instead.</span></div>
 </td>
@@ -263,31 +712,44 @@
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#applyClientRegionConfiguration-T-">org.apache.iceberg.aws.AwsProperties.applyClientRegionConfiguration(T)</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/AwsClientProperties.html" title="class in org.apache.iceberg.aws"><code>AwsClientProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#applyHttpClientConfigurations-T-">org.apache.iceberg.aws.AwsProperties.applyHttpClientConfigurations(T)</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/HttpClientProperties.html" title="class in org.apache.iceberg.aws"><code>HttpClientProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#applyS3CredentialConfigurations-T-">org.apache.iceberg.aws.AwsProperties.applyS3CredentialConfigurations(T)</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#applyS3EndpointConfigurations-T-">org.apache.iceberg.aws.AwsProperties.applyS3EndpointConfigurations(T)</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#applyS3ServiceConfigurations-T-">org.apache.iceberg.aws.AwsProperties.applyS3ServiceConfigurations(T)</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#applyS3SignerConfiguration-T-">org.apache.iceberg.aws.AwsProperties.applyS3SignerConfiguration(T)</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/iceberg/transforms/Transforms.html#bucket-org.apache.iceberg.types.Type-int-">org.apache.iceberg.transforms.Transforms.bucket(Type, int)</a>
 <div class="block"><span class="deprecationComment">use <a href="org/apache/iceberg/transforms/Transforms.html#bucket-int-"><code>Transforms.bucket(int)</code></a> instead; will be removed in 2.0.0</span></div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/rest/HTTPClient.html#builder--">org.apache.iceberg.rest.HTTPClient.builder()</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use <a href="org/apache/iceberg/rest/HTTPClient.html#builder-java.util.Map-"><code>HTTPClient.builder(Map)</code></a></span></div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="org/apache/iceberg/spark/data/vectorized/VectorizedSparkParquetReaders.html#buildReader-org.apache.iceberg.Schema-org.apache.parquet.schema.MessageType-boolean-">org.apache.iceberg.spark.data.vectorized.VectorizedSparkParquetReaders.buildReader(Schema, MessageType, boolean)</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0, use <a href="org/apache/iceberg/spark/data/vectorized/VectorizedSparkParquetReaders.html#buildReader-org.apache.iceberg.Schema-org.apache.parquet.schema.MessageType-java.util.Map-org.apache.iceberg.data.DeleteFilter-"><code>VectorizedSparkParquetReaders.buildReader(Schema, MessageType, Map,
-     DeleteFilter)</code></a> instead.</span></div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/spark/data/vectorized/VectorizedSparkParquetReaders.html#buildReader-org.apache.iceberg.Schema-org.apache.parquet.schema.MessageType-boolean-java.util.Map-">org.apache.iceberg.spark.data.vectorized.VectorizedSparkParquetReaders.buildReader(Schema, MessageType, boolean, Map&lt;Integer, ?&gt;)</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0, use <a href="org/apache/iceberg/spark/data/vectorized/VectorizedSparkParquetReaders.html#buildReader-org.apache.iceberg.Schema-org.apache.parquet.schema.MessageType-java.util.Map-org.apache.iceberg.data.DeleteFilter-"><code>VectorizedSparkParquetReaders.buildReader(Schema, MessageType, Map,
-     DeleteFilter)</code></a> instead.</span></div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="org/apache/iceberg/spark/data/vectorized/VectorizedSparkParquetReaders.html#buildReader-org.apache.iceberg.Schema-org.apache.parquet.schema.MessageType-boolean-java.util.Map-org.apache.iceberg.data.DeleteFilter-">org.apache.iceberg.spark.data.vectorized.VectorizedSparkParquetReaders.buildReader(Schema, MessageType, boolean, Map&lt;Integer, ?&gt;, DeleteFilter&lt;InternalRow&gt;)</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0, use <a href="org/apache/iceberg/spark/data/vectorized/VectorizedSparkParquetReaders.html#buildReader-org.apache.iceberg.Schema-org.apache.parquet.schema.MessageType-java.util.Map-org.apache.iceberg.data.DeleteFilter-"><code>VectorizedSparkParquetReaders.buildReader(Schema, MessageType, Map,
-     DeleteFilter)</code></a> instead.</span></div>
 </td>
 </tr>
 <tr class="altColor">
@@ -323,8 +785,8 @@
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/spark/SparkReadConf.html#fileScanTaskSetId--">org.apache.iceberg.spark.SparkReadConf.fileScanTaskSetId()</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0, use <a href="org/apache/iceberg/spark/SparkReadConf.html#scanTaskSetId--"><code>SparkReadConf.scanTaskSetId()</code></a> instead</span></div>
+<td class="colOne"><a href="org/apache/iceberg/arrow/vectorized/parquet/VectorizedColumnIterator.html#fixedLengthDecimalBatchReader--">org.apache.iceberg.arrow.vectorized.parquet.VectorizedColumnIterator.fixedLengthDecimalBatchReader()</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0</span></div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -333,21 +795,10 @@
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/spark/Spark3Util.html#getPartitions-org.apache.spark.sql.SparkSession-org.apache.hadoop.fs.Path-java.lang.String-java.util.Map-">org.apache.iceberg.spark.Spark3Util.getPartitions(SparkSession, Path, String, Map&lt;String, String&gt;)</a>
-<div class="block"><span class="deprecationComment">use <a href="org/apache/iceberg/spark/Spark3Util.html#getPartitions-org.apache.spark.sql.SparkSession-org.apache.hadoop.fs.Path-java.lang.String-java.util.Map-org.apache.iceberg.PartitionSpec-"><code>Spark3Util.getPartitions(SparkSession, Path, String, Map,
-     PartitionSpec)</code></a></span></div>
-</td>
-</tr>
-<tr class="rowColor">
 <td class="colOne"><a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsParser.html#getTokenNames--">org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsParser.getTokenNames()</a></td>
 </tr>
-<tr class="altColor">
-<td class="colOne"><a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsLexer.html#getTokenNames--">org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsLexer.getTokenNames()</a></td>
-</tr>
 <tr class="rowColor">
-<td class="colOne"><a href="org/apache/iceberg/Partitioning.html#groupingKeyType-java.util.Collection-">org.apache.iceberg.Partitioning.groupingKeyType(Collection&lt;PartitionSpec&gt;)</a>
-<div class="block"><span class="deprecationComment">use <a href="org/apache/iceberg/Partitioning.html#groupingKeyType-org.apache.iceberg.Schema-java.util.Collection-"><code>Partitioning.groupingKeyType(Schema, Collection)</code></a> instead; will be removed in 1.3.0</span></div>
-</td>
+<td class="colOne"><a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsLexer.html#getTokenNames--">org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsLexer.getTokenNames()</a></td>
 </tr>
 <tr class="altColor">
 <td class="colOne"><a href="org/apache/iceberg/transforms/Transforms.html#hour-org.apache.iceberg.types.Type-">org.apache.iceberg.transforms.Transforms.hour(Type)</a>
@@ -360,61 +811,252 @@
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/spark/SparkTableUtil.html#listPartition-org.apache.iceberg.spark.SparkTableUtil.SparkPartition-org.apache.iceberg.PartitionSpec-org.apache.iceberg.hadoop.SerializableConfiguration-org.apache.iceberg.MetricsConfig-">org.apache.iceberg.spark.SparkTableUtil.listPartition(SparkTableUtil.SparkPartition, PartitionSpec, SerializableConfiguration, MetricsConfig)</a>
-<div class="block"><span class="deprecationComment">use <a href="org/apache/iceberg/data/TableMigrationUtil.html#listPartition-java.util.Map-java.lang.String-java.lang.String-org.apache.iceberg.PartitionSpec-org.apache.hadoop.conf.Configuration-org.apache.iceberg.MetricsConfig-org.apache.iceberg.mapping.NameMapping-"><code>TableMigrationUtil.listPartition(Map, String, String, PartitionSpec,
-     Configuration, MetricsConfig, NameMapping)</code></a></span></div>
+<td class="colOne"><a href="org/apache/iceberg/arrow/vectorized/parquet/VectorizedColumnIterator.html#intBackedDecimalBatchReader--">org.apache.iceberg.arrow.vectorized.parquet.VectorizedColumnIterator.intBackedDecimalBatchReader()</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0</span></div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="org/apache/iceberg/spark/SparkTableUtil.html#listPartition-org.apache.iceberg.spark.SparkTableUtil.SparkPartition-org.apache.iceberg.PartitionSpec-org.apache.iceberg.hadoop.SerializableConfiguration-org.apache.iceberg.MetricsConfig-org.apache.iceberg.mapping.NameMapping-">org.apache.iceberg.spark.SparkTableUtil.listPartition(SparkTableUtil.SparkPartition, PartitionSpec, SerializableConfiguration, MetricsConfig, NameMapping)</a>
-<div class="block"><span class="deprecationComment">use <a href="org/apache/iceberg/data/TableMigrationUtil.html#listPartition-java.util.Map-java.lang.String-java.lang.String-org.apache.iceberg.PartitionSpec-org.apache.hadoop.conf.Configuration-org.apache.iceberg.MetricsConfig-org.apache.iceberg.mapping.NameMapping-"><code>TableMigrationUtil.listPartition(Map, String, String, PartitionSpec,
-     Configuration, MetricsConfig, NameMapping)</code></a></span></div>
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#isS3ChecksumEnabled--">org.apache.iceberg.aws.AwsProperties.isS3ChecksumEnabled()</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/spark/SparkTableUtil.html#loadCatalogMetadataTable-org.apache.spark.sql.SparkSession-org.apache.iceberg.Table-org.apache.iceberg.MetadataTableType-">org.apache.iceberg.spark.SparkTableUtil.loadCatalogMetadataTable(SparkSession, Table, MetadataTableType)</a>
-<div class="block"><span class="deprecationComment">since 0.14.0, will be removed in 0.15.0; use <a href="org/apache/iceberg/spark/SparkTableUtil.html#loadMetadataTable-org.apache.spark.sql.SparkSession-org.apache.iceberg.Table-org.apache.iceberg.MetadataTableType-"><code>SparkTableUtil.loadMetadataTable(SparkSession, Table, MetadataTableType)</code></a>.</span></div>
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#isS3DeleteEnabled--">org.apache.iceberg.aws.AwsProperties.isS3DeleteEnabled()</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/arrow/vectorized/parquet/VectorizedColumnIterator.html#longBackedDecimalBatchReader--">org.apache.iceberg.arrow.vectorized.parquet.VectorizedColumnIterator.longBackedDecimalBatchReader()</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0</span></div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/iceberg/transforms/Transforms.html#month-org.apache.iceberg.types.Type-">org.apache.iceberg.transforms.Transforms.month(Type)</a>
 <div class="block"><span class="deprecationComment">use <a href="org/apache/iceberg/transforms/Transforms.html#month--"><code>Transforms.month()</code></a> instead; will be removed in 2.0.0</span></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/iceberg/BaseMetadataTable.html#operations--">org.apache.iceberg.BaseMetadataTable.operations()</a>
-<div class="block"><span class="deprecationComment">will be removed in 2.0.0; do not use metadata table TableOperations</span></div>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0; do not use metadata table TableOperations</span></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/iceberg/flink/source/FlinkSource.Builder.html#properties-java.util.Map-">org.apache.iceberg.flink.source.FlinkSource.Builder.properties(Map&lt;String, String&gt;)</a>
 <div class="block"><span class="deprecationComment">Use <a href="org/apache/iceberg/flink/source/FlinkSource.Builder.html#setAll-java.util.Map-"><code>FlinkSource.Builder.setAll(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</code></a> instead.</span></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/iceberg/flink/source/IcebergSource.Builder.html#properties-java.util.Map-">org.apache.iceberg.flink.source.IcebergSource.Builder.properties(Map&lt;String, String&gt;)</a>
 <div class="block"><span class="deprecationComment">Use <a href="org/apache/iceberg/flink/source/IcebergSource.Builder.html#setAll-java.util.Map-"><code>IcebergSource.Builder.setAll(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</code></a> instead.</span></div>
 </td>
 </tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/RewriteFiles.html#rewriteFiles-java.util.Set-java.util.Set-">org.apache.iceberg.RewriteFiles.rewriteFiles(Set&lt;DataFile&gt;, Set&lt;DataFile&gt;)</a>
+<div class="block"><span class="deprecationComment">since 1.3.0, will be removed in 2.0.0</span></div>
+</td>
+</tr>
 <tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/RewriteFiles.html#rewriteFiles-java.util.Set-java.util.Set-long-">org.apache.iceberg.RewriteFiles.rewriteFiles(Set&lt;DataFile&gt;, Set&lt;DataFile&gt;, long)</a>
+<div class="block"><span class="deprecationComment">since 1.3.0, will be removed in 2.0.0</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/RewriteFiles.html#rewriteFiles-java.util.Set-java.util.Set-java.util.Set-java.util.Set-">org.apache.iceberg.RewriteFiles.rewriteFiles(Set&lt;DataFile&gt;, Set&lt;DeleteFile&gt;, Set&lt;DataFile&gt;, Set&lt;DeleteFile&gt;)</a>
+<div class="block"><span class="deprecationComment">since 1.3.0, will be removed in 2.0.0</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#s3BucketToAccessPointMapping--">org.apache.iceberg.aws.AwsProperties.s3BucketToAccessPointMapping()</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/iceberg/aws/AwsClientFactories.html#s3Configuration-java.lang.Boolean-java.lang.Boolean-">org.apache.iceberg.aws.AwsClientFactories.s3Configuration(Boolean, Boolean)</a>
 <div class="block"><span class="deprecationComment">Not for public use. To build an S3Configuration object, use
      S3Configuration.builder() directly. It will be removed in 2.0.0</span></div>
 </td>
 </tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#s3DeleteTags--">org.apache.iceberg.aws.AwsProperties.s3DeleteTags()</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
 <tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/jdbc/JdbcCatalog.html#setConf-org.apache.hadoop.conf.Configuration-">org.apache.iceberg.jdbc.JdbcCatalog.setConf(Configuration)</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use <a href="org/apache/iceberg/jdbc/JdbcCatalog.html#setConf-java.lang.Object-"><code>JdbcCatalog.setConf(Object)</code></a></span></div>
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#s3FileIoAcl--">org.apache.iceberg.aws.AwsProperties.s3FileIoAcl()</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="org/apache/iceberg/rest/RESTSessionCatalog.html#setConf-org.apache.hadoop.conf.Configuration-">org.apache.iceberg.rest.RESTSessionCatalog.setConf(Configuration)</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use <a href="org/apache/iceberg/rest/RESTSessionCatalog.html#setConf-java.lang.Object-"><code>RESTSessionCatalog.setConf(Object)</code></a></span></div>
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#s3FileIoDeleteBatchSize--">org.apache.iceberg.aws.AwsProperties.s3FileIoDeleteBatchSize()</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/rest/RESTCatalog.html#setConf-org.apache.hadoop.conf.Configuration-">org.apache.iceberg.rest.RESTCatalog.setConf(Configuration)</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use <a href="org/apache/iceberg/rest/RESTCatalog.html#setConf-java.lang.Object-"><code>RESTCatalog.setConf(Object)</code></a></span></div>
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#s3FileIoDeleteThreads--">org.apache.iceberg.aws.AwsProperties.s3FileIoDeleteThreads()</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#s3FileIoMultiPartSize--">org.apache.iceberg.aws.AwsProperties.s3FileIoMultiPartSize()</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#s3FileIOMultipartThresholdFactor--">org.apache.iceberg.aws.AwsProperties.s3FileIOMultipartThresholdFactor()</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#s3FileIoMultipartUploadThreads--">org.apache.iceberg.aws.AwsProperties.s3FileIoMultipartUploadThreads()</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#s3FileIoSseKey--">org.apache.iceberg.aws.AwsProperties.s3FileIoSseKey()</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#s3FileIoSseMd5--">org.apache.iceberg.aws.AwsProperties.s3FileIoSseMd5()</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#s3FileIoSseType--">org.apache.iceberg.aws.AwsProperties.s3FileIoSseType()</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#s3fileIoStagingDirectory--">org.apache.iceberg.aws.AwsProperties.s3fileIoStagingDirectory()</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#s3PreloadClientEnabled--">org.apache.iceberg.aws.AwsProperties.s3PreloadClientEnabled()</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#s3WriteNamespaceTagEnabled--">org.apache.iceberg.aws.AwsProperties.s3WriteNamespaceTagEnabled()</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#s3WriteTableTagEnabled--">org.apache.iceberg.aws.AwsProperties.s3WriteTableTagEnabled()</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#s3WriteTags--">org.apache.iceberg.aws.AwsProperties.s3WriteTags()</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#setS3ChecksumEnabled-boolean-">org.apache.iceberg.aws.AwsProperties.setS3ChecksumEnabled(boolean)</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#setS3DeleteEnabled-boolean-">org.apache.iceberg.aws.AwsProperties.setS3DeleteEnabled(boolean)</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#setS3FileIoAcl-software.amazon.awssdk.services.s3.model.ObjectCannedACL-">org.apache.iceberg.aws.AwsProperties.setS3FileIoAcl(ObjectCannedACL)</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#setS3FileIoDeleteBatchSize-int-">org.apache.iceberg.aws.AwsProperties.setS3FileIoDeleteBatchSize(int)</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#setS3FileIoDeleteThreads-int-">org.apache.iceberg.aws.AwsProperties.setS3FileIoDeleteThreads(int)</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#setS3FileIoMultiPartSize-int-">org.apache.iceberg.aws.AwsProperties.setS3FileIoMultiPartSize(int)</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#setS3FileIoMultipartThresholdFactor-double-">org.apache.iceberg.aws.AwsProperties.setS3FileIoMultipartThresholdFactor(double)</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#setS3FileIoMultipartUploadThreads-int-">org.apache.iceberg.aws.AwsProperties.setS3FileIoMultipartUploadThreads(int)</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#setS3FileIoSseKey-java.lang.String-">org.apache.iceberg.aws.AwsProperties.setS3FileIoSseKey(String)</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#setS3FileIoSseMd5-java.lang.String-">org.apache.iceberg.aws.AwsProperties.setS3FileIoSseMd5(String)</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#setS3FileIoSseType-java.lang.String-">org.apache.iceberg.aws.AwsProperties.setS3FileIoSseType(String)</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#setS3fileIoStagingDirectory-java.lang.String-">org.apache.iceberg.aws.AwsProperties.setS3fileIoStagingDirectory(String)</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#setS3PreloadClientEnabled-boolean-">org.apache.iceberg.aws.AwsProperties.setS3PreloadClientEnabled(boolean)</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#setS3WriteNamespaceTagEnabled-boolean-">org.apache.iceberg.aws.AwsProperties.setS3WriteNamespaceTagEnabled(boolean)</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#setS3WriteTableTagEnabled-boolean-">org.apache.iceberg.aws.AwsProperties.setS3WriteTableTagEnabled(boolean)</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0, use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><code>S3FileIOProperties</code></a>
+     instead</span></div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -430,50 +1072,6 @@
 <tr class="rowColor">
 <td class="colOne"><a href="org/apache/iceberg/transforms/Transforms.html#year-org.apache.iceberg.types.Type-">org.apache.iceberg.transforms.Transforms.year(Type)</a>
 <div class="block"><span class="deprecationComment">use <a href="org/apache/iceberg/transforms/Transforms.html#year--"><code>Transforms.year()</code></a> instead; will be removed in 2.0.0</span></div>
-</td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-<a name="constructor">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<table class="deprecatedSummary" border="0" cellpadding="3" cellspacing="0" summary="Deprecated Constructors table, listing deprecated constructors, and an explanation">
-<caption><span>Deprecated Constructors</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colOne" scope="col">Constructor and Description</th>
-</tr>
-<tbody>
-<tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/rest/auth/OAuth2Util.AuthSession.html#AuthSession-java.util.Map-java.lang.String-java.lang.String-">org.apache.iceberg.rest.auth.OAuth2Util.AuthSession(Map&lt;String, String&gt;, String, String)</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use <a href="org/apache/iceberg/rest/auth/OAuth2Util.AuthSession.html#AuthSession-java.util.Map-java.lang.String-java.lang.String-java.lang.String-java.lang.String-"><code>AuthSession(Map, String, String,
-     String, String)</code></a> instead.</span></div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="org/apache/iceberg/actions/BaseFileGroupRewriteResult.html#BaseFileGroupRewriteResult-org.apache.iceberg.actions.RewriteDataFiles.FileGroupInfo-int-int-">org.apache.iceberg.actions.BaseFileGroupRewriteResult(RewriteDataFiles.FileGroupInfo, int, int)</a>
-<div class="block"><span class="deprecationComment">Will be removed in 1.3.0; use <code>BaseFileGroupRewriteResult#BaseFileGroupRewriteResult(FileGroupInfo, int, int, long)</code>
-     instead.</span></div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/BaseMetadataTable.html#BaseMetadataTable-org.apache.iceberg.TableOperations-org.apache.iceberg.Table-java.lang.String-">org.apache.iceberg.BaseMetadataTable(TableOperations, Table, String)</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use BaseMetadataTable(Table, String) instead.</span></div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="org/apache/iceberg/DataTableScan.html#DataTableScan-org.apache.iceberg.TableOperations-org.apache.iceberg.Table-">org.apache.iceberg.DataTableScan(TableOperations, Table)</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use DataTableScan(Table, Schema, TableScanContext)
-     instead.</span></div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/DataTableScan.html#DataTableScan-org.apache.iceberg.TableOperations-org.apache.iceberg.Table-org.apache.iceberg.Schema-org.apache.iceberg.TableScanContext-">org.apache.iceberg.DataTableScan(TableOperations, Table, Schema, TableScanContext)</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use DataTableScan(Table, Schema, TableScanContext)
-     instead.</span></div>
 </td>
 </tr>
 </tbody>

@@ -108,18 +108,19 @@
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/ComputeUpdateIterator.html" title="class in org.apache.iceberg.spark">ComputeUpdateIterator</a></td>
+<td class="colLast">
+<div class="block">An iterator that finds delete/insert rows which represent an update, and converts them into
+ update records from changelog tables within a single Spark task.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/ExtendedParser.RawOrderField.html" title="class in org.apache.iceberg.spark">ExtendedParser.RawOrderField</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/FileRewriteCoordinator.html" title="class in org.apache.iceberg.spark">FileRewriteCoordinator</a></td>
 <td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/FileScanTaskSetManager.html" title="class in org.apache.iceberg.spark">FileScanTaskSetManager</a></td>
-<td class="colLast">Deprecated
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0, use <a href="../../../../org/apache/iceberg/spark/ScanTaskSetManager.html" title="class in org.apache.iceberg.spark"><code>ScanTaskSetManager</code></a> instead</span></div>
-</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/IcebergSpark.html" title="class in org.apache.iceberg.spark">IcebergSpark</a></td>
@@ -140,59 +141,59 @@
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/PruneColumnsWithoutReordering.html" title="class in org.apache.iceberg.spark">PruneColumnsWithoutReordering</a></td>
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/PositionDeletesRewriteCoordinator.html" title="class in org.apache.iceberg.spark">PositionDeletesRewriteCoordinator</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/PruneColumnsWithReordering.html" title="class in org.apache.iceberg.spark">PruneColumnsWithReordering</a></td>
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/PruneColumnsWithoutReordering.html" title="class in org.apache.iceberg.spark">PruneColumnsWithoutReordering</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/PruneColumnsWithReordering.html" title="class in org.apache.iceberg.spark">PruneColumnsWithReordering</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/RollbackStagedTable.html" title="class in org.apache.iceberg.spark">RollbackStagedTable</a></td>
 <td class="colLast">
 <div class="block">An implementation of StagedTable that mimics the behavior of Spark's non-atomic CTAS and RTAS.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/ScanTaskSetManager.html" title="class in org.apache.iceberg.spark">ScanTaskSetManager</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/Spark3Util.html" title="class in org.apache.iceberg.spark">Spark3Util</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/Spark3Util.CatalogAndIdentifier.html" title="class in org.apache.iceberg.spark">Spark3Util.CatalogAndIdentifier</a></td>
 <td class="colLast">
 <div class="block">This mimics a class inside of Spark which is private inside of LookupCatalog.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/Spark3Util.DescribeSchemaVisitor.html" title="class in org.apache.iceberg.spark">Spark3Util.DescribeSchemaVisitor</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkAggregates.html" title="class in org.apache.iceberg.spark">SparkAggregates</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkCachedTableCatalog.html" title="class in org.apache.iceberg.spark">SparkCachedTableCatalog</a></td>
 <td class="colLast">
 <div class="block">An internal table catalog that is capable of loading tables from a cache.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkCatalog.html" title="class in org.apache.iceberg.spark">SparkCatalog</a></td>
 <td class="colLast">
 <div class="block">A Spark TableCatalog implementation that wraps an Iceberg <a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog"><code>Catalog</code></a>.</div>
 </td>
 </tr>
-<tr class="rowColor">
-<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkDataFile.html" title="class in org.apache.iceberg.spark">SparkDataFile</a></td>
-<td class="colLast">&nbsp;</td>
-</tr>
 <tr class="altColor">
-<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkDistributionAndOrderingUtil.html" title="class in org.apache.iceberg.spark">SparkDistributionAndOrderingUtil</a></td>
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkDataFile.html" title="class in org.apache.iceberg.spark">SparkDataFile</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
@@ -204,78 +205,96 @@
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkFunctionCatalog.html" title="class in org.apache.iceberg.spark">SparkFunctionCatalog</a></td>
+<td class="colLast">
+<div class="block">A function catalog that can be used to resolve Iceberg functions without a metastore connection.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html" title="class in org.apache.iceberg.spark">SparkReadConf</a></td>
 <td class="colLast">
 <div class="block">A class for common Iceberg configs for Spark reads.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkReadOptions.html" title="class in org.apache.iceberg.spark">SparkReadOptions</a></td>
 <td class="colLast">
 <div class="block">Spark DF read options</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkSchemaUtil.html" title="class in org.apache.iceberg.spark">SparkSchemaUtil</a></td>
 <td class="colLast">
 <div class="block">Helper methods for working with Spark/Hive metadata.</div>
 </td>
 </tr>
-<tr class="altColor">
-<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkSessionCatalog.html" title="class in org.apache.iceberg.spark">SparkSessionCatalog</a>&lt;T extends org.apache.spark.sql.connector.catalog.TableCatalog &amp; org.apache.spark.sql.connector.catalog.SupportsNamespaces&gt;</td>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkSessionCatalog.html" title="class in org.apache.iceberg.spark">SparkSessionCatalog</a>&lt;T extends org.apache.spark.sql.connector.catalog.TableCatalog &amp; org.apache.spark.sql.connector.catalog.FunctionCatalog &amp; org.apache.spark.sql.connector.catalog.SupportsNamespaces&gt;</td>
 <td class="colLast">
 <div class="block">A Spark catalog that can also load non-Iceberg tables.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkSQLProperties.html" title="class in org.apache.iceberg.spark">SparkSQLProperties</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkStructLike.html" title="class in org.apache.iceberg.spark">SparkStructLike</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkTableCache.html" title="class in org.apache.iceberg.spark">SparkTableCache</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkTableUtil.html" title="class in org.apache.iceberg.spark">SparkTableUtil</a></td>
 <td class="colLast">
 <div class="block">Java version of the original SparkTableUtil.scala
  https://github.com/apache/iceberg/blob/apache-iceberg-0.8.0-incubating/spark/src/main/scala/org/apache/iceberg/spark/SparkTableUtil.scala</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkTableUtil.SparkPartition.html" title="class in org.apache.iceberg.spark">SparkTableUtil.SparkPartition</a></td>
 <td class="colLast">
 <div class="block">Class representing a table partition.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkUtil.html" title="class in org.apache.iceberg.spark">SparkUtil</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkV2Filters.html" title="class in org.apache.iceberg.spark">SparkV2Filters</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkValueConverter.html" title="class in org.apache.iceberg.spark">SparkValueConverter</a></td>
 <td class="colLast">
 <div class="block">A utility class that converts Spark values to Iceberg's internal representation.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html" title="class in org.apache.iceberg.spark">SparkWriteConf</a></td>
 <td class="colLast">
 <div class="block">A class for common Iceberg configs for Spark writes.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html" title="class in org.apache.iceberg.spark">SparkWriteOptions</a></td>
 <td class="colLast">
 <div class="block">Spark DF write options</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkWriteRequirements.html" title="class in org.apache.iceberg.spark">SparkWriteRequirements</a></td>
+<td class="colLast">
+<div class="block">A set of requirements such as distribution and ordering reported to Spark during writes.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkWriteUtil.html" title="class in org.apache.iceberg.spark">SparkWriteUtil</a></td>
+<td class="colLast">
+<div class="block">A utility that contains helper methods for working with Spark writes.</div>
 </td>
 </tr>
 </tbody>

@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":9,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":9,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -133,50 +133,50 @@ implements <a href="../../../../../org/apache/iceberg/io/OutputFile.html" title=
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/iceberg/aws/AwsProperties.html" title="class in org.apache.iceberg.aws">AwsProperties</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/s3/S3OutputFile.html#awsProperties--">awsProperties</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/io/PositionOutputStream.html" title="class in org.apache.iceberg.io">PositionOutputStream</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/s3/S3OutputFile.html#create--">create</a></span>()</code>
 <div class="block">Create an output stream for the specified location if the target object does not exist in S3 at
  the time of invocation.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/io/PositionOutputStream.html" title="class in org.apache.iceberg.io">PositionOutputStream</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/s3/S3OutputFile.html#createOrOverwrite--">createOrOverwrite</a></span>()</code>
 <div class="block">Create a new file and return a <a href="../../../../../org/apache/iceberg/io/PositionOutputStream.html" title="class in org.apache.iceberg.io"><code>PositionOutputStream</code></a> to it.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/s3/S3OutputFile.html#exists--">exists</a></span>()</code>
 <div class="block">Note: this may be stale if file was deleted since metadata is cached for size/existence checks.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../../org/apache/iceberg/aws/s3/S3OutputFile.html" title="class in org.apache.iceberg.aws.s3">S3OutputFile</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/s3/S3OutputFile.html#fromLocation-java.lang.String-software.amazon.awssdk.services.s3.S3Client-org.apache.iceberg.aws.AwsProperties-org.apache.iceberg.metrics.MetricsContext-">fromLocation</a></span>(java.lang.String&nbsp;location,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/s3/S3OutputFile.html#fromLocation-java.lang.String-software.amazon.awssdk.services.s3.S3Client-org.apache.iceberg.aws.s3.S3FileIOProperties-org.apache.iceberg.metrics.MetricsContext-">fromLocation</a></span>(java.lang.String&nbsp;location,
             software.amazon.awssdk.services.s3.S3Client&nbsp;client,
-            <a href="../../../../../org/apache/iceberg/aws/AwsProperties.html" title="class in org.apache.iceberg.aws">AwsProperties</a>&nbsp;awsProperties,
+            <a href="../../../../../org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3">S3FileIOProperties</a>&nbsp;s3FileIOProperties,
             <a href="../../../../../org/apache/iceberg/metrics/MetricsContext.html" title="interface in org.apache.iceberg.metrics">MetricsContext</a>&nbsp;metrics)</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected software.amazon.awssdk.services.s3.model.HeadObjectResponse</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/s3/S3OutputFile.html#getObjectMetadata--">getObjectMetadata</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/s3/S3OutputFile.html#location--">location</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected <a href="../../../../../org/apache/iceberg/metrics/MetricsContext.html" title="interface in org.apache.iceberg.metrics">MetricsContext</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/s3/S3OutputFile.html#metrics--">metrics</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/encryption/NativeFileCryptoParameters.html" title="class in org.apache.iceberg.encryption">NativeFileCryptoParameters</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/s3/S3OutputFile.html#nativeCryptoParameters--">nativeCryptoParameters</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3">S3FileIOProperties</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/s3/S3OutputFile.html#s3FileIOProperties--">s3FileIOProperties</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
@@ -221,7 +221,7 @@ implements <a href="../../../../../org/apache/iceberg/io/OutputFile.html" title=
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="fromLocation-java.lang.String-software.amazon.awssdk.services.s3.S3Client-org.apache.iceberg.aws.AwsProperties-org.apache.iceberg.metrics.MetricsContext-">
+<a name="fromLocation-java.lang.String-software.amazon.awssdk.services.s3.S3Client-org.apache.iceberg.aws.s3.S3FileIOProperties-org.apache.iceberg.metrics.MetricsContext-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -229,7 +229,7 @@ implements <a href="../../../../../org/apache/iceberg/io/OutputFile.html" title=
 <h4>fromLocation</h4>
 <pre>public static&nbsp;<a href="../../../../../org/apache/iceberg/aws/s3/S3OutputFile.html" title="class in org.apache.iceberg.aws.s3">S3OutputFile</a>&nbsp;fromLocation(java.lang.String&nbsp;location,
                                         software.amazon.awssdk.services.s3.S3Client&nbsp;client,
-                                        <a href="../../../../../org/apache/iceberg/aws/AwsProperties.html" title="class in org.apache.iceberg.aws">AwsProperties</a>&nbsp;awsProperties,
+                                        <a href="../../../../../org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3">S3FileIOProperties</a>&nbsp;s3FileIOProperties,
                                         <a href="../../../../../org/apache/iceberg/metrics/MetricsContext.html" title="interface in org.apache.iceberg.metrics">MetricsContext</a>&nbsp;metrics)</pre>
 </li>
 </ul>
@@ -321,13 +321,13 @@ implements <a href="../../../../../org/apache/iceberg/io/OutputFile.html" title=
 <pre>public&nbsp;java.lang.String&nbsp;location()</pre>
 </li>
 </ul>
-<a name="awsProperties--">
+<a name="s3FileIOProperties--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>awsProperties</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/iceberg/aws/AwsProperties.html" title="class in org.apache.iceberg.aws">AwsProperties</a>&nbsp;awsProperties()</pre>
+<h4>s3FileIOProperties</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3">S3FileIOProperties</a>&nbsp;s3FileIOProperties()</pre>
 </li>
 </ul>
 <a name="metrics--">

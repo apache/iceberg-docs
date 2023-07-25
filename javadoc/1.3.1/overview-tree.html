@@ -86,6 +86,7 @@
 <li><a href="org/apache/iceberg/aws/lakeformation/package-tree.html">org.apache.iceberg.aws.lakeformation</a>, </li>
 <li><a href="org/apache/iceberg/aws/s3/package-tree.html">org.apache.iceberg.aws.s3</a>, </li>
 <li><a href="org/apache/iceberg/aws/s3/signer/package-tree.html">org.apache.iceberg.aws.s3.signer</a>, </li>
+<li><a href="org/apache/iceberg/aws/util/package-tree.html">org.apache.iceberg.aws.util</a>, </li>
 <li><a href="org/apache/iceberg/catalog/package-tree.html">org.apache.iceberg.catalog</a>, </li>
 <li><a href="org/apache/iceberg/common/package-tree.html">org.apache.iceberg.common</a>, </li>
 <li><a href="org/apache/iceberg/data/package-tree.html">org.apache.iceberg.data</a>, </li>
@@ -114,6 +115,7 @@
 <li><a href="org/apache/iceberg/gcp/gcs/package-tree.html">org.apache.iceberg.gcp.gcs</a>, </li>
 <li><a href="org/apache/iceberg/hadoop/package-tree.html">org.apache.iceberg.hadoop</a>, </li>
 <li><a href="org/apache/iceberg/hive/package-tree.html">org.apache.iceberg.hive</a>, </li>
+<li><a href="org/apache/iceberg/inmemory/package-tree.html">org.apache.iceberg.inmemory</a>, </li>
 <li><a href="org/apache/iceberg/io/package-tree.html">org.apache.iceberg.io</a>, </li>
 <li><a href="org/apache/iceberg/jdbc/package-tree.html">org.apache.iceberg.jdbc</a>, </li>
 <li><a href="org/apache/iceberg/mapping/package-tree.html">org.apache.iceberg.mapping</a>, </li>
@@ -148,8 +150,7 @@
 <li><a href="org/apache/iceberg/view/package-tree.html">org.apache.iceberg.view</a>, </li>
 <li><a href="org/apache/spark/sql/catalyst/analysis/package-tree.html">org.apache.spark.sql.catalyst.analysis</a>, </li>
 <li><a href="org/apache/spark/sql/catalyst/parser/extensions/package-tree.html">org.apache.spark.sql.catalyst.parser.extensions</a>, </li>
-<li><a href="org/apache/spark/sql/connector/iceberg/catalog/package-tree.html">org.apache.spark.sql.connector.iceberg.catalog</a>, </li>
-<li><a href="org/apache/spark/sql/connector/iceberg/write/package-tree.html">org.apache.spark.sql.connector.iceberg.write</a></li>
+<li><a href="org/apache/spark/sql/connector/iceberg/catalog/package-tree.html">org.apache.spark.sql.connector.iceberg.catalog</a></li>
 </ul>
 </div>
 <div class="contentContainer">
@@ -226,7 +227,7 @@
 <li type="circle">org.apache.iceberg.mr.hive.<a href="org/apache/iceberg/mr/hive/HiveIcebergSerDe.html" title="class in org.apache.iceberg.mr.hive"><span class="typeNameLink">HiveIcebergSerDe</span></a></li>
 </ul>
 </li>
-<li type="circle">org.apache.flink.streaming.api.operators.AbstractStreamOperator&lt;OUT&gt; (implements java.io.Serializable, org.apache.flink.streaming.api.operators.SetupableStreamOperator&lt;OUT&gt;, org.apache.flink.streaming.api.operators.StreamOperator&lt;OUT&gt;, org.apache.flink.streaming.api.operators.StreamOperatorStateHandler.CheckpointedStreamOperator)
+<li type="circle">org.apache.flink.streaming.api.operators.AbstractStreamOperator&lt;OUT&gt; (implements org.apache.flink.streaming.api.operators.KeyContextHandler, java.io.Serializable, org.apache.flink.streaming.api.operators.SetupableStreamOperator&lt;OUT&gt;, org.apache.flink.streaming.api.operators.StreamOperator&lt;OUT&gt;, org.apache.flink.streaming.api.operators.StreamOperatorStateHandler.CheckpointedStreamOperator)
 <ul>
 <li type="circle">org.apache.iceberg.flink.source.<a href="org/apache/iceberg/flink/source/StreamingReaderOperator.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">StreamingReaderOperator</span></a> (implements org.apache.flink.streaming.api.operators.OneInputStreamOperator&lt;IN,OUT&gt;)</li>
 </ul>
@@ -293,6 +294,7 @@
 </ul>
 </li>
 <li type="circle">org.apache.iceberg.aws.<a href="org/apache/iceberg/aws/AwsClientFactories.html" title="class in org.apache.iceberg.aws"><span class="typeNameLink">AwsClientFactories</span></a></li>
+<li type="circle">org.apache.iceberg.aws.<a href="org/apache/iceberg/aws/AwsClientProperties.html" title="class in org.apache.iceberg.aws"><span class="typeNameLink">AwsClientProperties</span></a> (implements java.io.Serializable)</li>
 <li type="circle">org.apache.iceberg.aws.<a href="org/apache/iceberg/aws/AwsProperties.html" title="class in org.apache.iceberg.aws"><span class="typeNameLink">AwsProperties</span></a> (implements java.io.Serializable)</li>
 <li type="circle">org.apache.iceberg.arrow.vectorized.<a href="org/apache/iceberg/arrow/vectorized/BaseBatchReader.html" title="class in org.apache.iceberg.arrow.vectorized"><span class="typeNameLink">BaseBatchReader</span></a>&lt;T&gt; (implements org.apache.iceberg.parquet.<a href="org/apache/iceberg/parquet/VectorizedReader.html" title="interface in org.apache.iceberg.parquet">VectorizedReader</a>&lt;T&gt;)
 <ul>
@@ -308,7 +310,6 @@
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/BaseCombinedScanTask.html" title="class in org.apache.iceberg"><span class="typeNameLink">BaseCombinedScanTask</span></a> (implements org.apache.iceberg.<a href="org/apache/iceberg/CombinedScanTask.html" title="interface in org.apache.iceberg">CombinedScanTask</a>)</li>
 <li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/BaseDeleteOrphanFilesActionResult.html" title="class in org.apache.iceberg.actions"><span class="typeNameLink">BaseDeleteOrphanFilesActionResult</span></a> (implements org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/DeleteOrphanFiles.Result.html" title="interface in org.apache.iceberg.actions">DeleteOrphanFiles.Result</a>)</li>
 <li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/BaseDeleteReachableFilesActionResult.html" title="class in org.apache.iceberg.actions"><span class="typeNameLink">BaseDeleteReachableFilesActionResult</span></a> (implements org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/DeleteReachableFiles.Result.html" title="interface in org.apache.iceberg.actions">DeleteReachableFiles.Result</a>)</li>
-<li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/BaseExpireSnapshotsActionResult.html" title="class in org.apache.iceberg.actions"><span class="typeNameLink">BaseExpireSnapshotsActionResult</span></a> (implements org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/ExpireSnapshots.Result.html" title="interface in org.apache.iceberg.actions">ExpireSnapshots.Result</a>)</li>
 <li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/BaseFileGroupRewriteResult.html" title="class in org.apache.iceberg.actions"><span class="typeNameLink">BaseFileGroupRewriteResult</span></a> (implements org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/RewriteDataFiles.FileGroupRewriteResult.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles.FileGroupRewriteResult</a>)</li>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/BaseFileScanTask.html" title="class in org.apache.iceberg"><span class="typeNameLink">BaseFileScanTask</span></a> (implements org.apache.iceberg.<a href="org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>)</li>
 <li type="circle">org.apache.iceberg.data.<a href="org/apache/iceberg/data/BaseFileWriterFactory.html" title="class in org.apache.iceberg.data"><span class="typeNameLink">BaseFileWriterFactory</span></a>&lt;T&gt; (implements org.apache.iceberg.io.<a href="org/apache/iceberg/io/FileWriterFactory.html" title="interface in org.apache.iceberg.io">FileWriterFactory</a>&lt;T&gt;)</li>
@@ -339,8 +340,9 @@
 <li type="circle">org.apache.iceberg.aws.glue.<a href="org/apache/iceberg/aws/glue/GlueCatalog.html" title="class in org.apache.iceberg.aws.glue"><span class="typeNameLink">GlueCatalog</span></a> (implements java.io.Closeable, org.apache.iceberg.hadoop.<a href="org/apache/iceberg/hadoop/Configurable.html" title="interface in org.apache.iceberg.hadoop">Configurable</a>&lt;C&gt;, org.apache.iceberg.catalog.<a href="org/apache/iceberg/catalog/SupportsNamespaces.html" title="interface in org.apache.iceberg.catalog">SupportsNamespaces</a>)</li>
 <li type="circle">org.apache.iceberg.hadoop.<a href="org/apache/iceberg/hadoop/HadoopCatalog.html" title="class in org.apache.iceberg.hadoop"><span class="typeNameLink">HadoopCatalog</span></a> (implements java.io.Closeable, org.apache.hadoop.conf.Configurable, org.apache.iceberg.catalog.<a href="org/apache/iceberg/catalog/SupportsNamespaces.html" title="interface in org.apache.iceberg.catalog">SupportsNamespaces</a>)</li>
 <li type="circle">org.apache.iceberg.hive.<a href="org/apache/iceberg/hive/HiveCatalog.html" title="class in org.apache.iceberg.hive"><span class="typeNameLink">HiveCatalog</span></a> (implements org.apache.hadoop.conf.Configurable, org.apache.iceberg.catalog.<a href="org/apache/iceberg/catalog/SupportsNamespaces.html" title="interface in org.apache.iceberg.catalog">SupportsNamespaces</a>)</li>
+<li type="circle">org.apache.iceberg.inmemory.<a href="org/apache/iceberg/inmemory/InMemoryCatalog.html" title="class in org.apache.iceberg.inmemory"><span class="typeNameLink">InMemoryCatalog</span></a> (implements java.io.Closeable, org.apache.iceberg.catalog.<a href="org/apache/iceberg/catalog/SupportsNamespaces.html" title="interface in org.apache.iceberg.catalog">SupportsNamespaces</a>)</li>
 <li type="circle">org.apache.iceberg.jdbc.<a href="org/apache/iceberg/jdbc/JdbcCatalog.html" title="class in org.apache.iceberg.jdbc"><span class="typeNameLink">JdbcCatalog</span></a> (implements java.io.Closeable, org.apache.iceberg.hadoop.<a href="org/apache/iceberg/hadoop/Configurable.html" title="interface in org.apache.iceberg.hadoop">Configurable</a>&lt;C&gt;, org.apache.iceberg.catalog.<a href="org/apache/iceberg/catalog/SupportsNamespaces.html" title="interface in org.apache.iceberg.catalog">SupportsNamespaces</a>)</li>
-<li type="circle">org.apache.iceberg.nessie.<a href="org/apache/iceberg/nessie/NessieCatalog.html" title="class in org.apache.iceberg.nessie"><span class="typeNameLink">NessieCatalog</span></a> (implements java.lang.AutoCloseable, org.apache.hadoop.conf.Configurable, org.apache.iceberg.catalog.<a href="org/apache/iceberg/catalog/SupportsNamespaces.html" title="interface in org.apache.iceberg.catalog">SupportsNamespaces</a>)</li>
+<li type="circle">org.apache.iceberg.nessie.<a href="org/apache/iceberg/nessie/NessieCatalog.html" title="class in org.apache.iceberg.nessie"><span class="typeNameLink">NessieCatalog</span></a> (implements java.lang.AutoCloseable, org.apache.iceberg.hadoop.<a href="org/apache/iceberg/hadoop/Configurable.html" title="interface in org.apache.iceberg.hadoop">Configurable</a>&lt;C&gt;, org.apache.iceberg.catalog.<a href="org/apache/iceberg/catalog/SupportsNamespaces.html" title="interface in org.apache.iceberg.catalog">SupportsNamespaces</a>)</li>
 <li type="circle">org.apache.iceberg.snowflake.<a href="org/apache/iceberg/snowflake/SnowflakeCatalog.html" title="class in org.apache.iceberg.snowflake"><span class="typeNameLink">SnowflakeCatalog</span></a> (implements java.io.Closeable, org.apache.iceberg.hadoop.<a href="org/apache/iceberg/hadoop/Configurable.html" title="interface in org.apache.iceberg.hadoop">Configurable</a>&lt;C&gt;, org.apache.iceberg.catalog.<a href="org/apache/iceberg/catalog/SupportsNamespaces.html" title="interface in org.apache.iceberg.catalog">SupportsNamespaces</a>)</li>
 </ul>
 </li>
@@ -419,16 +421,7 @@
 <li type="circle">org.apache.iceberg.util.<a href="org/apache/iceberg/util/BinPacking.PackingIterable.html" title="class in org.apache.iceberg.util"><span class="typeNameLink">BinPacking.PackingIterable</span></a>&lt;T&gt; (implements java.lang.Iterable&lt;T&gt;)</li>
 <li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/BinPackStrategy.html" title="class in org.apache.iceberg.actions"><span class="typeNameLink">BinPackStrategy</span></a> (implements org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/RewriteStrategy.html" title="interface in org.apache.iceberg.actions">RewriteStrategy</a>)
 <ul>
-<li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/SortStrategy.html" title="class in org.apache.iceberg.actions"><span class="typeNameLink">SortStrategy</span></a>
-<ul>
-<li type="circle">org.apache.iceberg.spark.actions.<a href="org/apache/iceberg/spark/actions/SparkSortStrategy.html" title="class in org.apache.iceberg.spark.actions"><span class="typeNameLink">SparkSortStrategy</span></a>
-<ul>
-<li type="circle">org.apache.iceberg.spark.actions.<a href="org/apache/iceberg/spark/actions/SparkZOrderStrategy.html" title="class in org.apache.iceberg.spark.actions"><span class="typeNameLink">SparkZOrderStrategy</span></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li type="circle">org.apache.iceberg.spark.actions.<a href="org/apache/iceberg/spark/actions/SparkBinPackStrategy.html" title="class in org.apache.iceberg.spark.actions"><span class="typeNameLink">SparkBinPackStrategy</span></a></li>
+<li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/SortStrategy.html" title="class in org.apache.iceberg.actions"><span class="typeNameLink">SortStrategy</span></a></li>
 </ul>
 </li>
 <li type="circle">org.apache.iceberg.puffin.<a href="org/apache/iceberg/puffin/Blob.html" title="class in org.apache.iceberg.puffin"><span class="typeNameLink">Blob</span></a></li>
@@ -457,7 +450,11 @@
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/CatalogProperties.html" title="class in org.apache.iceberg"><span class="typeNameLink">CatalogProperties</span></a></li>
 <li type="circle">org.apache.iceberg.mr.<a href="org/apache/iceberg/mr/Catalogs.html" title="class in org.apache.iceberg.mr"><span class="typeNameLink">Catalogs</span></a></li>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/CatalogUtil.html" title="class in org.apache.iceberg"><span class="typeNameLink">CatalogUtil</span></a></li>
-<li type="circle">org.apache.iceberg.spark.<a href="org/apache/iceberg/spark/ChangelogIterator.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">ChangelogIterator</span></a> (implements java.util.Iterator&lt;E&gt;)</li>
+<li type="circle">org.apache.iceberg.spark.<a href="org/apache/iceberg/spark/ChangelogIterator.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">ChangelogIterator</span></a> (implements java.util.Iterator&lt;E&gt;)
+<ul>
+<li type="circle">org.apache.iceberg.spark.<a href="org/apache/iceberg/spark/ComputeUpdateIterator.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">ComputeUpdateIterator</span></a></li>
+</ul>
+</li>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/ChangelogUtil.html" title="class in org.apache.iceberg"><span class="typeNameLink">ChangelogUtil</span></a></li>
 <li type="circle">org.apache.iceberg.util.<a href="org/apache/iceberg/util/CharSequenceSet.html" title="class in org.apache.iceberg.util"><span class="typeNameLink">CharSequenceSet</span></a> (implements java.io.Serializable, java.util.Set&lt;E&gt;)</li>
 <li type="circle">org.apache.iceberg.util.<a href="org/apache/iceberg/util/CharSequenceWrapper.html" title="class in org.apache.iceberg.util"><span class="typeNameLink">CharSequenceWrapper</span></a> (implements java.lang.CharSequence, java.io.Serializable)</li>
@@ -552,6 +549,7 @@
 <li type="circle">org.apache.iceberg.transforms.<a href="org/apache/iceberg/transforms/Days.html" title="class in org.apache.iceberg.transforms"><span class="typeNameLink">Days</span></a>&lt;T&gt;</li>
 <li type="circle">org.apache.iceberg.spark.functions.<a href="org/apache/iceberg/spark/functions/DaysFunction.html" title="class in org.apache.iceberg.spark.functions"><span class="typeNameLink">DaysFunction</span></a></li>
 <li type="circle">org.apache.iceberg.spark.functions.<a href="org/apache/iceberg/spark/functions/DaysFunction.DateToDaysFunction.html" title="class in org.apache.iceberg.spark.functions"><span class="typeNameLink">DaysFunction.DateToDaysFunction</span></a></li>
+<li type="circle">org.apache.iceberg.spark.functions.<a href="org/apache/iceberg/spark/functions/DaysFunction.TimestampNtzToDaysFunction.html" title="class in org.apache.iceberg.spark.functions"><span class="typeNameLink">DaysFunction.TimestampNtzToDaysFunction</span></a></li>
 <li type="circle">org.apache.iceberg.spark.functions.<a href="org/apache/iceberg/spark/functions/DaysFunction.TimestampToDaysFunction.html" title="class in org.apache.iceberg.spark.functions"><span class="typeNameLink">DaysFunction.TimestampToDaysFunction</span></a></li>
 <li type="circle">org.apache.iceberg.util.<a href="org/apache/iceberg/util/DecimalUtil.html" title="class in org.apache.iceberg.util"><span class="typeNameLink">DecimalUtil</span></a></li>
 <li type="circle">org.apache.iceberg.arrow.vectorized.parquet.<a href="org/apache/iceberg/arrow/vectorized/parquet/DecimalVectorUtil.html" title="class in org.apache.iceberg.arrow.vectorized.parquet"><span class="typeNameLink">DecimalVectorUtil</span></a></li>
@@ -574,6 +572,7 @@
 <li type="circle">org.apache.iceberg.dell.<a href="org/apache/iceberg/dell/DellClientFactories.html" title="class in org.apache.iceberg.dell"><span class="typeNameLink">DellClientFactories</span></a></li>
 <li type="circle">org.apache.iceberg.dell.<a href="org/apache/iceberg/dell/DellProperties.html" title="class in org.apache.iceberg.dell"><span class="typeNameLink">DellProperties</span></a> (implements java.io.Serializable)</li>
 <li type="circle">org.apache.iceberg.delta.<a href="org/apache/iceberg/delta/DeltaLakeToIcebergMigrationActionsProvider.DefaultDeltaLakeToIcebergMigrationActions.html" title="class in org.apache.iceberg.delta"><span class="typeNameLink">DeltaLakeToIcebergMigrationActionsProvider.DefaultDeltaLakeToIcebergMigrationActions</span></a> (implements org.apache.iceberg.delta.<a href="org/apache/iceberg/delta/DeltaLakeToIcebergMigrationActionsProvider.html" title="interface in org.apache.iceberg.delta">DeltaLakeToIcebergMigrationActionsProvider</a>)</li>
+<li type="circle">org.apache.iceberg.arrow.<a href="org/apache/iceberg/arrow/DictEncodedArrowConverter.html" title="class in org.apache.iceberg.arrow"><span class="typeNameLink">DictEncodedArrowConverter</span></a></li>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/DoubleFieldMetrics.Builder.html" title="class in org.apache.iceberg"><span class="typeNameLink">DoubleFieldMetrics.Builder</span></a></li>
 <li type="circle">org.apache.iceberg.common.<a href="org/apache/iceberg/common/DynClasses.html" title="class in org.apache.iceberg.common"><span class="typeNameLink">DynClasses</span></a></li>
 <li type="circle">org.apache.iceberg.common.<a href="org/apache/iceberg/common/DynClasses.Builder.html" title="class in org.apache.iceberg.common"><span class="typeNameLink">DynClasses.Builder</span></a></li>
@@ -640,7 +639,6 @@
 <li type="circle">org.apache.iceberg.puffin.<a href="org/apache/iceberg/puffin/FileMetadataParser.html" title="class in org.apache.iceberg.puffin"><span class="typeNameLink">FileMetadataParser</span></a></li>
 <li type="circle">org.apache.iceberg.spark.<a href="org/apache/iceberg/spark/FileRewriteCoordinator.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">FileRewriteCoordinator</span></a></li>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/Files.html" title="class in org.apache.iceberg"><span class="typeNameLink">Files</span></a></li>
-<li type="circle">org.apache.iceberg.spark.<a href="org/apache/iceberg/spark/FileScanTaskSetManager.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">FileScanTaskSetManager</span></a></li>
 <li type="circle">org.apache.iceberg.util.<a href="org/apache/iceberg/util/Filter.html" title="class in org.apache.iceberg.util"><span class="typeNameLink">Filter</span></a>&lt;T&gt;</li>
 <li type="circle">org.apache.iceberg.io.<a href="org/apache/iceberg/io/FilterIterator.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">FilterIterator</span></a>&lt;T&gt; (implements org.apache.iceberg.io.<a href="org/apache/iceberg/io/CloseableIterator.html" title="interface in org.apache.iceberg.io">CloseableIterator</a>&lt;T&gt;)</li>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/FindFiles.html" title="class in org.apache.iceberg"><span class="typeNameLink">FindFiles</span></a></li>
@@ -666,6 +664,7 @@
 <li type="circle">org.apache.iceberg.flink.sink.<a href="org/apache/iceberg/flink/sink/FlinkSink.Builder.html" title="class in org.apache.iceberg.flink.sink"><span class="typeNameLink">FlinkSink.Builder</span></a></li>
 <li type="circle">org.apache.iceberg.flink.source.<a href="org/apache/iceberg/flink/source/FlinkSource.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">FlinkSource</span></a></li>
 <li type="circle">org.apache.iceberg.flink.source.<a href="org/apache/iceberg/flink/source/FlinkSource.Builder.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">FlinkSource.Builder</span></a></li>
+<li type="circle">org.apache.iceberg.flink.<a href="org/apache/iceberg/flink/FlinkSourceFilter.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">FlinkSourceFilter</span></a> (implements org.apache.flink.api.common.functions.FilterFunction&lt;T&gt;)</li>
 <li type="circle">org.apache.iceberg.flink.source.<a href="org/apache/iceberg/flink/source/FlinkSplitPlanner.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">FlinkSplitPlanner</span></a></li>
 <li type="circle">org.apache.iceberg.flink.<a href="org/apache/iceberg/flink/FlinkTypeVisitor.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">FlinkTypeVisitor</span></a>&lt;T&gt; (implements org.apache.flink.table.types.logical.LogicalTypeVisitor&lt;R&gt;)</li>
 <li type="circle">org.apache.iceberg.flink.data.<a href="org/apache/iceberg/flink/data/FlinkValueReaders.html" title="class in org.apache.iceberg.flink.data"><span class="typeNameLink">FlinkValueReaders</span></a></li>
@@ -708,9 +707,11 @@
 <li type="circle">org.apache.iceberg.hive.<a href="org/apache/iceberg/hive/HiveSchemaUtil.html" title="class in org.apache.iceberg.hive"><span class="typeNameLink">HiveSchemaUtil</span></a></li>
 <li type="circle">org.apache.iceberg.transforms.<a href="org/apache/iceberg/transforms/Hours.html" title="class in org.apache.iceberg.transforms"><span class="typeNameLink">Hours</span></a>&lt;T&gt;</li>
 <li type="circle">org.apache.iceberg.spark.functions.<a href="org/apache/iceberg/spark/functions/HoursFunction.html" title="class in org.apache.iceberg.spark.functions"><span class="typeNameLink">HoursFunction</span></a></li>
+<li type="circle">org.apache.iceberg.spark.functions.<a href="org/apache/iceberg/spark/functions/HoursFunction.TimestampNtzToHoursFunction.html" title="class in org.apache.iceberg.spark.functions"><span class="typeNameLink">HoursFunction.TimestampNtzToHoursFunction</span></a> (implements org.apache.spark.sql.connector.catalog.functions.ScalarFunction&lt;R&gt;)</li>
 <li type="circle">org.apache.iceberg.spark.functions.<a href="org/apache/iceberg/spark/functions/HoursFunction.TimestampToHoursFunction.html" title="class in org.apache.iceberg.spark.functions"><span class="typeNameLink">HoursFunction.TimestampToHoursFunction</span></a> (implements org.apache.spark.sql.connector.catalog.functions.ScalarFunction&lt;R&gt;)</li>
 <li type="circle">org.apache.iceberg.rest.<a href="org/apache/iceberg/rest/HTTPClient.html" title="class in org.apache.iceberg.rest"><span class="typeNameLink">HTTPClient</span></a> (implements org.apache.iceberg.rest.<a href="org/apache/iceberg/rest/RESTClient.html" title="interface in org.apache.iceberg.rest">RESTClient</a>)</li>
 <li type="circle">org.apache.iceberg.rest.<a href="org/apache/iceberg/rest/HTTPClient.Builder.html" title="class in org.apache.iceberg.rest"><span class="typeNameLink">HTTPClient.Builder</span></a></li>
+<li type="circle">org.apache.iceberg.aws.<a href="org/apache/iceberg/aws/HttpClientProperties.html" title="class in org.apache.iceberg.aws"><span class="typeNameLink">HttpClientProperties</span></a> (implements java.io.Serializable)</li>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/IcebergBuild.html" title="class in org.apache.iceberg"><span class="typeNameLink">IcebergBuild</span></a></li>
 <li type="circle">org.apache.iceberg.data.avro.<a href="org/apache/iceberg/data/avro/IcebergEncoder.html" title="class in org.apache.iceberg.data.avro"><span class="typeNameLink">IcebergEncoder</span></a>&lt;D&gt; (implements org.apache.avro.message.MessageEncoder&lt;D&gt;)</li>
 <li type="circle">org.apache.iceberg.flink.source.enumerator.<a href="org/apache/iceberg/flink/source/enumerator/IcebergEnumeratorState.html" title="class in org.apache.iceberg.flink.source.enumerator"><span class="typeNameLink">IcebergEnumeratorState</span></a> (implements java.io.Serializable)</li>
@@ -732,6 +733,9 @@
 <li type="circle">org.apache.iceberg.data.<a href="org/apache/iceberg/data/IdentityPartitionConverters.html" title="class in org.apache.iceberg.data"><span class="typeNameLink">IdentityPartitionConverters</span></a></li>
 <li type="circle">org.apache.iceberg.expressions.<a href="org/apache/iceberg/expressions/InclusiveMetricsEvaluator.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">InclusiveMetricsEvaluator</span></a></li>
 <li type="circle">org.apache.iceberg.events.<a href="org/apache/iceberg/events/IncrementalScanEvent.html" title="class in org.apache.iceberg.events"><span class="typeNameLink">IncrementalScanEvent</span></a></li>
+<li type="circle">org.apache.iceberg.inmemory.<a href="org/apache/iceberg/inmemory/InMemoryFileIO.html" title="class in org.apache.iceberg.inmemory"><span class="typeNameLink">InMemoryFileIO</span></a> (implements org.apache.iceberg.io.<a href="org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>)</li>
+<li type="circle">org.apache.iceberg.inmemory.<a href="org/apache/iceberg/inmemory/InMemoryInputFile.html" title="class in org.apache.iceberg.inmemory"><span class="typeNameLink">InMemoryInputFile</span></a> (implements org.apache.iceberg.io.<a href="org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a>)</li>
+<li type="circle">org.apache.iceberg.inmemory.<a href="org/apache/iceberg/inmemory/InMemoryOutputFile.html" title="class in org.apache.iceberg.inmemory"><span class="typeNameLink">InMemoryOutputFile</span></a> (implements org.apache.iceberg.io.<a href="org/apache/iceberg/io/OutputFile.html" title="interface in org.apache.iceberg.io">OutputFile</a>)</li>
 <li type="circle">org.apache.iceberg.encryption.<a href="org/apache/iceberg/encryption/InputFilesDecryptor.html" title="class in org.apache.iceberg.encryption"><span class="typeNameLink">InputFilesDecryptor</span></a></li>
 <li type="circle">org.apache.hadoop.mapreduce.InputFormat&lt;K,V&gt;
 <ul>
@@ -887,6 +891,7 @@
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/MetricsModes.Full.html" title="class in org.apache.iceberg"><span class="typeNameLink">MetricsModes.Full</span></a></li>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/MetricsModes.None.html" title="class in org.apache.iceberg"><span class="typeNameLink">MetricsModes.None</span></a></li>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/MetricsModes.Truncate.html" title="class in org.apache.iceberg"><span class="typeNameLink">MetricsModes.Truncate</span></a></li>
+<li type="circle">org.apache.iceberg.metrics.<a href="org/apache/iceberg/metrics/MetricsReporters.html" title="class in org.apache.iceberg.metrics"><span class="typeNameLink">MetricsReporters</span></a></li>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/MetricsUtil.html" title="class in org.apache.iceberg"><span class="typeNameLink">MetricsUtil</span></a></li>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/MetricsUtil.ReadableColMetricsStruct.html" title="class in org.apache.iceberg"><span class="typeNameLink">MetricsUtil.ReadableColMetricsStruct</span></a> (implements org.apache.iceberg.<a href="org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>)</li>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/MetricsUtil.ReadableMetricColDefinition.html" title="class in org.apache.iceberg"><span class="typeNameLink">MetricsUtil.ReadableMetricColDefinition</span></a></li>
@@ -898,6 +903,7 @@
 <li type="circle">org.apache.iceberg.transforms.<a href="org/apache/iceberg/transforms/Months.html" title="class in org.apache.iceberg.transforms"><span class="typeNameLink">Months</span></a>&lt;T&gt;</li>
 <li type="circle">org.apache.iceberg.spark.functions.<a href="org/apache/iceberg/spark/functions/MonthsFunction.html" title="class in org.apache.iceberg.spark.functions"><span class="typeNameLink">MonthsFunction</span></a></li>
 <li type="circle">org.apache.iceberg.spark.functions.<a href="org/apache/iceberg/spark/functions/MonthsFunction.DateToMonthsFunction.html" title="class in org.apache.iceberg.spark.functions"><span class="typeNameLink">MonthsFunction.DateToMonthsFunction</span></a></li>
+<li type="circle">org.apache.iceberg.spark.functions.<a href="org/apache/iceberg/spark/functions/MonthsFunction.TimestampNtzToMonthsFunction.html" title="class in org.apache.iceberg.spark.functions"><span class="typeNameLink">MonthsFunction.TimestampNtzToMonthsFunction</span></a></li>
 <li type="circle">org.apache.iceberg.spark.functions.<a href="org/apache/iceberg/spark/functions/MonthsFunction.TimestampToMonthsFunction.html" title="class in org.apache.iceberg.spark.functions"><span class="typeNameLink">MonthsFunction.TimestampToMonthsFunction</span></a></li>
 <li type="circle">org.apache.iceberg.expressions.<a href="org/apache/iceberg/expressions/NamedReference.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">NamedReference</span></a>&lt;T&gt; (implements org.apache.iceberg.expressions.<a href="org/apache/iceberg/expressions/Reference.html" title="interface in org.apache.iceberg.expressions">Reference</a>&lt;T&gt;, org.apache.iceberg.expressions.<a href="org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;)</li>
 <li type="circle">org.apache.iceberg.mapping.<a href="org/apache/iceberg/mapping/NameMapping.html" title="class in org.apache.iceberg.mapping"><span class="typeNameLink">NameMapping</span></a> (implements java.io.Serializable)</li>
@@ -908,6 +914,7 @@
 <li type="circle">org.apache.iceberg.encryption.<a href="org/apache/iceberg/encryption/NativeFileCryptoParameters.Builder.html" title="class in org.apache.iceberg.encryption"><span class="typeNameLink">NativeFileCryptoParameters.Builder</span></a></li>
 <li type="circle">org.apache.iceberg.nessie.<a href="org/apache/iceberg/nessie/NessieIcebergClient.html" title="class in org.apache.iceberg.nessie"><span class="typeNameLink">NessieIcebergClient</span></a> (implements java.lang.AutoCloseable)</li>
 <li type="circle">org.apache.iceberg.nessie.<a href="org/apache/iceberg/nessie/NessieUtil.html" title="class in org.apache.iceberg.nessie"><span class="typeNameLink">NessieUtil</span></a></li>
+<li type="circle">org.apache.iceberg.hive.<a href="org/apache/iceberg/hive/NoLock.html" title="class in org.apache.iceberg.hive"><span class="typeNameLink">NoLock</span></a></li>
 <li type="circle">org.apache.iceberg.expressions.<a href="org/apache/iceberg/expressions/Not.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">Not</span></a> (implements org.apache.iceberg.expressions.<a href="org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>)</li>
 <li type="circle">org.apache.iceberg.arrow.vectorized.<a href="org/apache/iceberg/arrow/vectorized/NullabilityHolder.html" title="class in org.apache.iceberg.arrow.vectorized"><span class="typeNameLink">NullabilityHolder</span></a></li>
 <li type="circle">org.apache.iceberg.spark.source.metrics.<a href="org/apache/iceberg/spark/source/metrics/NumDeletes.html" title="class in org.apache.iceberg.spark.source.metrics"><span class="typeNameLink">NumDeletes</span></a> (implements org.apache.spark.sql.connector.metric.CustomMetric)</li>
@@ -1032,6 +1039,7 @@
 <li type="circle">org.apache.iceberg.pig.<a href="org/apache/iceberg/pig/PigParquetReader.html" title="class in org.apache.iceberg.pig"><span class="typeNameLink">PigParquetReader</span></a></li>
 <li type="circle">org.apache.iceberg.encryption.<a href="org/apache/iceberg/encryption/PlaintextEncryptionManager.html" title="class in org.apache.iceberg.encryption"><span class="typeNameLink">PlaintextEncryptionManager</span></a> (implements org.apache.iceberg.encryption.<a href="org/apache/iceberg/encryption/EncryptionManager.html" title="interface in org.apache.iceberg.encryption">EncryptionManager</a>)</li>
 <li type="circle">org.apache.iceberg.deletes.<a href="org/apache/iceberg/deletes/PositionDelete.html" title="class in org.apache.iceberg.deletes"><span class="typeNameLink">PositionDelete</span></a>&lt;R&gt; (implements org.apache.iceberg.<a href="org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>)</li>
+<li type="circle">org.apache.iceberg.spark.<a href="org/apache/iceberg/spark/PositionDeletesRewriteCoordinator.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">PositionDeletesRewriteCoordinator</span></a></li>
 <li type="circle">org.apache.iceberg.deletes.<a href="org/apache/iceberg/deletes/PositionDeleteWriter.html" title="class in org.apache.iceberg.deletes"><span class="typeNameLink">PositionDeleteWriter</span></a>&lt;T&gt; (implements org.apache.iceberg.io.<a href="org/apache/iceberg/io/FileWriter.html" title="interface in org.apache.iceberg.io">FileWriter</a>&lt;T,R&gt;)</li>
 <li type="circle">org.apache.iceberg.expressions.<a href="org/apache/iceberg/expressions/Predicate.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">Predicate</span></a>&lt;T,C&gt; (implements org.apache.iceberg.expressions.<a href="org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>)
 <ul>
@@ -1086,12 +1094,18 @@
 <li type="circle">org.apache.iceberg.rest.<a href="org/apache/iceberg/rest/RESTSerializers.html" title="class in org.apache.iceberg.rest"><span class="typeNameLink">RESTSerializers</span></a></li>
 <li type="circle">org.apache.iceberg.aws.<a href="org/apache/iceberg/aws/RESTSigV4Signer.html" title="class in org.apache.iceberg.aws"><span class="typeNameLink">RESTSigV4Signer</span></a> (implements org.apache.hc.core5.http.HttpRequestInterceptor)</li>
 <li type="circle">org.apache.iceberg.rest.<a href="org/apache/iceberg/rest/RESTUtil.html" title="class in org.apache.iceberg.rest"><span class="typeNameLink">RESTUtil</span></a></li>
+<li type="circle">org.apache.iceberg.aws.util.<a href="org/apache/iceberg/aws/util/RetryDetector.html" title="class in org.apache.iceberg.aws.util"><span class="typeNameLink">RetryDetector</span></a> (implements software.amazon.awssdk.metrics.MetricPublisher)</li>
 <li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/RewriteDataFilesActionResult.html" title="class in org.apache.iceberg.actions"><span class="typeNameLink">RewriteDataFilesActionResult</span></a></li>
 <li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/RewriteDataFilesCommitManager.html" title="class in org.apache.iceberg.actions"><span class="typeNameLink">RewriteDataFilesCommitManager</span></a></li>
-<li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/RewriteDataFilesCommitManager.CommitService.html" title="class in org.apache.iceberg.actions"><span class="typeNameLink">RewriteDataFilesCommitManager.CommitService</span></a> (implements java.io.Closeable)</li>
+<li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/RewriteDataFilesCommitManager.CommitService.html" title="class in org.apache.iceberg.actions"><span class="typeNameLink">RewriteDataFilesCommitManager.CommitService</span></a></li>
 <li type="circle">org.apache.iceberg.spark.actions.<a href="org/apache/iceberg/spark/actions/RewriteDataFilesSparkAction.html" title="class in org.apache.iceberg.spark.actions"><span class="typeNameLink">RewriteDataFilesSparkAction</span></a> (implements org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/RewriteDataFiles.html" title="interface in org.apache.iceberg.actions">RewriteDataFiles</a>)</li>
 <li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/RewriteFileGroup.html" title="class in org.apache.iceberg.actions"><span class="typeNameLink">RewriteFileGroup</span></a></li>
 <li type="circle">org.apache.iceberg.spark.actions.<a href="org/apache/iceberg/spark/actions/RewriteManifestsSparkAction.html" title="class in org.apache.iceberg.spark.actions"><span class="typeNameLink">RewriteManifestsSparkAction</span></a> (implements org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/RewriteManifests.html" title="interface in org.apache.iceberg.actions">RewriteManifests</a>)</li>
+<li type="circle">org.apache.iceberg.spark.procedures.<a href="org/apache/iceberg/spark/procedures/RewritePositionDeleteFilesProcedure.html" title="class in org.apache.iceberg.spark.procedures"><span class="typeNameLink">RewritePositionDeleteFilesProcedure</span></a></li>
+<li type="circle">org.apache.iceberg.spark.actions.<a href="org/apache/iceberg/spark/actions/RewritePositionDeleteFilesSparkAction.html" title="class in org.apache.iceberg.spark.actions"><span class="typeNameLink">RewritePositionDeleteFilesSparkAction</span></a> (implements org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/RewritePositionDeleteFiles.html" title="interface in org.apache.iceberg.actions">RewritePositionDeleteFiles</a>)</li>
+<li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/RewritePositionDeletesCommitManager.html" title="class in org.apache.iceberg.actions"><span class="typeNameLink">RewritePositionDeletesCommitManager</span></a></li>
+<li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/RewritePositionDeletesCommitManager.CommitService.html" title="class in org.apache.iceberg.actions"><span class="typeNameLink">RewritePositionDeletesCommitManager.CommitService</span></a></li>
+<li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/RewritePositionDeletesGroup.html" title="class in org.apache.iceberg.actions"><span class="typeNameLink">RewritePositionDeletesGroup</span></a></li>
 <li type="circle">org.apache.flink.api.common.io.RichInputFormat&lt;OT,T&gt; (implements org.apache.flink.api.common.io.InputFormat&lt;OT,T&gt;)
 <ul>
 <li type="circle">org.apache.iceberg.flink.source.<a href="org/apache/iceberg/flink/source/FlinkInputFormat.html" title="class in org.apache.iceberg.flink.source"><span class="typeNameLink">FlinkInputFormat</span></a></li>
@@ -1198,6 +1212,8 @@
 </ul>
 </li>
 <li type="circle">org.apache.iceberg.aws.s3.<a href="org/apache/iceberg/aws/s3/S3FileIO.html" title="class in org.apache.iceberg.aws.s3"><span class="typeNameLink">S3FileIO</span></a> (implements org.apache.iceberg.io.<a href="org/apache/iceberg/io/CredentialSupplier.html" title="interface in org.apache.iceberg.io">CredentialSupplier</a>, org.apache.iceberg.io.<a href="org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>, org.apache.iceberg.io.<a href="org/apache/iceberg/io/SupportsBulkOperations.html" title="interface in org.apache.iceberg.io">SupportsBulkOperations</a>, org.apache.iceberg.io.<a href="org/apache/iceberg/io/SupportsPrefixOperations.html" title="interface in org.apache.iceberg.io">SupportsPrefixOperations</a>)</li>
+<li type="circle">org.apache.iceberg.aws.<a href="org/apache/iceberg/aws/S3FileIOAwsClientFactories.html" title="class in org.apache.iceberg.aws"><span class="typeNameLink">S3FileIOAwsClientFactories</span></a></li>
+<li type="circle">org.apache.iceberg.aws.s3.<a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3"><span class="typeNameLink">S3FileIOProperties</span></a> (implements java.io.Serializable)</li>
 <li type="circle">org.apache.iceberg.aws.s3.<a href="org/apache/iceberg/aws/s3/S3InputFile.html" title="class in org.apache.iceberg.aws.s3"><span class="typeNameLink">S3InputFile</span></a> (implements org.apache.iceberg.io.<a href="org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a>, org.apache.iceberg.encryption.<a href="org/apache/iceberg/encryption/NativelyEncryptedFile.html" title="interface in org.apache.iceberg.encryption">NativelyEncryptedFile</a>)</li>
 <li type="circle">org.apache.iceberg.aws.s3.signer.<a href="org/apache/iceberg/aws/s3/signer/S3ObjectMapper.html" title="class in org.apache.iceberg.aws.s3.signer"><span class="typeNameLink">S3ObjectMapper</span></a></li>
 <li type="circle">org.apache.iceberg.aws.s3.<a href="org/apache/iceberg/aws/s3/S3OutputFile.html" title="class in org.apache.iceberg.aws.s3"><span class="typeNameLink">S3OutputFile</span></a> (implements org.apache.iceberg.encryption.<a href="org/apache/iceberg/encryption/NativelyEncryptedFile.html" title="interface in org.apache.iceberg.encryption">NativelyEncryptedFile</a>, org.apache.iceberg.io.<a href="org/apache/iceberg/io/OutputFile.html" title="interface in org.apache.iceberg.io">OutputFile</a>)</li>
@@ -1240,6 +1256,12 @@
 <li type="circle">org.apache.iceberg.flink.source.assigner.<a href="org/apache/iceberg/flink/source/assigner/SimpleSplitAssigner.html" title="class in org.apache.iceberg.flink.source.assigner"><span class="typeNameLink">SimpleSplitAssigner</span></a> (implements org.apache.iceberg.flink.source.assigner.<a href="org/apache/iceberg/flink/source/assigner/SplitAssigner.html" title="interface in org.apache.iceberg.flink.source.assigner">SplitAssigner</a>)</li>
 <li type="circle">org.apache.iceberg.flink.source.assigner.<a href="org/apache/iceberg/flink/source/assigner/SimpleSplitAssignerFactory.html" title="class in org.apache.iceberg.flink.source.assigner"><span class="typeNameLink">SimpleSplitAssignerFactory</span></a> (implements org.apache.iceberg.flink.source.assigner.<a href="org/apache/iceberg/flink/source/assigner/SplitAssignerFactory.html" title="interface in org.apache.iceberg.flink.source.assigner">SplitAssignerFactory</a>)</li>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/SingleValueParser.html" title="class in org.apache.iceberg"><span class="typeNameLink">SingleValueParser</span></a></li>
+<li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/SizeBasedFileRewriter.html" title="class in org.apache.iceberg.actions"><span class="typeNameLink">SizeBasedFileRewriter</span></a>&lt;T,F&gt; (implements org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/FileRewriter.html" title="interface in org.apache.iceberg.actions">FileRewriter</a>&lt;T,F&gt;)
+<ul>
+<li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/SizeBasedDataRewriter.html" title="class in org.apache.iceberg.actions"><span class="typeNameLink">SizeBasedDataRewriter</span></a></li>
+<li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/SizeBasedPositionDeletesRewriter.html" title="class in org.apache.iceberg.actions"><span class="typeNameLink">SizeBasedPositionDeletesRewriter</span></a></li>
+</ul>
+</li>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/SnapshotIdGeneratorUtil.html" title="class in org.apache.iceberg"><span class="typeNameLink">SnapshotIdGeneratorUtil</span></a></li>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/SnapshotManager.html" title="class in org.apache.iceberg"><span class="typeNameLink">SnapshotManager</span></a> (implements org.apache.iceberg.<a href="org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a>)</li>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/SnapshotParser.html" title="class in org.apache.iceberg"><span class="typeNameLink">SnapshotParser</span></a></li>
@@ -1285,19 +1307,22 @@
 <li type="circle">org.apache.iceberg.spark.data.<a href="org/apache/iceberg/spark/data/SparkAvroWriter.html" title="class in org.apache.iceberg.spark.data"><span class="typeNameLink">SparkAvroWriter</span></a> (implements org.apache.iceberg.avro.<a href="org/apache/iceberg/avro/MetricsAwareDatumWriter.html" title="interface in org.apache.iceberg.avro">MetricsAwareDatumWriter</a>&lt;D&gt;)</li>
 <li type="circle">org.apache.iceberg.spark.<a href="org/apache/iceberg/spark/SparkCachedTableCatalog.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">SparkCachedTableCatalog</span></a> (implements org.apache.spark.sql.connector.catalog.TableCatalog)</li>
 <li type="circle">org.apache.iceberg.spark.<a href="org/apache/iceberg/spark/SparkCatalog.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">SparkCatalog</span></a></li>
-<li type="circle">org.apache.iceberg.spark.source.<a href="org/apache/iceberg/spark/source/SparkChangelogTable.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">SparkChangelogTable</span></a> (implements org.apache.spark.sql.connector.catalog.SupportsRead, org.apache.spark.sql.connector.catalog.Table)</li>
+<li type="circle">org.apache.iceberg.spark.source.<a href="org/apache/iceberg/spark/source/SparkChangelogTable.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">SparkChangelogTable</span></a> (implements org.apache.spark.sql.connector.catalog.SupportsMetadataColumns, org.apache.spark.sql.connector.catalog.SupportsRead, org.apache.spark.sql.connector.catalog.Table)</li>
 <li type="circle">org.apache.iceberg.spark.<a href="org/apache/iceberg/spark/SparkDataFile.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">SparkDataFile</span></a> (implements org.apache.iceberg.<a href="org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>)</li>
-<li type="circle">org.apache.iceberg.spark.<a href="org/apache/iceberg/spark/SparkDistributionAndOrderingUtil.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">SparkDistributionAndOrderingUtil</span></a></li>
 <li type="circle">org.apache.iceberg.spark.<a href="org/apache/iceberg/spark/SparkExceptionUtil.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">SparkExceptionUtil</span></a></li>
 <li type="circle">org.apache.iceberg.spark.<a href="org/apache/iceberg/spark/SparkFilters.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">SparkFilters</span></a></li>
+<li type="circle">org.apache.iceberg.spark.<a href="org/apache/iceberg/spark/SparkFunctionCatalog.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">SparkFunctionCatalog</span></a></li>
 <li type="circle">org.apache.iceberg.spark.functions.<a href="org/apache/iceberg/spark/functions/SparkFunctions.html" title="class in org.apache.iceberg.spark.functions"><span class="typeNameLink">SparkFunctions</span></a></li>
 <li type="circle">org.apache.iceberg.spark.source.<a href="org/apache/iceberg/spark/source/SparkMetadataColumn.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">SparkMetadataColumn</span></a> (implements org.apache.spark.sql.connector.catalog.MetadataColumn)</li>
-<li type="circle">org.apache.iceberg.spark.source.<a href="org/apache/iceberg/spark/source/SparkMicroBatchStream.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">SparkMicroBatchStream</span></a> (implements org.apache.spark.sql.connector.read.streaming.MicroBatchStream)</li>
+<li type="circle">org.apache.iceberg.spark.source.<a href="org/apache/iceberg/spark/source/SparkMicroBatchStream.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">SparkMicroBatchStream</span></a> (implements org.apache.spark.sql.connector.read.streaming.MicroBatchStream, org.apache.spark.sql.connector.read.streaming.SupportsAdmissionControl)</li>
 <li type="circle">org.apache.iceberg.spark.data.<a href="org/apache/iceberg/spark/data/SparkOrcReader.html" title="class in org.apache.iceberg.spark.data"><span class="typeNameLink">SparkOrcReader</span></a> (implements org.apache.iceberg.orc.<a href="org/apache/iceberg/orc/OrcRowReader.html" title="interface in org.apache.iceberg.orc">OrcRowReader</a>&lt;T&gt;)</li>
 <li type="circle">org.apache.iceberg.spark.data.<a href="org/apache/iceberg/spark/data/SparkOrcValueReaders.html" title="class in org.apache.iceberg.spark.data"><span class="typeNameLink">SparkOrcValueReaders</span></a></li>
 <li type="circle">org.apache.iceberg.spark.data.<a href="org/apache/iceberg/spark/data/SparkOrcWriter.html" title="class in org.apache.iceberg.spark.data"><span class="typeNameLink">SparkOrcWriter</span></a> (implements org.apache.iceberg.orc.<a href="org/apache/iceberg/orc/OrcRowWriter.html" title="interface in org.apache.iceberg.orc">OrcRowWriter</a>&lt;T&gt;)</li>
 <li type="circle">org.apache.iceberg.spark.data.<a href="org/apache/iceberg/spark/data/SparkParquetReaders.html" title="class in org.apache.iceberg.spark.data"><span class="typeNameLink">SparkParquetReaders</span></a></li>
 <li type="circle">org.apache.iceberg.spark.data.<a href="org/apache/iceberg/spark/data/SparkParquetWriters.html" title="class in org.apache.iceberg.spark.data"><span class="typeNameLink">SparkParquetWriters</span></a></li>
+<li type="circle">org.apache.iceberg.spark.source.<a href="org/apache/iceberg/spark/source/SparkPositionDeletesRewrite.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">SparkPositionDeletesRewrite</span></a> (implements org.apache.spark.sql.connector.write.Write)</li>
+<li type="circle">org.apache.iceberg.spark.source.<a href="org/apache/iceberg/spark/source/SparkPositionDeletesRewrite.DeleteTaskCommit.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">SparkPositionDeletesRewrite.DeleteTaskCommit</span></a> (implements org.apache.spark.sql.connector.write.WriterCommitMessage)</li>
+<li type="circle">org.apache.iceberg.spark.source.<a href="org/apache/iceberg/spark/source/SparkPositionDeletesRewriteBuilder.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">SparkPositionDeletesRewriteBuilder</span></a> (implements org.apache.spark.sql.connector.write.WriteBuilder)</li>
 <li type="circle">org.apache.iceberg.spark.procedures.<a href="org/apache/iceberg/spark/procedures/SparkProcedures.html" title="class in org.apache.iceberg.spark.procedures"><span class="typeNameLink">SparkProcedures</span></a></li>
 <li type="circle">org.apache.iceberg.spark.<a href="org/apache/iceberg/spark/SparkReadConf.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">SparkReadConf</span></a></li>
 <li type="circle">org.apache.iceberg.spark.<a href="org/apache/iceberg/spark/SparkReadOptions.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">SparkReadOptions</span></a></li>
@@ -1321,6 +1346,8 @@
 <li type="circle">org.apache.iceberg.spark.data.<a href="org/apache/iceberg/spark/data/SparkValueWriters.html" title="class in org.apache.iceberg.spark.data"><span class="typeNameLink">SparkValueWriters</span></a></li>
 <li type="circle">org.apache.iceberg.spark.<a href="org/apache/iceberg/spark/SparkWriteConf.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">SparkWriteConf</span></a></li>
 <li type="circle">org.apache.iceberg.spark.<a href="org/apache/iceberg/spark/SparkWriteOptions.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">SparkWriteOptions</span></a></li>
+<li type="circle">org.apache.iceberg.spark.<a href="org/apache/iceberg/spark/SparkWriteRequirements.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">SparkWriteRequirements</span></a></li>
+<li type="circle">org.apache.iceberg.spark.<a href="org/apache/iceberg/spark/SparkWriteUtil.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">SparkWriteUtil</span></a></li>
 <li type="circle">org.apache.iceberg.flink.source.split.<a href="org/apache/iceberg/flink/source/split/SplitRequestEvent.html" title="class in org.apache.iceberg.flink.source.split"><span class="typeNameLink">SplitRequestEvent</span></a> (implements org.apache.flink.api.connector.source.SourceEvent)</li>
 <li type="circle">org.apache.iceberg.puffin.<a href="org/apache/iceberg/puffin/StandardBlobTypes.html" title="class in org.apache.iceberg.puffin"><span class="typeNameLink">StandardBlobTypes</span></a></li>
 <li type="circle">org.apache.iceberg.puffin.<a href="org/apache/iceberg/puffin/StandardPuffinProperties.html" title="class in org.apache.iceberg.puffin"><span class="typeNameLink">StandardPuffinProperties</span></a></li>
@@ -1539,6 +1566,7 @@
 <li type="circle">org.apache.iceberg.arrow.vectorized.parquet.<a href="org/apache/iceberg/arrow/vectorized/parquet/VectorizedColumnIterator.IntegerBatchReader.html" title="class in org.apache.iceberg.arrow.vectorized.parquet"><span class="typeNameLink">VectorizedColumnIterator.IntegerBatchReader</span></a></li>
 <li type="circle">org.apache.iceberg.arrow.vectorized.parquet.<a href="org/apache/iceberg/arrow/vectorized/parquet/VectorizedColumnIterator.LongBackedDecimalBatchReader.html" title="class in org.apache.iceberg.arrow.vectorized.parquet"><span class="typeNameLink">VectorizedColumnIterator.LongBackedDecimalBatchReader</span></a></li>
 <li type="circle">org.apache.iceberg.arrow.vectorized.parquet.<a href="org/apache/iceberg/arrow/vectorized/parquet/VectorizedColumnIterator.LongBatchReader.html" title="class in org.apache.iceberg.arrow.vectorized.parquet"><span class="typeNameLink">VectorizedColumnIterator.LongBatchReader</span></a></li>
+<li type="circle">org.apache.iceberg.arrow.vectorized.parquet.<a href="org/apache/iceberg/arrow/vectorized/parquet/VectorizedColumnIterator.TimestampInt96BatchReader.html" title="class in org.apache.iceberg.arrow.vectorized.parquet"><span class="typeNameLink">VectorizedColumnIterator.TimestampInt96BatchReader</span></a></li>
 <li type="circle">org.apache.iceberg.arrow.vectorized.parquet.<a href="org/apache/iceberg/arrow/vectorized/parquet/VectorizedColumnIterator.TimestampMillisBatchReader.html" title="class in org.apache.iceberg.arrow.vectorized.parquet"><span class="typeNameLink">VectorizedColumnIterator.TimestampMillisBatchReader</span></a></li>
 <li type="circle">org.apache.iceberg.arrow.vectorized.parquet.<a href="org/apache/iceberg/arrow/vectorized/parquet/VectorizedColumnIterator.VarWidthTypeBatchReader.html" title="class in org.apache.iceberg.arrow.vectorized.parquet"><span class="typeNameLink">VectorizedColumnIterator.VarWidthTypeBatchReader</span></a></li>
 </ul>
@@ -1553,6 +1581,7 @@
 <li type="circle">org.apache.iceberg.io.<a href="org/apache/iceberg/io/WriteResult.Builder.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">WriteResult.Builder</span></a></li>
 <li type="circle">org.apache.iceberg.spark.functions.<a href="org/apache/iceberg/spark/functions/YearsFunction.html" title="class in org.apache.iceberg.spark.functions"><span class="typeNameLink">YearsFunction</span></a></li>
 <li type="circle">org.apache.iceberg.spark.functions.<a href="org/apache/iceberg/spark/functions/YearsFunction.DateToYearsFunction.html" title="class in org.apache.iceberg.spark.functions"><span class="typeNameLink">YearsFunction.DateToYearsFunction</span></a></li>
+<li type="circle">org.apache.iceberg.spark.functions.<a href="org/apache/iceberg/spark/functions/YearsFunction.TimestampNtzToYearsFunction.html" title="class in org.apache.iceberg.spark.functions"><span class="typeNameLink">YearsFunction.TimestampNtzToYearsFunction</span></a></li>
 <li type="circle">org.apache.iceberg.spark.functions.<a href="org/apache/iceberg/spark/functions/YearsFunction.TimestampToYearsFunction.html" title="class in org.apache.iceberg.spark.functions"><span class="typeNameLink">YearsFunction.TimestampToYearsFunction</span></a></li>
 <li type="circle">org.apache.iceberg.expressions.<a href="org/apache/iceberg/expressions/Zorder.html" title="class in org.apache.iceberg.expressions"><span class="typeNameLink">Zorder</span></a> (implements org.apache.iceberg.expressions.<a href="org/apache/iceberg/expressions/Term.html" title="interface in org.apache.iceberg.expressions">Term</a>)</li>
 <li type="circle">org.apache.iceberg.util.<a href="org/apache/iceberg/util/ZOrderByteUtils.html" title="class in org.apache.iceberg.util"><span class="typeNameLink">ZOrderByteUtils</span></a></li>
@@ -1592,11 +1621,6 @@
 <li type="circle">org.apache.iceberg.io.<a href="org/apache/iceberg/io/CloseableIterable.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">CloseableIterable</span></a>&lt;T&gt; (also extends java.lang.Iterable&lt;T&gt;)</li>
 <li type="circle">org.apache.iceberg.io.<a href="org/apache/iceberg/io/CloseableIterator.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">CloseableIterator</span></a>&lt;T&gt; (also extends java.util.Iterator&lt;E&gt;)</li>
 <li type="circle">org.apache.iceberg.flink.source.enumerator.<a href="org/apache/iceberg/flink/source/enumerator/ContinuousSplitPlanner.html" title="interface in org.apache.iceberg.flink.source.enumerator"><span class="typeNameLink">ContinuousSplitPlanner</span></a></li>
-<li type="circle">org.apache.spark.sql.connector.write.DataWriter&lt;T&gt;
-<ul>
-<li type="circle">org.apache.spark.sql.connector.iceberg.write.<a href="org/apache/spark/sql/connector/iceberg/write/DeltaWriter.html" title="interface in org.apache.spark.sql.connector.iceberg.write"><span class="typeNameLink">DeltaWriter</span></a>&lt;T&gt;</li>
-</ul>
-</li>
 <li type="circle">org.apache.iceberg.io.<a href="org/apache/iceberg/io/EqualityDeltaWriter.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">EqualityDeltaWriter</span></a>&lt;T&gt;</li>
 <li type="circle">org.apache.iceberg.io.<a href="org/apache/iceberg/io/FileAppender.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">FileAppender</span></a>&lt;D&gt;</li>
 <li type="circle">org.apache.iceberg.io.<a href="org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">FileIO</span></a> (also extends java.io.Serializable)
@@ -1611,17 +1635,12 @@
 <li type="circle">org.apache.iceberg.io.<a href="org/apache/iceberg/io/RangeReadable.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">RangeReadable</span></a></li>
 <li type="circle">org.apache.iceberg.rest.<a href="org/apache/iceberg/rest/RESTClient.html" title="interface in org.apache.iceberg.rest"><span class="typeNameLink">RESTClient</span></a></li>
 <li type="circle">org.apache.iceberg.flink.source.assigner.<a href="org/apache/iceberg/flink/source/assigner/SplitAssigner.html" title="interface in org.apache.iceberg.flink.source.assigner"><span class="typeNameLink">SplitAssigner</span></a></li>
-<li type="circle">org.apache.iceberg.flink.<a href="org/apache/iceberg/flink/TableLoader.html" title="interface in org.apache.iceberg.flink"><span class="typeNameLink">TableLoader</span></a> (also extends java.io.Serializable)</li>
+<li type="circle">org.apache.iceberg.flink.<a href="org/apache/iceberg/flink/TableLoader.html" title="interface in org.apache.iceberg.flink"><span class="typeNameLink">TableLoader</span></a> (also extends java.lang.Cloneable, java.io.Serializable)</li>
 <li type="circle">org.apache.iceberg.io.<a href="org/apache/iceberg/io/TaskWriter.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">TaskWriter</span></a>&lt;T&gt;</li>
 </ul>
 </li>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/LockManager.html" title="interface in org.apache.iceberg"><span class="typeNameLink">LockManager</span></a></li>
 <li type="circle">org.apache.iceberg.metrics.<a href="org/apache/iceberg/metrics/Timer.Timed.html" title="interface in org.apache.iceberg.metrics"><span class="typeNameLink">Timer.Timed</span></a></li>
-</ul>
-</li>
-<li type="circle">org.apache.spark.sql.connector.write.BatchWrite
-<ul>
-<li type="circle">org.apache.spark.sql.connector.iceberg.write.<a href="org/apache/spark/sql/connector/iceberg/write/DeltaBatchWrite.html" title="interface in org.apache.spark.sql.connector.iceberg.write"><span class="typeNameLink">DeltaBatchWrite</span></a></li>
 </ul>
 </li>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/BlobMetadata.html" title="interface in org.apache.iceberg"><span class="typeNameLink">BlobMetadata</span></a></li>
@@ -1644,6 +1663,12 @@
 </li>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/ClientPool.html" title="interface in org.apache.iceberg"><span class="typeNameLink">ClientPool</span></a>&lt;C,E&gt;</li>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/ClientPool.Action.html" title="interface in org.apache.iceberg"><span class="typeNameLink">ClientPool.Action</span></a>&lt;R,C,E&gt;</li>
+<li type="circle">java.lang.Cloneable
+<ul>
+<li type="circle">org.apache.iceberg.flink.<a href="org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink"><span class="typeNameLink">CatalogLoader</span></a> (also extends java.io.Serializable)</li>
+<li type="circle">org.apache.iceberg.flink.<a href="org/apache/iceberg/flink/TableLoader.html" title="interface in org.apache.iceberg.flink"><span class="typeNameLink">TableLoader</span></a> (also extends java.io.Closeable, java.io.Serializable)</li>
+</ul>
+</li>
 <li type="circle">org.apache.iceberg.metrics.<a href="org/apache/iceberg/metrics/CommitMetricsResult.html" title="interface in org.apache.iceberg.metrics"><span class="typeNameLink">CommitMetricsResult</span></a></li>
 <li type="circle">org.apache.hadoop.conf.Configurable
 <ul>
@@ -1680,6 +1705,7 @@
 <li type="circle">org.apache.iceberg.util.<a href="org/apache/iceberg/util/ExceptionUtil.FinallyBlock.html" title="interface in org.apache.iceberg.util"><span class="typeNameLink">ExceptionUtil.FinallyBlock</span></a></li>
 <li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/ExpireSnapshots.Result.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">ExpireSnapshots.Result</span></a></li>
 <li type="circle">org.apache.iceberg.io.<a href="org/apache/iceberg/io/FileAppenderFactory.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">FileAppenderFactory</span></a>&lt;T&gt;</li>
+<li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/FileRewriter.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">FileRewriter</span></a>&lt;T,F&gt;</li>
 <li type="circle">org.apache.iceberg.io.<a href="org/apache/iceberg/io/FileWriterFactory.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">FileWriterFactory</span></a>&lt;T&gt;</li>
 <li type="circle">java.util.function.Function&lt;T,R&gt;
 <ul>
@@ -1710,11 +1736,6 @@
 <li type="circle">org.apache.iceberg.util.<a href="org/apache/iceberg/util/JsonUtil.FromJson.html" title="interface in org.apache.iceberg.util"><span class="typeNameLink">JsonUtil.FromJson</span></a>&lt;T&gt;</li>
 <li type="circle">org.apache.iceberg.util.<a href="org/apache/iceberg/util/JsonUtil.ToJson.html" title="interface in org.apache.iceberg.util"><span class="typeNameLink">JsonUtil.ToJson</span></a></li>
 <li type="circle">org.apache.iceberg.events.<a href="org/apache/iceberg/events/Listener.html" title="interface in org.apache.iceberg.events"><span class="typeNameLink">Listener</span></a>&lt;E&gt;</li>
-<li type="circle">org.apache.spark.sql.connector.write.LogicalWriteInfo
-<ul>
-<li type="circle">org.apache.spark.sql.connector.iceberg.write.<a href="org/apache/spark/sql/connector/iceberg/write/ExtendedLogicalWriteInfo.html" title="interface in org.apache.spark.sql.connector.iceberg.write"><span class="typeNameLink">ExtendedLogicalWriteInfo</span></a></li>
-</ul>
-</li>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg"><span class="typeNameLink">ManifestFile</span></a></li>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/ManifestFile.PartitionFieldSummary.html" title="interface in org.apache.iceberg"><span class="typeNameLink">ManifestFile.PartitionFieldSummary</span></a></li>
 <li type="circle">org.apache.iceberg.metrics.<a href="org/apache/iceberg/metrics/MetricsContext.Counter.html" title="interface in org.apache.iceberg.metrics"><span class="typeNameLink">MetricsContext.Counter</span></a>&lt;T&gt;</li>
@@ -1805,17 +1826,15 @@
 <li type="circle">org.apache.iceberg.aws.s3.signer.<a href="org/apache/iceberg/aws/s3/signer/S3SignResponse.html" title="interface in org.apache.iceberg.aws.s3.signer"><span class="typeNameLink">S3SignResponse</span></a></li>
 </ul>
 </li>
+<li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/RewriteDataFiles.FileGroupFailureResult.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">RewriteDataFiles.FileGroupFailureResult</span></a></li>
 <li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/RewriteDataFiles.FileGroupInfo.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">RewriteDataFiles.FileGroupInfo</span></a></li>
 <li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/RewriteDataFiles.FileGroupRewriteResult.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">RewriteDataFiles.FileGroupRewriteResult</span></a></li>
 <li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/RewriteDataFiles.Result.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">RewriteDataFiles.Result</span></a></li>
 <li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/RewriteManifests.Result.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">RewriteManifests.Result</span></a></li>
+<li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/RewritePositionDeleteFiles.FileGroupInfo.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">RewritePositionDeleteFiles.FileGroupInfo</span></a></li>
+<li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/RewritePositionDeleteFiles.FileGroupRewriteResult.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">RewritePositionDeleteFiles.FileGroupRewriteResult</span></a></li>
 <li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/RewritePositionDeleteFiles.Result.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">RewritePositionDeleteFiles.Result</span></a></li>
 <li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/RewritePositionDeleteStrategy.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">RewritePositionDeleteStrategy</span></a></li>
-<li type="circle">org.apache.spark.sql.connector.write.RowLevelOperation
-<ul>
-<li type="circle">org.apache.spark.sql.connector.iceberg.write.<a href="org/apache/spark/sql/connector/iceberg/write/SupportsDelta.html" title="interface in org.apache.spark.sql.connector.iceberg.write"><span class="typeNameLink">SupportsDelta</span></a></li>
-</ul>
-</li>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/Scan.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Scan</span></a>&lt;ThisT,T,G&gt;
 <ul>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/BatchScan.html" title="interface in org.apache.iceberg"><span class="typeNameLink">BatchScan</span></a></li>
@@ -1837,13 +1856,8 @@
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/Accessor.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Accessor</span></a>&lt;T&gt;</li>
 <li type="circle">org.apache.iceberg.aliyun.<a href="org/apache/iceberg/aliyun/AliyunClientFactory.html" title="interface in org.apache.iceberg.aliyun"><span class="typeNameLink">AliyunClientFactory</span></a></li>
 <li type="circle">org.apache.iceberg.aws.<a href="org/apache/iceberg/aws/AwsClientFactory.html" title="interface in org.apache.iceberg.aws"><span class="typeNameLink">AwsClientFactory</span></a></li>
-<li type="circle">org.apache.iceberg.flink.<a href="org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink"><span class="typeNameLink">CatalogLoader</span></a></li>
+<li type="circle">org.apache.iceberg.flink.<a href="org/apache/iceberg/flink/CatalogLoader.html" title="interface in org.apache.iceberg.flink"><span class="typeNameLink">CatalogLoader</span></a> (also extends java.lang.Cloneable)</li>
 <li type="circle">org.apache.iceberg.flink.source.reader.<a href="org/apache/iceberg/flink/source/reader/DataIteratorBatcher.html" title="interface in org.apache.iceberg.flink.source.reader"><span class="typeNameLink">DataIteratorBatcher</span></a>&lt;T&gt;</li>
-<li type="circle">org.apache.spark.sql.connector.write.DataWriterFactory
-<ul>
-<li type="circle">org.apache.spark.sql.connector.iceberg.write.<a href="org/apache/spark/sql/connector/iceberg/write/DeltaWriterFactory.html" title="interface in org.apache.spark.sql.connector.iceberg.write"><span class="typeNameLink">DeltaWriterFactory</span></a></li>
-</ul>
-</li>
 <li type="circle">org.apache.iceberg.dell.<a href="org/apache/iceberg/dell/DellClientFactory.html" title="interface in org.apache.iceberg.dell"><span class="typeNameLink">DellClientFactory</span></a></li>
 <li type="circle">org.apache.iceberg.encryption.<a href="org/apache/iceberg/encryption/EncryptionManager.html" title="interface in org.apache.iceberg.encryption"><span class="typeNameLink">EncryptionManager</span></a></li>
 <li type="circle">org.apache.iceberg.expressions.<a href="org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions"><span class="typeNameLink">Expression</span></a></li>
@@ -1867,6 +1881,7 @@
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/MetricsModes.MetricsMode.html" title="interface in org.apache.iceberg"><span class="typeNameLink">MetricsModes.MetricsMode</span></a></li>
 <li type="circle">org.apache.iceberg.flink.source.reader.<a href="org/apache/iceberg/flink/source/reader/ReaderFunction.html" title="interface in org.apache.iceberg.flink.source.reader"><span class="typeNameLink">ReaderFunction</span></a>&lt;T&gt; (also extends java.util.function.Function&lt;T,R&gt;)</li>
 <li type="circle">org.apache.iceberg.actions.<a href="org/apache/iceberg/actions/RewriteStrategy.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">RewriteStrategy</span></a></li>
+<li type="circle">org.apache.iceberg.aws.s3.<a href="org/apache/iceberg/aws/s3/S3FileIOAwsClientFactory.html" title="interface in org.apache.iceberg.aws.s3"><span class="typeNameLink">S3FileIOAwsClientFactory</span></a></li>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/ScanTask.html" title="interface in org.apache.iceberg"><span class="typeNameLink">ScanTask</span></a>
 <ul>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/AddedRowsScanTask.html" title="interface in org.apache.iceberg"><span class="typeNameLink">AddedRowsScanTask</span></a> (also extends org.apache.iceberg.<a href="org/apache/iceberg/ChangelogScanTask.html" title="interface in org.apache.iceberg">ChangelogScanTask</a>, org.apache.iceberg.<a href="org/apache/iceberg/ContentScanTask.html" title="interface in org.apache.iceberg">ContentScanTask</a>&lt;F&gt;)</li>
@@ -1951,7 +1966,7 @@
 <li type="circle">org.apache.iceberg.util.<a href="org/apache/iceberg/util/SerializableSupplier.html" title="interface in org.apache.iceberg.util"><span class="typeNameLink">SerializableSupplier</span></a>&lt;T&gt; (also extends java.util.function.Supplier&lt;T&gt;)</li>
 <li type="circle">org.apache.iceberg.<a href="org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Snapshot</span></a></li>
 <li type="circle">org.apache.iceberg.flink.source.assigner.<a href="org/apache/iceberg/flink/source/assigner/SplitAssignerFactory.html" title="interface in org.apache.iceberg.flink.source.assigner"><span class="typeNameLink">SplitAssignerFactory</span></a></li>
-<li type="circle">org.apache.iceberg.flink.<a href="org/apache/iceberg/flink/TableLoader.html" title="interface in org.apache.iceberg.flink"><span class="typeNameLink">TableLoader</span></a> (also extends java.io.Closeable)</li>
+<li type="circle">org.apache.iceberg.flink.<a href="org/apache/iceberg/flink/TableLoader.html" title="interface in org.apache.iceberg.flink"><span class="typeNameLink">TableLoader</span></a> (also extends java.lang.Cloneable, java.io.Closeable)</li>
 <li type="circle">org.apache.iceberg.flink.sink.<a href="org/apache/iceberg/flink/sink/TaskWriterFactory.html" title="interface in org.apache.iceberg.flink.sink"><span class="typeNameLink">TaskWriterFactory</span></a>&lt;T&gt;</li>
 <li type="circle">org.apache.iceberg.expressions.<a href="org/apache/iceberg/expressions/Term.html" title="interface in org.apache.iceberg.expressions"><span class="typeNameLink">Term</span></a>
 <ul>
@@ -2017,16 +2032,6 @@
 </ul>
 </li>
 <li type="circle">org.apache.iceberg.view.<a href="org/apache/iceberg/view/ViewVersion.html" title="interface in org.apache.iceberg.view"><span class="typeNameLink">ViewVersion</span></a></li>
-<li type="circle">org.apache.spark.sql.connector.write.Write
-<ul>
-<li type="circle">org.apache.spark.sql.connector.iceberg.write.<a href="org/apache/spark/sql/connector/iceberg/write/DeltaWrite.html" title="interface in org.apache.spark.sql.connector.iceberg.write"><span class="typeNameLink">DeltaWrite</span></a></li>
-</ul>
-</li>
-<li type="circle">org.apache.spark.sql.connector.write.WriteBuilder
-<ul>
-<li type="circle">org.apache.spark.sql.connector.iceberg.write.<a href="org/apache/spark/sql/connector/iceberg/write/DeltaWriteBuilder.html" title="interface in org.apache.spark.sql.connector.iceberg.write"><span class="typeNameLink">DeltaWriteBuilder</span></a></li>
-</ul>
-</li>
 <li type="circle">org.apache.iceberg.mr.hive.serde.objectinspector.<a href="org/apache/iceberg/mr/hive/serde/objectinspector/WriteObjectInspector.html" title="interface in org.apache.iceberg.mr.hive.serde.objectinspector"><span class="typeNameLink">WriteObjectInspector</span></a></li>
 </ul>
 <h2 title="Enum Hierarchy">Enum Hierarchy</h2>

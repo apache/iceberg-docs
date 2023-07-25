@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li><a href="../../../../../org/apache/iceberg/aws/s3/S3InputFile.html" title="class in org.apache.iceberg.aws.s3"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/iceberg/aws/s3/S3FileIOAwsClientFactory.html" title="interface in org.apache.iceberg.aws.s3"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/iceberg/aws/s3/S3FileIO.html" target="_top">Frames</a></li>
@@ -147,13 +147,13 @@ implements <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="int
 </tr>
 <tr class="rowColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/s3/S3FileIO.html#S3FileIO-org.apache.iceberg.util.SerializableSupplier-">S3FileIO</a></span>(<a href="../../../../../org/apache/iceberg/util/SerializableSupplier.html" title="interface in org.apache.iceberg.util">SerializableSupplier</a>&lt;software.amazon.awssdk.services.s3.S3Client&gt;&nbsp;s3)</code>
-<div class="block">Constructor with custom s3 supplier and default AWS properties.</div>
+<div class="block">Constructor with custom s3 supplier and S3FileIO properties.</div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/s3/S3FileIO.html#S3FileIO-org.apache.iceberg.util.SerializableSupplier-org.apache.iceberg.aws.AwsProperties-">S3FileIO</a></span>(<a href="../../../../../org/apache/iceberg/util/SerializableSupplier.html" title="interface in org.apache.iceberg.util">SerializableSupplier</a>&lt;software.amazon.awssdk.services.s3.S3Client&gt;&nbsp;s3,
-        <a href="../../../../../org/apache/iceberg/aws/AwsProperties.html" title="class in org.apache.iceberg.aws">AwsProperties</a>&nbsp;awsProperties)</code>
-<div class="block">Constructor with custom s3 supplier and AWS properties.</div>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/s3/S3FileIO.html#S3FileIO-org.apache.iceberg.util.SerializableSupplier-org.apache.iceberg.aws.s3.S3FileIOProperties-">S3FileIO</a></span>(<a href="../../../../../org/apache/iceberg/util/SerializableSupplier.html" title="interface in org.apache.iceberg.util">SerializableSupplier</a>&lt;software.amazon.awssdk.services.s3.S3Client&gt;&nbsp;s3,
+        <a href="../../../../../org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3">S3FileIOProperties</a>&nbsp;s3FileIOProperties)</code>
+<div class="block">Constructor with custom s3 supplier and S3FileIO properties.</div>
 </td>
 </tr>
 </table>
@@ -196,30 +196,34 @@ implements <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="int
 </td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/s3/S3FileIO.html#finalize--">finalize</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/s3/S3FileIO.html#getCredential--">getCredential</a></span>()</code>
 <div class="block">Returns the credential string</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/s3/S3FileIO.html#initialize-java.util.Map-">initialize</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;props)</code>
 <div class="block">Initialize File IO from catalog properties.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.lang.Iterable&lt;<a href="../../../../../org/apache/iceberg/io/FileInfo.html" title="class in org.apache.iceberg.io">FileInfo</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/s3/S3FileIO.html#listPrefix-java.lang.String-">listPrefix</a></span>(java.lang.String&nbsp;prefix)</code>
 <div class="block">Return an iterable of all files under a prefix.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/s3/S3FileIO.html#newInputFile-java.lang.String-">newInputFile</a></span>(java.lang.String&nbsp;path)</code>
 <div class="block">Get a <a href="../../../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io"><code>InputFile</code></a> instance to read bytes from the file at the given path.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/s3/S3FileIO.html#newInputFile-java.lang.String-long-">newInputFile</a></span>(java.lang.String&nbsp;path,
             long&nbsp;length)</code>
@@ -227,13 +231,13 @@ implements <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="int
  file length.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/io/OutputFile.html" title="interface in org.apache.iceberg.io">OutputFile</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/s3/S3FileIO.html#newOutputFile-java.lang.String-">newOutputFile</a></span>(java.lang.String&nbsp;path)</code>
 <div class="block">Get a <a href="../../../../../org/apache/iceberg/io/OutputFile.html" title="interface in org.apache.iceberg.io"><code>OutputFile</code></a> instance to write bytes to the file at the given path.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.String,java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/aws/s3/S3FileIO.html#properties--">properties</a></span>()</code>
 <div class="block">Returns the property map used to configure this FileIO</div>
@@ -245,7 +249,7 @@ implements <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="int
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+<code>clone, equals, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.org.apache.iceberg.io.FileIO">
@@ -287,7 +291,7 @@ implements <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="int
 <li class="blockList">
 <h4>S3FileIO</h4>
 <pre>public&nbsp;S3FileIO(<a href="../../../../../org/apache/iceberg/util/SerializableSupplier.html" title="interface in org.apache.iceberg.util">SerializableSupplier</a>&lt;software.amazon.awssdk.services.s3.S3Client&gt;&nbsp;s3)</pre>
-<div class="block">Constructor with custom s3 supplier and default AWS properties.
+<div class="block">Constructor with custom s3 supplier and S3FileIO properties.
 
  <p>Calling <a href="../../../../../org/apache/iceberg/aws/s3/S3FileIO.html#initialize-java.util.Map-"><code>initialize(Map)</code></a> will overwrite information set in this constructor.</div>
 <dl>
@@ -296,21 +300,21 @@ implements <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="int
 </dl>
 </li>
 </ul>
-<a name="S3FileIO-org.apache.iceberg.util.SerializableSupplier-org.apache.iceberg.aws.AwsProperties-">
+<a name="S3FileIO-org.apache.iceberg.util.SerializableSupplier-org.apache.iceberg.aws.s3.S3FileIOProperties-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>S3FileIO</h4>
 <pre>public&nbsp;S3FileIO(<a href="../../../../../org/apache/iceberg/util/SerializableSupplier.html" title="interface in org.apache.iceberg.util">SerializableSupplier</a>&lt;software.amazon.awssdk.services.s3.S3Client&gt;&nbsp;s3,
-                <a href="../../../../../org/apache/iceberg/aws/AwsProperties.html" title="class in org.apache.iceberg.aws">AwsProperties</a>&nbsp;awsProperties)</pre>
-<div class="block">Constructor with custom s3 supplier and AWS properties.
+                <a href="../../../../../org/apache/iceberg/aws/s3/S3FileIOProperties.html" title="class in org.apache.iceberg.aws.s3">S3FileIOProperties</a>&nbsp;s3FileIOProperties)</pre>
+<div class="block">Constructor with custom s3 supplier and S3FileIO properties.
 
  <p>Calling <a href="../../../../../org/apache/iceberg/aws/s3/S3FileIO.html#initialize-java.util.Map-"><code>initialize(Map)</code></a> will overwrite information set in this constructor.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>s3</code> - s3 supplier</dd>
-<dd><code>awsProperties</code> - aws properties</dd>
+<dd><code>s3FileIOProperties</code> - S3 FileIO properties</dd>
 </dl>
 </li>
 </ul>
@@ -497,7 +501,7 @@ implements <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="int
 <a name="close--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>close</h4>
 <pre>public&nbsp;void&nbsp;close()</pre>
@@ -513,6 +517,22 @@ implements <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="int
 <dd><code>close</code>&nbsp;in interface&nbsp;<code>java.lang.AutoCloseable</code></dd>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/iceberg/io/FileIO.html#close--">close</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="finalize--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>finalize</h4>
+<pre>protected&nbsp;void&nbsp;finalize()
+                 throws java.lang.Throwable</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code>finalize</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.Throwable</code></dd>
 </dl>
 </li>
 </ul>
@@ -544,7 +564,7 @@ implements <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="int
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li><a href="../../../../../org/apache/iceberg/aws/s3/S3InputFile.html" title="class in org.apache.iceberg.aws.s3"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/iceberg/aws/s3/S3FileIOAwsClientFactory.html" title="interface in org.apache.iceberg.aws.s3"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/iceberg/aws/s3/S3FileIO.html" target="_top">Frames</a></li>
