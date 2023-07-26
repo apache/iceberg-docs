@@ -175,7 +175,7 @@ Next, you need to close the staging repository:
 
 1. Go to [Nexus](https://repository.apache.org/) and log in
 2. In the menu on the left, choose "Staging Repositories"
-3. Select the Iceberg repository.
+3. Select the Iceberg repository
    * If multiple staging repositories are created after running the script, verify that gradle parallelism is disabled and try again.
 4. At the top, select "Close" and follow the instructions
    * In the comment field use "Apache Iceberg &lt;version&gt; RC&lt;num&gt;"
