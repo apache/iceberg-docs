@@ -67,7 +67,25 @@ To add a dependency on Iceberg in Maven, add the following to your `pom.xml`:
 </dependencies>
 ```
 
-## 1.3.0 release
+## 1.3.1 release
+
+Apache Iceberg 1.3.1 was released on July 25, 2023.
+The 1.3.1 release addresses various issues identified in the 1.3.0 release.
+
+* Core
+  - Table Metadata parser now accepts null for fields: current-snapshot-id, properties, and snapshots ([\#8064](https://github.com/apache/iceberg/pull/8064))
+* Hive
+  - Fix HiveCatalog deleting metadata on failures in checking lock status ([\#7931](https://github.com/apache/iceberg/pull/7931))
+* Spark
+  - Fix RewritePositionDeleteFiles failure for certain partition types ([\#8059](https://github.com/apache/iceberg/pull/8059))
+  - Fix RewriteDataFiles concurrency edge-case on commit timeouts ([\#7933](https://github.com/apache/iceberg/pull/7933))
+  - Fix partition-level DELETE operations for WAP branches ([\#7900](https://github.com/apache/iceberg/pull/7900))
+* Flink
+  - FlinkCatalog creation no longer creates the default database ([\#8039](https://github.com/apache/iceberg/pull/8039))
+
+## Past releases
+
+### 1.3.0 release
 
 Apache Iceberg 1.3.0 was released on May 30th, 2023.
 The 1.3.0 release adds a variety of new features and bug fixes.
@@ -117,8 +135,6 @@ The 1.3.0 release adds a variety of new features and bug fixes.
   - Bump ORC to 1.8.3
   - Bump Parquet to 1.13.1
   - Bump Nessie to 0.59.0
-
-## Past releases
 
 ### 1.2.1 release
 
