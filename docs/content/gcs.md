@@ -44,13 +44,13 @@ Apache Iceberg uses the GCSFileIO to read and write data from/to GCS. To configu
 
 - **Initialize `GCSFileIO`**: Create an instance of `GCSFileIO` by calling its constructor and supplying a `com.google.cloud.storage.Storage` instance and `GCPProperties` instance. This Storage instance will be used as the storage service engine, and GCPProperties hold GCP-specific configurations.
 
-"`java
+```java
 GCSFileIO gcsFileIO = new GCSFileIO(storageSupplier, gcpProperties);
 ```
 
 - **Configure GCSFileIO**: Once you have the `GCSFileIO` object, you can configure it to use your GCS bucket. You do this by calling the initialize method of `GCSFileIO` and passing a map of properties. This map holds the GCS bucket name and other required GCS settings.
 
-"`java
+```java
 Map<String, String> properties = new HashMap<>();
 properties.put("inputDataLocation", "gs://my_bucket/data/");
 properties.put("metadataLocation", "gs://my_bucket/metadata/");
@@ -65,7 +65,7 @@ Once `GCSFileIO` is initialized and configured, you can interact with the data h
 
 - **Creating an InputFile**: To create an `InputFile` for reading data from your GCS bucket, you can use the `newInputFile` method.
 
-"`java
+```java
 InputFile inputFile = gcsFileIO.newInputFile("gs://my_bucket/data/my_data.parquet");
 
 ```
@@ -74,7 +74,7 @@ Replace `"gs://my_bucket/data/my_data.parquet"` with the path of the data you wa
 
 - **Creating an OutputFile**: To write data to your GCS bucket, you would establish an OutputFile using the newOutputFile method.
 
-"`java
+```java
 OutputFile outputFile = gcsFileIO.newOutputFile("gs://my_bucket/data/my_output.parquet");
 ```
 
@@ -88,7 +88,7 @@ These steps will allow you to set up GCS as your storage layer for Apache Iceber
 
 To load data into Iceberg tables using Apache Spark, you must first add Iceberg to your Spark environment. It can be done using the `--packages` option when starting the Spark shell or Spark SQL:
 
-"`bash
+```bash
 spark-shell --packages org.apache.iceberg:iceberg-spark-runtime-3.2_2.12:1.3.1
 spark-sql --packages org.apache.iceberg:iceberg-spark-runtime-3.2_2.12:1.3.1
 ```
@@ -97,7 +97,7 @@ spark-sql --packages org.apache.iceberg:iceberg-spark-runtime-3.2_2.12:1.3.1
 
 Catalogs in Iceberg are used to track tables. They can be configured using properties under `spark.sql.catalog.(catalog_name)`. Here is an example of how to configure a catalog:
 
-"`bash
+```bash
 spark-sql --packages org.apache.iceberg:iceberg-spark-runtime-3.2_2.12:1.3.1\
     --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions \
     --conf spark.sql.catalog.spark_catalog=org.apache.iceberg.spark.SparkSessionCatalog \
@@ -114,14 +114,14 @@ This configuration creates a path-based catalog named local for tables under `$P
 
 - **CSV format**:
 
-"`java
+```java
 val csvDF = spark.read.format("csv").option("header", "true").load("path_to_your_csv")
 csvDF.write.format("iceberg").mode("append").save("local.db.your_table")
 ```
 
 - **Parquet format**:
 
-"`java
+```java
 val parquetDF = spark.read.format("parquet").load("path_to_your_parquet")
 parquetDF.write.format("iceberg").mode("append").save("local.db.your_table")
 ```
@@ -136,7 +136,7 @@ Specify `path_to_your_csv` and `path_to_your_parquet` with the actual paths of y
 
 You can use Spark's `read.format("iceberg")` method to read an Iceberg table into a DataFrame. Here is an example:
 
-"`java
+```java
 // Read an Iceberg table into a DataFrame
 var df = spark.read.format("iceberg").load("local.db.one");
 
@@ -151,7 +151,7 @@ In the above example, you can replace `"local.db.one"` with the name of your Ice
 
 You can also use Spark SQL to query data from Iceberg tables. Here is an example:
 
-"`bash
+```bash
 // Query data from an Iceberg table using Spark SQL
 spark.sql("SELECT * FROM local.db.one").show();
 spark.sql("SELECT column_name, count(*) FROM local.db.one GROUP BY column_name").show();
