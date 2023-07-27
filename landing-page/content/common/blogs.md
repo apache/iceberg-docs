@@ -24,7 +24,6 @@ disableSidebar: true
 
 Here is a list of company blogs that talk about Iceberg. The blogs are ordered from most recent to oldest.
 
-
 ### [12 Times Faster Query Planning With Iceberg Manifest Caching in Impala](https://blog.cloudera.com/12-times-faster-query-planning-with-iceberg-manifest-caching-in-impala/)
 **Date**: July 13rd, 2023, **Company**: Cloudera
 
@@ -296,7 +295,6 @@ Here is a list of company blogs that talk about Iceberg. The blogs are ordered f
 **Author**: [Sam Redai](https://www.linkedin.com/in/sredai/)
 
 ### [Using Flink CDC to synchronize data from MySQL sharding tables and build real-time data lake](https://ververica.github.io/flink-cdc-connectors/master/content/quickstart/build-real-time-data-lake-tutorial.html)
-
 **Date**: November 11th, 2021, **Company**: Ververica, Alibaba Cloud
 
 **Author**: [Yuxia Luo](https://github.com/luoyuxia), [Jark Wu](https://github.com/wuchong), [Zheng Hu](https://www.linkedin.com/in/zheng-hu-37017683/)
@@ -307,7 +305,6 @@ Here is a list of company blogs that talk about Iceberg. The blogs are ordered f
 **Author**: [Ryan Blue](https://www.linkedin.com/in/rdblue/)
 
 ### [Using Debezium to Create a Data Lake with Apache Iceberg](https://debezium.io/blog/2021/10/20/using-debezium-create-data-lake-with-apache-iceberg/)
-
 **Date**: October 20th, 2021, **Company**: Memiiso Community
 
 **Author**: [Ismail Simsek](https://www.linkedin.com/in/ismailsimsek/)
