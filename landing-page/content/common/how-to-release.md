@@ -165,6 +165,8 @@ cd apache-iceberg-0.13.0
 
 To build and publish the convenience binaries, run the `dev/stage-binaries.sh` script. This will push to a release staging repository.
 
+Disable gradle parallelism by setting `org.gradle.parallel=false` in `gradle.properties`.
+
 ```
 dev/stage-binaries.sh
 ```
@@ -174,7 +176,7 @@ Next, you need to close the staging repository:
 1. Go to [Nexus](https://repository.apache.org/) and log in
 2. In the menu on the left, choose "Staging Repositories"
 3. Select the Iceberg repository
-   * If multiple staging repositories are created after running the script, set `org.gradle.parallel=false` in `gradle.properties`
+   * If multiple staging repositories are created after running the script, verify that gradle parallelism is disabled and try again.
 4. At the top, select "Close" and follow the instructions
    * In the comment field use "Apache Iceberg &lt;version&gt; RC&lt;num&gt;"
 
