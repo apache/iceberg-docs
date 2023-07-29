@@ -43,7 +43,7 @@ Here is a list of talks and other videos related to Iceberg.
 **Date**: March 24, 2022, **Authors**: Ryan Blue
 
 ### [Managing Data Files in Apache Iceberg](https://www.dremio.com/resources/webinars/managing-data-files-in-apache-iceberg/)
-**Date**: Marc 2, 2022, **Author**: Russell Spitzer
+**Date**: March 2, 2022, **Author**: Russell Spitzer
 
 ### [Tuning Row-Level Operations in Apache Iceberg](https://www.dremio.com/resources/webinars/tuning-row-level-operations-in-apache-iceberg/)
 **Date**: Marc 2, 2022, **Author**: Anton Okolnychyi
