@@ -46,7 +46,7 @@ Here is a list of talks and other videos related to Iceberg.
 **Date**: March 2, 2022, **Author**: Russell Spitzer
 
 ### [Tuning Row-Level Operations in Apache Iceberg](https://www.dremio.com/resources/webinars/tuning-row-level-operations-in-apache-iceberg/)
-**Date**: Marc 2, 2022, **Author**: Anton Okolnychyi
+**Date**: March 2, 2022, **Author**: Anton Okolnychyi
 
 ### [Multi Dimensional Clustering with Z Ordering](https://www.youtube.com/watch?v=YLVkITvF6KU)
 **Date**: December 6, 2021, **Author**: Russell Spitzer
