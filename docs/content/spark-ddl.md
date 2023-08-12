@@ -356,7 +356,7 @@ To migrate from daily to hourly partitioning with transforms, it is not necessar
 {{< /hint >}}
 
 {{< hint danger >}}
-**Dynamic partition overwrite behavior will change** when partitioning changes
+**Dynamic partition overwrite behavior will change** when partitioning changes.
 For example, if you partition by days and move to partitioning by hours, overwrites will overwrite hourly partitions but not days anymore.
 {{< /hint >}}
 
