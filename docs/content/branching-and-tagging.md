@@ -32,7 +32,7 @@ menu:
 
 Iceberg table metadata maintains a log of snapshots which represent the changes applied to a table.
 Snapshots are fundamental in Iceberg as they are the basis for reader isolation and time travel queries.
-For controlling metadata size and storage costs, Iceberg provides snapshot lifecycle management procedures such as [`expire_snapshots`](../../spark/spark-procedures/#expire-snapshots) for removing unused snapshots and no longer neccessary data files based on table snapshot retention properties.
+For controlling metadata size and storage costs, Iceberg provides snapshot lifecycle management procedures such as [`expire_snapshots`](../../spark/spark-procedures/#expire-snapshots) for removing unused snapshots and no longer necessary data files based on table snapshot retention properties.
 
 **For more sophisticated snapshot lifecycle management, Iceberg supports branches and tags which are named references to snapshots with their own independent lifecycles. This lifecycle is controlled by branch and tag level retention policies.** 
 Branches are independent lineages of snapshots and point to the head of the lineage. 
