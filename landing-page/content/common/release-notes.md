@@ -70,6 +70,22 @@ To add a dependency on Iceberg in Maven, add the following to your `pom.xml`:
 </dependencies>
 ```
 
+### 1.4.1 Release
+
+Apache Iceberg 1.4.1 was released on October 23, 2023.
+The 1.4.1 release addresses various issues identified in the 1.4.0 release.
+
+* Core
+  - Core: Do not use a lazy split offset list in manifests ([\#8834](https://github.com/apache/iceberg/pull/8834))
+  - Core: Ignore split offsets when the last split offset is past the file length ([\#8860](https://github.com/apache/iceberg/pull/8860))
+* AWS
+  - Avoid static global credentials provider which doesn't play well with lifecycle management ([\#8677](https://github.com/apache/iceberg/pull/8677))
+* Flink
+  - Reverting the default custom partitioner for bucket column ([\#8848](https://github.com/apache/iceberg/pull/8848))
+
+
+## Past releases
+
 ### 1.4.0 release
 
 Apache Iceberg 1.4.0 was released on October 4, 2023.
@@ -167,7 +183,6 @@ The 1.4.0 release adds a variety of new features and bug fixes.
   - Bump Arrow to 12.0.1
   - Bump AWS Java SDK to 2.20.131
 
-## Past releases
 
 ### 1.3.1 release
 
