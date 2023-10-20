@@ -22,7 +22,7 @@ sectionPagesMenu = "main"
 [[params.social]]
   title = "slack"
   icon = "slack"
-  url = "https://join.slack.com/t/apache-iceberg/shared_invite/zt-1jyaasx2a-TxE4z_ubxDkTFS7UFDHnjw"  
+  url = "https://join.slack.com/t/apache-iceberg/shared_invite/zt-1znkcg5zm-7_FE~pcox347XwZE3GNfPg"
 
 [outputFormats.SearchIndex]
 baseName = "landingpagesearch"
