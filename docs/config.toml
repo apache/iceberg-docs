@@ -55,6 +55,8 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     { name = "Multi-Engine Support", parent = "Project", pre = "relative", url = "../../multi-engine-support", weight = 450 },
     { name = "How To Release", parent = "Project", pre = "relative", url = "../../how-to-release", weight = 500 },
     { name = "Terms", parent = "Project", pre = "relative", url = "../../terms", weight = 600 },
+    { name = "Concepts", weight = 1150 },
+    { name = "Catalogs", parent = "Concepts", pre = "relative", url = "../../catalog" },
     { name = "ASF", weight = 1200 },
     { name = "License", identifier = "_license", parent = "ASF", url = "https://www.apache.org/licenses/" },
     { name = "Security", identifier = "_security", parent = "ASF", url = "https://www.apache.org/security/" },
