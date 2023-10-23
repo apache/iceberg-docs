@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":18,"i1":6,"i2":6};
+var methods = {"i0":18,"i1":18,"i2":6,"i3":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/actions/ExpireSnapshots.Result.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/actions/FileRewriter.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/actions/MigrateTable.Result.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -151,17 +151,23 @@ extends <a href="../../../../org/apache/iceberg/actions/Action.html" title="inte
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>default <a href="../../../../org/apache/iceberg/actions/MigrateTable.html" title="interface in org.apache.iceberg.actions">MigrateTable</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/MigrateTable.html#backupTableName-java.lang.String-">backupTableName</a></span>(java.lang.String&nbsp;tableName)</code>
+<div class="block">Sets a table name for the backup of the original table.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>default <a href="../../../../org/apache/iceberg/actions/MigrateTable.html" title="interface in org.apache.iceberg.actions">MigrateTable</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/MigrateTable.html#dropBackup--">dropBackup</a></span>()</code>
 <div class="block">Drops the backup of the original table after a successful migration</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/actions/MigrateTable.html" title="interface in org.apache.iceberg.actions">MigrateTable</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/MigrateTable.html#tableProperties-java.util.Map-">tableProperties</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</code>
 <div class="block">Sets table properties in the newly created Iceberg table.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/actions/MigrateTable.html" title="interface in org.apache.iceberg.actions">MigrateTable</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/MigrateTable.html#tableProperty-java.lang.String-java.lang.String-">tableProperty</a></span>(java.lang.String&nbsp;name,
              java.lang.String&nbsp;value)</code>
@@ -229,12 +235,28 @@ extends <a href="../../../../org/apache/iceberg/actions/Action.html" title="inte
 <a name="dropBackup--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>dropBackup</h4>
 <pre>default&nbsp;<a href="../../../../org/apache/iceberg/actions/MigrateTable.html" title="interface in org.apache.iceberg.actions">MigrateTable</a>&nbsp;dropBackup()</pre>
 <div class="block">Drops the backup of the original table after a successful migration</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a name="backupTableName-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>backupTableName</h4>
+<pre>default&nbsp;<a href="../../../../org/apache/iceberg/actions/MigrateTable.html" title="interface in org.apache.iceberg.actions">MigrateTable</a>&nbsp;backupTableName(java.lang.String&nbsp;tableName)</pre>
+<div class="block">Sets a table name for the backup of the original table.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>tableName</code> - the table name for backup</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>
 </dl>
@@ -267,7 +289,7 @@ extends <a href="../../../../org/apache/iceberg/actions/Action.html" title="inte
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/actions/ExpireSnapshots.Result.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/actions/FileRewriter.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/actions/MigrateTable.Result.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

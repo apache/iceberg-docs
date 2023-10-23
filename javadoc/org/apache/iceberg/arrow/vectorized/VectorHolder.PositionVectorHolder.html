@@ -145,8 +145,8 @@ extends <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.PositionVectorHolder.html#PositionVectorHolder-org.apache.arrow.vector.FieldVector-org.apache.iceberg.types.Type-org.apache.iceberg.arrow.vectorized.NullabilityHolder-">PositionVectorHolder</a></span>(org.apache.arrow.vector.FieldVector&nbsp;vector,
-                    <a href="../../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types">Type</a>&nbsp;type,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.PositionVectorHolder.html#PositionVectorHolder-org.apache.arrow.vector.FieldVector-org.apache.iceberg.types.Types.NestedField-org.apache.iceberg.arrow.vectorized.NullabilityHolder-">PositionVectorHolder</a></span>(org.apache.arrow.vector.FieldVector&nbsp;vector,
+                    <a href="../../../../../org/apache/iceberg/types/Types.NestedField.html" title="class in org.apache.iceberg.types">Types.NestedField</a>&nbsp;icebergField,
                     <a href="../../../../../org/apache/iceberg/arrow/vectorized/NullabilityHolder.html" title="class in org.apache.iceberg.arrow.vectorized">NullabilityHolder</a>&nbsp;nulls)</code>&nbsp;</td>
 </tr>
 </table>
@@ -163,7 +163,7 @@ extends <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.iceberg.arrow.vectorized.<a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html" title="class in org.apache.iceberg.arrow.vectorized">VectorHolder</a></h3>
-<code><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#constantHolder-int-T-">constantHolder</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#deletedVectorHolder-int-">deletedVectorHolder</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#descriptor--">descriptor</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#dictionary--">dictionary</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#dummyHolder-int-">dummyHolder</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#icebergType--">icebergType</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#isDictionaryEncoded--">isDictionaryEncoded</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#isDummy--">isDummy</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#nullabilityHolder--">nullabilityHolder</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#numValues--">numValues</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#vector--">vector</a></code></li>
+<code><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#constantHolder-int-T-">constantHolder</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#constantHolder-org.apache.iceberg.types.Types.NestedField-int-T-">constantHolder</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#deletedVectorHolder-int-">deletedVectorHolder</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#descriptor--">descriptor</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#dictionary--">dictionary</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#dummyHolder-int-">dummyHolder</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#icebergField--">icebergField</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#icebergType--">icebergType</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#isDictionaryEncoded--">isDictionaryEncoded</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#isDummy--">isDummy</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#nullabilityHolder--">nullabilityHolder</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#numValues--">numValues</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#vector--">vector</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -186,14 +186,14 @@ extends <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="PositionVectorHolder-org.apache.arrow.vector.FieldVector-org.apache.iceberg.types.Type-org.apache.iceberg.arrow.vectorized.NullabilityHolder-">
+<a name="PositionVectorHolder-org.apache.arrow.vector.FieldVector-org.apache.iceberg.types.Types.NestedField-org.apache.iceberg.arrow.vectorized.NullabilityHolder-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>PositionVectorHolder</h4>
 <pre>public&nbsp;PositionVectorHolder(org.apache.arrow.vector.FieldVector&nbsp;vector,
-                            <a href="../../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types">Type</a>&nbsp;type,
+                            <a href="../../../../../org/apache/iceberg/types/Types.NestedField.html" title="class in org.apache.iceberg.types">Types.NestedField</a>&nbsp;icebergField,
                             <a href="../../../../../org/apache/iceberg/arrow/vectorized/NullabilityHolder.html" title="class in org.apache.iceberg.arrow.vectorized">NullabilityHolder</a>&nbsp;nulls)</pre>
 </li>
 </ul>

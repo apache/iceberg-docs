@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":18,"i1":6,"i2":18,"i3":18,"i4":18};
+var methods = {"i0":18,"i1":6,"i2":18,"i3":18,"i4":18,"i5":18};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/apache/iceberg/Files.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/FilesTable.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/FileScanTaskParser.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/FileScanTask.html" target="_top">Frames</a></li>
@@ -157,6 +157,12 @@ extends <a href="../../../org/apache/iceberg/ContentScanTask.html" title="interf
 </td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code>default <a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/FileScanTask.html#schema--">schema</a></span>()</code>
+<div class="block">Return the schema for this file scan task.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>default long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/FileScanTask.html#sizeBytes--">sizeBytes</a></span>()</code>
 <div class="block">The number of bytes that should be read by this scan task.</div>
@@ -217,6 +223,16 @@ extends <a href="../../../org/apache/iceberg/ContentScanTask.html" title="interf
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a list of delete files to apply</dd>
 </dl>
+</li>
+</ul>
+<a name="schema--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>schema</h4>
+<pre>default&nbsp;<a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema()</pre>
+<div class="block">Return the schema for this file scan task.</div>
 </li>
 </ul>
 <a name="sizeBytes--">
@@ -315,7 +331,7 @@ extends <a href="../../../org/apache/iceberg/ContentScanTask.html" title="interf
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/apache/iceberg/Files.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/apache/iceberg/FilesTable.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/FileScanTaskParser.html" title="class in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/apache/iceberg/FileScanTask.html" target="_top">Frames</a></li>

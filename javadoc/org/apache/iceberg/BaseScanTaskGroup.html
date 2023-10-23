@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -158,18 +158,36 @@ implements <a href="../../../org/apache/iceberg/ScanTaskGroup.html" title="inter
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseScanTaskGroup.html#estimatedRowsCount--">estimatedRowsCount</a></span>()</code>
+<div class="block">The estimated number of rows produced by this scan task.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseScanTaskGroup.html#filesCount--">filesCount</a></span>()</code>
+<div class="block">The number of files that will be opened by this scan task.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseScanTaskGroup.html#groupingKey--">groupingKey</a></span>()</code>
 <div class="block">Returns a grouping key for this task group.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseScanTaskGroup.html#sizeBytes--">sizeBytes</a></span>()</code>
+<div class="block">The number of bytes that should be read by this scan task.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.util.Collection&lt;<a href="../../../org/apache/iceberg/BaseScanTaskGroup.html" title="type parameter in BaseScanTaskGroup">T</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseScanTaskGroup.html#tasks--">tasks</a></span>()</code>
 <div class="block">Returns scan tasks in this group.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseScanTaskGroup.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -180,13 +198,6 @@ implements <a href="../../../org/apache/iceberg/ScanTaskGroup.html" title="inter
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
 <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, wait, wait, wait</code></li>
-</ul>
-<ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.org.apache.iceberg.ScanTaskGroup">
-<!--   -->
-</a>
-<h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="../../../org/apache/iceberg/ScanTaskGroup.html" title="interface in org.apache.iceberg">ScanTaskGroup</a></h3>
-<code><a href="../../../org/apache/iceberg/ScanTaskGroup.html#estimatedRowsCount--">estimatedRowsCount</a>, <a href="../../../org/apache/iceberg/ScanTaskGroup.html#filesCount--">filesCount</a>, <a href="../../../org/apache/iceberg/ScanTaskGroup.html#sizeBytes--">sizeBytes</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.org.apache.iceberg.ScanTask">
@@ -273,6 +284,63 @@ implements <a href="../../../org/apache/iceberg/ScanTaskGroup.html" title="inter
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../org/apache/iceberg/ScanTaskGroup.html#tasks--">tasks</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ScanTaskGroup.html" title="interface in org.apache.iceberg">ScanTaskGroup</a>&lt;<a href="../../../org/apache/iceberg/BaseScanTaskGroup.html" title="type parameter in BaseScanTaskGroup">T</a> extends <a href="../../../org/apache/iceberg/ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a>&gt;</code></dd>
+</dl>
+</li>
+</ul>
+<a name="sizeBytes--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>sizeBytes</h4>
+<pre>public&nbsp;long&nbsp;sizeBytes()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/ScanTask.html#sizeBytes--">ScanTask</a></code></span></div>
+<div class="block">The number of bytes that should be read by this scan task.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/ScanTask.html#sizeBytes--">sizeBytes</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/ScanTaskGroup.html#sizeBytes--">sizeBytes</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ScanTaskGroup.html" title="interface in org.apache.iceberg">ScanTaskGroup</a>&lt;<a href="../../../org/apache/iceberg/BaseScanTaskGroup.html" title="type parameter in BaseScanTaskGroup">T</a> extends <a href="../../../org/apache/iceberg/ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a>&gt;</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the total number of bytes to read</dd>
+</dl>
+</li>
+</ul>
+<a name="estimatedRowsCount--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>estimatedRowsCount</h4>
+<pre>public&nbsp;long&nbsp;estimatedRowsCount()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/ScanTask.html#estimatedRowsCount--">ScanTask</a></code></span></div>
+<div class="block">The estimated number of rows produced by this scan task.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/ScanTask.html#estimatedRowsCount--">estimatedRowsCount</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/ScanTaskGroup.html#estimatedRowsCount--">estimatedRowsCount</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ScanTaskGroup.html" title="interface in org.apache.iceberg">ScanTaskGroup</a>&lt;<a href="../../../org/apache/iceberg/BaseScanTaskGroup.html" title="type parameter in BaseScanTaskGroup">T</a> extends <a href="../../../org/apache/iceberg/ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a>&gt;</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the estimated number of produced rows</dd>
+</dl>
+</li>
+</ul>
+<a name="filesCount--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>filesCount</h4>
+<pre>public&nbsp;int&nbsp;filesCount()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/ScanTask.html#filesCount--">ScanTask</a></code></span></div>
+<div class="block">The number of files that will be opened by this scan task.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/ScanTask.html#filesCount--">filesCount</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/ScanTaskGroup.html#filesCount--">filesCount</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ScanTaskGroup.html" title="interface in org.apache.iceberg">ScanTaskGroup</a>&lt;<a href="../../../org/apache/iceberg/BaseScanTaskGroup.html" title="type parameter in BaseScanTaskGroup">T</a> extends <a href="../../../org/apache/iceberg/ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a>&gt;</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the number of files to open</dd>
 </dl>
 </li>
 </ul>

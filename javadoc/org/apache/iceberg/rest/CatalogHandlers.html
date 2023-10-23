@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -174,23 +174,29 @@ extends java.lang.Object</pre>
           <a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;ident)</code>&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
+<td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/rest/responses/LoadTableResponse.html" title="class in org.apache.iceberg.rest.responses">LoadTableResponse</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/CatalogHandlers.html#registerTable-org.apache.iceberg.catalog.Catalog-org.apache.iceberg.catalog.Namespace-org.apache.iceberg.rest.requests.RegisterTableRequest-">registerTable</a></span>(<a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a>&nbsp;catalog,
+             <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace,
+             <a href="../../../../org/apache/iceberg/rest/requests/RegisterTableRequest.html" title="interface in org.apache.iceberg.rest.requests">RegisterTableRequest</a>&nbsp;request)</code>&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/CatalogHandlers.html#renameTable-org.apache.iceberg.catalog.Catalog-org.apache.iceberg.rest.requests.RenameTableRequest-">renameTable</a></span>(<a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a>&nbsp;catalog,
            <a href="../../../../org/apache/iceberg/rest/requests/RenameTableRequest.html" title="class in org.apache.iceberg.rest.requests">RenameTableRequest</a>&nbsp;request)</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/rest/responses/LoadTableResponse.html" title="class in org.apache.iceberg.rest.responses">LoadTableResponse</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/CatalogHandlers.html#stageTableCreate-org.apache.iceberg.catalog.Catalog-org.apache.iceberg.catalog.Namespace-org.apache.iceberg.rest.requests.CreateTableRequest-">stageTableCreate</a></span>(<a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a>&nbsp;catalog,
                 <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace,
                 <a href="../../../../org/apache/iceberg/rest/requests/CreateTableRequest.html" title="class in org.apache.iceberg.rest.requests">CreateTableRequest</a>&nbsp;request)</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/rest/responses/UpdateNamespacePropertiesResponse.html" title="class in org.apache.iceberg.rest.responses">UpdateNamespacePropertiesResponse</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/CatalogHandlers.html#updateNamespaceProperties-org.apache.iceberg.catalog.SupportsNamespaces-org.apache.iceberg.catalog.Namespace-org.apache.iceberg.rest.requests.UpdateNamespacePropertiesRequest-">updateNamespaceProperties</a></span>(<a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.html" title="interface in org.apache.iceberg.catalog">SupportsNamespaces</a>&nbsp;catalog,
                          <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace,
                          <a href="../../../../org/apache/iceberg/rest/requests/UpdateNamespacePropertiesRequest.html" title="class in org.apache.iceberg.rest.requests">UpdateNamespacePropertiesRequest</a>&nbsp;request)</code>&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/rest/responses/LoadTableResponse.html" title="class in org.apache.iceberg.rest.responses">LoadTableResponse</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/CatalogHandlers.html#updateTable-org.apache.iceberg.catalog.Catalog-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.rest.requests.UpdateTableRequest-">updateTable</a></span>(<a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a>&nbsp;catalog,
            <a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;ident,
@@ -299,6 +305,17 @@ extends java.lang.Object</pre>
 <pre>public static&nbsp;<a href="../../../../org/apache/iceberg/rest/responses/LoadTableResponse.html" title="class in org.apache.iceberg.rest.responses">LoadTableResponse</a>&nbsp;createTable(<a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a>&nbsp;catalog,
                                             <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace,
                                             <a href="../../../../org/apache/iceberg/rest/requests/CreateTableRequest.html" title="class in org.apache.iceberg.rest.requests">CreateTableRequest</a>&nbsp;request)</pre>
+</li>
+</ul>
+<a name="registerTable-org.apache.iceberg.catalog.Catalog-org.apache.iceberg.catalog.Namespace-org.apache.iceberg.rest.requests.RegisterTableRequest-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>registerTable</h4>
+<pre>public static&nbsp;<a href="../../../../org/apache/iceberg/rest/responses/LoadTableResponse.html" title="class in org.apache.iceberg.rest.responses">LoadTableResponse</a>&nbsp;registerTable(<a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a>&nbsp;catalog,
+                                              <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace,
+                                              <a href="../../../../org/apache/iceberg/rest/requests/RegisterTableRequest.html" title="interface in org.apache.iceberg.rest.requests">RegisterTableRequest</a>&nbsp;request)</pre>
 </li>
 </ul>
 <a name="dropTable-org.apache.iceberg.catalog.Catalog-org.apache.iceberg.catalog.TableIdentifier-">

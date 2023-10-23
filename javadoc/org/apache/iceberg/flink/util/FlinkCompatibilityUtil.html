@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9};
+var methods = {"i0":9,"i1":9,"i2":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
+<li><a href="../../../../../org/apache/iceberg/flink/util/FlinkAlterTableUtil.html" title="class in org.apache.iceberg.flink.util"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../../org/apache/iceberg/flink/util/FlinkPackage.html" title="class in org.apache.iceberg.flink.util"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -131,9 +131,13 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/util/FlinkCompatibilityUtil.html#isPhysicalColumn-org.apache.flink.table.api.TableColumn-">isPhysicalColumn</a></span>(org.apache.flink.table.api.TableColumn&nbsp;column)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/util/FlinkCompatibilityUtil.html#isPhysicalColumn-org.apache.flink.table.catalog.Column-">isPhysicalColumn</a></span>(org.apache.flink.table.catalog.Column&nbsp;column)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/util/FlinkCompatibilityUtil.html#isPhysicalColumn-org.apache.flink.table.api.TableColumn-">isPhysicalColumn</a></span>(org.apache.flink.table.api.TableColumn&nbsp;column)</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>static org.apache.flink.api.common.typeinfo.TypeInformation&lt;org.apache.flink.table.data.RowData&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/flink/util/FlinkCompatibilityUtil.html#toTypeInfo-org.apache.flink.table.types.logical.RowType-">toTypeInfo</a></span>(org.apache.flink.table.types.logical.RowType&nbsp;rowType)</code>&nbsp;</td>
 </tr>
@@ -171,10 +175,19 @@ extends java.lang.Object</pre>
 <a name="isPhysicalColumn-org.apache.flink.table.api.TableColumn-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>isPhysicalColumn</h4>
 <pre>public static&nbsp;boolean&nbsp;isPhysicalColumn(org.apache.flink.table.api.TableColumn&nbsp;column)</pre>
+</li>
+</ul>
+<a name="isPhysicalColumn-org.apache.flink.table.catalog.Column-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>isPhysicalColumn</h4>
+<pre>public static&nbsp;boolean&nbsp;isPhysicalColumn(org.apache.flink.table.catalog.Column&nbsp;column)</pre>
 </li>
 </ul>
 </li>
@@ -204,7 +217,7 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
+<li><a href="../../../../../org/apache/iceberg/flink/util/FlinkAlterTableUtil.html" title="class in org.apache.iceberg.flink.util"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../../org/apache/iceberg/flink/util/FlinkPackage.html" title="class in org.apache.iceberg.flink.util"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

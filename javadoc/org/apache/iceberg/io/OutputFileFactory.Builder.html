@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -145,9 +145,16 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/io/OutputFileFactory.Builder.html" title="class in org.apache.iceberg.io">OutputFileFactory.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/OutputFileFactory.Builder.html#operationId-java.lang.String-">operationId</a></span>(java.lang.String&nbsp;newOperationId)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/OutputFileFactory.Builder.html#ioSupplier-java.util.function.Supplier-">ioSupplier</a></span>(java.util.function.Supplier&lt;<a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&gt;&nbsp;newIoSupplier)</code>
+<div class="block">Configures a <a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><code>FileIO</code></a> supplier, which can potentially be used to dynamically refresh
+ the file IO instance when a table is refreshed.</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/iceberg/io/OutputFileFactory.Builder.html" title="class in org.apache.iceberg.io">OutputFileFactory.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/OutputFileFactory.Builder.html#operationId-java.lang.String-">operationId</a></span>(java.lang.String&nbsp;newOperationId)</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/io/OutputFileFactory.Builder.html" title="class in org.apache.iceberg.io">OutputFileFactory.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/io/OutputFileFactory.Builder.html#suffix-java.lang.String-">suffix</a></span>(java.lang.String&nbsp;newSuffix)</code>&nbsp;</td>
 </tr>
@@ -207,6 +214,23 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>suffix</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/io/OutputFileFactory.Builder.html" title="class in org.apache.iceberg.io">OutputFileFactory.Builder</a>&nbsp;suffix(java.lang.String&nbsp;newSuffix)</pre>
+</li>
+</ul>
+<a name="ioSupplier-java.util.function.Supplier-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ioSupplier</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/iceberg/io/OutputFileFactory.Builder.html" title="class in org.apache.iceberg.io">OutputFileFactory.Builder</a>&nbsp;ioSupplier(java.util.function.Supplier&lt;<a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&gt;&nbsp;newIoSupplier)</pre>
+<div class="block">Configures a <a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><code>FileIO</code></a> supplier, which can potentially be used to dynamically refresh
+ the file IO instance when a table is refreshed.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newIoSupplier</code> - The file IO supplier</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this builder instance</dd>
+</dl>
 </li>
 </ul>
 <a name="build--">

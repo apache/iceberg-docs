@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10};
+var methods = {"i0":10,"i1":10,"i2":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -139,7 +139,7 @@ implements <a href="../../../org/apache/iceberg/MetadataUpdate.html" title="inte
 <!--   -->
 </a>
 <h3>Nested classes/interfaces inherited from interface&nbsp;org.apache.iceberg.<a href="../../../org/apache/iceberg/MetadataUpdate.html" title="interface in org.apache.iceberg">MetadataUpdate</a></h3>
-<code><a href="../../../org/apache/iceberg/MetadataUpdate.AddPartitionSpec.html" title="class in org.apache.iceberg">MetadataUpdate.AddPartitionSpec</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.AddSchema.html" title="class in org.apache.iceberg">MetadataUpdate.AddSchema</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.AddSnapshot.html" title="class in org.apache.iceberg">MetadataUpdate.AddSnapshot</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.AddSortOrder.html" title="class in org.apache.iceberg">MetadataUpdate.AddSortOrder</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.AssignUUID.html" title="class in org.apache.iceberg">MetadataUpdate.AssignUUID</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.RemoveProperties.html" title="class in org.apache.iceberg">MetadataUpdate.RemoveProperties</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.RemoveSnapshot.html" title="class in org.apache.iceberg">MetadataUpdate.RemoveSnapshot</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.RemoveSnapshotRef.html" title="class in org.apache.iceberg">MetadataUpdate.RemoveSnapshotRef</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.RemoveStatistics.html" title="class in org.apache.iceberg">MetadataUpdate.RemoveStatistics</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.SetCurrentSchema.html" title="class in org.apache.iceberg">MetadataUpdate.SetCurrentSchema</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.SetDefaultPartitionSpec.html" title="class in org.apache.iceberg">MetadataUpdate.SetDefaultPartitionSpec</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.SetDefaultSortOrder.html" title="class in org.apache.iceberg">MetadataUpdate.SetDefaultSortOrder</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.SetLocation.html" title="class in org.apache.iceberg">MetadataUpdate.SetLocation</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.SetProperties.html" title="class in org.apache.iceberg">MetadataUpdate.SetProperties</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.SetSnapshotRef.html" title="class in org.apache.iceberg">MetadataUpdate.SetSnapshotRef</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.SetStatistics.html" title="class in org.apache.iceberg">MetadataUpdate.SetStatistics</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.UpgradeFormatVersion.html" title="class in org.apache.iceberg">MetadataUpdate.UpgradeFormatVersion</a></code></li>
+<code><a href="../../../org/apache/iceberg/MetadataUpdate.AddPartitionSpec.html" title="class in org.apache.iceberg">MetadataUpdate.AddPartitionSpec</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.AddSchema.html" title="class in org.apache.iceberg">MetadataUpdate.AddSchema</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.AddSnapshot.html" title="class in org.apache.iceberg">MetadataUpdate.AddSnapshot</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.AddSortOrder.html" title="class in org.apache.iceberg">MetadataUpdate.AddSortOrder</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.AddViewVersion.html" title="class in org.apache.iceberg">MetadataUpdate.AddViewVersion</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.AssignUUID.html" title="class in org.apache.iceberg">MetadataUpdate.AssignUUID</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.RemoveProperties.html" title="class in org.apache.iceberg">MetadataUpdate.RemoveProperties</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.RemoveSnapshot.html" title="class in org.apache.iceberg">MetadataUpdate.RemoveSnapshot</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.RemoveSnapshotRef.html" title="class in org.apache.iceberg">MetadataUpdate.RemoveSnapshotRef</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.RemoveStatistics.html" title="class in org.apache.iceberg">MetadataUpdate.RemoveStatistics</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.SetCurrentSchema.html" title="class in org.apache.iceberg">MetadataUpdate.SetCurrentSchema</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.SetCurrentViewVersion.html" title="class in org.apache.iceberg">MetadataUpdate.SetCurrentViewVersion</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.SetDefaultPartitionSpec.html" title="class in org.apache.iceberg">MetadataUpdate.SetDefaultPartitionSpec</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.SetDefaultSortOrder.html" title="class in org.apache.iceberg">MetadataUpdate.SetDefaultSortOrder</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.SetLocation.html" title="class in org.apache.iceberg">MetadataUpdate.SetLocation</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.SetProperties.html" title="class in org.apache.iceberg">MetadataUpdate.SetProperties</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.SetSnapshotRef.html" title="class in org.apache.iceberg">MetadataUpdate.SetSnapshotRef</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.SetStatistics.html" title="class in org.apache.iceberg">MetadataUpdate.SetStatistics</a>, <a href="../../../org/apache/iceberg/MetadataUpdate.UpgradeFormatVersion.html" title="class in org.apache.iceberg">MetadataUpdate.UpgradeFormatVersion</a></code></li>
 </ul>
 </li>
 </ul>
@@ -177,6 +177,10 @@ implements <a href="../../../org/apache/iceberg/MetadataUpdate.html" title="inte
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataUpdate.UpgradeFormatVersion.html#applyTo-org.apache.iceberg.TableMetadata.Builder-">applyTo</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a>&nbsp;metadataBuilder)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataUpdate.UpgradeFormatVersion.html#applyTo-org.apache.iceberg.view.ViewMetadata.Builder-">applyTo</a></span>(<a href="../../../org/apache/iceberg/view/ViewMetadata.Builder.html" title="class in org.apache.iceberg.view">ViewMetadata.Builder</a>&nbsp;viewMetadataBuilder)</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetadataUpdate.UpgradeFormatVersion.html#formatVersion--">formatVersion</a></span>()</code>&nbsp;</td>
 </tr>
@@ -231,13 +235,26 @@ implements <a href="../../../org/apache/iceberg/MetadataUpdate.html" title="inte
 <a name="applyTo-org.apache.iceberg.TableMetadata.Builder-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>applyTo</h4>
 <pre>public&nbsp;void&nbsp;applyTo(<a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a>&nbsp;metadataBuilder)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../org/apache/iceberg/MetadataUpdate.html#applyTo-org.apache.iceberg.TableMetadata.Builder-">applyTo</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/MetadataUpdate.html" title="interface in org.apache.iceberg">MetadataUpdate</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="applyTo-org.apache.iceberg.view.ViewMetadata.Builder-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>applyTo</h4>
+<pre>public&nbsp;void&nbsp;applyTo(<a href="../../../org/apache/iceberg/view/ViewMetadata.Builder.html" title="class in org.apache.iceberg.view">ViewMetadata.Builder</a>&nbsp;viewMetadataBuilder)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/MetadataUpdate.html#applyTo-org.apache.iceberg.view.ViewMetadata.Builder-">applyTo</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/MetadataUpdate.html" title="interface in org.apache.iceberg">MetadataUpdate</a></code></dd>
 </dl>
 </li>
 </ul>

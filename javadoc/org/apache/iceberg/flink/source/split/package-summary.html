@@ -73,6 +73,21 @@
 <div class="contentContainer">
 <ul class="blockList">
 <li class="blockList">
+<table class="typeSummary" border="0" cellpadding="3" cellspacing="0" summary="Interface Summary table, listing interfaces, and an explanation">
+<caption><span>Interface Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Interface</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../../../org/apache/iceberg/flink/source/split/SerializableComparator.html" title="interface in org.apache.iceberg.flink.source.split">SerializableComparator</a>&lt;T&gt;</td>
+<td class="colLast">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li class="blockList">
 <table class="typeSummary" border="0" cellpadding="3" cellspacing="0" summary="Class Summary table, listing classes, and an explanation">
 <caption><span>Class Summary</span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
@@ -86,15 +101,20 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../../../org/apache/iceberg/flink/source/split/IcebergSourceSplitSerializer.html" title="class in org.apache.iceberg.flink.source.split">IcebergSourceSplitSerializer</a></td>
-<td class="colLast">
-<div class="block">TODO: use Java serialization for now.</div>
-</td>
+<td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><a href="../../../../../../org/apache/iceberg/flink/source/split/IcebergSourceSplitState.html" title="class in org.apache.iceberg.flink.source.split">IcebergSourceSplitState</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><a href="../../../../../../org/apache/iceberg/flink/source/split/SplitComparators.html" title="class in org.apache.iceberg.flink.source.split">SplitComparators</a></td>
+<td class="colLast">
+<div class="block">Provides implementations of <a href="../../../../../../org/apache/iceberg/flink/source/split/SerializableComparator.html" title="interface in org.apache.iceberg.flink.source.split"><code>SerializableComparator</code></a>
+ which could be used for ordering splits.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../../org/apache/iceberg/flink/source/split/SplitRequestEvent.html" title="class in org.apache.iceberg.flink.source.split">SplitRequestEvent</a></td>
 <td class="colLast">
 <div class="block">We can remove this class once FLINK-21364 is resolved.</div>

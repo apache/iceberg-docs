@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -73,13 +73,13 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -145,6 +145,33 @@ extends <a href="../../../org/apache/iceberg/BaseMetadataTable.html" title="clas
 <tr class="altColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/PositionDeletesTable.PositionDeletesBatchScan.html" title="class in org.apache.iceberg">PositionDeletesTable.PositionDeletesBatchScan</a></span></code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+<!-- =========== FIELD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field.summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/PositionDeletesTable.html#DELETE_FILE_PATH">DELETE_FILE_PATH</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/PositionDeletesTable.html#PARTITION">PARTITION</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/PositionDeletesTable.html#SPEC_ID">SPEC_ID</a></span></code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -231,62 +258,68 @@ extends <a href="../../../org/apache/iceberg/BaseMetadataTable.html" title="clas
 </td>
 </tr>
 <tr id="i11" class="rowColor">
+<td class="colFirst"><code>java.util.Map&lt;java.lang.String,java.lang.String&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/PositionDeletesTable.html#properties--">properties</a></span>()</code>
+<div class="block">Return a map of string properties for this table.</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ReplaceSortOrder.html" title="interface in org.apache.iceberg">ReplaceSortOrder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/PositionDeletesTable.html#replaceSortOrder--">replaceSortOrder</a></span>()</code>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/ReplaceSortOrder.html" title="interface in org.apache.iceberg"><code>ReplaceSortOrder</code></a> to set the table sort order and commit the change.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/RewriteManifests.html" title="interface in org.apache.iceberg">RewriteManifests</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/PositionDeletesTable.html#rewriteManifests--">rewriteManifests</a></span>()</code>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/RewriteManifests.html" title="interface in org.apache.iceberg"><code>rewrite manifests API</code></a> to replace manifests for this table
  and commit.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/PositionDeletesTable.html#schema--">schema</a></span>()</code>
 <div class="block">Return the <a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>schema</code></a> for this table.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/PositionDeletesTable.html#spec--">spec</a></span>()</code>
 <div class="block">Return the <a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg"><code>partition spec</code></a> for this table.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.Integer,<a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/PositionDeletesTable.html#specs--">specs</a></span>()</code>
 <div class="block">Return a map of <a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg"><code>partition specs</code></a> for this table.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/UpdateLocation.html" title="interface in org.apache.iceberg">UpdateLocation</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/PositionDeletesTable.html#updateLocation--">updateLocation</a></span>()</code>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/UpdateLocation.html" title="interface in org.apache.iceberg"><code>UpdateLocation</code></a> to update table location and commit the changes.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/UpdateProperties.html" title="interface in org.apache.iceberg">UpdateProperties</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/PositionDeletesTable.html#updateProperties--">updateProperties</a></span>()</code>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/UpdateProperties.html" title="interface in org.apache.iceberg"><code>UpdateProperties</code></a> to update table properties and commit the changes.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/UpdateSchema.html" title="interface in org.apache.iceberg">UpdateSchema</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/PositionDeletesTable.html#updateSchema--">updateSchema</a></span>()</code>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/UpdateSchema.html" title="interface in org.apache.iceberg"><code>UpdateSchema</code></a> to alter the columns of this table and commit the change.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/UpdatePartitionSpec.html" title="interface in org.apache.iceberg">UpdatePartitionSpec</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/PositionDeletesTable.html#updateSpec--">updateSpec</a></span>()</code>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/UpdatePartitionSpec.html" title="interface in org.apache.iceberg"><code>UpdatePartitionSpec</code></a> to alter the partition spec of this table and commit
  the change.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/UpdateStatistics.html" title="interface in org.apache.iceberg">UpdateStatistics</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/PositionDeletesTable.html#updateStatistics--">updateStatistics</a></span>()</code>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/UpdateStatistics.html" title="interface in org.apache.iceberg"><code>update table statistics API</code></a> to add or remove statistics
@@ -299,7 +332,7 @@ extends <a href="../../../org/apache/iceberg/BaseMetadataTable.html" title="clas
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.iceberg.<a href="../../../org/apache/iceberg/BaseMetadataTable.html" title="class in org.apache.iceberg">BaseMetadataTable</a></h3>
-<code><a href="../../../org/apache/iceberg/BaseMetadataTable.html#currentSnapshot--">currentSnapshot</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#encryption--">encryption</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#history--">history</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#io--">io</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#location--">location</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#locationProvider--">locationProvider</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#name--">name</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#operations--">operations</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#properties--">properties</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#refresh--">refresh</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#refs--">refs</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#schemas--">schemas</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#snapshot-long-">snapshot</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#snapshots--">snapshots</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#sortOrder--">sortOrder</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#sortOrders--">sortOrders</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#statisticsFiles--">statisticsFiles</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#table--">table</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#toString--">toString</a></code></li>
+<code><a href="../../../org/apache/iceberg/BaseMetadataTable.html#currentSnapshot--">currentSnapshot</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#encryption--">encryption</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#history--">history</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#io--">io</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#location--">location</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#locationProvider--">locationProvider</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#name--">name</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#operations--">operations</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#refresh--">refresh</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#refs--">refs</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#schemas--">schemas</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#snapshot-long-">snapshot</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#snapshots--">snapshots</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#sortOrder--">sortOrder</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#sortOrders--">sortOrders</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#statisticsFiles--">statisticsFiles</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#table--">table</a>, <a href="../../../org/apache/iceberg/BaseMetadataTable.html#toString--">toString</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -323,6 +356,53 @@ extends <a href="../../../org/apache/iceberg/BaseMetadataTable.html" title="clas
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a name="PARTITION">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>PARTITION</h4>
+<pre>public static final&nbsp;java.lang.String PARTITION</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.apache.iceberg.PositionDeletesTable.PARTITION">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="SPEC_ID">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>SPEC_ID</h4>
+<pre>public static final&nbsp;java.lang.String SPEC_ID</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.apache.iceberg.PositionDeletesTable.SPEC_ID">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="DELETE_FILE_PATH">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>DELETE_FILE_PATH</h4>
+<pre>public static final&nbsp;java.lang.String DELETE_FILE_PATH</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#org.apache.iceberg.PositionDeletesTable.DELETE_FILE_PATH">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.detail">
@@ -413,6 +493,25 @@ extends <a href="../../../org/apache/iceberg/BaseMetadataTable.html" title="clas
 <dd><code><a href="../../../org/apache/iceberg/BaseMetadataTable.html#specs--">specs</a></code>&nbsp;in class&nbsp;<code><a href="../../../org/apache/iceberg/BaseMetadataTable.html" title="class in org.apache.iceberg">BaseMetadataTable</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this table's partition specs map</dd>
+</dl>
+</li>
+</ul>
+<a name="properties--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>properties</h4>
+<pre>public&nbsp;java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/Table.html#properties--">Table</a></code></span></div>
+<div class="block">Return a map of string properties for this table.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/Table.html#properties--">properties</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/BaseMetadataTable.html#properties--">properties</a></code>&nbsp;in class&nbsp;<code><a href="../../../org/apache/iceberg/BaseMetadataTable.html" title="class in org.apache.iceberg">BaseMetadataTable</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this table's properties map</dd>
 </dl>
 </li>
 </ul>
@@ -751,13 +850,13 @@ extends <a href="../../../org/apache/iceberg/BaseMetadataTable.html" title="clas
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

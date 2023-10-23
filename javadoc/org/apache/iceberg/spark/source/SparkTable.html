@@ -107,7 +107,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>org.apache.spark.sql.connector.catalog.SupportsDelete, org.apache.spark.sql.connector.catalog.SupportsMetadataColumns, org.apache.spark.sql.connector.catalog.SupportsRead, org.apache.spark.sql.connector.catalog.SupportsRowLevelOperations, org.apache.spark.sql.connector.catalog.SupportsWrite, org.apache.spark.sql.connector.catalog.Table, org.apache.spark.sql.connector.catalog.TruncatableTable</dd>
+<dd>org.apache.spark.sql.connector.catalog.SupportsDeleteV2, org.apache.spark.sql.connector.catalog.SupportsMetadataColumns, org.apache.spark.sql.connector.catalog.SupportsRead, org.apache.spark.sql.connector.catalog.SupportsRowLevelOperations, org.apache.spark.sql.connector.catalog.SupportsWrite, org.apache.spark.sql.connector.catalog.Table, org.apache.spark.sql.connector.catalog.TruncatableTable</dd>
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
@@ -117,7 +117,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public class <span class="typeNameLabel">SparkTable</span>
 extends java.lang.Object
-implements org.apache.spark.sql.connector.catalog.Table, org.apache.spark.sql.connector.catalog.SupportsRead, org.apache.spark.sql.connector.catalog.SupportsWrite, org.apache.spark.sql.connector.catalog.SupportsDelete, org.apache.spark.sql.connector.catalog.SupportsRowLevelOperations, org.apache.spark.sql.connector.catalog.SupportsMetadataColumns</pre>
+implements org.apache.spark.sql.connector.catalog.Table, org.apache.spark.sql.connector.catalog.SupportsRead, org.apache.spark.sql.connector.catalog.SupportsWrite, org.apache.spark.sql.connector.catalog.SupportsDeleteV2, org.apache.spark.sql.connector.catalog.SupportsRowLevelOperations, org.apache.spark.sql.connector.catalog.SupportsMetadataColumns</pre>
 </li>
 </ul>
 </div>
@@ -166,7 +166,7 @@ implements org.apache.spark.sql.connector.catalog.Table, org.apache.spark.sql.co
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/SparkTable.html#canDeleteWhere-org.apache.spark.sql.sources.Filter:A-">canDeleteWhere</a></span>(org.apache.spark.sql.sources.Filter[]&nbsp;filters)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/SparkTable.html#canDeleteWhere-org.apache.spark.sql.connector.expressions.filter.Predicate:A-">canDeleteWhere</a></span>(org.apache.spark.sql.connector.expressions.filter.Predicate[]&nbsp;predicates)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.util.Set&lt;org.apache.spark.sql.connector.catalog.TableCapability&gt;</code></td>
@@ -182,7 +182,7 @@ implements org.apache.spark.sql.connector.catalog.Table, org.apache.spark.sql.co
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/SparkTable.html#deleteWhere-org.apache.spark.sql.sources.Filter:A-">deleteWhere</a></span>(org.apache.spark.sql.sources.Filter[]&nbsp;filters)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/SparkTable.html#deleteWhere-org.apache.spark.sql.connector.expressions.filter.Predicate:A-">deleteWhere</a></span>(org.apache.spark.sql.connector.expressions.filter.Predicate[]&nbsp;predicates)</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
@@ -245,11 +245,25 @@ implements org.apache.spark.sql.connector.catalog.Table, org.apache.spark.sql.co
 <code>clone, finalize, getClass, notify, notifyAll, wait, wait, wait</code></li>
 </ul>
 <ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.org.apache.spark.sql.connector.catalog.SupportsDelete">
+<li class="blockList"><a name="methods.inherited.from.class.org.apache.spark.sql.connector.catalog.SupportsDeleteV2">
 <!--   -->
 </a>
-<h3>Methods inherited from interface&nbsp;org.apache.spark.sql.connector.catalog.SupportsDelete</h3>
+<h3>Methods inherited from interface&nbsp;org.apache.spark.sql.connector.catalog.SupportsDeleteV2</h3>
 <code>truncateTable</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.org.apache.spark.sql.connector.catalog.Table">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;org.apache.spark.sql.connector.catalog.Table</h3>
+<code>columns</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.org.apache.spark.sql.connector.catalog.SupportsMetadataColumns">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;org.apache.spark.sql.connector.catalog.SupportsMetadataColumns</h3>
+<code>canRenameConflictingMetadataColumns</code></li>
 </ul>
 </li>
 </ul>
@@ -458,29 +472,29 @@ implements org.apache.spark.sql.connector.catalog.Table, org.apache.spark.sql.co
 </dl>
 </li>
 </ul>
-<a name="canDeleteWhere-org.apache.spark.sql.sources.Filter:A-">
+<a name="canDeleteWhere-org.apache.spark.sql.connector.expressions.filter.Predicate:A-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>canDeleteWhere</h4>
-<pre>public&nbsp;boolean&nbsp;canDeleteWhere(org.apache.spark.sql.sources.Filter[]&nbsp;filters)</pre>
+<pre>public&nbsp;boolean&nbsp;canDeleteWhere(org.apache.spark.sql.connector.expressions.filter.Predicate[]&nbsp;predicates)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>canDeleteWhere</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.catalog.SupportsDelete</code></dd>
+<dd><code>canDeleteWhere</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.catalog.SupportsDeleteV2</code></dd>
 </dl>
 </li>
 </ul>
-<a name="deleteWhere-org.apache.spark.sql.sources.Filter:A-">
+<a name="deleteWhere-org.apache.spark.sql.connector.expressions.filter.Predicate:A-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>deleteWhere</h4>
-<pre>public&nbsp;void&nbsp;deleteWhere(org.apache.spark.sql.sources.Filter[]&nbsp;filters)</pre>
+<pre>public&nbsp;void&nbsp;deleteWhere(org.apache.spark.sql.connector.expressions.filter.Predicate[]&nbsp;predicates)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>deleteWhere</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.catalog.SupportsDelete</code></dd>
+<dd><code>deleteWhere</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.catalog.SupportsDeleteV2</code></dd>
 </dl>
 </li>
 </ul>

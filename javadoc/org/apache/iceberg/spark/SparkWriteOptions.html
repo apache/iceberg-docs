@@ -42,7 +42,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li>Next&nbsp;Class</li>
+<li><a href="../../../../org/apache/iceberg/spark/SparkWriteRequirements.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/spark/SparkWriteOptions.html" target="_top">Frames</a></li>
@@ -124,11 +124,27 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#CHECK_NULLABILITY">CHECK_NULLABILITY</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#ADVISORY_PARTITION_SIZE">ADVISORY_PARTITION_SIZE</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#CHECK_NULLABILITY">CHECK_NULLABILITY</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#CHECK_ORDERING">CHECK_ORDERING</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#COMPRESSION_CODEC">COMPRESSION_CODEC</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#COMPRESSION_LEVEL">COMPRESSION_LEVEL</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#COMPRESSION_STRATEGY">COMPRESSION_STRATEGY</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
@@ -144,19 +160,19 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#HANDLE_TIMESTAMP_WITHOUT_TIMEZONE">HANDLE_TIMESTAMP_WITHOUT_TIMEZONE</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#ISOLATION_LEVEL">ISOLATION_LEVEL</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#MERGE_SCHEMA">MERGE_SCHEMA</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#MERGE_SCHEMA_DEFAULT">MERGE_SCHEMA_DEFAULT</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html#OUTPUT_SPEC_ID">OUTPUT_SPEC_ID</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
@@ -345,16 +361,16 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="HANDLE_TIMESTAMP_WITHOUT_TIMEZONE">
+<a name="OUTPUT_SPEC_ID">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>HANDLE_TIMESTAMP_WITHOUT_TIMEZONE</h4>
-<pre>public static final&nbsp;java.lang.String HANDLE_TIMESTAMP_WITHOUT_TIMEZONE</pre>
+<h4>OUTPUT_SPEC_ID</h4>
+<pre>public static final&nbsp;java.lang.String OUTPUT_SPEC_ID</pre>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkWriteOptions.HANDLE_TIMESTAMP_WITHOUT_TIMEZONE">Constant Field Values</a></dd>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkWriteOptions.OUTPUT_SPEC_ID">Constant Field Values</a></dd>
 </dl>
 </li>
 </ul>
@@ -465,13 +481,65 @@ extends java.lang.Object</pre>
 <a name="ISOLATION_LEVEL">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>ISOLATION_LEVEL</h4>
 <pre>public static final&nbsp;java.lang.String ISOLATION_LEVEL</pre>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkWriteOptions.ISOLATION_LEVEL">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="COMPRESSION_CODEC">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>COMPRESSION_CODEC</h4>
+<pre>public static final&nbsp;java.lang.String COMPRESSION_CODEC</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkWriteOptions.COMPRESSION_CODEC">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="COMPRESSION_LEVEL">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>COMPRESSION_LEVEL</h4>
+<pre>public static final&nbsp;java.lang.String COMPRESSION_LEVEL</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkWriteOptions.COMPRESSION_LEVEL">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="COMPRESSION_STRATEGY">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>COMPRESSION_STRATEGY</h4>
+<pre>public static final&nbsp;java.lang.String COMPRESSION_STRATEGY</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkWriteOptions.COMPRESSION_STRATEGY">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="ADVISORY_PARTITION_SIZE">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>ADVISORY_PARTITION_SIZE</h4>
+<pre>public static final&nbsp;java.lang.String ADVISORY_PARTITION_SIZE</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.spark.SparkWriteOptions.ADVISORY_PARTITION_SIZE">Constant Field Values</a></dd>
 </dl>
 </li>
 </ul>
@@ -503,7 +571,7 @@ extends java.lang.Object</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/spark/SparkWriteConf.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li>Next&nbsp;Class</li>
+<li><a href="../../../../org/apache/iceberg/spark/SparkWriteRequirements.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/spark/SparkWriteOptions.html" target="_top">Frames</a></li>

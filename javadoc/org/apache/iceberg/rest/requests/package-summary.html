@@ -81,12 +81,18 @@
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/ReportMetricsRequest.html" title="interface in org.apache.iceberg.rest.requests">ReportMetricsRequest</a></td>
+<td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/RegisterTableRequest.html" title="interface in org.apache.iceberg.rest.requests">RegisterTableRequest</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.html" title="interface in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement</a></td>
+<td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/ReportMetricsRequest.html" title="interface in org.apache.iceberg.rest.requests">ReportMetricsRequest</a></td>
 <td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.html" title="interface in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement</a></td>
+<td class="colLast">Deprecated
+<div class="block"><span class="deprecationComment">will be removed in 1.5.0, use <a href="../../../../../org/apache/iceberg/UpdateRequirement.html" title="interface in org.apache.iceberg"><code>UpdateRequirement</code></a> instead.</span></div>
+</td>
 </tr>
 </tbody>
 </table>
@@ -99,6 +105,14 @@
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tbody>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/CommitTransactionRequest.html" title="class in org.apache.iceberg.rest.requests">CommitTransactionRequest</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/CommitTransactionRequestParser.html" title="class in org.apache.iceberg.rest.requests">CommitTransactionRequestParser</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
 <tr class="altColor">
 <td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/CreateNamespaceRequest.html" title="class in org.apache.iceberg.rest.requests">CreateNamespaceRequest</a></td>
 <td class="colLast">
@@ -121,71 +135,85 @@
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/RegisterTableRequestParser.html" title="class in org.apache.iceberg.rest.requests">RegisterTableRequestParser</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/RenameTableRequest.html" title="class in org.apache.iceberg.rest.requests">RenameTableRequest</a></td>
 <td class="colLast">
 <div class="block">A REST request to rename a table.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/RenameTableRequest.Builder.html" title="class in org.apache.iceberg.rest.requests">RenameTableRequest.Builder</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/ReportMetricsRequestParser.html" title="class in org.apache.iceberg.rest.requests">ReportMetricsRequestParser</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateNamespacePropertiesRequest.html" title="class in org.apache.iceberg.rest.requests">UpdateNamespacePropertiesRequest</a></td>
 <td class="colLast">
 <div class="block">A REST request to set and/or remove properties on a namespace.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateNamespacePropertiesRequest.Builder.html" title="class in org.apache.iceberg.rest.requests">UpdateNamespacePropertiesRequest.Builder</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
-<td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateRequirementParser.html" title="class in org.apache.iceberg.rest.requests">UpdateRequirementParser</a></td>
-<td class="colLast">&nbsp;</td>
-</tr>
 <tr class="altColor">
+<td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateRequirementParser.html" title="class in org.apache.iceberg.rest.requests">UpdateRequirementParser</a></td>
+<td class="colLast">Deprecated
+<div class="block"><span class="deprecationComment">will be removed in 1.5.0, use <a href="../../../../../org/apache/iceberg/UpdateRequirementParser.html" title="class in org.apache.iceberg"><code>UpdateRequirementParser</code></a>
+     instead.</span></div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
-<td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.Builder.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.Builder</a></td>
-<td class="colLast">&nbsp;</td>
-</tr>
 <tr class="altColor">
+<td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.Builder.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.Builder</a></td>
+<td class="colLast">Deprecated
+<div class="block"><span class="deprecationComment">will be removed in 1.5.0, use <a href="../../../../../org/apache/iceberg/UpdateRequirements.html" title="class in org.apache.iceberg"><code>UpdateRequirements</code></a>
+     instead.</span></div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertCurrentSchemaID.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertCurrentSchemaID</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertDefaultSortOrderID.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertDefaultSortOrderID</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertDefaultSpecID.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertDefaultSpecID</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertLastAssignedFieldId.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertLastAssignedFieldId</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertLastAssignedPartitionId.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertLastAssignedPartitionId</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertRefSnapshotID.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertRefSnapshotID</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertTableDoesNotExist.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertTableDoesNotExist</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertTableUUID.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertTableUUID</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequestParser.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequestParser</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
 </tbody>

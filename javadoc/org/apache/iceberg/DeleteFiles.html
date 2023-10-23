@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":18,"i3":6};
+var methods = {"i0":6,"i1":6,"i2":18,"i3":6,"i4":18};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -158,6 +158,13 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 <div class="block">Delete files that match an <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions"><code>Expression</code></a> on data rows from the table.</div>
 </td>
 </tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>default <a href="../../../org/apache/iceberg/DeleteFiles.html" title="interface in org.apache.iceberg">DeleteFiles</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/DeleteFiles.html#validateFilesExist--">validateFilesExist</a></span>()</code>
+<div class="block">Enables validation that any files that are part of the deletion still exist when committing the
+ operation.</div>
+</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.org.apache.iceberg.SnapshotUpdate">
@@ -253,7 +260,7 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 <a name="caseSensitive-boolean-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>caseSensitive</h4>
 <pre><a href="../../../org/apache/iceberg/DeleteFiles.html" title="interface in org.apache.iceberg">DeleteFiles</a>&nbsp;caseSensitive(boolean&nbsp;caseSensitive)</pre>
@@ -261,6 +268,21 @@ extends <a href="../../../org/apache/iceberg/SnapshotUpdate.html" title="interfa
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>caseSensitive</code> - whether expression binding should be case sensitive</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a name="validateFilesExist--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>validateFilesExist</h4>
+<pre>default&nbsp;<a href="../../../org/apache/iceberg/DeleteFiles.html" title="interface in org.apache.iceberg">DeleteFiles</a>&nbsp;validateFilesExist()</pre>
+<div class="block">Enables validation that any files that are part of the deletion still exist when committing the
+ operation.</div>
+<dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>
 </dl>

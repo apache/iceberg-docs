@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -146,12 +146,18 @@ implements <a href="../../../org/apache/iceberg/ReplaceSortOrder.html" title="in
 </td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/ReplaceSortOrder.html" title="interface in org.apache.iceberg">ReplaceSortOrder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplaceSortOrder.html#caseSensitive-boolean-">caseSensitive</a></span>(boolean&nbsp;caseSensitive)</code>
+<div class="block">Set case sensitivity of sort column name resolution.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplaceSortOrder.html#commit--">commit</a></span>()</code>
 <div class="block">Apply the pending changes and commit.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ReplaceSortOrder.html" title="interface in org.apache.iceberg">ReplaceSortOrder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplaceSortOrder.html#desc-org.apache.iceberg.expressions.Term-org.apache.iceberg.NullOrder-">desc</a></span>(<a href="../../../org/apache/iceberg/expressions/Term.html" title="interface in org.apache.iceberg.expressions">Term</a>&nbsp;term,
     <a href="../../../org/apache/iceberg/NullOrder.html" title="enum in org.apache.iceberg">NullOrder</a>&nbsp;nullOrder)</code>
@@ -256,7 +262,7 @@ implements <a href="../../../org/apache/iceberg/ReplaceSortOrder.html" title="in
 <a name="desc-org.apache.iceberg.expressions.Term-org.apache.iceberg.NullOrder-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>desc</h4>
 <pre>public&nbsp;<a href="../../../org/apache/iceberg/ReplaceSortOrder.html" title="interface in org.apache.iceberg">ReplaceSortOrder</a>&nbsp;desc(<a href="../../../org/apache/iceberg/expressions/Term.html" title="interface in org.apache.iceberg.expressions">Term</a>&nbsp;term,
@@ -269,6 +275,25 @@ implements <a href="../../../org/apache/iceberg/ReplaceSortOrder.html" title="in
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>term</code> - an expression term</dd>
 <dd><code>nullOrder</code> - a null order (first or last)</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a name="caseSensitive-boolean-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>caseSensitive</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/ReplaceSortOrder.html" title="interface in org.apache.iceberg">ReplaceSortOrder</a>&nbsp;caseSensitive(boolean&nbsp;caseSensitive)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/SortOrderBuilder.html#caseSensitive-boolean-">SortOrderBuilder</a></code></span></div>
+<div class="block">Set case sensitivity of sort column name resolution.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/SortOrderBuilder.html#caseSensitive-boolean-">caseSensitive</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/SortOrderBuilder.html" title="interface in org.apache.iceberg">SortOrderBuilder</a>&lt;<a href="../../../org/apache/iceberg/ReplaceSortOrder.html" title="interface in org.apache.iceberg">ReplaceSortOrder</a>&gt;</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>caseSensitive</code> - when true, column name resolution is case-sensitive</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>
 </dl>

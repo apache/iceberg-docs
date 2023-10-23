@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -204,168 +204,177 @@ extends org.apache.flink.table.catalog.AbstractCatalog</pre>
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#alterTable-org.apache.flink.table.catalog.ObjectPath-org.apache.flink.table.catalog.CatalogBaseTable-boolean-">alterTable</a></span>(org.apache.flink.table.catalog.ObjectPath&nbsp;tablePath,
           org.apache.flink.table.catalog.CatalogBaseTable&nbsp;newTable,
-          boolean&nbsp;ignoreIfNotExists)</code>&nbsp;</td>
+          boolean&nbsp;ignoreIfNotExists)</code>
+<div class="block">This alterTable API only supports altering table properties.</div>
+</td>
 </tr>
 <tr id="i6" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#alterTable-org.apache.flink.table.catalog.ObjectPath-org.apache.flink.table.catalog.CatalogBaseTable-java.util.List-boolean-">alterTable</a></span>(org.apache.flink.table.catalog.ObjectPath&nbsp;tablePath,
+          org.apache.flink.table.catalog.CatalogBaseTable&nbsp;newTable,
+          java.util.List&lt;org.apache.flink.table.catalog.TableChange&gt;&nbsp;tableChanges,
+          boolean&nbsp;ignoreIfNotExists)</code>&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#alterTableColumnStatistics-org.apache.flink.table.catalog.ObjectPath-org.apache.flink.table.catalog.stats.CatalogColumnStatistics-boolean-">alterTableColumnStatistics</a></span>(org.apache.flink.table.catalog.ObjectPath&nbsp;tablePath,
                           org.apache.flink.table.catalog.stats.CatalogColumnStatistics&nbsp;columnStatistics,
                           boolean&nbsp;ignoreIfNotExists)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#alterTableStatistics-org.apache.flink.table.catalog.ObjectPath-org.apache.flink.table.catalog.stats.CatalogTableStatistics-boolean-">alterTableStatistics</a></span>(org.apache.flink.table.catalog.ObjectPath&nbsp;tablePath,
                     org.apache.flink.table.catalog.stats.CatalogTableStatistics&nbsp;tableStatistics,
                     boolean&nbsp;ignoreIfNotExists)</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#catalog--">catalog</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#close--">close</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#createDatabase-java.lang.String-org.apache.flink.table.catalog.CatalogDatabase-boolean-">createDatabase</a></span>(java.lang.String&nbsp;name,
               org.apache.flink.table.catalog.CatalogDatabase&nbsp;database,
               boolean&nbsp;ignoreIfExists)</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#createFunction-org.apache.flink.table.catalog.ObjectPath-org.apache.flink.table.catalog.CatalogFunction-boolean-">createFunction</a></span>(org.apache.flink.table.catalog.ObjectPath&nbsp;functionPath,
               org.apache.flink.table.catalog.CatalogFunction&nbsp;function,
               boolean&nbsp;ignoreIfExists)</code>&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#createPartition-org.apache.flink.table.catalog.ObjectPath-org.apache.flink.table.catalog.CatalogPartitionSpec-org.apache.flink.table.catalog.CatalogPartition-boolean-">createPartition</a></span>(org.apache.flink.table.catalog.ObjectPath&nbsp;tablePath,
                org.apache.flink.table.catalog.CatalogPartitionSpec&nbsp;partitionSpec,
                org.apache.flink.table.catalog.CatalogPartition&nbsp;partition,
                boolean&nbsp;ignoreIfExists)</code>&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#createTable-org.apache.flink.table.catalog.ObjectPath-org.apache.flink.table.catalog.CatalogBaseTable-boolean-">createTable</a></span>(org.apache.flink.table.catalog.ObjectPath&nbsp;tablePath,
            org.apache.flink.table.catalog.CatalogBaseTable&nbsp;table,
            boolean&nbsp;ignoreIfExists)</code>&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#databaseExists-java.lang.String-">databaseExists</a></span>(java.lang.String&nbsp;databaseName)</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#dropDatabase-java.lang.String-boolean-boolean-">dropDatabase</a></span>(java.lang.String&nbsp;name,
             boolean&nbsp;ignoreIfNotExists,
             boolean&nbsp;cascade)</code>&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#dropFunction-org.apache.flink.table.catalog.ObjectPath-boolean-">dropFunction</a></span>(org.apache.flink.table.catalog.ObjectPath&nbsp;functionPath,
             boolean&nbsp;ignoreIfNotExists)</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#dropPartition-org.apache.flink.table.catalog.ObjectPath-org.apache.flink.table.catalog.CatalogPartitionSpec-boolean-">dropPartition</a></span>(org.apache.flink.table.catalog.ObjectPath&nbsp;tablePath,
              org.apache.flink.table.catalog.CatalogPartitionSpec&nbsp;partitionSpec,
              boolean&nbsp;ignoreIfNotExists)</code>&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#dropTable-org.apache.flink.table.catalog.ObjectPath-boolean-">dropTable</a></span>(org.apache.flink.table.catalog.ObjectPath&nbsp;tablePath,
          boolean&nbsp;ignoreIfNotExists)</code>&nbsp;</td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#functionExists-org.apache.flink.table.catalog.ObjectPath-">functionExists</a></span>(org.apache.flink.table.catalog.ObjectPath&nbsp;functionPath)</code>&nbsp;</td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>org.apache.flink.table.catalog.CatalogDatabase</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#getDatabase-java.lang.String-">getDatabase</a></span>(java.lang.String&nbsp;databaseName)</code>&nbsp;</td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>java.util.Optional&lt;org.apache.flink.table.factories.Factory&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#getFactory--">getFactory</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>org.apache.flink.table.catalog.CatalogFunction</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#getFunction-org.apache.flink.table.catalog.ObjectPath-">getFunction</a></span>(org.apache.flink.table.catalog.ObjectPath&nbsp;functionPath)</code>&nbsp;</td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>org.apache.flink.table.catalog.CatalogPartition</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#getPartition-org.apache.flink.table.catalog.ObjectPath-org.apache.flink.table.catalog.CatalogPartitionSpec-">getPartition</a></span>(org.apache.flink.table.catalog.ObjectPath&nbsp;tablePath,
             org.apache.flink.table.catalog.CatalogPartitionSpec&nbsp;partitionSpec)</code>&nbsp;</td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>org.apache.flink.table.catalog.stats.CatalogColumnStatistics</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#getPartitionColumnStatistics-org.apache.flink.table.catalog.ObjectPath-org.apache.flink.table.catalog.CatalogPartitionSpec-">getPartitionColumnStatistics</a></span>(org.apache.flink.table.catalog.ObjectPath&nbsp;tablePath,
                             org.apache.flink.table.catalog.CatalogPartitionSpec&nbsp;partitionSpec)</code>&nbsp;</td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>org.apache.flink.table.catalog.stats.CatalogTableStatistics</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#getPartitionStatistics-org.apache.flink.table.catalog.ObjectPath-org.apache.flink.table.catalog.CatalogPartitionSpec-">getPartitionStatistics</a></span>(org.apache.flink.table.catalog.ObjectPath&nbsp;tablePath,
                       org.apache.flink.table.catalog.CatalogPartitionSpec&nbsp;partitionSpec)</code>&nbsp;</td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code>org.apache.flink.table.catalog.CatalogTable</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#getTable-org.apache.flink.table.catalog.ObjectPath-">getTable</a></span>(org.apache.flink.table.catalog.ObjectPath&nbsp;tablePath)</code>&nbsp;</td>
 </tr>
-<tr id="i27" class="rowColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>org.apache.flink.table.catalog.stats.CatalogColumnStatistics</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#getTableColumnStatistics-org.apache.flink.table.catalog.ObjectPath-">getTableColumnStatistics</a></span>(org.apache.flink.table.catalog.ObjectPath&nbsp;tablePath)</code>&nbsp;</td>
 </tr>
-<tr id="i28" class="altColor">
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code>org.apache.flink.table.catalog.stats.CatalogTableStatistics</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#getTableStatistics-org.apache.flink.table.catalog.ObjectPath-">getTableStatistics</a></span>(org.apache.flink.table.catalog.ObjectPath&nbsp;tablePath)</code>&nbsp;</td>
 </tr>
-<tr id="i29" class="rowColor">
+<tr id="i30" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#listDatabases--">listDatabases</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i30" class="altColor">
+<tr id="i31" class="rowColor">
 <td class="colFirst"><code>java.util.List&lt;java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#listFunctions-java.lang.String-">listFunctions</a></span>(java.lang.String&nbsp;dbName)</code>&nbsp;</td>
 </tr>
-<tr id="i31" class="rowColor">
+<tr id="i32" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;org.apache.flink.table.catalog.CatalogPartitionSpec&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#listPartitions-org.apache.flink.table.catalog.ObjectPath-">listPartitions</a></span>(org.apache.flink.table.catalog.ObjectPath&nbsp;tablePath)</code>&nbsp;</td>
 </tr>
-<tr id="i32" class="altColor">
+<tr id="i33" class="rowColor">
 <td class="colFirst"><code>java.util.List&lt;org.apache.flink.table.catalog.CatalogPartitionSpec&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#listPartitions-org.apache.flink.table.catalog.ObjectPath-org.apache.flink.table.catalog.CatalogPartitionSpec-">listPartitions</a></span>(org.apache.flink.table.catalog.ObjectPath&nbsp;tablePath,
               org.apache.flink.table.catalog.CatalogPartitionSpec&nbsp;partitionSpec)</code>&nbsp;</td>
 </tr>
-<tr id="i33" class="rowColor">
+<tr id="i34" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;org.apache.flink.table.catalog.CatalogPartitionSpec&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#listPartitionsByFilter-org.apache.flink.table.catalog.ObjectPath-java.util.List-">listPartitionsByFilter</a></span>(org.apache.flink.table.catalog.ObjectPath&nbsp;tablePath,
                       java.util.List&lt;org.apache.flink.table.expressions.Expression&gt;&nbsp;filters)</code>&nbsp;</td>
 </tr>
-<tr id="i34" class="altColor">
+<tr id="i35" class="rowColor">
 <td class="colFirst"><code>java.util.List&lt;java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#listTables-java.lang.String-">listTables</a></span>(java.lang.String&nbsp;databaseName)</code>&nbsp;</td>
 </tr>
-<tr id="i35" class="rowColor">
+<tr id="i36" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#listViews-java.lang.String-">listViews</a></span>(java.lang.String&nbsp;databaseName)</code>&nbsp;</td>
 </tr>
-<tr id="i36" class="altColor">
+<tr id="i37" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#open--">open</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i37" class="rowColor">
+<tr id="i38" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#partitionExists-org.apache.flink.table.catalog.ObjectPath-org.apache.flink.table.catalog.CatalogPartitionSpec-">partitionExists</a></span>(org.apache.flink.table.catalog.ObjectPath&nbsp;tablePath,
                org.apache.flink.table.catalog.CatalogPartitionSpec&nbsp;partitionSpec)</code>&nbsp;</td>
 </tr>
-<tr id="i38" class="altColor">
+<tr id="i39" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#renameTable-org.apache.flink.table.catalog.ObjectPath-java.lang.String-boolean-">renameTable</a></span>(org.apache.flink.table.catalog.ObjectPath&nbsp;tablePath,
            java.lang.String&nbsp;newTableName,
            boolean&nbsp;ignoreIfNotExists)</code>&nbsp;</td>
 </tr>
-<tr id="i39" class="rowColor">
+<tr id="i40" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkCatalog.html#tableExists-org.apache.flink.table.catalog.ObjectPath-">tableExists</a></span>(org.apache.flink.table.catalog.ObjectPath&nbsp;tablePath)</code>&nbsp;</td>
 </tr>
@@ -676,10 +685,40 @@ extends org.apache.flink.table.catalog.AbstractCatalog</pre>
                        boolean&nbsp;ignoreIfNotExists)
                 throws org.apache.flink.table.catalog.exceptions.CatalogException,
                        org.apache.flink.table.catalog.exceptions.TableNotExistException</pre>
+<div class="block">This alterTable API only supports altering table properties.
+
+ <p>Support for adding/removing/renaming columns cannot be done by comparing CatalogTable
+ instances, unless the Flink schema contains Iceberg column IDs.
+
+ <p>To alter columns, use the other alterTable API and provide a list of TableChange's.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>tablePath</code> - path of the table or view to be modified</dd>
+<dd><code>newTable</code> - the new table definition</dd>
+<dd><code>ignoreIfNotExists</code> - flag to specify behavior when the table or view does not exist: if set
+     to false, throw an exception, if set to true, do nothing.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>org.apache.flink.table.catalog.exceptions.CatalogException</code> - in case of any runtime exception</dd>
+<dd><code>org.apache.flink.table.catalog.exceptions.TableNotExistException</code> - if the table does not exist</dd>
+</dl>
+</li>
+</ul>
+<a name="alterTable-org.apache.flink.table.catalog.ObjectPath-org.apache.flink.table.catalog.CatalogBaseTable-java.util.List-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>alterTable</h4>
+<pre>public&nbsp;void&nbsp;alterTable(org.apache.flink.table.catalog.ObjectPath&nbsp;tablePath,
+                       org.apache.flink.table.catalog.CatalogBaseTable&nbsp;newTable,
+                       java.util.List&lt;org.apache.flink.table.catalog.TableChange&gt;&nbsp;tableChanges,
+                       boolean&nbsp;ignoreIfNotExists)
+                throws org.apache.flink.table.catalog.exceptions.TableNotExistException,
+                       org.apache.flink.table.catalog.exceptions.CatalogException</pre>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>org.apache.flink.table.catalog.exceptions.CatalogException</code></dd>
 <dd><code>org.apache.flink.table.catalog.exceptions.TableNotExistException</code></dd>
+<dd><code>org.apache.flink.table.catalog.exceptions.CatalogException</code></dd>
 </dl>
 </li>
 </ul>

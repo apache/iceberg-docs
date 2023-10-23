@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/spark/ExtendedParser.RawOrderField.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/spark/FileScanTaskSetManager.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/spark/IcebergSpark.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/spark/FileRewriteCoordinator.html" target="_top">Frames</a></li>
@@ -130,16 +130,16 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/FileRewriteCoordinator.html#clearRewrite-org.apache.iceberg.Table-java.lang.String-">clearRewrite</a></span>(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
-            java.lang.String&nbsp;fileSetID)</code>&nbsp;</td>
+            java.lang.String&nbsp;fileSetId)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>java.util.Set&lt;<a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/FileRewriteCoordinator.html#fetchNewDataFiles-org.apache.iceberg.Table-java.lang.String-">fetchNewDataFiles</a></span>(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
-                 java.lang.String&nbsp;fileSetID)</code>&nbsp;</td>
+<td class="colFirst"><code>java.util.Set&lt;F&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/FileRewriteCoordinator.html#fetchNewFiles-org.apache.iceberg.Table-java.lang.String-">fetchNewFiles</a></span>(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
+             java.lang.String&nbsp;fileSetId)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>java.util.Set&lt;java.lang.String&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/FileRewriteCoordinator.html#fetchSetIDs-org.apache.iceberg.Table-">fetchSetIDs</a></span>(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/FileRewriteCoordinator.html#fetchSetIds-org.apache.iceberg.Table-">fetchSetIds</a></span>(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/spark/FileRewriteCoordinator.html" title="class in org.apache.iceberg.spark">FileRewriteCoordinator</a></code></td>
@@ -148,8 +148,8 @@ extends java.lang.Object</pre>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/FileRewriteCoordinator.html#stageRewrite-org.apache.iceberg.Table-java.lang.String-java.util.Set-">stageRewrite</a></span>(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
-            java.lang.String&nbsp;fileSetID,
-            java.util.Set&lt;<a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;&nbsp;newDataFiles)</code>
+            java.lang.String&nbsp;fileSetId,
+            java.util.Set&lt;F&gt;&nbsp;newFiles)</code>
 <div class="block">Called to persist the output of a rewrite action for a specific group.</div>
 </td>
 </tr>
@@ -191,26 +191,26 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>stageRewrite</h4>
 <pre>public&nbsp;void&nbsp;stageRewrite(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
-                         java.lang.String&nbsp;fileSetID,
-                         java.util.Set&lt;<a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;&nbsp;newDataFiles)</pre>
+                         java.lang.String&nbsp;fileSetId,
+                         java.util.Set&lt;F&gt;&nbsp;newFiles)</pre>
 <div class="block">Called to persist the output of a rewrite action for a specific group. Since the write is done
  via a Spark Datasource, we have to propagate the result through this side-effect call.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>table</code> - table where the rewrite is occurring</dd>
-<dd><code>fileSetID</code> - the id used to identify the source set of files being rewritten</dd>
-<dd><code>newDataFiles</code> - the new files which have been written</dd>
+<dd><code>fileSetId</code> - the id used to identify the source set of files being rewritten</dd>
+<dd><code>newFiles</code> - the new files which have been written</dd>
 </dl>
 </li>
 </ul>
-<a name="fetchNewDataFiles-org.apache.iceberg.Table-java.lang.String-">
+<a name="fetchNewFiles-org.apache.iceberg.Table-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>fetchNewDataFiles</h4>
-<pre>public&nbsp;java.util.Set&lt;<a href="../../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;&nbsp;fetchNewDataFiles(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
-                                                 java.lang.String&nbsp;fileSetID)</pre>
+<h4>fetchNewFiles</h4>
+<pre>public&nbsp;java.util.Set&lt;F&gt;&nbsp;fetchNewFiles(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
+                                      java.lang.String&nbsp;fileSetId)</pre>
 </li>
 </ul>
 <a name="clearRewrite-org.apache.iceberg.Table-java.lang.String-">
@@ -220,16 +220,16 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>clearRewrite</h4>
 <pre>public&nbsp;void&nbsp;clearRewrite(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
-                         java.lang.String&nbsp;fileSetID)</pre>
+                         java.lang.String&nbsp;fileSetId)</pre>
 </li>
 </ul>
-<a name="fetchSetIDs-org.apache.iceberg.Table-">
+<a name="fetchSetIds-org.apache.iceberg.Table-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>fetchSetIDs</h4>
-<pre>public&nbsp;java.util.Set&lt;java.lang.String&gt;&nbsp;fetchSetIDs(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</pre>
+<h4>fetchSetIds</h4>
+<pre>public&nbsp;java.util.Set&lt;java.lang.String&gt;&nbsp;fetchSetIds(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</pre>
 </li>
 </ul>
 </li>
@@ -260,7 +260,7 @@ extends java.lang.Object</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/spark/ExtendedParser.RawOrderField.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/spark/FileScanTaskSetManager.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/spark/IcebergSpark.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/spark/FileRewriteCoordinator.html" target="_top">Frames</a></li>

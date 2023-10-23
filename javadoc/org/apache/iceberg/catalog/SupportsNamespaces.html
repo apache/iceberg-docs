@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/catalog/SessionCatalog.SessionContext.html" title="class in org.apache.iceberg.catalog"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/catalog/TableCommit.html" title="interface in org.apache.iceberg.catalog"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/catalog/SupportsNamespaces.html" target="_top">Frames</a></li>
@@ -99,7 +99,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../org/apache/iceberg/catalog/BaseSessionCatalog.AsCatalog.html" title="class in org.apache.iceberg.catalog">BaseSessionCatalog.AsCatalog</a>, <a href="../../../../org/apache/iceberg/aws/dynamodb/DynamoDbCatalog.html" title="class in org.apache.iceberg.aws.dynamodb">DynamoDbCatalog</a>, <a href="../../../../org/apache/iceberg/dell/ecs/EcsCatalog.html" title="class in org.apache.iceberg.dell.ecs">EcsCatalog</a>, <a href="../../../../org/apache/iceberg/aws/glue/GlueCatalog.html" title="class in org.apache.iceberg.aws.glue">GlueCatalog</a>, <a href="../../../../org/apache/iceberg/hadoop/HadoopCatalog.html" title="class in org.apache.iceberg.hadoop">HadoopCatalog</a>, <a href="../../../../org/apache/iceberg/hive/HiveCatalog.html" title="class in org.apache.iceberg.hive">HiveCatalog</a>, <a href="../../../../org/apache/iceberg/jdbc/JdbcCatalog.html" title="class in org.apache.iceberg.jdbc">JdbcCatalog</a>, <a href="../../../../org/apache/iceberg/nessie/NessieCatalog.html" title="class in org.apache.iceberg.nessie">NessieCatalog</a>, <a href="../../../../org/apache/iceberg/rest/RESTCatalog.html" title="class in org.apache.iceberg.rest">RESTCatalog</a>, <a href="../../../../org/apache/iceberg/snowflake/SnowflakeCatalog.html" title="class in org.apache.iceberg.snowflake">SnowflakeCatalog</a></dd>
+<dd><a href="../../../../org/apache/iceberg/catalog/BaseSessionCatalog.AsCatalog.html" title="class in org.apache.iceberg.catalog">BaseSessionCatalog.AsCatalog</a>, <a href="../../../../org/apache/iceberg/aws/dynamodb/DynamoDbCatalog.html" title="class in org.apache.iceberg.aws.dynamodb">DynamoDbCatalog</a>, <a href="../../../../org/apache/iceberg/dell/ecs/EcsCatalog.html" title="class in org.apache.iceberg.dell.ecs">EcsCatalog</a>, <a href="../../../../org/apache/iceberg/aws/glue/GlueCatalog.html" title="class in org.apache.iceberg.aws.glue">GlueCatalog</a>, <a href="../../../../org/apache/iceberg/hadoop/HadoopCatalog.html" title="class in org.apache.iceberg.hadoop">HadoopCatalog</a>, <a href="../../../../org/apache/iceberg/hive/HiveCatalog.html" title="class in org.apache.iceberg.hive">HiveCatalog</a>, <a href="../../../../org/apache/iceberg/inmemory/InMemoryCatalog.html" title="class in org.apache.iceberg.inmemory">InMemoryCatalog</a>, <a href="../../../../org/apache/iceberg/jdbc/JdbcCatalog.html" title="class in org.apache.iceberg.jdbc">JdbcCatalog</a>, <a href="../../../../org/apache/iceberg/nessie/NessieCatalog.html" title="class in org.apache.iceberg.nessie">NessieCatalog</a>, <a href="../../../../org/apache/iceberg/rest/RESTCatalog.html" title="class in org.apache.iceberg.rest">RESTCatalog</a>, <a href="../../../../org/apache/iceberg/snowflake/SnowflakeCatalog.html" title="class in org.apache.iceberg.snowflake">SnowflakeCatalog</a></dd>
 </dl>
 <hr>
 <br>
@@ -160,7 +160,7 @@ var activeTableTab = "activeTableTab";
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.html#listNamespaces-org.apache.iceberg.catalog.Namespace-">listNamespaces</a></span>(<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace)</code>
-<div class="block">List namespaces from the namespace.</div>
+<div class="block">List child namespaces from the namespace.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
@@ -254,7 +254,7 @@ var activeTableTab = "activeTableTab";
  method must return ["a"] in the result array.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>an List of namespace <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>Namespace</code></a> names</dd>
+<dd>a List of namespace <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>Namespace</code></a> names</dd>
 </dl>
 </li>
 </ul>
@@ -266,13 +266,32 @@ var activeTableTab = "activeTableTab";
 <h4>listNamespaces</h4>
 <pre>java.util.List&lt;<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&gt;&nbsp;listNamespaces(<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace)
                                   throws <a href="../../../../org/apache/iceberg/exceptions/NoSuchNamespaceException.html" title="class in org.apache.iceberg.exceptions">NoSuchNamespaceException</a></pre>
-<div class="block">List namespaces from the namespace.
+<div class="block">List child namespaces from the namespace.
 
- <p>For example, if table a.b.t exists, use 'SELECT NAMESPACE IN a' this method must return
- Namepace.of("a","b") <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>Namespace</code></a>.</div>
+ <p>For two existing tables named 'a.b.c.table' and 'a.b.d.table', this method returns:
+
+ <ul>
+   <li>Given: <code>Namespace.empty()</code>
+   <li>Returns: <code>Namespace.of("a")</code>
+ </ul>
+
+ <ul>
+   <li>Given: <code>Namespace.of("a")</code>
+   <li>Returns: <code>Namespace.of("a", "b")</code>
+ </ul>
+
+ <ul>
+   <li>Given: <code>Namespace.of("a", "b")</code>
+   <li>Returns: <code>Namespace.of("a", "b", "c")</code> and <code>Namespace.of("a", "b", "d")</code>
+ </ul>
+
+ <ul>
+   <li>Given: <code>Namespace.of("a", "b", "c")</code>
+   <li>Returns: empty list, because there are no child namespaces
+ </ul></div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>a List of namespace <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>Namespace</code></a> names</dd>
+<dd>a List of child <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>Namespace</code></a> names from the given namespace</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/exceptions/NoSuchNamespaceException.html" title="class in org.apache.iceberg.exceptions">NoSuchNamespaceException</a></code> - If the namespace does not exist (optional)</dd>
 </dl>
@@ -404,7 +423,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/catalog/SessionCatalog.SessionContext.html" title="class in org.apache.iceberg.catalog"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/catalog/TableCommit.html" title="interface in org.apache.iceberg.catalog"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/catalog/SupportsNamespaces.html" target="_top">Frames</a></li>

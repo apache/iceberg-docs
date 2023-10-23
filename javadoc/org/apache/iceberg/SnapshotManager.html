@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -153,19 +153,25 @@ implements <a href="../../../org/apache/iceberg/ManageSnapshots.html" title="int
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#createBranch-java.lang.String-">createBranch</a></span>(java.lang.String&nbsp;name)</code>
+<div class="block">Create a new branch.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#createBranch-java.lang.String-long-">createBranch</a></span>(java.lang.String&nbsp;name,
             long&nbsp;snapshotId)</code>
 <div class="block">Create a new branch pointing to the given snapshot id.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#createTag-java.lang.String-long-">createTag</a></span>(java.lang.String&nbsp;name,
          long&nbsp;snapshotId)</code>
 <div class="block">Create a new tag pointing to the given snapshot id</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#fastForwardBranch-java.lang.String-java.lang.String-">fastForwardBranch</a></span>(java.lang.String&nbsp;name,
                  java.lang.String&nbsp;source)</code>
@@ -173,79 +179,79 @@ implements <a href="../../../org/apache/iceberg/ManageSnapshots.html" title="int
  ancestor of source.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#removeBranch-java.lang.String-">removeBranch</a></span>(java.lang.String&nbsp;name)</code>
 <div class="block">Remove a branch by name</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#removeTag-java.lang.String-">removeTag</a></span>(java.lang.String&nbsp;name)</code>
 <div class="block">Remove the tag with the given name.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#renameBranch-java.lang.String-java.lang.String-">renameBranch</a></span>(java.lang.String&nbsp;name,
             java.lang.String&nbsp;newName)</code>
 <div class="block">Rename a branch</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#replaceBranch-java.lang.String-long-">replaceBranch</a></span>(java.lang.String&nbsp;name,
              long&nbsp;snapshotId)</code>
 <div class="block">Replaces the branch with the given name to point to the specified snapshot</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#replaceBranch-java.lang.String-java.lang.String-">replaceBranch</a></span>(java.lang.String&nbsp;name,
              java.lang.String&nbsp;source)</code>
 <div class="block">Replaces the branch with the given name to point to the source snapshot.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#replaceTag-java.lang.String-long-">replaceTag</a></span>(java.lang.String&nbsp;name,
           long&nbsp;snapshotId)</code>
 <div class="block">Replaces the tag with the given name to point to the specified snapshot.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#rollbackTo-long-">rollbackTo</a></span>(long&nbsp;snapshotId)</code>
 <div class="block">Rollback table's state to a specific <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><code>Snapshot</code></a> identified by id.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#rollbackToTime-long-">rollbackToTime</a></span>(long&nbsp;timestampMillis)</code>
 <div class="block">Roll this table's data back to the last <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><code>Snapshot</code></a> before the given timestamp.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#setCurrentSnapshot-long-">setCurrentSnapshot</a></span>(long&nbsp;snapshotId)</code>
 <div class="block">Roll this table's data back to a specific <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><code>Snapshot</code></a> identified by id.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#setMaxRefAgeMs-java.lang.String-long-">setMaxRefAgeMs</a></span>(java.lang.String&nbsp;name,
               long&nbsp;maxRefAgeMs)</code>
 <div class="block">Updates the retention policy for a reference.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#setMaxSnapshotAgeMs-java.lang.String-long-">setMaxSnapshotAgeMs</a></span>(java.lang.String&nbsp;name,
                    long&nbsp;maxSnapshotAgeMs)</code>
 <div class="block">Updates the max snapshot age for a branch.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SnapshotManager.html#setMinSnapshotsToKeep-java.lang.String-int-">setMinSnapshotsToKeep</a></span>(java.lang.String&nbsp;name,
                      int&nbsp;minSnapshotsToKeep)</code>
@@ -354,6 +360,26 @@ implements <a href="../../../org/apache/iceberg/ManageSnapshots.html" title="int
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>snapshotId</code> - long id of snapshot id to roll back table to. Must be an ancestor of the
      current snapshot</dd>
+</dl>
+</li>
+</ul>
+<a name="createBranch-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createBranch</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a>&nbsp;createBranch(java.lang.String&nbsp;name)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html#createBranch-java.lang.String-">ManageSnapshots</a></code></span></div>
+<div class="block">Create a new branch. The branch will point to current snapshot if the current snapshot is not
+ NULL. Otherwise, the branch will point to a newly created empty snapshot.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/ManageSnapshots.html#createBranch-java.lang.String-">createBranch</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - branch name</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
 </dl>
 </li>
 </ul>

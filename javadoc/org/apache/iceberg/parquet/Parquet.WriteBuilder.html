@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -179,9 +179,17 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/parquet/Parquet.WriteBuilder.html" title="class in org.apache.iceberg.parquet">Parquet.WriteBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/parquet/Parquet.WriteBuilder.html#writerVersion-org.apache.parquet.column.ParquetProperties.WriterVersion-">writerVersion</a></span>(org.apache.parquet.column.ParquetProperties.WriterVersion&nbsp;version)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/parquet/Parquet.WriteBuilder.html#withAADPrefix-java.nio.ByteBuffer-">withAADPrefix</a></span>(java.nio.ByteBuffer&nbsp;aadPrefix)</code>&nbsp;</td>
 </tr>
 <tr id="i12" class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/iceberg/parquet/Parquet.WriteBuilder.html" title="class in org.apache.iceberg.parquet">Parquet.WriteBuilder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/parquet/Parquet.WriteBuilder.html#withFileEncryptionKey-java.nio.ByteBuffer-">withFileEncryptionKey</a></span>(java.nio.ByteBuffer&nbsp;encryptionKey)</code>&nbsp;</td>
+</tr>
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code><a href="../../../../org/apache/iceberg/parquet/Parquet.WriteBuilder.html" title="class in org.apache.iceberg.parquet">Parquet.WriteBuilder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/parquet/Parquet.WriteBuilder.html#writerVersion-org.apache.parquet.column.ParquetProperties.WriterVersion-">writerVersion</a></span>(org.apache.parquet.column.ParquetProperties.WriterVersion&nbsp;version)</code>&nbsp;</td>
+</tr>
+<tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/parquet/Parquet.WriteBuilder.html" title="class in org.apache.iceberg.parquet">Parquet.WriteBuilder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/parquet/Parquet.WriteBuilder.html#writeSupport-org.apache.parquet.hadoop.api.WriteSupport-">writeSupport</a></span>(org.apache.parquet.hadoop.api.WriteSupport&lt;?&gt;&nbsp;newWriteSupport)</code>&nbsp;</td>
 </tr>
@@ -315,6 +323,24 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>writerVersion</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/parquet/Parquet.WriteBuilder.html" title="class in org.apache.iceberg.parquet">Parquet.WriteBuilder</a>&nbsp;writerVersion(org.apache.parquet.column.ParquetProperties.WriterVersion&nbsp;version)</pre>
+</li>
+</ul>
+<a name="withFileEncryptionKey-java.nio.ByteBuffer-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>withFileEncryptionKey</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/iceberg/parquet/Parquet.WriteBuilder.html" title="class in org.apache.iceberg.parquet">Parquet.WriteBuilder</a>&nbsp;withFileEncryptionKey(java.nio.ByteBuffer&nbsp;encryptionKey)</pre>
+</li>
+</ul>
+<a name="withAADPrefix-java.nio.ByteBuffer-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>withAADPrefix</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/iceberg/parquet/Parquet.WriteBuilder.html" title="class in org.apache.iceberg.parquet">Parquet.WriteBuilder</a>&nbsp;withAADPrefix(java.nio.ByteBuffer&nbsp;aadPrefix)</pre>
 </li>
 </ul>
 <a name="build--">

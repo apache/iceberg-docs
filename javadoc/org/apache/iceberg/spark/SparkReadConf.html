@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":42,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/spark/SparkFilters.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/spark/SparkFunctionCatalog.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/spark/SparkReadOptions.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -163,126 +163,140 @@ extends java.lang.Object</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#aggregatePushDownEnabled--">aggregatePushDownEnabled</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#adaptiveSplitSizeEnabled--">adaptiveSplitSizeEnabled</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#aggregatePushDownEnabled--">aggregatePushDownEnabled</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.Long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#asOfTimestamp--">asOfTimestamp</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#branch--">branch</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#caseSensitive--">caseSensitive</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>java.lang.Long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#endSnapshotId--">endSnapshotId</a></span>()</code>&nbsp;</td>
-</tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>java.lang.Long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#endTimestamp--">endTimestamp</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code><a href="../../../../org/apache/iceberg/PlanningMode.html" title="enum in org.apache.iceberg">PlanningMode</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#dataPlanningMode--">dataPlanningMode</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#fileScanTaskSetId--">fileScanTaskSetId</a></span>()</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0, use <a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#scanTaskSetId--"><code>scanTaskSetId()</code></a> instead</span></div>
-</div>
-</td>
+<td class="colFirst"><code><a href="../../../../org/apache/iceberg/PlanningMode.html" title="enum in org.apache.iceberg">PlanningMode</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#deletePlanningMode--">deletePlanningMode</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#handleTimestampWithoutZone--">handleTimestampWithoutZone</a></span>()</code>
-<div class="block">Enables reading a timestamp without time zone as a timestamp with time zone.</div>
-</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#distributedPlanningEnabled--">distributedPlanningEnabled</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#localityEnabled--">localityEnabled</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>java.lang.Long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#endSnapshotId--">endSnapshotId</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#orcBatchSize--">orcBatchSize</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>java.lang.Long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#endTimestamp--">endTimestamp</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#orcVectorizationEnabled--">orcVectorizationEnabled</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#localityEnabled--">localityEnabled</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#parquetBatchSize--">parquetBatchSize</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#maxFilesPerMicroBatch--">maxFilesPerMicroBatch</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i12" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#parquetVectorizationEnabled--">parquetVectorizationEnabled</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#maxRecordsPerMicroBatch--">maxRecordsPerMicroBatch</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i13" class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#preserveDataGrouping--">preserveDataGrouping</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#orcBatchSize--">orcBatchSize</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i14" class="altColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#scanTaskSetId--">scanTaskSetId</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#orcVectorizationEnabled--">orcVectorizationEnabled</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i15" class="rowColor">
-<td class="colFirst"><code>java.lang.Long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#snapshotId--">snapshotId</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#parallelism--">parallelism</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i16" class="altColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#splitLookback--">splitLookback</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#parquetBatchSize--">parquetBatchSize</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i17" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#parquetVectorizationEnabled--">parquetVectorizationEnabled</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i18" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#preserveDataGrouping--">preserveDataGrouping</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i19" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#scanTaskSetId--">scanTaskSetId</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i20" class="altColor">
+<td class="colFirst"><code>java.lang.Long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#snapshotId--">snapshotId</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i21" class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#splitLookback--">splitLookback</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>java.lang.Integer</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#splitLookbackOption--">splitLookbackOption</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#splitOpenFileCost--">splitOpenFileCost</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>java.lang.Long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#splitOpenFileCostOption--">splitOpenFileCostOption</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#splitSize--">splitSize</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>java.lang.Long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#splitSizeOption--">splitSizeOption</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code>java.lang.Long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#startSnapshotId--">startSnapshotId</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>java.lang.Long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#startTimestamp--">startTimestamp</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i24" class="altColor">
-<td class="colFirst"><code>java.lang.Long</code></td>
+<tr id="i29" class="rowColor">
+<td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#streamFromTimestamp--">streamFromTimestamp</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i30" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#streamingSkipDeleteSnapshots--">streamingSkipDeleteSnapshots</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i31" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#streamingSkipOverwriteSnapshots--">streamingSkipOverwriteSnapshots</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i27" class="rowColor">
+<tr id="i32" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#tag--">tag</a></span>()</code>&nbsp;</td>
 </tr>
@@ -411,17 +425,6 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;java.lang.String&nbsp;tag()</pre>
 </li>
 </ul>
-<a name="fileScanTaskSetId--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>fileScanTaskSetId</h4>
-<pre>@Deprecated
-public&nbsp;java.lang.String&nbsp;fileScanTaskSetId()</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">will be removed in 1.3.0, use <a href="../../../../org/apache/iceberg/spark/SparkReadConf.html#scanTaskSetId--"><code>scanTaskSetId()</code></a> instead</span></div>
-</li>
-</ul>
 <a name="scanTaskSetId--">
 <!--   -->
 </a>
@@ -539,35 +542,13 @@ public&nbsp;java.lang.String&nbsp;fileScanTaskSetId()</pre>
 <pre>public&nbsp;long&nbsp;splitOpenFileCost()</pre>
 </li>
 </ul>
-<a name="handleTimestampWithoutZone--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>handleTimestampWithoutZone</h4>
-<pre>public&nbsp;boolean&nbsp;handleTimestampWithoutZone()</pre>
-<div class="block">Enables reading a timestamp without time zone as a timestamp with time zone.
-
- <p>Generally, this is not safe as a timestamp without time zone is supposed to represent the
- wall-clock time, i.e. no matter the reader/writer timezone 3PM should always be read as 3PM,
- but a timestamp with time zone represents instant semantics, i.e. the timestamp is adjusted so
- that the corresponding time in the reader timezone is displayed.
-
- <p>When set to false (default), an exception must be thrown while reading a timestamp without
- time zone.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>boolean indicating if reading timestamps without timezone is allowed</dd>
-</dl>
-</li>
-</ul>
 <a name="streamFromTimestamp--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>streamFromTimestamp</h4>
-<pre>public&nbsp;java.lang.Long&nbsp;streamFromTimestamp()</pre>
+<pre>public&nbsp;long&nbsp;streamFromTimestamp()</pre>
 </li>
 </ul>
 <a name="startTimestamp--">
@@ -588,6 +569,24 @@ public&nbsp;java.lang.String&nbsp;fileScanTaskSetId()</pre>
 <pre>public&nbsp;java.lang.Long&nbsp;endTimestamp()</pre>
 </li>
 </ul>
+<a name="maxFilesPerMicroBatch--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>maxFilesPerMicroBatch</h4>
+<pre>public&nbsp;int&nbsp;maxFilesPerMicroBatch()</pre>
+</li>
+</ul>
+<a name="maxRecordsPerMicroBatch--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>maxRecordsPerMicroBatch</h4>
+<pre>public&nbsp;int&nbsp;maxRecordsPerMicroBatch()</pre>
+</li>
+</ul>
 <a name="preserveDataGrouping--">
 <!--   -->
 </a>
@@ -600,10 +599,55 @@ public&nbsp;java.lang.String&nbsp;fileScanTaskSetId()</pre>
 <a name="aggregatePushDownEnabled--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>aggregatePushDownEnabled</h4>
 <pre>public&nbsp;boolean&nbsp;aggregatePushDownEnabled()</pre>
+</li>
+</ul>
+<a name="adaptiveSplitSizeEnabled--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>adaptiveSplitSizeEnabled</h4>
+<pre>public&nbsp;boolean&nbsp;adaptiveSplitSizeEnabled()</pre>
+</li>
+</ul>
+<a name="parallelism--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>parallelism</h4>
+<pre>public&nbsp;int&nbsp;parallelism()</pre>
+</li>
+</ul>
+<a name="distributedPlanningEnabled--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>distributedPlanningEnabled</h4>
+<pre>public&nbsp;boolean&nbsp;distributedPlanningEnabled()</pre>
+</li>
+</ul>
+<a name="dataPlanningMode--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>dataPlanningMode</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/iceberg/PlanningMode.html" title="enum in org.apache.iceberg">PlanningMode</a>&nbsp;dataPlanningMode()</pre>
+</li>
+</ul>
+<a name="deletePlanningMode--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>deletePlanningMode</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/iceberg/PlanningMode.html" title="enum in org.apache.iceberg">PlanningMode</a>&nbsp;deletePlanningMode()</pre>
 </li>
 </ul>
 </li>
@@ -633,7 +677,7 @@ public&nbsp;java.lang.String&nbsp;fileScanTaskSetId()</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/spark/SparkFilters.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/spark/SparkFunctionCatalog.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/spark/SparkReadOptions.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

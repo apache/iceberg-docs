@@ -108,18 +108,19 @@
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/ComputeUpdateIterator.html" title="class in org.apache.iceberg.spark">ComputeUpdateIterator</a></td>
+<td class="colLast">
+<div class="block">An iterator that finds delete/insert rows which represent an update, and converts them into
+ update records from changelog tables within a single Spark task.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/ExtendedParser.RawOrderField.html" title="class in org.apache.iceberg.spark">ExtendedParser.RawOrderField</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/FileRewriteCoordinator.html" title="class in org.apache.iceberg.spark">FileRewriteCoordinator</a></td>
 <td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/FileScanTaskSetManager.html" title="class in org.apache.iceberg.spark">FileScanTaskSetManager</a></td>
-<td class="colLast">Deprecated
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0, use <a href="../../../../org/apache/iceberg/spark/ScanTaskSetManager.html" title="class in org.apache.iceberg.spark"><code>ScanTaskSetManager</code></a> instead</span></div>
-</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/IcebergSpark.html" title="class in org.apache.iceberg.spark">IcebergSpark</a></td>
@@ -140,12 +141,22 @@
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/PruneColumnsWithoutReordering.html" title="class in org.apache.iceberg.spark">PruneColumnsWithoutReordering</a></td>
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/PositionDeletesRewriteCoordinator.html" title="class in org.apache.iceberg.spark">PositionDeletesRewriteCoordinator</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/PruneColumnsWithoutReordering.html" title="class in org.apache.iceberg.spark">PruneColumnsWithoutReordering</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/PruneColumnsWithReordering.html" title="class in org.apache.iceberg.spark">PruneColumnsWithReordering</a></td>
 <td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/RemoveNetCarryoverIterator.html" title="class in org.apache.iceberg.spark">RemoveNetCarryoverIterator</a></td>
+<td class="colLast">
+<div class="block">This class computes the net changes across multiple snapshots.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/RollbackStagedTable.html" title="class in org.apache.iceberg.spark">RollbackStagedTable</a></td>
@@ -192,16 +203,18 @@
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkDistributionAndOrderingUtil.html" title="class in org.apache.iceberg.spark">SparkDistributionAndOrderingUtil</a></td>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkExceptionUtil.html" title="class in org.apache.iceberg.spark">SparkExceptionUtil</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkFilters.html" title="class in org.apache.iceberg.spark">SparkFilters</a></td>
 <td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkFunctionCatalog.html" title="class in org.apache.iceberg.spark">SparkFunctionCatalog</a></td>
+<td class="colLast">
+<div class="block">A function catalog that can be used to resolve Iceberg functions without a metastore connection.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkReadConf.html" title="class in org.apache.iceberg.spark">SparkReadConf</a></td>
@@ -222,7 +235,7 @@
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkSessionCatalog.html" title="class in org.apache.iceberg.spark">SparkSessionCatalog</a>&lt;T extends org.apache.spark.sql.connector.catalog.TableCatalog &amp; org.apache.spark.sql.connector.catalog.SupportsNamespaces&gt;</td>
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkSessionCatalog.html" title="class in org.apache.iceberg.spark">SparkSessionCatalog</a>&lt;T extends org.apache.spark.sql.connector.catalog.TableCatalog &amp; org.apache.spark.sql.connector.catalog.FunctionCatalog &amp; org.apache.spark.sql.connector.catalog.SupportsNamespaces&gt;</td>
 <td class="colLast">
 <div class="block">A Spark catalog that can also load non-Iceberg tables.</div>
 </td>
@@ -276,6 +289,18 @@
 <td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkWriteOptions.html" title="class in org.apache.iceberg.spark">SparkWriteOptions</a></td>
 <td class="colLast">
 <div class="block">Spark DF write options</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkWriteRequirements.html" title="class in org.apache.iceberg.spark">SparkWriteRequirements</a></td>
+<td class="colLast">
+<div class="block">A set of requirements such as distribution and ordering reported to Spark during writes.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/spark/SparkWriteUtil.html" title="class in org.apache.iceberg.spark">SparkWriteUtil</a></td>
+<td class="colLast">
+<div class="block">A utility that contains helper methods for working with Spark writes.</div>
 </td>
 </tr>
 </tbody>

@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
+var methods = {"i0":6,"i1":18,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6,"i16":6};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -137,7 +137,7 @@ extends <a href="../../../org/apache/iceberg/PendingUpdate.html" title="interfac
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -150,20 +150,26 @@ extends <a href="../../../org/apache/iceberg/PendingUpdate.html" title="interfac
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>default <a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManageSnapshots.html#createBranch-java.lang.String-">createBranch</a></span>(java.lang.String&nbsp;name)</code>
+<div class="block">Create a new branch.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManageSnapshots.html#createBranch-java.lang.String-long-">createBranch</a></span>(java.lang.String&nbsp;name,
             long&nbsp;snapshotId)</code>
 <div class="block">Create a new branch pointing to the given snapshot id.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManageSnapshots.html#createTag-java.lang.String-long-">createTag</a></span>(java.lang.String&nbsp;name,
          long&nbsp;snapshotId)</code>
 <div class="block">Create a new tag pointing to the given snapshot id</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManageSnapshots.html#fastForwardBranch-java.lang.String-java.lang.String-">fastForwardBranch</a></span>(java.lang.String&nbsp;name,
                  java.lang.String&nbsp;source)</code>
@@ -171,79 +177,79 @@ extends <a href="../../../org/apache/iceberg/PendingUpdate.html" title="interfac
  ancestor of source.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManageSnapshots.html#removeBranch-java.lang.String-">removeBranch</a></span>(java.lang.String&nbsp;name)</code>
 <div class="block">Remove a branch by name</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManageSnapshots.html#removeTag-java.lang.String-">removeTag</a></span>(java.lang.String&nbsp;name)</code>
 <div class="block">Remove the tag with the given name.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManageSnapshots.html#renameBranch-java.lang.String-java.lang.String-">renameBranch</a></span>(java.lang.String&nbsp;name,
             java.lang.String&nbsp;newName)</code>
 <div class="block">Rename a branch</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManageSnapshots.html#replaceBranch-java.lang.String-long-">replaceBranch</a></span>(java.lang.String&nbsp;name,
              long&nbsp;snapshotId)</code>
 <div class="block">Replaces the branch with the given name to point to the specified snapshot</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManageSnapshots.html#replaceBranch-java.lang.String-java.lang.String-">replaceBranch</a></span>(java.lang.String&nbsp;name,
              java.lang.String&nbsp;source)</code>
 <div class="block">Replaces the branch with the given name to point to the source snapshot.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManageSnapshots.html#replaceTag-java.lang.String-long-">replaceTag</a></span>(java.lang.String&nbsp;name,
           long&nbsp;snapshotId)</code>
 <div class="block">Replaces the tag with the given name to point to the specified snapshot.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManageSnapshots.html#rollbackTo-long-">rollbackTo</a></span>(long&nbsp;snapshotId)</code>
 <div class="block">Rollback table's state to a specific <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><code>Snapshot</code></a> identified by id.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManageSnapshots.html#rollbackToTime-long-">rollbackToTime</a></span>(long&nbsp;timestampMillis)</code>
 <div class="block">Roll this table's data back to the last <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><code>Snapshot</code></a> before the given timestamp.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManageSnapshots.html#setCurrentSnapshot-long-">setCurrentSnapshot</a></span>(long&nbsp;snapshotId)</code>
 <div class="block">Roll this table's data back to a specific <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg"><code>Snapshot</code></a> identified by id.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManageSnapshots.html#setMaxRefAgeMs-java.lang.String-long-">setMaxRefAgeMs</a></span>(java.lang.String&nbsp;name,
               long&nbsp;maxRefAgeMs)</code>
 <div class="block">Updates the retention policy for a reference.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManageSnapshots.html#setMaxSnapshotAgeMs-java.lang.String-long-">setMaxSnapshotAgeMs</a></span>(java.lang.String&nbsp;branchName,
                    long&nbsp;maxSnapshotAgeMs)</code>
 <div class="block">Updates the max snapshot age for a branch.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/ManageSnapshots.html#setMinSnapshotsToKeep-java.lang.String-int-">setMinSnapshotsToKeep</a></span>(java.lang.String&nbsp;branchName,
                      int&nbsp;minSnapshotsToKeep)</code>
@@ -344,6 +350,25 @@ extends <a href="../../../org/apache/iceberg/PendingUpdate.html" title="interfac
 <dd><code>java.lang.IllegalArgumentException</code> - If the table has no snapshot with the given id</dd>
 <dd><code><a href="../../../org/apache/iceberg/exceptions/DuplicateWAPCommitException.html" title="class in org.apache.iceberg.exceptions">DuplicateWAPCommitException</a></code> - In case of a WAP workflow and if the table has a duplicate
      commit with same wapId</dd>
+</dl>
+</li>
+</ul>
+<a name="createBranch-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createBranch</h4>
+<pre>default&nbsp;<a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a>&nbsp;createBranch(java.lang.String&nbsp;name)</pre>
+<div class="block">Create a new branch. The branch will point to current snapshot if the current snapshot is not
+ NULL. Otherwise, the branch will point to a newly created empty snapshot.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - branch name</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.IllegalArgumentException</code> - if a branch with the given name already exists</dd>
 </dl>
 </li>
 </ul>

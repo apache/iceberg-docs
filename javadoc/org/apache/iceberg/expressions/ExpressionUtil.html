@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -158,6 +158,15 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/ExpressionUtil.html#sanitize-org.apache.iceberg.types.Types.StructType-org.apache.iceberg.expressions.Expression-boolean-">sanitize</a></span>(<a href="../../../../org/apache/iceberg/types/Types.StructType.html" title="class in org.apache.iceberg.types">Types.StructType</a>&nbsp;struct,
+        <a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr,
+        boolean&nbsp;caseSensitive)</code>
+<div class="block">Produces an unbound <a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions"><code>Expression</code></a> with the same structure, but with data values replaced
+ by descriptions.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/ExpressionUtil.html#selectsPartitions-org.apache.iceberg.expressions.Expression-org.apache.iceberg.PartitionSpec-boolean-">selectsPartitions</a></span>(<a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr,
                  <a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec,
@@ -165,7 +174,7 @@ extends java.lang.Object</pre>
 <div class="block">Returns whether an expression selects whole partitions for a partition spec.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/ExpressionUtil.html#selectsPartitions-org.apache.iceberg.expressions.Expression-org.apache.iceberg.Table-boolean-">selectsPartitions</a></span>(<a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr,
                  <a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
@@ -173,12 +182,29 @@ extends java.lang.Object</pre>
 <div class="block">Returns whether an expression selects whole partitions for all partition specs in a table.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/ExpressionUtil.html#toSanitizedString-org.apache.iceberg.expressions.Expression-">toSanitizedString</a></span>(<a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr)</code>
 <div class="block">Produces a sanitized expression string with the same structure, but with data values replaced
  by descriptions.</div>
 </td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/ExpressionUtil.html#toSanitizedString-org.apache.iceberg.types.Types.StructType-org.apache.iceberg.expressions.Expression-boolean-">toSanitizedString</a></span>(<a href="../../../../org/apache/iceberg/types/Types.StructType.html" title="class in org.apache.iceberg.types">Types.StructType</a>&nbsp;struct,
+                 <a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr,
+                 boolean&nbsp;caseSensitive)</code>
+<div class="block">Produces a sanitized expression string with the same structure, but with data values replaced
+ by descriptions.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/ExpressionUtil.html#unbind-org.apache.iceberg.expressions.BoundTerm-">unbind</a></span>(<a href="../../../../org/apache/iceberg/expressions/BoundTerm.html" title="interface in org.apache.iceberg.expressions">BoundTerm</a>&lt;T&gt;&nbsp;term)</code>&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/expressions/ExpressionUtil.html#unbind-org.apache.iceberg.expressions.Term-">unbind</a></span>(<a href="../../../../org/apache/iceberg/expressions/Term.html" title="interface in org.apache.iceberg.expressions">Term</a>&nbsp;term)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -222,6 +248,30 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
+<a name="sanitize-org.apache.iceberg.types.Types.StructType-org.apache.iceberg.expressions.Expression-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>sanitize</h4>
+<pre>public static&nbsp;<a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;sanitize(<a href="../../../../org/apache/iceberg/types/Types.StructType.html" title="class in org.apache.iceberg.types">Types.StructType</a>&nbsp;struct,
+                                  <a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr,
+                                  boolean&nbsp;caseSensitive)</pre>
+<div class="block">Produces an unbound <a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions"><code>Expression</code></a> with the same structure, but with data values replaced
+ by descriptions.
+
+ <p>Numbers are replaced with magnitude and type, string-like values are replaced by hashes, and
+ date/time values are replaced by the type.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>struct</code> - a StructType to bind the expression</dd>
+<dd><code>expr</code> - an Expression to sanitize</dd>
+<dd><code>caseSensitive</code> - whether to bind case sensitively</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a sanitized Expression</dd>
+</dl>
+</li>
+</ul>
 <a name="toSanitizedString-org.apache.iceberg.expressions.Expression-">
 <!--   -->
 </a>
@@ -237,6 +287,30 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>expr</code> - an Expression to sanitize</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a sanitized expression string</dd>
+</dl>
+</li>
+</ul>
+<a name="toSanitizedString-org.apache.iceberg.types.Types.StructType-org.apache.iceberg.expressions.Expression-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>toSanitizedString</h4>
+<pre>public static&nbsp;java.lang.String&nbsp;toSanitizedString(<a href="../../../../org/apache/iceberg/types/Types.StructType.html" title="class in org.apache.iceberg.types">Types.StructType</a>&nbsp;struct,
+                                                 <a href="../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr,
+                                                 boolean&nbsp;caseSensitive)</pre>
+<div class="block">Produces a sanitized expression string with the same structure, but with data values replaced
+ by descriptions.
+
+ <p>Numbers are replaced with magnitude and type, string-like values are replaced by hashes, and
+ date/time values are replaced by the type.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>struct</code> - a StructType to bind the expression</dd>
+<dd><code>expr</code> - an Expression to sanitize</dd>
+<dd><code>caseSensitive</code> - whether to bind case sensitively</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a sanitized expression string</dd>
 </dl>
@@ -341,10 +415,28 @@ extends java.lang.Object</pre>
 <a name="describe-org.apache.iceberg.expressions.Term-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>describe</h4>
 <pre>public static&nbsp;java.lang.String&nbsp;describe(<a href="../../../../org/apache/iceberg/expressions/Term.html" title="interface in org.apache.iceberg.expressions">Term</a>&nbsp;term)</pre>
+</li>
+</ul>
+<a name="unbind-org.apache.iceberg.expressions.BoundTerm-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>unbind</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;&nbsp;unbind(<a href="../../../../org/apache/iceberg/expressions/BoundTerm.html" title="interface in org.apache.iceberg.expressions">BoundTerm</a>&lt;T&gt;&nbsp;term)</pre>
+</li>
+</ul>
+<a name="unbind-org.apache.iceberg.expressions.Term-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>unbind</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;<a href="../../../../org/apache/iceberg/expressions/UnboundTerm.html" title="interface in org.apache.iceberg.expressions">UnboundTerm</a>&lt;T&gt;&nbsp;unbind(<a href="../../../../org/apache/iceberg/expressions/Term.html" title="interface in org.apache.iceberg.expressions">Term</a>&nbsp;term)</pre>
 </li>
 </ul>
 </li>

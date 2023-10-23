@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":9};
+var methods = {"i0":10,"i1":9,"i2":9,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -145,42 +145,50 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/ResourcePaths.html#commitTransaction--">commitTransaction</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/ResourcePaths.html#config--">config</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/rest/ResourcePaths.html" title="class in org.apache.iceberg.rest">ResourcePaths</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/ResourcePaths.html#forCatalogProperties-java.util.Map-">forCatalogProperties</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/ResourcePaths.html#metrics-org.apache.iceberg.catalog.TableIdentifier-">metrics</a></span>(<a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;identifier)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/ResourcePaths.html#namespace-org.apache.iceberg.catalog.Namespace-">namespace</a></span>(<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;ns)</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/ResourcePaths.html#namespaceProperties-org.apache.iceberg.catalog.Namespace-">namespaceProperties</a></span>(<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;ns)</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/ResourcePaths.html#namespaces--">namespaces</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/ResourcePaths.html#rename--">rename</a></span>()</code>&nbsp;</td>
-</tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/ResourcePaths.html#table-org.apache.iceberg.catalog.TableIdentifier-">table</a></span>(<a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;ident)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/ResourcePaths.html#register-org.apache.iceberg.catalog.Namespace-">register</a></span>(<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;ns)</code>&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/ResourcePaths.html#tables-org.apache.iceberg.catalog.Namespace-">tables</a></span>(<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;ns)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/ResourcePaths.html#rename--">rename</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/ResourcePaths.html#table-org.apache.iceberg.catalog.TableIdentifier-">table</a></span>(<a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;ident)</code>&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/ResourcePaths.html#tables-org.apache.iceberg.catalog.Namespace-">tables</a></span>(<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;ns)</code>&nbsp;</td>
+</tr>
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/ResourcePaths.html#tokens--">tokens</a></span>()</code>&nbsp;</td>
 </tr>
@@ -295,6 +303,15 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;java.lang.String&nbsp;table(<a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;ident)</pre>
 </li>
 </ul>
+<a name="register-org.apache.iceberg.catalog.Namespace-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>register</h4>
+<pre>public&nbsp;java.lang.String&nbsp;register(<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;ns)</pre>
+</li>
+</ul>
 <a name="rename--">
 <!--   -->
 </a>
@@ -307,10 +324,19 @@ extends java.lang.Object</pre>
 <a name="metrics-org.apache.iceberg.catalog.TableIdentifier-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>metrics</h4>
 <pre>public&nbsp;java.lang.String&nbsp;metrics(<a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;identifier)</pre>
+</li>
+</ul>
+<a name="commitTransaction--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>commitTransaction</h4>
+<pre>public&nbsp;java.lang.String&nbsp;commitTransaction()</pre>
 </li>
 </ul>
 </li>

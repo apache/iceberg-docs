@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/deletes/PositionDeleteIndex.html" title="interface in org.apache.iceberg.deletes"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li>Next&nbsp;Class</li>
+<li><a href="../../../../org/apache/iceberg/deletes/SortingPositionOnlyDeleteWriter.html" title="class in org.apache.iceberg.deletes"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/deletes/PositionDeleteWriter.html" target="_top">Frames</a></li>
@@ -114,6 +114,11 @@ var activeTableTab = "activeTableTab";
 <pre>public class <span class="typeNameLabel">PositionDeleteWriter&lt;T&gt;</span>
 extends java.lang.Object
 implements <a href="../../../../org/apache/iceberg/io/FileWriter.html" title="interface in org.apache.iceberg.io">FileWriter</a>&lt;<a href="../../../../org/apache/iceberg/deletes/PositionDelete.html" title="class in org.apache.iceberg.deletes">PositionDelete</a>&lt;T&gt;,<a href="../../../../org/apache/iceberg/io/DeleteWriteResult.html" title="class in org.apache.iceberg.io">DeleteWriteResult</a>&gt;</pre>
+<div class="block">A position delete writer that can handle deletes ordered by file and position.
+
+ <p>This writer does not keep track of seen deletes and assumes all incoming records are ordered
+ by file and position as required by the spec. If there is no external process to order the
+ records, consider using <a href="../../../../org/apache/iceberg/deletes/SortingPositionOnlyDeleteWriter.html" title="class in org.apache.iceberg.deletes"><code>SortingPositionOnlyDeleteWriter</code></a> instead.</div>
 </li>
 </ul>
 </div>
@@ -350,7 +355,7 @@ implements <a href="../../../../org/apache/iceberg/io/FileWriter.html" title="in
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/deletes/PositionDeleteIndex.html" title="interface in org.apache.iceberg.deletes"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li>Next&nbsp;Class</li>
+<li><a href="../../../../org/apache/iceberg/deletes/SortingPositionOnlyDeleteWriter.html" title="class in org.apache.iceberg.deletes"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/deletes/PositionDeleteWriter.html" target="_top">Frames</a></li>

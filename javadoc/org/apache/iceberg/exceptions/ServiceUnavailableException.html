@@ -121,12 +121,13 @@
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>java.io.Serializable</dd>
+<dd>java.io.Serializable, <a href="../../../../org/apache/iceberg/exceptions/CleanableFailure.html" title="interface in org.apache.iceberg.exceptions">CleanableFailure</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">ServiceUnavailableException</span>
-extends <a href="../../../../org/apache/iceberg/exceptions/RESTException.html" title="class in org.apache.iceberg.exceptions">RESTException</a></pre>
+extends <a href="../../../../org/apache/iceberg/exceptions/RESTException.html" title="class in org.apache.iceberg.exceptions">RESTException</a>
+implements <a href="../../../../org/apache/iceberg/exceptions/CleanableFailure.html" title="interface in org.apache.iceberg.exceptions">CleanableFailure</a></pre>
 <div class="block">Exception thrown on HTTP 503: service is unavailable</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>

@@ -41,7 +41,7 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/hive/package-summary.html">Prev&nbsp;Package</a></li>
+<li><a href="../../../../org/apache/iceberg/inmemory/package-summary.html">Prev&nbsp;Package</a></li>
 <li><a href="../../../../org/apache/iceberg/jdbc/package-summary.html">Next&nbsp;Package</a></li>
 </ul>
 <ul class="navList">
@@ -95,87 +95,94 @@
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/io/DelegateFileIO.html" title="interface in org.apache.iceberg.io">DelegateFileIO</a></td>
+<td class="colLast">
+<div class="block">This interface is intended as an extension for FileIO implementations that support being a
+ delegate target.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/DelegatingInputStream.html" title="interface in org.apache.iceberg.io">DelegatingInputStream</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/DelegatingOutputStream.html" title="interface in org.apache.iceberg.io">DelegatingOutputStream</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/EqualityDeltaWriter.html" title="interface in org.apache.iceberg.io">EqualityDeltaWriter</a>&lt;T&gt;</td>
 <td class="colLast">
 <div class="block">A writer capable of writing data and equality deletes that may belong to different specs and
  partitions.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/FileAppender.html" title="interface in org.apache.iceberg.io">FileAppender</a>&lt;D&gt;</td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/FileAppenderFactory.html" title="interface in org.apache.iceberg.io">FileAppenderFactory</a>&lt;T&gt;</td>
 <td class="colLast">
 <div class="block">Factory to create a new <a href="../../../../org/apache/iceberg/io/FileAppender.html" title="interface in org.apache.iceberg.io"><code>FileAppender</code></a> to write records.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a></td>
 <td class="colLast">
 <div class="block">Pluggable module for reading, writing, and deleting files.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/FileIOMetricsContext.html" title="interface in org.apache.iceberg.io">FileIOMetricsContext</a></td>
 <td class="colLast">
 <div class="block">Extension of MetricsContext for use with FileIO to define standard metrics that should be
  reported.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/FileWriter.html" title="interface in org.apache.iceberg.io">FileWriter</a>&lt;T,R&gt;</td>
 <td class="colLast">
 <div class="block">A writer capable of writing files of a single type (i.e.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/FileWriterFactory.html" title="interface in org.apache.iceberg.io">FileWriterFactory</a>&lt;T&gt;</td>
 <td class="colLast">
 <div class="block">A factory for creating data and delete writers.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a></td>
 <td class="colLast">
 <div class="block">An interface used to read input files using <a href="../../../../org/apache/iceberg/io/SeekableInputStream.html" title="class in org.apache.iceberg.io"><code>SeekableInputStream</code></a> instances.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/LocationProvider.html" title="interface in org.apache.iceberg.io">LocationProvider</a></td>
 <td class="colLast">
 <div class="block">Interface for providing data file locations to write tasks.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/OutputFile.html" title="interface in org.apache.iceberg.io">OutputFile</a></td>
 <td class="colLast">
 <div class="block">An interface used to create output files using <a href="../../../../org/apache/iceberg/io/PositionOutputStream.html" title="class in org.apache.iceberg.io"><code>PositionOutputStream</code></a> instances.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/PartitioningWriter.html" title="interface in org.apache.iceberg.io">PartitioningWriter</a>&lt;T,R&gt;</td>
 <td class="colLast">
 <div class="block">A writer capable of writing files of a single type (i.e.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/PositionDeltaWriter.html" title="interface in org.apache.iceberg.io">PositionDeltaWriter</a>&lt;T&gt;</td>
 <td class="colLast">
 <div class="block">A writer capable of writing data and position deletes that may belong to different specs and
  partitions.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/RangeReadable.html" title="interface in org.apache.iceberg.io">RangeReadable</a></td>
 <td class="colLast">
 <div class="block"><code>RangeReadable</code> is an interface that allows for implementations of <a href="../../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io"><code>InputFile</code></a>
@@ -183,18 +190,18 @@
  in many cloud provider object stores.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/SupportsBulkOperations.html" title="interface in org.apache.iceberg.io">SupportsBulkOperations</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/SupportsPrefixOperations.html" title="interface in org.apache.iceberg.io">SupportsPrefixOperations</a></td>
 <td class="colLast">
 <div class="block">This interface is intended as an extension for FileIO implementations to provide additional
  prefix based operations that may be useful in performing supporting operations.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/TaskWriter.html" title="interface in org.apache.iceberg.io">TaskWriter</a>&lt;T&gt;</td>
 <td class="colLast">
 <div class="block">The writer interface could accept records and provide the generated data files.</div>
@@ -297,88 +304,95 @@
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><a href="../../../../org/apache/iceberg/io/FanoutPositionOnlyDeleteWriter.html" title="class in org.apache.iceberg.io">FanoutPositionOnlyDeleteWriter</a>&lt;T&gt;</td>
+<td class="colLast">
+<div class="block">A position delete writer capable of writing to multiple specs and partitions if the incoming
+ stream of deletes is not ordered.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/FileInfo.html" title="class in org.apache.iceberg.io">FileInfo</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/FileIOParser.html" title="class in org.apache.iceberg.io">FileIOParser</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/FilterIterator.html" title="class in org.apache.iceberg.io">FilterIterator</a>&lt;T&gt;</td>
 <td class="colLast">
 <div class="block">An Iterator that filters another Iterator.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/IOUtil.html" title="class in org.apache.iceberg.io">IOUtil</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/OutputFileFactory.html" title="class in org.apache.iceberg.io">OutputFileFactory</a></td>
 <td class="colLast">
 <div class="block">Factory responsible for generating unique but recognizable data/delete file names.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/OutputFileFactory.Builder.html" title="class in org.apache.iceberg.io">OutputFileFactory.Builder</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/PartitionedFanoutWriter.html" title="class in org.apache.iceberg.io">PartitionedFanoutWriter</a>&lt;T&gt;</td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/PartitionedWriter.html" title="class in org.apache.iceberg.io">PartitionedWriter</a>&lt;T&gt;</td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/PositionOutputStream.html" title="class in org.apache.iceberg.io">PositionOutputStream</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/ResolvingFileIO.html" title="class in org.apache.iceberg.io">ResolvingFileIO</a></td>
 <td class="colLast">
 <div class="block">FileIO implementation that uses location scheme to choose the correct FileIO implementation.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/RollingDataWriter.html" title="class in org.apache.iceberg.io">RollingDataWriter</a>&lt;T&gt;</td>
 <td class="colLast">
 <div class="block">A rolling data writer that splits incoming data into multiple files within one spec/partition
  based on the target file size.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/RollingEqualityDeleteWriter.html" title="class in org.apache.iceberg.io">RollingEqualityDeleteWriter</a>&lt;T&gt;</td>
 <td class="colLast">
 <div class="block">A rolling equality delete writer that splits incoming deletes into multiple files within one
  spec/partition based on the target file size.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/RollingPositionDeleteWriter.html" title="class in org.apache.iceberg.io">RollingPositionDeleteWriter</a>&lt;T&gt;</td>
 <td class="colLast">
 <div class="block">A rolling position delete writer that splits incoming deletes into multiple files within one
  spec/partition based on the target file size.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/SeekableInputStream.html" title="class in org.apache.iceberg.io">SeekableInputStream</a></td>
 <td class="colLast">
 <div class="block"><code>SeekableInputStream</code> is an interface with the methods needed to read data from a file or
  Hadoop data stream.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/UnpartitionedWriter.html" title="class in org.apache.iceberg.io">UnpartitionedWriter</a>&lt;T&gt;</td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/WriteResult.html" title="class in org.apache.iceberg.io">WriteResult</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/apache/iceberg/io/WriteResult.Builder.html" title="class in org.apache.iceberg.io">WriteResult.Builder</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -422,7 +436,7 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/hive/package-summary.html">Prev&nbsp;Package</a></li>
+<li><a href="../../../../org/apache/iceberg/inmemory/package-summary.html">Prev&nbsp;Package</a></li>
 <li><a href="../../../../org/apache/iceberg/jdbc/package-summary.html">Next&nbsp;Package</a></li>
 </ul>
 <ul class="navList">

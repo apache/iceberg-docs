@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/actions/RewriteManifests.Result.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.Result.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.FileGroupInfo.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/actions/RewritePositionDeleteFiles.html" target="_top">Frames</a></li>
@@ -73,13 +73,13 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -100,6 +100,10 @@ var activeTableTab = "activeTableTab";
 <dl>
 <dt>All Superinterfaces:</dt>
 <dd><a href="../../../../org/apache/iceberg/actions/Action.html" title="interface in org.apache.iceberg.actions">Action</a>&lt;<a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.html" title="interface in org.apache.iceberg.actions">RewritePositionDeleteFiles</a>,<a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.Result.html" title="interface in org.apache.iceberg.actions">RewritePositionDeleteFiles.Result</a>&gt;, <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" title="interface in org.apache.iceberg.actions">SnapshotUpdate</a>&lt;<a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.html" title="interface in org.apache.iceberg.actions">RewritePositionDeleteFiles</a>,<a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.Result.html" title="interface in org.apache.iceberg.actions">RewritePositionDeleteFiles.Result</a>&gt;</dd>
+</dl>
+<dl>
+<dt>All Known Implementing Classes:</dt>
+<dd><a href="../../../../org/apache/iceberg/spark/actions/RewritePositionDeleteFilesSparkAction.html" title="class in org.apache.iceberg.spark.actions">RewritePositionDeleteFilesSparkAction</a></dd>
 </dl>
 <hr>
 <br>
@@ -128,9 +132,81 @@ extends <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" tit
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static interface&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.FileGroupInfo.html" title="interface in org.apache.iceberg.actions">RewritePositionDeleteFiles.FileGroupInfo</a></span></code>
+<div class="block">A description of a position delete file group, when it was processed, and within which
+ partition.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static interface&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.FileGroupRewriteResult.html" title="interface in org.apache.iceberg.actions">RewritePositionDeleteFiles.FileGroupRewriteResult</a></span></code>
+<div class="block">For a particular position delete file group, the number of position delete files which are
+ newly created and the number of files which were formerly part of the table but have been
+ rewritten.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static interface&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.Result.html" title="interface in org.apache.iceberg.actions">RewritePositionDeleteFiles.Result</a></span></code>
 <div class="block">The action result that contains a summary of the execution.</div>
 </td>
+</tr>
+</table>
+</li>
+</ul>
+<!-- =========== FIELD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field.summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.html#MAX_CONCURRENT_FILE_GROUP_REWRITES">MAX_CONCURRENT_FILE_GROUP_REWRITES</a></span></code>
+<div class="block">The max number of file groups to be simultaneously rewritten by the rewrite strategy.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.html#MAX_CONCURRENT_FILE_GROUP_REWRITES_DEFAULT">MAX_CONCURRENT_FILE_GROUP_REWRITES_DEFAULT</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.html#PARTIAL_PROGRESS_ENABLED">PARTIAL_PROGRESS_ENABLED</a></span></code>
+<div class="block">Enable committing groups of files (see max-file-group-size-bytes) prior to the entire rewrite
+ completing.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.html#PARTIAL_PROGRESS_ENABLED_DEFAULT">PARTIAL_PROGRESS_ENABLED_DEFAULT</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.html#PARTIAL_PROGRESS_MAX_COMMITS">PARTIAL_PROGRESS_MAX_COMMITS</a></span></code>
+<div class="block">The maximum amount of Iceberg commits that this rewrite is allowed to produce if partial
+ progress is enabled.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.html#PARTIAL_PROGRESS_MAX_COMMITS_DEFAULT">PARTIAL_PROGRESS_MAX_COMMITS_DEFAULT</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.html#REWRITE_JOB_ORDER">REWRITE_JOB_ORDER</a></span></code>
+<div class="block">Forces the rewrite job order based on the value.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.html#REWRITE_JOB_ORDER_DEFAULT">REWRITE_JOB_ORDER_DEFAULT</a></span></code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -176,6 +252,137 @@ extends <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" tit
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a name="PARTIAL_PROGRESS_ENABLED">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>PARTIAL_PROGRESS_ENABLED</h4>
+<pre>static final&nbsp;java.lang.String PARTIAL_PROGRESS_ENABLED</pre>
+<div class="block">Enable committing groups of files (see max-file-group-size-bytes) prior to the entire rewrite
+ completing. This will produce additional commits but allow for progress even if some groups
+ fail to commit. This setting will not change the correctness of the rewrite operation as file
+ groups can be compacted independently.
+
+ <p>The default is false, which produces a single commit when the entire job has completed.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.RewritePositionDeleteFiles.PARTIAL_PROGRESS_ENABLED">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="PARTIAL_PROGRESS_ENABLED_DEFAULT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>PARTIAL_PROGRESS_ENABLED_DEFAULT</h4>
+<pre>static final&nbsp;boolean PARTIAL_PROGRESS_ENABLED_DEFAULT</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.RewritePositionDeleteFiles.PARTIAL_PROGRESS_ENABLED_DEFAULT">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="PARTIAL_PROGRESS_MAX_COMMITS">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>PARTIAL_PROGRESS_MAX_COMMITS</h4>
+<pre>static final&nbsp;java.lang.String PARTIAL_PROGRESS_MAX_COMMITS</pre>
+<div class="block">The maximum amount of Iceberg commits that this rewrite is allowed to produce if partial
+ progress is enabled. This setting has no effect if partial progress is disabled.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.RewritePositionDeleteFiles.PARTIAL_PROGRESS_MAX_COMMITS">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="PARTIAL_PROGRESS_MAX_COMMITS_DEFAULT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>PARTIAL_PROGRESS_MAX_COMMITS_DEFAULT</h4>
+<pre>static final&nbsp;int PARTIAL_PROGRESS_MAX_COMMITS_DEFAULT</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.RewritePositionDeleteFiles.PARTIAL_PROGRESS_MAX_COMMITS_DEFAULT">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="MAX_CONCURRENT_FILE_GROUP_REWRITES">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>MAX_CONCURRENT_FILE_GROUP_REWRITES</h4>
+<pre>static final&nbsp;java.lang.String MAX_CONCURRENT_FILE_GROUP_REWRITES</pre>
+<div class="block">The max number of file groups to be simultaneously rewritten by the rewrite strategy. The
+ structure and contents of the group is determined by the rewrite strategy. Each file group will
+ be rewritten independently and asynchronously.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.RewritePositionDeleteFiles.MAX_CONCURRENT_FILE_GROUP_REWRITES">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="MAX_CONCURRENT_FILE_GROUP_REWRITES_DEFAULT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>MAX_CONCURRENT_FILE_GROUP_REWRITES_DEFAULT</h4>
+<pre>static final&nbsp;int MAX_CONCURRENT_FILE_GROUP_REWRITES_DEFAULT</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.RewritePositionDeleteFiles.MAX_CONCURRENT_FILE_GROUP_REWRITES_DEFAULT">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="REWRITE_JOB_ORDER">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>REWRITE_JOB_ORDER</h4>
+<pre>static final&nbsp;java.lang.String REWRITE_JOB_ORDER</pre>
+<div class="block">Forces the rewrite job order based on the value.
+
+ <ul>
+   <li>If rewrite-job-order=bytes-asc, then rewrite the smallest job groups first.
+   <li>If rewrite-job-order=bytes-desc, then rewrite the largest job groups first.
+   <li>If rewrite-job-order=files-asc, then rewrite the job groups with the least files first.
+   <li>If rewrite-job-order=files-desc, then rewrite the job groups with the most files first.
+   <li>If rewrite-job-order=none, then rewrite job groups in the order they were planned (no
+       specific ordering).
+ </ul>
+
+ <p>Defaults to none.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.actions.RewritePositionDeleteFiles.REWRITE_JOB_ORDER">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="REWRITE_JOB_ORDER_DEFAULT">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>REWRITE_JOB_ORDER_DEFAULT</h4>
+<pre>static final&nbsp;java.lang.String REWRITE_JOB_ORDER_DEFAULT</pre>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.detail">
@@ -230,7 +437,7 @@ extends <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" tit
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/actions/RewriteManifests.Result.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.Result.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.FileGroupInfo.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/actions/RewritePositionDeleteFiles.html" target="_top">Frames</a></li>
@@ -255,13 +462,13 @@ extends <a href="../../../../org/apache/iceberg/actions/SnapshotUpdate.html" tit
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

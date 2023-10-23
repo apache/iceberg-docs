@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -255,9 +255,15 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i29" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#upgradeFormatVersion-int-">upgradeFormatVersion</a></span>(int&nbsp;newFormatVersion)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#suppressHistoricalSnapshots--">suppressHistoricalSnapshots</a></span>()</code>
+<div class="block">Suppresses snapshots that are historical, removing the metadata for lazy snapshot loading.</div>
+</td>
 </tr>
 <tr id="i30" class="altColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#upgradeFormatVersion-int-">upgradeFormatVersion</a></span>(int&nbsp;newFormatVersion)</code>&nbsp;</td>
+</tr>
+<tr id="i31" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html#withMetadataLocation-java.lang.String-">withMetadataLocation</a></span>(java.lang.String&nbsp;newMetadataLocation)</code>&nbsp;</td>
 </tr>
@@ -494,6 +500,25 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>removeStatistics</h4>
 <pre>public&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a>&nbsp;removeStatistics(long&nbsp;snapshotId)</pre>
+</li>
+</ul>
+<a name="suppressHistoricalSnapshots--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>suppressHistoricalSnapshots</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a>&nbsp;suppressHistoricalSnapshots()</pre>
+<div class="block">Suppresses snapshots that are historical, removing the metadata for lazy snapshot loading.
+
+ <p>Note that the snapshots are not considered removed from metadata and no RemoveSnapshot
+ changes are created.
+
+ <p>A snapshot is historical if no ref directly references its ID.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
 </li>
 </ul>
 <a name="removeSnapshots-java.util.List-">

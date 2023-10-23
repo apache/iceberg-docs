@@ -119,7 +119,8 @@ var activeTableTab = "activeTableTab";
 <pre>public class <span class="typeNameLabel">ParquetCodecFactory</span>
 extends org.apache.parquet.hadoop.CodecFactory</pre>
 <div class="block">This class implements a codec factory that is used when reading from Parquet. It adds a
- workaround for memory issues encountered when reading from zstd-compressed files.</div>
+ workaround to cache codecs by name and level, not just by name. This can be removed when this
+ change is made to Parquet.</div>
 </li>
 </ul>
 </div>
@@ -194,8 +195,10 @@ extends org.apache.parquet.hadoop.CodecFactory</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>protected org.apache.parquet.hadoop.CodecFactory.BytesDecompressor</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/parquet/ParquetCodecFactory.html#createDecompressor-org.apache.parquet.hadoop.metadata.CompressionCodecName-">createDecompressor</a></span>(org.apache.parquet.hadoop.metadata.CompressionCodecName&nbsp;codecName)</code>&nbsp;</td>
+<td class="colFirst"><code>protected org.apache.hadoop.io.compress.CompressionCodec</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/parquet/ParquetCodecFactory.html#getCodec-org.apache.parquet.hadoop.metadata.CompressionCodecName-">getCodec</a></span>(org.apache.parquet.hadoop.metadata.CompressionCodecName&nbsp;codecName)</code>
+<div class="block">This is copied from <code>CodecFactory</code> and modified to include the level in the cache key.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -203,7 +206,7 @@ extends org.apache.parquet.hadoop.CodecFactory</pre>
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.parquet.hadoop.CodecFactory</h3>
-<code>createCompressor, createDirectCodecFactory, getCodec, getCompressor, getDecompressor, release</code></li>
+<code>createCompressor, createDecompressor, createDirectCodecFactory, getCompressor, getDecompressor, release</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -244,16 +247,17 @@ extends org.apache.parquet.hadoop.CodecFactory</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="createDecompressor-org.apache.parquet.hadoop.metadata.CompressionCodecName-">
+<a name="getCodec-org.apache.parquet.hadoop.metadata.CompressionCodecName-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>createDecompressor</h4>
-<pre>protected&nbsp;org.apache.parquet.hadoop.CodecFactory.BytesDecompressor&nbsp;createDecompressor(org.apache.parquet.hadoop.metadata.CompressionCodecName&nbsp;codecName)</pre>
+<h4>getCodec</h4>
+<pre>protected&nbsp;org.apache.hadoop.io.compress.CompressionCodec&nbsp;getCodec(org.apache.parquet.hadoop.metadata.CompressionCodecName&nbsp;codecName)</pre>
+<div class="block">This is copied from <code>CodecFactory</code> and modified to include the level in the cache key.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>createDecompressor</code>&nbsp;in class&nbsp;<code>org.apache.parquet.hadoop.CodecFactory</code></dd>
+<dd><code>getCodec</code>&nbsp;in class&nbsp;<code>org.apache.parquet.hadoop.CodecFactory</code></dd>
 </dl>
 </li>
 </ul>

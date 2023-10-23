@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -97,9 +97,14 @@ var activeTableTab = "activeTableTab";
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
+<dl>
+<dt>All Superinterfaces:</dt>
+<dd><a href="../../../../org/apache/iceberg/view/VersionBuilder.html" title="interface in org.apache.iceberg.view">VersionBuilder</a>&lt;<a href="../../../../org/apache/iceberg/view/ViewBuilder.html" title="interface in org.apache.iceberg.view">ViewBuilder</a>&gt;</dd>
+</dl>
 <hr>
 <br>
-<pre>public interface <span class="typeNameLabel">ViewBuilder</span></pre>
+<pre>public interface <span class="typeNameLabel">ViewBuilder</span>
+extends <a href="../../../../org/apache/iceberg/view/VersionBuilder.html" title="interface in org.apache.iceberg.view">VersionBuilder</a>&lt;<a href="../../../../org/apache/iceberg/view/ViewBuilder.html" title="interface in org.apache.iceberg.view">ViewBuilder</a>&gt;</pre>
 <div class="block">A builder used to create or replace a SQL <a href="../../../../org/apache/iceberg/view/View.html" title="interface in org.apache.iceberg.view"><code>View</code></a>.
 
  <p>Call <a href="../../../../org/apache/iceberg/catalog/ViewCatalog.html#buildView-org.apache.iceberg.catalog.TableIdentifier-"><code>ViewCatalog.buildView(org.apache.iceberg.catalog.TableIdentifier)</code></a> to create a new builder.</div>
@@ -141,66 +146,25 @@ var activeTableTab = "activeTableTab";
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/view/ViewBuilder.html" title="interface in org.apache.iceberg.view">ViewBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/view/ViewBuilder.html#withDefaultCatalog-java.lang.String-">withDefaultCatalog</a></span>(java.lang.String&nbsp;defaultCatalog)</code>
-<div class="block">Set the view default catalog.</div>
-</td>
-</tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code><a href="../../../../org/apache/iceberg/view/ViewBuilder.html" title="interface in org.apache.iceberg.view">ViewBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/view/ViewBuilder.html#withDefaultNamespace-org.apache.iceberg.catalog.Namespace-">withDefaultNamespace</a></span>(<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;defaultNamespace)</code>
-<div class="block">Set the view default namespace.</div>
-</td>
-</tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code><a href="../../../../org/apache/iceberg/view/ViewBuilder.html" title="interface in org.apache.iceberg.view">ViewBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/view/ViewBuilder.html#withDialect-java.lang.String-">withDialect</a></span>(java.lang.String&nbsp;dialect)</code>
-<div class="block">Set the view SQL dialect.</div>
-</td>
-</tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code><a href="../../../../org/apache/iceberg/view/ViewBuilder.html" title="interface in org.apache.iceberg.view">ViewBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/view/ViewBuilder.html#withFieldAliases-java.util.List-">withFieldAliases</a></span>(java.util.List&lt;java.lang.String&gt;&nbsp;fieldAliases)</code>
-<div class="block">Set the view field aliases.</div>
-</td>
-</tr>
-<tr id="i7" class="rowColor">
-<td class="colFirst"><code><a href="../../../../org/apache/iceberg/view/ViewBuilder.html" title="interface in org.apache.iceberg.view">ViewBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/view/ViewBuilder.html#withFieldComments-java.util.List-">withFieldComments</a></span>(java.util.List&lt;java.lang.String&gt;&nbsp;fieldComments)</code>
-<div class="block">Set the view field comments.</div>
-</td>
-</tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code><a href="../../../../org/apache/iceberg/view/ViewBuilder.html" title="interface in org.apache.iceberg.view">ViewBuilder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/view/ViewBuilder.html#withProperties-java.util.Map-">withProperties</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</code>
 <div class="block">Add key/value properties to the view.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/view/ViewBuilder.html" title="interface in org.apache.iceberg.view">ViewBuilder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/view/ViewBuilder.html#withProperty-java.lang.String-java.lang.String-">withProperty</a></span>(java.lang.String&nbsp;key,
             java.lang.String&nbsp;value)</code>
 <div class="block">Add a key/value property to the view.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
-<td class="colFirst"><code><a href="../../../../org/apache/iceberg/view/ViewBuilder.html" title="interface in org.apache.iceberg.view">ViewBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/view/ViewBuilder.html#withQuery-java.lang.String-">withQuery</a></span>(java.lang.String&nbsp;query)</code>
-<div class="block">Set the view query.</div>
-</td>
-</tr>
-<tr id="i11" class="rowColor">
-<td class="colFirst"><code><a href="../../../../org/apache/iceberg/view/ViewBuilder.html" title="interface in org.apache.iceberg.view">ViewBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/view/ViewBuilder.html#withQueryColumnNames-java.util.List-">withQueryColumnNames</a></span>(java.util.List&lt;java.lang.String&gt;&nbsp;queryColumnNames)</code>
-<div class="block">Set the view query column names.</div>
-</td>
-</tr>
-<tr id="i12" class="altColor">
-<td class="colFirst"><code><a href="../../../../org/apache/iceberg/view/ViewBuilder.html" title="interface in org.apache.iceberg.view">ViewBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/view/ViewBuilder.html#withSchema-org.apache.iceberg.Schema-">withSchema</a></span>(<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema)</code>
-<div class="block">Set the view schema.</div>
-</td>
-</tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.org.apache.iceberg.view.VersionBuilder">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;org.apache.iceberg.view.<a href="../../../../org/apache/iceberg/view/VersionBuilder.html" title="interface in org.apache.iceberg.view">VersionBuilder</a></h3>
+<code><a href="../../../../org/apache/iceberg/view/VersionBuilder.html#withDefaultCatalog-java.lang.String-">withDefaultCatalog</a>, <a href="../../../../org/apache/iceberg/view/VersionBuilder.html#withDefaultNamespace-org.apache.iceberg.catalog.Namespace-">withDefaultNamespace</a>, <a href="../../../../org/apache/iceberg/view/VersionBuilder.html#withQuery-java.lang.String-java.lang.String-">withQuery</a>, <a href="../../../../org/apache/iceberg/view/VersionBuilder.html#withSchema-org.apache.iceberg.Schema-">withSchema</a></code></li>
+</ul>
 </li>
 </ul>
 </li>
@@ -215,134 +179,6 @@ var activeTableTab = "activeTableTab";
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="withSchema-org.apache.iceberg.Schema-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>withSchema</h4>
-<pre><a href="../../../../org/apache/iceberg/view/ViewBuilder.html" title="interface in org.apache.iceberg.view">ViewBuilder</a>&nbsp;withSchema(<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema)</pre>
-<div class="block">Set the view schema.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>schema</code> - view schema</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>this for method chaining</dd>
-</dl>
-</li>
-</ul>
-<a name="withQuery-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>withQuery</h4>
-<pre><a href="../../../../org/apache/iceberg/view/ViewBuilder.html" title="interface in org.apache.iceberg.view">ViewBuilder</a>&nbsp;withQuery(java.lang.String&nbsp;query)</pre>
-<div class="block">Set the view query.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>query</code> - view query</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>this for method chaining</dd>
-</dl>
-</li>
-</ul>
-<a name="withDialect-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>withDialect</h4>
-<pre><a href="../../../../org/apache/iceberg/view/ViewBuilder.html" title="interface in org.apache.iceberg.view">ViewBuilder</a>&nbsp;withDialect(java.lang.String&nbsp;dialect)</pre>
-<div class="block">Set the view SQL dialect.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>dialect</code> - view SQL dialect</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>this for method chaining</dd>
-</dl>
-</li>
-</ul>
-<a name="withDefaultCatalog-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>withDefaultCatalog</h4>
-<pre><a href="../../../../org/apache/iceberg/view/ViewBuilder.html" title="interface in org.apache.iceberg.view">ViewBuilder</a>&nbsp;withDefaultCatalog(java.lang.String&nbsp;defaultCatalog)</pre>
-<div class="block">Set the view default catalog.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>defaultCatalog</code> - view default catalog</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>this for method chaining</dd>
-</dl>
-</li>
-</ul>
-<a name="withDefaultNamespace-org.apache.iceberg.catalog.Namespace-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>withDefaultNamespace</h4>
-<pre><a href="../../../../org/apache/iceberg/view/ViewBuilder.html" title="interface in org.apache.iceberg.view">ViewBuilder</a>&nbsp;withDefaultNamespace(<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;defaultNamespace)</pre>
-<div class="block">Set the view default namespace.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>defaultNamespace</code> - view default namespace</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>this for method chaining</dd>
-</dl>
-</li>
-</ul>
-<a name="withQueryColumnNames-java.util.List-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>withQueryColumnNames</h4>
-<pre><a href="../../../../org/apache/iceberg/view/ViewBuilder.html" title="interface in org.apache.iceberg.view">ViewBuilder</a>&nbsp;withQueryColumnNames(java.util.List&lt;java.lang.String&gt;&nbsp;queryColumnNames)</pre>
-<div class="block">Set the view query column names.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>queryColumnNames</code> - view query column names</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>this for method chaining</dd>
-</dl>
-</li>
-</ul>
-<a name="withFieldAliases-java.util.List-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>withFieldAliases</h4>
-<pre><a href="../../../../org/apache/iceberg/view/ViewBuilder.html" title="interface in org.apache.iceberg.view">ViewBuilder</a>&nbsp;withFieldAliases(java.util.List&lt;java.lang.String&gt;&nbsp;fieldAliases)</pre>
-<div class="block">Set the view field aliases.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>fieldAliases</code> - view field aliases</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>this for method chaining</dd>
-</dl>
-</li>
-</ul>
-<a name="withFieldComments-java.util.List-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>withFieldComments</h4>
-<pre><a href="../../../../org/apache/iceberg/view/ViewBuilder.html" title="interface in org.apache.iceberg.view">ViewBuilder</a>&nbsp;withFieldComments(java.util.List&lt;java.lang.String&gt;&nbsp;fieldComments)</pre>
-<div class="block">Set the view field comments.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>fieldComments</code> - view field comments</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>this for method chaining</dd>
-</dl>
-</li>
-</ul>
 <a name="withProperties-java.util.Map-">
 <!--   -->
 </a>

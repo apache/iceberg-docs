@@ -17,12 +17,6 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
-var altColor = "altColor";
-var rowColor = "rowColor";
-var tableTab = "tableTab";
-var activeTableTab = "activeTableTab";
 </script>
 <noscript>
 <div>JavaScript is disabled on your browser.</div>
@@ -75,13 +69,13 @@ var activeTableTab = "activeTableTab";
 <li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
-<li><a href="#method.summary">Method</a></li>
+<li>Method</li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
-<li><a href="#method.detail">Method</a></li>
+<li>Method</li>
 </ul>
 </div>
 <a name="skip.navbar.top">
@@ -98,6 +92,10 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <dl>
+<dt>All Superinterfaces:</dt>
+<dd><a href="../../../../../org/apache/iceberg/UpdateRequirement.html" title="interface in org.apache.iceberg">UpdateRequirement</a></dd>
+</dl>
+<dl>
 <dt>All Known Implementing Classes:</dt>
 <dd><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertCurrentSchemaID.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertCurrentSchemaID</a>, <a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertDefaultSortOrderID.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertDefaultSortOrderID</a>, <a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertDefaultSpecID.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertDefaultSpecID</a>, <a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertLastAssignedFieldId.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertLastAssignedFieldId</a>, <a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertLastAssignedPartitionId.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertLastAssignedPartitionId</a>, <a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertRefSnapshotID.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertRefSnapshotID</a>, <a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertTableDoesNotExist.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertTableDoesNotExist</a>, <a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertTableUUID.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertTableUUID</a></dd>
 </dl>
@@ -106,8 +104,13 @@ var activeTableTab = "activeTableTab";
 <dd><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest</a></dd>
 </dl>
 <hr>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
+<div class="block"><span class="deprecationComment">will be removed in 1.5.0, use <a href="../../../../../org/apache/iceberg/UpdateRequirement.html" title="interface in org.apache.iceberg"><code>UpdateRequirement</code></a> instead.</span></div>
+</div>
 <br>
-<pre>public static interface <span class="typeNameLabel">UpdateTableRequest.UpdateRequirement</span></pre>
+<pre>@Deprecated
+public static interface <span class="typeNameLabel">UpdateTableRequest.UpdateRequirement</span>
+extends <a href="../../../../../org/apache/iceberg/UpdateRequirement.html" title="interface in org.apache.iceberg">UpdateRequirement</a></pre>
 </li>
 </ul>
 </div>
@@ -128,35 +131,51 @@ var activeTableTab = "activeTableTab";
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertCurrentSchemaID.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertCurrentSchemaID</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertCurrentSchemaID.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertCurrentSchemaID</a></span></code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertDefaultSortOrderID.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertDefaultSortOrderID</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertDefaultSortOrderID.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertDefaultSortOrderID</a></span></code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertDefaultSpecID.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertDefaultSpecID</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertDefaultSpecID.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertDefaultSpecID</a></span></code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertLastAssignedFieldId.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertLastAssignedFieldId</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertLastAssignedFieldId.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertLastAssignedFieldId</a></span></code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertLastAssignedPartitionId.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertLastAssignedPartitionId</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertLastAssignedPartitionId.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertLastAssignedPartitionId</a></span></code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertRefSnapshotID.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertRefSnapshotID</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertRefSnapshotID.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertRefSnapshotID</a></span></code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertTableDoesNotExist.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertTableDoesNotExist</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertTableDoesNotExist.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertTableDoesNotExist</a></span></code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertTableUUID.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertTableUUID</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.AssertTableUUID.html" title="class in org.apache.iceberg.rest.requests">UpdateTableRequest.UpdateRequirement.AssertTableUUID</a></span></code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -167,39 +186,12 @@ var activeTableTab = "activeTableTab";
 <!--   -->
 </a>
 <h3>Method Summary</h3>
-<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colLast" scope="col">Method and Description</th>
-</tr>
-<tr id="i0" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.html#validate-org.apache.iceberg.TableMetadata-">validate</a></span>(<a href="../../../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base)</code>&nbsp;</td>
-</tr>
-</table>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="details">
 <ul class="blockList">
-<li class="blockList">
-<!-- ============ METHOD DETAIL ========== -->
-<ul class="blockList">
-<li class="blockList"><a name="method.detail">
+<li class="blockList"><a name="methods.inherited.from.class.org.apache.iceberg.UpdateRequirement">
 <!--   -->
 </a>
-<h3>Method Detail</h3>
-<a name="validate-org.apache.iceberg.TableMetadata-">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>validate</h4>
-<pre>void&nbsp;validate(<a href="../../../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base)</pre>
-</li>
+<h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="../../../../../org/apache/iceberg/UpdateRequirement.html" title="interface in org.apache.iceberg">UpdateRequirement</a></h3>
+<code><a href="../../../../../org/apache/iceberg/UpdateRequirement.html#validate-org.apache.iceberg.TableMetadata-">validate</a></code></li>
 </ul>
 </li>
 </ul>
@@ -256,13 +248,13 @@ var activeTableTab = "activeTableTab";
 <li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
-<li><a href="#method.summary">Method</a></li>
+<li>Method</li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
-<li><a href="#method.detail">Method</a></li>
+<li>Method</li>
 </ul>
 </div>
 <a name="skip.navbar.bottom">

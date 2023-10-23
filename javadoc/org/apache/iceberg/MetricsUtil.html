@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -185,6 +185,20 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>static <a href="../../../org/apache/iceberg/Metrics.html" title="class in org.apache.iceberg">Metrics</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetricsUtil.html#copyWithoutFieldCounts-org.apache.iceberg.Metrics-java.util.Set-">copyWithoutFieldCounts</a></span>(<a href="../../../org/apache/iceberg/Metrics.html" title="class in org.apache.iceberg">Metrics</a>&nbsp;metrics,
+                      java.util.Set&lt;java.lang.Integer&gt;&nbsp;excludedFieldIds)</code>
+<div class="block">Copies a metrics object without value, NULL and NaN counts for given fields.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>static <a href="../../../org/apache/iceberg/Metrics.html" title="class in org.apache.iceberg">Metrics</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetricsUtil.html#copyWithoutFieldCountsAndBounds-org.apache.iceberg.Metrics-java.util.Set-">copyWithoutFieldCountsAndBounds</a></span>(<a href="../../../org/apache/iceberg/Metrics.html" title="class in org.apache.iceberg">Metrics</a>&nbsp;metrics,
+                               java.util.Set&lt;java.lang.Integer&gt;&nbsp;excludedFieldIds)</code>
+<div class="block">Copies a metrics object without counts and bounds for given fields.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>static java.util.Map&lt;java.lang.Integer,java.lang.Long&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetricsUtil.html#createNanValueCounts-java.util.stream.Stream-org.apache.iceberg.MetricsConfig-org.apache.iceberg.Schema-">createNanValueCounts</a></span>(java.util.stream.Stream&lt;<a href="../../../org/apache/iceberg/FieldMetrics.html" title="class in org.apache.iceberg">FieldMetrics</a>&lt;?&gt;&gt;&nbsp;fieldMetrics,
                     <a href="../../../org/apache/iceberg/MetricsConfig.html" title="class in org.apache.iceberg">MetricsConfig</a>&nbsp;metricsConfig,
@@ -193,7 +207,7 @@ extends java.lang.Object</pre>
  metrics config.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../org/apache/iceberg/MetricsModes.MetricsMode.html" title="interface in org.apache.iceberg">MetricsModes.MetricsMode</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetricsUtil.html#metricsMode-org.apache.iceberg.Schema-org.apache.iceberg.MetricsConfig-int-">metricsMode</a></span>(<a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;inputSchema,
            <a href="../../../org/apache/iceberg/MetricsConfig.html" title="class in org.apache.iceberg">MetricsConfig</a>&nbsp;metricsConfig,
@@ -201,14 +215,14 @@ extends java.lang.Object</pre>
 <div class="block">Extract MetricsMode for the given field id from metrics config.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>static <a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetricsUtil.html#readableMetricsSchema-org.apache.iceberg.Schema-org.apache.iceberg.Schema-">readableMetricsSchema</a></span>(<a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;dataTableSchema,
                      <a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;metadataTableSchema)</code>
 <div class="block">Calculates a dynamic schema for readable_metrics to add to metadata tables.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../org/apache/iceberg/MetricsUtil.ReadableMetricsStruct.html" title="class in org.apache.iceberg">MetricsUtil.ReadableMetricsStruct</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/MetricsUtil.html#readableMetricsStruct-org.apache.iceberg.Schema-org.apache.iceberg.ContentFile-org.apache.iceberg.types.Types.StructType-">readableMetricsStruct</a></span>(<a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema,
                      <a href="../../../org/apache/iceberg/ContentFile.html" title="interface in org.apache.iceberg">ContentFile</a>&lt;?&gt;&nbsp;file,
@@ -268,6 +282,40 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="copyWithoutFieldCounts-org.apache.iceberg.Metrics-java.util.Set-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>copyWithoutFieldCounts</h4>
+<pre>public static&nbsp;<a href="../../../org/apache/iceberg/Metrics.html" title="class in org.apache.iceberg">Metrics</a>&nbsp;copyWithoutFieldCounts(<a href="../../../org/apache/iceberg/Metrics.html" title="class in org.apache.iceberg">Metrics</a>&nbsp;metrics,
+                                             java.util.Set&lt;java.lang.Integer&gt;&nbsp;excludedFieldIds)</pre>
+<div class="block">Copies a metrics object without value, NULL and NaN counts for given fields.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>excludedFieldIds</code> - field IDs for which the counts must be dropped</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a new metrics object without counts for given fields</dd>
+</dl>
+</li>
+</ul>
+<a name="copyWithoutFieldCountsAndBounds-org.apache.iceberg.Metrics-java.util.Set-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>copyWithoutFieldCountsAndBounds</h4>
+<pre>public static&nbsp;<a href="../../../org/apache/iceberg/Metrics.html" title="class in org.apache.iceberg">Metrics</a>&nbsp;copyWithoutFieldCountsAndBounds(<a href="../../../org/apache/iceberg/Metrics.html" title="class in org.apache.iceberg">Metrics</a>&nbsp;metrics,
+                                                      java.util.Set&lt;java.lang.Integer&gt;&nbsp;excludedFieldIds)</pre>
+<div class="block">Copies a metrics object without counts and bounds for given fields.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>excludedFieldIds</code> - field IDs for which the counts and bounds must be dropped</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a new metrics object without lower and upper bounds for given fields</dd>
+</dl>
+</li>
+</ul>
 <a name="createNanValueCounts-java.util.stream.Stream-org.apache.iceberg.MetricsConfig-org.apache.iceberg.Schema-">
 <!--   -->
 </a>

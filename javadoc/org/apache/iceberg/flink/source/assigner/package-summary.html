@@ -103,17 +103,24 @@
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colFirst"><a href="../../../../../../org/apache/iceberg/flink/source/assigner/GetSplitResult.html" title="class in org.apache.iceberg.flink.source.assigner">GetSplitResult</a></td>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><a href="../../../../../../org/apache/iceberg/flink/source/assigner/SimpleSplitAssigner.html" title="class in org.apache.iceberg.flink.source.assigner">SimpleSplitAssigner</a></td>
+<td class="colFirst"><a href="../../../../../../org/apache/iceberg/flink/source/assigner/DefaultSplitAssigner.html" title="class in org.apache.iceberg.flink.source.assigner">DefaultSplitAssigner</a></td>
 <td class="colLast">
 <div class="block">Since all methods are called in the source coordinator thread by enumerator, there is no need for
  locking.</div>
 </td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../../../org/apache/iceberg/flink/source/assigner/GetSplitResult.html" title="class in org.apache.iceberg.flink.source.assigner">GetSplitResult</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
 <tr class="altColor">
+<td class="colFirst"><a href="../../../../../../org/apache/iceberg/flink/source/assigner/OrderedSplitAssignerFactory.html" title="class in org.apache.iceberg.flink.source.assigner">OrderedSplitAssignerFactory</a></td>
+<td class="colLast">
+<div class="block">Create default assigner with a comparator that hands out splits where the order of the splits
+ will be defined by the <a href="../../../../../../org/apache/iceberg/flink/source/split/SerializableComparator.html" title="interface in org.apache.iceberg.flink.source.split"><code>SerializableComparator</code></a>.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../../org/apache/iceberg/flink/source/assigner/SimpleSplitAssignerFactory.html" title="class in org.apache.iceberg.flink.source.assigner">SimpleSplitAssignerFactory</a></td>
 <td class="colLast">
 <div class="block">Create simple assigner that hands out splits without any guarantee in order or locality.</div>

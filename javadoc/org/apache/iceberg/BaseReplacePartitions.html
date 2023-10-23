@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":42,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10,"i41":10,"i42":10,"i43":10,"i44":10,"i45":10,"i46":10,"i47":10,"i48":42,"i49":10,"i50":42,"i51":10,"i52":10,"i53":42,"i54":10,"i55":42,"i56":10,"i57":42,"i58":10,"i59":10,"i60":10,"i61":10,"i62":42,"i63":10,"i64":42,"i65":10,"i66":42,"i67":10,"i68":42,"i69":10,"i70":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10,"i41":10,"i42":10,"i43":10,"i44":10,"i45":10,"i46":10,"i47":10,"i48":10,"i49":10,"i50":10,"i51":10,"i52":10,"i53":10,"i54":10,"i55":10,"i56":10,"i57":10,"i58":10,"i59":10,"i60":10,"i61":10,"i62":10,"i63":10,"i64":10,"i65":10,"i66":10,"i67":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -127,7 +127,7 @@ implements <a href="../../../org/apache/iceberg/ReplacePartitions.html" title="i
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -146,23 +146,22 @@ implements <a href="../../../org/apache/iceberg/ReplacePartitions.html" title="i
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#add-org.apache.iceberg.DeleteFile-long-">add</a></span>(<a href="../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg">DeleteFile</a>&nbsp;file,
+   long&nbsp;dataSequenceNumber)</code>
+<div class="block">Add a delete file to the new snapshot.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#add-org.apache.iceberg.ManifestFile-">add</a></span>(<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&nbsp;manifest)</code>
 <div class="block">Add all files in a manifest to the new snapshot.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>protected org.apache.iceberg.DeleteFileIndex</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#addedDeleteFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.expressions.Expression-org.apache.iceberg.util.PartitionSet-">addedDeleteFiles</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                java.lang.Long&nbsp;startingSnapshotId,
-                <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;dataFilter,
-                <a href="../../../org/apache/iceberg/util/PartitionSet.html" title="class in org.apache.iceberg.util">PartitionSet</a>&nbsp;partitionSet)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use <code>MergingSnapshotProducer.addedDeleteFiles(TableMetadata, Long, Expression, PartitionSet,
-     Snapshot)</code> instead</span></div>
-</div>
-</td>
-</tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code>protected java.util.List&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#addedDataFiles--">addedDataFiles</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected org.apache.iceberg.DeleteFileIndex</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#addedDeleteFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.expressions.Expression-org.apache.iceberg.util.PartitionSet-org.apache.iceberg.Snapshot-">addedDeleteFiles</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
                 java.lang.Long&nbsp;startingSnapshotId,
@@ -172,10 +171,6 @@ implements <a href="../../../org/apache/iceberg/ReplacePartitions.html" title="i
 <div class="block">Returns matching delete files have been added to the table since a starting snapshot.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>protected java.util.List&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#addedFiles--">addedFiles</a></span>()</code>&nbsp;</td>
-</tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ReplacePartitions.html" title="interface in org.apache.iceberg">ReplacePartitions</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#addFile-org.apache.iceberg.DataFile-">addFile</a></span>(<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&nbsp;file)</code>
@@ -183,221 +178,234 @@ implements <a href="../../../org/apache/iceberg/ReplacePartitions.html" title="i
 </td>
 </tr>
 <tr id="i7" class="rowColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#addsDataFiles--">addsDataFiles</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#addsDeleteFiles--">addsDeleteFiles</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#apply--">apply</a></span>()</code>
 <div class="block">Apply the pending changes and return the uncommitted changes for validation.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#apply-org.apache.iceberg.TableMetadata-org.apache.iceberg.Snapshot-">apply</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
      <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;snapshot)</code>
 <div class="block">Apply the update's changes to the given metadata and snapshot.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>ThisT</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#caseSensitive-boolean-">caseSensitive</a></span>(boolean&nbsp;isCaseSensitive)</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#cleanAll--">cleanAll</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#cleanUncommitted-java.util.Set-">cleanUncommitted</a></span>(java.util.Set&lt;<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&gt;&nbsp;committed)</code>
 <div class="block">Clean up any uncommitted manifests that were created.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#commit--">commit</a></span>()</code>
 <div class="block">Apply the pending changes and commit.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/metrics/CommitMetrics.html" title="class in org.apache.iceberg.metrics">CommitMetrics</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#commitMetrics--">commitMetrics</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#current--">current</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#dataSpec--">dataSpec</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#delete-java.lang.CharSequence-">delete</a></span>(java.lang.CharSequence&nbsp;path)</code>
 <div class="block">Add a specific data path to be deleted in the new snapshot.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#delete-org.apache.iceberg.DataFile-">delete</a></span>(<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&nbsp;file)</code>
 <div class="block">Add a specific data file to be deleted in the new snapshot.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#delete-org.apache.iceberg.DeleteFile-">delete</a></span>(<a href="../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg">DeleteFile</a>&nbsp;file)</code>
 <div class="block">Add a specific delete file to be deleted in the new snapshot.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#deleteByRowFilter-org.apache.iceberg.expressions.Expression-">deleteByRowFilter</a></span>(<a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;expr)</code>
 <div class="block">Add a filter to match files to delete.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#deleteFile-java.lang.String-">deleteFile</a></span>(java.lang.String&nbsp;path)</code>&nbsp;</td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i23" class="rowColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#deletesDataFiles--">deletesDataFiles</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i24" class="altColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#deletesDeleteFiles--">deletesDeleteFiles</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>ThisT</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#deleteWith-java.util.function.Consumer-">deleteWith</a></span>(java.util.function.Consumer&lt;java.lang.String&gt;&nbsp;deleteCallback)</code>
 <div class="block">Set a callback to delete files instead of the table's default.</div>
 </td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#dropPartition-int-org.apache.iceberg.StructLike-">dropPartition</a></span>(int&nbsp;specId,
              <a href="../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&nbsp;partition)</code>
 <div class="block">Add a partition tuple to drop from the table during the delete phase.</div>
 </td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#failAnyDelete--">failAnyDelete</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#failMissingDeletePaths--">failMissingDeletePaths</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#isCaseSensitive--">isCaseSensitive</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i30" class="altColor">
 <td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/io/OutputFile.html" title="interface in org.apache.iceberg.io">OutputFile</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#manifestListPath--">manifestListPath</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i27" class="rowColor">
+<tr id="i31" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/ManifestReader.html" title="class in org.apache.iceberg">ManifestReader</a>&lt;<a href="../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg">DeleteFile</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#newDeleteManifestReader-org.apache.iceberg.ManifestFile-">newDeleteManifestReader</a></span>(<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&nbsp;manifest)</code>&nbsp;</td>
 </tr>
-<tr id="i28" class="altColor">
+<tr id="i32" class="altColor">
 <td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/ManifestWriter.html" title="class in org.apache.iceberg">ManifestWriter</a>&lt;<a href="../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg">DeleteFile</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#newDeleteManifestWriter-org.apache.iceberg.PartitionSpec-">newDeleteManifestWriter</a></span>(<a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec)</code>&nbsp;</td>
 </tr>
-<tr id="i29" class="rowColor">
+<tr id="i33" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/io/OutputFile.html" title="interface in org.apache.iceberg.io">OutputFile</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#newManifestOutput--">newManifestOutput</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i30" class="altColor">
+<tr id="i34" class="altColor">
 <td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/ManifestReader.html" title="class in org.apache.iceberg">ManifestReader</a>&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#newManifestReader-org.apache.iceberg.ManifestFile-">newManifestReader</a></span>(<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&nbsp;manifest)</code>&nbsp;</td>
 </tr>
-<tr id="i31" class="rowColor">
+<tr id="i35" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/ManifestWriter.html" title="class in org.apache.iceberg">ManifestWriter</a>&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#newManifestWriter-org.apache.iceberg.PartitionSpec-">newManifestWriter</a></span>(<a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec)</code>&nbsp;</td>
 </tr>
-<tr id="i32" class="altColor">
+<tr id="i36" class="altColor">
+<td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/RollingManifestWriter.html" title="class in org.apache.iceberg">RollingManifestWriter</a>&lt;<a href="../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg">DeleteFile</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#newRollingDeleteManifestWriter-org.apache.iceberg.PartitionSpec-">newRollingDeleteManifestWriter</a></span>(<a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec)</code>&nbsp;</td>
+</tr>
+<tr id="i37" class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/RollingManifestWriter.html" title="class in org.apache.iceberg">RollingManifestWriter</a>&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#newRollingManifestWriter-org.apache.iceberg.PartitionSpec-">newRollingManifestWriter</a></span>(<a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec)</code>&nbsp;</td>
+</tr>
+<tr id="i38" class="altColor">
 <td class="colFirst"><code>protected java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#operation--">operation</a></span>()</code>
 <div class="block">A string that describes the action that produced the new snapshot.</div>
 </td>
 </tr>
-<tr id="i33" class="rowColor">
+<tr id="i39" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#refresh--">refresh</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i34" class="altColor">
+<tr id="i40" class="altColor">
 <td class="colFirst"><code>protected ThisT</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#reportWith-org.apache.iceberg.metrics.MetricsReporter-">reportWith</a></span>(<a href="../../../org/apache/iceberg/metrics/MetricsReporter.html" title="interface in org.apache.iceberg.metrics">MetricsReporter</a>&nbsp;newReporter)</code>&nbsp;</td>
 </tr>
-<tr id="i35" class="rowColor">
+<tr id="i41" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#rowFilter--">rowFilter</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i36" class="altColor">
+<tr id="i42" class="altColor">
 <td class="colFirst"><code>ThisT</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#scanManifestsWith-java.util.concurrent.ExecutorService-">scanManifestsWith</a></span>(java.util.concurrent.ExecutorService&nbsp;executorService)</code>
 <div class="block">Use a particular executor to scan manifests.</div>
 </td>
 </tr>
-<tr id="i37" class="rowColor">
+<tr id="i43" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/ReplacePartitions.html" title="interface in org.apache.iceberg">ReplacePartitions</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#self--">self</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i38" class="altColor">
+<tr id="i44" class="altColor">
 <td class="colFirst"><code>ThisT</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#set-java.lang.String-java.lang.String-">set</a></span>(java.lang.String&nbsp;property,
    java.lang.String&nbsp;value)</code>
 <div class="block">Set a summary property in the snapshot produced by this update.</div>
 </td>
 </tr>
-<tr id="i39" class="rowColor">
+<tr id="i45" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#setNewFilesSequenceNumber-long-">setNewFilesSequenceNumber</a></span>(long&nbsp;sequenceNumber)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#setNewDataFilesDataSequenceNumber-long-">setNewDataFilesDataSequenceNumber</a></span>(long&nbsp;sequenceNumber)</code>&nbsp;</td>
 </tr>
-<tr id="i40" class="altColor">
+<tr id="i46" class="altColor">
 <td class="colFirst"><code>protected long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#snapshotId--">snapshotId</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i41" class="rowColor">
+<tr id="i47" class="rowColor">
 <td class="colFirst"><code>ThisT</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#stageOnly--">stageOnly</a></span>()</code>
 <div class="block">Called to stage a snapshot in table metadata, but not update the current snapshot id.</div>
 </td>
 </tr>
-<tr id="i42" class="altColor">
+<tr id="i48" class="altColor">
 <td class="colFirst"><code>protected java.util.Map&lt;java.lang.String,java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#summary--">summary</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i43" class="rowColor">
+<tr id="i49" class="rowColor">
 <td class="colFirst"><code>protected java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#targetBranch--">targetBranch</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i44" class="altColor">
+<tr id="i50" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#targetBranch-java.lang.String-">targetBranch</a></span>(java.lang.String&nbsp;branch)</code>
-<div class="block">* A setter for the target branch on which snapshot producer operation should be performed</div>
+<div class="block">A setter for the target branch on which snapshot producer operation should be performed</div>
 </td>
 </tr>
-<tr id="i45" class="rowColor">
+<tr id="i51" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/BaseReplacePartitions.html" title="class in org.apache.iceberg">BaseReplacePartitions</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#toBranch-java.lang.String-">toBranch</a></span>(java.lang.String&nbsp;branch)</code>
 <div class="block">Perform operations on a particular branch</div>
 </td>
 </tr>
-<tr id="i46" class="altColor">
+<tr id="i52" class="altColor">
 <td class="colFirst"><code>java.lang.Object</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#updateEvent--">updateEvent</a></span>()</code>
 <div class="block">Generates update event to notify about metadata changes</div>
 </td>
 </tr>
-<tr id="i47" class="rowColor">
+<tr id="i53" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#validate-org.apache.iceberg.TableMetadata-org.apache.iceberg.Snapshot-">validate</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;currentMetadata,
         <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;parent)</code>
 <div class="block">Validate the current metadata.</div>
 </td>
 </tr>
-<tr id="i48" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#validateAddedDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.expressions.Expression-">validateAddedDataFiles</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                      java.lang.Long&nbsp;startingSnapshotId,
-                      <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;conflictDetectionFilter)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use <code>MergingSnapshotProducer.validateAddedDataFiles(TableMetadata, Long, Expression, Snapshot)</code>
-     instead</span></div>
-</div>
-</td>
-</tr>
-<tr id="i49" class="rowColor">
+<tr id="i54" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#validateAddedDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.expressions.Expression-org.apache.iceberg.Snapshot-">validateAddedDataFiles</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
                       java.lang.Long&nbsp;startingSnapshotId,
@@ -407,18 +415,7 @@ implements <a href="../../../org/apache/iceberg/ReplacePartitions.html" title="i
  snapshot.</div>
 </td>
 </tr>
-<tr id="i50" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#validateAddedDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.util.PartitionSet-">validateAddedDataFiles</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                      java.lang.Long&nbsp;startingSnapshotId,
-                      <a href="../../../org/apache/iceberg/util/PartitionSet.html" title="class in org.apache.iceberg.util">PartitionSet</a>&nbsp;partitionSet)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use <code>MergingSnapshotProducer.validateAddedDataFiles(TableMetadata, Long, PartitionSet,
-     Snapshot)</code> instead</span></div>
-</div>
-</td>
-</tr>
-<tr id="i51" class="rowColor">
+<tr id="i55" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#validateAddedDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.util.PartitionSet-org.apache.iceberg.Snapshot-">validateAddedDataFiles</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
                       java.lang.Long&nbsp;startingSnapshotId,
@@ -428,23 +425,13 @@ implements <a href="../../../org/apache/iceberg/ReplacePartitions.html" title="i
  snapshot.</div>
 </td>
 </tr>
-<tr id="i52" class="altColor">
+<tr id="i56" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ReplacePartitions.html" title="interface in org.apache.iceberg">ReplacePartitions</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#validateAppendOnly--">validateAppendOnly</a></span>()</code>
 <div class="block">Validate that no partitions will be replaced and the operation is append-only.</div>
 </td>
 </tr>
-<tr id="i53" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#validateDataFilesExist-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.util.CharSequenceSet-boolean-org.apache.iceberg.expressions.Expression-">validateDataFilesExist</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                      java.lang.Long&nbsp;startingSnapshotId,
-                      <a href="../../../org/apache/iceberg/util/CharSequenceSet.html" title="class in org.apache.iceberg.util">CharSequenceSet</a>&nbsp;requiredDataFiles,
-                      boolean&nbsp;skipDeletes,
-                      <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;conflictDetectionFilter)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
-</td>
-</tr>
-<tr id="i54" class="altColor">
+<tr id="i57" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#validateDataFilesExist-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.util.CharSequenceSet-boolean-org.apache.iceberg.expressions.Expression-org.apache.iceberg.Snapshot-">validateDataFilesExist</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
                       java.lang.Long&nbsp;startingSnapshotId,
@@ -453,18 +440,7 @@ implements <a href="../../../org/apache/iceberg/ReplacePartitions.html" title="i
                       <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;conflictDetectionFilter,
                       <a href="../../../org/apache/iceberg/Snapshot.html" title="interface in org.apache.iceberg">Snapshot</a>&nbsp;parent)</code>&nbsp;</td>
 </tr>
-<tr id="i55" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#validateDeletedDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.expressions.Expression-">validateDeletedDataFiles</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                        java.lang.Long&nbsp;startingSnapshotId,
-                        <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;dataFilter)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use <code>MergingSnapshotProducer.validateDeletedDataFiles(TableMetadata, Long, Expression,
-     Snapshot)</code> instead</span></div>
-</div>
-</td>
-</tr>
-<tr id="i56" class="altColor">
+<tr id="i58" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#validateDeletedDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.expressions.Expression-org.apache.iceberg.Snapshot-">validateDeletedDataFiles</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
                         java.lang.Long&nbsp;startingSnapshotId,
@@ -474,18 +450,7 @@ implements <a href="../../../org/apache/iceberg/ReplacePartitions.html" title="i
  snapshot.</div>
 </td>
 </tr>
-<tr id="i57" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#validateDeletedDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.util.PartitionSet-">validateDeletedDataFiles</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                        java.lang.Long&nbsp;startingSnapshotId,
-                        <a href="../../../org/apache/iceberg/util/PartitionSet.html" title="class in org.apache.iceberg.util">PartitionSet</a>&nbsp;partitionSet)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use <code>MergingSnapshotProducer.validateNoNewDeleteFiles(TableMetadata, Long, PartitionSet,
-     Snapshot)</code> instead</span></div>
-</div>
-</td>
-</tr>
-<tr id="i58" class="altColor">
+<tr id="i59" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#validateDeletedDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.util.PartitionSet-org.apache.iceberg.Snapshot-">validateDeletedDataFiles</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
                         java.lang.Long&nbsp;startingSnapshotId,
@@ -495,33 +460,23 @@ implements <a href="../../../org/apache/iceberg/ReplacePartitions.html" title="i
  snapshot.</div>
 </td>
 </tr>
-<tr id="i59" class="rowColor">
+<tr id="i60" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ReplacePartitions.html" title="interface in org.apache.iceberg">ReplacePartitions</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#validateFromSnapshot-long-">validateFromSnapshot</a></span>(long&nbsp;newStartingSnapshotId)</code>
 <div class="block">Set the snapshot ID used in validations for this operation.</div>
 </td>
 </tr>
-<tr id="i60" class="altColor">
+<tr id="i61" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ReplacePartitions.html" title="interface in org.apache.iceberg">ReplacePartitions</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#validateNoConflictingData--">validateNoConflictingData</a></span>()</code>
 <div class="block">Enables validation that data added concurrently does not conflict with this commit's operation.</div>
 </td>
 </tr>
-<tr id="i61" class="rowColor">
+<tr id="i62" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ReplacePartitions.html" title="interface in org.apache.iceberg">ReplacePartitions</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#validateNoConflictingDeletes--">validateNoConflictingDeletes</a></span>()</code>
 <div class="block">Enables validation that deletes that happened concurrently do not conflict with this commit's
  operation.</div>
-</td>
-</tr>
-<tr id="i62" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#validateNoNewDeleteFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.expressions.Expression-">validateNoNewDeleteFiles</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                        java.lang.Long&nbsp;startingSnapshotId,
-                        <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;dataFilter)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use <code>MergingSnapshotProducer.validateNoNewDeleteFiles(org.apache.iceberg.TableMetadata, java.lang.Long, org.apache.iceberg.expressions.Expression)</code> instead</span></div>
-</div>
 </td>
 </tr>
 <tr id="i63" class="rowColor">
@@ -536,17 +491,6 @@ implements <a href="../../../org/apache/iceberg/ReplacePartitions.html" title="i
 </tr>
 <tr id="i64" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#validateNoNewDeleteFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.util.PartitionSet-">validateNoNewDeleteFiles</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                        java.lang.Long&nbsp;startingSnapshotId,
-                        <a href="../../../org/apache/iceberg/util/PartitionSet.html" title="class in org.apache.iceberg.util">PartitionSet</a>&nbsp;partitionSet)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use <code>MergingSnapshotProducer.validateNoNewDeleteFiles(TableMetadata, Long, PartitionSet,
-     Snapshot)</code> instead</span></div>
-</div>
-</td>
-</tr>
-<tr id="i65" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#validateNoNewDeleteFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.util.PartitionSet-org.apache.iceberg.Snapshot-">validateNoNewDeleteFiles</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
                         java.lang.Long&nbsp;startingSnapshotId,
                         <a href="../../../org/apache/iceberg/util/PartitionSet.html" title="class in org.apache.iceberg.util">PartitionSet</a>&nbsp;partitionSet,
@@ -555,18 +499,7 @@ implements <a href="../../../org/apache/iceberg/ReplacePartitions.html" title="i
  starting snapshot.</div>
 </td>
 </tr>
-<tr id="i66" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#validateNoNewDeletesForDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.expressions.Expression-java.lang.Iterable-">validateNoNewDeletesForDataFiles</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                                java.lang.Long&nbsp;startingSnapshotId,
-                                <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;dataFilter,
-                                java.lang.Iterable&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;&nbsp;dataFiles)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use <code>MergingSnapshotProducer.validateNoNewDeletesForDataFiles(org.apache.iceberg.TableMetadata, java.lang.Long, java.lang.Iterable&lt;org.apache.iceberg.DataFile&gt;, org.apache.iceberg.Snapshot)</code> instead</span></div>
-</div>
-</td>
-</tr>
-<tr id="i67" class="rowColor">
+<tr id="i65" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#validateNoNewDeletesForDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.expressions.Expression-java.lang.Iterable-org.apache.iceberg.Snapshot-">validateNoNewDeletesForDataFiles</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
                                 java.lang.Long&nbsp;startingSnapshotId,
@@ -577,17 +510,7 @@ implements <a href="../../../org/apache/iceberg/ReplacePartitions.html" title="i
  to the table since a starting snapshot.</div>
 </td>
 </tr>
-<tr id="i68" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#validateNoNewDeletesForDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-java.lang.Iterable-">validateNoNewDeletesForDataFiles</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                                java.lang.Long&nbsp;startingSnapshotId,
-                                java.lang.Iterable&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;&nbsp;dataFiles)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use <code>MergingSnapshotProducer.validateNoNewDeletesForDataFiles(org.apache.iceberg.TableMetadata, java.lang.Long, java.lang.Iterable&lt;org.apache.iceberg.DataFile&gt;, org.apache.iceberg.Snapshot)</code> instead</span></div>
-</div>
-</td>
-</tr>
-<tr id="i69" class="rowColor">
+<tr id="i66" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#validateNoNewDeletesForDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-java.lang.Iterable-org.apache.iceberg.Snapshot-">validateNoNewDeletesForDataFiles</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
                                 java.lang.Long&nbsp;startingSnapshotId,
@@ -597,7 +520,7 @@ implements <a href="../../../org/apache/iceberg/ReplacePartitions.html" title="i
  to the table since a starting snapshot.</div>
 </td>
 </tr>
-<tr id="i70" class="altColor">
+<tr id="i67" class="rowColor">
 <td class="colFirst"><code>protected java.util.concurrent.ExecutorService</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseReplacePartitions.html#workerPool--">workerPool</a></span>()</code>&nbsp;</td>
 </tr>
@@ -876,13 +799,13 @@ implements <a href="../../../org/apache/iceberg/ReplacePartitions.html" title="i
 <pre>protected&nbsp;<a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;rowFilter()</pre>
 </li>
 </ul>
-<a name="addedFiles--">
+<a name="addedDataFiles--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>addedFiles</h4>
-<pre>protected&nbsp;java.util.List&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;&nbsp;addedFiles()</pre>
+<h4>addedDataFiles</h4>
+<pre>protected&nbsp;java.util.List&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;&nbsp;addedDataFiles()</pre>
 </li>
 </ul>
 <a name="failAnyDelete--">
@@ -959,6 +882,42 @@ implements <a href="../../../org/apache/iceberg/ReplacePartitions.html" title="i
 <div class="block">Add a specific data path to be deleted in the new snapshot.</div>
 </li>
 </ul>
+<a name="deletesDataFiles--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>deletesDataFiles</h4>
+<pre>protected&nbsp;boolean&nbsp;deletesDataFiles()</pre>
+</li>
+</ul>
+<a name="deletesDeleteFiles--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>deletesDeleteFiles</h4>
+<pre>protected&nbsp;boolean&nbsp;deletesDeleteFiles()</pre>
+</li>
+</ul>
+<a name="addsDataFiles--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addsDataFiles</h4>
+<pre>protected&nbsp;boolean&nbsp;addsDataFiles()</pre>
+</li>
+</ul>
+<a name="addsDeleteFiles--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addsDeleteFiles</h4>
+<pre>protected&nbsp;boolean&nbsp;addsDeleteFiles()</pre>
+</li>
+</ul>
 <a name="add-org.apache.iceberg.DataFile-">
 <!--   -->
 </a>
@@ -979,6 +938,17 @@ implements <a href="../../../org/apache/iceberg/ReplacePartitions.html" title="i
 <div class="block">Add a delete file to the new snapshot.</div>
 </li>
 </ul>
+<a name="add-org.apache.iceberg.DeleteFile-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>add</h4>
+<pre>protected&nbsp;void&nbsp;add(<a href="../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg">DeleteFile</a>&nbsp;file,
+                   long&nbsp;dataSequenceNumber)</pre>
+<div class="block">Add a delete file to the new snapshot.</div>
+</li>
+</ul>
 <a name="add-org.apache.iceberg.ManifestFile-">
 <!--   -->
 </a>
@@ -987,26 +957,6 @@ implements <a href="../../../org/apache/iceberg/ReplacePartitions.html" title="i
 <h4>add</h4>
 <pre>protected&nbsp;void&nbsp;add(<a href="../../../org/apache/iceberg/ManifestFile.html" title="interface in org.apache.iceberg">ManifestFile</a>&nbsp;manifest)</pre>
 <div class="block">Add all files in a manifest to the new snapshot.</div>
-</li>
-</ul>
-<a name="validateAddedDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.util.PartitionSet-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>validateAddedDataFiles</h4>
-<pre>@Deprecated
-protected&nbsp;void&nbsp;validateAddedDataFiles(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                                                  java.lang.Long&nbsp;startingSnapshotId,
-                                                  <a href="../../../org/apache/iceberg/util/PartitionSet.html" title="class in org.apache.iceberg.util">PartitionSet</a>&nbsp;partitionSet)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">will be removed in 1.3.0; use <code>MergingSnapshotProducer.validateAddedDataFiles(TableMetadata, Long, PartitionSet,
-     Snapshot)</code> instead</span></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>base</code> - table metadata to validate</dd>
-<dd><code>startingSnapshotId</code> - id of the snapshot current at the start of the operation</dd>
-<dd><code>partitionSet</code> - a set of partitions to filter new conflicting data files</dd>
-</dl>
 </li>
 </ul>
 <a name="validateAddedDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.util.PartitionSet-org.apache.iceberg.Snapshot-">
@@ -1027,26 +977,6 @@ protected&nbsp;void&nbsp;validateAddedDataFiles(<a href="../../../org/apache/ice
 <dd><code>startingSnapshotId</code> - id of the snapshot current at the start of the operation</dd>
 <dd><code>partitionSet</code> - a set of partitions to filter new conflicting data files</dd>
 <dd><code>parent</code> - ending snapshot on the lineage being validated</dd>
-</dl>
-</li>
-</ul>
-<a name="validateAddedDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.expressions.Expression-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>validateAddedDataFiles</h4>
-<pre>@Deprecated
-protected&nbsp;void&nbsp;validateAddedDataFiles(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                                                  java.lang.Long&nbsp;startingSnapshotId,
-                                                  <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;conflictDetectionFilter)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">will be removed in 1.3.0; use <code>MergingSnapshotProducer.validateAddedDataFiles(TableMetadata, Long, Expression, Snapshot)</code>
-     instead</span></div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>base</code> - table metadata to validate</dd>
-<dd><code>startingSnapshotId</code> - id of the snapshot current at the start of the operation</dd>
-<dd><code>conflictDetectionFilter</code> - an expression used to find new conflicting data files</dd>
 </dl>
 </li>
 </ul>
@@ -1091,50 +1021,6 @@ protected&nbsp;void&nbsp;validateAddedDataFiles(<a href="../../../org/apache/ice
 </dl>
 </li>
 </ul>
-<a name="validateNoNewDeletesForDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-java.lang.Iterable-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>validateNoNewDeletesForDataFiles</h4>
-<pre>@Deprecated
-protected&nbsp;void&nbsp;validateNoNewDeletesForDataFiles(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                                                            java.lang.Long&nbsp;startingSnapshotId,
-                                                            java.lang.Iterable&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;&nbsp;dataFiles)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">will be removed in 1.3.0; use <code>MergingSnapshotProducer.validateNoNewDeletesForDataFiles(org.apache.iceberg.TableMetadata, java.lang.Long, java.lang.Iterable&lt;org.apache.iceberg.DataFile&gt;, org.apache.iceberg.Snapshot)</code> instead</span></div>
-<div class="block">Validates that no new delete files that must be applied to the given data files have been added
- to the table since a starting snapshot.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>base</code> - table metadata to validate</dd>
-<dd><code>startingSnapshotId</code> - id of the snapshot current at the start of the operation</dd>
-<dd><code>dataFiles</code> - data files to validate have no new row deletes</dd>
-</dl>
-</li>
-</ul>
-<a name="validateNoNewDeletesForDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.expressions.Expression-java.lang.Iterable-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>validateNoNewDeletesForDataFiles</h4>
-<pre>@Deprecated
-protected&nbsp;void&nbsp;validateNoNewDeletesForDataFiles(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                                                            java.lang.Long&nbsp;startingSnapshotId,
-                                                            <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;dataFilter,
-                                                            java.lang.Iterable&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;&nbsp;dataFiles)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">will be removed in 1.3.0; use <code>MergingSnapshotProducer.validateNoNewDeletesForDataFiles(org.apache.iceberg.TableMetadata, java.lang.Long, java.lang.Iterable&lt;org.apache.iceberg.DataFile&gt;, org.apache.iceberg.Snapshot)</code> instead</span></div>
-<div class="block">Validates that no new delete files that must be applied to the given data files have been added
- to the table since a starting snapshot.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>base</code> - table metadata to validate</dd>
-<dd><code>startingSnapshotId</code> - id of the snapshot current at the start of the operation</dd>
-<dd><code>dataFilter</code> - a data filter</dd>
-<dd><code>dataFiles</code> - data files to validate have no new row deletes</dd>
-</dl>
-</li>
-</ul>
 <a name="validateNoNewDeletesForDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.expressions.Expression-java.lang.Iterable-org.apache.iceberg.Snapshot-">
 <!--   -->
 </a>
@@ -1155,27 +1041,6 @@ protected&nbsp;void&nbsp;validateNoNewDeletesForDataFiles(<a href="../../../org/
 <dd><code>dataFilter</code> - a data filter</dd>
 <dd><code>dataFiles</code> - data files to validate have no new row deletes</dd>
 <dd><code>parent</code> - ending snapshot on the branch being validated</dd>
-</dl>
-</li>
-</ul>
-<a name="validateNoNewDeleteFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.expressions.Expression-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>validateNoNewDeleteFiles</h4>
-<pre>@Deprecated
-protected&nbsp;void&nbsp;validateNoNewDeleteFiles(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                                                    java.lang.Long&nbsp;startingSnapshotId,
-                                                    <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;dataFilter)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">will be removed in 1.3.0; use <code>MergingSnapshotProducer.validateNoNewDeleteFiles(org.apache.iceberg.TableMetadata, java.lang.Long, org.apache.iceberg.expressions.Expression)</code> instead</span></div>
-<div class="block">Validates that no delete files matching a filter have been added to the table since a starting
- snapshot.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>base</code> - table metadata to validate</dd>
-<dd><code>startingSnapshotId</code> - id of the snapshot current at the start of the operation</dd>
-<dd><code>dataFilter</code> - an expression used to find new conflicting delete files</dd>
 </dl>
 </li>
 </ul>
@@ -1200,28 +1065,6 @@ protected&nbsp;void&nbsp;validateNoNewDeleteFiles(<a href="../../../org/apache/i
 </dl>
 </li>
 </ul>
-<a name="validateNoNewDeleteFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.util.PartitionSet-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>validateNoNewDeleteFiles</h4>
-<pre>@Deprecated
-protected&nbsp;void&nbsp;validateNoNewDeleteFiles(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                                                    java.lang.Long&nbsp;startingSnapshotId,
-                                                    <a href="../../../org/apache/iceberg/util/PartitionSet.html" title="class in org.apache.iceberg.util">PartitionSet</a>&nbsp;partitionSet)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">will be removed in 1.3.0; use <code>MergingSnapshotProducer.validateNoNewDeleteFiles(TableMetadata, Long, PartitionSet,
-     Snapshot)</code> instead</span></div>
-<div class="block">Validates that no delete files matching a partition set have been added to the table since a
- starting snapshot.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>base</code> - table metadata to validate</dd>
-<dd><code>startingSnapshotId</code> - id of the snapshot current at the start of the operation</dd>
-<dd><code>partitionSet</code> - a partition set used to find new conflicting delete files</dd>
-</dl>
-</li>
-</ul>
 <a name="validateNoNewDeleteFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.util.PartitionSet-org.apache.iceberg.Snapshot-">
 <!--   -->
 </a>
@@ -1240,29 +1083,6 @@ protected&nbsp;void&nbsp;validateNoNewDeleteFiles(<a href="../../../org/apache/i
 <dd><code>startingSnapshotId</code> - id of the snapshot current at the start of the operation</dd>
 <dd><code>partitionSet</code> - a partition set used to find new conflicting delete files</dd>
 <dd><code>parent</code> - ending snapshot on the branch being validated</dd>
-</dl>
-</li>
-</ul>
-<a name="addedDeleteFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.expressions.Expression-org.apache.iceberg.util.PartitionSet-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>addedDeleteFiles</h4>
-<pre>@Deprecated
-protected&nbsp;org.apache.iceberg.DeleteFileIndex&nbsp;addedDeleteFiles(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                                                                          java.lang.Long&nbsp;startingSnapshotId,
-                                                                          <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;dataFilter,
-                                                                          <a href="../../../org/apache/iceberg/util/PartitionSet.html" title="class in org.apache.iceberg.util">PartitionSet</a>&nbsp;partitionSet)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">will be removed in 1.3.0; use <code>MergingSnapshotProducer.addedDeleteFiles(TableMetadata, Long, Expression, PartitionSet,
-     Snapshot)</code> instead</span></div>
-<div class="block">Returns matching delete files have been added to the table since a starting snapshot.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>base</code> - table metadata to validate</dd>
-<dd><code>startingSnapshotId</code> - id of the snapshot current at the start of the operation</dd>
-<dd><code>dataFilter</code> - an expression used to find delete files</dd>
-<dd><code>partitionSet</code> - a partition set used to find delete files</dd>
 </dl>
 </li>
 </ul>
@@ -1288,28 +1108,6 @@ protected&nbsp;org.apache.iceberg.DeleteFileIndex&nbsp;addedDeleteFiles(<a href=
 </dl>
 </li>
 </ul>
-<a name="validateDeletedDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.expressions.Expression-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>validateDeletedDataFiles</h4>
-<pre>@Deprecated
-protected&nbsp;void&nbsp;validateDeletedDataFiles(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                                                    java.lang.Long&nbsp;startingSnapshotId,
-                                                    <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;dataFilter)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">will be removed in 1.3.0; use <code>MergingSnapshotProducer.validateDeletedDataFiles(TableMetadata, Long, Expression,
-     Snapshot)</code> instead</span></div>
-<div class="block">Validates that no files matching a filter have been deleted from the table since a starting
- snapshot.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>base</code> - table metadata to validate</dd>
-<dd><code>startingSnapshotId</code> - id of the snapshot current at the start of the operation</dd>
-<dd><code>dataFilter</code> - an expression used to find deleted data files</dd>
-</dl>
-</li>
-</ul>
 <a name="validateDeletedDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.expressions.Expression-org.apache.iceberg.Snapshot-">
 <!--   -->
 </a>
@@ -1328,28 +1126,6 @@ protected&nbsp;void&nbsp;validateDeletedDataFiles(<a href="../../../org/apache/i
 <dd><code>startingSnapshotId</code> - id of the snapshot current at the start of the operation</dd>
 <dd><code>dataFilter</code> - an expression used to find deleted data files</dd>
 <dd><code>parent</code> - ending snapshot on the branch being validated</dd>
-</dl>
-</li>
-</ul>
-<a name="validateDeletedDataFiles-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.util.PartitionSet-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>validateDeletedDataFiles</h4>
-<pre>@Deprecated
-protected&nbsp;void&nbsp;validateDeletedDataFiles(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                                                    java.lang.Long&nbsp;startingSnapshotId,
-                                                    <a href="../../../org/apache/iceberg/util/PartitionSet.html" title="class in org.apache.iceberg.util">PartitionSet</a>&nbsp;partitionSet)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">will be removed in 1.3.0; use <code>MergingSnapshotProducer.validateNoNewDeleteFiles(TableMetadata, Long, PartitionSet,
-     Snapshot)</code> instead</span></div>
-<div class="block">Validates that no files matching a filter have been deleted from the table since a starting
- snapshot.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>base</code> - table metadata to validate</dd>
-<dd><code>startingSnapshotId</code> - id of the snapshot current at the start of the operation</dd>
-<dd><code>partitionSet</code> - a partition set used to find deleted data files</dd>
 </dl>
 </li>
 </ul>
@@ -1374,28 +1150,13 @@ protected&nbsp;void&nbsp;validateDeletedDataFiles(<a href="../../../org/apache/i
 </dl>
 </li>
 </ul>
-<a name="setNewFilesSequenceNumber-long-">
+<a name="setNewDataFilesDataSequenceNumber-long-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>setNewFilesSequenceNumber</h4>
-<pre>protected&nbsp;void&nbsp;setNewFilesSequenceNumber(long&nbsp;sequenceNumber)</pre>
-</li>
-</ul>
-<a name="validateDataFilesExist-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.util.CharSequenceSet-boolean-org.apache.iceberg.expressions.Expression-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>validateDataFilesExist</h4>
-<pre>@Deprecated
-protected&nbsp;void&nbsp;validateDataFilesExist(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;base,
-                                                  java.lang.Long&nbsp;startingSnapshotId,
-                                                  <a href="../../../org/apache/iceberg/util/CharSequenceSet.html" title="class in org.apache.iceberg.util">CharSequenceSet</a>&nbsp;requiredDataFiles,
-                                                  boolean&nbsp;skipDeletes,
-                                                  <a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;conflictDetectionFilter)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+<h4>setNewDataFilesDataSequenceNumber</h4>
+<pre>protected&nbsp;void&nbsp;setNewDataFilesDataSequenceNumber(long&nbsp;sequenceNumber)</pre>
 </li>
 </ul>
 <a name="validateDataFilesExist-org.apache.iceberg.TableMetadata-java.lang.Long-org.apache.iceberg.util.CharSequenceSet-boolean-org.apache.iceberg.expressions.Expression-org.apache.iceberg.Snapshot-">
@@ -1516,7 +1277,7 @@ protected&nbsp;void&nbsp;validateDataFilesExist(<a href="../../../org/apache/ice
 <li class="blockList">
 <h4>targetBranch</h4>
 <pre>protected&nbsp;void&nbsp;targetBranch(java.lang.String&nbsp;branch)</pre>
-<div class="block">* A setter for the target branch on which snapshot producer operation should be performed</div>
+<div class="block">A setter for the target branch on which snapshot producer operation should be performed</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>branch</code> - to set as target branch</dd>
@@ -1668,6 +1429,24 @@ protected&nbsp;void&nbsp;validateDataFilesExist(<a href="../../../org/apache/ice
 <li class="blockList">
 <h4>newDeleteManifestWriter</h4>
 <pre>protected&nbsp;<a href="../../../org/apache/iceberg/ManifestWriter.html" title="class in org.apache.iceberg">ManifestWriter</a>&lt;<a href="../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg">DeleteFile</a>&gt;&nbsp;newDeleteManifestWriter(<a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec)</pre>
+</li>
+</ul>
+<a name="newRollingManifestWriter-org.apache.iceberg.PartitionSpec-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>newRollingManifestWriter</h4>
+<pre>protected&nbsp;<a href="../../../org/apache/iceberg/RollingManifestWriter.html" title="class in org.apache.iceberg">RollingManifestWriter</a>&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;&nbsp;newRollingManifestWriter(<a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec)</pre>
+</li>
+</ul>
+<a name="newRollingDeleteManifestWriter-org.apache.iceberg.PartitionSpec-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>newRollingDeleteManifestWriter</h4>
+<pre>protected&nbsp;<a href="../../../org/apache/iceberg/RollingManifestWriter.html" title="class in org.apache.iceberg">RollingManifestWriter</a>&lt;<a href="../../../org/apache/iceberg/DeleteFile.html" title="interface in org.apache.iceberg">DeleteFile</a>&gt;&nbsp;newRollingDeleteManifestWriter(<a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec)</pre>
 </li>
 </ul>
 <a name="newManifestReader-org.apache.iceberg.ManifestFile-">

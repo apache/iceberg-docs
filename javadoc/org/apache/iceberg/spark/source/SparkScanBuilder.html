@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/iceberg/spark/source/SparkPartitionedWriter.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/iceberg/spark/source/SparkPositionDeletesRewriteBuilder.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../../org/apache/iceberg/spark/source/SparkTable.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -107,19 +107,34 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>org.apache.spark.sql.connector.read.Scan, org.apache.spark.sql.connector.read.ScanBuilder, org.apache.spark.sql.connector.read.SupportsPushDownAggregates, org.apache.spark.sql.connector.read.SupportsPushDownFilters, org.apache.spark.sql.connector.read.SupportsPushDownRequiredColumns, org.apache.spark.sql.connector.read.SupportsReportStatistics</dd>
+<dd>org.apache.spark.sql.connector.read.Scan, org.apache.spark.sql.connector.read.ScanBuilder, org.apache.spark.sql.connector.read.SupportsPushDownAggregates, org.apache.spark.sql.connector.read.SupportsPushDownRequiredColumns, org.apache.spark.sql.connector.read.SupportsPushDownV2Filters, org.apache.spark.sql.connector.read.SupportsReportStatistics</dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">SparkScanBuilder</span>
 extends java.lang.Object
-implements org.apache.spark.sql.connector.read.ScanBuilder, org.apache.spark.sql.connector.read.SupportsPushDownAggregates, org.apache.spark.sql.connector.read.SupportsPushDownFilters, org.apache.spark.sql.connector.read.SupportsPushDownRequiredColumns, org.apache.spark.sql.connector.read.SupportsReportStatistics</pre>
+implements org.apache.spark.sql.connector.read.ScanBuilder, org.apache.spark.sql.connector.read.SupportsPushDownAggregates, org.apache.spark.sql.connector.read.SupportsPushDownV2Filters, org.apache.spark.sql.connector.read.SupportsPushDownRequiredColumns, org.apache.spark.sql.connector.read.SupportsReportStatistics</pre>
 </li>
 </ul>
 </div>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="nested.class.summary">
+<!--   -->
+</a>
+<h3>Nested Class Summary</h3>
+<ul class="blockList">
+<li class="blockList"><a name="nested.classes.inherited.from.class.org.apache.spark.sql.connector.read.Scan">
+<!--   -->
+</a>
+<h3>Nested classes/interfaces inherited from interface&nbsp;org.apache.spark.sql.connector.read.Scan</h3>
+<code>org.apache.spark.sql.connector.read.Scan.ColumnarSupportMode</code></li>
+</ul>
+</li>
+</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.summary">
@@ -165,12 +180,12 @@ implements org.apache.spark.sql.connector.read.ScanBuilder, org.apache.spark.sql
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/SparkScanBuilder.html#pushAggregation-org.apache.spark.sql.connector.expressions.aggregate.Aggregation-">pushAggregation</a></span>(org.apache.spark.sql.connector.expressions.aggregate.Aggregation&nbsp;aggregation)</code>&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
-<td class="colFirst"><code>org.apache.spark.sql.sources.Filter[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/SparkScanBuilder.html#pushedFilters--">pushedFilters</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>org.apache.spark.sql.connector.expressions.filter.Predicate[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/SparkScanBuilder.html#pushedPredicates--">pushedPredicates</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
-<td class="colFirst"><code>org.apache.spark.sql.sources.Filter[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/SparkScanBuilder.html#pushFilters-org.apache.spark.sql.sources.Filter:A-">pushFilters</a></span>(org.apache.spark.sql.sources.Filter[]&nbsp;filters)</code>&nbsp;</td>
+<td class="colFirst"><code>org.apache.spark.sql.connector.expressions.filter.Predicate[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/SparkScanBuilder.html#pushPredicates-org.apache.spark.sql.connector.expressions.filter.Predicate:A-">pushPredicates</a></span>(org.apache.spark.sql.connector.expressions.filter.Predicate[]&nbsp;predicates)</code>&nbsp;</td>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>org.apache.spark.sql.types.StructType</code></td>
@@ -196,7 +211,7 @@ implements org.apache.spark.sql.connector.read.ScanBuilder, org.apache.spark.sql
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.spark.sql.connector.read.Scan</h3>
-<code>description, supportedCustomMetrics, toBatch, toContinuousStream, toMicroBatchStream</code></li>
+<code>columnarSupportMode, description, reportDriverMetrics, supportedCustomMetrics, toBatch, toContinuousStream, toMicroBatchStream</code></li>
 </ul>
 </li>
 </ul>
@@ -221,29 +236,29 @@ implements org.apache.spark.sql.connector.read.ScanBuilder, org.apache.spark.sql
 <pre>public&nbsp;<a href="../../../../../org/apache/iceberg/spark/source/SparkScanBuilder.html" title="class in org.apache.iceberg.spark.source">SparkScanBuilder</a>&nbsp;caseSensitive(boolean&nbsp;isCaseSensitive)</pre>
 </li>
 </ul>
-<a name="pushFilters-org.apache.spark.sql.sources.Filter:A-">
+<a name="pushPredicates-org.apache.spark.sql.connector.expressions.filter.Predicate:A-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>pushFilters</h4>
-<pre>public&nbsp;org.apache.spark.sql.sources.Filter[]&nbsp;pushFilters(org.apache.spark.sql.sources.Filter[]&nbsp;filters)</pre>
+<h4>pushPredicates</h4>
+<pre>public&nbsp;org.apache.spark.sql.connector.expressions.filter.Predicate[]&nbsp;pushPredicates(org.apache.spark.sql.connector.expressions.filter.Predicate[]&nbsp;predicates)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>pushFilters</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.read.SupportsPushDownFilters</code></dd>
+<dd><code>pushPredicates</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.read.SupportsPushDownV2Filters</code></dd>
 </dl>
 </li>
 </ul>
-<a name="pushedFilters--">
+<a name="pushedPredicates--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>pushedFilters</h4>
-<pre>public&nbsp;org.apache.spark.sql.sources.Filter[]&nbsp;pushedFilters()</pre>
+<h4>pushedPredicates</h4>
+<pre>public&nbsp;org.apache.spark.sql.connector.expressions.filter.Predicate[]&nbsp;pushedPredicates()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>pushedFilters</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.read.SupportsPushDownFilters</code></dd>
+<dd><code>pushedPredicates</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.read.SupportsPushDownV2Filters</code></dd>
 </dl>
 </li>
 </ul>
@@ -366,7 +381,7 @@ implements org.apache.spark.sql.connector.read.ScanBuilder, org.apache.spark.sql
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/iceberg/spark/source/SparkPartitionedWriter.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/iceberg/spark/source/SparkPositionDeletesRewriteBuilder.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../../org/apache/iceberg/spark/source/SparkTable.html" title="class in org.apache.iceberg.spark.source"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

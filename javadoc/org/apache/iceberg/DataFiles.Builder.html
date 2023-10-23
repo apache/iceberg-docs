@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -174,49 +174,57 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/DataFiles.Builder.html" title="class in org.apache.iceberg">DataFiles.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/DataFiles.Builder.html#withFileSizeInBytes-long-">withFileSizeInBytes</a></span>(long&nbsp;newFileSizeInBytes)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/DataFiles.Builder.html#withEqualityFieldIds-java.util.List-">withEqualityFieldIds</a></span>(java.util.List&lt;java.lang.Integer&gt;&nbsp;equalityIds)</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/DataFiles.Builder.html" title="class in org.apache.iceberg">DataFiles.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/DataFiles.Builder.html#withFormat-org.apache.iceberg.FileFormat-">withFormat</a></span>(<a href="../../../org/apache/iceberg/FileFormat.html" title="enum in org.apache.iceberg">FileFormat</a>&nbsp;newFormat)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/DataFiles.Builder.html#withFileSizeInBytes-long-">withFileSizeInBytes</a></span>(long&nbsp;newFileSizeInBytes)</code>&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/DataFiles.Builder.html" title="class in org.apache.iceberg">DataFiles.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/DataFiles.Builder.html#withFormat-java.lang.String-">withFormat</a></span>(java.lang.String&nbsp;newFormat)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/DataFiles.Builder.html#withFormat-org.apache.iceberg.FileFormat-">withFormat</a></span>(<a href="../../../org/apache/iceberg/FileFormat.html" title="enum in org.apache.iceberg">FileFormat</a>&nbsp;newFormat)</code>&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/DataFiles.Builder.html" title="class in org.apache.iceberg">DataFiles.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/DataFiles.Builder.html#withInputFile-org.apache.iceberg.io.InputFile-">withInputFile</a></span>(<a href="../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a>&nbsp;file)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/DataFiles.Builder.html#withFormat-java.lang.String-">withFormat</a></span>(java.lang.String&nbsp;newFormat)</code>&nbsp;</td>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/DataFiles.Builder.html" title="class in org.apache.iceberg">DataFiles.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/DataFiles.Builder.html#withMetrics-org.apache.iceberg.Metrics-">withMetrics</a></span>(<a href="../../../org/apache/iceberg/Metrics.html" title="class in org.apache.iceberg">Metrics</a>&nbsp;metrics)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/DataFiles.Builder.html#withInputFile-org.apache.iceberg.io.InputFile-">withInputFile</a></span>(<a href="../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a>&nbsp;file)</code>&nbsp;</td>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/DataFiles.Builder.html" title="class in org.apache.iceberg">DataFiles.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/DataFiles.Builder.html#withPartition-org.apache.iceberg.StructLike-">withPartition</a></span>(<a href="../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&nbsp;newPartition)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/DataFiles.Builder.html#withMetrics-org.apache.iceberg.Metrics-">withMetrics</a></span>(<a href="../../../org/apache/iceberg/Metrics.html" title="class in org.apache.iceberg">Metrics</a>&nbsp;metrics)</code>&nbsp;</td>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/DataFiles.Builder.html" title="class in org.apache.iceberg">DataFiles.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/DataFiles.Builder.html#withPartitionPath-java.lang.String-">withPartitionPath</a></span>(java.lang.String&nbsp;newPartitionPath)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/DataFiles.Builder.html#withPartition-org.apache.iceberg.StructLike-">withPartition</a></span>(<a href="../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&nbsp;newPartition)</code>&nbsp;</td>
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/DataFiles.Builder.html" title="class in org.apache.iceberg">DataFiles.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/DataFiles.Builder.html#withPath-java.lang.String-">withPath</a></span>(java.lang.String&nbsp;newFilePath)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/DataFiles.Builder.html#withPartitionPath-java.lang.String-">withPartitionPath</a></span>(java.lang.String&nbsp;newPartitionPath)</code>&nbsp;</td>
 </tr>
 <tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/DataFiles.Builder.html" title="class in org.apache.iceberg">DataFiles.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/DataFiles.Builder.html#withRecordCount-long-">withRecordCount</a></span>(long&nbsp;newRecordCount)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/DataFiles.Builder.html#withPartitionValues-java.util.List-">withPartitionValues</a></span>(java.util.List&lt;java.lang.String&gt;&nbsp;partitionValues)</code>&nbsp;</td>
 </tr>
 <tr id="i15" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/DataFiles.Builder.html" title="class in org.apache.iceberg">DataFiles.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/DataFiles.Builder.html#withSortOrder-org.apache.iceberg.SortOrder-">withSortOrder</a></span>(<a href="../../../org/apache/iceberg/SortOrder.html" title="class in org.apache.iceberg">SortOrder</a>&nbsp;newSortOrder)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/DataFiles.Builder.html#withPath-java.lang.String-">withPath</a></span>(java.lang.String&nbsp;newFilePath)</code>&nbsp;</td>
 </tr>
 <tr id="i16" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/DataFiles.Builder.html" title="class in org.apache.iceberg">DataFiles.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/DataFiles.Builder.html#withSplitOffsets-java.util.List-">withSplitOffsets</a></span>(java.util.List&lt;java.lang.Long&gt;&nbsp;offsets)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/DataFiles.Builder.html#withRecordCount-long-">withRecordCount</a></span>(long&nbsp;newRecordCount)</code>&nbsp;</td>
 </tr>
 <tr id="i17" class="rowColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/DataFiles.Builder.html" title="class in org.apache.iceberg">DataFiles.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/DataFiles.Builder.html#withSortOrder-org.apache.iceberg.SortOrder-">withSortOrder</a></span>(<a href="../../../org/apache/iceberg/SortOrder.html" title="class in org.apache.iceberg">SortOrder</a>&nbsp;newSortOrder)</code>&nbsp;</td>
+</tr>
+<tr id="i18" class="altColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/DataFiles.Builder.html" title="class in org.apache.iceberg">DataFiles.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/DataFiles.Builder.html#withSplitOffsets-java.util.List-">withSplitOffsets</a></span>(java.util.List&lt;java.lang.Long&gt;&nbsp;offsets)</code>&nbsp;</td>
+</tr>
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/DataFiles.Builder.html" title="class in org.apache.iceberg">DataFiles.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/DataFiles.Builder.html#withStatus-org.apache.hadoop.fs.FileStatus-">withStatus</a></span>(org.apache.hadoop.fs.FileStatus&nbsp;stat)</code>&nbsp;</td>
 </tr>
@@ -367,6 +375,15 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../../org/apache/iceberg/DataFiles.Builder.html" title="class in org.apache.iceberg">DataFiles.Builder</a>&nbsp;withPartitionPath(java.lang.String&nbsp;newPartitionPath)</pre>
 </li>
 </ul>
+<a name="withPartitionValues-java.util.List-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>withPartitionValues</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/DataFiles.Builder.html" title="class in org.apache.iceberg">DataFiles.Builder</a>&nbsp;withPartitionValues(java.util.List&lt;java.lang.String&gt;&nbsp;partitionValues)</pre>
+</li>
+</ul>
 <a name="withMetrics-org.apache.iceberg.Metrics-">
 <!--   -->
 </a>
@@ -383,6 +400,15 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>withSplitOffsets</h4>
 <pre>public&nbsp;<a href="../../../org/apache/iceberg/DataFiles.Builder.html" title="class in org.apache.iceberg">DataFiles.Builder</a>&nbsp;withSplitOffsets(java.util.List&lt;java.lang.Long&gt;&nbsp;offsets)</pre>
+</li>
+</ul>
+<a name="withEqualityFieldIds-java.util.List-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>withEqualityFieldIds</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/DataFiles.Builder.html" title="class in org.apache.iceberg">DataFiles.Builder</a>&nbsp;withEqualityFieldIds(java.util.List&lt;java.lang.Integer&gt;&nbsp;equalityIds)</pre>
 </li>
 </ul>
 <a name="withEncryptionKeyMetadata-java.nio.ByteBuffer-">

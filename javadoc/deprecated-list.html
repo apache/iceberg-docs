@@ -100,6 +100,17 @@
 <div class="block"><span class="deprecationComment">will be removed in 2.0.0, use <a href="org/apache/iceberg/metrics/Counter.html" title="interface in org.apache.iceberg.metrics"><code>Counter</code></a> instead.</span></div>
 </td>
 </tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/actions/RewriteStrategy.html" title="interface in org.apache.iceberg.actions">org.apache.iceberg.actions.RewriteStrategy</a>
+<div class="block"><span class="deprecationComment">since 1.3.0, will be removed in 1.4.0; use <a href="org/apache/iceberg/actions/FileRewriter.html" title="interface in org.apache.iceberg.actions"><code>FileRewriter</code></a> instead. Note: This
+     can only be removed once Spark 3.2 isn't using this API anymore.</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/rest/requests/UpdateTableRequest.UpdateRequirement.html" title="interface in org.apache.iceberg.rest.requests">org.apache.iceberg.rest.requests.UpdateTableRequest.UpdateRequirement</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.5.0, use <a href="org/apache/iceberg/UpdateRequirement.html" title="interface in org.apache.iceberg"><code>UpdateRequirement</code></a> instead.</span></div>
+</td>
+</tr>
 </tbody>
 </table>
 </li>
@@ -116,18 +127,47 @@
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/actions/BaseExpireSnapshotsActionResult.html" title="class in org.apache.iceberg.actions">org.apache.iceberg.actions.BaseExpireSnapshotsActionResult</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0.</span></div>
+<td class="colOne"><a href="org/apache/iceberg/actions/BinPackStrategy.html" title="class in org.apache.iceberg.actions">org.apache.iceberg.actions.BinPackStrategy</a>
+<div class="block"><span class="deprecationComment">since 1.3.0, will be removed in 1.4.0; use <a href="org/apache/iceberg/actions/SizeBasedFileRewriter.html" title="class in org.apache.iceberg.actions"><code>SizeBasedFileRewriter</code></a> instead.
+     Note: This can only be removed once Spark 3.2 isn't using this API anymore.</span></div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="org/apache/iceberg/spark/FileScanTaskSetManager.html" title="class in org.apache.iceberg.spark">org.apache.iceberg.spark.FileScanTaskSetManager</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0, use <a href="org/apache/iceberg/spark/ScanTaskSetManager.html" title="class in org.apache.iceberg.spark"><code>ScanTaskSetManager</code></a> instead</span></div>
+<td class="colOne"><a href="org/apache/iceberg/parquet/ParquetWriteAdapter.html" title="class in org.apache.iceberg.parquet">org.apache.iceberg.parquet.ParquetWriteAdapter</a>
+<div class="block"><span class="deprecationComment">use <code>ParquetWriter</code></span></div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/parquet/ParquetWriteAdapter.html" title="class in org.apache.iceberg.parquet">org.apache.iceberg.parquet.ParquetWriteAdapter</a>
-<div class="block"><span class="deprecationComment">use <code>ParquetWriter</code></span></div>
+<td class="colOne"><a href="org/apache/iceberg/rest/RESTSerializers.UpdateRequirementDeserializer.html" title="class in org.apache.iceberg.rest">org.apache.iceberg.rest.RESTSerializers.UpdateRequirementDeserializer</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.5.0, use <code>UpdateReqDeserializer</code> instead.</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/rest/RESTSerializers.UpdateRequirementSerializer.html" title="class in org.apache.iceberg.rest">org.apache.iceberg.rest.RESTSerializers.UpdateRequirementSerializer</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.5.0, use <code>UpdateReqSerializer</code> instead.</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/actions/SortStrategy.html" title="class in org.apache.iceberg.actions">org.apache.iceberg.actions.SortStrategy</a>
+<div class="block"><span class="deprecationComment">since 1.3.0, will be removed in 1.4.0; use <a href="org/apache/iceberg/actions/SizeBasedFileRewriter.html" title="class in org.apache.iceberg.actions"><code>SizeBasedFileRewriter</code></a> instead.
+     Note: This can only be removed once Spark 3.2 isn't using this API anymore.</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/SystemProperties.html" title="class in org.apache.iceberg">org.apache.iceberg.SystemProperties</a>
+<div class="block"><span class="deprecationComment">Use <a href="org/apache/iceberg/SystemConfigs.html" title="class in org.apache.iceberg"><code>SystemConfigs</code></a> instead; will be removed in 2.0.0</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/rest/requests/UpdateRequirementParser.html" title="class in org.apache.iceberg.rest.requests">org.apache.iceberg.rest.requests.UpdateRequirementParser</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.5.0, use <a href="org/apache/iceberg/UpdateRequirementParser.html" title="class in org.apache.iceberg"><code>UpdateRequirementParser</code></a>
+     instead.</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/rest/requests/UpdateTableRequest.Builder.html" title="class in org.apache.iceberg.rest.requests">org.apache.iceberg.rest.requests.UpdateTableRequest.Builder</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.5.0, use <a href="org/apache/iceberg/UpdateRequirements.html" title="class in org.apache.iceberg"><code>UpdateRequirements</code></a>
+     instead.</span></div>
 </td>
 </tr>
 </tbody>
@@ -167,28 +207,6 @@
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/CatalogProperties.html#AUTH_DEFAULT_REFRESH_ENABLED">org.apache.iceberg.CatalogProperties.AUTH_DEFAULT_REFRESH_ENABLED</a>
-<div class="block"><span class="deprecationComment">Will be removed in 1.3.0; Use <a href="org/apache/iceberg/rest/auth/OAuth2Properties.html#TOKEN_REFRESH_ENABLED"><code>OAuth2Properties.TOKEN_REFRESH_ENABLED</code></a> to control token
-     refresh behavior.</span></div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="org/apache/iceberg/CatalogProperties.html#AUTH_DEFAULT_REFRESH_ENABLED_DEFAULT">org.apache.iceberg.CatalogProperties.AUTH_DEFAULT_REFRESH_ENABLED_DEFAULT</a>
-<div class="block"><span class="deprecationComment">Will be removed in 1.3.0; Use <a href="org/apache/iceberg/rest/auth/OAuth2Properties.html#TOKEN_REFRESH_ENABLED_DEFAULT"><code>OAuth2Properties.TOKEN_REFRESH_ENABLED_DEFAULT</code></a> to control
-     default token refresh behavior.</span></div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/spark/SparkReadOptions.html#FILE_SCAN_TASK_SET_ID">org.apache.iceberg.spark.SparkReadOptions.FILE_SCAN_TASK_SET_ID</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0, use SCAN_TASK_SET_ID instead</span></div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="org/apache/iceberg/TableProperties.html#HMS_TABLE_OWNER">org.apache.iceberg.TableProperties.HMS_TABLE_OWNER</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0, use the HMS_TABLE_OWNER constant from HiveCatalog</span></div>
-</td>
-</tr>
-<tr class="altColor">
 <td class="colOne"><a href="org/apache/iceberg/TableProperties.html#MANIFEST_LISTS_ENABLED">org.apache.iceberg.TableProperties.MANIFEST_LISTS_ENABLED</a>
 <div class="block"><span class="deprecationComment">will be removed in 2.0.0, writing manifest lists is always enabled</span></div>
 </td>
@@ -196,18 +214,6 @@
 <tr class="rowColor">
 <td class="colOne"><a href="org/apache/iceberg/TableProperties.html#MANIFEST_LISTS_ENABLED_DEFAULT">org.apache.iceberg.TableProperties.MANIFEST_LISTS_ENABLED_DEFAULT</a>
 <div class="block"><span class="deprecationComment">will be removed in 2.0.0, writing manifest lists is always enabled</span></div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/TableProperties.html#MERGE_CARDINALITY_CHECK_ENABLED">org.apache.iceberg.TableProperties.MERGE_CARDINALITY_CHECK_ENABLED</a>
-<div class="block"><span class="deprecationComment">will be removed once Spark 3.1 support is dropped, the cardinality check is always
-     performed starting from 0.13.0.</span></div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="org/apache/iceberg/TableProperties.html#MERGE_CARDINALITY_CHECK_ENABLED_DEFAULT">org.apache.iceberg.TableProperties.MERGE_CARDINALITY_CHECK_ENABLED_DEFAULT</a>
-<div class="block"><span class="deprecationComment">will be removed once Spark 3.1 support is dropped, the cardinality check is always
-     performed starting from 0.13.0.</span></div>
 </td>
 </tr>
 <tr class="altColor">
@@ -226,6 +232,12 @@
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/util/ThreadPools.html#WORKER_THREAD_POOL_SIZE_PROP">org.apache.iceberg.util.ThreadPools.WORKER_THREAD_POOL_SIZE_PROP</a>
+<div class="block"><span class="deprecationComment">Use <a href="org/apache/iceberg/SystemConfigs.html#WORKER_THREAD_POOL_SIZE"><code>WORKER_THREAD_POOL_SIZE</code></a> instead;
+     will be removed in 2.0.0</span></div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/iceberg/TableProperties.html#WRITE_FOLDER_STORAGE_LOCATION">org.apache.iceberg.TableProperties.WRITE_FOLDER_STORAGE_LOCATION</a>
 <div class="block"><span class="deprecationComment">Use <a href="org/apache/iceberg/TableProperties.html#WRITE_DATA_LOCATION"><code>TableProperties.WRITE_DATA_LOCATION</code></a> instead.</span></div>
 </td>
@@ -263,43 +275,50 @@
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#applyClientCredentialConfigurations-T-">org.apache.iceberg.aws.AwsProperties.applyClientCredentialConfigurations(T)</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.5.0, use <a href="org/apache/iceberg/aws/AwsClientProperties.html#applyClientCredentialConfigurations-T-"><code>AwsClientProperties.applyClientCredentialConfigurations(AwsClientBuilder)</code></a> instead</span></div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/iceberg/transforms/Transforms.html#bucket-org.apache.iceberg.types.Type-int-">org.apache.iceberg.transforms.Transforms.bucket(Type, int)</a>
 <div class="block"><span class="deprecationComment">use <a href="org/apache/iceberg/transforms/Transforms.html#bucket-int-"><code>Transforms.bucket(int)</code></a> instead; will be removed in 2.0.0</span></div>
 </td>
 </tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/rest/requests/UpdateTableRequest.html#builderFor-org.apache.iceberg.TableMetadata-">org.apache.iceberg.rest.requests.UpdateTableRequest.builderFor(TableMetadata)</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.5.0, use <a href="org/apache/iceberg/UpdateRequirements.html#forUpdateTable-org.apache.iceberg.TableMetadata-java.util.List-"><code>UpdateRequirements.forUpdateTable(TableMetadata, List)</code></a> instead.</span></div>
+</td>
+</tr>
 <tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/rest/HTTPClient.html#builder--">org.apache.iceberg.rest.HTTPClient.builder()</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use <a href="org/apache/iceberg/rest/HTTPClient.html#builder-java.util.Map-"><code>HTTPClient.builder(Map)</code></a></span></div>
+<td class="colOne"><a href="org/apache/iceberg/rest/requests/UpdateTableRequest.html#builderForCreate--">org.apache.iceberg.rest.requests.UpdateTableRequest.builderForCreate()</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.5.0, use <a href="org/apache/iceberg/UpdateRequirements.html#forCreateTable-java.util.List-"><code>UpdateRequirements.forCreateTable(List)</code></a> instead.</span></div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="org/apache/iceberg/spark/data/vectorized/VectorizedSparkParquetReaders.html#buildReader-org.apache.iceberg.Schema-org.apache.parquet.schema.MessageType-boolean-">org.apache.iceberg.spark.data.vectorized.VectorizedSparkParquetReaders.buildReader(Schema, MessageType, boolean)</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0, use <a href="org/apache/iceberg/spark/data/vectorized/VectorizedSparkParquetReaders.html#buildReader-org.apache.iceberg.Schema-org.apache.parquet.schema.MessageType-java.util.Map-org.apache.iceberg.data.DeleteFilter-"><code>VectorizedSparkParquetReaders.buildReader(Schema, MessageType, Map,
-     DeleteFilter)</code></a> instead.</span></div>
+<td class="colOne"><a href="org/apache/iceberg/rest/requests/UpdateTableRequest.html#builderForReplace-org.apache.iceberg.TableMetadata-">org.apache.iceberg.rest.requests.UpdateTableRequest.builderForReplace(TableMetadata)</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.5.0, use <a href="org/apache/iceberg/UpdateRequirements.html#forReplaceTable-org.apache.iceberg.TableMetadata-java.util.List-"><code>UpdateRequirements.forReplaceTable(TableMetadata, List)</code></a> instead.</span></div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/spark/data/vectorized/VectorizedSparkParquetReaders.html#buildReader-org.apache.iceberg.Schema-org.apache.parquet.schema.MessageType-boolean-java.util.Map-">org.apache.iceberg.spark.data.vectorized.VectorizedSparkParquetReaders.buildReader(Schema, MessageType, boolean, Map&lt;Integer, ?&gt;)</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0, use <a href="org/apache/iceberg/spark/data/vectorized/VectorizedSparkParquetReaders.html#buildReader-org.apache.iceberg.Schema-org.apache.parquet.schema.MessageType-java.util.Map-org.apache.iceberg.data.DeleteFilter-"><code>VectorizedSparkParquetReaders.buildReader(Schema, MessageType, Map,
-     DeleteFilter)</code></a> instead.</span></div>
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#clientRegion--">org.apache.iceberg.aws.AwsProperties.clientRegion()</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.5.0, use <a href="org/apache/iceberg/aws/AwsClientProperties.html#clientRegion--"><code>AwsClientProperties.clientRegion()</code></a> instead</span></div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="org/apache/iceberg/spark/data/vectorized/VectorizedSparkParquetReaders.html#buildReader-org.apache.iceberg.Schema-org.apache.parquet.schema.MessageType-boolean-java.util.Map-org.apache.iceberg.data.DeleteFilter-">org.apache.iceberg.spark.data.vectorized.VectorizedSparkParquetReaders.buildReader(Schema, MessageType, boolean, Map&lt;Integer, ?&gt;, DeleteFilter&lt;InternalRow&gt;)</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0, use <a href="org/apache/iceberg/spark/data/vectorized/VectorizedSparkParquetReaders.html#buildReader-org.apache.iceberg.Schema-org.apache.parquet.schema.MessageType-java.util.Map-org.apache.iceberg.data.DeleteFilter-"><code>VectorizedSparkParquetReaders.buildReader(Schema, MessageType, Map,
-     DeleteFilter)</code></a> instead.</span></div>
-</td>
-</tr>
-<tr class="altColor">
 <td class="colOne"><a href="org/apache/iceberg/aws/AwsClientFactories.html#configureEndpoint-T-java.lang.String-">org.apache.iceberg.aws.AwsClientFactories.configureEndpoint(T, String)</a>
-<div class="block"><span class="deprecationComment">Not for public use. To configure the endpoint for a client, please use <a href="org/apache/iceberg/aws/AwsProperties.html#applyS3EndpointConfigurations-T-"><code>AwsProperties.applyS3EndpointConfigurations(S3ClientBuilder)</code></a>, <a href="org/apache/iceberg/aws/AwsProperties.html#applyGlueEndpointConfigurations-T-"><code>AwsProperties.applyGlueEndpointConfigurations(GlueClientBuilder)</code></a>, or <a href="org/apache/iceberg/aws/AwsProperties.html#applyDynamoDbEndpointConfigurations-T-"><code>AwsProperties.applyDynamoDbEndpointConfigurations(DynamoDbClientBuilder)</code></a> accordingly. It
+<div class="block"><span class="deprecationComment">Not for public use. To configure the endpoint for a client, please use <a href="org/apache/iceberg/aws/s3/S3FileIOProperties.html#applyEndpointConfigurations-T-"><code>S3FileIOProperties.applyEndpointConfigurations(S3ClientBuilder)</code></a>, <a href="org/apache/iceberg/aws/AwsProperties.html#applyGlueEndpointConfigurations-T-"><code>AwsProperties.applyGlueEndpointConfigurations(GlueClientBuilder)</code></a>, or <a href="org/apache/iceberg/aws/AwsProperties.html#applyDynamoDbEndpointConfigurations-T-"><code>AwsProperties.applyDynamoDbEndpointConfigurations(DynamoDbClientBuilder)</code></a> accordingly. It
      will be removed in 2.0.0</span></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/iceberg/aws/AwsClientFactories.html#configureHttpClientBuilder-java.lang.String-">org.apache.iceberg.aws.AwsClientFactories.configureHttpClientBuilder(String)</a>
-<div class="block"><span class="deprecationComment">Not for public use. To configure the httpClient for a client, please use <a href="org/apache/iceberg/aws/AwsProperties.html#applyHttpClientConfigurations-T-"><code>AwsProperties.applyHttpClientConfigurations(AwsSyncClientBuilder)</code></a>. It will be removed in
-     2.0.0</span></div>
+<div class="block"><span class="deprecationComment">Not for public use. To configure the httpClient for a client, please use <a href="org/apache/iceberg/aws/HttpClientProperties.html#applyHttpClientConfigurations-T-"><code>HttpClientProperties.applyHttpClientConfigurations(AwsSyncClientBuilder)</code></a>. It will be
+     removed in 2.0.0</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/arrow/vectorized/VectorHolder.html#constantHolder-int-T-">org.apache.iceberg.arrow.vectorized.VectorHolder.constantHolder(int, T)</a>
+<div class="block"><span class="deprecationComment">since 1.4.0, will be removed in 1.5.0; use typed constant holders instead.</span></div>
 </td>
 </tr>
 <tr class="altColor">
@@ -323,19 +342,8 @@
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/spark/SparkReadConf.html#fileScanTaskSetId--">org.apache.iceberg.spark.SparkReadConf.fileScanTaskSetId()</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0, use <a href="org/apache/iceberg/spark/SparkReadConf.html#scanTaskSetId--"><code>SparkReadConf.scanTaskSetId()</code></a> instead</span></div>
-</td>
-</tr>
-<tr class="rowColor">
 <td class="colOne"><a href="org/apache/iceberg/MetricsConfig.html#fromProperties-java.util.Map-">org.apache.iceberg.MetricsConfig.fromProperties(Map&lt;String, String&gt;)</a>
 <div class="block"><span class="deprecationComment">use <a href="org/apache/iceberg/MetricsConfig.html#forTable-org.apache.iceberg.Table-"><code>MetricsConfig.forTable(Table)</code></a></span></div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/spark/Spark3Util.html#getPartitions-org.apache.spark.sql.SparkSession-org.apache.hadoop.fs.Path-java.lang.String-java.util.Map-">org.apache.iceberg.spark.Spark3Util.getPartitions(SparkSession, Path, String, Map&lt;String, String&gt;)</a>
-<div class="block"><span class="deprecationComment">use <a href="org/apache/iceberg/spark/Spark3Util.html#getPartitions-org.apache.spark.sql.SparkSession-org.apache.hadoop.fs.Path-java.lang.String-java.util.Map-org.apache.iceberg.PartitionSpec-"><code>Spark3Util.getPartitions(SparkSession, Path, String, Map,
-     PartitionSpec)</code></a></span></div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -345,13 +353,13 @@
 <td class="colOne"><a href="org/apache/spark/sql/catalyst/parser/extensions/IcebergSqlExtensionsLexer.html#getTokenNames--">org.apache.spark.sql.catalyst.parser.extensions.IcebergSqlExtensionsLexer.getTokenNames()</a></td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="org/apache/iceberg/Partitioning.html#groupingKeyType-java.util.Collection-">org.apache.iceberg.Partitioning.groupingKeyType(Collection&lt;PartitionSpec&gt;)</a>
-<div class="block"><span class="deprecationComment">use <a href="org/apache/iceberg/Partitioning.html#groupingKeyType-org.apache.iceberg.Schema-java.util.Collection-"><code>Partitioning.groupingKeyType(Schema, Collection)</code></a> instead; will be removed in 1.3.0</span></div>
+<td class="colOne"><a href="org/apache/iceberg/transforms/Transforms.html#hour-org.apache.iceberg.types.Type-">org.apache.iceberg.transforms.Transforms.hour(Type)</a>
+<div class="block"><span class="deprecationComment">use <a href="org/apache/iceberg/transforms/Transforms.html#hour--"><code>Transforms.hour()</code></a> instead; will be removed in 2.0.0</span></div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/transforms/Transforms.html#hour-org.apache.iceberg.types.Type-">org.apache.iceberg.transforms.Transforms.hour(Type)</a>
-<div class="block"><span class="deprecationComment">use <a href="org/apache/iceberg/transforms/Transforms.html#hour--"><code>Transforms.hour()</code></a> instead; will be removed in 2.0.0</span></div>
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#httpClientProperties--">org.apache.iceberg.aws.AwsProperties.httpClientProperties()</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.5.0, use <a href="org/apache/iceberg/aws/HttpClientProperties.html" title="class in org.apache.iceberg.aws"><code>HttpClientProperties</code></a> instead</span></div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -360,40 +368,38 @@
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/spark/SparkTableUtil.html#listPartition-org.apache.iceberg.spark.SparkTableUtil.SparkPartition-org.apache.iceberg.PartitionSpec-org.apache.iceberg.hadoop.SerializableConfiguration-org.apache.iceberg.MetricsConfig-">org.apache.iceberg.spark.SparkTableUtil.listPartition(SparkTableUtil.SparkPartition, PartitionSpec, SerializableConfiguration, MetricsConfig)</a>
-<div class="block"><span class="deprecationComment">use <a href="org/apache/iceberg/data/TableMigrationUtil.html#listPartition-java.util.Map-java.lang.String-java.lang.String-org.apache.iceberg.PartitionSpec-org.apache.hadoop.conf.Configuration-org.apache.iceberg.MetricsConfig-org.apache.iceberg.mapping.NameMapping-"><code>TableMigrationUtil.listPartition(Map, String, String, PartitionSpec,
-     Configuration, MetricsConfig, NameMapping)</code></a></span></div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="org/apache/iceberg/spark/SparkTableUtil.html#listPartition-org.apache.iceberg.spark.SparkTableUtil.SparkPartition-org.apache.iceberg.PartitionSpec-org.apache.iceberg.hadoop.SerializableConfiguration-org.apache.iceberg.MetricsConfig-org.apache.iceberg.mapping.NameMapping-">org.apache.iceberg.spark.SparkTableUtil.listPartition(SparkTableUtil.SparkPartition, PartitionSpec, SerializableConfiguration, MetricsConfig, NameMapping)</a>
-<div class="block"><span class="deprecationComment">use <a href="org/apache/iceberg/data/TableMigrationUtil.html#listPartition-java.util.Map-java.lang.String-java.lang.String-org.apache.iceberg.PartitionSpec-org.apache.hadoop.conf.Configuration-org.apache.iceberg.MetricsConfig-org.apache.iceberg.mapping.NameMapping-"><code>TableMigrationUtil.listPartition(Map, String, String, PartitionSpec,
-     Configuration, MetricsConfig, NameMapping)</code></a></span></div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/spark/SparkTableUtil.html#loadCatalogMetadataTable-org.apache.spark.sql.SparkSession-org.apache.iceberg.Table-org.apache.iceberg.MetadataTableType-">org.apache.iceberg.spark.SparkTableUtil.loadCatalogMetadataTable(SparkSession, Table, MetadataTableType)</a>
-<div class="block"><span class="deprecationComment">since 0.14.0, will be removed in 0.15.0; use <a href="org/apache/iceberg/spark/SparkTableUtil.html#loadMetadataTable-org.apache.spark.sql.SparkSession-org.apache.iceberg.Table-org.apache.iceberg.MetadataTableType-"><code>SparkTableUtil.loadMetadataTable(SparkSession, Table, MetadataTableType)</code></a>.</span></div>
-</td>
-</tr>
-<tr class="rowColor">
 <td class="colOne"><a href="org/apache/iceberg/transforms/Transforms.html#month-org.apache.iceberg.types.Type-">org.apache.iceberg.transforms.Transforms.month(Type)</a>
 <div class="block"><span class="deprecationComment">use <a href="org/apache/iceberg/transforms/Transforms.html#month--"><code>Transforms.month()</code></a> instead; will be removed in 2.0.0</span></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/iceberg/BaseMetadataTable.html#operations--">org.apache.iceberg.BaseMetadataTable.operations()</a>
-<div class="block"><span class="deprecationComment">will be removed in 2.0.0; do not use metadata table TableOperations</span></div>
+<div class="block"><span class="deprecationComment">will be removed in 1.4.0; do not use metadata table TableOperations</span></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/iceberg/flink/source/FlinkSource.Builder.html#properties-java.util.Map-">org.apache.iceberg.flink.source.FlinkSource.Builder.properties(Map&lt;String, String&gt;)</a>
 <div class="block"><span class="deprecationComment">Use <a href="org/apache/iceberg/flink/source/FlinkSource.Builder.html#setAll-java.util.Map-"><code>FlinkSource.Builder.setAll(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</code></a> instead.</span></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/iceberg/flink/source/IcebergSource.Builder.html#properties-java.util.Map-">org.apache.iceberg.flink.source.IcebergSource.Builder.properties(Map&lt;String, String&gt;)</a>
 <div class="block"><span class="deprecationComment">Use <a href="org/apache/iceberg/flink/source/IcebergSource.Builder.html#setAll-java.util.Map-"><code>IcebergSource.Builder.setAll(java.util.Map&lt;java.lang.String, java.lang.String&gt;)</code></a> instead.</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/RewriteFiles.html#rewriteFiles-java.util.Set-java.util.Set-">org.apache.iceberg.RewriteFiles.rewriteFiles(Set&lt;DataFile&gt;, Set&lt;DataFile&gt;)</a>
+<div class="block"><span class="deprecationComment">since 1.3.0, will be removed in 2.0.0</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/iceberg/RewriteFiles.html#rewriteFiles-java.util.Set-java.util.Set-long-">org.apache.iceberg.RewriteFiles.rewriteFiles(Set&lt;DataFile&gt;, Set&lt;DataFile&gt;, long)</a>
+<div class="block"><span class="deprecationComment">since 1.3.0, will be removed in 2.0.0</span></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/iceberg/RewriteFiles.html#rewriteFiles-java.util.Set-java.util.Set-java.util.Set-java.util.Set-">org.apache.iceberg.RewriteFiles.rewriteFiles(Set&lt;DataFile&gt;, Set&lt;DeleteFile&gt;, Set&lt;DataFile&gt;, Set&lt;DeleteFile&gt;)</a>
+<div class="block"><span class="deprecationComment">since 1.3.0, will be removed in 2.0.0</span></div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -403,18 +409,9 @@
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/jdbc/JdbcCatalog.html#setConf-org.apache.hadoop.conf.Configuration-">org.apache.iceberg.jdbc.JdbcCatalog.setConf(Configuration)</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use <a href="org/apache/iceberg/jdbc/JdbcCatalog.html#setConf-java.lang.Object-"><code>JdbcCatalog.setConf(Object)</code></a></span></div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="org/apache/iceberg/rest/RESTSessionCatalog.html#setConf-org.apache.hadoop.conf.Configuration-">org.apache.iceberg.rest.RESTSessionCatalog.setConf(Configuration)</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use <a href="org/apache/iceberg/rest/RESTSessionCatalog.html#setConf-java.lang.Object-"><code>RESTSessionCatalog.setConf(Object)</code></a></span></div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/rest/RESTCatalog.html#setConf-org.apache.hadoop.conf.Configuration-">org.apache.iceberg.rest.RESTCatalog.setConf(Configuration)</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use <a href="org/apache/iceberg/rest/RESTCatalog.html#setConf-java.lang.Object-"><code>RESTCatalog.setConf(Object)</code></a></span></div>
+<td class="colOne"><a href="org/apache/iceberg/aws/AwsProperties.html#setClientRegion-java.lang.String-">org.apache.iceberg.aws.AwsProperties.setClientRegion(String)</a>
+<div class="block"><span class="deprecationComment">will be removed in 1.5.0, use <a href="org/apache/iceberg/aws/AwsClientProperties.html#setClientRegion-java.lang.String-"><code>AwsClientProperties.setClientRegion(String)</code></a>
+     instead</span></div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -448,32 +445,18 @@
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/rest/auth/OAuth2Util.AuthSession.html#AuthSession-java.util.Map-java.lang.String-java.lang.String-">org.apache.iceberg.rest.auth.OAuth2Util.AuthSession(Map&lt;String, String&gt;, String, String)</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use <a href="org/apache/iceberg/rest/auth/OAuth2Util.AuthSession.html#AuthSession-java.util.Map-java.lang.String-java.lang.String-java.lang.String-java.lang.String-"><code>AuthSession(Map, String, String,
-     String, String)</code></a> instead.</span></div>
+<td class="colOne"><a href="org/apache/iceberg/arrow/vectorized/VectorHolder.ConstantVectorHolder.html#ConstantVectorHolder-int-T-">org.apache.iceberg.arrow.vectorized.VectorHolder.ConstantVectorHolder(int, T)</a>
+<div class="block"><span class="deprecationComment">since 1.4.0, will be removed in 1.5.0; use typed constant holders instead.</span></div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="org/apache/iceberg/actions/BaseFileGroupRewriteResult.html#BaseFileGroupRewriteResult-org.apache.iceberg.actions.RewriteDataFiles.FileGroupInfo-int-int-">org.apache.iceberg.actions.BaseFileGroupRewriteResult(RewriteDataFiles.FileGroupInfo, int, int)</a>
-<div class="block"><span class="deprecationComment">Will be removed in 1.3.0; use <code>BaseFileGroupRewriteResult#BaseFileGroupRewriteResult(FileGroupInfo, int, int, long)</code>
-     instead.</span></div>
+<td class="colOne"><a href="org/apache/iceberg/arrow/vectorized/VectorizedArrowReader.ConstantVectorReader.html#ConstantVectorReader-T-">org.apache.iceberg.arrow.vectorized.VectorizedArrowReader.ConstantVectorReader(T)</a>
+<div class="block"><span class="deprecationComment">since 1.4.0, will be removed in 1.5.0; use typed constant readers.</span></div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/BaseMetadataTable.html#BaseMetadataTable-org.apache.iceberg.TableOperations-org.apache.iceberg.Table-java.lang.String-">org.apache.iceberg.BaseMetadataTable(TableOperations, Table, String)</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use BaseMetadataTable(Table, String) instead.</span></div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="org/apache/iceberg/DataTableScan.html#DataTableScan-org.apache.iceberg.TableOperations-org.apache.iceberg.Table-">org.apache.iceberg.DataTableScan(TableOperations, Table)</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use DataTableScan(Table, Schema, TableScanContext)
-     instead.</span></div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><a href="org/apache/iceberg/DataTableScan.html#DataTableScan-org.apache.iceberg.TableOperations-org.apache.iceberg.Table-org.apache.iceberg.Schema-org.apache.iceberg.TableScanContext-">org.apache.iceberg.DataTableScan(TableOperations, Table, Schema, TableScanContext)</a>
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use DataTableScan(Table, Schema, TableScanContext)
-     instead.</span></div>
+<td class="colOne"><a href="org/apache/iceberg/PositionDeletesTable.PositionDeletesBatchScan.html#PositionDeletesBatchScan-org.apache.iceberg.Table-org.apache.iceberg.Schema-org.apache.iceberg.TableScanContext-">org.apache.iceberg.PositionDeletesTable.PositionDeletesBatchScan(Table, Schema, TableScanContext)</a>
+<div class="block"><span class="deprecationComment">the API will be removed in v1.5.0</span></div>
 </td>
 </tr>
 </tbody>

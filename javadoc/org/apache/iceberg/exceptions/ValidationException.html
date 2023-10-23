@@ -122,7 +122,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>java.io.Serializable</dd>
+<dd>java.io.Serializable, <a href="../../../../org/apache/iceberg/exceptions/CleanableFailure.html" title="interface in org.apache.iceberg.exceptions">CleanableFailure</a></dd>
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
@@ -131,7 +131,8 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">ValidationException</span>
-extends java.lang.RuntimeException</pre>
+extends java.lang.RuntimeException
+implements <a href="../../../../org/apache/iceberg/exceptions/CleanableFailure.html" title="interface in org.apache.iceberg.exceptions">CleanableFailure</a></pre>
 <div class="block">Exception which is raised when the arguments are valid in isolation, but not in conjunction with
  other arguments or state, as opposed to <code>IllegalArgumentException</code> which is raised when an
  argument value is always invalid.

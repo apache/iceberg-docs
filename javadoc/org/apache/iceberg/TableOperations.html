@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":18,"i3":6,"i4":6,"i5":6,"i6":18,"i7":6,"i8":18};
+var methods = {"i0":6,"i1":6,"i2":18,"i3":6,"i4":6,"i5":6,"i6":18,"i7":6,"i8":18,"i9":18};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -175,6 +175,12 @@ var activeTableTab = "activeTableTab";
 </td>
 </tr>
 <tr id="i8" class="altColor">
+<td class="colFirst"><code>default boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableOperations.html#requireStrictCleanup--">requireStrictCleanup</a></span>()</code>
+<div class="block">Whether to clean up uncommitted metadata files only when a commit fails with a <a href="../../../org/apache/iceberg/exceptions/CleanableFailure.html" title="interface in org.apache.iceberg.exceptions"><code>CleanableFailure</code></a> exception.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>default <a href="../../../org/apache/iceberg/TableOperations.html" title="interface in org.apache.iceberg">TableOperations</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/TableOperations.html#temp-org.apache.iceberg.TableMetadata-">temp</a></span>(<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;uncommittedMetadata)</code>
 <div class="block">Return a temporary <a href="../../../org/apache/iceberg/TableOperations.html" title="interface in org.apache.iceberg"><code>TableOperations</code></a> instance that uses configuration from uncommitted
@@ -329,7 +335,7 @@ var activeTableTab = "activeTableTab";
 <a name="newSnapshotId--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>newSnapshotId</h4>
 <pre>default&nbsp;long&nbsp;newSnapshotId()</pre>
@@ -338,6 +344,18 @@ var activeTableTab = "activeTableTab";
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a long snapshot ID</dd>
 </dl>
+</li>
+</ul>
+<a name="requireStrictCleanup--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>requireStrictCleanup</h4>
+<pre>default&nbsp;boolean&nbsp;requireStrictCleanup()</pre>
+<div class="block">Whether to clean up uncommitted metadata files only when a commit fails with a <a href="../../../org/apache/iceberg/exceptions/CleanableFailure.html" title="interface in org.apache.iceberg.exceptions"><code>CleanableFailure</code></a> exception.
+
+ <p>This defaults to true: cleanup will only occur for exceptions marked as <a href="../../../org/apache/iceberg/exceptions/CleanableFailure.html" title="interface in org.apache.iceberg.exceptions"><code>CleanableFailure</code></a></div>
 </li>
 </ul>
 </li>

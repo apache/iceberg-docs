@@ -132,7 +132,7 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/aws/AwsClientFactories.html#configureEndpoint-T-java.lang.String-">configureEndpoint</a></span>(T&nbsp;builder,
                  java.lang.String&nbsp;endpoint)</code>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">Not for public use. To configure the endpoint for a client, please use <a href="../../../../org/apache/iceberg/aws/AwsProperties.html#applyS3EndpointConfigurations-T-"><code>AwsProperties.applyS3EndpointConfigurations(S3ClientBuilder)</code></a>, <a href="../../../../org/apache/iceberg/aws/AwsProperties.html#applyGlueEndpointConfigurations-T-"><code>AwsProperties.applyGlueEndpointConfigurations(GlueClientBuilder)</code></a>, or <a href="../../../../org/apache/iceberg/aws/AwsProperties.html#applyDynamoDbEndpointConfigurations-T-"><code>AwsProperties.applyDynamoDbEndpointConfigurations(DynamoDbClientBuilder)</code></a> accordingly. It
+<div class="block"><span class="deprecationComment">Not for public use. To configure the endpoint for a client, please use <a href="../../../../org/apache/iceberg/aws/s3/S3FileIOProperties.html#applyEndpointConfigurations-T-"><code>S3FileIOProperties.applyEndpointConfigurations(S3ClientBuilder)</code></a>, <a href="../../../../org/apache/iceberg/aws/AwsProperties.html#applyGlueEndpointConfigurations-T-"><code>AwsProperties.applyGlueEndpointConfigurations(GlueClientBuilder)</code></a>, or <a href="../../../../org/apache/iceberg/aws/AwsProperties.html#applyDynamoDbEndpointConfigurations-T-"><code>AwsProperties.applyDynamoDbEndpointConfigurations(DynamoDbClientBuilder)</code></a> accordingly. It
      will be removed in 2.0.0</span></div>
 </div>
 </td>
@@ -141,8 +141,8 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>static software.amazon.awssdk.http.SdkHttpClient.Builder</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/aws/AwsClientFactories.html#configureHttpClientBuilder-java.lang.String-">configureHttpClientBuilder</a></span>(java.lang.String&nbsp;httpClientType)</code>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">Not for public use. To configure the httpClient for a client, please use <a href="../../../../org/apache/iceberg/aws/AwsProperties.html#applyHttpClientConfigurations-T-"><code>AwsProperties.applyHttpClientConfigurations(AwsSyncClientBuilder)</code></a>. It will be removed in
-     2.0.0</span></div>
+<div class="block"><span class="deprecationComment">Not for public use. To configure the httpClient for a client, please use <a href="../../../../org/apache/iceberg/aws/HttpClientProperties.html#applyHttpClientConfigurations-T-"><code>HttpClientProperties.applyHttpClientConfigurations(AwsSyncClientBuilder)</code></a>. It will be
+     removed in 2.0.0</span></div>
 </div>
 </td>
 </tr>
@@ -212,8 +212,8 @@ extends java.lang.Object</pre>
 <h4>configureHttpClientBuilder</h4>
 <pre>@Deprecated
 public static&nbsp;software.amazon.awssdk.http.SdkHttpClient.Builder&nbsp;configureHttpClientBuilder(java.lang.String&nbsp;httpClientType)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">Not for public use. To configure the httpClient for a client, please use <a href="../../../../org/apache/iceberg/aws/AwsProperties.html#applyHttpClientConfigurations-T-"><code>AwsProperties.applyHttpClientConfigurations(AwsSyncClientBuilder)</code></a>. It will be removed in
-     2.0.0</span></div>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">Not for public use. To configure the httpClient for a client, please use <a href="../../../../org/apache/iceberg/aws/HttpClientProperties.html#applyHttpClientConfigurations-T-"><code>HttpClientProperties.applyHttpClientConfigurations(AwsSyncClientBuilder)</code></a>. It will be
+     removed in 2.0.0</span></div>
 <div class="block">Build a httpClientBuilder object</div>
 </li>
 </ul>
@@ -228,7 +228,7 @@ public static&nbsp;software.amazon.awssdk.http.SdkHttpClient.Builder&nbsp;config
 <pre>@Deprecated
 public static&nbsp;&lt;T extends software.amazon.awssdk.core.client.builder.SdkClientBuilder&gt;&nbsp;void&nbsp;configureEndpoint(T&nbsp;builder,
                                                                                                                          java.lang.String&nbsp;endpoint)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">Not for public use. To configure the endpoint for a client, please use <a href="../../../../org/apache/iceberg/aws/AwsProperties.html#applyS3EndpointConfigurations-T-"><code>AwsProperties.applyS3EndpointConfigurations(S3ClientBuilder)</code></a>, <a href="../../../../org/apache/iceberg/aws/AwsProperties.html#applyGlueEndpointConfigurations-T-"><code>AwsProperties.applyGlueEndpointConfigurations(GlueClientBuilder)</code></a>, or <a href="../../../../org/apache/iceberg/aws/AwsProperties.html#applyDynamoDbEndpointConfigurations-T-"><code>AwsProperties.applyDynamoDbEndpointConfigurations(DynamoDbClientBuilder)</code></a> accordingly. It
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">Not for public use. To configure the endpoint for a client, please use <a href="../../../../org/apache/iceberg/aws/s3/S3FileIOProperties.html#applyEndpointConfigurations-T-"><code>S3FileIOProperties.applyEndpointConfigurations(S3ClientBuilder)</code></a>, <a href="../../../../org/apache/iceberg/aws/AwsProperties.html#applyGlueEndpointConfigurations-T-"><code>AwsProperties.applyGlueEndpointConfigurations(GlueClientBuilder)</code></a>, or <a href="../../../../org/apache/iceberg/aws/AwsProperties.html#applyDynamoDbEndpointConfigurations-T-"><code>AwsProperties.applyDynamoDbEndpointConfigurations(DynamoDbClientBuilder)</code></a> accordingly. It
      will be removed in 2.0.0</span></div>
 <div class="block">Configure the endpoint setting for a client</div>
 </li>

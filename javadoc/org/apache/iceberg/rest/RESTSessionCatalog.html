@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":42,"i15":10,"i16":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/rest/RESTSerializers.UpdateRequirementSerializer.html" title="class in org.apache.iceberg.rest"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/rest/RESTSerializers.UpdateTableRequestSerializer.html" title="class in org.apache.iceberg.rest"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/rest/RESTUtil.html" title="class in org.apache.iceberg.rest"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -175,7 +175,7 @@ implements <a href="../../../../org/apache/iceberg/hadoop/Configurable.html" tit
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -194,76 +194,81 @@ implements <a href="../../../../org/apache/iceberg/hadoop/Configurable.html" tit
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/RESTSessionCatalog.html#commitTransaction-org.apache.iceberg.catalog.SessionCatalog.SessionContext-java.util.List-">commitTransaction</a></span>(<a href="../../../../org/apache/iceberg/catalog/SessionCatalog.SessionContext.html" title="class in org.apache.iceberg.catalog">SessionCatalog.SessionContext</a>&nbsp;context,
+                 java.util.List&lt;<a href="../../../../org/apache/iceberg/catalog/TableCommit.html" title="interface in org.apache.iceberg.catalog">TableCommit</a>&gt;&nbsp;commits)</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/RESTSessionCatalog.html#createNamespace-org.apache.iceberg.catalog.SessionCatalog.SessionContext-org.apache.iceberg.catalog.Namespace-java.util.Map-">createNamespace</a></span>(<a href="../../../../org/apache/iceberg/catalog/SessionCatalog.SessionContext.html" title="class in org.apache.iceberg.catalog">SessionCatalog.SessionContext</a>&nbsp;context,
                <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace,
                java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;metadata)</code>
 <div class="block">Create a namespace in the catalog.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/RESTSessionCatalog.html#dropNamespace-org.apache.iceberg.catalog.SessionCatalog.SessionContext-org.apache.iceberg.catalog.Namespace-">dropNamespace</a></span>(<a href="../../../../org/apache/iceberg/catalog/SessionCatalog.SessionContext.html" title="class in org.apache.iceberg.catalog">SessionCatalog.SessionContext</a>&nbsp;context,
              <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;ns)</code>
 <div class="block">Drop a namespace.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/RESTSessionCatalog.html#dropTable-org.apache.iceberg.catalog.SessionCatalog.SessionContext-org.apache.iceberg.catalog.TableIdentifier-">dropTable</a></span>(<a href="../../../../org/apache/iceberg/catalog/SessionCatalog.SessionContext.html" title="class in org.apache.iceberg.catalog">SessionCatalog.SessionContext</a>&nbsp;context,
          <a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;identifier)</code>
 <div class="block">Drop a table, without requesting that files are immediately deleted.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/RESTSessionCatalog.html#initialize-java.lang.String-java.util.Map-">initialize</a></span>(java.lang.String&nbsp;name,
           java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;unresolved)</code>
 <div class="block">Initialize given a custom name and a map of catalog properties.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/RESTSessionCatalog.html#invalidateTable-org.apache.iceberg.catalog.SessionCatalog.SessionContext-org.apache.iceberg.catalog.TableIdentifier-">invalidateTable</a></span>(<a href="../../../../org/apache/iceberg/catalog/SessionCatalog.SessionContext.html" title="class in org.apache.iceberg.catalog">SessionCatalog.SessionContext</a>&nbsp;context,
                <a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;ident)</code>
 <div class="block">Invalidate cached table metadata from current catalog.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/RESTSessionCatalog.html#listNamespaces-org.apache.iceberg.catalog.SessionCatalog.SessionContext-org.apache.iceberg.catalog.Namespace-">listNamespaces</a></span>(<a href="../../../../org/apache/iceberg/catalog/SessionCatalog.SessionContext.html" title="class in org.apache.iceberg.catalog">SessionCatalog.SessionContext</a>&nbsp;context,
               <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace)</code>
-<div class="block">List namespaces from the namespace.</div>
+<div class="block">List child namespaces from the namespace.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/RESTSessionCatalog.html#listTables-org.apache.iceberg.catalog.SessionCatalog.SessionContext-org.apache.iceberg.catalog.Namespace-">listTables</a></span>(<a href="../../../../org/apache/iceberg/catalog/SessionCatalog.SessionContext.html" title="class in org.apache.iceberg.catalog">SessionCatalog.SessionContext</a>&nbsp;context,
           <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;ns)</code>
 <div class="block">Return all the identifiers under this namespace.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.String,java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/RESTSessionCatalog.html#loadNamespaceMetadata-org.apache.iceberg.catalog.SessionCatalog.SessionContext-org.apache.iceberg.catalog.Namespace-">loadNamespaceMetadata</a></span>(<a href="../../../../org/apache/iceberg/catalog/SessionCatalog.SessionContext.html" title="class in org.apache.iceberg.catalog">SessionCatalog.SessionContext</a>&nbsp;context,
                      <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;ns)</code>
 <div class="block">Load metadata properties for a namespace.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/RESTSessionCatalog.html#loadTable-org.apache.iceberg.catalog.SessionCatalog.SessionContext-org.apache.iceberg.catalog.TableIdentifier-">loadTable</a></span>(<a href="../../../../org/apache/iceberg/catalog/SessionCatalog.SessionContext.html" title="class in org.apache.iceberg.catalog">SessionCatalog.SessionContext</a>&nbsp;context,
          <a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;identifier)</code>
 <div class="block">Load a table.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/RESTSessionCatalog.html#purgeTable-org.apache.iceberg.catalog.SessionCatalog.SessionContext-org.apache.iceberg.catalog.TableIdentifier-">purgeTable</a></span>(<a href="../../../../org/apache/iceberg/catalog/SessionCatalog.SessionContext.html" title="class in org.apache.iceberg.catalog">SessionCatalog.SessionContext</a>&nbsp;context,
           <a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;identifier)</code>
 <div class="block">Drop a table and request that files are immediately deleted.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/RESTSessionCatalog.html#registerTable-org.apache.iceberg.catalog.SessionCatalog.SessionContext-org.apache.iceberg.catalog.TableIdentifier-java.lang.String-">registerTable</a></span>(<a href="../../../../org/apache/iceberg/catalog/SessionCatalog.SessionContext.html" title="class in org.apache.iceberg.catalog">SessionCatalog.SessionContext</a>&nbsp;context,
              <a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;ident,
@@ -271,20 +276,12 @@ implements <a href="../../../../org/apache/iceberg/hadoop/Configurable.html" tit
 <div class="block">Register a table if it does not exist.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/RESTSessionCatalog.html#renameTable-org.apache.iceberg.catalog.SessionCatalog.SessionContext-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.catalog.TableIdentifier-">renameTable</a></span>(<a href="../../../../org/apache/iceberg/catalog/SessionCatalog.SessionContext.html" title="class in org.apache.iceberg.catalog">SessionCatalog.SessionContext</a>&nbsp;context,
            <a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;from,
            <a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;to)</code>
 <div class="block">Rename a table.</div>
-</td>
-</tr>
-<tr id="i14" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/rest/RESTSessionCatalog.html#setConf-org.apache.hadoop.conf.Configuration-">setConf</a></span>(org.apache.hadoop.conf.Configuration&nbsp;newConf)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">will be removed in 1.3.0; use <a href="../../../../org/apache/iceberg/rest/RESTSessionCatalog.html#setConf-java.lang.Object-"><code>setConf(Object)</code></a></span></div>
-</div>
 </td>
 </tr>
 <tr id="i15" class="rowColor">
@@ -395,17 +392,6 @@ implements <a href="../../../../org/apache/iceberg/hadoop/Configurable.html" tit
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/hadoop/Configurable.html#setConf-C-">setConf</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/hadoop/Configurable.html" title="interface in org.apache.iceberg.hadoop">Configurable</a>&lt;java.lang.Object&gt;</code></dd>
 </dl>
-</li>
-</ul>
-<a name="setConf-org.apache.hadoop.conf.Configuration-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setConf</h4>
-<pre>@Deprecated
-public&nbsp;void&nbsp;setConf(org.apache.hadoop.conf.Configuration&nbsp;newConf)</pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">will be removed in 1.3.0; use <a href="../../../../org/apache/iceberg/rest/RESTSessionCatalog.html#setConf-java.lang.Object-"><code>setConf(Object)</code></a></span></div>
 </li>
 </ul>
 <a name="listTables-org.apache.iceberg.catalog.SessionCatalog.SessionContext-org.apache.iceberg.catalog.Namespace-">
@@ -613,10 +599,29 @@ public&nbsp;void&nbsp;setConf(org.apache.hadoop.conf.Configuration&nbsp;newConf)
 <pre>public&nbsp;java.util.List&lt;<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&gt;&nbsp;listNamespaces(<a href="../../../../org/apache/iceberg/catalog/SessionCatalog.SessionContext.html" title="class in org.apache.iceberg.catalog">SessionCatalog.SessionContext</a>&nbsp;context,
                                                 <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/catalog/SessionCatalog.html#listNamespaces-org.apache.iceberg.catalog.SessionCatalog.SessionContext-org.apache.iceberg.catalog.Namespace-">SessionCatalog</a></code></span></div>
-<div class="block">List namespaces from the namespace.
+<div class="block">List child namespaces from the namespace.
 
- <p>For example, if table a.b.t exists, use 'SELECT NAMESPACE IN a' this method must return
- Namepace.of("a","b") <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>Namespace</code></a>.</div>
+ <p>For two existing tables named 'a.b.c.table' and 'a.b.d.table', this method returns:
+
+ <ul>
+   <li>Given: <code>Namespace.empty()</code>
+   <li>Returns: <code>Namespace.of("a")</code>
+ </ul>
+
+ <ul>
+   <li>Given: <code>Namespace.of("a")</code>
+   <li>Returns: <code>Namespace.of("a", "b")</code>
+ </ul>
+
+ <ul>
+   <li>Given: <code>Namespace.of("a", "b")</code>
+   <li>Returns: <code>Namespace.of("a", "b", "c")</code> and <code>Namespace.of("a", "b", "d")</code>
+ </ul>
+
+ <ul>
+   <li>Given: <code>Namespace.of("a", "b", "c")</code>
+   <li>Returns: empty list, because there are no child namespaces
+ </ul></div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/catalog/SessionCatalog.html#listNamespaces-org.apache.iceberg.catalog.SessionCatalog.SessionContext-org.apache.iceberg.catalog.Namespace-">listNamespaces</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/catalog/SessionCatalog.html" title="interface in org.apache.iceberg.catalog">SessionCatalog</a></code></dd>
@@ -624,7 +629,7 @@ public&nbsp;void&nbsp;setConf(org.apache.hadoop.conf.Configuration&nbsp;newConf)
 <dd><code>context</code> - session context</dd>
 <dd><code>namespace</code> - a <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>namespace</code></a></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>a List of namespace <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>Namespace</code></a> names</dd>
+<dd>a List of child <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>Namespace</code></a> names from the given namespace</dd>
 </dl>
 </li>
 </ul>
@@ -698,7 +703,7 @@ public&nbsp;void&nbsp;setConf(org.apache.hadoop.conf.Configuration&nbsp;newConf)
 <a name="close--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>close</h4>
 <pre>public&nbsp;void&nbsp;close()
@@ -711,6 +716,16 @@ public&nbsp;void&nbsp;setConf(org.apache.hadoop.conf.Configuration&nbsp;newConf)
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.io.IOException</code></dd>
 </dl>
+</li>
+</ul>
+<a name="commitTransaction-org.apache.iceberg.catalog.SessionCatalog.SessionContext-java.util.List-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>commitTransaction</h4>
+<pre>public&nbsp;void&nbsp;commitTransaction(<a href="../../../../org/apache/iceberg/catalog/SessionCatalog.SessionContext.html" title="class in org.apache.iceberg.catalog">SessionCatalog.SessionContext</a>&nbsp;context,
+                              java.util.List&lt;<a href="../../../../org/apache/iceberg/catalog/TableCommit.html" title="interface in org.apache.iceberg.catalog">TableCommit</a>&gt;&nbsp;commits)</pre>
 </li>
 </ul>
 </li>
@@ -740,7 +755,7 @@ public&nbsp;void&nbsp;setConf(org.apache.hadoop.conf.Configuration&nbsp;newConf)
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/rest/RESTSerializers.UpdateRequirementSerializer.html" title="class in org.apache.iceberg.rest"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/rest/RESTSerializers.UpdateTableRequestSerializer.html" title="class in org.apache.iceberg.rest"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/rest/RESTUtil.html" title="class in org.apache.iceberg.rest"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

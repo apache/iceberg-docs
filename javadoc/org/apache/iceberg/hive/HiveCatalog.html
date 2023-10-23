@@ -253,7 +253,7 @@ implements <a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.ht
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/hive/HiveCatalog.html#listNamespaces-org.apache.iceberg.catalog.Namespace-">listNamespaces</a></span>(<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace)</code>
-<div class="block">List namespaces from the namespace.</div>
+<div class="block">List child namespaces from the namespace.</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
@@ -572,15 +572,34 @@ implements <a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.ht
 <h4>listNamespaces</h4>
 <pre>public&nbsp;java.util.List&lt;<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&gt;&nbsp;listNamespaces(<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.html#listNamespaces-org.apache.iceberg.catalog.Namespace-">SupportsNamespaces</a></code></span></div>
-<div class="block">List namespaces from the namespace.
+<div class="block">List child namespaces from the namespace.
 
- <p>For example, if table a.b.t exists, use 'SELECT NAMESPACE IN a' this method must return
- Namepace.of("a","b") <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>Namespace</code></a>.</div>
+ <p>For two existing tables named 'a.b.c.table' and 'a.b.d.table', this method returns:
+
+ <ul>
+   <li>Given: <code>Namespace.empty()</code>
+   <li>Returns: <code>Namespace.of("a")</code>
+ </ul>
+
+ <ul>
+   <li>Given: <code>Namespace.of("a")</code>
+   <li>Returns: <code>Namespace.of("a", "b")</code>
+ </ul>
+
+ <ul>
+   <li>Given: <code>Namespace.of("a", "b")</code>
+   <li>Returns: <code>Namespace.of("a", "b", "c")</code> and <code>Namespace.of("a", "b", "d")</code>
+ </ul>
+
+ <ul>
+   <li>Given: <code>Namespace.of("a", "b", "c")</code>
+   <li>Returns: empty list, because there are no child namespaces
+ </ul></div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.html#listNamespaces-org.apache.iceberg.catalog.Namespace-">listNamespaces</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.html" title="interface in org.apache.iceberg.catalog">SupportsNamespaces</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>a List of namespace <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>Namespace</code></a> names</dd>
+<dd>a List of child <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>Namespace</code></a> names from the given namespace</dd>
 </dl>
 </li>
 </ul>

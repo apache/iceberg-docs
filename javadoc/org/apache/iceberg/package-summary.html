@@ -251,7 +251,7 @@
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MetadataUpdate.html" title="interface in org.apache.iceberg">MetadataUpdate</a></td>
 <td class="colLast">
-<div class="block">Represents a change to table metadata.</div>
+<div class="block">Represents a change to table or view metadata.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -426,12 +426,18 @@
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><a href="../../../org/apache/iceberg/UpdateRequirement.html" title="interface in org.apache.iceberg">UpdateRequirement</a></td>
+<td class="colLast">
+<div class="block">Represents a requirement for a <a href="../../../org/apache/iceberg/MetadataUpdate.html" title="interface in org.apache.iceberg"><code>MetadataUpdate</code></a></div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/UpdateSchema.html" title="interface in org.apache.iceberg">UpdateSchema</a></td>
 <td class="colLast">
 <div class="block">API for schema evolution.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/UpdateStatistics.html" title="interface in org.apache.iceberg">UpdateStatistics</a></td>
 <td class="colLast">
 <div class="block">API for updating statistics files in a table.</div>
@@ -646,128 +652,136 @@
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><a href="../../../org/apache/iceberg/FileScanTaskParser.html" title="class in org.apache.iceberg">FileScanTaskParser</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/FilesTable.html" title="class in org.apache.iceberg">FilesTable</a></td>
 <td class="colLast">
 <div class="block">A <a href="../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><code>Table</code></a> implementation that exposes a table's files as rows.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/FilesTable.FilesTableScan.html" title="class in org.apache.iceberg">FilesTable.FilesTableScan</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/FindFiles.html" title="class in org.apache.iceberg">FindFiles</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/FindFiles.Builder.html" title="class in org.apache.iceberg">FindFiles.Builder</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/FloatFieldMetrics.html" title="class in org.apache.iceberg">FloatFieldMetrics</a></td>
 <td class="colLast">
 <div class="block">Iceberg internally tracked field level metrics, used by Parquet and ORC writers only.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/FloatFieldMetrics.Builder.html" title="class in org.apache.iceberg">FloatFieldMetrics.Builder</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/GenericBlobMetadata.html" title="class in org.apache.iceberg">GenericBlobMetadata</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/GenericManifestFile.html" title="class in org.apache.iceberg">GenericManifestFile</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/GenericManifestFile.CopyBuilder.html" title="class in org.apache.iceberg">GenericManifestFile.CopyBuilder</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/GenericPartitionFieldSummary.html" title="class in org.apache.iceberg">GenericPartitionFieldSummary</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/GenericStatisticsFile.html" title="class in org.apache.iceberg">GenericStatisticsFile</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/GuavaClasses.html" title="class in org.apache.iceberg">GuavaClasses</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/HistoryTable.html" title="class in org.apache.iceberg">HistoryTable</a></td>
 <td class="colLast">
 <div class="block">A <a href="../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><code>Table</code></a> implementation that exposes a table's history as rows.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/IcebergBuild.html" title="class in org.apache.iceberg">IcebergBuild</a></td>
 <td class="colLast">
 <div class="block">Loads iceberg-version.properties with build information.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/LocationProviders.html" title="class in org.apache.iceberg">LocationProviders</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/ManifestEntriesTable.html" title="class in org.apache.iceberg">ManifestEntriesTable</a></td>
 <td class="colLast">
 <div class="block">A <a href="../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><code>Table</code></a> implementation that exposes a table's manifest entries as rows, for both delete
  and data files.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/ManifestFiles.html" title="class in org.apache.iceberg">ManifestFiles</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/ManifestReader.html" title="class in org.apache.iceberg">ManifestReader</a>&lt;F extends <a href="../../../org/apache/iceberg/ContentFile.html" title="interface in org.apache.iceberg">ContentFile</a>&lt;F&gt;&gt;</td>
 <td class="colLast">
 <div class="block">Base reader for data and delete manifest files.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/ManifestsTable.html" title="class in org.apache.iceberg">ManifestsTable</a></td>
 <td class="colLast">
 <div class="block">A <a href="../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><code>Table</code></a> implementation that exposes a table's manifest files as rows.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/ManifestWriter.html" title="class in org.apache.iceberg">ManifestWriter</a>&lt;F extends <a href="../../../org/apache/iceberg/ContentFile.html" title="interface in org.apache.iceberg">ContentFile</a>&lt;F&gt;&gt;</td>
 <td class="colLast">
 <div class="block">Writer for manifest files.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MetadataColumns.html" title="class in org.apache.iceberg">MetadataColumns</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MetadataLogEntriesTable.html" title="class in org.apache.iceberg">MetadataLogEntriesTable</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MetadataTableUtils.html" title="class in org.apache.iceberg">MetadataTableUtils</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MetadataUpdate.AddPartitionSpec.html" title="class in org.apache.iceberg">MetadataUpdate.AddPartitionSpec</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MetadataUpdate.AddSchema.html" title="class in org.apache.iceberg">MetadataUpdate.AddSchema</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MetadataUpdate.AddSnapshot.html" title="class in org.apache.iceberg">MetadataUpdate.AddSnapshot</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MetadataUpdate.AddSortOrder.html" title="class in org.apache.iceberg">MetadataUpdate.AddSortOrder</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../org/apache/iceberg/MetadataUpdate.AddViewVersion.html" title="class in org.apache.iceberg">MetadataUpdate.AddViewVersion</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
@@ -795,48 +809,52 @@
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><a href="../../../org/apache/iceberg/MetadataUpdate.SetCurrentViewVersion.html" title="class in org.apache.iceberg">MetadataUpdate.SetCurrentViewVersion</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MetadataUpdate.SetDefaultPartitionSpec.html" title="class in org.apache.iceberg">MetadataUpdate.SetDefaultPartitionSpec</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MetadataUpdate.SetDefaultSortOrder.html" title="class in org.apache.iceberg">MetadataUpdate.SetDefaultSortOrder</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MetadataUpdate.SetLocation.html" title="class in org.apache.iceberg">MetadataUpdate.SetLocation</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MetadataUpdate.SetProperties.html" title="class in org.apache.iceberg">MetadataUpdate.SetProperties</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MetadataUpdate.SetSnapshotRef.html" title="class in org.apache.iceberg">MetadataUpdate.SetSnapshotRef</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MetadataUpdate.SetStatistics.html" title="class in org.apache.iceberg">MetadataUpdate.SetStatistics</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MetadataUpdate.UpgradeFormatVersion.html" title="class in org.apache.iceberg">MetadataUpdate.UpgradeFormatVersion</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MetadataUpdateParser.html" title="class in org.apache.iceberg">MetadataUpdateParser</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/Metrics.html" title="class in org.apache.iceberg">Metrics</a></td>
 <td class="colLast">
 <div class="block">Iceberg file format metrics.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MetricsConfig.html" title="class in org.apache.iceberg">MetricsConfig</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MetricsModes.html" title="class in org.apache.iceberg">MetricsModes</a></td>
 <td class="colLast">
 <div class="block">This class defines different metrics modes, which allow users to control the collection of
@@ -844,129 +862,135 @@
  columns in metadata.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MetricsModes.Counts.html" title="class in org.apache.iceberg">MetricsModes.Counts</a></td>
 <td class="colLast">
 <div class="block">Under this mode, only value_counts, null_value_counts, nan_value_counts are persisted.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MetricsModes.Full.html" title="class in org.apache.iceberg">MetricsModes.Full</a></td>
 <td class="colLast">
 <div class="block">Under this mode, value_counts, null_value_counts, nan_value_counts and full lower_bounds,
  upper_bounds are persisted.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MetricsModes.None.html" title="class in org.apache.iceberg">MetricsModes.None</a></td>
 <td class="colLast">
 <div class="block">Under this mode, value_counts, null_value_counts, nan_value_counts, lower_bounds, upper_bounds
  are not persisted.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MetricsModes.Truncate.html" title="class in org.apache.iceberg">MetricsModes.Truncate</a></td>
 <td class="colLast">
 <div class="block">Under this mode, value_counts, null_value_counts, nan_value_counts and truncated lower_bounds,
  upper_bounds are persisted.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MetricsUtil.html" title="class in org.apache.iceberg">MetricsUtil</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MetricsUtil.ReadableColMetricsStruct.html" title="class in org.apache.iceberg">MetricsUtil.ReadableColMetricsStruct</a></td>
 <td class="colLast">
 <div class="block">A struct of readable metric values for a primitive column</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MetricsUtil.ReadableMetricColDefinition.html" title="class in org.apache.iceberg">MetricsUtil.ReadableMetricColDefinition</a></td>
 <td class="colLast">
 <div class="block">Fixed definition of a readable metric column, ie a mapping of a raw metric to a readable metric</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MetricsUtil.ReadableMetricsStruct.html" title="class in org.apache.iceberg">MetricsUtil.ReadableMetricsStruct</a></td>
 <td class="colLast">
 <div class="block">A struct, consisting of all <a href="../../../org/apache/iceberg/MetricsUtil.ReadableColMetricsStruct.html" title="class in org.apache.iceberg"><code>MetricsUtil.ReadableColMetricsStruct</code></a> for all primitive columns of the
  table</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MicroBatches.html" title="class in org.apache.iceberg">MicroBatches</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MicroBatches.MicroBatch.html" title="class in org.apache.iceberg">MicroBatches.MicroBatch</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/MicroBatches.MicroBatchBuilder.html" title="class in org.apache.iceberg">MicroBatches.MicroBatchBuilder</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/PartitionData.html" title="class in org.apache.iceberg">PartitionData</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/PartitionField.html" title="class in org.apache.iceberg">PartitionField</a></td>
 <td class="colLast">
 <div class="block">Represents a single field in a <a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg"><code>PartitionSpec</code></a>.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/Partitioning.html" title="class in org.apache.iceberg">Partitioning</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/PartitionKey.html" title="class in org.apache.iceberg">PartitionKey</a></td>
 <td class="colLast">
 <div class="block">A struct of partition values.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a></td>
 <td class="colLast">
 <div class="block">Represents how to produce partition data for a table.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/PartitionSpec.Builder.html" title="class in org.apache.iceberg">PartitionSpec.Builder</a></td>
 <td class="colLast">
 <div class="block">Used to create valid <a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg"><code>partition specs</code></a>.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/PartitionSpecParser.html" title="class in org.apache.iceberg">PartitionSpecParser</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/PartitionsTable.html" title="class in org.apache.iceberg">PartitionsTable</a></td>
 <td class="colLast">
 <div class="block">A <a href="../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><code>Table</code></a> implementation that exposes a table's partitions as rows.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/PositionDeletesTable.html" title="class in org.apache.iceberg">PositionDeletesTable</a></td>
 <td class="colLast">
 <div class="block">A <a href="../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><code>Table</code></a> implementation whose <a href="../../../org/apache/iceberg/Scan.html" title="interface in org.apache.iceberg"><code>Scan</code></a> provides <a href="../../../org/apache/iceberg/PositionDeletesScanTask.html" title="interface in org.apache.iceberg"><code>PositionDeletesScanTask</code></a>, for
  reading of position delete files.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/PositionDeletesTable.PositionDeletesBatchScan.html" title="class in org.apache.iceberg">PositionDeletesTable.PositionDeletesBatchScan</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/ReachableFileUtil.html" title="class in org.apache.iceberg">ReachableFileUtil</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/RefsTable.html" title="class in org.apache.iceberg">RefsTable</a></td>
 <td class="colLast">
 <div class="block">A <a href="../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><code>Table</code></a> implementation that exposes a table's known snapshot references as rows.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../org/apache/iceberg/RollingManifestWriter.html" title="class in org.apache.iceberg">RollingManifestWriter</a>&lt;F extends <a href="../../../org/apache/iceberg/ContentFile.html" title="interface in org.apache.iceberg">ContentFile</a>&lt;F&gt;&gt;</td>
+<td class="colLast">
+<div class="block">As opposed to <a href="../../../org/apache/iceberg/ManifestWriter.html" title="class in org.apache.iceberg"><code>ManifestWriter</code></a>, a rolling writer could produce multiple manifest files.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -1081,64 +1105,120 @@
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><a href="../../../org/apache/iceberg/SparkDistributedDataScan.html" title="class in org.apache.iceberg">SparkDistributedDataScan</a></td>
+<td class="colLast">
+<div class="block">A batch data scan that can utilize Spark cluster resources for planning.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/StaticTableOperations.html" title="class in org.apache.iceberg">StaticTableOperations</a></td>
 <td class="colLast">
 <div class="block">TableOperations implementation that provides access to metadata for a Table at some point in
  time, using a table metadata location.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/StatisticsFileParser.html" title="class in org.apache.iceberg">StatisticsFileParser</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/StreamingDelete.html" title="class in org.apache.iceberg">StreamingDelete</a></td>
 <td class="colLast">
 <div class="block"><a href="../../../org/apache/iceberg/DeleteFiles.html" title="interface in org.apache.iceberg"><code>Delete</code></a> implementation that avoids loading full manifests in memory.</div>
 </td>
 </tr>
-<tr class="rowColor">
-<td class="colFirst"><a href="../../../org/apache/iceberg/SystemProperties.html" title="class in org.apache.iceberg">SystemProperties</a></td>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../org/apache/iceberg/SystemConfigs.html" title="class in org.apache.iceberg">SystemConfigs</a></td>
 <td class="colLast">
-<div class="block">Configuration properties that are controlled by Java system properties.</div>
+<div class="block">Configuration properties that are controlled by Java system properties or environmental variable.</div>
 </td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../org/apache/iceberg/SystemConfigs.ConfigEntry.html" title="class in org.apache.iceberg">SystemConfigs.ConfigEntry</a>&lt;T&gt;</td>
+<td class="colLast">&nbsp;</td>
+</tr>
 <tr class="altColor">
+<td class="colFirst"><a href="../../../org/apache/iceberg/SystemProperties.html" title="class in org.apache.iceberg">SystemProperties</a></td>
+<td class="colLast">Deprecated
+<div class="block"><span class="deprecationComment">Use <a href="../../../org/apache/iceberg/SystemConfigs.html" title="class in org.apache.iceberg"><code>SystemConfigs</code></a> instead; will be removed in 2.0.0</span></div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a></td>
 <td class="colLast">
 <div class="block">Metadata for a table.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/TableMetadata.Builder.html" title="class in org.apache.iceberg">TableMetadata.Builder</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/TableMetadata.MetadataLogEntry.html" title="class in org.apache.iceberg">TableMetadata.MetadataLogEntry</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/TableMetadata.SnapshotLogEntry.html" title="class in org.apache.iceberg">TableMetadata.SnapshotLogEntry</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/TableMetadataParser.html" title="class in org.apache.iceberg">TableMetadataParser</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/TableProperties.html" title="class in org.apache.iceberg">TableProperties</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/Transactions.html" title="class in org.apache.iceberg">Transactions</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/UnboundPartitionSpec.html" title="class in org.apache.iceberg">UnboundPartitionSpec</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/UnboundSortOrder.html" title="class in org.apache.iceberg">UnboundSortOrder</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../org/apache/iceberg/UpdateRequirement.AssertCurrentSchemaID.html" title="class in org.apache.iceberg">UpdateRequirement.AssertCurrentSchemaID</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../org/apache/iceberg/UpdateRequirement.AssertDefaultSortOrderID.html" title="class in org.apache.iceberg">UpdateRequirement.AssertDefaultSortOrderID</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../org/apache/iceberg/UpdateRequirement.AssertDefaultSpecID.html" title="class in org.apache.iceberg">UpdateRequirement.AssertDefaultSpecID</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../org/apache/iceberg/UpdateRequirement.AssertLastAssignedFieldId.html" title="class in org.apache.iceberg">UpdateRequirement.AssertLastAssignedFieldId</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../org/apache/iceberg/UpdateRequirement.AssertLastAssignedPartitionId.html" title="class in org.apache.iceberg">UpdateRequirement.AssertLastAssignedPartitionId</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../org/apache/iceberg/UpdateRequirement.AssertRefSnapshotID.html" title="class in org.apache.iceberg">UpdateRequirement.AssertRefSnapshotID</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../org/apache/iceberg/UpdateRequirement.AssertTableDoesNotExist.html" title="class in org.apache.iceberg">UpdateRequirement.AssertTableDoesNotExist</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../org/apache/iceberg/UpdateRequirement.AssertTableUUID.html" title="class in org.apache.iceberg">UpdateRequirement.AssertTableUUID</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../org/apache/iceberg/UpdateRequirementParser.html" title="class in org.apache.iceberg">UpdateRequirementParser</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../org/apache/iceberg/UpdateRequirements.html" title="class in org.apache.iceberg">UpdateRequirements</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
 </tbody>
@@ -1206,23 +1286,27 @@
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><a href="../../../org/apache/iceberg/PlanningMode.html" title="enum in org.apache.iceberg">PlanningMode</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/RewriteJobOrder.html" title="enum in org.apache.iceberg">RewriteJobOrder</a></td>
 <td class="colLast">
 <div class="block">Enum of supported rewrite job order, it defines the order in which the file groups should be
  written.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/RowLevelOperationMode.html" title="enum in org.apache.iceberg">RowLevelOperationMode</a></td>
 <td class="colLast">
 <div class="block">Iceberg supports two ways to modify records in a table: copy-on-write and merge-on-read.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/SortDirection.html" title="enum in org.apache.iceberg">SortDirection</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/apache/iceberg/TableMetadataParser.Codec.html" title="enum in org.apache.iceberg">TableMetadataParser.Codec</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>

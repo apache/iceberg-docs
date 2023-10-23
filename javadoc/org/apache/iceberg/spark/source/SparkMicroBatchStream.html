@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -107,13 +107,13 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>org.apache.spark.sql.connector.read.streaming.MicroBatchStream, org.apache.spark.sql.connector.read.streaming.SparkDataStream</dd>
+<dd>org.apache.spark.sql.connector.read.streaming.MicroBatchStream, org.apache.spark.sql.connector.read.streaming.SparkDataStream, org.apache.spark.sql.connector.read.streaming.SupportsAdmissionControl</dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">SparkMicroBatchStream</span>
 extends java.lang.Object
-implements org.apache.spark.sql.connector.read.streaming.MicroBatchStream</pre>
+implements org.apache.spark.sql.connector.read.streaming.MicroBatchStream, org.apache.spark.sql.connector.read.streaming.SupportsAdmissionControl</pre>
 </li>
 </ul>
 </div>
@@ -145,19 +145,28 @@ implements org.apache.spark.sql.connector.read.streaming.MicroBatchStream</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/SparkMicroBatchStream.html#deserializeOffset-java.lang.String-">deserializeOffset</a></span>(java.lang.String&nbsp;json)</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>org.apache.spark.sql.connector.read.streaming.Offset</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/SparkMicroBatchStream.html#initialOffset--">initialOffset</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>org.apache.spark.sql.connector.read.streaming.ReadLimit</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/SparkMicroBatchStream.html#getDefaultReadLimit--">getDefaultReadLimit</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>org.apache.spark.sql.connector.read.streaming.Offset</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/SparkMicroBatchStream.html#latestOffset--">latestOffset</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/SparkMicroBatchStream.html#initialOffset--">initialOffset</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
+<td class="colFirst"><code>org.apache.spark.sql.connector.read.streaming.Offset</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/SparkMicroBatchStream.html#latestOffset--">latestOffset</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>org.apache.spark.sql.connector.read.streaming.Offset</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/SparkMicroBatchStream.html#latestOffset-org.apache.spark.sql.connector.read.streaming.Offset-org.apache.spark.sql.connector.read.streaming.ReadLimit-">latestOffset</a></span>(org.apache.spark.sql.connector.read.streaming.Offset&nbsp;startOffset,
+            org.apache.spark.sql.connector.read.streaming.ReadLimit&nbsp;limit)</code>&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>org.apache.spark.sql.connector.read.InputPartition[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/SparkMicroBatchStream.html#planInputPartitions-org.apache.spark.sql.connector.read.streaming.Offset-org.apache.spark.sql.connector.read.streaming.Offset-">planInputPartitions</a></span>(org.apache.spark.sql.connector.read.streaming.Offset&nbsp;start,
                    org.apache.spark.sql.connector.read.streaming.Offset&nbsp;end)</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/source/SparkMicroBatchStream.html#stop--">stop</a></span>()</code>&nbsp;</td>
 </tr>
@@ -168,6 +177,13 @@ implements org.apache.spark.sql.connector.read.streaming.MicroBatchStream</pre>
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
 <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.org.apache.spark.sql.connector.read.streaming.SupportsAdmissionControl">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;org.apache.spark.sql.connector.read.streaming.SupportsAdmissionControl</h3>
+<code>reportLatestOffset</code></li>
 </ul>
 </li>
 </ul>
@@ -265,13 +281,40 @@ implements org.apache.spark.sql.connector.read.streaming.MicroBatchStream</pre>
 <a name="stop--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>stop</h4>
 <pre>public&nbsp;void&nbsp;stop()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>stop</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.read.streaming.SparkDataStream</code></dd>
+</dl>
+</li>
+</ul>
+<a name="latestOffset-org.apache.spark.sql.connector.read.streaming.Offset-org.apache.spark.sql.connector.read.streaming.ReadLimit-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>latestOffset</h4>
+<pre>public&nbsp;org.apache.spark.sql.connector.read.streaming.Offset&nbsp;latestOffset(org.apache.spark.sql.connector.read.streaming.Offset&nbsp;startOffset,
+                                                                         org.apache.spark.sql.connector.read.streaming.ReadLimit&nbsp;limit)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>latestOffset</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.read.streaming.SupportsAdmissionControl</code></dd>
+</dl>
+</li>
+</ul>
+<a name="getDefaultReadLimit--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getDefaultReadLimit</h4>
+<pre>public&nbsp;org.apache.spark.sql.connector.read.streaming.ReadLimit&nbsp;getDefaultReadLimit()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>getDefaultReadLimit</code>&nbsp;in interface&nbsp;<code>org.apache.spark.sql.connector.read.streaming.SupportsAdmissionControl</code></dd>
 </dl>
 </li>
 </ul>

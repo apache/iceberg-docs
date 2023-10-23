@@ -157,8 +157,9 @@ extends org.apache.flink.connector.base.source.reader.SingleThreadMultiplexSourc
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../org/apache/iceberg/flink/source/reader/IcebergSourceReader.html#IcebergSourceReader-org.apache.iceberg.flink.source.reader.IcebergSourceReaderMetrics-org.apache.iceberg.flink.source.reader.ReaderFunction-org.apache.flink.api.connector.source.SourceReaderContext-">IcebergSourceReader</a></span>(<a href="../../../../../../org/apache/iceberg/flink/source/reader/IcebergSourceReaderMetrics.html" title="class in org.apache.iceberg.flink.source.reader">IcebergSourceReaderMetrics</a>&nbsp;metrics,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../org/apache/iceberg/flink/source/reader/IcebergSourceReader.html#IcebergSourceReader-org.apache.iceberg.flink.source.reader.IcebergSourceReaderMetrics-org.apache.iceberg.flink.source.reader.ReaderFunction-org.apache.iceberg.flink.source.split.SerializableComparator-org.apache.flink.api.connector.source.SourceReaderContext-">IcebergSourceReader</a></span>(<a href="../../../../../../org/apache/iceberg/flink/source/reader/IcebergSourceReaderMetrics.html" title="class in org.apache.iceberg.flink.source.reader">IcebergSourceReaderMetrics</a>&nbsp;metrics,
                    <a href="../../../../../../org/apache/iceberg/flink/source/reader/ReaderFunction.html" title="interface in org.apache.iceberg.flink.source.reader">ReaderFunction</a>&lt;<a href="../../../../../../org/apache/iceberg/flink/source/reader/IcebergSourceReader.html" title="type parameter in IcebergSourceReader">T</a>&gt;&nbsp;readerFunction,
+                   <a href="../../../../../../org/apache/iceberg/flink/source/split/SerializableComparator.html" title="interface in org.apache.iceberg.flink.source.split">SerializableComparator</a>&lt;<a href="../../../../../../org/apache/iceberg/flink/source/split/IcebergSourceSplit.html" title="class in org.apache.iceberg.flink.source.split">IcebergSourceSplit</a>&gt;&nbsp;splitComparator,
                    org.apache.flink.api.connector.source.SourceReaderContext&nbsp;context)</code>&nbsp;</td>
 </tr>
 </table>
@@ -199,7 +200,7 @@ extends org.apache.flink.connector.base.source.reader.SingleThreadMultiplexSourc
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.flink.connector.base.source.reader.SourceReaderBase</h3>
-<code>addSplits, close, getNumberOfCurrentlyAssignedSplits, handleSourceEvents, isAvailable, notifyNoMoreSplits, pollNext, snapshotState</code></li>
+<code>addSplits, close, getNumberOfCurrentlyAssignedSplits, handleSourceEvents, isAvailable, notifyNoMoreSplits, pauseOrResumeSplits, pollNext, snapshotState</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -236,7 +237,7 @@ extends org.apache.flink.connector.base.source.reader.SingleThreadMultiplexSourc
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="IcebergSourceReader-org.apache.iceberg.flink.source.reader.IcebergSourceReaderMetrics-org.apache.iceberg.flink.source.reader.ReaderFunction-org.apache.flink.api.connector.source.SourceReaderContext-">
+<a name="IcebergSourceReader-org.apache.iceberg.flink.source.reader.IcebergSourceReaderMetrics-org.apache.iceberg.flink.source.reader.ReaderFunction-org.apache.iceberg.flink.source.split.SerializableComparator-org.apache.flink.api.connector.source.SourceReaderContext-">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -244,6 +245,7 @@ extends org.apache.flink.connector.base.source.reader.SingleThreadMultiplexSourc
 <h4>IcebergSourceReader</h4>
 <pre>public&nbsp;IcebergSourceReader(<a href="../../../../../../org/apache/iceberg/flink/source/reader/IcebergSourceReaderMetrics.html" title="class in org.apache.iceberg.flink.source.reader">IcebergSourceReaderMetrics</a>&nbsp;metrics,
                            <a href="../../../../../../org/apache/iceberg/flink/source/reader/ReaderFunction.html" title="interface in org.apache.iceberg.flink.source.reader">ReaderFunction</a>&lt;<a href="../../../../../../org/apache/iceberg/flink/source/reader/IcebergSourceReader.html" title="type parameter in IcebergSourceReader">T</a>&gt;&nbsp;readerFunction,
+                           <a href="../../../../../../org/apache/iceberg/flink/source/split/SerializableComparator.html" title="interface in org.apache.iceberg.flink.source.split">SerializableComparator</a>&lt;<a href="../../../../../../org/apache/iceberg/flink/source/split/IcebergSourceSplit.html" title="class in org.apache.iceberg.flink.source.split">IcebergSourceSplit</a>&gt;&nbsp;splitComparator,
                            org.apache.flink.api.connector.source.SourceReaderContext&nbsp;context)</pre>
 </li>
 </ul>

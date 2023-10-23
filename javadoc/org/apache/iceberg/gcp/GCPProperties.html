@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -154,7 +154,27 @@ implements java.io.Serializable</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/gcp/GCPProperties.html#GCS_DELETE_BATCH_SIZE">GCS_DELETE_BATCH_SIZE</a></span></code>
+<div class="block">Configure the batch size used when deleting multiple files from a given GCS bucket</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/gcp/GCPProperties.html#GCS_DELETE_BATCH_SIZE_DEFAULT">GCS_DELETE_BATCH_SIZE_DEFAULT</a></span></code>
+<div class="block">Max possible batch size for deletion.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/gcp/GCPProperties.html#GCS_ENCRYPTION_KEY">GCS_ENCRYPTION_KEY</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/gcp/GCPProperties.html#GCS_OAUTH2_TOKEN">GCS_OAUTH2_TOKEN</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/gcp/GCPProperties.html#GCS_OAUTH2_TOKEN_EXPIRES_AT">GCS_OAUTH2_TOKEN_EXPIRES_AT</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
@@ -220,18 +240,30 @@ implements java.io.Serializable</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/gcp/GCPProperties.html#decryptionKey--">decryptionKey</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>java.util.Optional&lt;java.lang.String&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/gcp/GCPProperties.html#encryptionKey--">encryptionKey</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/gcp/GCPProperties.html#deleteBatchSize--">deleteBatchSize</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.util.Optional&lt;java.lang.String&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/gcp/GCPProperties.html#projectId--">projectId</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/gcp/GCPProperties.html#encryptionKey--">encryptionKey</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>java.util.Optional&lt;java.lang.String&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/gcp/GCPProperties.html#serviceHost--">serviceHost</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/gcp/GCPProperties.html#oauth2Token--">oauth2Token</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
+<td class="colFirst"><code>java.util.Optional&lt;java.util.Date&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/gcp/GCPProperties.html#oauth2TokenExpiresAt--">oauth2TokenExpiresAt</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>java.util.Optional&lt;java.lang.String&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/gcp/GCPProperties.html#projectId--">projectId</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>java.util.Optional&lt;java.lang.String&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/gcp/GCPProperties.html#serviceHost--">serviceHost</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.util.Optional&lt;java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/gcp/GCPProperties.html#userProject--">userProject</a></span>()</code>&nbsp;</td>
 </tr>
@@ -351,13 +383,68 @@ implements java.io.Serializable</pre>
 <a name="GCS_CHANNEL_WRITE_CHUNK_SIZE">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>GCS_CHANNEL_WRITE_CHUNK_SIZE</h4>
 <pre>public static final&nbsp;java.lang.String GCS_CHANNEL_WRITE_CHUNK_SIZE</pre>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.apache.iceberg.gcp.GCPProperties.GCS_CHANNEL_WRITE_CHUNK_SIZE">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="GCS_OAUTH2_TOKEN">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>GCS_OAUTH2_TOKEN</h4>
+<pre>public static final&nbsp;java.lang.String GCS_OAUTH2_TOKEN</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.gcp.GCPProperties.GCS_OAUTH2_TOKEN">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="GCS_OAUTH2_TOKEN_EXPIRES_AT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>GCS_OAUTH2_TOKEN_EXPIRES_AT</h4>
+<pre>public static final&nbsp;java.lang.String GCS_OAUTH2_TOKEN_EXPIRES_AT</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.gcp.GCPProperties.GCS_OAUTH2_TOKEN_EXPIRES_AT">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="GCS_DELETE_BATCH_SIZE">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>GCS_DELETE_BATCH_SIZE</h4>
+<pre>public static final&nbsp;java.lang.String GCS_DELETE_BATCH_SIZE</pre>
+<div class="block">Configure the batch size used when deleting multiple files from a given GCS bucket</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.gcp.GCPProperties.GCS_DELETE_BATCH_SIZE">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="GCS_DELETE_BATCH_SIZE_DEFAULT">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>GCS_DELETE_BATCH_SIZE_DEFAULT</h4>
+<pre>public static final&nbsp;int GCS_DELETE_BATCH_SIZE_DEFAULT</pre>
+<div class="block">Max possible batch size for deletion. Currently, a max of 100 keys is advised, so we default to
+ a number below that. https://cloud.google.com/storage/docs/batch</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.gcp.GCPProperties.GCS_DELETE_BATCH_SIZE_DEFAULT">Constant Field Values</a></dd>
 </dl>
 </li>
 </ul>
@@ -461,10 +548,37 @@ implements java.io.Serializable</pre>
 <a name="userProject--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>userProject</h4>
 <pre>public&nbsp;java.util.Optional&lt;java.lang.String&gt;&nbsp;userProject()</pre>
+</li>
+</ul>
+<a name="oauth2Token--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>oauth2Token</h4>
+<pre>public&nbsp;java.util.Optional&lt;java.lang.String&gt;&nbsp;oauth2Token()</pre>
+</li>
+</ul>
+<a name="oauth2TokenExpiresAt--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>oauth2TokenExpiresAt</h4>
+<pre>public&nbsp;java.util.Optional&lt;java.util.Date&gt;&nbsp;oauth2TokenExpiresAt()</pre>
+</li>
+</ul>
+<a name="deleteBatchSize--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>deleteBatchSize</h4>
+<pre>public&nbsp;int&nbsp;deleteBatchSize()</pre>
 </li>
 </ul>
 </li>

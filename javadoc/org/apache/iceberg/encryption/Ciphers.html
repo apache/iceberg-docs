@@ -41,7 +41,7 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
+<li><a href="../../../../org/apache/iceberg/encryption/AesGcmOutputStream.html" title="class in org.apache.iceberg.encryption"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/encryption/Ciphers.AesGcmDecryptor.html" title="class in org.apache.iceberg.encryption"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -67,14 +67,14 @@
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#methods.inherited.from.class.java.lang.Object">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li>Method</li>
 </ul>
 </div>
@@ -132,19 +132,37 @@ extends java.lang.Object</pre>
 </table>
 </li>
 </ul>
-<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<!-- =========== FIELD SUMMARY =========== -->
 <ul class="blockList">
-<li class="blockList"><a name="constructor.summary">
+<li class="blockList"><a name="field.summary">
 <!--   -->
 </a>
-<h3>Constructor Summary</h3>
-<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
-<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<h3>Field Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
-<th class="colOne" scope="col">Constructor and Description</th>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/encryption/Ciphers.html#Ciphers--">Ciphers</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>static int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/encryption/Ciphers.html#CIPHER_BLOCK_SIZE">CIPHER_BLOCK_SIZE</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/encryption/Ciphers.html#GCM_STREAM_MAGIC_STRING">GCM_STREAM_MAGIC_STRING</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/encryption/Ciphers.html#GCM_TAG_LENGTH">GCM_TAG_LENGTH</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/encryption/Ciphers.html#NONCE_LENGTH">NONCE_LENGTH</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/encryption/Ciphers.html#PLAIN_BLOCK_SIZE">PLAIN_BLOCK_SIZE</a></span></code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -170,19 +188,75 @@ extends java.lang.Object</pre>
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- ============ FIELD DETAIL =========== -->
 <ul class="blockList">
-<li class="blockList"><a name="constructor.detail">
+<li class="blockList"><a name="field.detail">
 <!--   -->
 </a>
-<h3>Constructor Detail</h3>
-<a name="Ciphers--">
+<h3>Field Detail</h3>
+<a name="PLAIN_BLOCK_SIZE">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>PLAIN_BLOCK_SIZE</h4>
+<pre>public static final&nbsp;int PLAIN_BLOCK_SIZE</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.encryption.Ciphers.PLAIN_BLOCK_SIZE">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="NONCE_LENGTH">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>NONCE_LENGTH</h4>
+<pre>public static final&nbsp;int NONCE_LENGTH</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.encryption.Ciphers.NONCE_LENGTH">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="GCM_TAG_LENGTH">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>GCM_TAG_LENGTH</h4>
+<pre>public static final&nbsp;int GCM_TAG_LENGTH</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.encryption.Ciphers.GCM_TAG_LENGTH">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="CIPHER_BLOCK_SIZE">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>CIPHER_BLOCK_SIZE</h4>
+<pre>public static final&nbsp;int CIPHER_BLOCK_SIZE</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.encryption.Ciphers.CIPHER_BLOCK_SIZE">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a name="GCM_STREAM_MAGIC_STRING">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>Ciphers</h4>
-<pre>public&nbsp;Ciphers()</pre>
+<h4>GCM_STREAM_MAGIC_STRING</h4>
+<pre>public static final&nbsp;java.lang.String GCM_STREAM_MAGIC_STRING</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#org.apache.iceberg.encryption.Ciphers.GCM_STREAM_MAGIC_STRING">Constant Field Values</a></dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -212,7 +286,7 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
+<li><a href="../../../../org/apache/iceberg/encryption/AesGcmOutputStream.html" title="class in org.apache.iceberg.encryption"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/apache/iceberg/encryption/Ciphers.AesGcmDecryptor.html" title="class in org.apache.iceberg.encryption"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -238,14 +312,14 @@ extends java.lang.Object</pre>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#methods.inherited.from.class.java.lang.Object">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li>Method</li>
 </ul>
 </div>

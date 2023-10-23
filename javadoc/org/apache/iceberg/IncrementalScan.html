@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
+var methods = {"i0":6,"i1":18,"i2":6,"i3":18,"i4":6,"i5":18,"i6":18};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -123,7 +123,7 @@ extends <a href="../../../org/apache/iceberg/Scan.html" title="interface in org.
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -135,15 +135,39 @@ extends <a href="../../../org/apache/iceberg/Scan.html" title="interface in org.
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>default <a href="../../../org/apache/iceberg/IncrementalScan.html" title="type parameter in IncrementalScan">ThisT</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/IncrementalScan.html#fromSnapshotExclusive-java.lang.String-">fromSnapshotExclusive</a></span>(java.lang.String&nbsp;ref)</code>
+<div class="block">Instructs this scan to look for changes starting from a particular snapshot (exclusive).</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/IncrementalScan.html" title="type parameter in IncrementalScan">ThisT</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/IncrementalScan.html#fromSnapshotInclusive-long-">fromSnapshotInclusive</a></span>(long&nbsp;fromSnapshotId)</code>
 <div class="block">Instructs this scan to look for changes starting from a particular snapshot (inclusive).</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>default <a href="../../../org/apache/iceberg/IncrementalScan.html" title="type parameter in IncrementalScan">ThisT</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/IncrementalScan.html#fromSnapshotInclusive-java.lang.String-">fromSnapshotInclusive</a></span>(java.lang.String&nbsp;ref)</code>
+<div class="block">Instructs this scan to look for changes starting from a particular snapshot (inclusive).</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/IncrementalScan.html" title="type parameter in IncrementalScan">ThisT</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/IncrementalScan.html#toSnapshot-long-">toSnapshot</a></span>(long&nbsp;toSnapshotId)</code>
 <div class="block">Instructs this scan to look for changes up to a particular snapshot (inclusive).</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>default <a href="../../../org/apache/iceberg/IncrementalScan.html" title="type parameter in IncrementalScan">ThisT</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/IncrementalScan.html#toSnapshot-java.lang.String-">toSnapshot</a></span>(java.lang.String&nbsp;ref)</code>
+<div class="block">Instructs this scan to look for changes up to a particular snapshot ref (inclusive).</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>default <a href="../../../org/apache/iceberg/IncrementalScan.html" title="type parameter in IncrementalScan">ThisT</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/IncrementalScan.html#useBranch-java.lang.String-">useBranch</a></span>(java.lang.String&nbsp;branch)</code>
+<div class="block">Use the specified branch</div>
 </td>
 </tr>
 </table>
@@ -152,7 +176,7 @@ extends <a href="../../../org/apache/iceberg/Scan.html" title="interface in org.
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="../../../org/apache/iceberg/Scan.html" title="interface in org.apache.iceberg">Scan</a></h3>
-<code><a href="../../../org/apache/iceberg/Scan.html#caseSensitive-boolean-">caseSensitive</a>, <a href="../../../org/apache/iceberg/Scan.html#filter--">filter</a>, <a href="../../../org/apache/iceberg/Scan.html#filter-org.apache.iceberg.expressions.Expression-">filter</a>, <a href="../../../org/apache/iceberg/Scan.html#ignoreResiduals--">ignoreResiduals</a>, <a href="../../../org/apache/iceberg/Scan.html#includeColumnStats--">includeColumnStats</a>, <a href="../../../org/apache/iceberg/Scan.html#isCaseSensitive--">isCaseSensitive</a>, <a href="../../../org/apache/iceberg/Scan.html#option-java.lang.String-java.lang.String-">option</a>, <a href="../../../org/apache/iceberg/Scan.html#planFiles--">planFiles</a>, <a href="../../../org/apache/iceberg/Scan.html#planTasks--">planTasks</a>, <a href="../../../org/apache/iceberg/Scan.html#planWith-java.util.concurrent.ExecutorService-">planWith</a>, <a href="../../../org/apache/iceberg/Scan.html#project-org.apache.iceberg.Schema-">project</a>, <a href="../../../org/apache/iceberg/Scan.html#schema--">schema</a>, <a href="../../../org/apache/iceberg/Scan.html#select-java.util.Collection-">select</a>, <a href="../../../org/apache/iceberg/Scan.html#select-java.lang.String...-">select</a>, <a href="../../../org/apache/iceberg/Scan.html#splitLookback--">splitLookback</a>, <a href="../../../org/apache/iceberg/Scan.html#splitOpenFileCost--">splitOpenFileCost</a>, <a href="../../../org/apache/iceberg/Scan.html#targetSplitSize--">targetSplitSize</a></code></li>
+<code><a href="../../../org/apache/iceberg/Scan.html#caseSensitive-boolean-">caseSensitive</a>, <a href="../../../org/apache/iceberg/Scan.html#filter--">filter</a>, <a href="../../../org/apache/iceberg/Scan.html#filter-org.apache.iceberg.expressions.Expression-">filter</a>, <a href="../../../org/apache/iceberg/Scan.html#ignoreResiduals--">ignoreResiduals</a>, <a href="../../../org/apache/iceberg/Scan.html#includeColumnStats--">includeColumnStats</a>, <a href="../../../org/apache/iceberg/Scan.html#isCaseSensitive--">isCaseSensitive</a>, <a href="../../../org/apache/iceberg/Scan.html#metricsReporter-org.apache.iceberg.metrics.MetricsReporter-">metricsReporter</a>, <a href="../../../org/apache/iceberg/Scan.html#option-java.lang.String-java.lang.String-">option</a>, <a href="../../../org/apache/iceberg/Scan.html#planFiles--">planFiles</a>, <a href="../../../org/apache/iceberg/Scan.html#planTasks--">planTasks</a>, <a href="../../../org/apache/iceberg/Scan.html#planWith-java.util.concurrent.ExecutorService-">planWith</a>, <a href="../../../org/apache/iceberg/Scan.html#project-org.apache.iceberg.Schema-">project</a>, <a href="../../../org/apache/iceberg/Scan.html#schema--">schema</a>, <a href="../../../org/apache/iceberg/Scan.html#select-java.util.Collection-">select</a>, <a href="../../../org/apache/iceberg/Scan.html#select-java.lang.String...-">select</a>, <a href="../../../org/apache/iceberg/Scan.html#splitLookback--">splitLookback</a>, <a href="../../../org/apache/iceberg/Scan.html#splitOpenFileCost--">splitOpenFileCost</a>, <a href="../../../org/apache/iceberg/Scan.html#targetSplitSize--">targetSplitSize</a></code></li>
 </ul>
 </li>
 </ul>
@@ -177,11 +201,32 @@ extends <a href="../../../org/apache/iceberg/Scan.html" title="interface in org.
 <pre><a href="../../../org/apache/iceberg/IncrementalScan.html" title="type parameter in IncrementalScan">ThisT</a>&nbsp;fromSnapshotInclusive(long&nbsp;fromSnapshotId)</pre>
 <div class="block">Instructs this scan to look for changes starting from a particular snapshot (inclusive).
 
- <p>If the start snapshot is not configured, it is defaulted to the oldest ancestor of the end
+ <p>If the start snapshot is not configured, it defaults to the oldest ancestor of the end
  snapshot (inclusive).</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>fromSnapshotId</code> - the start snapshot ID (inclusive)</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.IllegalArgumentException</code> - if the start snapshot is not an ancestor of the end snapshot</dd>
+</dl>
+</li>
+</ul>
+<a name="fromSnapshotInclusive-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>fromSnapshotInclusive</h4>
+<pre>default&nbsp;<a href="../../../org/apache/iceberg/IncrementalScan.html" title="type parameter in IncrementalScan">ThisT</a>&nbsp;fromSnapshotInclusive(java.lang.String&nbsp;ref)</pre>
+<div class="block">Instructs this scan to look for changes starting from a particular snapshot (inclusive).
+
+ <p>If the start snapshot is not configured, it defaults to the oldest ancestor of the end
+ snapshot (inclusive).</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ref</code> - the start ref name that points to a particular snapshot ID (inclusive)</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
@@ -198,7 +243,7 @@ extends <a href="../../../org/apache/iceberg/Scan.html" title="interface in org.
 <pre><a href="../../../org/apache/iceberg/IncrementalScan.html" title="type parameter in IncrementalScan">ThisT</a>&nbsp;fromSnapshotExclusive(long&nbsp;fromSnapshotId)</pre>
 <div class="block">Instructs this scan to look for changes starting from a particular snapshot (exclusive).
 
- <p>If the start snapshot is not configured, it is defaulted to the oldest ancestor of the end
+ <p>If the start snapshot is not configured, it defaults to the oldest ancestor of the end
  snapshot (inclusive).</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -210,20 +255,76 @@ extends <a href="../../../org/apache/iceberg/Scan.html" title="interface in org.
 </dl>
 </li>
 </ul>
+<a name="fromSnapshotExclusive-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>fromSnapshotExclusive</h4>
+<pre>default&nbsp;<a href="../../../org/apache/iceberg/IncrementalScan.html" title="type parameter in IncrementalScan">ThisT</a>&nbsp;fromSnapshotExclusive(java.lang.String&nbsp;ref)</pre>
+<div class="block">Instructs this scan to look for changes starting from a particular snapshot (exclusive).
+
+ <p>If the start snapshot is not configured, it defaults to the oldest ancestor of the end
+ snapshot (inclusive).</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ref</code> - the start ref name that points to a particular snapshot ID (exclusive)</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.IllegalArgumentException</code> - if the start snapshot is not an ancestor of the end snapshot</dd>
+</dl>
+</li>
+</ul>
 <a name="toSnapshot-long-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>toSnapshot</h4>
 <pre><a href="../../../org/apache/iceberg/IncrementalScan.html" title="type parameter in IncrementalScan">ThisT</a>&nbsp;toSnapshot(long&nbsp;toSnapshotId)</pre>
 <div class="block">Instructs this scan to look for changes up to a particular snapshot (inclusive).
 
- <p>If the end snapshot is not configured, it is defaulted to the current table snapshot
+ <p>If the end snapshot is not configured, it defaults to the current table snapshot
  (inclusive).</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>toSnapshotId</code> - the end snapshot ID (inclusive)</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a name="toSnapshot-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>toSnapshot</h4>
+<pre>default&nbsp;<a href="../../../org/apache/iceberg/IncrementalScan.html" title="type parameter in IncrementalScan">ThisT</a>&nbsp;toSnapshot(java.lang.String&nbsp;ref)</pre>
+<div class="block">Instructs this scan to look for changes up to a particular snapshot ref (inclusive).
+
+ <p>If the end snapshot is not configured, it defaults to the current table snapshot
+ (inclusive).</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ref</code> - the end snapshot Ref (inclusive)</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a name="useBranch-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>useBranch</h4>
+<pre>default&nbsp;<a href="../../../org/apache/iceberg/IncrementalScan.html" title="type parameter in IncrementalScan">ThisT</a>&nbsp;useBranch(java.lang.String&nbsp;branch)</pre>
+<div class="block">Use the specified branch</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>branch</code> - the branch name</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>
 </dl>

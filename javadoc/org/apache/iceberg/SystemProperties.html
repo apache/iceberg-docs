@@ -41,7 +41,7 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/SystemConfigs.ConfigEntry.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -100,8 +100,12 @@
 <ul class="blockList">
 <li class="blockList">
 <hr>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
+<div class="block"><span class="deprecationComment">Use <a href="../../../org/apache/iceberg/SystemConfigs.html" title="class in org.apache.iceberg"><code>SystemConfigs</code></a> instead; will be removed in 2.0.0</span></div>
+</div>
 <br>
-<pre>public class <span class="typeNameLabel">SystemProperties</span>
+<pre>@Deprecated
+public class <span class="typeNameLabel">SystemProperties</span>
 extends java.lang.Object</pre>
 <div class="block">Configuration properties that are controlled by Java system properties.</div>
 </li>
@@ -125,23 +129,28 @@ extends java.lang.Object</pre>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SystemProperties.html#IO_MANIFEST_CACHE_MAX_FILEIO">IO_MANIFEST_CACHE_MAX_FILEIO</a></span></code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Maximum number of distinct <a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><code>FileIO</code></a> that is allowed to have
  associated <a href="../../../org/apache/iceberg/io/ContentCache.html" title="class in org.apache.iceberg.io"><code>ContentCache</code></a> in memory at a time.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SystemProperties.html#IO_MANIFEST_CACHE_MAX_FILEIO_DEFAULT">IO_MANIFEST_CACHE_MAX_FILEIO_DEFAULT</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SystemProperties.html#IO_MANIFEST_CACHE_MAX_FILEIO_DEFAULT">IO_MANIFEST_CACHE_MAX_FILEIO_DEFAULT</a></span></code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SystemProperties.html#SCAN_THREAD_POOL_ENABLED">SCAN_THREAD_POOL_ENABLED</a></span></code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Whether to use the shared worker pool when planning table scans.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/SystemProperties.html#WORKER_THREAD_POOL_SIZE_PROP">WORKER_THREAD_POOL_SIZE_PROP</a></span></code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Sets the size of the worker pool.</div>
 </td>
 </tr>
@@ -182,6 +191,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>WORKER_THREAD_POOL_SIZE_PROP</h4>
 <pre>public static final&nbsp;java.lang.String WORKER_THREAD_POOL_SIZE_PROP</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Sets the size of the worker pool. The worker pool limits the number of tasks concurrently
  processing manifests in the base table implementation across all concurrent planning or commit
  operations.</div>
@@ -198,6 +208,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>SCAN_THREAD_POOL_ENABLED</h4>
 <pre>public static final&nbsp;java.lang.String SCAN_THREAD_POOL_ENABLED</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Whether to use the shared worker pool when planning table scans.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -212,6 +223,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>IO_MANIFEST_CACHE_MAX_FILEIO</h4>
 <pre>public static final&nbsp;java.lang.String IO_MANIFEST_CACHE_MAX_FILEIO</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Maximum number of distinct <a href="../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><code>FileIO</code></a> that is allowed to have
  associated <a href="../../../org/apache/iceberg/io/ContentCache.html" title="class in org.apache.iceberg.io"><code>ContentCache</code></a> in memory at a time.</div>
 <dl>
@@ -227,6 +239,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>IO_MANIFEST_CACHE_MAX_FILEIO_DEFAULT</h4>
 <pre>public static final&nbsp;int IO_MANIFEST_CACHE_MAX_FILEIO_DEFAULT</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../constant-values.html#org.apache.iceberg.SystemProperties.IO_MANIFEST_CACHE_MAX_FILEIO_DEFAULT">Constant Field Values</a></dd>
@@ -260,7 +273,7 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/apache/iceberg/SystemConfigs.ConfigEntry.html" title="class in org.apache.iceberg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

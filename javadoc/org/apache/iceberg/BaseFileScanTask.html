@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -164,52 +164,76 @@ implements <a href="../../../org/apache/iceberg/FileScanTask.html" title="interf
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseFileScanTask.html#estimatedRowsCount--">estimatedRowsCount</a></span>()</code>
+<div class="block">The estimated number of rows produced by this scan task.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>F</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseFileScanTask.html#file--">file</a></span>()</code>
 <div class="block">The <a href="../../../org/apache/iceberg/ContentFile.html" title="interface in org.apache.iceberg"><code>file</code></a> to scan.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseFileScanTask.html#filesCount--">filesCount</a></span>()</code>
+<div class="block">The number of files that will be opened by this scan task.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseFileScanTask.html#length--">length</a></span>()</code>
 <div class="block">The number of bytes to scan from the <a href="../../../org/apache/iceberg/ContentScanTask.html#start--"><code>ContentScanTask.start()</code></a> position in the file.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseFileScanTask.html#newSplitTask-org.apache.iceberg.FileScanTask-long-long-">newSplitTask</a></span>(<a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a>&nbsp;parentTask,
             long&nbsp;offset,
             long&nbsp;length)</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseFileScanTask.html#residual--">residual</a></span>()</code>
 <div class="block">Returns the residual expression that should be applied to rows in this file scan.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseFileScanTask.html#schema--">schema</a></span>()</code>
+<div class="block">Return the schema for this file scan task.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>protected <a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseFileScanTask.html#self--">self</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseFileScanTask.html#sizeBytes--">sizeBytes</a></span>()</code>
+<div class="block">The number of bytes that should be read by this scan task.</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseFileScanTask.html#spec--">spec</a></span>()</code>
 <div class="block">Returns the spec of the partition for this scan task</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.lang.Iterable&lt;ThisT&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseFileScanTask.html#split-long-">split</a></span>(long&nbsp;targetSplitSize)</code>
 <div class="block">Attempts to split this scan task into several smaller scan tasks, each close to <code>splitSize</code> size.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseFileScanTask.html#start--">start</a></span>()</code>
 <div class="block">The starting position of this scan range in the file.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseFileScanTask.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -226,7 +250,7 @@ implements <a href="../../../org/apache/iceberg/FileScanTask.html" title="interf
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;org.apache.iceberg.<a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a></h3>
-<code><a href="../../../org/apache/iceberg/FileScanTask.html#asFileScanTask--">asFileScanTask</a>, <a href="../../../org/apache/iceberg/FileScanTask.html#filesCount--">filesCount</a>, <a href="../../../org/apache/iceberg/FileScanTask.html#isFileScanTask--">isFileScanTask</a>, <a href="../../../org/apache/iceberg/FileScanTask.html#sizeBytes--">sizeBytes</a></code></li>
+<code><a href="../../../org/apache/iceberg/FileScanTask.html#asFileScanTask--">asFileScanTask</a>, <a href="../../../org/apache/iceberg/FileScanTask.html#isFileScanTask--">isFileScanTask</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.org.apache.iceberg.ContentScanTask">
@@ -328,6 +352,61 @@ implements <a href="../../../org/apache/iceberg/FileScanTask.html" title="interf
 </dl>
 </li>
 </ul>
+<a name="sizeBytes--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>sizeBytes</h4>
+<pre>public&nbsp;long&nbsp;sizeBytes()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/ScanTask.html#sizeBytes--">ScanTask</a></code></span></div>
+<div class="block">The number of bytes that should be read by this scan task.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/ContentScanTask.html#sizeBytes--">sizeBytes</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ContentScanTask.html" title="interface in org.apache.iceberg">ContentScanTask</a>&lt;<a href="../../../org/apache/iceberg/DataFile.html" title="interface in org.apache.iceberg">DataFile</a>&gt;</code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/FileScanTask.html#sizeBytes--">sizeBytes</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/ScanTask.html#sizeBytes--">sizeBytes</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the total number of bytes to read</dd>
+</dl>
+</li>
+</ul>
+<a name="filesCount--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>filesCount</h4>
+<pre>public&nbsp;int&nbsp;filesCount()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/ScanTask.html#filesCount--">ScanTask</a></code></span></div>
+<div class="block">The number of files that will be opened by this scan task.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/FileScanTask.html#filesCount--">filesCount</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/ScanTask.html#filesCount--">filesCount</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the number of files to open</dd>
+</dl>
+</li>
+</ul>
+<a name="schema--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>schema</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/FileScanTask.html#schema--">FileScanTask</a></code></span></div>
+<div class="block">Return the schema for this file scan task.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/FileScanTask.html#schema--">schema</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/FileScanTask.html" title="interface in org.apache.iceberg">FileScanTask</a></code></dd>
+</dl>
+</li>
+</ul>
 <a name="file--">
 <!--   -->
 </a>
@@ -411,6 +490,25 @@ implements <a href="../../../org/apache/iceberg/FileScanTask.html" title="interf
 <dd><code><a href="../../../org/apache/iceberg/ContentScanTask.html#residual--">residual</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ContentScanTask.html" title="interface in org.apache.iceberg">ContentScanTask</a>&lt;F extends <a href="../../../org/apache/iceberg/ContentFile.html" title="interface in org.apache.iceberg">ContentFile</a>&lt;F&gt;&gt;</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a residual expression to apply to rows from this scan</dd>
+</dl>
+</li>
+</ul>
+<a name="estimatedRowsCount--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>estimatedRowsCount</h4>
+<pre>public&nbsp;long&nbsp;estimatedRowsCount()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../org/apache/iceberg/ScanTask.html#estimatedRowsCount--">ScanTask</a></code></span></div>
+<div class="block">The estimated number of rows produced by this scan task.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/ContentScanTask.html#estimatedRowsCount--">estimatedRowsCount</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ContentScanTask.html" title="interface in org.apache.iceberg">ContentScanTask</a>&lt;F extends <a href="../../../org/apache/iceberg/ContentFile.html" title="interface in org.apache.iceberg">ContentFile</a>&lt;F&gt;&gt;</code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../org/apache/iceberg/ScanTask.html#estimatedRowsCount--">estimatedRowsCount</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/apache/iceberg/ScanTask.html" title="interface in org.apache.iceberg">ScanTask</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the estimated number of produced rows</dd>
 </dl>
 </li>
 </ul>

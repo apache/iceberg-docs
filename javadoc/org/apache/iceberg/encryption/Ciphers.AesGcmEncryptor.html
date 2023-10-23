@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10};
+var methods = {"i0":10,"i1":10,"i2":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -150,7 +150,23 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>byte[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/encryption/Ciphers.AesGcmEncryptor.html#encrypt-byte:A-byte:A-">encrypt</a></span>(byte[]&nbsp;plainText,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/encryption/Ciphers.AesGcmEncryptor.html#encrypt-byte:A-byte:A-">encrypt</a></span>(byte[]&nbsp;plaintext,
+       byte[]&nbsp;aad)</code>&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>byte[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/encryption/Ciphers.AesGcmEncryptor.html#encrypt-byte:A-int-int-byte:A-">encrypt</a></span>(byte[]&nbsp;plaintext,
+       int&nbsp;plaintextOffset,
+       int&nbsp;plaintextLength,
+       byte[]&nbsp;aad)</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/encryption/Ciphers.AesGcmEncryptor.html#encrypt-byte:A-int-int-byte:A-int-byte:A-">encrypt</a></span>(byte[]&nbsp;plaintext,
+       int&nbsp;plaintextOffset,
+       int&nbsp;plaintextLength,
+       byte[]&nbsp;ciphertextBuffer,
+       int&nbsp;ciphertextOffset,
        byte[]&nbsp;aad)</code>&nbsp;</td>
 </tr>
 </table>
@@ -195,11 +211,37 @@ extends java.lang.Object</pre>
 <a name="encrypt-byte:A-byte:A-">
 <!--   -->
 </a>
+<ul class="blockList">
+<li class="blockList">
+<h4>encrypt</h4>
+<pre>public&nbsp;byte[]&nbsp;encrypt(byte[]&nbsp;plaintext,
+                      byte[]&nbsp;aad)</pre>
+</li>
+</ul>
+<a name="encrypt-byte:A-int-int-byte:A-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>encrypt</h4>
+<pre>public&nbsp;byte[]&nbsp;encrypt(byte[]&nbsp;plaintext,
+                      int&nbsp;plaintextOffset,
+                      int&nbsp;plaintextLength,
+                      byte[]&nbsp;aad)</pre>
+</li>
+</ul>
+<a name="encrypt-byte:A-int-int-byte:A-int-byte:A-">
+<!--   -->
+</a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>encrypt</h4>
-<pre>public&nbsp;byte[]&nbsp;encrypt(byte[]&nbsp;plainText,
-                      byte[]&nbsp;aad)</pre>
+<pre>public&nbsp;int&nbsp;encrypt(byte[]&nbsp;plaintext,
+                   int&nbsp;plaintextOffset,
+                   int&nbsp;plaintextLength,
+                   byte[]&nbsp;ciphertextBuffer,
+                   int&nbsp;ciphertextOffset,
+                   byte[]&nbsp;aad)</pre>
 </li>
 </ul>
 </li>

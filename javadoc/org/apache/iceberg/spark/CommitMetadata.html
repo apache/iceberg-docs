@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/spark/ChangelogIterator.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/spark/ExtendedParser.html" title="interface in org.apache.iceberg.spark"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/spark/ComputeUpdateIterator.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/spark/CommitMetadata.html" target="_top">Frames</a></li>
@@ -177,7 +177,8 @@ extends java.lang.Object</pre>
  will be attached with the metadata defined in properties</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>properties</code> - extra commit metadata to attach to the snapshot committed within callable</dd>
+<dd><code>properties</code> - extra commit metadata to attach to the snapshot committed within callable.
+     The prefix will be removed for properties starting with <a href="../../../../org/apache/iceberg/SnapshotSummary.html#EXTRA_METADATA_PREFIX"><code>SnapshotSummary.EXTRA_METADATA_PREFIX</code></a></dd>
 <dd><code>callable</code> - the code to be executed</dd>
 <dd><code>exClass</code> - the expected type of exception which would be thrown from callable</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
@@ -222,7 +223,7 @@ extends java.lang.Object</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/spark/ChangelogIterator.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/spark/ExtendedParser.html" title="interface in org.apache.iceberg.spark"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/spark/ComputeUpdateIterator.html" title="class in org.apache.iceberg.spark"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/spark/CommitMetadata.html" target="_top">Frames</a></li>

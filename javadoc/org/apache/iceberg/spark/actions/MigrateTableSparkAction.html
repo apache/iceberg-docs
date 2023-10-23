@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -218,23 +218,29 @@ implements <a href="../../../../../org/apache/iceberg/actions/MigrateTable.html"
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#allReachableOtherMetadataFileDS-org.apache.iceberg.Table-">allReachableOtherMetadataFileDS</a></span>(<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html" title="class in org.apache.iceberg.spark.actions">MigrateTableSparkAction</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#backupTableName-java.lang.String-">backupTableName</a></span>(java.lang.String&nbsp;tableName)</code>
+<div class="block">Sets a table name for the backup of the original table.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.connector.catalog.StagingTableCatalog</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#checkDestinationCatalog-org.apache.spark.sql.connector.catalog.CatalogPlugin-">checkDestinationCatalog</a></span>(org.apache.spark.sql.connector.catalog.CatalogPlugin&nbsp;catalog)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.connector.catalog.TableCatalog</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#checkSourceCatalog-org.apache.spark.sql.connector.catalog.CatalogPlugin-">checkSourceCatalog</a></span>(org.apache.spark.sql.connector.catalog.CatalogPlugin&nbsp;catalog)</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.Dataset&lt;<a href="../../../../../org/apache/iceberg/spark/actions/FileInfo.html" title="class in org.apache.iceberg.spark.actions">FileInfo</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#contentFileDS-org.apache.iceberg.Table-">contentFileDS</a></span>(<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.Dataset&lt;<a href="../../../../../org/apache/iceberg/spark/actions/FileInfo.html" title="class in org.apache.iceberg.spark.actions">FileInfo</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#contentFileDS-org.apache.iceberg.Table-java.util.Set-">contentFileDS</a></span>(<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
              java.util.Set&lt;java.lang.Long&gt;&nbsp;snapshotIds)</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>protected org.apache.iceberg.spark.actions.BaseSparkAction.DeleteSummary</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#deleteFiles-java.util.concurrent.ExecutorService-java.util.function.Consumer-java.util.Iterator-">deleteFiles</a></span>(java.util.concurrent.ExecutorService&nbsp;executorService,
            java.util.function.Consumer&lt;java.lang.String&gt;&nbsp;deleteFunc,
@@ -242,153 +248,153 @@ implements <a href="../../../../../org/apache/iceberg/actions/MigrateTable.html"
 <div class="block">Deletes files and keeps track of how many files were removed for each file type.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>protected org.apache.iceberg.spark.actions.BaseSparkAction.DeleteSummary</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#deleteFiles-org.apache.iceberg.io.SupportsBulkOperations-java.util.Iterator-">deleteFiles</a></span>(<a href="../../../../../org/apache/iceberg/io/SupportsBulkOperations.html" title="interface in org.apache.iceberg.io">SupportsBulkOperations</a>&nbsp;io,
            java.util.Iterator&lt;<a href="../../../../../org/apache/iceberg/spark/actions/FileInfo.html" title="class in org.apache.iceberg.spark.actions">FileInfo</a>&gt;&nbsp;files)</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.connector.catalog.StagingTableCatalog</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#destCatalog--">destCatalog</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.connector.catalog.Identifier</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#destTableIdent--">destTableIdent</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>protected java.util.Map&lt;java.lang.String,java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#destTableProps--">destTableProps</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html" title="class in org.apache.iceberg.spark.actions">MigrateTableSparkAction</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#dropBackup--">dropBackup</a></span>()</code>
 <div class="block">Drops the backup of the original table after a successful migration</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#ensureNameMappingPresent-org.apache.iceberg.Table-">ensureNameMappingPresent</a></span>(<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</code>&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/actions/MigrateTable.Result.html" title="interface in org.apache.iceberg.actions">MigrateTable.Result</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#execute--">execute</a></span>()</code>
 <div class="block">Executes this action.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>protected java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#getMetadataLocation-org.apache.iceberg.Table-">getMetadataLocation</a></span>(<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.Dataset&lt;org.apache.spark.sql.Row&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#loadMetadataTable-org.apache.iceberg.Table-org.apache.iceberg.MetadataTableType-">loadMetadataTable</a></span>(<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
                  <a href="../../../../../org/apache/iceberg/MetadataTableType.html" title="enum in org.apache.iceberg">MetadataTableType</a>&nbsp;type)</code>&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.Dataset&lt;<a href="../../../../../org/apache/iceberg/spark/actions/FileInfo.html" title="class in org.apache.iceberg.spark.actions">FileInfo</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#manifestDS-org.apache.iceberg.Table-">manifestDS</a></span>(<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.Dataset&lt;<a href="../../../../../org/apache/iceberg/spark/actions/FileInfo.html" title="class in org.apache.iceberg.spark.actions">FileInfo</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#manifestDS-org.apache.iceberg.Table-java.util.Set-">manifestDS</a></span>(<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
           java.util.Set&lt;java.lang.Long&gt;&nbsp;snapshotIds)</code>&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.Dataset&lt;<a href="../../../../../org/apache/iceberg/spark/actions/FileInfo.html" title="class in org.apache.iceberg.spark.actions">FileInfo</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#manifestListDS-org.apache.iceberg.Table-">manifestListDS</a></span>(<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</code>&nbsp;</td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.Dataset&lt;<a href="../../../../../org/apache/iceberg/spark/actions/FileInfo.html" title="class in org.apache.iceberg.spark.actions">FileInfo</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#manifestListDS-org.apache.iceberg.Table-java.util.Set-">manifestListDS</a></span>(<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
               java.util.Set&lt;java.lang.Long&gt;&nbsp;snapshotIds)</code>&nbsp;</td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../../org/apache/iceberg/spark/JobGroupInfo.html" title="class in org.apache.iceberg.spark">JobGroupInfo</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#newJobGroupInfo-java.lang.String-java.lang.String-">newJobGroupInfo</a></span>(java.lang.String&nbsp;groupId,
                java.lang.String&nbsp;desc)</code>&nbsp;</td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>protected <a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#newStaticTable-org.apache.iceberg.TableMetadata-org.apache.iceberg.io.FileIO-">newStaticTable</a></span>(<a href="../../../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;metadata,
               <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;io)</code>&nbsp;</td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>ThisT</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#option-java.lang.String-java.lang.String-">option</a></span>(java.lang.String&nbsp;name,
       java.lang.String&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>protected java.util.Map&lt;java.lang.String,java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#options--">options</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>ThisT</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#options-java.util.Map-">options</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;newOptions)</code>&nbsp;</td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.Dataset&lt;<a href="../../../../../org/apache/iceberg/spark/actions/FileInfo.html" title="class in org.apache.iceberg.spark.actions">FileInfo</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#otherMetadataFileDS-org.apache.iceberg.Table-">otherMetadataFileDS</a></span>(<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</code>&nbsp;</td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html" title="class in org.apache.iceberg.spark.actions">MigrateTableSparkAction</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#self--">self</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i27" class="rowColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#setProperties-java.util.Map-">setProperties</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</code>&nbsp;</td>
 </tr>
-<tr id="i28" class="altColor">
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#setProperty-java.lang.String-java.lang.String-">setProperty</a></span>(java.lang.String&nbsp;key,
            java.lang.String&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i29" class="rowColor">
+<tr id="i30" class="altColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.connector.catalog.TableCatalog</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#sourceCatalog--">sourceCatalog</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i30" class="altColor">
+<tr id="i31" class="rowColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.connector.catalog.Identifier</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#sourceTableIdent--">sourceTableIdent</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i31" class="rowColor">
+<tr id="i32" class="altColor">
 <td class="colFirst"><code>protected java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#sourceTableLocation--">sourceTableLocation</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i32" class="altColor">
+<tr id="i33" class="rowColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.SparkSession</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#spark--">spark</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i33" class="rowColor">
+<tr id="i34" class="altColor">
 <td class="colFirst"><code>protected org.apache.spark.api.java.JavaSparkContext</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#sparkContext--">sparkContext</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i34" class="altColor">
+<tr id="i35" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../../org/apache/iceberg/spark/source/StagedSparkTable.html" title="class in org.apache.iceberg.spark.source">StagedSparkTable</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#stageDestTable--">stageDestTable</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i35" class="rowColor">
+<tr id="i36" class="altColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.Dataset&lt;<a href="../../../../../org/apache/iceberg/spark/actions/FileInfo.html" title="class in org.apache.iceberg.spark.actions">FileInfo</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#statisticsFileDS-org.apache.iceberg.Table-java.util.Set-">statisticsFileDS</a></span>(<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table,
                 java.util.Set&lt;java.lang.Long&gt;&nbsp;snapshotIds)</code>&nbsp;</td>
 </tr>
-<tr id="i36" class="altColor">
+<tr id="i37" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html" title="class in org.apache.iceberg.spark.actions">MigrateTableSparkAction</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#tableProperties-java.util.Map-">tableProperties</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</code>
 <div class="block">Sets table properties in the newly created Iceberg table.</div>
 </td>
 </tr>
-<tr id="i37" class="rowColor">
+<tr id="i38" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html" title="class in org.apache.iceberg.spark.actions">MigrateTableSparkAction</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#tableProperty-java.lang.String-java.lang.String-">tableProperty</a></span>(java.lang.String&nbsp;property,
              java.lang.String&nbsp;value)</code>
 <div class="block">Sets a table property in the newly created Iceberg table.</div>
 </td>
 </tr>
-<tr id="i38" class="altColor">
+<tr id="i39" class="rowColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.catalyst.catalog.CatalogTable</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#v1SourceTable--">v1SourceTable</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i39" class="rowColor">
+<tr id="i40" class="altColor">
 <td class="colFirst"><code>protected &lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html#withJobGroupInfo-org.apache.iceberg.spark.JobGroupInfo-java.util.function.Supplier-">withJobGroupInfo</a></span>(<a href="../../../../../org/apache/iceberg/spark/JobGroupInfo.html" title="class in org.apache.iceberg.spark">JobGroupInfo</a>&nbsp;info,
                 java.util.function.Supplier&lt;T&gt;&nbsp;supplier)</code>&nbsp;</td>
@@ -642,6 +648,25 @@ implements <a href="../../../../../org/apache/iceberg/actions/MigrateTable.html"
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/iceberg/actions/MigrateTable.html#dropBackup--">dropBackup</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/iceberg/actions/MigrateTable.html" title="interface in org.apache.iceberg.actions">MigrateTable</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this for method chaining</dd>
+</dl>
+</li>
+</ul>
+<a name="backupTableName-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>backupTableName</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/iceberg/spark/actions/MigrateTableSparkAction.html" title="class in org.apache.iceberg.spark.actions">MigrateTableSparkAction</a>&nbsp;backupTableName(java.lang.String&nbsp;tableName)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/iceberg/actions/MigrateTable.html#backupTableName-java.lang.String-">MigrateTable</a></code></span></div>
+<div class="block">Sets a table name for the backup of the original table.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../org/apache/iceberg/actions/MigrateTable.html#backupTableName-java.lang.String-">backupTableName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/iceberg/actions/MigrateTable.html" title="interface in org.apache.iceberg.actions">MigrateTable</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>tableName</code> - the table name for backup</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>this for method chaining</dd>
 </dl>

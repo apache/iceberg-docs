@@ -41,7 +41,7 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/hive/package-tree.html">Prev</a></li>
+<li><a href="../../../../org/apache/iceberg/inmemory/package-tree.html">Prev</a></li>
 <li><a href="../../../../org/apache/iceberg/jdbc/package-tree.html">Next</a></li>
 </ul>
 <ul class="navList">
@@ -105,6 +105,7 @@
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/DeleteSchemaUtil.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">DeleteSchemaUtil</span></a></li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/DeleteWriteResult.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">DeleteWriteResult</span></a></li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FanoutDataWriter.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">FanoutDataWriter</span></a>&lt;T&gt;</li>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FanoutPositionOnlyDeleteWriter.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">FanoutPositionOnlyDeleteWriter</span></a>&lt;T&gt;</li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FileInfo.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">FileInfo</span></a></li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FileIOParser.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">FileIOParser</span></a></li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FilterIterator.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">FilterIterator</span></a>&lt;T&gt; (implements org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/CloseableIterator.html" title="interface in org.apache.iceberg.io">CloseableIterator</a>&lt;T&gt;)</li>
@@ -125,7 +126,7 @@
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/PositionOutputStream.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">PositionOutputStream</span></a></li>
 </ul>
 </li>
-<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/ResolvingFileIO.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">ResolvingFileIO</span></a> (implements org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>, org.apache.iceberg.hadoop.<a href="../../../../org/apache/iceberg/hadoop/HadoopConfigurable.html" title="interface in org.apache.iceberg.hadoop">HadoopConfigurable</a>)</li>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/ResolvingFileIO.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">ResolvingFileIO</span></a> (implements org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/DelegateFileIO.html" title="interface in org.apache.iceberg.io">DelegateFileIO</a>, org.apache.iceberg.hadoop.<a href="../../../../org/apache/iceberg/hadoop/HadoopConfigurable.html" title="interface in org.apache.iceberg.hadoop">HadoopConfigurable</a>)</li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/RollingDataWriter.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">RollingDataWriter</span></a>&lt;T&gt;</li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/RollingEqualityDeleteWriter.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">RollingEqualityDeleteWriter</span></a>&lt;T&gt;</li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/RollingPositionDeleteWriter.html" title="class in org.apache.iceberg.io"><span class="typeNameLink">RollingPositionDeleteWriter</span></a>&lt;T&gt;</li>
@@ -159,8 +160,17 @@
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FileAppender.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">FileAppender</span></a>&lt;D&gt;</li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">FileIO</span></a> (also extends java.io.Serializable)
 <ul>
-<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/SupportsBulkOperations.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">SupportsBulkOperations</span></a></li>
-<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/SupportsPrefixOperations.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">SupportsPrefixOperations</span></a></li>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/DelegateFileIO.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">DelegateFileIO</span></a> (also extends org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/SupportsBulkOperations.html" title="interface in org.apache.iceberg.io">SupportsBulkOperations</a>, org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/SupportsPrefixOperations.html" title="interface in org.apache.iceberg.io">SupportsPrefixOperations</a>)</li>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/SupportsBulkOperations.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">SupportsBulkOperations</span></a>
+<ul>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/DelegateFileIO.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">DelegateFileIO</span></a> (also extends org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>, org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/SupportsPrefixOperations.html" title="interface in org.apache.iceberg.io">SupportsPrefixOperations</a>)</li>
+</ul>
+</li>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/SupportsPrefixOperations.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">SupportsPrefixOperations</span></a>
+<ul>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/DelegateFileIO.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">DelegateFileIO</span></a> (also extends org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>, org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/SupportsBulkOperations.html" title="interface in org.apache.iceberg.io">SupportsBulkOperations</a>)</li>
+</ul>
+</li>
 </ul>
 </li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FileWriter.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">FileWriter</span></a>&lt;T,R&gt;</li>
@@ -193,8 +203,17 @@
 <ul>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">FileIO</span></a> (also extends java.io.Closeable)
 <ul>
-<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/SupportsBulkOperations.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">SupportsBulkOperations</span></a></li>
-<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/SupportsPrefixOperations.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">SupportsPrefixOperations</span></a></li>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/DelegateFileIO.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">DelegateFileIO</span></a> (also extends org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/SupportsBulkOperations.html" title="interface in org.apache.iceberg.io">SupportsBulkOperations</a>, org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/SupportsPrefixOperations.html" title="interface in org.apache.iceberg.io">SupportsPrefixOperations</a>)</li>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/SupportsBulkOperations.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">SupportsBulkOperations</span></a>
+<ul>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/DelegateFileIO.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">DelegateFileIO</span></a> (also extends org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>, org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/SupportsPrefixOperations.html" title="interface in org.apache.iceberg.io">SupportsPrefixOperations</a>)</li>
+</ul>
+</li>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/SupportsPrefixOperations.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">SupportsPrefixOperations</span></a>
+<ul>
+<li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/DelegateFileIO.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">DelegateFileIO</span></a> (also extends org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>, org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/SupportsBulkOperations.html" title="interface in org.apache.iceberg.io">SupportsBulkOperations</a>)</li>
+</ul>
+</li>
 </ul>
 </li>
 <li type="circle">org.apache.iceberg.io.<a href="../../../../org/apache/iceberg/io/LocationProvider.html" title="interface in org.apache.iceberg.io"><span class="typeNameLink">LocationProvider</span></a></li>
@@ -227,7 +246,7 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/iceberg/hive/package-tree.html">Prev</a></li>
+<li><a href="../../../../org/apache/iceberg/inmemory/package-tree.html">Prev</a></li>
 <li><a href="../../../../org/apache/iceberg/jdbc/package-tree.html">Next</a></li>
 </ul>
 <ul class="navList">

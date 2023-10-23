@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -73,13 +73,13 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -116,14 +116,32 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">RewriteDataFilesCommitManager.CommitService</span>
-extends java.lang.Object
-implements java.io.Closeable</pre>
+extends java.lang.Object</pre>
 </li>
 </ul>
 </div>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- =========== FIELD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field.summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFilesCommitManager.CommitService.html#TIMEOUT_IN_MS_DEFAULT">TIMEOUT_IN_MS_DEFAULT</a></span></code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.summary">
@@ -137,22 +155,36 @@ implements java.io.Closeable</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFilesCommitManager.CommitService.html#close--">close</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFilesCommitManager.CommitService.html#abortFileGroup-org.apache.iceberg.actions.RewriteFileGroup-">abortFileGroup</a></span>(<a href="../../../../org/apache/iceberg/actions/RewriteFileGroup.html" title="class in org.apache.iceberg.actions">RewriteFileGroup</a>&nbsp;group)</code>
+<div class="block">Clean up a specified file set by removing any files created for that operation, should not
+ throw any exceptions</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFilesCommitManager.CommitService.html#offer-org.apache.iceberg.actions.RewriteFileGroup-">offer</a></span>(<a href="../../../../org/apache/iceberg/actions/RewriteFileGroup.html" title="class in org.apache.iceberg.actions">RewriteFileGroup</a>&nbsp;group)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFilesCommitManager.CommitService.html#close--">close</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFilesCommitManager.CommitService.html#commitOrClean-java.util.Set-">commitOrClean</a></span>(java.util.Set&lt;<a href="../../../../org/apache/iceberg/actions/RewriteFileGroup.html" title="class in org.apache.iceberg.actions">RewriteFileGroup</a>&gt;&nbsp;batch)</code>
+<div class="block">Perform a commit operation on the table for the set of file groups, should cleanup failed file
+ groups.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFilesCommitManager.CommitService.html#offer-T-">offer</a></span>(T&nbsp;group)</code>
 <div class="block">Places a file group in the queue and commits a batch of file groups if <a href="../../../../org/apache/iceberg/actions/RewriteDataFilesCommitManager.CommitService.html#rewritesPerCommit"><code>rewritesPerCommit</code></a> number of file groups are present in the queue.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>java.util.List&lt;<a href="../../../../org/apache/iceberg/actions/RewriteFileGroup.html" title="class in org.apache.iceberg.actions">RewriteFileGroup</a>&gt;</code></td>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>java.util.List&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFilesCommitManager.CommitService.html#results--">results</a></span>()</code>
 <div class="block">Returns all File groups which have been committed</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/RewriteDataFilesCommitManager.CommitService.html#start--">start</a></span>()</code>
 <div class="block">Starts a single threaded executor service for handling file group commits.</div>
@@ -174,12 +206,59 @@ implements java.io.Closeable</pre>
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a name="TIMEOUT_IN_MS_DEFAULT">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>TIMEOUT_IN_MS_DEFAULT</h4>
+<pre>public static final&nbsp;long TIMEOUT_IN_MS_DEFAULT</pre>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.detail">
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="commitOrClean-java.util.Set-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>commitOrClean</h4>
+<pre>protected&nbsp;void&nbsp;commitOrClean(java.util.Set&lt;<a href="../../../../org/apache/iceberg/actions/RewriteFileGroup.html" title="class in org.apache.iceberg.actions">RewriteFileGroup</a>&gt;&nbsp;batch)</pre>
+<div class="block">Perform a commit operation on the table for the set of file groups, should cleanup failed file
+ groups.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>batch</code> - set of file groups</dd>
+</dl>
+</li>
+</ul>
+<a name="abortFileGroup-org.apache.iceberg.actions.RewriteFileGroup-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>abortFileGroup</h4>
+<pre>protected&nbsp;void&nbsp;abortFileGroup(<a href="../../../../org/apache/iceberg/actions/RewriteFileGroup.html" title="class in org.apache.iceberg.actions">RewriteFileGroup</a>&nbsp;group)</pre>
+<div class="block">Clean up a specified file set by removing any files created for that operation, should not
+ throw any exceptions</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>group</code> - group of files which are not yet committed</dd>
+</dl>
+</li>
+</ul>
 <a name="start--">
 <!--   -->
 </a>
@@ -190,13 +269,15 @@ implements java.io.Closeable</pre>
 <div class="block">Starts a single threaded executor service for handling file group commits.</div>
 </li>
 </ul>
-<a name="offer-org.apache.iceberg.actions.RewriteFileGroup-">
+<a name="offer-java.lang.Object-">
+<!--   -->
+</a><a name="offer-T-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>offer</h4>
-<pre>public&nbsp;void&nbsp;offer(<a href="../../../../org/apache/iceberg/actions/RewriteFileGroup.html" title="class in org.apache.iceberg.actions">RewriteFileGroup</a>&nbsp;group)</pre>
+<pre>public&nbsp;void&nbsp;offer(T&nbsp;group)</pre>
 <div class="block">Places a file group in the queue and commits a batch of file groups if <a href="../../../../org/apache/iceberg/actions/RewriteDataFilesCommitManager.CommitService.html#rewritesPerCommit"><code>rewritesPerCommit</code></a> number of file groups are present in the queue.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -210,7 +291,7 @@ implements java.io.Closeable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>results</h4>
-<pre>public&nbsp;java.util.List&lt;<a href="../../../../org/apache/iceberg/actions/RewriteFileGroup.html" title="class in org.apache.iceberg.actions">RewriteFileGroup</a>&gt;&nbsp;results()</pre>
+<pre>public&nbsp;java.util.List&lt;T&gt;&nbsp;results()</pre>
 <div class="block">Returns all File groups which have been committed</div>
 </li>
 </ul>
@@ -282,13 +363,13 @@ implements java.io.Closeable</pre>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

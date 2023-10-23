@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
+var methods = {"i0":10,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,8 +47,8 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/iceberg/spark/procedures/ExpireSnapshotsProcedure.html" title="class in org.apache.iceberg.spark.procedures"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../org/apache/iceberg/spark/procedures/SparkProcedures.html" title="class in org.apache.iceberg.spark.procedures"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/iceberg/spark/procedures/FastForwardBranchProcedure.html" title="class in org.apache.iceberg.spark.procedures"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/iceberg/spark/procedures/RewritePositionDeleteFilesProcedure.html" title="class in org.apache.iceberg.spark.procedures"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/iceberg/spark/procedures/RemoveOrphanFilesProcedure.html" target="_top">Frames</a></li>
@@ -212,60 +212,65 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i6" class="altColor">
+<td class="colFirst"><code>protected <a href="../../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/RemoveOrphanFilesProcedure.html#filterExpression-org.apache.spark.sql.connector.catalog.Identifier-java.lang.String-">filterExpression</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident,
+                java.lang.String&nbsp;where)</code>&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.Dataset&lt;org.apache.spark.sql.Row&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/RemoveOrphanFilesProcedure.html#loadRows-org.apache.spark.sql.connector.catalog.Identifier-java.util.Map-">loadRows</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;tableIdent,
         java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;options)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>protected <a href="../../../../../org/apache/iceberg/spark/source/SparkTable.html" title="class in org.apache.iceberg.spark.source">SparkTable</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/RemoveOrphanFilesProcedure.html#loadSparkTable-org.apache.spark.sql.connector.catalog.Identifier-">loadSparkTable</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident)</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>protected &lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/RemoveOrphanFilesProcedure.html#modifyIcebergTable-org.apache.spark.sql.connector.catalog.Identifier-java.util.function.Function-">modifyIcebergTable</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident,
                   java.util.function.Function&lt;<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>,T&gt;&nbsp;func)</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.catalyst.InternalRow</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/RemoveOrphanFilesProcedure.html#newInternalRow-java.lang.Object...-">newInternalRow</a></span>(java.lang.Object...&nbsp;values)</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>org.apache.spark.sql.types.StructType</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/RemoveOrphanFilesProcedure.html#outputType--">outputType</a></span>()</code>
 <div class="block">Returns the type of rows produced by this procedure.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/spark/sql/connector/iceberg/catalog/ProcedureParameter.html" title="interface in org.apache.spark.sql.connector.iceberg.catalog">ProcedureParameter</a>[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/RemoveOrphanFilesProcedure.html#parameters--">parameters</a></span>()</code>
 <div class="block">Returns the input parameters of this procedure.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/RemoveOrphanFilesProcedure.html#refreshSparkCache-org.apache.spark.sql.connector.catalog.Identifier-org.apache.spark.sql.connector.catalog.Table-">refreshSparkCache</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident,
                  org.apache.spark.sql.connector.catalog.Table&nbsp;table)</code>&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.SparkSession</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/RemoveOrphanFilesProcedure.html#spark--">spark</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.connector.catalog.TableCatalog</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/RemoveOrphanFilesProcedure.html#tableCatalog--">tableCatalog</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>protected <a href="../../../../../org/apache/iceberg/spark/Spark3Util.CatalogAndIdentifier.html" title="class in org.apache.iceberg.spark">Spark3Util.CatalogAndIdentifier</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/RemoveOrphanFilesProcedure.html#toCatalogAndIdentifier-java.lang.String-java.lang.String-org.apache.spark.sql.connector.catalog.CatalogPlugin-">toCatalogAndIdentifier</a></span>(java.lang.String&nbsp;identifierAsString,
                       java.lang.String&nbsp;argName,
                       org.apache.spark.sql.connector.catalog.CatalogPlugin&nbsp;catalog)</code>&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>protected org.apache.spark.sql.connector.catalog.Identifier</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/RemoveOrphanFilesProcedure.html#toIdentifier-java.lang.String-java.lang.String-">toIdentifier</a></span>(java.lang.String&nbsp;identifierAsString,
             java.lang.String&nbsp;argName)</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>protected &lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/spark/procedures/RemoveOrphanFilesProcedure.html#withIcebergTable-org.apache.spark.sql.connector.catalog.Identifier-java.util.function.Function-">withIcebergTable</a></span>(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident,
                 java.util.function.Function&lt;<a href="../../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>,T&gt;&nbsp;func)</code>&nbsp;</td>
@@ -479,6 +484,16 @@ extends java.lang.Object</pre>
                                  org.apache.spark.sql.connector.catalog.Table&nbsp;table)</pre>
 </li>
 </ul>
+<a name="filterExpression-org.apache.spark.sql.connector.catalog.Identifier-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>filterExpression</h4>
+<pre>protected&nbsp;<a href="../../../../../org/apache/iceberg/expressions/Expression.html" title="interface in org.apache.iceberg.expressions">Expression</a>&nbsp;filterExpression(org.apache.spark.sql.connector.catalog.Identifier&nbsp;ident,
+                                      java.lang.String&nbsp;where)</pre>
+</li>
+</ul>
 <a name="newInternalRow-java.lang.Object...-">
 <!--   -->
 </a>
@@ -546,8 +561,8 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/iceberg/spark/procedures/ExpireSnapshotsProcedure.html" title="class in org.apache.iceberg.spark.procedures"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../org/apache/iceberg/spark/procedures/SparkProcedures.html" title="class in org.apache.iceberg.spark.procedures"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/iceberg/spark/procedures/FastForwardBranchProcedure.html" title="class in org.apache.iceberg.spark.procedures"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/iceberg/spark/procedures/RewritePositionDeleteFilesProcedure.html" title="class in org.apache.iceberg.spark.procedures"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/iceberg/spark/procedures/RemoveOrphanFilesProcedure.html" target="_top">Frames</a></li>

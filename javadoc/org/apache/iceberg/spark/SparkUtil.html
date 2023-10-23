@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -73,13 +73,13 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -115,25 +115,6 @@ extends java.lang.Object</pre>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- =========== FIELD SUMMARY =========== -->
-<ul class="blockList">
-<li class="blockList"><a name="field.summary">
-<!--   -->
-</a>
-<h3>Field Summary</h3>
-<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
-<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colLast" scope="col">Field and Description</th>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkUtil.html#TIMESTAMP_WITHOUT_TIMEZONE_ERROR">TIMESTAMP_WITHOUT_TIMEZONE_ERROR</a></span></code>&nbsp;</td>
-</tr>
-</table>
-</li>
-</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.summary">
@@ -170,33 +151,17 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>static boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkUtil.html#hasTimestampWithoutZone-org.apache.iceberg.Schema-">hasTimestampWithoutZone</a></span>(<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema)</code>
-<div class="block">Responsible for checking if the table schema has a timestamp without timezone column</div>
-</td>
-</tr>
-<tr id="i4" class="altColor">
 <td class="colFirst"><code>static java.util.List&lt;org.apache.spark.sql.catalyst.expressions.Expression&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkUtil.html#partitionMapToExpression-org.apache.spark.sql.types.StructType-java.util.Map-">partitionMapToExpression</a></span>(org.apache.spark.sql.types.StructType&nbsp;schema,
                         java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;filters)</code>
 <div class="block">Get a List of Spark filter Expression.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkUtil.html#serializableFileIO-org.apache.iceberg.Table-">serializableFileIO</a></span>(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</code>&nbsp;</td>
-</tr>
-<tr id="i6" class="altColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkUtil.html#toColumnName-org.apache.spark.sql.connector.expressions.NamedReference-">toColumnName</a></span>(org.apache.spark.sql.connector.expressions.NamedReference&nbsp;ref)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
-<td class="colFirst"><code>static boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkUtil.html#useTimestampWithoutZoneInNewTables-org.apache.spark.sql.RuntimeConfig-">useTimestampWithoutZoneInNewTables</a></span>(org.apache.spark.sql.RuntimeConfig&nbsp;sessionConf)</code>
-<div class="block">Checks whether timestamp types for new tables should be stored with timezone info.</div>
-</td>
-</tr>
-<tr id="i8" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/spark/SparkUtil.html#validatePartitionTransforms-org.apache.iceberg.PartitionSpec-">validatePartitionTransforms</a></span>(<a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;spec)</code>
 <div class="block">Check whether the partition transforms in a spec can be used to write data.</div>
@@ -218,38 +183,12 @@ extends java.lang.Object</pre>
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ============ FIELD DETAIL =========== -->
-<ul class="blockList">
-<li class="blockList"><a name="field.detail">
-<!--   -->
-</a>
-<h3>Field Detail</h3>
-<a name="TIMESTAMP_WITHOUT_TIMEZONE_ERROR">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>TIMESTAMP_WITHOUT_TIMEZONE_ERROR</h4>
-<pre>public static final&nbsp;java.lang.String TIMESTAMP_WITHOUT_TIMEZONE_ERROR</pre>
-</li>
-</ul>
-</li>
-</ul>
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.detail">
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="serializableFileIO-org.apache.iceberg.Table-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>serializableFileIO</h4>
-<pre>public static&nbsp;<a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>&nbsp;serializableFileIO(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</pre>
-</li>
-</ul>
 <a name="validatePartitionTransforms-org.apache.iceberg.PartitionSpec-">
 <!--   -->
 </a>
@@ -286,41 +225,6 @@ extends java.lang.Object</pre>
 <dd><code>nameParts</code> - Multipart identifier representing a table</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The CatalogPlugin and Identifier for the table</dd>
-</dl>
-</li>
-</ul>
-<a name="hasTimestampWithoutZone-org.apache.iceberg.Schema-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>hasTimestampWithoutZone</h4>
-<pre>public static&nbsp;boolean&nbsp;hasTimestampWithoutZone(<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema)</pre>
-<div class="block">Responsible for checking if the table schema has a timestamp without timezone column</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>schema</code> - table schema to check if it contains a timestamp without timezone column</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>boolean indicating if the schema passed in has a timestamp field without a timezone</dd>
-</dl>
-</li>
-</ul>
-<a name="useTimestampWithoutZoneInNewTables-org.apache.spark.sql.RuntimeConfig-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>useTimestampWithoutZoneInNewTables</h4>
-<pre>public static&nbsp;boolean&nbsp;useTimestampWithoutZoneInNewTables(org.apache.spark.sql.RuntimeConfig&nbsp;sessionConf)</pre>
-<div class="block">Checks whether timestamp types for new tables should be stored with timezone info.
-
- <p>The default value is false and all timestamp fields are stored as <code>Types.TimestampType#withZone()</code>. If enabled, all timestamp fields in new tables will be stored
- as <code>Types.TimestampType#withoutZone()</code>.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>sessionConf</code> - a Spark runtime config</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if timestamp types for new tables should be stored with timezone info</dd>
 </dl>
 </li>
 </ul>
@@ -443,13 +347,13 @@ extends java.lang.Object</pre>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

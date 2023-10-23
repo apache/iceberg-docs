@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":18};
+var methods = {"i0":18,"i1":18,"i2":18,"i3":18,"i4":18,"i5":18,"i6":18,"i7":18};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/actions/Action.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/actions/BaseDeleteOrphanFilesActionResult.html" title="class in org.apache.iceberg.actions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/actions/BaseRewriteDataFilesAction.html" title="class in org.apache.iceberg.actions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/actions/ActionsProvider.html" target="_top">Frames</a></li>
@@ -160,6 +160,12 @@ var activeTableTab = "activeTableTab";
 </td>
 </tr>
 <tr id="i6" class="altColor">
+<td class="colFirst"><code>default <a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.html" title="interface in org.apache.iceberg.actions">RewritePositionDeleteFiles</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/ActionsProvider.html#rewritePositionDeletes-org.apache.iceberg.Table-">rewritePositionDeletes</a></span>(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</code>
+<div class="block">Instantiates an action to rewrite position delete files</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>default <a href="../../../../org/apache/iceberg/actions/SnapshotTable.html" title="interface in org.apache.iceberg.actions">SnapshotTable</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/actions/ActionsProvider.html#snapshotTable-java.lang.String-">snapshotTable</a></span>(java.lang.String&nbsp;sourceTableIdent)</code>
 <div class="block">Instantiates an action to snapshot an existing table as a new Iceberg table.</div>
@@ -243,11 +249,21 @@ var activeTableTab = "activeTableTab";
 <a name="deleteReachableFiles-java.lang.String-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>deleteReachableFiles</h4>
 <pre>default&nbsp;<a href="../../../../org/apache/iceberg/actions/DeleteReachableFiles.html" title="interface in org.apache.iceberg.actions">DeleteReachableFiles</a>&nbsp;deleteReachableFiles(java.lang.String&nbsp;metadataLocation)</pre>
 <div class="block">Instantiates an action to delete all the files reachable from given metadata location.</div>
+</li>
+</ul>
+<a name="rewritePositionDeletes-org.apache.iceberg.Table-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>rewritePositionDeletes</h4>
+<pre>default&nbsp;<a href="../../../../org/apache/iceberg/actions/RewritePositionDeleteFiles.html" title="interface in org.apache.iceberg.actions">RewritePositionDeleteFiles</a>&nbsp;rewritePositionDeletes(<a href="../../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a>&nbsp;table)</pre>
+<div class="block">Instantiates an action to rewrite position delete files</div>
 </li>
 </ul>
 </li>
@@ -278,7 +294,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/actions/Action.html" title="interface in org.apache.iceberg.actions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/actions/BaseDeleteOrphanFilesActionResult.html" title="class in org.apache.iceberg.actions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/actions/BaseRewriteDataFilesAction.html" title="class in org.apache.iceberg.actions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/actions/ActionsProvider.html" target="_top">Frames</a></li>

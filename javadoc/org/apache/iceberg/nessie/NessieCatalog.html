@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -112,19 +112,14 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>java.lang.AutoCloseable, org.apache.hadoop.conf.Configurable, <a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a>, <a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.html" title="interface in org.apache.iceberg.catalog">SupportsNamespaces</a></dd>
+<dd>java.lang.AutoCloseable, <a href="../../../../org/apache/iceberg/catalog/Catalog.html" title="interface in org.apache.iceberg.catalog">Catalog</a>, <a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.html" title="interface in org.apache.iceberg.catalog">SupportsNamespaces</a>, <a href="../../../../org/apache/iceberg/hadoop/Configurable.html" title="interface in org.apache.iceberg.hadoop">Configurable</a>&lt;java.lang.Object&gt;</dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">NessieCatalog</span>
 extends <a href="../../../../org/apache/iceberg/BaseMetastoreCatalog.html" title="class in org.apache.iceberg">BaseMetastoreCatalog</a>
-implements java.lang.AutoCloseable, <a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.html" title="interface in org.apache.iceberg.catalog">SupportsNamespaces</a>, org.apache.hadoop.conf.Configurable</pre>
-<div class="block">Nessie implementation of Iceberg Catalog.
-
- <p>A note on namespaces: Nessie namespaces are implicit and do not need to be explicitly created
- or deleted. The create and delete namespace methods are no-ops for the NessieCatalog. One can
- still list namespaces that have objects stored in them to assist with namespace-centric catalog
- exploration.</div>
+implements java.lang.AutoCloseable, <a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.html" title="interface in org.apache.iceberg.catalog">SupportsNamespaces</a>, <a href="../../../../org/apache/iceberg/hadoop/Configurable.html" title="interface in org.apache.iceberg.hadoop">Configurable</a>&lt;java.lang.Object&gt;</pre>
+<div class="block">Nessie implementation of Iceberg Catalog.</div>
 </li>
 </ul>
 </div>
@@ -211,17 +206,13 @@ implements java.lang.AutoCloseable, <a href="../../../../org/apache/iceberg/cata
 </td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>org.apache.hadoop.conf.Configuration</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/nessie/NessieCatalog.html#getConf--">getConf</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/nessie/NessieCatalog.html#initialize-java.lang.String-java.util.Map-">initialize</a></span>(java.lang.String&nbsp;name,
           java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;options)</code>
 <div class="block">Initialize a catalog given a custom name and a map of catalog properties.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/nessie/NessieCatalog.html#initialize-java.lang.String-org.apache.iceberg.nessie.NessieIcebergClient-org.apache.iceberg.io.FileIO-java.util.Map-">initialize</a></span>(java.lang.String&nbsp;name,
           <a href="../../../../org/apache/iceberg/nessie/NessieIcebergClient.html" title="class in org.apache.iceberg.nessie">NessieIcebergClient</a>&nbsp;client,
@@ -231,57 +222,57 @@ implements java.lang.AutoCloseable, <a href="../../../../org/apache/iceberg/cata
  and <a href="../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io"><code>FileIO</code></a> instance.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/nessie/NessieCatalog.html#listNamespaces-org.apache.iceberg.catalog.Namespace-">listNamespaces</a></span>(<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace)</code>
-<div class="block">List namespaces from the namespace.</div>
+<div class="block">List child namespaces from the namespace.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/nessie/NessieCatalog.html#listTables-org.apache.iceberg.catalog.Namespace-">listTables</a></span>(<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace)</code>
 <div class="block">Return all the identifiers under this namespace.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.String,java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/nessie/NessieCatalog.html#loadNamespaceMetadata-org.apache.iceberg.catalog.Namespace-">loadNamespaceMetadata</a></span>(<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace)</code>
 <div class="block">Load the given namespace and return its properties.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/nessie/NessieCatalog.html#name--">name</a></span>()</code>
 <div class="block">Return the name for this catalog.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../org/apache/iceberg/TableOperations.html" title="interface in org.apache.iceberg">TableOperations</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/nessie/NessieCatalog.html#newTableOps-org.apache.iceberg.catalog.TableIdentifier-">newTableOps</a></span>(<a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;tableIdentifier)</code>&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>protected java.util.Map&lt;java.lang.String,java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/nessie/NessieCatalog.html#properties--">properties</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/nessie/NessieCatalog.html#removeProperties-org.apache.iceberg.catalog.Namespace-java.util.Set-">removeProperties</a></span>(<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace,
                 java.util.Set&lt;java.lang.String&gt;&nbsp;properties)</code>
 <div class="block">Remove a set of property keys from a namespace in the catalog.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/nessie/NessieCatalog.html#renameTable-org.apache.iceberg.catalog.TableIdentifier-org.apache.iceberg.catalog.TableIdentifier-">renameTable</a></span>(<a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;from,
            <a href="../../../../org/apache/iceberg/catalog/TableIdentifier.html" title="class in org.apache.iceberg.catalog">TableIdentifier</a>&nbsp;to)</code>
 <div class="block">Rename a table.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/nessie/NessieCatalog.html#setConf-org.apache.hadoop.conf.Configuration-">setConf</a></span>(org.apache.hadoop.conf.Configuration&nbsp;conf)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/nessie/NessieCatalog.html#setConf-java.lang.Object-">setConf</a></span>(java.lang.Object&nbsp;conf)</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/nessie/NessieCatalog.html#setProperties-org.apache.iceberg.catalog.Namespace-java.util.Map-">setProperties</a></span>(<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace,
              java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;properties)</code>
@@ -540,15 +531,34 @@ implements java.lang.AutoCloseable, <a href="../../../../org/apache/iceberg/cata
 <pre>public&nbsp;java.util.List&lt;<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&gt;&nbsp;listNamespaces(<a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog">Namespace</a>&nbsp;namespace)
                                          throws <a href="../../../../org/apache/iceberg/exceptions/NoSuchNamespaceException.html" title="class in org.apache.iceberg.exceptions">NoSuchNamespaceException</a></pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.html#listNamespaces-org.apache.iceberg.catalog.Namespace-">SupportsNamespaces</a></code></span></div>
-<div class="block">List namespaces from the namespace.
+<div class="block">List child namespaces from the namespace.
 
- <p>For example, if table a.b.t exists, use 'SELECT NAMESPACE IN a' this method must return
- Namepace.of("a","b") <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>Namespace</code></a>.</div>
+ <p>For two existing tables named 'a.b.c.table' and 'a.b.d.table', this method returns:
+
+ <ul>
+   <li>Given: <code>Namespace.empty()</code>
+   <li>Returns: <code>Namespace.of("a")</code>
+ </ul>
+
+ <ul>
+   <li>Given: <code>Namespace.of("a")</code>
+   <li>Returns: <code>Namespace.of("a", "b")</code>
+ </ul>
+
+ <ul>
+   <li>Given: <code>Namespace.of("a", "b")</code>
+   <li>Returns: <code>Namespace.of("a", "b", "c")</code> and <code>Namespace.of("a", "b", "d")</code>
+ </ul>
+
+ <ul>
+   <li>Given: <code>Namespace.of("a", "b", "c")</code>
+   <li>Returns: empty list, because there are no child namespaces
+ </ul></div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.html#listNamespaces-org.apache.iceberg.catalog.Namespace-">listNamespaces</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/catalog/SupportsNamespaces.html" title="interface in org.apache.iceberg.catalog">SupportsNamespaces</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>a List of namespace <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>Namespace</code></a> names</dd>
+<dd>a List of child <a href="../../../../org/apache/iceberg/catalog/Namespace.html" title="class in org.apache.iceberg.catalog"><code>Namespace</code></a> names from the given namespace</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../../org/apache/iceberg/exceptions/NoSuchNamespaceException.html" title="class in org.apache.iceberg.exceptions">NoSuchNamespaceException</a></code> - If the namespace does not exist (optional)</dd>
 </dl>
@@ -639,29 +649,16 @@ implements java.lang.AutoCloseable, <a href="../../../../org/apache/iceberg/cata
 </dl>
 </li>
 </ul>
-<a name="setConf-org.apache.hadoop.conf.Configuration-">
+<a name="setConf-java.lang.Object-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setConf</h4>
-<pre>public&nbsp;void&nbsp;setConf(org.apache.hadoop.conf.Configuration&nbsp;conf)</pre>
+<pre>public&nbsp;void&nbsp;setConf(java.lang.Object&nbsp;conf)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>setConf</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.conf.Configurable</code></dd>
-</dl>
-</li>
-</ul>
-<a name="getConf--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getConf</h4>
-<pre>public&nbsp;org.apache.hadoop.conf.Configuration&nbsp;getConf()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>getConf</code>&nbsp;in interface&nbsp;<code>org.apache.hadoop.conf.Configurable</code></dd>
+<dd><code><a href="../../../../org/apache/iceberg/hadoop/Configurable.html#setConf-C-">setConf</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/iceberg/hadoop/Configurable.html" title="interface in org.apache.iceberg.hadoop">Configurable</a>&lt;java.lang.Object&gt;</code></dd>
 </dl>
 </li>
 </ul>

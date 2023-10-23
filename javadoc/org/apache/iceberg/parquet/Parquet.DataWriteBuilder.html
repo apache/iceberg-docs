@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -175,17 +175,25 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/parquet/Parquet.DataWriteBuilder.html" title="class in org.apache.iceberg.parquet">Parquet.DataWriteBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/parquet/Parquet.DataWriteBuilder.html#withKeyMetadata-org.apache.iceberg.encryption.EncryptionKeyMetadata-">withKeyMetadata</a></span>(<a href="../../../../org/apache/iceberg/encryption/EncryptionKeyMetadata.html" title="interface in org.apache.iceberg.encryption">EncryptionKeyMetadata</a>&nbsp;metadata)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/parquet/Parquet.DataWriteBuilder.html#withAADPrefix-java.nio.ByteBuffer-">withAADPrefix</a></span>(java.nio.ByteBuffer&nbsp;aadPrefix)</code>&nbsp;</td>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/parquet/Parquet.DataWriteBuilder.html" title="class in org.apache.iceberg.parquet">Parquet.DataWriteBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/parquet/Parquet.DataWriteBuilder.html#withPartition-org.apache.iceberg.StructLike-">withPartition</a></span>(<a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&nbsp;newPartition)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/parquet/Parquet.DataWriteBuilder.html#withFileEncryptionKey-java.nio.ByteBuffer-">withFileEncryptionKey</a></span>(java.nio.ByteBuffer&nbsp;fileEncryptionKey)</code>&nbsp;</td>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/parquet/Parquet.DataWriteBuilder.html" title="class in org.apache.iceberg.parquet">Parquet.DataWriteBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/parquet/Parquet.DataWriteBuilder.html#withSortOrder-org.apache.iceberg.SortOrder-">withSortOrder</a></span>(<a href="../../../../org/apache/iceberg/SortOrder.html" title="class in org.apache.iceberg">SortOrder</a>&nbsp;newSortOrder)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/parquet/Parquet.DataWriteBuilder.html#withKeyMetadata-org.apache.iceberg.encryption.EncryptionKeyMetadata-">withKeyMetadata</a></span>(<a href="../../../../org/apache/iceberg/encryption/EncryptionKeyMetadata.html" title="interface in org.apache.iceberg.encryption">EncryptionKeyMetadata</a>&nbsp;metadata)</code>&nbsp;</td>
 </tr>
 <tr id="i13" class="rowColor">
+<td class="colFirst"><code><a href="../../../../org/apache/iceberg/parquet/Parquet.DataWriteBuilder.html" title="class in org.apache.iceberg.parquet">Parquet.DataWriteBuilder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/parquet/Parquet.DataWriteBuilder.html#withPartition-org.apache.iceberg.StructLike-">withPartition</a></span>(<a href="../../../../org/apache/iceberg/StructLike.html" title="interface in org.apache.iceberg">StructLike</a>&nbsp;newPartition)</code>&nbsp;</td>
+</tr>
+<tr id="i14" class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/iceberg/parquet/Parquet.DataWriteBuilder.html" title="class in org.apache.iceberg.parquet">Parquet.DataWriteBuilder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/parquet/Parquet.DataWriteBuilder.html#withSortOrder-org.apache.iceberg.SortOrder-">withSortOrder</a></span>(<a href="../../../../org/apache/iceberg/SortOrder.html" title="class in org.apache.iceberg">SortOrder</a>&nbsp;newSortOrder)</code>&nbsp;</td>
+</tr>
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/iceberg/parquet/Parquet.DataWriteBuilder.html" title="class in org.apache.iceberg.parquet">Parquet.DataWriteBuilder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/parquet/Parquet.DataWriteBuilder.html#withSpec-org.apache.iceberg.PartitionSpec-">withSpec</a></span>(<a href="../../../../org/apache/iceberg/PartitionSpec.html" title="class in org.apache.iceberg">PartitionSpec</a>&nbsp;newSpec)</code>&nbsp;</td>
 </tr>
@@ -319,6 +327,24 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>withKeyMetadata</h4>
 <pre>public&nbsp;<a href="../../../../org/apache/iceberg/parquet/Parquet.DataWriteBuilder.html" title="class in org.apache.iceberg.parquet">Parquet.DataWriteBuilder</a>&nbsp;withKeyMetadata(<a href="../../../../org/apache/iceberg/encryption/EncryptionKeyMetadata.html" title="interface in org.apache.iceberg.encryption">EncryptionKeyMetadata</a>&nbsp;metadata)</pre>
+</li>
+</ul>
+<a name="withFileEncryptionKey-java.nio.ByteBuffer-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>withFileEncryptionKey</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/iceberg/parquet/Parquet.DataWriteBuilder.html" title="class in org.apache.iceberg.parquet">Parquet.DataWriteBuilder</a>&nbsp;withFileEncryptionKey(java.nio.ByteBuffer&nbsp;fileEncryptionKey)</pre>
+</li>
+</ul>
+<a name="withAADPrefix-java.nio.ByteBuffer-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>withAADPrefix</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/iceberg/parquet/Parquet.DataWriteBuilder.html" title="class in org.apache.iceberg.parquet">Parquet.DataWriteBuilder</a>&nbsp;withAADPrefix(java.nio.ByteBuffer&nbsp;aadPrefix)</pre>
 </li>
 </ul>
 <a name="withSortOrder-org.apache.iceberg.SortOrder-">

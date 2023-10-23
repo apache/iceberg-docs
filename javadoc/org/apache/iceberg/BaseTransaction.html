@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -162,117 +162,121 @@ implements <a href="../../../org/apache/iceberg/Transaction.html" title="interfa
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseTransaction.html#currentMetadata--">currentMetadata</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ExpireSnapshots.html" title="interface in org.apache.iceberg">ExpireSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseTransaction.html#expireSnapshots--">expireSnapshots</a></span>()</code>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/ExpireSnapshots.html" title="interface in org.apache.iceberg"><code>expire API</code></a> to manage snapshots in this table.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg">ManageSnapshots</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseTransaction.html#manageSnapshots--">manageSnapshots</a></span>()</code>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/ManageSnapshots.html" title="interface in org.apache.iceberg"><code>manage snapshot API</code></a> to manage snapshots in this table.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/AppendFiles.html" title="interface in org.apache.iceberg">AppendFiles</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseTransaction.html#newAppend--">newAppend</a></span>()</code>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/AppendFiles.html" title="interface in org.apache.iceberg"><code>append API</code></a> to add files to this table.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/DeleteFiles.html" title="interface in org.apache.iceberg">DeleteFiles</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseTransaction.html#newDelete--">newDelete</a></span>()</code>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/DeleteFiles.html" title="interface in org.apache.iceberg"><code>delete API</code></a> to replace files in this table.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/AppendFiles.html" title="interface in org.apache.iceberg">AppendFiles</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseTransaction.html#newFastAppend--">newFastAppend</a></span>()</code>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/AppendFiles.html" title="interface in org.apache.iceberg"><code>append API</code></a> to add files to this table.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/OverwriteFiles.html" title="interface in org.apache.iceberg">OverwriteFiles</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseTransaction.html#newOverwrite--">newOverwrite</a></span>()</code>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/OverwriteFiles.html" title="interface in org.apache.iceberg"><code>overwrite API</code></a> to overwrite files by a filter expression.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ReplacePartitions.html" title="interface in org.apache.iceberg">ReplacePartitions</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseTransaction.html#newReplacePartitions--">newReplacePartitions</a></span>()</code>
 <div class="block">Not recommended: Create a new <a href="../../../org/apache/iceberg/ReplacePartitions.html" title="interface in org.apache.iceberg"><code>replace partitions API</code></a> to dynamically
  overwrite partitions in the table with new data.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/RewriteFiles.html" title="interface in org.apache.iceberg">RewriteFiles</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseTransaction.html#newRewrite--">newRewrite</a></span>()</code>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/RewriteFiles.html" title="interface in org.apache.iceberg"><code>rewrite API</code></a> to replace files in this table.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg">RowDelta</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseTransaction.html#newRowDelta--">newRowDelta</a></span>()</code>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/RowDelta.html" title="interface in org.apache.iceberg"><code>row-level delta API</code></a> to remove or replace rows in existing data
  files.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/ReplaceSortOrder.html" title="interface in org.apache.iceberg">ReplaceSortOrder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseTransaction.html#replaceSortOrder--">replaceSortOrder</a></span>()</code>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/ReplaceSortOrder.html" title="interface in org.apache.iceberg"><code>ReplaceSortOrder</code></a> to set a table sort order and commit the change.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/RewriteManifests.html" title="interface in org.apache.iceberg">RewriteManifests</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseTransaction.html#rewriteManifests--">rewriteManifests</a></span>()</code>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/RewriteManifests.html" title="interface in org.apache.iceberg"><code>rewrite manifests API</code></a> to replace manifests for this
  table.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseTransaction.html#startMetadata--">startMetadata</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg">Table</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseTransaction.html#table--">table</a></span>()</code>
 <div class="block">Return the <a href="../../../org/apache/iceberg/Table.html" title="interface in org.apache.iceberg"><code>Table</code></a> that this transaction will update.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseTransaction.html#tableName--">tableName</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/TableOperations.html" title="interface in org.apache.iceberg">TableOperations</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseTransaction.html#underlyingOps--">underlyingOps</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/UpdateLocation.html" title="interface in org.apache.iceberg">UpdateLocation</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseTransaction.html#updateLocation--">updateLocation</a></span>()</code>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/UpdateLocation.html" title="interface in org.apache.iceberg"><code>UpdateLocation</code></a> to update table location.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/UpdateProperties.html" title="interface in org.apache.iceberg">UpdateProperties</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseTransaction.html#updateProperties--">updateProperties</a></span>()</code>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/UpdateProperties.html" title="interface in org.apache.iceberg"><code>UpdateProperties</code></a> to update table properties.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/UpdateSchema.html" title="interface in org.apache.iceberg">UpdateSchema</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseTransaction.html#updateSchema--">updateSchema</a></span>()</code>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/UpdateSchema.html" title="interface in org.apache.iceberg"><code>UpdateSchema</code></a> to alter the columns of this table.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/UpdatePartitionSpec.html" title="interface in org.apache.iceberg">UpdatePartitionSpec</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseTransaction.html#updateSpec--">updateSpec</a></span>()</code>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/UpdatePartitionSpec.html" title="interface in org.apache.iceberg"><code>UpdatePartitionSpec</code></a> to alter the partition spec of this table.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/iceberg/UpdateStatistics.html" title="interface in org.apache.iceberg">UpdateStatistics</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/apache/iceberg/BaseTransaction.html#updateStatistics--">updateStatistics</a></span>()</code>
 <div class="block">Create a new <a href="../../../org/apache/iceberg/UpdateStatistics.html" title="interface in org.apache.iceberg"><code>update table statistics API</code></a> to add or remove statistics
@@ -334,6 +338,15 @@ implements <a href="../../../org/apache/iceberg/Transaction.html" title="interfa
 <li class="blockList">
 <h4>startMetadata</h4>
 <pre>public&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;startMetadata()</pre>
+</li>
+</ul>
+<a name="currentMetadata--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>currentMetadata</h4>
+<pre>public&nbsp;<a href="../../../org/apache/iceberg/TableMetadata.html" title="class in org.apache.iceberg">TableMetadata</a>&nbsp;currentMetadata()</pre>
 </li>
 </ul>
 <a name="underlyingOps--">

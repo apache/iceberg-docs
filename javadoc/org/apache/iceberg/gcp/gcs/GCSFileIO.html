@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -107,13 +107,13 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>java.io.Closeable, java.io.Serializable, java.lang.AutoCloseable, <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a></dd>
+<dd>java.io.Closeable, java.io.Serializable, java.lang.AutoCloseable, <a href="../../../../../org/apache/iceberg/io/DelegateFileIO.html" title="interface in org.apache.iceberg.io">DelegateFileIO</a>, <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a>, <a href="../../../../../org/apache/iceberg/io/SupportsBulkOperations.html" title="interface in org.apache.iceberg.io">SupportsBulkOperations</a>, <a href="../../../../../org/apache/iceberg/io/SupportsPrefixOperations.html" title="interface in org.apache.iceberg.io">SupportsPrefixOperations</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">GCSFileIO</span>
 extends java.lang.Object
-implements <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a></pre>
+implements <a href="../../../../../org/apache/iceberg/io/DelegateFileIO.html" title="interface in org.apache.iceberg.io">DelegateFileIO</a></pre>
 <div class="block">FileIO Implementation backed by Google Cloud Storage (GCS)
 
  <p>Locations follow the conventions used by <code>BlobId.fromGsUtilUri</code> that follow the
@@ -171,30 +171,52 @@ implements <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="int
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>com.google.cloud.storage.Storage</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/gcp/gcs/GCSFileIO.html#client--">client</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/gcp/gcs/GCSFileIO.html#close--">close</a></span>()</code>
 <div class="block">Close File IO to release underlying resources.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/gcp/gcs/GCSFileIO.html#deleteFile-java.lang.String-">deleteFile</a></span>(java.lang.String&nbsp;path)</code>
 <div class="block">Delete the file at the given path.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/gcp/gcs/GCSFileIO.html#deleteFiles-java.lang.Iterable-">deleteFiles</a></span>(java.lang.Iterable&lt;java.lang.String&gt;&nbsp;pathsToDelete)</code>
+<div class="block">Delete the files at the given paths.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/gcp/gcs/GCSFileIO.html#deletePrefix-java.lang.String-">deletePrefix</a></span>(java.lang.String&nbsp;prefix)</code>
+<div class="block">Delete all files under a prefix.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/gcp/gcs/GCSFileIO.html#initialize-java.util.Map-">initialize</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;props)</code>
 <div class="block">Initialize File IO from catalog properties.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>java.lang.Iterable&lt;<a href="../../../../../org/apache/iceberg/io/FileInfo.html" title="class in org.apache.iceberg.io">FileInfo</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/gcp/gcs/GCSFileIO.html#listPrefix-java.lang.String-">listPrefix</a></span>(java.lang.String&nbsp;prefix)</code>
+<div class="block">Return an iterable of all files under a prefix.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/gcp/gcs/GCSFileIO.html#newInputFile-java.lang.String-">newInputFile</a></span>(java.lang.String&nbsp;path)</code>
 <div class="block">Get a <a href="../../../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io"><code>InputFile</code></a> instance to read bytes from the file at the given path.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/io/InputFile.html" title="interface in org.apache.iceberg.io">InputFile</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/gcp/gcs/GCSFileIO.html#newInputFile-java.lang.String-long-">newInputFile</a></span>(java.lang.String&nbsp;path,
             long&nbsp;length)</code>
@@ -202,13 +224,13 @@ implements <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="int
  file length.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/iceberg/io/OutputFile.html" title="interface in org.apache.iceberg.io">OutputFile</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/gcp/gcs/GCSFileIO.html#newOutputFile-java.lang.String-">newOutputFile</a></span>(java.lang.String&nbsp;path)</code>
 <div class="block">Get a <a href="../../../../../org/apache/iceberg/io/OutputFile.html" title="interface in org.apache.iceberg.io"><code>OutputFile</code></a> instance to write bytes to the file at the given path.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.String,java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/gcp/gcs/GCSFileIO.html#properties--">properties</a></span>()</code>
 <div class="block">Returns the property map used to configure this FileIO</div>
@@ -359,6 +381,15 @@ implements <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="int
 </dl>
 </li>
 </ul>
+<a name="client--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>client</h4>
+<pre>public&nbsp;com.google.cloud.storage.Storage&nbsp;client()</pre>
+</li>
+</ul>
 <a name="initialize-java.util.Map-">
 <!--   -->
 </a>
@@ -379,7 +410,7 @@ implements <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="int
 <a name="close--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>close</h4>
 <pre>public&nbsp;void&nbsp;close()</pre>
@@ -395,6 +426,68 @@ implements <a href="../../../../../org/apache/iceberg/io/FileIO.html" title="int
 <dd><code>close</code>&nbsp;in interface&nbsp;<code>java.lang.AutoCloseable</code></dd>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/iceberg/io/FileIO.html#close--">close</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/iceberg/io/FileIO.html" title="interface in org.apache.iceberg.io">FileIO</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="listPrefix-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>listPrefix</h4>
+<pre>public&nbsp;java.lang.Iterable&lt;<a href="../../../../../org/apache/iceberg/io/FileInfo.html" title="class in org.apache.iceberg.io">FileInfo</a>&gt;&nbsp;listPrefix(java.lang.String&nbsp;prefix)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/iceberg/io/SupportsPrefixOperations.html#listPrefix-java.lang.String-">SupportsPrefixOperations</a></code></span></div>
+<div class="block">Return an iterable of all files under a prefix.
+
+ <p>Hierarchical file systems (e.g. HDFS) may impose additional restrictions like the prefix
+ must fully match a directory whereas key/value object stores may allow for arbitrary prefixes.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../org/apache/iceberg/io/SupportsPrefixOperations.html#listPrefix-java.lang.String-">listPrefix</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/iceberg/io/SupportsPrefixOperations.html" title="interface in org.apache.iceberg.io">SupportsPrefixOperations</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>prefix</code> - prefix to list</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>iterable of file information</dd>
+</dl>
+</li>
+</ul>
+<a name="deletePrefix-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>deletePrefix</h4>
+<pre>public&nbsp;void&nbsp;deletePrefix(java.lang.String&nbsp;prefix)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/iceberg/io/SupportsPrefixOperations.html#deletePrefix-java.lang.String-">SupportsPrefixOperations</a></code></span></div>
+<div class="block">Delete all files under a prefix.
+
+ <p>Hierarchical file systems (e.g. HDFS) may impose additional restrictions like the prefix
+ must fully match a directory whereas key/value object stores may allow for arbitrary prefixes.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../org/apache/iceberg/io/SupportsPrefixOperations.html#deletePrefix-java.lang.String-">deletePrefix</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/iceberg/io/SupportsPrefixOperations.html" title="interface in org.apache.iceberg.io">SupportsPrefixOperations</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>prefix</code> - prefix to delete</dd>
+</dl>
+</li>
+</ul>
+<a name="deleteFiles-java.lang.Iterable-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>deleteFiles</h4>
+<pre>public&nbsp;void&nbsp;deleteFiles(java.lang.Iterable&lt;java.lang.String&gt;&nbsp;pathsToDelete)
+                 throws <a href="../../../../../org/apache/iceberg/io/BulkDeletionFailureException.html" title="class in org.apache.iceberg.io">BulkDeletionFailureException</a></pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/iceberg/io/SupportsBulkOperations.html#deleteFiles-java.lang.Iterable-">SupportsBulkOperations</a></code></span></div>
+<div class="block">Delete the files at the given paths.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../org/apache/iceberg/io/SupportsBulkOperations.html#deleteFiles-java.lang.Iterable-">deleteFiles</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/iceberg/io/SupportsBulkOperations.html" title="interface in org.apache.iceberg.io">SupportsBulkOperations</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>pathsToDelete</code> - The paths to delete</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/iceberg/io/BulkDeletionFailureException.html" title="class in org.apache.iceberg.io">BulkDeletionFailureException</a></code> - in case of failure to delete at least 1 file</dd>
 </dl>
 </li>
 </ul>

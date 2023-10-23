@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/flink/FlinkReadOptions.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/flink/FlinkTypeVisitor.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/flink/FlinkSourceFilter.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/flink/FlinkSchemaUtil.html" target="_top">Frames</a></li>
@@ -145,37 +145,43 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types">Type</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkSchemaUtil.html#convert-org.apache.flink.table.types.logical.LogicalType-">convert</a></span>(org.apache.flink.table.types.logical.LogicalType&nbsp;flinkType)</code>
+<div class="block">Convert a <code>Flink type</code> to a <a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types"><code>Type</code></a>.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>static org.apache.flink.table.types.logical.RowType</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkSchemaUtil.html#convert-org.apache.iceberg.Schema-">convert</a></span>(<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema)</code>
 <div class="block">Convert a <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>Schema</code></a> to a <code>Flink type</code>.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkSchemaUtil.html#convert-org.apache.iceberg.Schema-org.apache.flink.table.api.TableSchema-">convert</a></span>(<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;baseSchema,
        org.apache.flink.table.api.TableSchema&nbsp;flinkSchema)</code>
 <div class="block">Convert a Flink <code>TableSchema</code> to a <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>Schema</code></a> based on the given schema.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkSchemaUtil.html#convert-org.apache.flink.table.api.TableSchema-">convert</a></span>(org.apache.flink.table.api.TableSchema&nbsp;schema)</code>
 <div class="block">Convert the flink table schema to apache iceberg schema.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>static org.apache.flink.table.types.logical.LogicalType</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkSchemaUtil.html#convert-org.apache.iceberg.types.Type-">convert</a></span>(<a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types">Type</a>&nbsp;type)</code>
 <div class="block">Convert a <a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types"><code>Type</code></a> to a <code>Flink type</code>.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>static org.apache.flink.table.api.TableSchema</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkSchemaUtil.html#toSchema-org.apache.flink.table.types.logical.RowType-">toSchema</a></span>(org.apache.flink.table.types.logical.RowType&nbsp;rowType)</code>
 <div class="block">Convert a <code>RowType</code> to a <code>TableSchema</code>.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>static org.apache.flink.table.api.TableSchema</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/iceberg/flink/FlinkSchemaUtil.html#toSchema-org.apache.iceberg.Schema-">toSchema</a></span>(<a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg">Schema</a>&nbsp;schema)</code>
 <div class="block">Convert a <a href="../../../../org/apache/iceberg/Schema.html" title="class in org.apache.iceberg"><code>Schema</code></a> to a <code>TableSchema</code>.</div>
@@ -274,6 +280,22 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
+<a name="convert-org.apache.flink.table.types.logical.LogicalType-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>convert</h4>
+<pre>public static&nbsp;<a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types">Type</a>&nbsp;convert(org.apache.flink.table.types.logical.LogicalType&nbsp;flinkType)</pre>
+<div class="block">Convert a <code>Flink type</code> to a <a href="../../../../org/apache/iceberg/types/Type.html" title="interface in org.apache.iceberg.types"><code>Type</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>flinkType</code> - a FlinkType</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the equivalent Iceberg type</dd>
+</dl>
+</li>
+</ul>
 <a name="toSchema-org.apache.flink.table.types.logical.RowType-">
 <!--   -->
 </a>
@@ -334,7 +356,7 @@ extends java.lang.Object</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/iceberg/flink/FlinkReadOptions.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/iceberg/flink/FlinkTypeVisitor.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/iceberg/flink/FlinkSourceFilter.html" title="class in org.apache.iceberg.flink"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/iceberg/flink/FlinkSchemaUtil.html" target="_top">Frames</a></li>

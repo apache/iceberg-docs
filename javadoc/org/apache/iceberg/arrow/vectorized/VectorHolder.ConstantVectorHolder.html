@@ -157,6 +157,15 @@ extends <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder
 </tr>
 <tr class="rowColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.ConstantVectorHolder.html#ConstantVectorHolder-int-T-">ConstantVectorHolder</a></span>(int&nbsp;numRows,
+                    <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.ConstantVectorHolder.html" title="type parameter in VectorHolder.ConstantVectorHolder">T</a>&nbsp;constantValue)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
+<div class="block"><span class="deprecationComment">since 1.4.0, will be removed in 1.5.0; use typed constant holders instead.</span></div>
+</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.ConstantVectorHolder.html#ConstantVectorHolder-org.apache.iceberg.types.Types.NestedField-int-T-">ConstantVectorHolder</a></span>(<a href="../../../../../org/apache/iceberg/types/Types.NestedField.html" title="class in org.apache.iceberg.types">Types.NestedField</a>&nbsp;icebergField,
+                    int&nbsp;numRows,
                     <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.ConstantVectorHolder.html" title="type parameter in VectorHolder.ConstantVectorHolder">T</a>&nbsp;constantValue)</code>&nbsp;</td>
 </tr>
 </table>
@@ -188,7 +197,7 @@ extends <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.iceberg.arrow.vectorized.<a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html" title="class in org.apache.iceberg.arrow.vectorized">VectorHolder</a></h3>
-<code><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#constantHolder-int-T-">constantHolder</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#deletedVectorHolder-int-">deletedVectorHolder</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#descriptor--">descriptor</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#dictionary--">dictionary</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#dummyHolder-int-">dummyHolder</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#icebergType--">icebergType</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#isDictionaryEncoded--">isDictionaryEncoded</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#isDummy--">isDummy</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#nullabilityHolder--">nullabilityHolder</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#vector--">vector</a></code></li>
+<code><a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#constantHolder-int-T-">constantHolder</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#constantHolder-org.apache.iceberg.types.Types.NestedField-int-T-">constantHolder</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#deletedVectorHolder-int-">deletedVectorHolder</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#descriptor--">descriptor</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#dictionary--">dictionary</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#dummyHolder-int-">dummyHolder</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#icebergField--">icebergField</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#icebergType--">icebergType</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#isDictionaryEncoded--">isDictionaryEncoded</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#isDummy--">isDummy</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#nullabilityHolder--">nullabilityHolder</a>, <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.html#vector--">vector</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -225,10 +234,25 @@ extends <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder
 </a><a name="ConstantVectorHolder-int-T-">
 <!--   -->
 </a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ConstantVectorHolder</h4>
+<pre>@Deprecated
+public&nbsp;ConstantVectorHolder(int&nbsp;numRows,
+                                        <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.ConstantVectorHolder.html" title="type parameter in VectorHolder.ConstantVectorHolder">T</a>&nbsp;constantValue)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">since 1.4.0, will be removed in 1.5.0; use typed constant holders instead.</span></div>
+</li>
+</ul>
+<a name="ConstantVectorHolder-org.apache.iceberg.types.Types.NestedField-int-java.lang.Object-">
+<!--   -->
+</a><a name="ConstantVectorHolder-org.apache.iceberg.types.Types.NestedField-int-T-">
+<!--   -->
+</a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ConstantVectorHolder</h4>
-<pre>public&nbsp;ConstantVectorHolder(int&nbsp;numRows,
+<pre>public&nbsp;ConstantVectorHolder(<a href="../../../../../org/apache/iceberg/types/Types.NestedField.html" title="class in org.apache.iceberg.types">Types.NestedField</a>&nbsp;icebergField,
+                            int&nbsp;numRows,
                             <a href="../../../../../org/apache/iceberg/arrow/vectorized/VectorHolder.ConstantVectorHolder.html" title="type parameter in VectorHolder.ConstantVectorHolder">T</a>&nbsp;constantValue)</pre>
 </li>
 </ul>
