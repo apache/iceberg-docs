@@ -39,7 +39,7 @@ Related design docs will be linked on the planning boards.
 
 # Clients
 _Rust and Go projects are pointing to their respective repositories which include 
-their own issues as the implementations is not final._
+their own issues as the implementations are not final._
 
 * [Add the Iceberg Rust Client](https://github.com/apache/iceberg-rust)
 * [Add the Iceberg Go Client](https://github.com/apache/iceberg-go)
