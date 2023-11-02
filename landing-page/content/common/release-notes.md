@@ -69,6 +69,16 @@ To add a dependency on Iceberg in Maven, add the following to your `pom.xml`:
   ...
 </dependencies>
 ```
+### 1.4.2 Release
+
+Apache Iceberg 1.4.2 was released on November 2, 2023.
+The 1.4.2 patch release addresses fixing a remaining case where split offsets
+should be ignored when they are deemed invalid.
+
+* Core
+  - Core: Ignore split offsets array when split offset is past file length ([\#8925](https://github.com/apache/iceberg/pull/8925))
+
+## Past releases
 
 ### 1.4.1 Release
 
@@ -82,9 +92,6 @@ The 1.4.1 release addresses various issues identified in the 1.4.0 release.
   - Avoid static global credentials provider which doesn't play well with lifecycle management ([\#8677](https://github.com/apache/iceberg/pull/8677))
 * Flink
   - Reverting the default custom partitioner for bucket column ([\#8848](https://github.com/apache/iceberg/pull/8848))
-
-
-## Past releases
 
 ### 1.4.0 release
 
