@@ -56,6 +56,16 @@ With Dremio, an organization can easily build and manage a data lakehouse in whi
 
 IOMETE is a fully-managed ready to use, batteries included Data Platform. IOMETE optimizes clustering, compaction, and access control to Apache Iceberg tables. Customer data remains on customer's account to prevent vendor lock-in. The core of IOMETE platform is a serverless Lakehouse that leverages Apache Iceberg as its core table format. IOMETE platform also includes Serverless Spark, an SQL Editor, A Data Catalog, and granular data access control. IOMETE supports Hybrid-multi-cloud setups. 
 
+### [PuppyGraph](https://puppygraph.com)
+
+PuppyGraph is a cloud-native graph analytics engine that enables users to query one or more relational data stores as a unified graph model. This eliminates the overhead of deploying and maintaining a siloed graph database system, with no ETL required. PuppyGraph’s native Apache Iceberg integration is the easiest and most performant way to add native graph capabilities to your existing data lake.
+
+Deploy. Connect. Query. All in as little as 10 minutes.
+
+For more information, please see our:
+* [Iceberg deployment instructions](https://docs.puppygraph.com/user-manual/getting-started/iceberg)
+* Free trial [Docker Image](https://docs.puppygraph.com/user-manual/docker-deployment) and [Amazon Machine Images (AMI)](https://aws.amazon.com/marketplace/pp/prodview-ou7p4ymgz4bdy)
+
 ### [Snowflake](http://snowflake.com/)
 
 [Snowflake](https://www.snowflake.com/data-cloud/) is a single, cross-cloud platform that enables every organization to mobilize their data with Snowflake’s Data Cloud. Snowflake supports Apache Iceberg by offering [native support for Iceberg Tables](https://www.snowflake.com/blog/iceberg-tables-powering-open-standards-with-snowflake-innovations/) for full DML as well as connectors to [External Tables](https://www.snowflake.com/blog/expanding-the-data-cloud-with-apache-iceberg/) for read-only access.
