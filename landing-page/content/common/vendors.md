@@ -58,13 +58,7 @@ IOMETE is a fully-managed ready to use, batteries included Data Platform. IOMETE
 
 ### [PuppyGraph](https://puppygraph.com)
 
-PuppyGraph is a cloud-native graph analytics engine that enables users to query one or more relational data stores as a unified graph model. This eliminates the overhead of deploying and maintaining a siloed graph database system, with no ETL required. PuppyGraph’s native Apache Iceberg integration is the easiest and most performant way to add native graph capabilities to your existing data lake.
-
-Deploy. Connect. Query. All in as little as 10 minutes.
-
-For more information, please see our:
-* [Iceberg deployment instructions](https://docs.puppygraph.com/user-manual/getting-started/iceberg)
-* Free trial [Docker Image](https://docs.puppygraph.com/user-manual/docker-deployment) and [Amazon Machine Images (AMI)](https://aws.amazon.com/marketplace/pp/prodview-ou7p4ymgz4bdy)
+PuppyGraph is a cloud-native graph analytics engine that enables users to query one or more relational data stores as a unified graph model. This eliminates the overhead of deploying and maintaining a siloed graph database system, with no ETL required. [PuppyGraph’s native Apache Iceberg integration](https://docs.puppygraph.com/user-manual/getting-started/iceberg) adds native graph capabilities to your existing data lake in an easy and performant way.
 
 ### [Snowflake](http://snowflake.com/)
 
