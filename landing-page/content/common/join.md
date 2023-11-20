@@ -42,7 +42,7 @@ Issues are tracked in GitHub:
 
 ## Slack
 
-We use the [Apache Iceberg workspace](https://apache-iceberg.slack.com/) on Slack. To be invited, follow [this invite link](https://join.slack.com/t/apache-iceberg/shared_invite/zt-2561tq9qr-UtISlHgsdY3Virs3Z2_btQ).
+We use the [Apache Iceberg workspace](https://apache-iceberg.slack.com/) on Slack. To be invited, follow [this invite link](https://join.slack.com/t/apache-iceberg/shared_invite/zt-27f22riz7-o8nCsl5Vbc_2h6~3DF6qlw).
 
 Please note that this link may occasionally break when Slack does an upgrade. If you encounter problems using it, please let us know by sending an email to <dev@iceberg.apache.org>.
 
