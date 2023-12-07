@@ -48,7 +48,7 @@ Please note that this link may occasionally break when Slack does an upgrade. If
 
 ## Iceberg Community Events
 
-This calendar contians two calendar feeds:
+This calendar contains two calendar feeds:
 
 * Iceberg Community Events - Events such as conferences and meetups, aimed to educate and inspire Iceberg users.
 * Iceberg Dev Events - Events such as the triweekly Iceberg sync, aimed to discuss the project roadmap and how to implement features.
