@@ -190,6 +190,28 @@ The 1.4.0 release adds a variety of new features and bug fixes.
   - Bump Arrow to 12.0.1
   - Bump AWS Java SDK to 2.20.131
 
+#### Development snapshots
+
+If you want to try out the [latest development snapshot](https://repository.apache.org/content/groups/snapshots/org/apache/iceberg/), you can add the snapshots repository:
+
+```
+<repositories>
+    <repository>
+        <id>apache.snapshots</id>
+        <name>Apache Snapshot Repository</name>
+        <url>https://repository.apache.org/snapshots</url>
+        <releases>
+            <enabled>false</enabled>
+        </releases>
+        <snapshots>
+          <enabled>true</enabled>
+          <updatePolicy>always</updatePolicy>
+        </snapshots>
+    </repository>
+</repositories>
+```
+
+Set the Iceberg version to the next snapshot: `major.minor.patch-SNAPSHOT`. Snapshots should not be used in production.
 
 ### 1.3.1 release
 
