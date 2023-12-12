@@ -8,7 +8,7 @@ sectionPagesMenu = "main"
   siteType = "landing-page"
   search = true
   description = "The open table format for analytic datasets."
-  latestVersions.iceberg = "1.4.1"
+  latestVersions.iceberg = "1.4.2"
   docsBaseURL = ""
 
 [[params.social]]
@@ -22,7 +22,7 @@ sectionPagesMenu = "main"
 [[params.social]]
   title = "slack"
   icon = "slack"
-  url = "https://join.slack.com/t/apache-iceberg/shared_invite/zt-1jyaasx2a-TxE4z_ubxDkTFS7UFDHnjw"  
+  url = "https://join.slack.com/t/apache-iceberg/shared_invite/zt-287g3akar-K9Oe_En5j1UL7Y_Ikpai3A"
 
 [outputFormats.SearchIndex]
 baseName = "landingpagesearch"
@@ -34,6 +34,7 @@ home = [ "HTML", "RSS", "SearchIndex" ]
 [menu]
   versions = [
     { name = "latest", url = "/docs/latest", weight = 1 },
+    { name = "1.4.2", url = "/docs/1.4.2", weight = 986 },
     { name = "1.4.1", url = "/docs/1.4.1", weight = 987 },
     { name = "1.4.0", url = "/docs/1.4.0", weight = 988 },
     { name = "1.3.1", url = "/docs/1.3.1", weight = 989 },
@@ -67,6 +68,8 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     { name = "Multi-Engine Support", url = "/multi-engine-support", parent = "Project", weight = 450 },
     { name = "How To Release", parent = "Project", url = "/how-to-release", weight = 500 },
     { name = "Terms", url = "/terms", parent = "Project", weight = 600 },
+    { name = "Concepts", weight = 1150 },
+    { name = "Catalogs", parent = "Concepts", pre = "relative", url = "/catalog" },
     { name = "ASF", weight = 1200 },
     { name = "License", identifier = "_license", parent = "ASF", url = "https://www.apache.org/licenses/" },
     { name = "Security", identifier = "_security", parent = "ASF", url = "https://www.apache.org/security/" },
