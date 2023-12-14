@@ -115,7 +115,7 @@ page site, and the `deploy-landing-page` job only runs on commits to the `main` 
 ## Docs Deployment
 
 The docs site is automatically deployed to the `docs` directory in the asf-site branch, into a sub-directory
-named after the branch where the commit occured. This is performed by the `deploy-docs` job in the
+named after the branch where the commit occurred. This is performed by the `deploy-docs` job in the
 [deployment workflow](./.github/workflows/deploy.yml). The job deploys the docs site on commits to any branch
 **except** `main`. A branch is maintained for each Iceberg version. If the job runs and the directory does not
 yet exist in the `asf-site` branch, it will be created.
@@ -175,7 +175,7 @@ hugo -b http://localhost:5500/ -d ../public
 ```
 
 Next, change into the `docs` directory and do the same thing. Remember that the docs-site is deployed to a `docs/<VERSION>` url, relative to the landing-page site. Since the landing-page was deployed to `../publish` in the example
-above, the example below usees `../public/docs/latest` to deploy a `latest` version docs-site.
+above, the example below uses `../public/docs/latest` to deploy a `latest` version docs-site.
 ```
 cd ../docs
 hugo -b http://localhost:5500/docs/latest/ -d ../public/docs/latest

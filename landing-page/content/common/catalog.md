@@ -1,6 +1,6 @@
 ---
 title: "Iceberg Catalogs"
-url: concepts/catalog
+url: catalog
 disableSidebar: true
 ---
 <!--

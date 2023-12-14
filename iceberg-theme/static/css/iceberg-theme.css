@@ -278,12 +278,14 @@ h4:hover a { visibility: visible}
 
 #toc {
     position: fixed;
+    overflow-y:auto;
     right: 0;
     top: 0;
     background-color:#FFF;
     top: 70px;
     font-size: 0.95rem;
     width: 260px;
+    height:100%;
     list-style-type: none;
     margin: 0 100px;
 }
@@ -437,7 +439,7 @@ i.fa.fa-chevron-down {
 .navbar-pages-group {
     justify-content: end;
     margin-left: auto;
-    max-width: 720px;
+    max-width: 1080px;
     position: relative;
 }
 

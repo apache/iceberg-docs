@@ -24,6 +24,76 @@ disableSidebar: true
 
 Here is a list of company blogs that talk about Iceberg. The blogs are ordered from most recent to oldest.
 
+### [Apache Hive-4.x with Iceberg Branches & Tags](https://medium.com/@ayushtkn/apache-hive-4-x-with-iceberg-branches-tags-3d52293ac0bf/)
+**Date**: October 12th, 2023, **Company**: Cloudera
+
+**Authors**: [Ayush Saxena](https://www.linkedin.com/in/ayush151/)
+
+### [Apache Hive 4.x With Apache Iceberg](https://medium.com/@ayushtkn/apache-hive-4-x-with-apache-iceberg-part-i-355e7a380725/)
+**Date**: October 12th, 2023, **Company**: Cloudera
+
+**Authors**: [Ayush Saxena](https://www.linkedin.com/in/ayush151/)
+
+### [From Hive Tables to Iceberg Tables: Hassle-Free](https://blog.cloudera.com/from-hive-tables-to-iceberg-tables-hassle-free/)
+**Date**: July 14th, 2023, **Company**: Cloudera
+
+**Authors**: [Srinivas Rishindra Pothireddi](https://www.linkedin.com/in/srinivas-rishindra/)
+
+### [12 Times Faster Query Planning With Iceberg Manifest Caching in Impala](https://blog.cloudera.com/12-times-faster-query-planning-with-iceberg-manifest-caching-in-impala/)
+**Date**: July 13th, 2023, **Company**: Cloudera
+
+**Authors**: [Riza Suminto](https://www.linkedin.com/in/rizasuminto/)
+
+### [How Bilibili Builds OLAP Data Lakehouse with Apache Iceberg](https://medium.com/@lirui.fudan/how-bilibili-builds-olap-data-lakehouse-with-apache-iceberg-9f3408e53f9)
+**Date**: June 14th, 2023, **Company**: Bilibili
+
+**Authors**: [Rui Li](https://www.linkedin.com/in/rui-li-19282979/)
+
+### [Introducing the Apache Iceberg Catalog Migration Tool](https://www.dremio.com/blog/introducing-the-apache-iceberg-catalog-migration-tool/)
+**Date**: May 12th, 2022, **Company**: Dremio
+
+**Authors**: [Dipankar Mazumdar](https://www.linkedin.com/in/dipankar-mazumdar/) & [Ajantha Bhat](https://www.linkedin.com/in/ajanthabhat/)
+
+### [3 Ways to Use Python with Apache Iceberg](https://www.dremio.com/blog/3-ways-to-use-python-with-apache-iceberg/)
+**Date**: April 12th, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
+
+### [3 Ways to Convert a Delta Lake Table Into an Apache Iceberg Table](https://www.dremio.com/blog/3-ways-to-convert-a-delta-lake-table-into-an-apache-iceberg-table/)
+**Date**: April 3rd, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
+
+### [How to Convert CSV Files into an Apache Iceberg table with Dremio](https://www.dremio.com/blog/how-to-convert-csv-files-into-an-apache-iceberg-table-with-dremio/)
+**Date**: April 3rd, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
+
+### [Open Data Lakehouse powered by Iceberg for all your Data Warehouse needs](https://blog.cloudera.com/open-data-lakehouse-powered-by-iceberg-for-all-your-data-warehouse-needs/)
+**Date**: April 3rd, 2023, **Company**: Cloudera
+
+**Authors**: [Zoltan Borok-Nagy](https://www.linkedin.com/in/zoltán-borók-nagy-7370a65b/), [Ayush Saxena](https://www.linkedin.com/in/ayush-saxena151/), [Tamas Mate](https://www.linkedin.com/in/tmater/), [Simhadri Govindappa](https://www.linkedin.com/in/simhadri-govindappa-1a7788148/)
+
+### [Exploring Branch & Tags in Apache Iceberg using Spark](https://www.dremio.com/blog/exploring-branch-tags-in-apache-iceberg-using-spark/)
+**Date**: March 29th, 2022, **Company**: Dremio
+
+**Author**: [Dipankar Mazumdar](https://www.linkedin.com/in/dipankar-mazumdar/)
+
+### [Iceberg Tables: Catalog Support Now Available](https://www.snowflake.com/blog/iceberg-tables-catalog-support-available-now/)
+**Date**: March 29th, 2023, **Company**: Snowflake
+
+**Authors**: [Ron Ortloff](https://www.linkedin.com/in/ron-ortloff/), [Dennis Huo](https://www.linkedin.com/in/dennis-huo-2aaba92a/)
+
+### [Dealing with Data Incidents Using the Rollback Feature in Apache Iceberg](https://www.dremio.com/blog/dealing-with-data-incidents-using-the-rollback-feature-in-apache-iceberg/)
+**Date**: February 24th, 2022, **Company**: Dremio
+
+**Author**: [Dipankar Mazumdar](https://www.linkedin.com/in/dipankar-mazumdar/)
+
+### [Partition and File Pruning for Dremio’s Apache Iceberg-backed Reflections](https://www.dremio.com/blog/partition-and-file-pruning-for-dremios-apache-iceberg-backed-reflections/)
+**Date**: February 8th, 2022, **Company**: Dremio
+
+**Author**: [Benny Chow](https://www.linkedin.com/in/bechow/)
+
 ### [Understanding Iceberg Table Metadata](https://medium.com/snowflake/understanding-iceberg-table-metadata-b1209fbcc7c3)
 **Date**: January 30st, 2023, **Company**: Snowflake
 
@@ -48,6 +118,31 @@ Here is a list of company blogs that talk about Iceberg. The blogs are ordered f
 **Date**: December 15th, 2022, **Company**: Cloudera
 
 **Authors**: [Bill Zhang](https://www.linkedin.com/in/billzhang01/), [Shaun Ahmadian](https://www.linkedin.com/in/ssahmadian/), [Zoltan Borok-Nagy](https://www.linkedin.com/in/zoltán-borók-nagy-7370a65b/), [Vincent Kulandaisamy](https://www.linkedin.com/in/vincentkulandaisamy/)
+
+### [Connecting Tableau to Apache Iceberg Tables with Dremio](https://www.dremio.com/blog/connecting-tableau-to-apache-iceberg-tables-with-dremio/)
+**Date**: December 15th, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
+
+### [Getting Started with Project Nessie, Apache Iceberg, and Apache Spark Using Docker](https://www.dremio.com/blog/getting-started-with-project-nessie-apache-iceberg-and-apache-spark-using-docker/)
+**Date**: December 15th, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
+
+### [Apache Iceberg FAQ](https://www.dremio.com/blog/apache-iceberg-faq/)
+**Date**: December 14th, 2022, **Company**: Dremio
+
+**Author**: [Alex Merced](https://www.linkedin.com/in/alexmerced/)
+
+### [A Notebook for getting started with Project Nessie, Apache Iceberg, and Apache Spark](https://www.dremio.com/blog/a-notebook-for-getting-started-with-project-nessie-apache-iceberg-and-apache-spark/)
+**Date**: December 5th, 2022, **Company**: Dremio
+
+**Author**: [Dipankar Mazumdar](https://www.linkedin.com/in/dipankar-mazumdar/)
+
+### [Time Travel with Dremio and Apache Iceberg](https://www.dremio.com/blog/time-travel-with-dremio-and-apache-iceberg/)
+**Date**: November 29th, 2022, **Company**: Dremio
+
+**Author**: [Michael Flower](https://www.linkedin.com/in/michael-flower-b0a3474/)
 
 ### [Compaction in Apache Iceberg: Fine-Tuning Your Iceberg Table's Data Files](https://www.dremio.com/subsurface/compaction-in-apache-iceberg-fine-tuning-your-iceberg-tables-data-files/)
 **Date**: November 9th, 2022, **Company**: Dremio

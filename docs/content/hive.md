@@ -27,6 +27,7 @@ Iceberg supports reading and writing Iceberg tables through [Hive](https://hive.
 a [StorageHandler](https://cwiki.apache.org/confluence/display/Hive/StorageHandlers).
 
 ## Feature support
+
 Iceberg compatibility with Hive 2.x and Hive 3.1.2/3 supports the following features:
 
 * Creating a table
@@ -38,8 +39,7 @@ Iceberg compatibility with Hive 2.x and Hive 3.1.2/3 supports the following feat
 DML operations work only with MapReduce execution engine.
 {{< /hint >}}
 
-With Hive version 4.0.0-alpha-2 and above,
-the Iceberg integration when using HiveCatalog supports the following additional features:
+With Hive version 4.0.0-alpha-2 and above, Iceberg integration when using HiveCatalog supports the following additional features:
 
 * Altering a table with expiring snapshots.
 * Create a table like an existing table (CTLT table)
@@ -48,8 +48,7 @@ the Iceberg integration when using HiveCatalog supports the following additional
 * Supporting table rollback
 * Honours sort orders on existing tables when writing a table [Sort orders specification](https://iceberg.apache.org/spec/#sort-orders)
 
-With Hive version 4.0.0-alpha-1 and above,
-the Iceberg integration when using HiveCatalog supports the following additional features:
+With Hive version 4.0.0-alpha-1 and above, Iceberg integration when using HiveCatalog supports the following additional features:
 
 * Creating an Iceberg identity-partitioned table
 * Creating an Iceberg table with any partition spec, including the various transforms supported by Iceberg
@@ -71,9 +70,19 @@ DML operations work only with Tez execution engine.
 
 ## Enabling Iceberg support in Hive
 
+Hive 4 comes with `hive-iceberg` that ships Iceberg, so no additional downloads or jars are needed. For older versions of Hive a runtime jar has to be added.
+
+### Hive 4.0.0-beta-1
+
+Hive 4.0.0-beta-1 comes with the Iceberg 1.3.0 included.
+
+### Hive 4.0.0-alpha-2
+
+Hive 4.0.0-alpha-2 comes with the Iceberg 0.14.1 included.
+
 ### Hive 4.0.0-alpha-1
 
-Hive 4.0.0-alpha-1 comes with the Iceberg 0.13.1 included. No additional downloads or jars are needed.
+Hive 4.0.0-alpha-1 comes with the Iceberg 0.13.1 included.
 
 ### Hive 2.3.x, Hive 3.1.x
 
@@ -127,12 +136,10 @@ The table level configuration overrides the global Hadoop configuration.
 
 To use the Tez engine on Hive `3.1.2` or later, Tez needs to be upgraded to >= `0.10.1` which contains a necessary fix [TEZ-4248](https://issues.apache.org/jira/browse/TEZ-4248).
 
-
 To use the Tez engine on Hive `2.3.x`, you will need to manually build Tez from the `branch-0.9` branch due to a
 backwards incompatibility issue with Tez `0.10.1`.
 
-You will also need to set the following property in the Hive
-configuration: `tez.mrreader.config.update.properties=hive.io.file.readcolumn.names,hive.io.file.readcolumn.ids`.
+In both cases, you will also need to set the following property in the `tez-site.xml` configuration file: `tez.mrreader.config.update.properties=hive.io.file.readcolumn.names,hive.io.file.readcolumn.ids`.
 
 ## Catalog Management
 
