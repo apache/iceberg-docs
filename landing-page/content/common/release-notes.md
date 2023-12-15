@@ -69,6 +69,7 @@ To add a dependency on Iceberg in Maven, add the following to your `pom.xml`:
   ...
 </dependencies>
 ```
+
 ### 1.4.2 Release
 
 Apache Iceberg 1.4.2 was released on November 2, 2023.
@@ -77,6 +78,16 @@ should be ignored when they are deemed invalid.
 
 * Core
   - Core: Ignore split offsets array when split offset is past file length ([\#8925](https://github.com/apache/iceberg/pull/8925))
+
+## Schedule
+
+| Version | Spark Versions | Flink Versions | Java Versions | ETA    |
+|---------|----------------|----------------|---------------|--------|
+| 1.4.3   | 3.3+           | 1.16+          | 8, 11, 17     | Jan 24 |
+| 1.5.0   | 3.3+           | 1.16+          | 8, 11, 17     | Jan 24 |
+| 1.6.0   |                |                |               | Apr 24 |
+| 1.7.0   |                |                |               | Aug 24 |
+| 1.8.0   |                |                |               | Dec 24 |
 
 ## Past releases
 
