@@ -82,6 +82,7 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     { name = "Impala", identifier = "_impala", weight = 1000, url = "https://impala.apache.org/docs/build/html/topics/impala_iceberg.html" },
     { name = "Doris", identifier = "_doris", weight = 1001, url = "https://doris.apache.org/docs/dev/lakehouse/multi-catalog/iceberg" },
     { name = "PyIceberg", identifier = "_python", weight = 1500, url = "https://py.iceberg.apache.org/"},
+    { name = "IcebergRust", identifier = "_rust", weight = 1600, url = "https://rust.iceberg.apache.org/"},
     { name = "Integrations", weight = 1100 },
     { name = "API", weight = 1200},
     { name = "Migration", weight = 1300},
