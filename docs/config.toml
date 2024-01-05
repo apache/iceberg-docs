@@ -10,7 +10,7 @@ theme= "iceberg-theme"
   search = true
   versions.iceberg = "" # This is populated by the github deploy workflow and is equal to the branch name
   versions.nessie = "0.71.0"
-  latestVersions.iceberg = "1.4.2"  # This is used for the version badge on the "latest" site version
+  latestVersions.iceberg = "1.4.3"  # This is used for the version badge on the "latest" site version
   BookSection='docs' # This determines which directory will inform the left navigation menu
   disableHome=true
 
@@ -24,6 +24,7 @@ home = [ "HTML", "RSS", "SearchIndex" ]
 [menu]
   versions = [
     { name = "latest", pre = "relative", url = "../latest", weight = 1 },
+    { name = "1.4.3", pre = "relative", url = "../1.4.3", weight = 985 },
     { name = "1.4.2", pre = "relative", url = "../1.4.2", weight = 986 },
     { name = "1.4.1", pre = "relative", url = "../1.4.1", weight = 987 },
     { name = "1.4.0", pre = "relative", url = "../1.4.0", weight = 988 },
@@ -81,9 +82,10 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     { name = "Snowflake", identifier = "_snowflake", weight = 1000, url = "https://docs.snowflake.com/en/user-guide/tables-iceberg" },
     { name = "Impala", identifier = "_impala", weight = 1100, url = "https://impala.apache.org/docs/build/html/topics/impala_iceberg.html" },
     { name = "Doris", identifier = "_doris", weight = 1200, url = "https://doris.apache.org/docs/dev/lakehouse/multi-catalog/iceberg" },
-    { name = "PyIceberg", identifier = "_python", weight = 1700, url = "https://py.iceberg.apache.org/"},
     { name = "Integrations", weight = 1300 },
     { name = "API", weight = 1400},
     { name = "Migration", weight = 1500},
-    { name = "Javadoc", pre = "relative", url = "../../javadoc/latest", weight = 1600} # `url` is populated by the github deploy workflow and is equal to "../../javadoc/<branch name>"
+    { name = "Javadoc", pre = "relative", url = "../../javadoc/latest", weight = 1500} # `url` is populated by the github deploy workflow and is equal to "../../javadoc/<branch name>"
+    { name = "PyIceberg", identifier = "_python", weight = 1600, url = "https://py.iceberg.apache.org/"},
+    { name = "IcebergRust", identifier = "_rust", weight = 1700, url = "https://rust.iceberg.apache.org/"},
   ]
