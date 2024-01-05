@@ -85,7 +85,7 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     { name = "Integrations", weight = 1300 },
     { name = "API", weight = 1400},
     { name = "Migration", weight = 1500},
-    { name = "Javadoc", pre = "relative", url = "../../javadoc/latest", weight = 1500} # `url` is populated by the github deploy workflow and is equal to "../../javadoc/<branch name>"
+    { name = "Javadoc", pre = "relative", url = "../../javadoc/latest", weight = 1500}, # `url` is populated by the github deploy workflow and is equal to "../../javadoc/<branch name>"
     { name = "PyIceberg", identifier = "_python", weight = 1600, url = "https://py.iceberg.apache.org/"},
-    { name = "IcebergRust", identifier = "_rust", weight = 1700, url = "https://rust.iceberg.apache.org/"},
+    { name = "IcebergRust", identifier = "_rust", weight = 1700, url = "https://rust.iceberg.apache.org/"}
   ]
