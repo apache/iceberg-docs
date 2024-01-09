@@ -265,8 +265,13 @@ A schema can optionally track the set of primitive fields that identify rows in 
 
 Two rows are the "same"---that is, the rows represent the same entity---if the identifier fields are equal. However, uniqueness of rows by this identifier is not guaranteed or required by Iceberg and it is the responsibility of processing engines or data providers to enforce.
 
-Identifier fields may be nested in structs but cannot be nested within maps or lists. Float, double, and optional fields cannot be used as identifier fields and a nested field cannot be used as an identifier field if it is nested in an optional struct, to avoid null values in identifiers.
+Identifier fields have following requirements:
 
+* an identifier field must exist.
+* an identifier field must be `required`.
+* an identifier field must be a primitive type except Float and Double, and cannot be Struct, Map or List.
+* an identifier field may be nested in Struct but cannot be nested within Map or List.
+* an identifier field cannot be nested in an optional field to avoid null values in identifiers.
 
 #### Reserved Field IDs
 
