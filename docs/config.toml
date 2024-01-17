@@ -88,3 +88,4 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     { name = "Migration", weight = 1300},
     { name = "Javadoc", pre = "relative", url = "../../javadoc/latest", weight = 1400} # `url` is populated by the github deploy workflow and is equal to "../../javadoc/<branch name>"
   ]
+
