@@ -86,5 +86,23 @@ home = [ "HTML", "RSS", "SearchIndex" ]
     { name = "Integrations", weight = 1100 },
     { name = "API", weight = 1200},
     { name = "Migration", weight = 1300},
-    { name = "Javadoc", pre = "relative", url = "../../javadoc/latest", weight = 1400} # `url` is populated by the github deploy workflow and is equal to "../../javadoc/<branch name>"
+    { name = "Javadoc", pre = "relative", url = "../../javadoc/latest", weight = 1400}, # `url` is populated by the github deploy workflow and is equal to "../../javadoc/<branch name>",
+    { name = "中文版", url = "/zh/", weight = 1800}
   ]
+
+[markup]
+[markup.goldmark.renderer]
+  unsafe = true
+[markup.tableOfContents]
+  startLevel = 1
+
+[languages]
+[languages.en]
+  languageName = 'English'
+  contentDir = 'content'
+  weight = 1
+
+[languages.zh]
+  languageName = '中文版'
+  contentDir = 'content.zh'
+  weight = 2
