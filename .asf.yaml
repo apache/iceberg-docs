@@ -32,6 +32,3 @@ notifications:
     commits:      commits@iceberg.apache.org
     issues:       issues@iceberg.apache.org
     pullrequests: issues@iceberg.apache.org
-
-publish:
-    whoami:  asf-site
