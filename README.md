@@ -20,7 +20,7 @@
 # Apache Iceberg Documentation Site (Archived)
 
 > [!WARNING]  
-> This repository is archived the website for Apache Iceberg documentation. This was moved to the [main Iceberg repository](https://github.com/apache/iceberg/tree/main/site).
+> This repository an archive for the old Apache Iceberg documentation. This was moved to the [main Iceberg repository](https://github.com/apache/iceberg/tree/main/site).
 > Please submit any website or documentation related [issues](https://github.com/apache/iceberg/issues) and [pull requests](https://github.com/apache/iceberg/pulls) to the
 > main repository.
 
